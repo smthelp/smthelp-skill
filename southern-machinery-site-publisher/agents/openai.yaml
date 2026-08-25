@@ -1,0 +1,4 @@
+interface:
+  display_name: "Southern Machinery Site Publisher"
+  short_description: "Build and publish Southern Machinery sites"
+  default_prompt: "Use $southern-machinery-site-publisher to design and publish a Southern Machinery website on Cloudflare Workers."

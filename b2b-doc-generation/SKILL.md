@@ -1,0 +1,300 @@
+---
+name: b2b-doc-generation
+description: "商务文档生成 — 一键生成报价单/PI/合同/PPT（DOCX/XLSX/PPTX）"
+whenToUse: "生成文档，创建文档，制作文档，生成PPT，做一份报价，做一份合同，生成报价单，生成合同，生成提案，gen doc"
+metadata:
+  source: hermes
+  origin: "b2b-doc-generation"
+---
+## Southern Machinery SMT/THT 专属覆盖规则
+
+- 本节优先于下方通用 B2B 行业示例。以当前产品资料生成 Southern Machinery 文档，并对价格、交期、认证、质保和最终型号要求复核。
+- 事实优先引用当前 Southern Machinery 目录、手册和产品资料；文件名、图片、旧文案、通用素材或竞争对手资料不能单独证明参数。无来源的型号、规格、认证、价格、交期、ROI、良率或客户案例必须标记 待确认 / to be confirmed。
+- 对涉及设备或整线的请求，按需确认应用、产量/班次、PCB/元件、现有设备/瓶颈、自动化/预算和质量/追溯需求；一次只问下一步所需信息。
+- 推荐 Southern Machinery 设备类别或完整流程；无经核实型号时不得虚构型号或性能。按渠道选择一项 CTA：官网 https://www.smthelp.com、目录 https://file.autoinsertion.com、图片 https://ph.smthelp.com、邮箱 info@smthelp.com 或 WhatsApp https://api.whatsapp.com/send?phone=+8613602562576。
+- 不读取或使用 chrome_profile_notebooklm、凭据、Cookie 或授权码；不执行未经明确请求和确认的外发、发布或写库。
+
+你是 b2b-doc-generation 技能。用于**生成专业商务文档**（报价单/PI/合同/PPT/产品目录）。
+
+════════════════════════════════════════
+核心原则
+════════════════════════════════════════
+- **所有数据必须可追溯。** 每个数字、条款、产品规格必须标注来源（文件名+页码/行号）。
+- **优先使用客户真实数据。** 从 b2b-customer-mgmt 获取客户信息，从 b2b-document 提取源文件数据。
+- **格式优先于美观。** 商务文档的首要要求是可读性和合规性，其次才是视觉设计。
+- **生成后必须自检。** 用 openpyxl/python-docx/python-pptx 重新读取文件，确认关键字段非空。
+
+════════════════════════════════════════
+文档类型与生成策略
+════════════════════════════════════════
+
+### DOCX — 报价单/合同/PI
+- 使用 python-docx 库
+- 必须包含：页眉（公司 Logo + 名称）、页脚（页码）、正文、签署区
+- 表格边框统一 0.5pt 灰色实线
+- 数字列右对齐，文本列左对齐
+- 金额列必须设置千分位格式（如 1,250,000）
+- 合同文档：段落间距 6pt，行距 1.5 倍
+- PI（形式发票）：包含银行信息区块、Incoterms、总金额大写
+
+### XLSX — 价格表/产品目录/海关数据分析
+- 使用 openpyxl 库
+- Sheet 1 名称改为业务含义（如 "2026 Q3 Price List"）
+- 冻结首行（freeze_panes = 'A2'）
+- 表头行：深蓝底白字（PatternFill + Font color white + bold）
+- 数字格式：价格列 '#,##0.00'，百分比列 '0.0%'，日期列 'YYYY-MM-DD'
+- 自动列宽：基于内容最大长度 + 2 字符余量
+- 条件格式：A 级客户行绿色底，C 级客户行浅红底
+- 数据验证：价格列限制 >0，MOQ 列整数限制
+- 每列添加注释（Comment）标注数据来源
+
+### PPTX — 提案/公司介绍/产品演示
+- 使用 python-pptx 库
+- 封面页：公司名 + 提案标题 + 日期
+- 每页最多 5 个要点（bullet points），字号 ≥18pt
+- 图表优先于表格（数据可视化 > 原始数据）
+- 统一字体：标题 Arial 28pt Bold，正文 Arial 18pt
+- 配色不超过 3 种（主色+辅色+强调色）
+- 图片必须保持原始比例，拉伸变形 = 不专业
+
+════════════════════════════════════════
+标准外贸单证字段清单（生成文档时必须包含）
+════════════════════════════════════════
+
+### 商业发票 (Commercial Invoice)
+必须包含以下区块，每一区块内的字段除非标注「可选」否则必须填充：
+
+**A. 出口商信息 (Exporter / Seller)**
+- 公司名称 (Company Name)
+- 公司地址 (Address)：街道/城市/省份/邮编/国家
+- 电话 (Tel) / 邮箱 (Email) / 网址 (Website) [可选]
+
+**B. 发票基本信息**
+- 发票编号 (Invoice No.)
+- 发票日期 (Invoice Date)
+- 合同编号 (Contract No.) [可选]
+- 付款条款 (Payment Terms)：如 T/T 30% deposit, 70% before shipment
+- 贸易术语 (Incoterms)：如 FOB Shanghai / CIF Hamburg
+- 起运港 (Port of Loading) / 目的港 (Port of Discharge)
+
+**C. 收货人信息 (Consignee / Buyer)**
+- 公司名称 + 地址 + 联系人 + 电话/邮箱
+
+**D. 运输信息**
+- 运输方式 (Mode of Transport)：海运/空运/陆运
+- 船名/航次 (Vessel/Voyage) [可选 — 出货后补充]
+- 预计出货日 (ETD) / 预计到港日 (ETA)
+
+**E. 货物明细表（必须表格化）**
+| 序号 | 品名 | 规格/型号 | HS编码 | 数量 | 单位 | 单价 | 币种 | 总金额 |
+|------|------|----------|--------|------|------|------|------|--------|
+- 表尾：总件数/总毛重/总体积 汇总行
+- 金额合计行（含大小写）
+
+**F. 唛头 (Shipping Marks)** [如无唛头写 N/M]
+
+**G. 银行信息**
+- 开户行 (Bank Name) / 账号 (Account No.) / SWIFT Code
+- 受益人 (Beneficiary) — 须与出口商一致
+
+**H. 声明与签署**
+- 出口商签章区 (Authorized Signature + Company Stamp)
+- 声明文本 [可选]："We hereby certify that the above information is true and correct."
+
+### 形式发票 (Proforma Invoice)
+与商业发票结构相同，额外必填：
+- **有效期限 (Valid Until)** — 报价有效期，如 "Valid for 30 days from date of issue"
+- 标题明确标注 "PROFORMA INVOICE" — PI 不具有法律效力，仅供买方申请信用证/预付款
+
+### 采购订单 (Purchase Order)
+必须包含以下信息区块：
+
+**A. 订单基本信息**
+- 采购订单编号 (PO No.) / 日期 (Date) / 供应商编号 (Vendor No.)
+- 采购员 (Purchaser) / 部门 (Department)
+
+**B. 买方信息 (Buyer)** + **卖方信息 (Supplier)**
+- 公司全称/地址/联系人/电话/邮箱
+
+**C. 交货信息**
+- 交货地址 (Delivery Address) / 交货日期 (Delivery Date)
+- 运输方式 / 贸易术语
+
+**D. 采购明细表**
+| 序号 | 品名 | 规格 | 数量 | 单位 | 单价 | 币种 | 总金额 | 交期 |
+|------|------|------|------|------|------|------|--------|------|
+
+**E. 金额汇总**
+- 小计 (Subtotal) / 折扣 (Discount) [可选] / 税率 (Tax Rate) / 税金额 / 总金额 (Total)
+
+**F. 付款条款** + **备注条款**（质保/验收标准/违约条款）
+
+**G. 审批签字区**
+- 买方签字 + 日期 / 卖方签字 + 日期
+
+### 原产地证 (Certificate of Origin)
+CCPIT / CIQ 格式，12 个固定字段：
+1. Exporter (出口商)
+2. Consignee (收货人) [可选 — 不知道写 "To Order"]
+3. Means of Transport and Route (运输方式和路线)
+4. Country/Region of Destination (目的国/地区)
+5. For Certifying Authority Use Only (签证机构专用) — 留空
+6. Marks and Numbers (唛头及编号)
+7. Number and Kind of Packages; Description of Goods (包装件数及种类；货物描述)
+8. HS Code
+9. Quantity (数量)
+10. Invoice Number and Date (发票编号及日期)
+11. Declaration by the Exporter (出口商声明) — 含签字+日期+盖章
+12. Certification (签证机构证明) — 含签字+日期+盖章
+
+产地标准 (Origin Criterion)：标记 "P"（完全获得）/ "W" + HS编码（实质性改变）
+
+════════════════════════════════════════
+数据溯源（强制）
+════════════════════════════════════════
+生成文档后必须输出溯源表：
+
+| 文档位置 | 数据内容 | 来源文件 | 页码/行号 |
+|---------|---------|---------|----------|
+| A3 单元格 | 单价 $12.50 | price-list-2025.pdf | Page 3, Row 45-52 |
+| 第 4 段 | 公司介绍文本 | company-profile.md | 全文 |
+| Sheet 2 B5 | MOQ 200 | product-specs.xlsx | Sheet MOQ, Row 8 |
+
+════════════════════════════════════════
+
+-------|----------|----------|--------|
+  | "注意到贵公司主营不锈钢板出口" | b2b-osint | 官网产品页 targetco.com/products | ✅ 高 |
+  | "贵公司近年拓展了南美市场" | web_search | news.example.com/article | ⚠️ 间接 |
+  | "如能与贵司深度合作" | - | AI 通用话术 | - |
+
+  可信度定义:
+    ✅ 高 = 直接来自官网/LinkedIn/公开数据/客户提供的文件
+    ⚠️ 中 = 间接来源（行业报告/第三方描述/推测）
+    ❌ 推测 = AI 基于上下文的合理推测，需人工核实
+    - 无标注 = AI 通用话术，不涉及客户具体信息
+---
+
+```
+Parties: Seller and Buyer legal names, addresses
+Whereas: Background recitals
+Article 1: Definitions
+Article 2: Scope of Supply
+Article 3: Pricing and Payment
+Article 4: Delivery (Incoterms, lead time, shipping)
+Article 5: Quality and Inspection
+Article 6: Warranty
+Article 7: Intellectual Property
+Article 8: Confidentiality
+Article 9: Force Majeure
+Article 10: Termination
+Article 11: Dispute Resolution
+Article 12: Governing Law
+Signature blocks
+Annexes (if any)
+```
+
+### Phase 4: Populate with Data
+
+Insert data with source citations:
+
+```python
+# XLSX cell with citation
+cell.value = f"{price} USD/unit"
+cell.comment = "📄 price-list-2025.pdf | Page: 3 | Row: 45-52"
+```
+
+### Phase 5: Verify Before Delivery
+
+```python
+# Re-read the generated document to verify
+from openpyxl import load_workbook
+wb_verify = load_workbook("output/quotation.xlsx")
+ws_verify = wb_verify.active
+print(f"Total rows: {ws_verify.max_row}")
+print(f"Header: {ws_verify['A1'].value}")
+# Confirm no empty critical cells in pricing columns
+```
+
+```python
+# Verify PPTX
+from pptx import Presentation
+prs_verify = Presentation("output/proposal.pptx")
+print(f"Total slides: {len(prs_verify.slides)}")
+for i, slide in enumerate(prs_verify.slides, 1):
+    title = slide.shapes.title.text if slide.shapes.title else "(no title)"
+    print(f"Slide {i}: {title}")
+```
+
+### Phase 6: Save and Report
+
+Save to the appropriate location:
+- Quotations: `~/.trade/companies/{slug}/clients/{client}/quotes/`
+- Proposals: `~/.trade/companies/{slug}/clients/{client}/proposals/`
+- Contracts: `~/.trade/companies/{slug}/clients/{client}/contracts/`
+
+Report to user:
+```
+✅ Quotation generated: {filename}
+📄 Sources cited: 3 files
+   - price-list-2025.pdf (Sheet: 1, Row: 45-52)
+   - product-specs.xlsx (Sheet: MOQ, Row: 1-10)
+   - client-history.docx (Paragraph: pricing terms)
+```
+
+## Incoterms Reference
+
+| Term | Meaning | Risk Transfer | Cost Responsibility |
+|------|---------|--------------|-------------------|
+| EXW | Ex Works | Buyer assumes at seller's premises | Buyer pays all |
+| FOB | Free on Board | Seller delivers on vessel | Seller pays to port |
+| CIF | Cost Insurance Freight | Seller delivers to destination port | Seller pays all |
+| DDP | Delivered Duty Paid | Seller delivers to buyer premises | Seller pays all |
+| DAP | Delivered at Place | Seller delivers to named place | Seller pays to destination |
+
+## Common Business Document Phrases
+
+### Quotation Email Body
+```
+Subject: Quotation for {Product} — {Ref No.}
+
+Dear {Name},
+
+Thank you for your inquiry. Please find attached our quotation for {product/project}.
+
+Key terms:
+- Validity: {X} days
+- Payment: {T/T 30% deposit, 70% before shipment}
+- Lead Time: {X} weeks after deposit
+- Port: {FOB Shanghai / CIF Hamburg}
+
+We look forward to your feedback.
+
+Best regards,
+{Your Name}
+{Company}
+```
+
+### Proposal Email Body
+```
+Subject: {Company} Proposal for {Project} — {Date}
+
+Dear {Name},
+
+Thank you for your time during our call on {date}. Per our discussion, please find attached our proposal addressing your requirements on {topic}.
+
+Key highlights:
+1. {Advantage 1}
+2. {Advantage 2}
+3. {Advantage 3}
+
+Please don't hesitate to reach out if you have any questions.
+
+Best regards,
+{Your Name}
+```
+
+## Related Skills
+
+- `b2b-document` — Extract raw data from source files
+- `b2b-customer-mgmt` — Retrieve client context for customization
+- `b2b-lead-generation` — Client analysis for proposal personalization

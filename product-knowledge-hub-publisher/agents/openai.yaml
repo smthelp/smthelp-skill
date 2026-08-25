@@ -1,0 +1,4 @@
+interface:
+  display_name: "Product Knowledge Hub Publisher"
+  short_description: "Build and publish B2B product knowledge hubs."
+  default_prompt: "Use $product-knowledge-hub-publisher to build and publish our B2B product knowledge hub."

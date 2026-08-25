@@ -1,0 +1,4 @@
+interface:
+  display_name: "Southern Machinery SMT 外贸官网搭建"
+  short_description: "面向 Southern Machinery SMT/THT 设备外贸营销的 WordPress 官网搭建与验收"
+  default_prompt: "使用 $build-b2b-wordpress-site，根据 Southern Machinery 的设备和产线资料从零搭建并验收 SMT 外贸 WordPress 官网。"

@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<title>{{MACHINE}} ROI — {{VERTICAL}} | Southern Machinery</title>
+<style>
+  /* === Reset & Base === */
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  @page { size: A4; margin: 0; }
+  html, body { font-family: 'Inter','Helvetica Neue',Helvetica,Arial,sans-serif;
+    color: #1A1A1A; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  body { background: #FFFFFF; font-size: 9.5pt; line-height: 1.45; }
+
+  :root {
+    --navy: #0E2A47;
+    --navy2: #1A3A5C;
+    --orange: #FF6B1A;
+    --orange2: #E55A0E;
+    --gray-bg: #F2F4F7;
+    --gray-bd: #D8DCE3;
+    --green: #D4F1E0;
+    --green2: #1B8A4A;
+    --text: #1A1A1A;
+    --muted: #5A6573;
+  }
+
+  .page {
+    width: 210mm; height: 297mm; padding: 0;
+    display: flex; flex-direction: column;
+    page-break-after: always; position: relative;
+    overflow: hidden;
+  }
+
+  /* === HEADER BAND === */
+  .header {
+    background: var(--navy); color: #fff;
+    padding: 6mm 10mm 5mm 10mm;
+    display: flex; justify-content: space-between; align-items: center;
+  }
+  .brand { display: flex; align-items: center; gap: 8px; }
+  .logo-mark {
+    width: 30px; height: 30px; border-radius: 5px;
+    background: var(--orange); display: flex; align-items: center; justify-content: center;
+    color: #fff; font-weight: 800; font-size: 14px; letter-spacing: -0.5px;
+  }
+  .brand-text { line-height: 1.05; }
+  .brand-text .a { font-size: 11pt; font-weight: 700; letter-spacing: 0.3px; }
+  .brand-text .b { font-size: 7pt; color: #A8B8CC; margin-top: 1px; }
+  .head-contact { text-align: right; font-size: 7.5pt; color: #C7D2DE; line-height: 1.6; }
+  .head-contact a { color: #fff; text-decoration: none; }
+  .head-contact .strong { color: var(--orange); font-weight: 700; }
+
+  /* === HERO === */
+  .hero {
+    background: linear-gradient(135deg, #0E2A47 0%, #16365A 100%);
+    color: #fff; padding: 6mm 10mm 5mm 10mm;
+    position: relative; overflow: hidden;
+  }
+  .hero::after {
+    content: ''; position: absolute; right: -20mm; top: -20mm;
+    width: 80mm; height: 80mm; border-radius: 50%;
+    background: rgba(255,107,26,0.07);
+  }
+  .hero-grid { display: grid; grid-template-columns: 1.2fr 1fr; gap: 6mm; align-items: center; }
+  .eyebrow {
+    color: var(--orange); font-size: 7.5pt; font-weight: 700;
+    text-transform: uppercase; letter-spacing: 1.5px; margin-bottom: 3mm;
+  }
+  .h-title {
+    font-size: 18pt; font-weight: 800; line-height: 1.1; letter-spacing: -0.5px;
+    margin-bottom: 2.5mm;
+  }
+  .h-title .accent { color: var(--orange); }
+  .h-sub {
+    font-size: 9.5pt; color: #C7D2DE; line-height: 1.5; max-width: 95mm;
+  }
+  .h-sub b { color: #fff; font-weight: 600; }
+  .pill-row { display: flex; gap: 3px; margin-top: 3mm; flex-wrap: wrap; }
+  .pill {
+    display: inline-block; padding: 2.5px 9px; border-radius: 20px;
+    background: rgba(255,255,255,0.10); color: #E2EAF2; font-size: 7pt;
+    font-weight: 600; letter-spacing: 0.3px;
+  }
+  .pill.orange { background: var(--orange); color: #fff; }
+  .machine-svg { width: 100%; height: auto; max-height: 42mm; }
+
+  /* === BODY === */
+  .body { padding: 4mm 10mm 0 10mm; flex: 1; }
+
+  .row-2 {
+    display: grid; grid-template-columns: 1.05fr 1fr; gap: 5mm; margin-bottom: 3.5mm;
+  }
+  .panel { background: var(--gray-bg); border-radius: 4px; padding: 3mm 4mm; }
+  .panel-title {
+    font-size: 8.2pt; font-weight: 800; color: var(--navy);
+    text-transform: uppercase; letter-spacing: 1px;
+    margin-bottom: 2mm; padding-bottom: 1.5mm; border-bottom: 2px solid var(--orange);
+    display: inline-block;
+  }
+  .panel-bullets { list-style: none; font-size: 7.6pt; color: #2C3441; }
+  .panel-bullets li { padding: 0.8mm 0 0.8mm 5.5mm; position: relative; line-height: 1.35; }
+  .panel-bullets li::before {
+    content: ''; position: absolute; left: 0; top: 1.6mm;
+    width: 4px; height: 4px; background: var(--orange); border-radius: 50%;
+  }
+  .panel-bullets li b { color: var(--navy); }
+
+  .specs-table { width: 100%; border-collapse: collapse; font-size: 7.4pt; }
+  .specs-table tr { border-bottom: 1px solid var(--gray-bd); }
+  .specs-table tr:last-child { border-bottom: none; }
+  .specs-table td { padding: 1.2mm 0; vertical-align: top; }
+  .specs-table td.k { color: var(--muted); width: 58%; }
+  .specs-table td.v { color: var(--navy); font-weight: 700; text-align: right; }
+  .specs-table td.v .unit { color: var(--muted); font-weight: 500; font-size: 6.8pt; }
+
+  /* === ROI === */
+  .section-2col {
+    display: grid; grid-template-columns: 1.4fr 1fr; gap: 5mm; margin-bottom: 3.5mm;
+  }
+  .roi-card { border: 1.5px solid var(--gray-bd); border-radius: 4px; overflow: hidden; }
+  .roi-head {
+    background: var(--navy); color: #fff; padding: 2.5mm 4mm;
+    font-size: 8pt; font-weight: 800; text-transform: uppercase; letter-spacing: 1px;
+  }
+  .roi-table { width: 100%; border-collapse: collapse; font-size: 7.4pt; }
+  .roi-table th, .roi-table td {
+    padding: 1.6mm 3mm; text-align: left; border-bottom: 1px solid var(--gray-bd);
+  }
+  .roi-table th { background: #E9EEF5; color: var(--navy); font-weight: 700; font-size: 6.8pt; text-transform: uppercase; letter-spacing: 0.5px; }
+  .roi-table td.num { text-align: right; font-variant-numeric: tabular-nums; }
+  .roi-table td.label { color: #2C3441; }
+  .roi-table tr.zebra { background: #FAFBFC; }
+  .roi-table tr.highlight td { background: var(--green); color: var(--green2); font-weight: 700; }
+  .roi-table tr.highlight td.num { color: var(--green2); }
+
+  .kpi-stack { display: flex; flex-direction: column; gap: 2.5mm; }
+  .kpi {
+    background: #fff; border: 1.5px solid var(--gray-bd); border-left: 4px solid var(--orange);
+    border-radius: 4px; padding: 2.8mm 4mm;
+  }
+  .kpi.orange { background: var(--orange); color: #fff; border-color: var(--orange); }
+  .kpi.orange .kpi-label { color: #FFE0CC; }
+  .kpi.orange .kpi-value { color: #fff; }
+  .kpi.green { background: var(--green); border-color: var(--green2); border-left-color: var(--green2); }
+  .kpi.green .kpi-label { color: #186B3A; }
+  .kpi.green .kpi-value { color: #186B3A; }
+  .kpi-label { font-size: 6.8pt; text-transform: uppercase; letter-spacing: 1px; color: var(--muted); font-weight: 700; margin-bottom: 0.6mm; }
+  .kpi-value { font-size: 17pt; font-weight: 800; color: var(--navy); line-height: 1.05; letter-spacing: -0.5px; }
+  .kpi-value .unit { font-size: 9pt; font-weight: 600; color: inherit; }
+  .kpi-note { font-size: 6.8pt; color: var(--muted); margin-top: 1mm; line-height: 1.35; }
+
+  /* === Why Us + Line === */
+  .row-3 {
+    display: grid; grid-template-columns: 1.4fr 1fr; gap: 5mm; margin-bottom: 0;
+  }
+  .why-title {
+    font-size: 8.2pt; font-weight: 800; color: var(--navy);
+    text-transform: uppercase; letter-spacing: 1px; margin-bottom: 2mm;
+    padding-bottom: 1.5mm; border-bottom: 2px solid var(--orange); display: inline-block;
+  }
+  .why-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 2.5mm; }
+  .why-card {
+    background: #fff; border: 1.5px solid var(--gray-bd); border-radius: 4px;
+    padding: 2.5mm 3mm; position: relative; min-height: 24mm;
+  }
+  .why-card::before {
+    content: ''; position: absolute; left: 0; top: 0; bottom: 0; width: 3px;
+    background: var(--orange); border-radius: 4px 0 0 4px;
+  }
+  .why-card .ico { width: 14px; height: 14px; margin-bottom: 1.5mm; }
+  .why-card h4 { font-size: 7.6pt; color: var(--navy); font-weight: 800; margin-bottom: 1mm; line-height: 1.2; }
+  .why-card p { font-size: 6.8pt; color: var(--muted); line-height: 1.35; }
+  .why-card p b { color: var(--orange); }
+
+  .line-card { background: var(--gray-bg); border-radius: 4px; padding: 3mm 3.5mm; }
+  .line-card h4 { font-size: 7.6pt; color: var(--navy); font-weight: 800; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 2mm; }
+  .line-flow { display: flex; align-items: center; gap: 1.2mm; flex-wrap: wrap; }
+  .step {
+    background: #fff; border: 1px solid var(--gray-bd); border-radius: 3px;
+    padding: 1.5mm 2mm; font-size: 6pt; color: var(--navy); font-weight: 600;
+    text-align: center; min-width: 15mm; line-height: 1.15;
+  }
+  .step.here { background: var(--orange); color: #fff; border-color: var(--orange); }
+  .arrow { color: var(--muted); font-size: 7.5pt; font-weight: 700; }
+
+  /* === CTA === */
+  .cta {
+    background: linear-gradient(90deg, var(--navy) 0%, var(--navy2) 100%);
+    color: #fff; padding: 3.5mm 10mm; display: flex; align-items: center;
+    justify-content: space-between; gap: 6mm; margin-top: 2mm;
+  }
+  .cta-text { flex: 1; }
+  .cta-text .small { font-size: 6.8pt; color: #FFB98A; font-weight: 700; text-transform: uppercase; letter-spacing: 1.5px; }
+  .cta-text h3 { font-size: 11.5pt; font-weight: 800; line-height: 1.2; margin: 0.8mm 0 1.2mm 0; }
+  .cta-text p { font-size: 7.6pt; color: #C7D2DE; line-height: 1.4; }
+  .cta-btn {
+    background: var(--orange); color: #fff; padding: 3mm 5mm; border-radius: 3px;
+    font-size: 8pt; font-weight: 700; text-decoration: none; white-space: nowrap;
+    display: inline-block; text-align: center; box-shadow: 0 2px 6px rgba(255,107,26,0.3);
+  }
+  .cta-btn .sub { display: block; font-size: 6pt; font-weight: 500; color: #FFE0CC; margin-top: 1mm; }
+
+  .footer {
+    background: #0A1F36; color: #6B7E94; padding: 2.5mm 10mm;
+    font-size: 6pt; line-height: 1.45; display: flex; justify-content: space-between;
+    align-items: center; gap: 4mm;
+  }
+  .footer b { color: #9DAEC0; }
+  .doc-ref { color: var(--orange); font-weight: 700; letter-spacing: 0.5px; }
+</style>
+</head>
+<body>
+
+<div class="page">
+
+  <!-- ====== HEADER ====== -->
+  <div class="header">
+    <div class="brand">
+      <div class="logo-mark">SM</div>
+      <div class="brand-text">
+        <div class="a">SOUTHERN MACHINERY</div>
+        <div class="b">Shenzhen &middot; SMT &middot; THT &middot; Wave Soldering &middot; Since 2011</div>
+      </div>
+    </div>
+    <div class="head-contact">
+      <span class="strong">Jason Wu</span> &middot; Senior Sales Engineer<br/>
+      <a href="mailto:jasonwu@smthelp.com">jasonwu@smthelp.com</a> &middot; +86-136-0256-2576<br/>
+      <a href="https://www.smthelp.com">www.SMThelp.com</a>
+    </div>
+  </div>
+
+  <!-- ====== HERO ====== -->
+  <div class="hero">
+    <div class="hero-grid">
+      <div>
+        <div class="eyebrow">2026 ROI Brief &middot; {{VERTICAL}}</div>
+        <div class="h-title">{{MACHINE_TITLE}}<br/><span class="accent">{{MACHINE_TAGLINE}}</span></div>
+        <div class="h-sub">
+          {{HERO_SUB}}
+        </div>
+        <div class="pill-row">
+          <span class="pill orange">{{PILL_1}}</span>
+          <span class="pill">{{PILL_2}}</span>
+          <span class="pill">{{PILL_3}}</span>
+          <span class="pill">{{PILL_4}}</span>
+        </div>
+      </div>
+      <div>
+        {{MACHINE_SVG}}
+      </div>
+    </div>
+  </div>
+
+  <!-- ====== BODY ====== -->
+  <div class="body">
+
+    <div class="row-2">
+      <div class="panel">
+        <div class="panel-title">The Challenge in Your {{LINE_TYPE}}</div>
+        <ul class="panel-bullets">
+          {{CHALLENGE_BULLETS}}
+        </ul>
+      </div>
+
+      <div class="panel">
+        <div class="panel-title">Key Specs at a Glance</div>
+        <table class="specs-table">
+          {{SPEC_ROWS}}
+        </table>
+      </div>
+    </div>
+
+    <div class="section-2col">
+      <div class="roi-card">
+        <div class="roi-head">ROI Model &middot; {{ROI_CONTEXT}}</div>
+        <table class="roi-table">
+          <thead>
+            <tr>
+              <th>Cost Driver</th>
+              <th class="right">Today ({{TODAY_LABEL}})</th>
+              <th class="right">With {{MACHINE_SHORT}}</th>
+              <th class="right">Annual Impact</th>
+            </tr>
+          </thead>
+          <tbody>
+            {{ROI_ROWS}}
+          </tbody>
+        </table>
+      </div>
+
+      <div class="kpi-stack">
+        <div class="kpi orange">
+          <div class="kpi-label">Payback Period</div>
+          <div class="kpi-value">{{PAYBACK_VALUE}} <span class="unit">{{PAYBACK_UNIT}}</span></div>
+          <div class="kpi-note">{{PAYBACK_NOTE}}</div>
+        </div>
+        <div class="kpi green">
+          <div class="kpi-label">5-Year Net Savings</div>
+          <div class="kpi-value">{{SAVINGS_VALUE}} <span class="unit">{{SAVINGS_UNIT}}</span></div>
+          <div class="kpi-note">{{SAVINGS_NOTE}}</div>
+        </div>
+        <div class="kpi">
+          <div class="kpi-label">CapEx vs Japanese Equivalent</div>
+          <div class="kpi-value">{{CAPEX_DELTA}} <span class="unit">%</span></div>
+          <div class="kpi-note">{{CAPEX_NOTE}}</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="row-3">
+      <div>
+        <div class="why-title">Why Southern Machinery</div>
+        <div class="why-grid">
+          {{WHY_CARDS}}
+        </div>
+      </div>
+
+      <div class="line-card">
+        <h4>Where {{MACHINE_SHORT}} Fits in Your {{LINE_TYPE}}</h4>
+        <div class="line-flow">
+          {{LINE_FLOW}}
+        </div>
+        <p style="font-size:7pt; color:var(--muted); margin-top:2.5mm; line-height:1.4;">
+          {{LINE_SUMMARY}}
+        </p>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- ====== CTA ====== -->
+  <div class="cta">
+    <div class="cta-text">
+      <div class="small">Next Step &middot; Zero Cost &middot; No Obligation</div>
+      <h3>Book a Free 30-Minute Remote Line Health Check</h3>
+      <p>Send us <b>1 Gerber file</b> + your current {{STATION}} headcount. We will deliver a written diagnostic &amp; payback calculation in your local currency within <b>3 working days</b>.</p>
+    </div>
+    <a href="mailto:jasonwu@smthelp.com?subject=Line%20Health%20Check%20Request%20%E2%80%94%20{{MACHINE}}" class="cta-btn">
+      Schedule Health Check
+      <span class="sub">jasonwu@smthelp.com &middot; Reply within 24h</span>
+    </a>
+  </div>
+
+  <!-- ====== FOOTER ====== -->
+  <div class="footer">
+    <div>
+      &copy; 2026 Shenzhen Southern Machinery Sales &amp; Service Co., Ltd. &middot; <b>www.SMThelp.com</b> &middot; All rights reserved. &middot;
+      {{FOOTER_ASSUMPTIONS}}
+    </div>
+    <div class="doc-ref">DOC-ROI-{{MACHINE}}-{{VERTICAL_CODE}}-{{YEAR}}-EN-{{DOC_NN}}</div>
+  </div>
+
+</div>
+
+</body>
+</html>
