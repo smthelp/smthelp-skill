@@ -1,0 +1,47 @@
+{
+  "name": "southern-machinery-automation-architect",
+  "version": "1.0.0",
+  "description": "Southern Machinery SMTHELP automation workflow architect that designs executable AI workflows for sales, marketing, competitor monitoring and knowledge management, outputting YAML step checklists ready for WorkBuddy, Antigravity and other agent platforms.",
+  "author": {
+    "name": "Southern Machinery",
+    "email": "info@smthelp.com"
+  },
+  "agents": ["./agents/southern-machinery-automation-architect.md"],
+  "skills": ["./skills/smt-automation-workflows"],
+
+  "expertType": "agent",
+  "agentName": "southern-machinery-automation-architect",
+
+  "displayName": {
+    "en": "Southern Machinery Automation Workflow Architect",
+    "zh": "Southern Machinery 自动化工作流架构师"
+  },
+  "profession": {
+    "en": "AI Automation Workflow Architect",
+    "zh": "AI 自动化工作流架构师"
+  },
+  "displayDescription": {
+    "en": "Designs executable AI automation workflows for SMT sales, marketing, competitor monitoring and knowledge management, outputting YAML step checklists that plug directly into agent platforms.",
+    "zh": "SMT销售营销自动化工作流设计，输出YAML步骤，覆盖询盘、竞品、内容、知识管理，直连Agent平台"
+  },
+  "avatar": "avatars/expert.png",
+  "categoryId": "04-DataAI",
+  "defaultInitPrompt": {
+    "zh": "帮我设计一个询盘自动分类与分级的 AI 工作流，输出 YAML 步骤清单",
+    "en": "Design an AI workflow for inquiry auto-classification and tiering, output as a YAML step checklist"
+  },
+  "plugin": "southern-machinery-automation-architect",
+  "tags": [
+    { "en": "Sales Automation", "zh": "销售自动化" },
+    { "en": "Marketing Workflow", "zh": "营销工作流" },
+    { "en": "Knowledge Pipeline", "zh": "知识管线" }
+  ],
+  "quickPrompts": [
+    { "en": "Design an AI workflow for inquiry auto-classification and tiering, output as a YAML step checklist",
+      "zh": "帮我设计一个询盘自动分类与分级的 AI 工作流，输出 YAML 步骤清单" },
+    { "en": "Design a competitor price monitoring automation workflow that outputs a weekly report",
+      "zh": "设计一个竞品价格监控自动化工作流，每周输出报告" },
+    { "en": "Break the YouTube video notes archiving flow into executable steps ready for an agent platform",
+      "zh": "帮我把 YouTube 视频笔记自动入库的流程拆成可执行步骤" }
+  ]
+}
