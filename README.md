@@ -1,6 +1,6 @@
 # smthelp-skill
 
-Southern Machinery B2B Skills Library — skill index（417 skills / 17 categories）
+Southern Machinery B2B Skills Library — skill index（430 skills / 18 categories）
 
 > 注：`humanize`、`remotion-best-practices`、`self-improvement`、`summarize` 为本地嵌套 Git 仓库，保留在本地工作区，未包含在本仓库中。
 
@@ -36,6 +36,9 @@ agents-sdk, clone-website, cloudflare, cloudflare-email-service, cloudflare-one,
 
 ## 产品管理与营销 · Product Mgmt & Marketing（16）
 PRD生成, SEO内容优化, 产品指标复盘, 产品脑暴, 品牌调性审查, 广告合规检查, 活动策划, 用户反馈分析, 用户故事拆解, 社媒热点追踪, 竞品分析, 竞品追踪, 营销效果分析, 营销文案, 路线图更新, 需求优先级排序
+
+## SM-内容与营销 · SM Content & Marketing（13）
+smthelp-brand-voice, smthelp-chinese-polish, smthelp-competitor-intel, smthelp-content-repurposing, smthelp-content-rewrite, smthelp-english-humanizer, smthelp-hook-angle-lab, smthelp-inquiry-followup, smthelp-market-research, smthelp-meeting-actions, smthelp-product-copywriting, smthelp-technical-article, smthelp-video-script
 
 ## 办公文档PPT · Office Documents/PPT（12）
 cyber-ppt, document-to-action-items, docx, html-ppt, macos-pptx-native-build, meeting-action-items, nano-pdf, pdf, pdf-tools, powerpoint, quzhi-ai-brand-office-suite, xlsx
