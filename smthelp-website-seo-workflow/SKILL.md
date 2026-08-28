@@ -9,9 +9,13 @@ metadata:
 # smthelp.v5.viwolf.cn SEO优化工作流
 
 ## 站点信息
+
+> ⚠️ **凭证从环境变量读取，禁止硬编码。** 需要 `SMTHELP_WEB_ADMIN_PATH`（后台路径）、
+> `SMTHELP_WEB_ADMIN_USER`、`SMTHELP_WEB_ADMIN_PASSWORD`。
+
 - **域名**: smthelp.v5.viwolf.cn
-- **后台入口**: http://smthelp.v5.viwolf.cn/admin888
-- **登录凭证**: admin / admin888
+- **后台入口**: `http://smthelp.v5.viwolf.cn/${SMTHELP_WEB_ADMIN_PATH}`
+- **登录凭证**: `${SMTHELP_WEB_ADMIN_USER}` / `${SMTHELP_WEB_ADMIN_PASSWORD}`
 - **语言模式**: `lang=en`（英文后台）
 
 ---
@@ -19,8 +23,8 @@ metadata:
 ## 一、登录与Session管理
 
 ### 登录流程
-1. 导航到 `http://smthelp.v5.viwolf.cn/admin888/login.html`
-2. 填入用户名 `admin`，密码 `admin888`
+1. 导航到 `http://smthelp.v5.viwolf.cn/${SMTHELP_WEB_ADMIN_PATH}/login.html`
+2. 填入用户名 `${SMTHELP_WEB_ADMIN_USER}`，密码 `${SMTHELP_WEB_ADMIN_PASSWORD}`
 3. 点击登录按钮
 4. 登录后重定向到管理首页
 
@@ -34,12 +38,12 @@ metadata:
 ## 二、产品列表与分页
 
 ### THT产品分类
-- **URL**: `http://smthelp.v5.viwolf.cn/admin888/manage.shop.php?action=def&listid=18407&lang=en`
+- **URL**: `http://smthelp.v5.viwolf.cn/${SMTHELP_WEB_ADMIN_PATH}/manage.shop.php?action=def&listid=18407&lang=en`
 - 共35个产品，分2页展示（每页20/15）
 
 ### 分页参数
 - 第1页: 默认URL
-- 第2页: `http://smthelp.v5.viwolf.cn/admin888/manage.shop.php?pid=2&modelid=8&lang=en&rn=20&listid=18407`
+- 第2页: `http://smthelp.v5.viwolf.cn/${SMTHELP_WEB_ADMIN_PATH}/manage.shop.php?pid=2&modelid=8&lang=en&rn=20&listid=18407`
 - **注意**: 分页通过JS实现，在console中执行以下JS可找到分页链接：
   ```javascript
   const links = document.querySelectorAll('a');
@@ -57,7 +61,7 @@ metadata:
 
 ### 编辑页面URL格式
 ```
-http://smthelp.v5.viwolf.cn/admin888/manage.shop.php?action=edt&listid=18407&modelid=8&pid=1&productid={PRODUCT_ID}&lang=en
+http://smthelp.v5.viwolf.cn/${SMTHELP_WEB_ADMIN_PATH}/manage.shop.php?action=edt&listid=18407&modelid=8&pid=1&productid={PRODUCT_ID}&lang=en
 ```
 
 参数说明：
@@ -226,9 +230,9 @@ http://smthelp.v5.viwolf.cn/admin888/manage.shop.php?action=edt&listid=18407&mod
 The `smthelp-seo-workflow` skill covered the same workflow as §1 above. Key additions from that skill:
 
 ### Alternative URL Patterns (from smthelp-seo-workflow)
-- Product list: `http://smthelp.v5.viwolf.cn/admin888/manage.shop.php?listid=18407&modelid=8&lang=en`
-- Product edit: `http://smthelp.v5.viwolf.cn/admin888/manage.shop.php?action=edt&listid=18407&modelid=8&pid=1&productid={PID}&lang=en`
-- Product save: `http://smthelp.v5.viwolf.cn/admin888/manage.shop.php?action=edt&listid=18407&modelid=8&pid=1&productid={PID}&submit=1&lang=en`
+- Product list: `http://smthelp.v5.viwolf.cn/${SMTHELP_WEB_ADMIN_PATH}/manage.shop.php?listid=18407&modelid=8&lang=en`
+- Product edit: `http://smthelp.v5.viwolf.cn/${SMTHELP_WEB_ADMIN_PATH}/manage.shop.php?action=edt&listid=18407&modelid=8&pid=1&productid={PID}&lang=en`
+- Product save: `http://smthelp.v5.viwolf.cn/${SMTHELP_WEB_ADMIN_PATH}/manage.shop.php?action=edt&listid=18407&modelid=8&pid=1&productid={PID}&submit=1&lang=en`
 
 ### SEO Optimization Steps (condensed from smthelp-seo-workflow)
 1. **Login** — navigate to admin URL, type credentials, click login

@@ -101,7 +101,7 @@ document.querySelectorAll('tr').forEach(row => {
 
 **操作流程**：
 1. `browser_navigate` → Worktile 工作台（`https://smthelp.worktile.com`）
-2. 登录（手机号 `13602562576` + 密码 `nbjxJY3-1806WJX`）
+2. 登录（手机号 `${WORKTILE_USERNAME}` + 密码 `${WORKTILE_PASSWORD}`，均从环境变量读取）
 3. 直接在输入 `document.body.innerText.substring(0, 10000)` 拉取全量文本
 4. 搜索客户名 → `browser_press(Enter)` → 点击任务名打开详情面板
 5. `browser_console({ expression: "document.body.innerText.substring(3000, 8000)" })` 提取详情

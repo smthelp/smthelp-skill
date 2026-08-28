@@ -9,12 +9,15 @@ metadata:
 
 ## 登录信息
 
+> ⚠️ **凭证从环境变量读取，禁止硬编码。** 需要 `WORKTILE_USERNAME`（手机号）
+> 与 `WORKTILE_PASSWORD`。泄露时在 Worktile 账号安全页改密码即可使旧密码失效。
+
 | 项目 | 值 |
 |------|---|
 | URL | https://smthelp.worktile.com |
 | 登录方式 | 手机号 + 密码（非邮箱） |
-| 用户名 | 13602562576 |
-| 密码 | nbjxJY3-1806WJX |
+| 用户名 | `${WORKTILE_USERNAME}` |
+| 密码 | `${WORKTILE_PASSWORD}` |
 | 公司 | 深圳市南部机械销售服务有限公司 |
 
 **注意**：Worktile 账号与 CRM/网站后台账号是**独立**的系统。手机号是主要登录名。

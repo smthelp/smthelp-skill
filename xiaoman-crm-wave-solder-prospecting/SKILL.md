@@ -11,13 +11,13 @@ metadata:
 
 **Login URL**: https://login.xiaoman.cn/login
 
-After entering credentials, the system sends an SMS code to **13602562576** and shows a phone verification screen (ref=e11 = SMS input field). **This blocks fully autonomous cron execution.**
+After entering credentials, the system sends an SMS code to **${XIAOMAN_CRM_PHONE}** and shows a phone verification screen (ref=e11 = SMS input field). **This blocks fully autonomous cron execution.**
 
 Verified element refs (from browser_snapshot on 2026-06-01):
 | Element | Ref | Value |
 |---------|-----|-------|
 | Username input | e8 | jasonwu@smthelp.com |
-| Password input | e9 | Nbjx-1806XM |
+| Password input | e9 | ${XIAOMAN_CRM_PASSWORD} |
 | Privacy checkbox | e22 | Must check before login enables |
 | Login button | e10 | Enabled after checkbox checked |
 
@@ -30,14 +30,19 @@ Possible workarounds:
 
 ## 登录凭证（实测）
 
+> ⚠️ **凭证从环境变量读取，禁止硬编码。** 需要 `XIAOMAN_CRM_USER`、`XIAOMAN_CRM_PASSWORD`、
+> `XIAOMAN_CRM_PHONE`、`WORKTILE_WEBHOOK_TOKEN`。
+> Webhook URL 本身就是密钥——任何拿到它的人都能往 Worktile 推消息，
+> 泄露后必须在 Worktile 后台删除并重建该 incoming webhook。
+
 | 参数 | 值 |
 |------|-----|
 | CRM 首页 | https://crm.xiaoman.cn |
 | 登录页 | https://login.xiaoman.cn/login |
-| 用户名 | jasonwu@smthelp.com |
-| 密码 | Nbjx-1806XM |
-| 绑定手机 | 13602562576 |
-| Webhook | https://hook.worktile.com/incoming/fab6e009a985434a8a9bf2fa6845c1e3 |
+| 用户名 | `${XIAOMAN_CRM_USER}` |
+| 密码 | `${XIAOMAN_CRM_PASSWORD}` |
+| 绑定手机 | `${XIAOMAN_CRM_PHONE}` |
+| Webhook | `https://hook.worktile.com/incoming/${WORKTILE_WEBHOOK_TOKEN}` |
 
 ## 工作流程
 
@@ -47,7 +52,7 @@ Possible workarounds:
 browser_navigate → https://login.xiaoman.cn/login
 browser_snapshot  # 获取元素引用
 browser_type ref=e8 → jasonwu@smthelp.com
-browser_type ref=e9 → Nbjx-1806XM
+browser_type ref=e9 → ${XIAOMAN_CRM_PASSWORD}
 browser_click ref=e22  # 勾选隐私政策（必须）
 browser_click ref=e10  # 登录按钮
 browser_snapshot  # 此时应看到 SMS 验证界面 — 自动化在此卡住
@@ -87,7 +92,7 @@ jq '[.[] | select(.country | test("Mexico|Brasil|墨西哥|巴西"))] | .[0:20]'
 ```bash
 curl -X POST -H "Content-Type: application/json" \
   -d "{\"text\": $(cat /tmp/report.md | jq -Rs .)}" \
-  https://hook.worktile.com/incoming/fab6e009a985434a8a9bf2fa6845c1e3
+  https://hook.worktile.com/incoming/${WORKTILE_WEBHOOK_TOKEN}
 ```
 
 ## 验证步骤

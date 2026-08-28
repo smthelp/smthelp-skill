@@ -126,18 +126,18 @@ CLI 收到路径后会自动完成以下流程：
 用户提供形如以下格式的表单分享链接时：
 
 ```
-https://www.example.com/share/base/form/shrbcvST8eZy0vk8zjVZ1CAXNye
+https://www.example.com/share/base/form/shrXXXXXXXXXXXXXXXXXXXX
 ```
 
 **提取方式：** 取 URL 路径最后一段作为 `--share-token`。
 
 以上述链接为例：
 
-- `share-token` = `shrbcvST8eZy0vk8zjVZ1CAXNye`
+- `share-token` = `shrXXXXXXXXXXXXXXXXXXXX`
 
 ```bash
 lark-cli base +form-submit \
-  --share-token shrbcvST8eZy0vk8zjVZ1CAXNye \
+  --share-token shrXXXXXXXXXXXXXXXXXXXX \
   --json '{"fields":{...}}'
 ```
 

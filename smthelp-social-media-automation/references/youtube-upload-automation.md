@@ -29,9 +29,9 @@ https://accounts.google.com/o/oauth2/auth?client_id=998061498769-qm0u7j2tu7ae9dk
 ```
 
 ## Hostinger API Diagnostics
-- API Token `ikHAQZcf4PtDEHAnhXPhh9Me08msCINs5XssgLEg3f09ea6e`: Valid (200 OK)
+- API Token `${HOSTINGER_API_TOKEN}`: Valid (200 OK)
 - Cloud API returns empty `[]` for VMs — user has hPanel VPS, not Cloud VPS
-- n8n server confirmed online at 198.18.24.15
+- n8n server confirmed online at `${N8N_SERVER_IP}`
 
 ## ManimGL on macOS
 - `python3 -m pip install manimgl` ✅ installed

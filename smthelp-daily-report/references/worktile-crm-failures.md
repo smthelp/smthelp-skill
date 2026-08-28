@@ -3,15 +3,15 @@
 
 ## 故障1: SSL 证书无效
 
-**URL**: `https://v5.viwolf.cn/admin888`
+**URL**: `https://v5.viwolf.cn/${SMTHELP_WEB_ADMIN_PATH}`
 **错误**: `net::ERR_CERT_AUTHORITY_INVALID`
 **现象**: 浏览器拒绝访问，SSL 证书链不被信任
 
 ## 故障2: Demo 登录表单无效
 
-**重定向目标**: `http://demo.v5.viwolf.cn/admin888/login.html`
+**重定向目标**: `http://demo.v5.viwolf.cn/${SMTHELP_WEB_ADMIN_PATH}/login.html`
 **现象**: 
-- 填写手机号 `13602562576` + 密码 `nbjxJY3-1806WJX` 后点击登录
+- 填写手机号（`${WORKTILE_USERNAME}`）+ 密码（`${WORKTILE_PASSWORD}`）后点击登录
 - 表单提交后页面变空白，**不跳转至真实 CRM 控制台**
 - demo 站点是展示页面，不是真实后端
 
@@ -41,6 +41,8 @@
 
 ## Credentials（供参考，请勿在报告中暴露）
 
-- Phone: `13602562576`
-- Password: `nbjxJY3-1806WJX`
-- 保存于: Memory（`memory` 工具，`user` profile）
+> ⚠️ 凭证从环境变量读取，本文件不保存任何明文。
+
+- Phone: `${WORKTILE_USERNAME}`
+- Password: `${WORKTILE_PASSWORD}`
+- 保存于: 环境变量 / 密钥管理器（不要再写入 Memory 或任何仓库文件）

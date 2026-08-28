@@ -14,7 +14,8 @@ Jason Wu (CEO of Southern Machinery) uses n8n for automated email marketing camp
 
 ## n8n Instance
 - **URL**: https://n8n.autoinsertion.com/
-- **API Key**: `eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI2ZDc0MTM1ZS01ZDYxLTRhZjQtOTdlMC03YmFjNzYwMWIyODUiLCJpc3MiOiJuOG4iLCJhdWQiOiJwdWJsaWMtYXBpIiwianRpIjoiZDE0OWE5NDEtMGRiYS00NTk4LWJkOWItOGMxYjNiZTNiNTU1IiwiaWF0IjoxNzc0MDc4OTcwfQ.UizhfjEgUHNovAcIhLn0pjnQ9Bp-tAEuS_BnmsgVa_E`
+- **API Key**: `${N8N_API_KEY}` — 从 n8n 后台 Settings → n8n API 重新生成；
+  旧的 JWT 一旦泄露应立即在该页面吊销。切勿写入任何仓库文件。
 
 ## SMTP Configuration
 **Provider**: tinkmail.me (IMAP/SMTP service)
@@ -35,7 +36,11 @@ Jason Wu (CEO of Southern Machinery) uses n8n for automated email marketing camp
 5. `info@smthelp.eu` — credential ID: `nRpSmQThSO0OK4aL`
 
 **Passwords** (all 16-char app passwords from tinkmail.me):
-- `LNEJXCKSTGUVKER4`, `1QADRZT666P5LQZX`, `9V46R8Z24ZI9RA3X`, `1UJVQA3WILI1QK2F`, `19I98XK4AWEWZKD1`
+> ⚠️ **不在本文件保存任何邮箱密码。** 每个发件箱的 app password 只存进 n8n 凭证库
+> （n8n 会加密存储），本文件只保留发件箱地址与对应的 n8n credential ID。
+> 轮换：tinkmail.me 后台为每个邮箱重新生成 app password，再回 n8n 更新对应凭证。
+> 环境变量命名建议：`SMTP_PW_SALE`、`SMTP_PW_SERVICE`、`SMTP_PW_INFO`、
+> `SMTP_PW_SUPPORT`、`SMTP_PW_INFO_EU`。
 
 ## n8n Workflow
 - **S-70LD Email Marketing Workflow**: https://n8n.autoinsertion.com/workflow/lojK9lZdYQZZGKDe

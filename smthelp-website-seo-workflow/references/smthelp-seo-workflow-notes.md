@@ -8,15 +8,19 @@ absorbed_into: sales-engineering/smthelp-website-seo-workflow (as §2)
 # Southern Machinery 网站后台 SEO 优化工作流
 
 ## 后台登录信息
-- URL: http://smthelp.v5.viwolf.cn/admin888
-- 用户名: admin
-- 密码: admin888
+
+> ⚠️ **凭证从环境变量读取，禁止硬编码。** 需要 `SMTHELP_WEB_ADMIN_PATH`、
+> `SMTHELP_WEB_ADMIN_USER`、`SMTHELP_WEB_ADMIN_PASSWORD`。
+
+- URL: `http://smthelp.v5.viwolf.cn/${SMTHELP_WEB_ADMIN_PATH}`
+- 用户名: `${SMTHELP_WEB_ADMIN_USER}`
+- 密码: `${SMTHELP_WEB_ADMIN_PASSWORD}`
 - 语言参数: lang=en
 
 ## 核心 URL Pattern
-- 产品列表: `http://smthelp.v5.viwolf.cn/admin888/manage.shop.php?listid=18407&modelid=8&lang=en`
-- 产品编辑: `http://smthelp.v5.viwolf.cn/admin888/manage.shop.php?action=edt&listid=18407&modelid=8&pid=1&productid={PID}&lang=en`
-- 产品保存: `http://smthelp.v5.viwolf.cn/admin888/manage.shop.php?action=edt&listid=18407&modelid=8&pid=1&productid={PID}&submit=1&lang=en`
+- 产品列表: `http://smthelp.v5.viwolf.cn/${SMTHELP_WEB_ADMIN_PATH}/manage.shop.php?listid=18407&modelid=8&lang=en`
+- 产品编辑: `http://smthelp.v5.viwolf.cn/${SMTHELP_WEB_ADMIN_PATH}/manage.shop.php?action=edt&listid=18407&modelid=8&pid=1&productid={PID}&lang=en`
+- 产品保存: `http://smthelp.v5.viwolf.cn/${SMTHELP_WEB_ADMIN_PATH}/manage.shop.php?action=edt&listid=18407&modelid=8&pid=1&productid={PID}&submit=1&lang=en`
 
 ## 产品分类结构
 - THT machine (listid=18407, modelid=8): 35个产品，分2页
@@ -50,7 +54,7 @@ absorbed_into: sales-engineering/smthelp-website-seo-workflow (as §2)
 | 135384 | S-680 Automatic Scrap Tape Cutting Machine | 待处理 |
 
 ### 第2页（需重新提取productid）
-访问 http://smthelp.v5.viwolf.cn/admin888/manage.shop.php?listid=18407&modelid=8&page=2&lang=en 用JS提取
+访问 http://smthelp.v5.viwolf.cn/${SMTHELP_WEB_ADMIN_PATH}/manage.shop.php?listid=18407&modelid=8&page=2&lang=en 用JS提取
 
 ## SEO 优化步骤
 

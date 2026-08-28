@@ -1,7 +1,7 @@
 ---
 name: smthelp-admin-blog-publishing
-description: "Southern Machinery 网站后台（smthelp.v5.viwolf.cn/admin888）发布 GEO 博客文章的标准流程与关键技术细节。覆盖登录、博客入口、富文本编辑器（UEDITOR）内容注入、表单提交验证。"
-whenToUse: "发布博客文章，网站后台写文章，smthelp blog GEO article，UEDITOR 内容写入，admin888 blog article"
+description: "Southern Machinery 网站后台（smthelp.v5.viwolf.cn 管理后台）发布 GEO 博客文章的标准流程与关键技术细节。覆盖登录、博客入口、富文本编辑器（UEDITOR）内容注入、表单提交验证。"
+whenToUse: "发布博客文章，网站后台写文章，smthelp blog GEO article，UEDITOR 内容写入，viwolf blog article"
 metadata:
   source: hermes
   origin: "sales-engineering/smthelp-admin-blog-publishing"
@@ -9,8 +9,13 @@ metadata:
 # Southern Machinery 网站后台博客发布流程
 
 ## 后台登录
-- URL: http://smthelp.v5.viwolf.cn/admin888
-- 用户名: admin / 密码: admin888
+
+> ⚠️ **凭证从环境变量读取，禁止硬编码。** 后台路径与账号口令均为弱口令（`admin` 系列），
+> 建议同时改掉后台路径和口令。需要：
+> `SMTHELP_WEB_ADMIN_PATH`（后台路径）、`SMTHELP_WEB_ADMIN_USER`、`SMTHELP_WEB_ADMIN_PASSWORD`。
+
+- URL: `http://smthelp.v5.viwolf.cn/${SMTHELP_WEB_ADMIN_PATH}`
+- 用户名: `${SMTHELP_WEB_ADMIN_USER}` / 密码: `${SMTHELP_WEB_ADMIN_PASSWORD}`
 - 语言参数: lang=en
 
 ## 博客入口

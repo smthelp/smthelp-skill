@@ -18,11 +18,17 @@ metadata:
 | Facebook | facebook.com/autoinsertion | 需创建App ⏳ |
 | YouTube | Channel ID: UClX0iEG2bvJq8yUBEDamgDw | 凭证完整 ✅ |
 
-## YouTube API凭据（完整）
+## YouTube API凭据
+
+> ⚠️ **密钥一律从环境变量 / n8n 凭证库读取，禁止硬编码进本文件。**
+> 需要 `YOUTUBE_DATA_API_KEY`（Data API Key）与 `GOOGLE_OAUTH_CLIENT_SECRET`（OAuth Client Secret）。
+> OAuth Client ID 属于公开标识，可保留；**Client Secret 必须保密**。
+> 轮换入口：Google Cloud Console → API 和服务 → 凭据。
+
 - Channel ID: UClX0iEG2bvJq8yUBEDamgDw
-- Data API Key: AIzaSyC_k1dnD-7xtiK2Bs6NyR2B7-xXDEfNwuM
+- Data API Key: `${YOUTUBE_DATA_API_KEY}`
 - OAuth Client ID: 998061498769-qm0u7j2tu7ae9dk5kphjripbu574c7dd.apps.googleusercontent.com
-- OAuth Client Secret: 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
+- OAuth Client Secret: `${GOOGLE_OAUTH_CLIENT_SECRET}`
 - 状态: 凭证完整，可配置n8n工作流 ✅
 
 ## LinkedIn 申请文案（直接复制）
@@ -78,9 +84,9 @@ https://accounts.google.com/o/oauth2/auth?client_id=998061498769-qm0u7j2tu7ae9dk
 ```
 
 ### Hostinger API Diagnostics
-- API Token `ikHAQZcf4PtDEHAnhXPhh9Me08msCINs5XssgLEg3f09ea6e`: Valid (200 OK)
+- API Token `${HOSTINGER_API_TOKEN}`: Valid (200 OK)
 - Cloud API returns empty `[]` for VMs — user has hPanel VPS, not Cloud VPS
-- n8n server confirmed online at 198.18.24.15
+- n8n server confirmed online at `${N8N_SERVER_IP}`
 
 ### ManimGL on macOS
 - `python3 -m pip install manimgl` ✅ installed

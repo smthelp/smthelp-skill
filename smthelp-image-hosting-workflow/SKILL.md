@@ -10,12 +10,16 @@ metadata:
 
 ## 凭证信息
 
+> ⚠️ **凭证一律从环境变量读取，禁止硬编码进本文件。**
+> 需要 `SMTHELP_IMAGE_HOST_API_KEY`（API Key）与 `SMTHELP_IMAGE_HOST_PASSWORD`（后台密码）。
+> 泄露或轮换：在 Chevereto 后台重新生成 API Key，并同步更新环境变量。
+
 | 项目 | 值 |
 |------|-----|
 | 图床地址 | https://ph.smthelp.com |
 | 用户名 | admin |
-| 密码 | Nbjx |
-| API Key | `da4723b27ffac80ef3c8af30a8110838` |
+| 密码 | `SMTHELP_IMAGE_HOST_PASSWORD`（环境变量） |
+| API Key | `SMTHELP_IMAGE_HOST_API_KEY`（环境变量） |
 | API 接口 | `POST http://ph.smthelp.com/api/1/upload` |
 | Chevereto 版本 | v4 API v1 |
 
@@ -25,7 +29,7 @@ metadata:
 
 ```bash
 curl --fail-with-body -X POST \
-  -H "X-API-Key: da4723b27ffac80ef3c8af30a8110838" \
+  -H "X-API-Key: ${SMTHELP_IMAGE_HOST_API_KEY}" \
   -H "Content-Type: multipart/form-data" \
   -F "source=@/path/to/image.jpg" \
   -F "format=json" \
@@ -35,14 +39,16 @@ curl --fail-with-body -X POST \
 ### 方式二：Python（推荐用于自动化工作流）
 
 ```python
+import os
 import requests
 import json
 
-def upload_to_smthelp(image_path: str, api_key: str = "da4723b27ffac80ef3c8af30a8110838") -> dict:
+def upload_to_smthelp(image_path: str, api_key: str = None) -> dict:
     """
     上传图片到 Southern Machinery 图床
     返回: {"id", "url", "medium", "thumb", "display_url", "original"}
     """
+    api_key = api_key or os.environ["SMTHELP_IMAGE_HOST_API_KEY"]
     with open(image_path, "rb") as f:
         files = {"source": f}
         headers = {"X-API-Key": api_key}
@@ -64,6 +70,7 @@ print(result["display_url"])# 显示用 URL
 ### 方式三：Python + base64（远程服务器无文件访问时）
 
 ```python
+import os
 import requests
 import base64
 
@@ -73,7 +80,7 @@ def upload_base64_to_smthelp(image_bytes: bytes, filename: str = "image.jpg") ->
         "source": f"data:image/jpeg;base64,{b64}",
         "format": "json"
     }
-    headers = {"X-API-Key": "da4723b27ffac80ef3c8af30a8110838"}
+    headers = {"X-API-Key": os.environ["SMTHELP_IMAGE_HOST_API_KEY"]}
     response = requests.post(
         "http://ph.smthelp.com/api/1/upload",
         data=payload,
@@ -116,11 +123,12 @@ def upload_base64_to_smthelp(image_bytes: bytes, filename: str = "image.jpg") ->
 ## 典型工作流（AI图片生成 + 上传）
 
 ```python
+import os
 import requests
 import json
 import time
 
-API_KEY = "da4723b27ffac80ef3c8af30a8110838"
+API_KEY = os.environ["SMTHELP_IMAGE_HOST_API_KEY"]
 UPLOAD_URL = "http://ph.smthelp.com/api/1/upload"
 
 def upload_image(image_path: str) -> str:
@@ -155,7 +163,7 @@ Method: POST
 URL: http://ph.smthelp.com/api/1/upload
 Authentication: None (use Header)
 Headers:
-  X-API-Key: da4723b27ffac80ef3c8af30a8110838
+  X-API-Key: {{ $env.SMTHELP_IMAGE_HOST_API_KEY }}
 Body: multipart-form-data
 Body Fields:
   source: (file field — binary data from previous node)
@@ -179,7 +187,7 @@ curl -s --max-time 10 "http://ph.smthelp.com" | head -5
 # 测试上传（创建空测试文件）
 echo "test" > /tmp/test.txt
 curl -s -X POST \
-  -H "X-API-Key: da4723b27ffac80ef3c8af30a8110838" \
+  -H "X-API-Key: ${SMTHELP_IMAGE_HOST_API_KEY}" \
   -F "source=@/tmp/test.txt" \
   -F "format=json" \
   "http://ph.smthelp.com/api/1/upload"

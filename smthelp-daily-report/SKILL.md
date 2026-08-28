@@ -168,8 +168,8 @@ SMT, THT, PCB, PCBA, CPH, Feeder, Nozzle, Reflow Oven, Wave Soldering, Pick and 
 ⚠️ **FTS5 Corruption Bug**：session_search 在 2026-06-17 确认为**全库级**故障，所有 session 均不可读。已从 Fallback Sources 中移除。详见 `references/session-search-fts5-corruption.md`。
 
 ⚠️ **Worktile CRM SSL + Demo Login 双重故障**（新增 2026-06-19）：
-- URL: `https://v5.viwolf.cn/admin888` — SSL 证书无效（`ERR_CERT_AUTHORITY_INVALID`）
-- 自动重定向至 `http://demo.v5.viwolf.cn/admin888/login.html` — 该 demo 站点登录表单提交后返回空白页，**非真实 CRM 系统**
+- URL: `https://v5.viwolf.cn/${SMTHELP_WEB_ADMIN_PATH}` — SSL 证书无效（`ERR_CERT_AUTHORITY_INVALID`）
+- 自动重定向至 `http://demo.v5.viwolf.cn/${SMTHELP_WEB_ADMIN_PATH}/login.html` — 该 demo 站点登录表单提交后返回空白页，**非真实 CRM 系统**
 - 应对：当日报数据源失效时，在报告模块2/3中明确标注 `[CRM暂不可用 — SSL证书异常]`，禁止等待或重试，当日直接使用 Fallback Sources
 - 参考：`references/worktile-crm-failures.md`
 
@@ -264,7 +264,7 @@ See: `sales-engineering/smthelp-monthly-win-loss-review/references/data-unavaila
   ls -lt ~/Downloads/ | head -20
   find ~/Downloads/ -maxdepth 1 -type f \( -name "*.pdf" -o -name "*.xlsx" -o -name "*.docx" \) -mtime -2
   ```
-- [ ] 登录 Worktile CRM（手机号 13602562576 / 密码 nbjxJY3-1806WJX）
+- [ ] 登录 Worktile CRM（手机号 `${WORKTILE_USERNAME}` / 密码 `${WORKTILE_PASSWORD}`，从环境变量读取）
   - Session 通常保持登录状态，无需每次重新登录
   - 使用 `browser_console({ expression: "document.body.innerText.substring(0, 5000)" })` 提取任务数据
 - [ ] 查询 Himalaya 邮件（**Sent folder**，INBOX 通常只有 Welcome 邮件）
