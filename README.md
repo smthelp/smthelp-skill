@@ -57,3 +57,12 @@ apple-icloud-cli, apple-notes, apple-reminders, findmy, minecraft-modpack-server
 
 ## 思维框架与角色 · Thinking Frameworks（1）
 steve-jobs-perspective
+
+
+## 本机同步新增 · Synced from Local (2026-08-30)
+
+> 从本机 ~/.qwenworkcn/skills 追加同步；smt-product-landing-page 以本机 v1.3.4 覆盖旧快照。
+
+新增 (18): create-skill, customer-research, de-ai-writing-cn, dws, ecommerce-image-optimizer, find-skills, humanizer-zh, marketing-ideas, media-generation, plugin-creator, pptx, product-image-generator, qw-pages, qw-pages-supabase, qwenwork-guidance, social-content, southern-machinery-sales, sutang-ecom-copywriter
+
+更新: smt-product-landing-page
