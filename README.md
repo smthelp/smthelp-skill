@@ -1,6 +1,6 @@
 # smthelp-skill
 
-Southern Machinery B2B Skills Library — skill index（430 skills / 18 categories）
+Southern Machinery B2B Skills Library — skill index（431 skills / 18 categories）
 
 > 注：`humanize`、`remotion-best-practices`、`self-improvement`、`summarize` 为本地嵌套 Git 仓库，保留在本地工作区，未包含在本仓库中。
 
@@ -46,8 +46,8 @@ cyber-ppt, document-to-action-items, docx, html-ppt, macos-pptx-native-build, me
 ## SaaS工具与效率 · SaaS Tools & Productivity（10）
 airtable, apollo, linear, notion, product-price-monitor, teams-meeting-pipeline, weekly-review-planning, weiyun, xitter, xurl
 
-## 邮件与通讯 · Email & Communication（7）
-agently-mail, auto-smtp-email, email-inbox-triage, gog, google-workspace, himalaya, imessage
+## 邮件与通讯 · Email & Communication（8）
+agently-mail, auto-smtp-email, email-inbox-triage, foxmail-mailbox-mining, gog, google-workspace, himalaya, imessage
 
 ## 个人生活娱乐 · Personal & Entertainment（7）
 apple-icloud-cli, apple-notes, apple-reminders, findmy, minecraft-modpack-server, openhue, pokemon-player
