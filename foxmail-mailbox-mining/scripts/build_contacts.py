@@ -2,13 +2,12 @@
 """Foxmail 邮件头 -> 客户通讯录 v2（加域名归并、退信剔除、更严分级）"""
 import json, re, os, collections, datetime, sys
 
-SRC = os.environ.get('FOXMAIL_JSONL', '/tmp/foxmails3.jsonl')
-OUTDIR = os.environ.get('FOXMAIL_OUTDIR', '/tmp')
-TODAY = datetime.date.today()
+SRC = '/tmp/foxmails3.jsonl'
+TODAY = datetime.date(2026, 8, 30)
 
 OWN_DOM = {'smthelp.com', 'smthelp.net', 'smtnozzle.org', 'smtnozzle.com', 'smtsupplier.com'}
-# 己方个人邮箱（qq/gmail/outlook 等免费邮箱），按需填写；企业域名填在 OWN_DOM。
-OWN_ADDR = set()   # 例：{'you@qq.com', 'sales@gmail.com'}
+OWN_ADDR = {'jasonwu68@qq.com', 'w25605@gmail.com', 'smthelpmachine@gmail.com',
+            'jasonwusmt@outlook.com'}
 
 FREE = set("""gmail.com googlemail.com yahoo.com yahoo.co.uk yahoo.fr yahoo.es yahoo.com.br
 yahoo.com.mx yahoo.co.in yahoo.com.tr ymail.com rocketmail.com hotmail.com hotmail.co.uk
@@ -376,7 +375,7 @@ for addr, p in people.items():
         'subject': src.most_common(1)[0][0] if src else '',
     })
 prows.sort(key=lambda r: (-r['n_out'], -r['n']))
-with open(os.path.join(OUTDIR, 'people_rows.json'), 'w') as fo:
+with open('/tmp/people_rows.json', 'w') as fo:
     json.dump(prows, fo, ensure_ascii=False)
 print('people rows', len(prows), file=sys.stderr)
 
@@ -386,7 +385,7 @@ cnt = collections.Counter(r['grade'] for r in rows)
 print('graded:', dict(sorted(cnt.items())), file=sys.stderr)
 print('replied(有我方回复):', sum(1 for r in rows if r['n_out'] >= 1), file=sys.stderr)
 
-with open(os.path.join(OUTDIR, 'contacts_rows.json'), 'w') as fo:
+with open('/tmp/contacts_rows.json', 'w') as fo:
     json.dump(rows, fo, ensure_ascii=False)
-with open(os.path.join(OUTDIR, 'noise_domains.json'), 'w') as fo:
+with open('/tmp/noise_domains.json', 'w') as fo:
     json.dump(noise.most_common(400), fo, ensure_ascii=False)

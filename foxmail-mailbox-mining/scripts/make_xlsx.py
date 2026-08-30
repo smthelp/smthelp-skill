@@ -5,15 +5,11 @@ import openpyxl
 from openpyxl.styles import Font, PatternFill, Alignment
 from openpyxl.utils import get_column_letter
 
-import os, sys
-TODAY = datetime.date.today()
-OUTDIR = os.environ.get('FOXMAIL_OUTDIR', '/tmp')
-OUT = sys.argv[1] if len(sys.argv) > 1 else os.path.join(
-    os.path.expanduser('~/Downloads'),
-    f'客户通讯录_Foxmail挖掘_{TODAY.strftime("%Y%m%d")}.xlsx')
+TODAY = datetime.date(2026, 8, 30)
+OUT = '/Users/mac/Downloads/SMThelp_客户通讯录_Foxmail挖掘_20260830.xlsx'
 
-rows = json.load(open(os.path.join(OUTDIR, 'contacts_rows.json')))
-prows = json.load(open(os.path.join(OUTDIR, 'people_rows.json')))
+rows = json.load(open('/tmp/contacts_rows.json'))
+prows = json.load(open('/tmp/people_rows.json'))
 
 MAUTIC_COLS = ['id', 'points', 'last_active', 'title', 'firstname', 'lastname', 'company',
                'position', 'email', 'phone', 'mobile', 'address1', 'address2', 'city', 'state',

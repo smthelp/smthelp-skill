@@ -1,10 +1,10 @@
 import os, re, mmap, json, sys, struct, datetime, collections
 
-ROOT = os.environ.get('FOXMAIL_ROOT', "/Volumes/wuj-data/Jasonwu/Foxmail 7.2/Storage")
-OUT = os.environ.get('FOXMAIL_JSONL', "/tmp/foxmails3.jsonl")
+ROOT = "/Volumes/wuj-data/Jasonwu/Foxmail 7.2/Storage"
+OUT = "/tmp/foxmails3.jsonl"
 RUN = re.compile(rb'[\x20-\xff]{8,}')
 HDR, REC = 51, 512
-TODAY = datetime.date.today()
+TODAY = datetime.date(2026, 8, 28)
 
 def dec(b):
     for enc in ('utf-8', 'gbk'):

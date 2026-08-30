@@ -1,6 +1,5 @@
 ---
 name: foxmail-mailbox-mining
-version: 1.1.0
 description: "直接从 Foxmail 7.2 本地邮件库（Storage/）离线挖掘客户/线索，无需打开客户端、无需 IMAP。邮件正文是加密的，但邮件头索引是明文可解析的：可提取发件人姓名+邮箱、收件人、主题、精确日期。适用于「从历史邮件整理客户清单 / 找沉睡客户 / 统计往来量 / 还原询盘主题」。触发词：Foxmail 邮件挖掘、邮件整理客户清单、邮箱数据导出、邮件线索、Foxmail 客户。"
 agent_created: true
 ---
@@ -70,12 +69,12 @@ Foxmail 7.2 的数据目录（含 `FMStorage.list` + `Storage/<邮箱地址>/`�
          return addr.lower() if d in FREE else (d or addr.lower())
      ```
    - **域名归并**（否则同一客户被拆成多条）：
-     - 采购门户子域 → 主域：`acme.coupahost.com → acme.com`
+     - 采购门户子域 → 主域：`jabil.coupahost.com → jabil.com`
        （PORTAL = coupa/coupahost/ariba/jaggaer/zycus/gep/ivalua/tradeshift/basware…）
      - 邮件系统子域 → 主域：去掉 `mail./email./service./noreply./smtp./mx./news.` 首段
        （**仅当 `len(parts)>=3`**，否则 `mail.ru` 这类会被打散）
-   - 公司名推断要跳过地区/功能前缀，否则出现 `eu.acme.com → "Acme"`、
-     `community.acme.com → "Acme"`：SKIP 集合需含
+   - 公司名推断要跳过地区/功能前缀，否则出现 `na.denso.com → "Na"`、
+     `community.3ds.com → "Community"`：SKIP 集合需含
      na/eu/us/uk/cn/hk/tw/jp/kr/apac/emea/amer/global/mail/info/service/www/community/green/shop…
 5b. **退信与自动回复必须按主题剔除**（否则占 C 级一大半）：
    `delivery status|undeliver|mail delivery fail|returned message|mailer-daemon|postmaster|
@@ -133,18 +132,3 @@ Mautic 字段映射参考：`points=score`、`last_active=末次往来`、`attri
 - 拿不到电话、地址、职位、机型参数、正文内容——这些必须在交付物里标「待确认」。
 - 二级国别域要按最长匹配处理（`com.br` 优先于 `br`）。
 - 单账户 22 万条记录解析耗时约 15 秒（Python + mmap），写 12 万行 xlsx 约 2 分钟。
-
-## 版本与迭代
-
-- v1.0.0 (2026-08-28) 首版：逆向出 Index / recvdate.ind 结构，可提取邮件头并做基础客户聚合。
-- v1.1.0 (2026-08-30) 实战 12 账户 / 60.9 万条记录后修正：
-  - 修复免费邮箱被按域名聚合成「一家公司」的严重 bug（gmail/yahoo 各压成一行）。
-  - 分级补 `replied`(n_out>=1) 门槛，新增 E（有往来非客户）、F（未跟进来信）两级。
-  - 新增退信/自动回复主题剔除、采购门户与邮件系统子域归并、公司名前缀跳过。
-  - 新增 `scripts/build_contacts.py` 与 `scripts/make_xlsx.py`，构成一键管线。
-  - 支持按用户给定的导入模板（如 Mautic contacts）严格对齐列名列序输出。
-
-## 使用注意（脱敏说明）
-
-仓库为公开分发版：`build_contacts.py` 中的 `OWN_ADDR` 已置空为占位，
-运行前需填入己方个人邮箱（qq/gmail/outlook 等）；路径均改为参数化，不写本机绝对路径。
