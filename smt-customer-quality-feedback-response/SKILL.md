@@ -1,3 +1,8 @@
+---
+name: smt-customer-quality-feedback-response
+description: "SMT 设备客户质量反馈应对：把 EMS/OEM 大客户（如 KnS）发来的质量反馈、操作疑问、设计变更要求，拆成条目化应对方案 + Jason Wu CEO 语气的英文客户回复 + 内部风险审查。当用户要求『回复客户质量反馈』『处理客诉』『写客户整改回复』『客户提出设计变更』时触发。"
+---
+
 # SMT Customer Quality Feedback Response
 
 When a customer (especially a key EMS/OEM account like KnS) sends quality feedback, operational questions, or design-change requests on a Southern Machinery machine, generate a structured response plan and a polished English customer reply in Jason Wu's CEO voice.
