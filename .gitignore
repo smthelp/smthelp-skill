@@ -28,3 +28,8 @@ venv/
 # OS junk
 .DS_Store
 Thumbs.db
+# macOS AppleDouble metadata / __MACOSX from ZIP extraction
+._*
+__MACOSX/
+# Local tool state
+.workbuddy/
