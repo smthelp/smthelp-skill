@@ -72,7 +72,7 @@ macOS `say` 合成英文旁白，最后通过 YouTube Data API v3 发布到 Smth
    - scope 必须同时含 `youtube.upload` + `youtube.force-ssl`（否则无法核验频道）。
 2. **核验频道**：上传前必须 `channels.list(mine=true)` 且 id == `UClX0iEG2bvJq8yUBEDamgDw`；不符则停下，提示用户用 Smthelping 所属账号重新授权（OAuth 上传到账号默认频道）。
 3. **上传**：`python3 scripts/yt_upload.py --video <mp4> --title "..." --description "..." --tags "a,b,c" --privacy public`。脚本会刷新令牌（access_token 会过期，**每次都刷新**）、分块上传、回读核验。
-4. SEO 元数据：标题含主关键词（型号 + 品类）；描述含章节时间轴 + 规格要点 + 联系方式（info@smthelp.com / smthelp.com / WhatsApp）+ hashtags；categoryId 28，madeForKids false。
+4. SEO 元数据：标题含主关键词（型号 + 品类），**必须 ≤100 字符**（YouTube 标题硬上限，超出报 invalidTitle 400）；描述含章节时间轴 + 规格要点 + 联系方式（info@smthelp.com / smthelp.com / WhatsApp）+ hashtags；categoryId 28，madeForKids false。
 
 ## 验证清单（交付前）
 
