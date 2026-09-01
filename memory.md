@@ -111,3 +111,9 @@
 - **Email**: info@smthelp.com, jasonwu@smthelp.com
 - **Address**: Xixiang, Baoan District, Shenzhen City, China
 - **ICP License**: 粤ICP备2025379782号
+
+## 本地仓库定义
+- **"本地仓库"**: https://github.com/smthelp/smthelp-skill
+- **本地路径**: D:\JasonWu\.opencode
+- **用途**: SMT Helper的skill配置文件和agent档案
+- **同步状态**: 已同步至GitHub远程仓库
