@@ -1,0 +1,45 @@
+# 空白工作流模板
+# 复制此模板，填充各字段后即为完整 TAOC 工作流
+
+workflow:
+  name: "工作流名称（中英文）"
+  category: "sales | marketing | intelligence | knowledge"
+  business_goal: "一句话说明这个流程提升什么业务指标"
+  target_metric: "Leads | Response Time | Conversion | Content Output | Knowledge Reuse"
+  owner: "Jason Wu"
+  schedule: "运行频率说明，如'每日 08:30'或'实时'"
+
+trigger:
+  type: "schedule | webhook | email | form | manual"
+  condition: "精确触发条件"
+  source: "数据来源说明"
+
+steps:
+  - name: "步骤1（动词开头）"
+    tool: "具体工具名"
+    input: "输入数据来源"
+    output: "输出数据格式"
+  - name: "步骤2"
+    tool: "..."
+    input: "..."
+    output: "..."
+  - name: "步骤3"
+    tool: "..."
+    input: "..."
+    output: "..."
+
+output:
+  format: "table | pdf | markdown | json | email_draft"
+  location: "存放位置"
+  fields: ["字段1", "字段2", "字段3"]
+
+cta:
+  action: "可执行的下一步动作"
+  target: "动作对象"
+  auto: true  # 对外沟通设 false，内部归档设 true
+
+# ---- 业务价值（必须填写）----
+# ## 业务价值
+# - **提升指标**：{指标名}（{改善描述}）
+# - **预估节省**：{每周节省 X 小时}
+# - **业务影响**：{对 Southern Machinery 的具体影响}

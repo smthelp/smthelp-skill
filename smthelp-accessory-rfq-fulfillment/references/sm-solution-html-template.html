@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Southern Machinery (SMTHELP) — [Solution Title]</title>
+<style>
+  :root{
+    --blue:#0b3d91; --blue2:#1565c0; --accent:#ff6a00; --ink:#1a2230; --muted:#5b6678;
+    --line:#e3e8f0; --bg:#f5f7fb; --chip:#eaf1ff; --ok:#1e7e34;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;font-family:"Segoe UI",Arial,"Helvetica Neue",sans-serif;color:var(--ink);background:var(--bg);line-height:1.6}
+  .wrap{max-width:980px;margin:0 auto;background:#fff;box-shadow:0 2px 18px rgba(0,0,0,.06)}
+  header{background:linear-gradient(135deg,var(--blue),var(--blue2));color:#fff;padding:34px 40px}
+  header .brand{display:flex;align-items:center;gap:14px}
+  header .logo{height:46px;width:auto;display:block}
+  header h1{margin:0;font-size:20px;letter-spacing:.3px}
+  header .sub{opacity:.9;font-size:13px;margin-top:2px}
+  .meta{display:flex;flex-wrap:wrap;gap:18px;margin-top:18px;font-size:13px}
+  .meta div{background:rgba(255,255,255,.12);padding:8px 14px;border-radius:8px}
+  .meta b{display:block;font-weight:600;opacity:.85;font-size:11px;text-transform:uppercase;letter-spacing:.5px}
+  section{padding:26px 40px;border-bottom:1px solid var(--line)}
+  h2{color:var(--blue);font-size:17px;margin:0 0 12px;display:flex;align-items:center;gap:10px}
+  h2 .n{background:var(--blue);color:#fff;width:26px;height:26px;border-radius:50%;display:inline-flex;align-items:center;justify-content:center;font-size:13px}
+  p{margin:8px 0;color:var(--ink)}
+  .muted{color:var(--muted)}
+  ul{margin:8px 0;padding-left:20px}
+  li{margin:5px 0}
+  table{width:100%;border-collapse:collapse;margin:14px 0;font-size:13.5px}
+  th,td{border:1px solid var(--line);padding:10px 12px;text-align:left;vertical-align:top}
+  th{background:var(--chip);color:var(--blue);font-weight:700}
+  tr:nth-child(even) td{background:#fafcff}
+  .pill{display:inline-block;background:var(--chip);color:var(--blue);border-radius:20px;padding:2px 10px;font-size:12px;font-weight:600}
+  .ok{color:var(--ok);font-weight:600}
+  .callout{background:#fff6ee;border-left:4px solid var(--accent);padding:12px 16px;border-radius:0 8px 8px 0;margin:12px 0;font-size:13.5px}
+  .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:14px;margin:14px 0}
+  .card{border:1px solid var(--line);border-radius:10px;padding:14px;background:#fbfdff}
+  .card b{color:var(--blue);display:block;margin-bottom:4px}
+  .cta{background:linear-gradient(135deg,var(--blue),var(--blue2));color:#fff;text-align:center;padding:30px 40px}
+  .cta a{color:#fff;font-weight:700;text-decoration:underline}
+  .cta .btn{display:inline-block;background:var(--accent);color:#fff;text-decoration:none;padding:12px 26px;border-radius:8px;font-weight:700;margin-top:14px}
+  footer{padding:18px 40px;font-size:12px;color:var(--muted);background:#f0f3f8}
+  .social{background:#0b1f3f;color:#cdd7ea;padding:26px 40px;text-align:center}
+  .social-title{color:#fff;font-weight:700;font-size:15px;margin-bottom:14px;letter-spacing:.3px}
+  .social-links{display:flex;flex-wrap:wrap;gap:10px;justify-content:center}
+  .social-links a{display:inline-block;background:rgba(255,255,255,.08);color:#fff;text-decoration:none;padding:8px 16px;border-radius:20px;font-size:13px;border:1px solid rgba(255,255,255,.15);transition:.2s}
+  .social-links a:hover{background:var(--accent);border-color:var(--accent)}
+  .social-extra{margin-top:16px;font-size:12.5px;color:#9fb0cc}
+  .social-extra a{color:#ffd0a8;font-weight:600;text-decoration:none}
+  .social-extra a:hover{text-decoration:underline}
+  .price{font-weight:700;color:var(--accent)}
+  @media print{body{background:#fff}.wrap{box-shadow:none}header{background:var(--blue)!important;-webkit-print-color-adjust:exact;print-color-adjust:exact}}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header>
+    <div class="brand">
+      <img class="logo" src="https://ph.smthelp.com/images/2024/06/26/Southern-Machinery-logo-300x83.png" alt="Southern Machinery" />
+      <div>
+        <h1>SOUTHERN MACHINERY · SMTHELP®</h1>
+        <div class="sub">Smart EMS Factory Solutions — SMT / THT / ESD / Wave Soldering</div>
+      </div>
+    </div>
+    <div class="meta">
+      <div><b>Prepared for</b>[Customer Name]<br/>[customer website]</div>
+      <div><b>Reference</b>[RFQ #]</div>
+      <div><b>Date</b>[YYYY-MM-DD]</div>
+      <div><b>Website</b>www.smthelp.com</div>
+    </div>
+  </header>
+
+  <section>
+    <h2><span class="n">1</span>Understanding Your Requirement</h2>
+    <p>[1–2 句概括客户清单与核心诉求]</p>
+    <table>
+      <tr><th>#</th><th>Your Item</th><th>Qty</th><th>Core Needs</th></tr>
+      <tr><td>1</td><td>[Item]</td><td>[qty]</td><td>[spec/notes]</td></tr>
+    </table>
+  </section>
+
+  <section>
+    <h2><span class="n">2</span>Why Southern Machinery (SMTHELP)</h2>
+    <div class="grid">
+      <div class="card"><b>Shenzhen since 2011</b>Vertically integrated production in-house.</div>
+      <div class="card"><b>Complete ecosystem</b>[品类] from one source.</div>
+      <div class="card"><b>Verified quality</b>Surface resistance 10⁴–10⁶ Ω (conductive) / 10⁶–10⁹ Ω (anti-static), ANSI/ESD S20.20 class.</div>
+      <div class="card"><b>Custom in 1 month</b>Tool & produce to exact dimensions/colors.</div>
+      <div class="card"><b>Global after-sales</b>Worldwide support, free install/training, 1-day spare parts.</div>
+      <div class="card"><b>Cost-effective</b>Factory-direct, high-yield solutions.</div>
+    </div>
+  </section>
+
+  <section>
+    <h2><span class="n">3</span>Recommended Solution (Item by Item)</h2>
+    <p><span class="pill">① [Item]</span> &nbsp;<b>SMTHELP [Model]</b></p>
+    <ul>
+      <li>[规格/适配点]</li>
+      <li>[定制点：链/轮/罩等]</li>
+    </ul>
+    <!-- 按客户需求逐条复制上面的 pill+ul 块 -->
+  </section>
+
+  <section>
+    <h2><span class="n">4</span>Quotation Summary</h2>
+    <p class="muted">Unit prices in <b>USD, FOB Shenzhen</b> — replace bracketed figures with your confirmed quote.</p>
+    <table>
+      <tr><th>#</th><th>SMTHELP Model</th><th>Type</th><th>Qty</th><th>Unit (USD)</th><th>Subtotal (USD)</th></tr>
+      <tr><td>1</td><td>[Model]</td><td>[Std/Custom]</td><td>[qty]</td><td class="price">[ ___ ]</td><td>[ ___ ]</td></tr>
+      <tr><th colspan="4">Total</th><th></th><th class="price">[ ___ ]</th></tr>
+    </table>
+  </section>
+
+  <section>
+    <h2><span class="n">5</span>Customization & Compliance</h2>
+    <ul>
+      <li>[定制项]</li>
+      <li><b>Compliance</b> — conductive 10⁴–10⁶ Ω; covers 10⁶–10⁹ Ω, aligned with ANSI/ESD S20.20.</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2><span class="n">6</span>Quality, Warranty & After-Sales</h2>
+    <div class="grid">
+      <div class="card"><b>Warranty</b>12-month limited warranty*</div>
+      <div class="card"><b>Worldwide support</b>Free install & training guides</div>
+      <div class="card"><b>Spare parts</b>1-day lead time</div>
+      <div class="card"><b>Custom</b>1-month tooling → sampling → mass production</div>
+      <div class="card"><b>QC</b>Each batch ships with test report</div>
+    </div>
+    <p class="muted">*Final warranty terms in the formal contract.</p>
+  </section>
+
+  <section>
+    <h2><span class="n">7</span>Logistics & Lead Time</h2>
+    <ul>
+      <li><b>Incoterms:</b> FOB Shenzhen / CIF / DDP on request.</li>
+      <li><b>Production:</b> standard 7–15 working days; custom 20–30 days.</li>
+      <li><b>Shipping:</b> sea/air to US; samples by express in 3–5 days.</li>
+    </ul>
+  </section>
+
+  <div class="cta">
+    <div style="font-size:18px;font-weight:700">Let's equip your smart EMS line with SMTHELP® solutions</div>
+    <div style="margin-top:8px">📧 sales@smthelp.com &nbsp;·&nbsp; 🌐 <a href="https://www.smthelp.com">www.smthelp.com</a> &nbsp;·&nbsp; 📱 WhatsApp / WeChat: <b>_[your direct line]_</b></div>
+    <div class="btn">Request a Formal Quote</div>
+    <div style="margin-top:14px;font-size:12px;opacity:.85">Welcome to visit our factory in Shenzhen, China.</div>
+  </div>
+
+  <div class="social">
+    <div class="social-title">Connect with Southern Machinery</div>
+    <div class="social-links">
+      <a href="https://www.linkedin.com/company/smtmachine" target="_blank" rel="noopener">LinkedIn Company Page</a>
+      <a href="https://cn.linkedin.com/in/smtsupplier" target="_blank" rel="noopener">LinkedIn Profile</a>
+      <a href="https://twitter.com/smtspecialist" target="_blank" rel="noopener">Twitter</a>
+      <a href="https://www.facebook.com/autoinsertion" target="_blank" rel="noopener">Facebook</a>
+      <a href="https://www.youtube.com/c/Smthelping" target="_blank" rel="noopener">YouTube Channel</a>
+    </div>
+    <div class="social-extra">Browse our machine catalog at <a href="https://file.autoinsertion.com" target="_blank" rel="noopener">file.autoinsertion.com</a> and find machine photos at <a href="https://ph.smthelp.com" target="_blank" rel="noopener">ph.smthelp.com</a>.</div>
+  </div>
+
+  <footer>
+    Generated from the official SMTHELP catalogue. Prices quoted separately. © Southern Machinery / SMTHELP.
+  </footer>
+
+</div>
+</body>
+</html>
