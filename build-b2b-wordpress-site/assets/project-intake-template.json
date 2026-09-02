@@ -1,0 +1,89 @@
+{
+  "project": {
+    "name": "Southern Machinery SMT/THT equipment website",
+    "status": "planning",
+    "launch_target": "YYYY-MM-DD",
+    "primary_goal": "Generate qualified SMT/THT equipment and line-solution inquiries"
+  },
+  "brand": {
+    "name": "Southern Machinery",
+    "positioning": "SMT / THT equipment and full-line solutions provider for smart EMS factories",
+    "logo_files": ["https://ph.smthelp.com/images/2024/06/26/Southern-Machinery-logo-300x83.png"],
+    "visual_references": []
+  },
+  "company": {
+    "legal_name": "Southern Machinery Sales and Service Co., Limited",
+    "factory_location": "Shenzhen, Guangdong, China",
+    "verified_claims": [],
+    "certifications": []
+  },
+  "market": {
+    "primary_language": "English",
+    "additional_languages": [],
+    "target_regions": ["Global"],
+    "buyer_types": ["EMS factories", "PCBA manufacturers", "Electronics OEMs", "Distributors"]
+  },
+  "products": {
+    "priority_categories": [
+      "THT Auto Insertion",
+      "SMT Line Equipment",
+      "Soldering Lines",
+      "Board Handling",
+      "Inspection & Traceability",
+      "Cleaning & Process Support"
+    ],
+    "estimated_count": 0,
+    "spreadsheet_paths": [],
+    "image_folders": []
+  },
+  "content": {
+    "factory_image_folders": [],
+    "project_image_folders": [],
+    "catalog_files": [],
+    "video_urls": ["https://www.youtube.com/c/Smthelping"],
+    "reference_sites": ["https://smthelp.org"]
+  },
+  "contact": {
+    "sales_email": "info@smthelp.com",
+    "telephone": "pending",
+    "whatsapp": "https://wa.me/8613602562576",
+    "map_url": "pending",
+    "inquiry_recipient_confirmed": false
+  },
+  "technical": {
+    "domain": "smthelp.com",
+    "registrar": "pending",
+    "dns_provider": "pending",
+    "vps_provider": "pending",
+    "vps_region": "pending",
+    "operating_system": "Ubuntu LTS",
+    "wordpress_status": "not installed",
+    "email_provider": "pending",
+    "access_status": {
+      "domain": false,
+      "dns": false,
+      "vps_ssh": false,
+      "wordpress_admin": false,
+      "analytics": false
+    }
+  },
+  "scope": {
+    "required_routes": [
+      "Home",
+      "SMT Line Equipment",
+      "THT Auto Insertion",
+      "Soldering Lines",
+      "Board Handling",
+      "Inspection & Traceability",
+      "Applications & Line Solutions",
+      "About & Factory",
+      "News",
+      "Video",
+      "Contact & RFQ"
+    ],
+    "requires_ecommerce": false,
+    "requires_multilingual": false,
+    "requires_google_ads_tracking": false
+  },
+  "notes": ["Confirm equipment specs from branded catalogs; mark unsupported facts as 待确认"]
+}

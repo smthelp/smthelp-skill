@@ -1,0 +1,18 @@
+# Runtime / environment dirs — never sync
+.venv/
+venv/
+node_modules/
+__pycache__/
+.pytest_cache/
+.sandbox/
+.sandbox-bin/
+.sandbox-secrets/
+
+# OS junk
+Thumbs.db
+.DS_Store
+desktop.ini
+
+# Temp
+*.tmp
+*.log

@@ -1,0 +1,4 @@
+interface:
+  display_name: "SMThelp Image SEO Upload"
+  short_description: "SEO WebP conversion and ph.smthelp.com upload"
+  default_prompt: "Use -image-seo-ph-upload to optimize product images as SEO WebP files and upload them to ph.smthelp.com."

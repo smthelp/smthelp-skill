@@ -1,0 +1,79 @@
+{
+  "productTitle": "Product Interactive 3D Viewer",
+  "companySlogan": "Specialized in design and manufacturing SMT THT machine for smart EMS Factory",
+  "eyebrow": "Interactive STEP model",
+  "category": "SMT/THT product visual reference",
+  "description": "Fast-loading WordPress-compatible single HTML interactive 3D viewer for a Southern Machinery product visual reference.",
+  "sourceNotice": "Fast interactive 3D visual reference. Product text loads first, then the optimized model opens in staged sections. Final machine fit, dimensions, and commercial specifications are to be confirmed.",
+  "rfqIntro": "For this product quotation, please provide these details first.",
+  "outputSlug": "product-interactive-3d-viewer",
+  "screenshotName": "product-interactive-3d-view",
+  "logoFile": "southern-machinery-logo.png",
+  "source": {
+    "step": "model.stp",
+    "pdf": null,
+    "native": null
+  },
+  "groundImages": [],
+  "downloads": {
+    "stepLabel": "STEP",
+    "pdfLabel": "3D PDF",
+    "nativeLabel": "CAD Source"
+  },
+  "performance": {
+    "embedStepDownload": false,
+    "lazy3dBoot": true,
+    "conversionProfile": "fast-compressed",
+    "stepDisplayMode": true
+  },
+  "marketingTiles": [
+    {
+      "label": "Features",
+      "text": "Optimized STEP visual reference, text-first page loading, browser-based 3D controls, and staged Step Mode display."
+    },
+    {
+      "label": "Advantages",
+      "text": "Makes geometry, clearance, layout, and integration discussions easier before engineering confirmation."
+    },
+    {
+      "label": "Benefits",
+      "text": "Reduces early design back-and-forth and helps customers understand the product concept faster, even before the 3D model finishes booting."
+    },
+    {
+      "label": "Applications",
+      "text": "Use this area to explain where the product is used in SMT, THT, board handling, or inspection workflows."
+    }
+  ],
+  "rfqItems": [
+    {
+      "label": "Machine model",
+      "text": "Exact production machine model, head/station, interface, and current part reference if available."
+    },
+    {
+      "label": "Detailed product drawing",
+      "text": "Dimensioned 2D/3D drawing of the target component, PCB, feeder, fixture, or process part."
+    },
+    {
+      "label": "Samples or photos",
+      "text": "Clear photos, sample availability, material, weight, packaging direction, and handling condition."
+    },
+    {
+      "label": "Application requirement",
+      "text": "Target output, process issue, orientation requirement, quality target, and clearance limits."
+    }
+  ],
+  "brand": {
+    "name": "Southern Machinery",
+    "url": "https://www.smthelp.com",
+    "catalogUrl": "https://file.autoinsertion.com"
+  },
+  "footerLinks": [
+    ["Official Website", "https://www.smthelp.com"],
+    ["LinkedIn Company Page", "https://www.linkedin.com/company/smtmachine"],
+    ["LinkedIn Profile", "https://cn.linkedin.com/in/smtsupplier"],
+    ["Twitter", "https://twitter.com/smtspecialist"],
+    ["Facebook", "https://www.facebook.com/autoinsertion"],
+    ["YouTube Channel", "https://www.youtube.com/c/Smthelping"]
+  ],
+  "photoUrl": "https://ph.smthelp.com"
+}
