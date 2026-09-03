@@ -2,7 +2,7 @@
 name: smt-product-poster
 description: "Southern Machinery 产品海报流水线 — 从产品 PDF/PPT 一键生成 SP-830 品牌模板风格的 16:9 高保真营销海报（PNG），自动生成 SEO 文件名/标题/描述/标签，保存本地并把海报 + 元数据推送到 GitHub 仓库 smthelping 系 poster 库（可开 GitHub Pages 展示页）。"
 whenToUse: "做产品海报，PPT转海报，PDF转海报，poster，营销海报生成，海报推仓库，poster SEO 元数据，smt-Machine-poster，Southern Machinery 产品宣传图"
-version: 1.0.0
+version: 1.0.1
 metadata:
   source: hermes
   origin: "marketing/smt-product-poster"
@@ -107,6 +107,8 @@ catalog quality, 4K.
 
 ⚠️ **open-image-2 的 edit 模式不接受 `aspect_ratio` / `resolution` / `web_search` 参数**（传了报 400；传空字符串报 schema 校验错），必须整个字段省略。横版比例靠 prompt 里 "wide 16:9 landscape" 控制。
 
+**批量模式（多型号一次出图，AGV 目录 17 型实测）**: 先为每个型号建一份文案数据表（model/slug/stat/feats/table），prompt 用同一骨架只换槽位；每波提交 4–5 个任务（`qwenwork_image_generate` 立即返回 task_id，可并行调用），记录 task_id↔型号 映射，再用并行 `wait` 回收。回收与下一波提交可流水重叠，全程 17 型约 15 分钟。
+
 ### Step 5 · 文字逐字校验（poster 规范，≤2 次重试）
 
 `qwenwork_media_task action=wait output_name=<语义中文名>` 取回 PNG 后，**用 Read 目检**：
@@ -180,6 +182,8 @@ Pages 站点即海报的永久分享直链（PNG raw URL 也可直接嵌邮件/�
 5. **gh 多账号**: 推送前 `gh auth switch --user {owner}`，推完切回；`gh api /user --jq .login` 确认当前身份。git remote 记住修正 `origin`（clone 后改地址）。
 6. **文字校验不可跳过**: AI 直出海报最常见的错是参数表数字和型号字母。
 7. **present 文件**: 最终用 `qwenwork_file_present_files` 展示 outputs 里的海报，不要只给路径。
+8. **批量提交任务卡 processing**: 并发 10+ 图生图任务时，部分任务会长时间停在 `status: processing` 且伴随 `Media provider request failed`（resumable，上游队列拥塞）。处理：对卡住任务 `wait` 重试 2–3 次（含 45–120s 间隔）仍无果，就**用相同参数重新提交新任务**，旧 task_id 留档不再等待；AGV 批次 5/17 卡死、重提交后 5/5 成功且均一次通过文字校验。
+9. **outputs 中间名与 SEO 名并存**: 回收时 media 工具按 output_name 落盘（如 `海报-{model}.png`），分发前统一复制为 SEO 文件名、把中间名移出 outputs，避免 present 时出现重复卡片。
 
 ## Verification（交付前逐项打勾）
 
@@ -192,6 +196,7 @@ Pages 站点即海报的永久分享直链（PNG raw URL 也可直接嵌邮件/�
 
 ## 升级路径（v1.x → v2）
 
+- **v1.0.1**（2026-09-03）: AGV 目录 17 型批量实战验证；新增批量流水提交策略（Step 4）与 Pitfall #8 任务卡 processing 重提交、#9 outputs 命名整理
 - **v1.1**: 模板注册表 `assets/templates.json`（多模板：SP-830 横版 / 9:16 竖版电商 / 1:1 社媒），一源多尺寸批量出图
 - **v1.2**: 批量模式——给一个文件夹自动扫描全部 PDF 逐个出海报（增量：以 `.meta.json` 是否存在 + PDF mtime 判断）
 - **v2.0**: 接入 `smthelp-image-hosting-workflow` 上传 ph.smthelp.com 图床，README 里同时写图床直链；Pages 升级为全站海报库（列表页自动生成）
