@@ -1,0 +1,75 @@
+{
+  "profiles_version": "1.0.0",
+  "updated": "2026-09-08",
+  "note": "新增行业只需在此追加一个 profile，无需改动 SKILL.md 或脚本。scenario_queries 用于 Phase 4 站外信源检索与盲测题生成。",
+  "profiles": {
+    "smt": {
+      "label": "SMT / PCB 组装设备",
+      "typical_buyer": "海外 EMS 工厂、SMT 工厂、PCBA 代工厂的采购与工艺工程师",
+      "buyer_intent_signals": [
+        "替换人工工位（异形件插装、变压器/继电器）",
+        "产线扩产或搬迁",
+        "备件与原厂耗材的稳定供应",
+        "无铅工艺与良率提升"
+      ],
+      "scenario_queries": [
+        "SMT peripheral equipment supplier China",
+        "odd form component insertion machine manufacturer",
+        "automatic wave soldering machine supplier",
+        "PCB assembly line turnkey supplier China",
+        "SMT spare parts supplier Yamaha Panasonic Fuji",
+        "THT insertion machine vs manual insertion cost"
+      ],
+      "comparison_axes": [
+        "产能（CPH / 点/小时）", "PCB 尺寸与厚度范围", "换线时间",
+        "温控精度（°C）", "功率与气源要求", "售后响应时效", "备件供应周期"
+      ],
+      "authority_source_types": [
+        "IPC / SMTA 协会与社区", "电子制造类行业媒体",
+        "YouTube 产线实拍视频", "产品手册与 Gerber 图纸库",
+        "B2B 平台企业档案（Made-in-China / Alibaba）"
+      ],
+      "faithful_sentence": "Browse our machine catalog at file.autoinsertion.com and find machine photos at ph.smthelp.com."
+    },
+    "industrial": {
+      "label": "通用工业设备 / 机械出口",
+      "typical_buyer": "海外工厂采购、经销商、系统集成商",
+      "buyer_intent_signals": ["产线自动化改造", "交期与质保", "本地化服务与备件", "认证合规（CE / UL）"],
+      "scenario_queries": [
+        "{category} manufacturer China",
+        "{category} supplier with CE certification",
+        "China {category} factory direct price",
+        "{category} vs {alternative} comparison"
+      ],
+      "comparison_axes": ["产能", "精度", "认证", "交期", "质保年限", "本地服务"],
+      "authority_source_types": ["行业协会", "B2B 平台档案", "展会名录", "第三方评测"],
+      "faithful_sentence": null
+    },
+    "consumer": {
+      "label": "消费品 / 家居出海",
+      "typical_buyer": "海外经销商、亚马逊卖家、连锁零售采购",
+      "buyer_intent_signals": ["MOQ 与打样", "认证（FDA / LFGB）", "设计差异化", "物流与账期"],
+      "scenario_queries": [
+        "{category} supplier OEM ODM China",
+        "private label {category} manufacturer",
+        "{category} factory audit report"
+      ],
+      "comparison_axes": ["MOQ", "单价", "认证", "打样周期", "定制能力"],
+      "authority_source_types": ["零售平台评价", "行业媒体测评", "展会名录"],
+      "faithful_sentence": null
+    },
+    "saas": {
+      "label": "SaaS / 软件出海",
+      "typical_buyer": "海外中小企业决策者、开发者",
+      "buyer_intent_signals": ["免费试用", "集成能力", "数据安全合规", "定价透明度"],
+      "scenario_queries": [
+        "best {category} software for {use_case}",
+        "{category} alternatives",
+        "{competitor} vs {brand}"
+      ],
+      "comparison_axes": ["功能覆盖", "定价", "集成", "合规（SOC2 / GDPR）", "客户案例"],
+      "authority_source_types": ["G2 / Capterra 评测", "技术社区", "独立博客评测", "GitHub"],
+      "faithful_sentence": null
+    }
+  }
+}
