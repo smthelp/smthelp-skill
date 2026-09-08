@@ -8,7 +8,7 @@ Synced from local agent skill directories (`.claude/skills`, `.agents/skills`, `
 | 分类 | 代表 Skills |
 |---|---|
 | **B2B 外贸系列** | b2b-buyer-persona, b2b-cold-outreach, b2b-customs-data, b2b-exhibition, b2b-lead-generation, b2b-linkedin-marketing, b2b-market-analysis, b2b-seo-aeo, b2b-sales-pipeline, b2b-trade-compliance, b2b-inquiry-training, smart-trade-ai 系列等 |
-| **SMT 业务 Skills** | smart-smt, smt-landing-page-skill, smthelp-image-seo-ph-upload |
+| **SMT 业务 Skills** | smart-smt, smt-landing-page-skill, smthelp-image-seo-ph-upload, product-html-blog-pipeline |
 | **飞书/钉钉办公** | lark-* (30+), dingtalk-* (14) |
 | **Cloudflare 开发** | cloudflare, workers-best-practices, wrangler, durable-objects, sandbox-sdk, agents-sdk, turnstile-spin 等 |
 | **AgentDB / ReasoningBank** | agentdb-* (5), reasoningbank-* (2), hooks-automation, swarm-orchestration, sparc-methodology 等 |
