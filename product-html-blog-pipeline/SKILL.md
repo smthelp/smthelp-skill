@@ -1,8 +1,9 @@
 ---
 name: product-html-blog-pipeline
 description: End-to-end pipeline that turns one document from the Obsidian "Product Html" folder into an English GEO+SEO B2B product blog on jasonwu.smthelp.eu and a matching image post on the Southern Machinery LinkedIn company page. Use for the hourly Product Html blog publisher automation, for manually publishing one product/marketing document, or for repairing a run where the blog published but LinkedIn failed.
-version: 1.0.0
+version: 1.0.1
 agent_created: true
+upstream: https://github.com/smthelp/smthelp-skill/tree/main/product-html-blog-pipeline
 ---
 
 # product-html-blog-pipeline
@@ -128,10 +129,25 @@ Nothing else.
 | LinkedIn `needs_token` | Set `LINKEDIN_ACCESS_TOKEN`. The blog stays published; never roll it back. |
 | `GET /rest/images/{id}` → 400 | Expected. Polling is skipped; the URN is valid after the PUT. |
 
+## Distribution
+
+Upstream: `https://github.com/smthelp/smthelp-skill` (private) →
+`product-html-blog-pipeline/`. Local copies: `~/.workbuddy/skills/` (this one, used by
+WorkBuddy) and `~/.agents/skills/` (SMPilot sync source — keep it there or the next
+SMPilot sync will drop the directory from the repo again).
+
+After editing: bump `version`, add an Upgrade-log row, then re-sync all three
+(`~/.workbuddy/skills` → `~/.agents/skills` → GitHub `main`).
+
 ## Upgrade log
 
 Keep this section sorted newest-first. Bump `version` in the frontmatter with every
 change, and add a row explaining **why** — future runs read this first.
+
+### 1.0.1 — 2026-09-08
+- Added `upstream` frontmatter + this Distribution section, and mirrored the skill into
+  `~/.agents/skills/`. Without the mirror the next SMPilot sync (codex → agents → claude)
+  would not see the directory and would drop it from the repo.
 
 ### 1.0.0 — 2026-09-08
 - Initial extraction from the hourly automation prompt + 74 published runs.
