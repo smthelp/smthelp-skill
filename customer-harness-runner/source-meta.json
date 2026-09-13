@@ -1,0 +1,14 @@
+{
+  "id": "customer-harness-runner",
+  "name": "客户包自检",
+  "source_type": "self-skill",
+  "repo": "本包自研",
+  "repo_url": "本包自研",
+  "extracted_from": "本包自研",
+  "local_path": "01_可用Skill源码/00_本包自研Skill/customer-harness-runner",
+  "license": "随商品包说明",
+  "author": "AI-Skill 商品化工作流工厂",
+  "status": "self-authored",
+  "install_note": "复制到目标 Agent Skill 目录。",
+  "verify_note": "Agent 能复述步骤并运行客户自检。"
+}

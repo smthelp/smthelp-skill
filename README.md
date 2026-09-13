@@ -8,8 +8,10 @@ Synced from local agent skill directories (`.claude/skills`, `.agents/skills`, `
 | 分类 | 代表 Skills |
 |---|---|
 | **B2B 外贸系列** | b2b-buyer-persona, b2b-cold-outreach, b2b-customs-data, b2b-exhibition, b2b-lead-generation, b2b-linkedin-marketing, b2b-market-analysis, b2b-seo-aeo, b2b-sales-pipeline, b2b-trade-compliance, b2b-inquiry-training, smart-trade-ai 系列等 |
-| **SMT 业务 Skills** | smart-smt, smt-landing-page-skill, smthelp-image-seo-ph-upload, product-html-blog-pipeline |
-| **飞书/钉钉办公** | lark-* (30+), dingtalk-* (14) |
+| **SMT 业务 Skills** | smart-smt, smt-landing-page-skill, smthelp-image-seo-ph-upload, product-html-blog-pipeline, smt-jizai, smthelp-trade-ai |
+| **飞书/钉钉/企业微信办公** | lark-* (30+), dingtalk-* (14), wecomcli-* (12), dws |
+| **Obsidian AI 知识库部署** | obsidian-ai-knowledge-deploy, obsidian-vault-tree-builder, customer-harness-runner |
+| **研究检索与技能发现** | agent-reach, find-skills, https-smthelp |
 | **Cloudflare 开发** | cloudflare, workers-best-practices, wrangler, durable-objects, sandbox-sdk, agents-sdk, turnstile-spin 等 |
 | **AgentDB / ReasoningBank** | agentdb-* (5), reasoningbank-* (2), hooks-automation, swarm-orchestration, sparc-methodology 等 |
 | **内容创作** | baoyu-* (20+), obsidian-*, excalidraw-diagram, mermaid-visualizer, json-canvas, cyber-ppt, html-ppt, quzhi-ai-brand-office-suite 等 |
@@ -28,3 +30,14 @@ Synced from local agent skill directories (`.claude/skills`, `.agents/skills`, `
 由 SMPilot 执行合并去重（codex → agents → claude 三源合并，同名目录文件级合并覆盖），主分支 `main`。
 
 — SMPilot, 2026-09-02
+
+### 2026-09-13 增量同步（Flux）
+
+扫描本机 Agent skill 目录后新增 19 个 skill：
+
+- **SMT 业务**：`smt-jizai`、`smthelp-trade-ai` —— SMT机仔 的外贸销售/技术顾问/内容营销技能档案
+- **Obsidian AI 知识库部署**：`obsidian-ai-knowledge-deploy`、`obsidian-vault-tree-builder`、`customer-harness-runner`
+- **企业微信 CLI**：`wecomcli-*`（12 个：会议 / 待办 / 通讯录 / 文档 / 日程 / 智能表格）
+- **研究检索**：`agent-reach`、`https-smthelp`
+
+注：`dws`、`find-skills` 远端已存在，本次跳过。本机 `.agents/skills` 下另有 733 个指向 `Documents/Google Workspace/external_skills/` 的符号链接已全部断链（源目录不存在），无内容可同步。
