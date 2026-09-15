@@ -1,0 +1,4 @@
+interface:
+  display_name: "Line Design"
+  short_description: "Design PCB assembly line concepts"
+  default_prompt: "Use $line-design to support a Southern Machinery sales task."

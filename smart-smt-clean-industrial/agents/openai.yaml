@@ -1,0 +1,6 @@
+interface:
+  display_name: "Smart-SMT Clean Industrial"
+  short_description: "Clean English SMT/THT marketing visuals for Southern Machinery"
+  default_prompt: "Use $smart-smt-clean-industrial to create three clean English visual concepts and imagegen prompts for a Southern Machinery SMT/THT automation campaign."
+policy:
+  allow_implicit_invocation: true

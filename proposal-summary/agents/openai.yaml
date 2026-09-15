@@ -1,0 +1,4 @@
+interface:
+  display_name: "Proposal Summary"
+  short_description: "Summarize automation proposals"
+  default_prompt: "Use $proposal-summary to support a Southern Machinery sales task."

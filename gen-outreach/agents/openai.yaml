@@ -1,0 +1,4 @@
+interface:
+  display_name: "Gen Outreach"
+  short_description: "Create targeted prospect outreach"
+  default_prompt: "Use $gen-outreach to draft a personalized Southern Machinery email and LinkedIn message."

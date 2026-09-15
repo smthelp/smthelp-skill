@@ -1,0 +1,6 @@
+interface:
+  display_name: "Smart-SMT Engineer Story"
+  short_description: "Engineer-led English story visuals for SMT/THT marketing"
+  default_prompt: "Use $smart-smt-engineer-story to create three English engineer-led illustration concepts and imagegen prompts for Southern Machinery SMT/THT automation content."
+policy:
+  allow_implicit_invocation: true

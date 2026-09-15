@@ -1,0 +1,4 @@
+interface:
+  display_name: "Product HyperFrames Video"
+  short_description: "Create reusable HyperFrames product videos"
+  default_prompt: "Use $product-hyperframes-video to create a 30-second product intro video with NotebookLM notes, remote assets, ROI highlights, HyperFrames validation, preview, and MP4 export."

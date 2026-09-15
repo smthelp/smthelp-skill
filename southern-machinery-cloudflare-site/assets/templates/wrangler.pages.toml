@@ -1,0 +1,21 @@
+name = "<PAGES_PROJECT_NAME>"
+pages_build_output_dir = "."
+compatibility_date = "<YYYY-MM-DD>"
+
+[vars]
+ENVIRONMENT = "production"
+
+[[d1_databases]]
+binding = "DB"
+database_name = "<D1_DATABASE_NAME>"
+database_id = "<CLOUDFLARE_GENERATED_D1_UUID>"
+
+[[r2_buckets]]
+binding = "IMAGES"
+bucket_name = "<R2_BUCKET_NAME>"
+
+[[kv_namespaces]]
+binding = "STATIC_ASSETS"
+id = "<CLOUDFLARE_GENERATED_KV_ID>"
+
+# Set sensitive values through Pages/Cloudflare secret management.

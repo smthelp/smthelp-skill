@@ -1,0 +1,4 @@
+interface:
+  display_name: "WP Landing Page Gen"
+  short_description: "Generate B2B WordPress landing pages"
+  default_prompt: "Use $wp-landing-page-gen to collect product specs and draft a professional B2B WordPress landing page."

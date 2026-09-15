@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-labelledby="title desc">
+  <title id="title">万界罗盘</title>
+  <desc id="desc">深色方形中的折叠舆图与证据路线</desc>
+  <rect width="512" height="512" rx="112" fill="#0B1C31"/>
+  <g fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M86 172 202 130l108 40 116-42v226l-116 42-108-40-116 42Z" stroke="#F4F0E6" stroke-width="24"/>
+    <path d="M202 130v226M310 170v226" stroke="#F4F0E6" stroke-width="16" opacity=".68"/>
+    <path d="M118 330c44-13 65-83 111-75 42 7 40 74 88 66 36-6 46-68 78-100" stroke="#D45D3F" stroke-width="20"/>
+    <circle cx="118" cy="330" r="14" fill="#0B1C31" stroke="#D45D3F" stroke-width="12"/>
+    <circle cx="229" cy="255" r="14" fill="#0B1C31" stroke="#D45D3F" stroke-width="12"/>
+    <circle cx="317" cy="321" r="14" fill="#0B1C31" stroke="#D45D3F" stroke-width="12"/>
+    <circle cx="395" cy="221" r="20" fill="#D45D3F" stroke="#F4F0E6" stroke-width="8"/>
+  </g>
+</svg>

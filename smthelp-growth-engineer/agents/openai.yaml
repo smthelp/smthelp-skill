@@ -1,0 +1,4 @@
+interface:
+  display_name: "SMThelp Growth Engineer"
+  short_description: "SMT/THT technical marketing copilot"
+  default_prompt: "Use $smthelp-growth-engineer to create Southern Machinery product copy with verified specs and CTA."

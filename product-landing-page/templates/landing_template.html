@@ -1,0 +1,545 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="S-680A SMT Reel Scrap Tape Cutter by Southern Machinery — automatic, ESD-safe scrap tape cutter for SMT lines. 4x blade life, PLC control, 220VAC, free installation & training.">
+<meta name="keywords" content="S-680A, SMT scrap tape cutter, reel tape cutter, automatic tape cutter, Southern Machinery, SMThelp, PCB assembly automation, EMS factory">
+<title>S-680A SMT Reel Scrap Tape Cutter | Southern Machinery</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --brand:#1C64F2;
+  --brand-dark:#0d3b8c;
+  --brand-light:#e8f0ff;
+  --accent:#f59e0b;
+  --ink:#0f172a;
+  --ink-2:#334155;
+  --muted:#64748b;
+  --bg:#f8fafc;
+  --card:#ffffff;
+  --line:#e2e8f0;
+  --shadow:0 10px 25px -10px rgba(15,23,42,.18);
+  --radius:14px;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;font-family:'Inter',system-ui,-apple-system,sans-serif;color:var(--ink);background:var(--bg);line-height:1.6;-webkit-font-smoothing:antialiased}
+img{max-width:100%;display:block}
+a{color:var(--brand);text-decoration:none}
+a:hover{text-decoration:underline}
+
+/* Header */
+.topbar{background:#0f172a;color:#cbd5e1;font-size:.82rem;padding:.4rem 0}
+.topbar .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:.6rem}
+.topbar a{color:#cbd5e1}
+.wrap{max-width:1200px;margin:0 auto;padding:0 1.25rem}
+
+header.site{background:#fff;border-bottom:1px solid var(--line);position:sticky;top:0;z-index:50;box-shadow:0 1px 2px rgba(0,0,0,.04)}
+.nav{display:flex;align-items:center;justify-content:space-between;gap:1.25rem;padding:.85rem 1.25rem;max-width:1200px;margin:0 auto}
+.brand{display:flex;align-items:center;gap:.75rem}
+.brand img{height:48px;width:auto}
+.brand .tagline{font-size:.78rem;color:var(--muted);max-width:220px;line-height:1.25}
+nav.menu{display:flex;gap:1.25rem;flex-wrap:wrap}
+nav.menu a{color:var(--ink-2);font-weight:500;font-size:.95rem}
+nav.menu a:hover{color:var(--brand);text-decoration:none}
+.cta-mini{background:var(--brand);color:#fff !important;padding:.55rem 1rem;border-radius:8px;font-weight:600}
+.cta-mini:hover{background:var(--brand-dark);text-decoration:none}
+@media(max-width:860px){.brand .tagline{display:none}nav.menu{display:none}}
+
+/* Hero */
+.hero{position:relative;color:#fff;padding:5rem 1.25rem 4.5rem;background:
+  linear-gradient(135deg, rgba(13,59,140,.92), rgba(28,100,242,.78)),
+  url('https://ph.smthelp.com/images/2025/06/08/Scrap-reel-tape-cutter.png') center/cover no-repeat;
+}
+.hero .wrap{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:1.1fr 1fr;gap:3rem;align-items:center}
+.eyebrow{display:inline-block;background:rgba(255,255,255,.15);padding:.35rem .85rem;border-radius:999px;font-size:.78rem;letter-spacing:.04em;text-transform:uppercase;font-weight:600;margin-bottom:1rem;border:1px solid rgba(255,255,255,.25)}
+.hero h1{font-size:clamp(2rem,3.6vw,3.1rem);font-weight:800;margin:0 0 1rem;line-height:1.15}
+.hero h1 .accent{color:#fcd34d}
+.hero p.lead{font-size:1.1rem;opacity:.95;margin:0 0 1.75rem;max-width:560px}
+.hero-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;margin:1.75rem 0 2rem;max-width:560px}
+.hero-stats .stat{background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.18);padding:.85rem;border-radius:10px;text-align:center;backdrop-filter:blur(4px)}
+.hero-stats .num{font-size:1.6rem;font-weight:800;color:#fcd34d;line-height:1}
+.hero-stats .lbl{font-size:.75rem;text-transform:uppercase;letter-spacing:.06em;opacity:.85;margin-top:.35rem}
+.btn{display:inline-block;padding:.85rem 1.6rem;border-radius:10px;font-weight:700;font-size:1rem;transition:transform .15s, box-shadow .2s, background .2s}
+.btn-primary{background:var(--accent);color:#0f172a !important}
+.btn-primary:hover{background:#fbbf24;text-decoration:none;transform:translateY(-1px);box-shadow:0 8px 20px -8px rgba(245,158,11,.7)}
+.btn-ghost{background:transparent;color:#fff !important;border:2px solid rgba(255,255,255,.6);margin-left:.6rem}
+.btn-ghost:hover{background:rgba(255,255,255,.12);text-decoration:none}
+.hero-image{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.18);border-radius:18px;padding:.75rem;backdrop-filter:blur(4px)}
+.hero-image img{border-radius:12px;width:100%;max-height:380px;object-fit:cover}
+@media(max-width:860px){.hero{padding:3rem 1rem}.hero .wrap{grid-template-columns:1fr;gap:2rem}.hero-stats{grid-template-columns:repeat(3,1fr)}}
+
+/* Sections */
+section.section{padding:4.5rem 1.25rem}
+.section-title{text-align:center;max-width:760px;margin:0 auto 2.75rem}
+.section-title .kicker{color:var(--brand);font-weight:700;text-transform:uppercase;font-size:.85rem;letter-spacing:.08em}
+.section-title h2{font-size:clamp(1.75rem,3vw,2.4rem);font-weight:800;margin:.4rem 0 .75rem;color:var(--ink)}
+.section-title p{color:var(--muted);font-size:1.05rem;margin:0}
+
+/* Pain → solution */
+.pain-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1.25rem;max-width:1100px;margin:0 auto}
+.pain-card{background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:1.5rem;box-shadow:var(--shadow);position:relative;overflow:hidden}
+.pain-card::before{content:"";position:absolute;left:0;top:0;height:4px;width:100%;background:linear-gradient(90deg,var(--brand),var(--accent))}
+.pain-card .pain{color:#dc2626;font-weight:700;font-size:.85rem;text-transform:uppercase;letter-spacing:.05em;margin-bottom:.4rem}
+.pain-card .pain::before{content:"⚠ ";}
+.pain-card h3{margin:.2rem 0 .6rem;font-size:1.1rem;font-weight:700}
+.pain-card .arrow{color:var(--brand);font-weight:800;margin:.5rem 0;font-size:.9rem}
+.pain-card .solution{color:var(--ink-2);font-size:.95rem}
+
+/* Features */
+.features-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:1.5rem;max-width:1100px;margin:0 auto}
+.feature{background:#fff;border-radius:var(--radius);padding:1.6rem;border:1px solid var(--line);transition:transform .2s, box-shadow .25s}
+.feature:hover{transform:translateY(-4px);box-shadow:var(--shadow)}
+.feature .icon{width:48px;height:48px;border-radius:12px;background:var(--brand-light);color:var(--brand);display:flex;align-items:center;justify-content:center;font-size:1.4rem;margin-bottom:1rem;font-weight:700}
+.feature h3{margin:0 0 .45rem;font-size:1.1rem;font-weight:700}
+.feature p{margin:0;color:var(--ink-2);font-size:.95rem}
+
+/* Specs */
+.specs-wrap{max-width:1000px;margin:0 auto;background:#fff;border-radius:var(--radius);box-shadow:var(--shadow);overflow:hidden;border:1px solid var(--line)}
+table.specs{width:100%;border-collapse:collapse}
+table.specs th,table.specs td{padding:1rem 1.25rem;text-align:left;border-bottom:1px solid var(--line);font-size:.96rem}
+table.specs th{background:#f1f5f9;color:var(--ink);font-weight:700;width:42%}
+table.specs tr:last-child th, table.specs tr:last-child td{border-bottom:none}
+table.specs tr:hover{background:#fafbff}
+
+/* Gallery */
+.gallery{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:1rem;max-width:1100px;margin:0 auto}
+.gallery img{border-radius:var(--radius);box-shadow:var(--shadow);height:260px;width:100%;object-fit:cover;background:#e2e8f0}
+.gallery .frame{position:relative;overflow:hidden;border-radius:var(--radius)}
+.gallery .frame::after{content:attr(data-label);position:absolute;left:1rem;bottom:1rem;background:rgba(15,23,42,.78);color:#fff;padding:.35rem .75rem;border-radius:6px;font-size:.78rem;font-weight:600}
+
+/* Videos */
+.videos{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:1.25rem;max-width:1100px;margin:0 auto}
+.vbox{position:relative;padding-bottom:56.25%;border-radius:var(--radius);overflow:hidden;box-shadow:var(--shadow);background:#000}
+.vbox iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+
+/* Benefits / ROI */
+.benefits-section{background:linear-gradient(135deg,#0f172a, #1e3a8a);color:#fff}
+.benefits-section .section-title h2{color:#fff}
+.benefits-section .section-title p{color:#cbd5e1}
+.benefits-section .section-title .kicker{color:#fcd34d}
+.benefit-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:1.25rem;max-width:1100px;margin:0 auto}
+.benefit{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.12);border-radius:var(--radius);padding:1.5rem;backdrop-filter:blur(4px)}
+.benefit .big{font-size:2rem;font-weight:800;color:#fcd34d;line-height:1;margin-bottom:.5rem}
+.benefit h3{margin:0 0 .45rem;font-size:1.05rem;font-weight:700;color:#fff}
+.benefit p{margin:0;color:#cbd5e1;font-size:.92rem}
+
+/* Compatibility / FAQ */
+.compat{max-width:1000px;margin:0 auto;background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:2rem;box-shadow:var(--shadow)}
+.compat ul{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:.6rem;list-style:none;padding:0;margin:1rem 0 0}
+.compat li{background:var(--brand-light);color:var(--brand-dark);padding:.55rem .9rem;border-radius:8px;font-weight:600;text-align:center;font-size:.92rem;border:1px solid #c7daff}
+
+details.faq{background:#fff;border:1px solid var(--line);border-radius:12px;margin-bottom:.65rem;box-shadow:0 1px 2px rgba(0,0,0,.03);max-width:900px;margin-left:auto;margin-right:auto}
+details.faq summary{padding:1.1rem 1.3rem;font-weight:600;cursor:pointer;list-style:none;display:flex;justify-content:space-between;align-items:center;color:var(--ink)}
+details.faq summary::-webkit-details-marker{display:none}
+details.faq summary::after{content:"+";color:var(--brand);font-size:1.4rem;font-weight:700;transition:transform .2s}
+details.faq[open] summary::after{content:"–"}
+details.faq[open] summary{color:var(--brand)}
+details.faq .body{padding:0 1.3rem 1.2rem;color:var(--ink-2);font-size:.96rem}
+
+/* Service strip */
+.service-strip{background:var(--brand-light);padding:3rem 1.25rem}
+.service-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1.25rem;max-width:1100px;margin:0 auto;text-align:center}
+.svc{padding:1rem}
+.svc .ico{font-size:2rem;margin-bottom:.5rem}
+.svc h4{margin:.25rem 0;color:var(--brand-dark);font-size:1.05rem}
+.svc p{margin:0;color:var(--ink-2);font-size:.9rem}
+
+/* CTA */
+.cta-final{padding:4.5rem 1.25rem;background:linear-gradient(135deg,var(--brand),var(--brand-dark));color:#fff;text-align:center}
+.cta-final h2{font-size:clamp(1.8rem,3vw,2.4rem);font-weight:800;margin:0 0 .75rem}
+.cta-final p{font-size:1.1rem;opacity:.95;max-width:640px;margin:0 auto 2rem}
+.cta-final .actions{display:flex;justify-content:center;flex-wrap:wrap;gap:.75rem}
+.cta-final .btn-primary{padding:1rem 2rem}
+
+/* Footer */
+footer.site{background:#0f172a;color:#cbd5e1;padding:3.5rem 1.25rem 1.5rem}
+.foot-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr 1.2fr;gap:2rem;max-width:1200px;margin:0 auto 2rem}
+@media(max-width:860px){.foot-grid{grid-template-columns:1fr 1fr}}
+@media(max-width:520px){.foot-grid{grid-template-columns:1fr}}
+.foot-grid h5{color:#fff;font-size:1rem;margin:0 0 1rem;font-weight:700;text-transform:uppercase;letter-spacing:.05em}
+.foot-grid a{color:#cbd5e1;display:block;padding:.25rem 0;font-size:.92rem}
+.foot-grid a:hover{color:#fff}
+.foot-brand img{height:50px;background:#fff;padding:.4rem .65rem;border-radius:8px;margin-bottom:1rem}
+.foot-brand p{color:#94a3b8;font-size:.9rem;line-height:1.55}
+.social{display:flex;gap:.6rem;flex-wrap:wrap;margin-top:.85rem}
+.social a{display:inline-flex;align-items:center;justify-content:center;width:38px;height:38px;background:#1e293b;border-radius:50%;padding:0;transition:background .2s, transform .2s}
+.social a:hover{background:var(--brand);transform:translateY(-2px)}
+.social svg{width:18px;height:18px;fill:#fff}
+.foot-bot{border-top:1px solid #1e293b;padding-top:1.25rem;text-align:center;font-size:.85rem;color:#94a3b8;max-width:1200px;margin:0 auto}
+.foot-bot a{color:#cbd5e1}
+.contact-line{display:flex;align-items:center;gap:.5rem;margin-bottom:.5rem;color:#cbd5e1;font-size:.92rem}
+.contact-line svg{width:16px;height:16px;fill:#94a3b8;flex-shrink:0}
+
+/* Floating WhatsApp */
+.fab{position:fixed;right:1.25rem;bottom:1.25rem;background:#25D366;color:#fff;width:56px;height:56px;border-radius:50%;display:flex;align-items:center;justify-content:center;box-shadow:0 8px 22px rgba(37,211,102,.45);z-index:60;transition:transform .2s}
+.fab:hover{transform:scale(1.08);text-decoration:none}
+.fab svg{width:28px;height:28px;fill:#fff}
+
+@media print{.fab,.topbar,.cta-final,.btn-ghost{display:none !important}}
+</style>
+</head>
+<body>
+
+<!-- Top bar -->
+<div class="topbar">
+  <div class="wrap">
+    <span>📞 +86 13602562576 &nbsp;·&nbsp; ✉ <a href="mailto:jasonwu@smthelp.com">jasonwu@smthelp.com</a></span>
+    <span>🏭 Shenzhen, China · Smart PCB Assembly Automation Since 2011</span>
+  </div>
+</div>
+
+<!-- Header -->
+<header class="site">
+  <div class="nav">
+    <a href="https://www.smthelp.com" class="brand" aria-label="Southern Machinery">
+      <img src="https://ph.smthelp.com/images/2024/06/26/Southern-Machinery-logo-300x83.png" alt="Southern Machinery Logo">
+      <span class="tagline">Your Trusted Partner for SMT &amp; THT Solutions</span>
+    </a>
+    <nav class="menu">
+      <a href="#features">Features</a>
+      <a href="#specs">Specifications</a>
+      <a href="#gallery">Gallery</a>
+      <a href="#videos">Videos</a>
+      <a href="#faq">FAQ</a>
+      <a href="#contact" class="cta-mini">Get a Quote</a>
+    </nav>
+  </div>
+</header>
+
+<!-- Hero -->
+<section class="hero" id="home">
+  <div class="wrap">
+    <div>
+      <span class="eyebrow">SMT Peripheral Equipment · Reel Tape Cutter</span>
+      <h1>S-680A SMT Reel <span class="accent">Scrap Tape Cutter</span></h1>
+      <p class="lead">Eliminate manual scissor work, keep your SMT line ESD-safe and audit-ready, and free 1 operator across 2-3 lines — with an automatic reel tape cutter built for high-mix EMS factories.</p>
+      <div class="hero-stats">
+        <div class="stat"><div class="num">4×</div><div class="lbl">Blade Life</div></div>
+        <div class="stat"><div class="num">76</div><div class="lbl">mm/sec Cut</div></div>
+        <div class="stat"><div class="num">&lt;6</div><div class="lbl">Mo. Payback*</div></div>
+      </div>
+      <a href="#contact" class="btn btn-primary">Request Free Quote →</a>
+      <a href="#videos" class="btn btn-ghost">Watch It Run</a>
+    </div>
+    <div class="hero-image">
+      <img src="https://ph.smthelp.com/images/2025/06/08/tape-cutter.png" alt="S-680A SMT Reel Scrap Tape Cutter machine">
+    </div>
+  </div>
+</section>
+
+<!-- Pain → Solution -->
+<section class="section" id="why">
+  <div class="section-title">
+    <div class="kicker">Why an Automatic Tape Cutter</div>
+    <h2>Manual scrap tape cutting is bleeding your SMT line</h2>
+    <p>Hand-cutting waste tape with scissors is slow, unsafe, and creates SMT pickup faults. The S-680A turns this dirty, repetitive task into a hands-off process — running quietly next to every SMT mounter that needs it.</p>
+  </div>
+  <div class="pain-grid">
+    <div class="pain-card">
+      <div class="pain">Pain</div>
+      <h3>Operators stand at the line cutting tape with scissors</h3>
+      <div class="arrow">→ With S-680A</div>
+      <p class="solution">Auto-feed + auto-cut with bidirectional gear positioning. Free 1 operator per 2-3 lines for higher-value tasks.</p>
+    </div>
+    <div class="pain-card">
+      <div class="pain">Pain</div>
+      <h3>Loose scrap tape jams feeders &amp; pickup heads</h3>
+      <div class="arrow">→ With S-680A</div>
+      <p class="solution">Cut pieces drop directly into a sealed ESD-safe collection bin — no more tape blow-back into the line.</p>
+    </div>
+    <div class="pain-card">
+      <div class="pain">Pain</div>
+      <h3>Tier-1 customer audits flag a messy SMT floor</h3>
+      <div class="arrow">→ With S-680A</div>
+      <p class="solution">Centralized, enclosed scrap collection that visibly upgrades your 5S score and pass-rate on big-brand audits.</p>
+    </div>
+    <div class="pain-card">
+      <div class="pain">Pain</div>
+      <h3>Workplace safety risk from open scissor work</h3>
+      <div class="arrow">→ With S-680A</div>
+      <p class="solution">Enclosed blade unit, emergency stop, auto jam-reverse alarm, ESD-safe waste box — designed for safe operator interaction.</p>
+    </div>
+    <div class="pain-card">
+      <div class="pain">Pain</div>
+      <h3>Conventional cutters jam on glue, foil &amp; embossed tapes</h3>
+      <div class="arrow">→ With S-680A</div>
+      <p class="solution">Hard high-speed steel blades on a scissor-action principle — paper tape 8-32 mm and embossed plastic, 0.05-1.5 mm thick.</p>
+    </div>
+    <div class="pain-card">
+      <div class="pain">Pain</div>
+      <h3>OEM cutters cost too much and ship parts slowly</h3>
+      <div class="arrow">→ With S-680A</div>
+      <p class="solution">Shenzhen-built, sales-direct pricing, 1-day spare-parts dispatch, free installation &amp; training, worldwide service.</p>
+    </div>
+  </div>
+</section>
+
+<!-- Features -->
+<section class="section" id="features" style="background:#fff;border-top:1px solid var(--line);border-bottom:1px solid var(--line)">
+  <div class="section-title">
+    <div class="kicker">Engineered for Production</div>
+    <h2>Key Features &amp; Engineered Advantages</h2>
+    <p>Every detail of the S-680A is tuned for one goal: keep cutting reliably, shift after shift, on every SMT mounter on your floor.</p>
+  </div>
+  <div class="features-grid">
+    <div class="feature">
+      <div class="icon">⚙</div>
+      <h3>Fully Automatic Cutting</h3>
+      <p>Microcomputer + motor-driven inlet runs continuously. Auto-stop when the bin is full or removed.</p>
+    </div>
+    <div class="feature">
+      <div class="icon">📏</div>
+      <h3>Adjustable Length &amp; Cycle</h3>
+      <p>3 preset cutting zones (combinable into 6 lengths, ~5-150 mm) and Short / Medium / Long pause times.</p>
+    </div>
+    <div class="feature">
+      <div class="icon">🗡</div>
+      <h3>4× Longer Blade Lifespan</h3>
+      <p>Vertical hard high-speed-steel blades cut on a scissor principle — far less downtime for blade swaps.</p>
+    </div>
+    <div class="feature">
+      <div class="icon">🛡</div>
+      <h3>ESD-Safe Collection Bin</h3>
+      <p>Anti-static, wear-resistant collection box. Slide it out, empty, slide it back — machine auto-resumes.</p>
+    </div>
+    <div class="feature">
+      <div class="icon">🔁</div>
+      <h3>Auto Jam Recovery</h3>
+      <p>If it jams, the machine reverses and retries; if not cleared, it stops with a buzzer for safe operator action.</p>
+    </div>
+    <div class="feature">
+      <div class="icon">🔌</div>
+      <h3>Plug-and-Play 220 V</h3>
+      <p>Single-phase 220 VAC, only 100 W. Compact 900 × 220 × 400 mm footprint, 4 braked casters for easy moves.</p>
+    </div>
+    <div class="feature">
+      <div class="icon">🔇</div>
+      <h3>Quiet, Clean Operation</h3>
+      <p>Less than 70 dB noise. Sealed waste path keeps debris off the floor and out of pickup zones.</p>
+    </div>
+    <div class="feature">
+      <div class="icon">🤝</div>
+      <h3>Universal Brand Compatibility</h3>
+      <p>Works alongside Yamaha, FUJI, JUKI, Samsung, Panasonic and Universal SMT lines that need scrap tape cut.</p>
+    </div>
+    <div class="feature">
+      <div class="icon">🌐</div>
+      <h3>Worldwide After-Sales</h3>
+      <p>Free installation &amp; training, 1-day lead time on spare parts, online support from Shenzhen engineers.</p>
+    </div>
+  </div>
+</section>
+
+<!-- Benefits / Stats -->
+<section class="section benefits-section">
+  <div class="section-title">
+    <div class="kicker">Operational Impact</div>
+    <h2>What changes on your SMT floor</h2>
+    <p>Real, measurable improvements EMS managers care about — not marketing fluff.</p>
+  </div>
+  <div class="benefit-grid">
+    <div class="benefit">
+      <div class="big">−1</div>
+      <h3>Operator per 2-3 lines</h3>
+      <p>Reassign the scissor-cutting headcount to higher-value setup, QC, or feeder prep tasks.</p>
+    </div>
+    <div class="benefit">
+      <div class="big">↓ Stops</div>
+      <h3>Fewer pickup faults</h3>
+      <p>Sealed scrap collection eliminates loose tape that fouls feeders and SMT pickup heads.</p>
+    </div>
+    <div class="benefit">
+      <div class="big">5S ↑</div>
+      <h3>Audit-ready cleanliness</h3>
+      <p>A visibly cleaner SMT floor — easier wins on Tier-1 EMS and OEM customer audits.</p>
+    </div>
+    <div class="benefit">
+      <div class="big">&lt; 6 mo</div>
+      <h3>Typical payback*</h3>
+      <p>By labor saving alone in most regions. Final ROI subject to wage rate &amp; line count — confirm with our team.</p>
+    </div>
+  </div>
+  <p style="text-align:center;color:#94a3b8;font-size:.82rem;max-width:760px;margin:1.75rem auto 0">*Indicative ROI based on typical EMS labor wages and 2-shift operation. Always validated case-by-case during quotation.</p>
+</section>
+
+<!-- Specs -->
+<section class="section" id="specs">
+  <div class="section-title">
+    <div class="kicker">Technical Datasheet</div>
+    <h2>S-680A Specifications</h2>
+    <p>Catalog values — items outside this table should be confirmed in writing with our engineering team.</p>
+  </div>
+  <div class="specs-wrap">
+    <table class="specs">
+      <tbody>
+        <tr><th>Cutting Mechanism</th><td>Rotational circular gear blades (hard high-speed steel, scissor-principle)</td></tr>
+        <tr><th>Compatible Tape</th><td>Paper tape 8 – 32 mm; embossed plastic; very thin vinyl tape <em>not</em> recommended</td></tr>
+        <tr><th>Tape Thickness</th><td>0.05 – 1.5 mm</td></tr>
+        <tr><th>Cutting Speed</th><td>76 mm / sec</td></tr>
+        <tr><th>Effective Cutting Length</th><td>755 mm</td></tr>
+        <tr><th>Cutting Zones</th><td>3 presets (combinable into 6 lengths, ~5 – 150 mm)</td></tr>
+        <tr><th>Pause Time</th><td>Short / Medium / Long (selectable)</td></tr>
+        <tr><th>External Dimensions (L × W × H)</th><td>900 × 220 × 400 mm</td></tr>
+        <tr><th>Weight</th><td>~ 65 kg (4 braked casters)</td></tr>
+        <tr><th>Power Supply</th><td>220 VAC, single-phase, 50/60 Hz</td></tr>
+        <tr><th>Power Consumption</th><td>100 W</td></tr>
+        <tr><th>Noise Level</th><td>&lt; 70 dB</td></tr>
+        <tr><th>Control System</th><td>Microcomputer + motor-driven inlet, bidirectional gear positioning</td></tr>
+        <tr><th>Safety</th><td>Emergency stop, auto jam-reverse alarm, ESD-safe waste box</td></tr>
+        <tr><th>Collection Bin</th><td>Anti-static, slide-out, sensor-monitored full-bin alarm</td></tr>
+        <tr><th>Auxiliary Parts</th><td>Power cord, ground wire, spare 1 A fuse</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- Compatibility -->
+<section class="section" id="compat" style="background:#fff;border-top:1px solid var(--line)">
+  <div class="section-title">
+    <div class="kicker">Brand &amp; Tape Compatibility</div>
+    <h2>Drops in next to virtually any SMT line</h2>
+    <p>The S-680A is brand-agnostic — it sits beside the mounter and cuts the scrap tape coming off the back. No PLC integration required.</p>
+  </div>
+  <div class="compat">
+    <strong>Compatible alongside SMT mounters from:</strong>
+    <ul>
+      <li>Yamaha</li><li>FUJI</li><li>JUKI</li><li>Samsung</li><li>Panasonic</li><li>Universal Instruments</li><li>Siemens / ASM</li><li>Other major OEMs</li>
+    </ul>
+    <p style="margin:1.25rem 0 .5rem;color:var(--ink-2)"><strong>Tape types tested:</strong> paper carrier 8 / 12 / 16 / 24 / 32 mm · embossed plastic · standard cover tape. Very thin vinyl tape is not recommended — please send a sample for free trial cutting.</p>
+  </div>
+</section>
+
+<!-- Gallery -->
+<section class="section" id="gallery">
+  <div class="section-title">
+    <div class="kicker">Machine Gallery</div>
+    <h2>See the S-680A up close</h2>
+    <p>Compact, mobile, and built for daily abuse on a busy SMT floor.</p>
+  </div>
+  <div class="gallery">
+    <div class="frame" data-label="Front view"><img src="https://ph.smthelp.com/images/2025/06/08/tape-cutter.png" alt="S-680A front view"></div>
+    <div class="frame" data-label="In-line operation"><img src="https://ph.smthelp.com/images/2025/06/08/Scrap-reel-tape-cutter.png" alt="S-680A reel scrap tape cutter on the SMT floor"></div>
+    <div class="frame" data-label="Reference photo"><img src="https://www.smthelp.net/wp-content/uploads/2019/04/S-680A-automatic-scrap-tape-cutting-machine..png" alt="S-680A automatic scrap tape cutting machine reference"></div>
+  </div>
+</section>
+
+<!-- Videos -->
+<section class="section" id="videos" style="background:#fff;border-top:1px solid var(--line)">
+  <div class="section-title">
+    <div class="kicker">Working Video</div>
+    <h2>Watch the S-680A run</h2>
+    <p>Real footage from our Shenzhen factory and customer lines worldwide.</p>
+  </div>
+  <div class="videos">
+    <div class="vbox"><iframe src="https://www.youtube.com/embed/1R0NDsWdMN8" title="S-680A demo 1" loading="lazy" allowfullscreen></iframe></div>
+    <div class="vbox"><iframe src="https://www.youtube.com/embed/bT-uI3Vptok" title="S-680A demo 2" loading="lazy" allowfullscreen></iframe></div>
+    <div class="vbox"><iframe src="https://www.youtube.com/embed/p8kY3BG_MKY" title="S-680A demo 3" loading="lazy" allowfullscreen></iframe></div>
+    <div class="vbox"><iframe src="https://www.youtube.com/embed/FpkiWPIPFtg" title="S-680A demo 4" loading="lazy" allowfullscreen></iframe></div>
+  </div>
+</section>
+
+<!-- Service strip -->
+<section class="service-strip">
+  <div class="section-title" style="margin-bottom:2rem">
+    <div class="kicker">After-Sales &amp; Service</div>
+    <h2 style="font-size:1.7rem">A buying experience built around your uptime</h2>
+  </div>
+  <div class="service-grid">
+    <div class="svc"><div class="ico">🛠</div><h4>Free Installation &amp; Training</h4><p>Remote or on-site setup &amp; operator training included with new orders.</p></div>
+    <div class="svc"><div class="ico">📦</div><h4>1-Day Spare Parts Dispatch</h4><p>Common wear parts shipped from Shenzhen within one working day.</p></div>
+    <div class="svc"><div class="ico">🌍</div><h4>Worldwide Support</h4><p>237+ EMS customers globally — engineers reachable by email, WhatsApp, and online meeting.</p></div>
+    <div class="svc"><div class="ico">📅</div><h4>12-Month Warranty</h4><p>Standard 12-month warranty from purchase date; non-human-error issues repaired free of charge.</p></div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="section" id="faq">
+  <div class="section-title">
+    <div class="kicker">Buyer FAQ</div>
+    <h2>What EMS engineers usually ask</h2>
+    <p>Direct answers from our datasheet and operating manual. Need something more specific? Reply to this page or email <a href="mailto:jasonwu@smthelp.com">jasonwu@smthelp.com</a>.</p>
+  </div>
+  <details class="faq" open>
+    <summary>Which tapes can the S-680A cut?</summary>
+    <div class="body">Paper carrier tape 8 – 32 mm wide and embossed plastic tape, in thicknesses from 0.05 to 1.5 mm. Very thin vinyl tape is not recommended — send us a sample for free trial cutting before ordering.</div>
+  </details>
+  <details class="faq">
+    <summary>How is cutting length adjusted?</summary>
+    <div class="body">Three preset cutting zones can be selected individually or combined to give 6 effective length settings in roughly the 5 – 150 mm range. Power off → on → press [SET] → use ↑/↓ to choose zone(s) → press [ON] at AUTO to resume.</div>
+  </details>
+  <details class="faq">
+    <summary>What happens if the machine jams?</summary>
+    <div class="body">The machine attempts an auto-reverse to clear the jam. If unsuccessful it stops and sounds a buzzer. The operator hits Emergency Stop, jogs the blade away from the jam with the directional buttons, clears the material manually, and resumes AUTO.</div>
+  </details>
+  <details class="faq">
+    <summary>Does it work with my Yamaha / FUJI / JUKI / Universal mounter?</summary>
+    <div class="body">Yes — the S-680A is brand-agnostic. It sits next to the mounter and cuts the scrap tape coming off the back. There is no electrical or PLC integration with the mounter required.</div>
+  </details>
+  <details class="faq">
+    <summary>What is the typical ROI / payback?</summary>
+    <div class="body">In most labor markets, paying back the machine in under 6 months from labor savings alone is realistic. Actual ROI depends on local wage, the number of SMT lines it services, and shift count. We can build a transparent ROI model with your numbers — request it via the quote form.</div>
+  </details>
+  <details class="faq">
+    <summary>What maintenance does it need?</summary>
+    <div class="body">Empty the trash bin as required, replace the blade as required, check the helical gear every 3 months, lubricate the LM shaft as required, and check the belt tension monthly (adjust as required). The operating manual includes step-by-step procedures and part numbers.</div>
+  </details>
+  <details class="faq">
+    <summary>What's the warranty &amp; lead time?</summary>
+    <div class="body">12-month warranty from purchase date for non-human-error issues. Lead time depends on order size and stock — confirmed in writing on the formal quotation. Spare parts dispatched in 1 working day from Shenzhen.</div>
+  </details>
+</section>
+<section class="cta-final" id="contact"><h2>Ready to retire the scissors?</h2><p>Tell us your SMT line setup and we will reply within 24 hours with a tailored S-680A configuration, sample tape test, and transparent ROI model — no hard sell.</p><div class="actions"><a href="mailto:jasonwu@smthelp.com?subject=S-680A%20Quote%20Request" class="btn btn-primary">Email for a Quote</a><a href="https://api.whatsapp.com/send?phone=8613602562576&text=Hi%20Jason%2C%20I%27d%20like%20a%20quote%20for%20the%20S-680A." class="btn btn-ghost" target="_blank" rel="noopener">WhatsApp Jason</a></div><p style="font-size:.85rem;opacity:.8;margin-top:1.5rem">📧 jasonwu@smthelp.com &nbsp;·&nbsp; 📱 +86 13602562576 &nbsp;·&nbsp; 🌐 <a href="https://www.smthelp.com" style="color:#fcd34d">www.smthelp.com</a></p></section><footer class="site">
+  <div class="foot-grid">
+    <div class="foot-brand">
+      <img src="https://ph.smthelp.com/images/2024/06/26/Southern-Machinery-logo-300x83.png" alt="Southern Machinery">
+      <p><strong>Southern Machinery Co., Ltd.</strong><br>
+      Shenzhen, China · since 2011<br>
+      Smart PCB Assembly Automation<br>
+      237+ EMS customers worldwide</p>
+      <div class="social" aria-label="Social media">
+        <a href="https://www.linkedin.com/company/smtmachine" target="_blank" rel="noopener" aria-label="LinkedIn Company"><svg viewBox="0 0 24 24"><path d="M20.45 20.45h-3.55v-5.57c0-1.33-.03-3.04-1.85-3.04-1.85 0-2.13 1.45-2.13 2.94v5.67H9.36V9h3.41v1.56h.05c.47-.9 1.63-1.85 3.36-1.85 3.59 0 4.26 2.36 4.26 5.43v6.31zM5.34 7.43a2.06 2.06 0 1 1 0-4.11 2.06 2.06 0 0 1 0 4.11zm1.78 13.02H3.56V9h3.56v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.72v20.55C0 23.22.79 24 1.77 24h20.45C23.21 24 24 23.22 24 22.27V1.72C24 .77 23.21 0 22.22 0z"/></svg></a>
+        <a href="https://cn.linkedin.com/in/smtsupplier" target="_blank" rel="noopener" aria-label="LinkedIn Profile"><svg viewBox="0 0 24 24"><path d="M12 2a10 10 0 1 0 10 10A10 10 0 0 0 12 2zm-1 14H9v-6h2zm-1-7a1 1 0 1 1 1-1 1 1 0 0 1-1 1zm6 7h-2v-3.26c0-.78-.28-1.31-1-1.31s-1 .53-1 1.31V16h-2v-6h2v.74A1.94 1.94 0 0 1 14.5 10c1.4 0 2.5.92 2.5 2.92z"/></svg></a>
+        <a href="https://twitter.com/smtspecialist" target="_blank" rel="noopener" aria-label="Twitter"><svg viewBox="0 0 24 24"><path d="M22.46 6c-.77.34-1.6.57-2.46.67a4.27 4.27 0 0 0 1.88-2.36 8.59 8.59 0 0 1-2.72 1.04 4.28 4.28 0 0 0-7.29 3.9A12.14 12.14 0 0 1 3.11 4.79a4.28 4.28 0 0 0 1.32 5.71 4.27 4.27 0 0 1-1.94-.54v.06a4.28 4.28 0 0 0 3.43 4.2 4.3 4.3 0 0 1-1.93.07 4.28 4.28 0 0 0 4 2.97 8.59 8.59 0 0 1-5.32 1.83A8.7 8.7 0 0 1 1 18.95a12.13 12.13 0 0 0 6.56 1.92c7.88 0 12.19-6.53 12.19-12.19 0-.19 0-.37-.01-.56A8.7 8.7 0 0 0 22.46 6z"/></svg></a>
+        <a href="https://www.facebook.com/autoinsertion" target="_blank" rel="noopener" aria-label="Facebook"><svg viewBox="0 0 24 24"><path d="M22 12a10 10 0 1 0-11.56 9.88v-6.99H7.9V12h2.54V9.8c0-2.5 1.5-3.89 3.78-3.89 1.1 0 2.24.2 2.24.2v2.46h-1.26c-1.24 0-1.63.77-1.63 1.56V12h2.78l-.44 2.89h-2.34v6.99A10 10 0 0 0 22 12z"/></svg></a>
+        <a href="https://www.youtube.com/c/Smthelping" target="_blank" rel="noopener" aria-label="YouTube"><svg viewBox="0 0 24 24"><path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.4 3.5 12 3.5 12 3.5s-7.4 0-9.4.6A3 3 0 0 0 .5 6.2 31.4 31.4 0 0 0 0 12a31.4 31.4 0 0 0 .5 5.8 3 3 0 0 0 2.1 2.1c2 .6 9.4.6 9.4.6s7.4 0 9.4-.6a3 3 0 0 0 2.1-2.1A31.4 31.4 0 0 0 24 12a31.4 31.4 0 0 0-.5-5.8zM9.6 15.6V8.4l6.3 3.6-6.3 3.6z"/></svg></a>
+      </div>
+    </div>
+    <div>
+      <h5>Product</h5>
+      <a href="#features">Key Features</a>
+      <a href="#specs">Specifications</a>
+      <a href="#gallery">Machine Gallery</a>
+      <a href="#videos">Working Video</a>
+      <a href="#faq">FAQ</a>
+    </div>
+    <div>
+      <h5>Resources</h5>
+      <a href="https://file.autoinsertion.com" target="_blank" rel="noopener">Machine Catalog (file.autoinsertion.com)</a>
+      <a href="https://ph.smthelp.com" target="_blank" rel="noopener">Machine Photos (ph.smthelp.com)</a>
+      <a href="https://www.smthelp.com" target="_blank" rel="noopener">Main Website</a>
+      <a href="https://www.smthelp.net/product/s-680-a-automatic-scrap-tape-cutting-machine/" target="_blank" rel="noopener">Original Product Page</a>
+    </div>
+    <div>
+      <h5>Contact Us</h5>
+      <div class="contact-line"><svg viewBox="0 0 20 20"><path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0018 4H2a2 2 0 00-.003 1.884z"/><path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h14a2 2 0 002-2V8.118z"/></svg><a href="mailto:jasonwu@smthelp.com">jasonwu@smthelp.com</a></div>
+      <div class="contact-line"><svg viewBox="0 0 20 20"><path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.774a11.037 11.037 0 006.103 6.103l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z"/></svg><a href="tel:+8613602562576">+86 136 0256 2576</a></div>
+      <div class="contact-line"><svg viewBox="0 0 20 20"><path d="M10 0a10 10 0 100 20 10 10 0 000-20zm5 11h-4v4H9v-4H5V9h4V5h2v4h4v2z"/></svg><a href="https://www.smthelp.com" target="_blank" rel="noopener">www.smthelp.com</a></div>
+      <div class="contact-line"><svg viewBox="0 0 20 20"><path d="M10 2a6 6 0 016 6c0 4.5-6 10-6 10S4 12.5 4 8a6 6 0 016-6zm0 4a2 2 0 100 4 2 2 0 000-4z"/></svg>Xixiang, Bao'an District, Shenzhen, China</div>
+    </div>
+  </div>
+  <div class="foot-bot">
+    <p>Browse our machine catalog at <a href="https://file.autoinsertion.com" target="_blank" rel="noopener">file.autoinsertion.com</a> · find machine photos at <a href="https://ph.smthelp.com" target="_blank" rel="noopener">ph.smthelp.com</a></p>
+    <p>© 2011 – 2026 Southern Machinery Co., Ltd. All rights reserved. · Smart PCB Assembly Automation Since 2011</p>
+  </div>
+</footer>
+
+<a class="fab" href="https://api.whatsapp.com/send?phone=8613602562576&text=Hi%20Jason%2C%20I%20saw%20the%20S-680A%20landing%20page." target="_blank" rel="noopener" aria-label="Chat on WhatsApp">
+  <svg viewBox="0 0 24 24"><path d="M20.52 3.48A11.85 11.85 0 0012.04 0C5.5 0 .2 5.3.2 11.84a11.7 11.7 0 001.6 5.94L.05 24l6.4-1.68a11.84 11.84 0 005.6 1.43h.01c6.54 0 11.84-5.3 11.84-11.84 0-3.16-1.23-6.13-3.38-8.43zM12.06 21.7h-.01a9.84 9.84 0 01-5.02-1.38l-.36-.21-3.79 1 1.01-3.7-.23-.38a9.83 9.83 0 01-1.5-5.18c0-5.43 4.42-9.86 9.87-9.86a9.81 9.81 0 016.97 2.89 9.79 9.79 0 012.88 6.97c0 5.45-4.42 9.86-9.85 9.86zm5.4-7.38c-.3-.15-1.75-.86-2.02-.96-.27-.1-.47-.15-.66.15-.2.3-.76.96-.93 1.16-.17.2-.34.22-.64.07-.3-.15-1.27-.47-2.42-1.5a9.06 9.06 0 01-1.68-2.08c-.17-.3-.02-.46.13-.6.13-.13.3-.34.45-.5.15-.18.2-.3.3-.5.1-.2.05-.37-.02-.52-.07-.15-.66-1.6-.9-2.18-.24-.58-.48-.5-.66-.5-.17-.01-.37-.01-.57-.01-.2 0-.52.07-.79.37-.27.3-1.03 1-1.03 2.45 0 1.45 1.06 2.86 1.21 3.06.15.2 2.1 3.2 5.08 4.49.71.3 1.26.5 1.69.64.71.22 1.36.2 1.87.12.57-.08 1.75-.71 2-1.4.25-.7.25-1.28.17-1.4-.07-.13-.27-.2-.57-.35z"/></svg>
+</a>
+
+</body>
+</html>

@@ -1,0 +1,23 @@
+name = "<WORKER_NAME>"
+main = "<ENTRY_POINT>"
+compatibility_date = "<YYYY-MM-DD>"
+workers_dev = true
+
+[vars]
+ENVIRONMENT = "production"
+
+[[d1_databases]]
+binding = "DB"
+database_name = "<D1_DATABASE_NAME>"
+database_id = "<CLOUDFLARE_GENERATED_D1_UUID>"
+
+[[r2_buckets]]
+binding = "IMAGES"
+bucket_name = "<R2_BUCKET_NAME>"
+
+[[kv_namespaces]]
+binding = "STATIC_ASSETS"
+id = "<CLOUDFLARE_GENERATED_KV_ID>"
+preview_id = "<OPTIONAL_CLOUDFLARE_GENERATED_PREVIEW_KV_ID>"
+
+# Set sensitive values with `wrangler secret put`, never in this file.

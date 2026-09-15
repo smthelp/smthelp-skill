@@ -1,0 +1,23 @@
+name = "<PAGES_PROJECT_NAME>"
+pages_build_output_dir = ".pages-dist"
+compatibility_date = "<YYYY-MM-DD>"
+
+[vars]
+ENVIRONMENT = "production"
+
+[[d1_databases]]
+binding = "DB"
+database_name = "<D1_DATABASE_NAME>"
+database_id = "<CLOUDFLARE_GENERATED_D1_UUID>"
+
+[[r2_buckets]]
+binding = "IMAGES"
+bucket_name = "<R2_BUCKET_NAME>"
+
+[[kv_namespaces]]
+binding = "STATIC_ASSETS"
+id = "<CLOUDFLARE_GENERATED_KV_ID>"
+
+# This root config tells Git-connected Pages builds where the generated
+# Advanced Mode artifact lives. Keep Worker entry-point settings in a
+# separate wrangler.worker.toml.
