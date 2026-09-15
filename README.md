@@ -3,7 +3,7 @@
 Southern Machinery — SMT/THT 外贸营销 Agent Skills 总库
 Synced from local agent skill directories (`.claude/skills`, `.agents/skills`, `.codex/skills`) by **SMPilot**.
 
-**当前规模：1,318 个 skill** ｜ 主分支 `main` ｜ 最近同步：**Clinch 🔩, 2026-09-15（全盘同步，新增 807）**
+**当前规模：1,326 个 skill** ｜ 主分支 `main` ｜ 最近同步：**Clinch 🔩, 2026-09-15（全盘同步，新增 807）**
 
 ## 内容结构
 
@@ -48,7 +48,7 @@ Synced from local agent skill directories (`.claude/skills`, `.agents/skills`, `
 
 本次改为**全盘扫描**（不再限于 3 个目录）：覆盖本机 32 个 Agent skill 根目录 + 外部技能库，按名称合并去重，**仅新增缺失项**。
 
-仓库现有 **1,318 个 skill**，本次**新增 807 个**（另有 1 个 `Smart-SMT` 因大小写同名跳过）。
+仓库现有 **1,326 个 skill**，本次**新增 807 个**（另有 1 个 `Smart-SMT` 与既有 `smart-smt` 为同一技能的大小写变体，按去重规则跳过）。
 
 | 来源 | 新增 |
 |---|---|
