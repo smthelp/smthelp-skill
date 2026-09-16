@@ -37,7 +37,7 @@
 - 四件套目录：`smthelp-web/publishing-queue/`（pipeline-sop.md v260914.1 为运行时契约、pending.csv、log.md、secrets.env 600）
 - cron（Asia/Shanghai 10:00，run_latest）：二=产品 fbce9c97-3071-4ac9-887d-f23501e5ac1e｜三=博客 8c34e6bb-51c9-4ae0-8909-c402c59dc045｜四=选题生成 a1ab3825-cdf7-47b4-a43d-69a96ae34f56｜五=周检 34f42291-6c3b-420c-928e-9d40fdfa0f7c
 - ⚠️ 冲突预警：旧任务 14e67052（每6小时发 .net Blog）与 301 冲突，待处置
-- 已发布样板：产品 SME-6300 kid=137681（`sme-6300-in-line-pcba-cleaning-machine---137681.html`，2图+2视频+4目录）；博客 kid=2086（`smt-agv-for-material-delivery-sagv0601-amr-by-southern-machinery.html`）
+- 已发布样板：SME-6300 kid=137681（2图+2视频+4目录）｜SME-5600D kid=137682（3图 pdfimages 提取+1视频+目录PDF，slug 干净）｜SME-750II kid=137683（3图+3视频+1PDF，规格 750×750×40/480kg 等断言通过）｜博客 kid=2086。真实图来源优先级：本地渲染图→PDF pdfimages 提取→无图发布（禁 AI 图）。
 - 待清理：孤儿静态页 `sme-6300-in-line-pcba-cleaning-machine.html`（旧内容，无入口）→ viwolf 工单删文件；`publishing-queue/stale-urls.md` 建议建立登记。
 
 ## 已知实例坑

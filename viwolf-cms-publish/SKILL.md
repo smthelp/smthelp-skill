@@ -1,7 +1,7 @@
 ---
 name: viwolf-cms-publish
 description: "viwolf 建站 CMS（admin888 类后台）自动发布与整改 skill——无 API 表单式 CMS 的发布契约逆向五法、产品页/博客 addsave 发布、腾讯云 COS 图片三步上载、YouTube/目录看板素材集成、全站 301 归一（WordPress 片段法）、发布验证与回滚、QoderWork 定时流水线四件套模板。触发词：viwolf、admin888 后台、smthelp.com 发布、产品页发布、博客发布、addsave、shop_imgs、静态页重建、无API的CMS、301归一、发布流水线、pending.csv、secrets.env。用于 Southern Machinery 站点发布/GEO 整改落地；不要用于：有官方 REST API 的 WordPress 常规站（直接走 wp/v2）。"
-version: 1.0.0
+version: 1.1.0
 metadata:
   source: qoderwork-session-260914
   origin: "smthelp.com viwolf publish pipeline（SME-6300/SAGV0601 试点逆向实录）"
@@ -58,13 +58,15 @@ c) POST {site}/ajax/ajax.php?action=uploadimgs  form: kkey=<key去头斜杠> kur
 节奏模板：周二产品发布 / 周三博客发布 / 周四选题生成（只写队列）/ 周五只读周检（URL巡检+孤儿页清单+队列健康）。任务纪律：**失败标 failed 不自动重试发布**；结果写台账+任务报告；无来源数据转 needs_input。
 
 ## 已知坑速查
+- **发布前必做 slug 预检**（查生产 sitemap）：已有同 slug=更新→delete+addsave；没有=新增→直接 addsave。**盲 delete 会误伤正常页、盲 addsave 遇旧文件会生成 `---kid` 孤儿页。**
+- **图床整体失效时的真实图兜底**：`pdfimages -list` 选大图页 → `pdfimages -p -png` 从官方 PDF 提取（主图带 smask 需合成白底转 jpeg）；无可靠图则无图发布并在 notes 标注，禁 AI 图。
 - 表单 enctype=multipart 与 urlencode 服务端可能不同分支——保存失败时换 multipart 复测。
 - slug 冲突自动加 `---<id>` 后缀：旧文件未删时会占用干净 slug，产生孤儿页 → 记 stale-urls 清单，走平台工单删文件。
 - 类目页/列表页常多一层 CDN TTL：详情页 200 即算发布成功，列表可见性次日复核。
 - 后台路径写进 payload/仓库前脱敏（占位符 + secrets 文件）。
 
 ## 验证与回滚
-- 验证三断言：HTTP 200（源站+生产域名）、`<title>` 含目标串、正文特征计数（图/视频/附件/表）符合预期。
+- 验证三断言：HTTP 200（源站+生产域名）、`<title>` 含目标串、正文特征计数（图/视频/附件/表）**+ 至少 1 个规格数字特征串且与来源 PDF 逐字一致**（防多版本文档数字串行混用）；类目页列表可见性受 CDN TTL 影响 → 次日复核。
 - 回滚：内容级=删后按台账旧内容重建；站点级（301 片段）=停片段+清缓存；队列级=改 status 不回滚线上。
 
 ## 升级回流协议（每次使用后必做）
