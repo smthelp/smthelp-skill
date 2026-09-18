@@ -321,13 +321,32 @@ Minimum coverage — all twelve groups must pass:
 ### Banned-word scan
 When the brief forbids certain words in titles (e.g. hook / diagnosis / framework / vehicle / loop / CTA), scan `h1,h2,h3,h4,title,summary` `textContent` case-insensitively in the script. Never eyeball it.
 
+### External link check — run it on the BUILT artifact, not on your sources
+
+`templates/check_links.py` probes every external URL in the finished page:
+
+```bash
+python3 check_links.py "<MODEL>-...-Landing.html"
+```
+
+This step was in the checklist for two builds and **never actually executed** — it had only ever been run against the sources while picking images. The first time it ran on a built page it found a catalog PDF returning **404**.
+
+**Non-breaking spaces in filenames.** `file.autoinsertion.com` stores some PDFs with U+00A0 in the name, percent-encoded as `%C2%A0`. Any "tidy the URL" step — including a reasonable-looking `urllib.parse.quote` round-trip — converts those to `%20` and the link 404s silently. Worse, one URL can mix both: directory `Southern%20Machinery%20Product/` with regular spaces, filename `S7020%C2%A0THT%C2%A0%C2%A0Odd...` with U+00A0. **Copy the href from the board byte-for-byte; do not normalise it.** If a catalog link 404s, grep the board HTML for the raw href and diff it character by character — a double space is the tell.
+
+### Self-referential URLs (canonical + hreflang) before deploy
+
+These point at the page's own future public URL, so they 404 until the page is deployed. The checker reports them separately as *not published yet* rather than as failures.
+
+**Do not let that become permanent.** A `canonical` pointing at a 404 is worse than no canonical: search engines drop the page, and the `hreflang` cluster cannot form because none of the alternates resolve. Either deploy the page to the canonical slug, or point `canonical` / `hreflang` at wherever it actually lives. If the slug is aspirational, **say so explicitly in the handover** so it gets fixed at deploy time rather than being discovered months later.
+
 ## Workflow
 1. **Inventory** the project folder for the model: read `AGENT.md`, datasheet PDF, manual PDF, FAQ markdown, existing `*.html`. Record specs verbatim into a values dict.
 2. **Cross-check the datasheet against the manual.** List every parameter where the two disagree. Do not resolve them silently — they become the `To be confirmed` disclosure table (see above). Extract PDF text with `pdftotext -layout` rather than a Python PDF library; it is already installed and does not need a venv.
 3. **Build copy** for each section using only catalog-backed bullets; tag uncertain items with an evidence label.
 4. **Render HTML** using `templates/landing_template.html` as a structural reference (copy its skeleton then fill placeholders). If the workspace blocks direct writes, write to `/tmp/<MODEL>-LP.html` then `cp` into the project folder.
 5. **Add the optional layers** if requested: multi-language + theme, Chatwoot widget. Reuse the template's existing CSS variables and component classes — do not author a parallel design system.
-6. **Verify headlessly** with `templates/verify_landing_page.js`. All checks must pass. Extract the runtime `<script>` and run `node --check` on it first — a stray ASCII `"` inside a Chinese translation string is the single most common syntax killer.
+6. **Verify headlessly** with `templates/verify_landing_page.js` + a per-page JSON config. All checks must pass. Extract the runtime `<script>` and run `node --check` on it first — a stray ASCII `"` inside a Chinese translation string is the single most common syntax killer.
+6b. **Probe every external link** with `templates/check_links.py`. This is a separate step from the jsdom pass (jsdom cannot make network requests) and it must run against the **built** file, not against your sources.
 7. **Self-check** against `templates/qa_checklist.md` (logo present, all 5 social links, file.autoinsertion.com + ph.smthelp.com sentence, no invented prices/lead time, mobile breakpoints, alt text, lazy iframes, CTA links work).
 8. **Emit final answer**: file path + a 5-bullet summary of what's in each major section + a "下周必做动作" line.
 
@@ -359,6 +378,7 @@ When the page is intended to rank (public URL, indexed, linked from the site), u
 The slug should read as the search query a buyer would type. Keep the `hreflang` alternates and the JSON-LD `@graph` in sync with whatever slug you choose.
 
 ## Version history
+- **v1.3** (2026-09-18) — Added `templates/check_links.py`: the QA checklist had always said "every external URL must return 200" but **nothing executed it**, so it had only ever been run against the sources while sourcing images. Run against a built page for the first time it found a catalog PDF returning 404 — `file.autoinsertion.com` stores that filename with U+00A0 (`%C2%A0`) while the directory part uses regular spaces, in the same URL, so any URL-normalising step silently breaks it. The script also reports canonical/hreflang self-references separately as "not published yet", and the skill now says why leaving them at a 404 is worse than having no canonical at all. Workflow gained step 6b (link probe is separate from the jsdom pass — jsdom cannot make network requests). Distilled from the S7020T terminal insertion machine build.
 - **v1.2** (2026-09-18) — Verification harness made genuinely reusable: `verify_landing_page.js` now takes a **JSON config** as a second argument (deep-merged into `CFG`, with `/…/` strings revived as regexes), so the page-specific ids, storage keys and calculator arithmetic live beside the page instead of being edited into the script. Group 7 no longer hardcodes the S380A conveyor formula — `calc.steps[]` / `calc.degenerate[]` drive it. Exact `stepsPerPost` replaced by a floor `minStepsPerPost`. Added `templates/example.config.json`. Documented two failure modes this harness exists to catch: a key referenced only from JavaScript (invisible to a `data-i18n` extractor, falls back to the bare key name in every language) and an exact-count structural assertion that gets weakened until it catches nothing. Also documented that the managed node workspace is read-only inside the sandbox — `npm install jsdom` there reports "up to date" and creates nothing, so install next to the page. Distilled from the S7020T terminal insertion machine build.
 - **v1.1** (2026-09-18) — Added: evidence labels and datasheet-vs-manual discrepancy disclosure; multi-language + theme layer; Chatwoot support widget; mandatory headless verification pass; repository push rules. Fixed two image-sourcing defects: the documented search path `/search?q=` 404s (correct path is `/search/images/?q=`) and the extraction regex omitted `webp`, which is what the bank now serves for all recent uploads. Added `templates/verify_landing_page.js`. Distilled from the S380A vision curved & V-cut PCB separator build.
 - **v1.0** — Initial skill: single-file build, brand assets, remote-share mode, 15 required sections, image sourcing, QA checklist.
