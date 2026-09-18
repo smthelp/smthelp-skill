@@ -262,31 +262,61 @@ A user-supplied `http://` base URL on an `https://` page is blocked as mixed con
 
 ## Headless verification (required before delivery)
 
-Do not sign off on a landing page by scrolling it. Run the runtime in `jsdom` and assert on the DOM. Copy `templates/verify_landing_page.js`, edit the `CFG` block at the top for this model (storage keys, calculator field ids, Chatwoot token, expected section counts), then point it at the built file:
+Do not sign off on a landing page by scrolling it. Run the runtime in `jsdom` and assert on the DOM.
+
+**Do not copy and edit the script.** The harness takes a second argument: a JSON config whose keys deep-merge into `CFG`. Page-specific values live in that file, so the script itself stays identical across models and can be updated in one place.
 
 ```bash
-NODE_PATH=/Users/jasonwu/.workbuddy-ai/binaries/node/workspace/node_modules \
+# jsdom must be installed somewhere writable. The managed node workspace under
+# ~/.workbuddy-ai/binaries/node/workspace is often READ-ONLY inside the sandbox:
+# npm reports "up to date" and silently creates no node_modules. Install next to
+# the page instead, and point NODE_PATH at it.
+mkdir -p <work>/verify && cd <work>/verify && npm init -y && npm install jsdom
+
+NODE_PATH=<work>/verify/node_modules \
 /Users/jasonwu/.workbuddy-ai/binaries/node/versions/22.22.2-2/bin/node \
-  verify_landing_page.js "/abs/path/to/<MODEL>-...-Landing.html"
+  verify_landing_page.js "/abs/path/to/<MODEL>-...-Landing.html" \
+  <work>/verify/<model>.config.json
 ```
+
+`templates/example.config.json` is a complete worked example (the S7020T terminal-insertion calculator). JSON has no regex literal, so **write every regex with slashes** — `"/^400$/"`, `"/216[.,]?\\s?000/"`, `"month"`. A bare `"^400$"` stays a string and the harness dies with `s.re.test is not a function`.
+
+Config keys worth setting per page:
+
+| Key | Why it is page-specific |
+|---|---|
+| `langKey` / `themeKey` | each page namespaces its `localStorage` (e.g. `s7020t_lang`) |
+| `chatwoot.token` / `launcherTitle` | the widget is per-site |
+| `calc.inputs` / `outputs` | the field ids differ per machine |
+| `calc.steps[]` | `{out, re, label}` — the arithmetic assertions. **Recompute by hand from the page's own formula** and put the expected value in `re`; the label states the formula so a future reader can re-derive it. |
+| `calc.degenerate[]` | `{label, set, watch}` — drive inputs to zero / absurd values and assert the watched output never renders `Infinity` or `NaN` |
+| `minStepsPerPost` | a **floor**, not an exact count (see below) |
 
 Checks for features the page does not have are reported as `SKIP`, not `FAIL`, so one harness covers a plain English page and a full 7-language build. **Read the SKIP list before signing off** — a page that was supposed to ship the language layer but reports 20 skips is a defect, not a pass.
 
-Minimum coverage — all eleven groups must pass:
+Minimum coverage — all twelve groups must pass:
 
 1. **Boots clean** — load with `runScripts:"dangerously"`, capture `window.onerror`.
-2. **No raw keys** — for every language, every `data-i18n` element must render something other than its own key name.
+2. **No raw keys** — for every language, every `data-i18n` / `data-i18n-alt` / `data-i18n-ph` element must render something other than its own key name. Also assert the localised SEO title and description fit the SERP width budget.
 3. **Translations are real** — spot-check with CJK / Cyrillic / Arabic regexes so a "translated" table that is still English fails.
 4. **Video grid** — expected card count, non-empty titles.
 5. **Theme toggle** — `data-theme` flips and `localStorage` is written.
-6. **Persistence across reload** — rebuild the DOM with the same storage object.
-7. **Calculator arithmetic** — recompute by hand and compare.
-8. **Calculator localisation** — assert the output contains **no** `unit_*` / `calc_*` literal key names, in all seven languages.
-9. **Language menu** — entry count, order, `aria-current`.
-10. **Content integrity** — article count × step count, banned-word scan, FAQ count, JSON-LD node types.
-11. **Images** — at least N served from `ph.smthelp.com`, and zero base64 placeholders.
+6. **Persistence across reload** — rebuild the DOM with the same storage object, and check `?lang=` overrides it.
+7. **Calculator arithmetic** — recompute by hand and compare; then push degenerate inputs.
+7b. **Calculator localisation** — assert the output contains **no** `unit_*` / `calc_*` literal key names, in all seven languages.
+8. **Language menu** — entry count, order, `aria-current`.
+9. **Content integrity** — article count × step floor, banned-word scan, FAQ count, JSON-LD node types, **FAQPage count equals the visible FAQ count**, hreflang with `x-default`.
+10. **Images** — at least N served from `ph.smthelp.com`, zero base64 placeholders, every `img` has `alt`, below-the-fold images lazy.
+11. **Print `ALL CHECKS PASSED`.** **If any check is red, fix it before delivery** — that is the whole point.
 
-Print `ALL CHECKS PASSED` at the end. **If any check is red, fix it before delivery** — that is the whole point.
+### Two failure modes this harness exists to catch
+
+**A key referenced only from JavaScript.** A `T(lang, "key")` call inside the runtime — or a key reached through a data array like `VIDEOS = [{id, t:"v1t", d:"v1d"}]` — never appears in the markup. An extractor that reads `data-i18n` attributes only will not see it, `I18N.en` will not contain it, and `T()` will fall back to the **bare key name** in every language. The page looks fine in English until you notice a card titled `v1t`. Guard it: after extraction, scan the runtime for `T(<lang>, "key")` and for `t:"..." / d:"..."` array fields, and fail the build if any key is absent from `I18N.en`.
+
+**An exact-count structural assertion.** `article.querySelectorAll(".step").length === 6` fails on legitimate editorial variance (one article is tighter, another runs longer), and the usual response is to lower the number until it passes — at which point it catches nothing. Assert a **floor** (`>= N`) instead: it still catches the failure that matters (an article that lost its body) without punishing a short article. And make sure the selector actually matches your markup: a paragraph written `<p><b>Question…</b></p>` is not matched by `<p>(?=[^<\s])`, so nine paragraphs of a nine-question article silently stay unmarked.
+
+### SERP width is not character count
+`displayWidth()` counts CJK as 2, narrow characters (`iljtfrI.,'|:;()[]-/ `) as 0.5, uppercase as 1.15, else 1. Limits: title ≤ 60 units, description ≤ 160 units. **This must be applied per language** — a translated title that fits in Chinese can overflow badly in Russian or French. Budget for it when you write the translation, not after.
 
 ### Banned-word scan
 When the brief forbids certain words in titles (e.g. hook / diagnosis / framework / vehicle / loop / CTA), scan `h1,h2,h3,h4,title,summary` `textContent` case-insensitively in the script. Never eyeball it.
@@ -329,6 +359,7 @@ When the page is intended to rank (public URL, indexed, linked from the site), u
 The slug should read as the search query a buyer would type. Keep the `hreflang` alternates and the JSON-LD `@graph` in sync with whatever slug you choose.
 
 ## Version history
+- **v1.2** (2026-09-18) — Verification harness made genuinely reusable: `verify_landing_page.js` now takes a **JSON config** as a second argument (deep-merged into `CFG`, with `/…/` strings revived as regexes), so the page-specific ids, storage keys and calculator arithmetic live beside the page instead of being edited into the script. Group 7 no longer hardcodes the S380A conveyor formula — `calc.steps[]` / `calc.degenerate[]` drive it. Exact `stepsPerPost` replaced by a floor `minStepsPerPost`. Added `templates/example.config.json`. Documented two failure modes this harness exists to catch: a key referenced only from JavaScript (invisible to a `data-i18n` extractor, falls back to the bare key name in every language) and an exact-count structural assertion that gets weakened until it catches nothing. Also documented that the managed node workspace is read-only inside the sandbox — `npm install jsdom` there reports "up to date" and creates nothing, so install next to the page. Distilled from the S7020T terminal insertion machine build.
 - **v1.1** (2026-09-18) — Added: evidence labels and datasheet-vs-manual discrepancy disclosure; multi-language + theme layer; Chatwoot support widget; mandatory headless verification pass; repository push rules. Fixed two image-sourcing defects: the documented search path `/search?q=` 404s (correct path is `/search/images/?q=`) and the extraction regex omitted `webp`, which is what the bank now serves for all recent uploads. Added `templates/verify_landing_page.js`. Distilled from the S380A vision curved & V-cut PCB separator build.
 - **v1.0** — Initial skill: single-file build, brand assets, remote-share mode, 15 required sections, image sourcing, QA checklist.
 

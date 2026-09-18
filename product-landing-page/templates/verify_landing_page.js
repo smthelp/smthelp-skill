@@ -17,8 +17,9 @@ const fs = require("fs");
 const { JSDOM } = require("jsdom");
 
 const FILE = process.argv[2];
+const CFG_FILE = process.argv[3];   // optional per-page JSON override
 if (!FILE) {
-  console.error("usage: node verify_landing_page.js <landing-page.html>");
+  console.error("usage: node verify_landing_page.js <landing-page.html> [config.json]");
   process.exit(2);
 }
 const html = fs.readFileSync(FILE, "utf8");
@@ -56,8 +57,12 @@ const CFG = {
   chatwoot: { token: null, launcherTitle: null },
 
   // Long-form article structure. Set postSelector to null to skip.
+  // minStepsPerPost is a FLOOR, not an exact count. Articles legitimately vary
+  // in length -- an exact-equality check fails on editorial variance and trains
+  // you to ignore it. A floor still catches the failure that matters: an article
+  // that lost its body (truncated markup, a half-written post).
   postSelector: "details.post",
-  stepsPerPost: 6,
+  minStepsPerPost: 4,
   // Words that must not appear in any heading / summary.
   bannedWords: /\b(hook|diagnosis|framework|vehicle|loop|cta)\b/i,
 
@@ -76,8 +81,15 @@ const CFG = {
   themeBtnId: "themeBtn",
   themeIconId: "themeIcon",
 
-  // Payback calculator field ids + the values to drive them with, plus the
-  // expected results. Set calc to null to skip. Recomputed by hand below.
+  // Payback calculator. `inputs` are the field ids to drive, `outputs` maps a
+  // short name to the output element id, and `steps` are the arithmetic
+  // assertions. Nothing about a specific page's formula is hardcoded here --
+  // the previous version baked the S380A conveyor maths (length/feed) into the
+  // check text, which made the harness unusable on any other calculator.
+  //
+  // Work the expected values out by hand from the page's own formula and write
+  // them into `re` as a regex, so thousands separators and locale digits do not
+  // produce false failures.
   calc: {
     inputs: { cOp: "2", cSal: "9000", cPanel: "6000", cLen: "1200", cFeed: "30", cHrs: "8", cDays: "25", cPrice: "45000" },
     outputs: { perPanel: "rPerPanel", labour: "rLabour", machHrs: "rMachHrs", payback: "rPayback", paybackUnit: "rPaybackU", slack: "rSlack" },
@@ -85,7 +97,18 @@ const CFG = {
     // machine hours/month = 6000 * 40 / 3600 = 66.7 h
     // labour replaced/year = 2 * 9000 = 18,000
     // payback = 45000 / (18000/12) = 30 months = 2.5 years
-    expect: { perPanel: /40\.0/, labour: /18[.,]?\s?000/, machHrs: /66\.7/, payback: /2\.5/ },
+    steps: [
+      { out: "perPanel", re: /40\.0/, label: "cut time per panel = length / feed (40.0 s)" },
+      { out: "labour",   re: /18[.,]?\s?000/, label: "labour replaced per year = operators x salary (18,000)" },
+      { out: "machHrs",  re: /66\.7/, label: "machine hours per month (66.7 h)" },
+      { out: "payback",  re: /2\.5/, label: "payback = price / (labourYear/12) (2.5 years)" }
+    ],
+    // Degenerate inputs must not print Infinity / NaN.
+    degenerate: [
+      { label: "zero investment shows a prompt, not Infinity/NaN", set: { cPrice: "0" }, watch: "payback" },
+      { label: "zero labour shows a prompt, not Infinity/NaN", set: { cOp: "0", cSal: "0" }, watch: "payback" },
+      { label: "absurd feed does not crash the per-unit figure", set: { cFeed: "99999" }, watch: "perPanel" }
+    ],
     // A key the renderer writes but which never appears in the markup.
     keyLeakPattern: /^(unit_|calc_)[a-z0-9_]+$/
   },
@@ -98,6 +121,51 @@ const CFG = {
   // three, which is how a harness loses its credibility.
   expectLazyImages: true
 };
+
+/* ------------------------------------------------- per-page JSON override */
+// A second CLI argument points at a JSON file whose keys deep-merge into CFG.
+// This is what makes the harness reusable: the page-specific ids, storage keys,
+// Chatwoot token and calculator arithmetic live in a config file next to the
+// page, not in this script. JSON has no regex literal, so any string that looks
+// like /.../flags is revived into a RegExp.
+const REGEXISH = /^\/(.+)\/([gimsuy]*)$/;
+function revive(v) {
+  if (typeof v === "string") {
+    const m = v.match(REGEXISH);
+    if (m) { try { return new RegExp(m[1], m[2]); } catch (e) { return v; } }
+    return v;
+  }
+  if (Array.isArray(v)) return v.map(revive);
+  if (v && typeof v === "object") {
+    const out = {};
+    for (const k of Object.keys(v)) out[k] = revive(v[k]);
+    return out;
+  }
+  return v;
+}
+function deepMerge(base, over) {
+  for (const k of Object.keys(over)) {
+    const b = base[k], o = over[k];
+    if (b && o && typeof b === "object" && typeof o === "object" &&
+        !Array.isArray(b) && !Array.isArray(o) && !(b instanceof RegExp)) {
+      deepMerge(b, o);
+    } else {
+      base[k] = o;
+    }
+  }
+  return base;
+}
+if (CFG_FILE) {
+  if (!fs.existsSync(CFG_FILE)) {
+    console.error("config file not found: " + CFG_FILE);
+    process.exit(2);
+  }
+  let over;
+  try { over = JSON.parse(fs.readFileSync(CFG_FILE, "utf8")); }
+  catch (e) { console.error("config file is not valid JSON: " + e.message); process.exit(2); }
+  deepMerge(CFG, revive(over));
+  console.log("config: " + CFG_FILE);
+}
 
 /* ---------------------------------------------------------------- helpers */
 // Rough display-width estimator for SERP truncation. Google truncates on pixel
@@ -304,33 +372,20 @@ if (!calcFn || !CFG.calc) {
   calcFn();
   const got = {};
   Object.keys(CFG.calc.outputs).forEach(k => { got[k] = txt(byId(doc, CFG.calc.outputs[k])); });
-  const E = CFG.calc.expect;
-  check("cut time per panel = length/feed (40.0 s)", E.perPanel.test(got.perPanel), got.perPanel);
-  check("labour replaced per year = operators x salary (18,000)", E.labour.test(got.labour), got.labour);
-  check("machine hours per month = panels x secPerPanel / 3600 (66.7 h)", E.machHrs.test(got.machHrs), got.machHrs);
-  check("payback = price / (labourYear/12) (2.5 years)", E.payback.test(got.payback), got.payback);
-  // Degenerate inputs must not print Infinity / NaN.
-  const priceEl = byId(doc, "cPrice");
-  if (priceEl) {
-    priceEl.value = "0";
+  (CFG.calc.steps || []).forEach(s => {
+    check(s.label, s.re.test(got[s.out] || ""), (got[s.out] || "(empty)"));
+  });
+  (CFG.calc.degenerate || []).forEach(c => {
+    Object.keys(c.set).forEach(id => { const el = byId(doc, id); if (el) el.value = c.set[id]; });
     calcFn();
-    const p = txt(byId(doc, CFG.calc.outputs.payback));
-    check("zero investment shows a prompt, not Infinity/NaN", !/Infinity|NaN/.test(p), p);
-    priceEl.value = CFG.calc.inputs.cPrice;
-  }
-  const feedEl = byId(doc, "cFeed");
-  if (feedEl) {
-    feedEl.value = "99999";
+    const v = txt(byId(doc, CFG.calc.outputs[c.watch]));
+    check(c.label, !/Infinity|NaN/.test(v), v || "(empty)");
+    Object.keys(c.set).forEach(id => {
+      const el = byId(doc, id);
+      if (el && CFG.calc.inputs[id] !== undefined) el.value = CFG.calc.inputs[id];
+    });
     calcFn();
-    check("feed above the published range is clamped, no crash", !/Infinity|NaN/.test(txt(byId(doc, CFG.calc.outputs.perPanel))), txt(byId(doc, CFG.calc.outputs.perPanel)));
-    feedEl.value = CFG.calc.inputs.cFeed;
-  }
-  const opEl = byId(doc, "cOp"), salEl = byId(doc, "cSal");
-  if (opEl && salEl) {
-    opEl.value = "0"; salEl.value = "0"; calcFn();
-    check("zero labour shows a prompt, not Infinity/NaN", !/Infinity|NaN/.test(txt(byId(doc, CFG.calc.outputs.payback))), txt(byId(doc, CFG.calc.outputs.payback)));
-    opEl.value = CFG.calc.inputs.cOp; salEl.value = CFG.calc.inputs.cSal;
-  }
+  });
 }
 
 /* --------------------------- 7b. calculator localisation (the key-leak bug) */
@@ -394,9 +449,15 @@ if (CFG.postSelector) {
   if (!posts.length) skip("long-form article checks", "no " + CFG.postSelector);
   else {
     check(`${posts.length} long-form article(s) present`, posts.length >= 1, String(posts.length));
-    let stepOk = true, total = 0;
-    posts.forEach(p => { const n = p.querySelectorAll(".step").length; total += n; if (n !== CFG.stepsPerPost) stepOk = false; });
-    check(`every article has ${CFG.stepsPerPost} sections`, stepOk, "total sections=" + total);
+    let thin = null, total = 0;
+    const counts = [];
+    posts.forEach((p, i) => {
+      const n = p.querySelectorAll(".step").length;
+      total += n; counts.push(n);
+      if (n < CFG.minStepsPerPost) thin = `article ${i + 1} has only ${n}`;
+    });
+    check(`every article has at least ${CFG.minStepsPerPost} body sections`, thin === null,
+      thin || `per article: ${counts.join(", ")} (total ${total})`);
     // Articles must be in the DOM, not fetched, so the file works offline.
     check("article bodies are inline, not fetched", !/fetch\(|XMLHttpRequest/.test(allHtml.replace(/chatwoot[\s\S]{0,400}/g, "")));
   }
