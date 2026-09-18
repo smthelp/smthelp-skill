@@ -358,6 +358,40 @@ Three of the ten pages in the repository inline their photos as `data:image/jpeg
 
 Base64 satisfies "no local dependency" and guarantees the page opens offline with every photo present, so it is a defensible choice — but it is not free: no CDN caching, no lazy-load benefit, slow first paint on mobile, and heavy as an email attachment. **Decide it deliberately and write the trade-off into the README row**, as the index now does for SME-6300 and S4000. Do not let it happen by accident from a build step that embedded whatever was on disk.
 
+### An empty `src` is not "no `src`"
+
+The browser resolves the empty string against the document's base URL, so `src=""` makes the element fetch **the page it is already on**:
+
+| pattern | what actually happens |
+|---|---|
+| `<img src="">` | the page is requested a second time, as an image |
+| `<iframe src="">` | the page loads inside the iframe — a full reload, its own scripts running again |
+| `el.src = ""` in a close handler | the same thing again, every single time the modal closes |
+
+Nine of the pages in this repository carried 19 of these, all lightbox and video-modal placeholders. `sf320at` had already found and fixed the iframe half, with the measurement recorded in a comment: *"Setting iframe.src='' resolves the empty string against the document's base URL, so the iframe navigates to this very page — a 668 KB reload inside a 1000px box, with the page's own scripts running a second time."*
+
+Correct fixes:
+
+```js
+// <iframe>: about:blank is the meaningful "unloaded" value
+window.closeVideo = function(){ modal.classList.remove("open"); frame.src = "about:blank"; };
+// <img>: there is no sensible blank image -- drop the attribute
+window.closeLb = function(){ lbx.classList.remove("open"); lbimg.removeAttribute("src"); };
+```
+
+and drop ` src=""` from the placeholder markup itself.
+
+**Nothing caught this, and the reason matters.** The verifier collected image sources with `.map(i => i.getAttribute("src")).filter(Boolean)` — and `.filter(Boolean)` **drops empty strings**, so `src=""` was invisible to every assertion downstream, including "no base64 placeholder images" and the lazy-loading check. The image group reported green on five pages with a broken placeholder.
+
+`verify_landing_page.js` now asserts, separately:
+
+- **no element has an empty `src` attribute** — tested with `hasAttribute("src")` plus an emptiness check, never via a `filter(Boolean)` collection;
+- **no runtime assignment of an empty `src`** — a regex over the raw file, because the damage happens in a close handler that no DOM snapshot taken at load time will ever see.
+
+Both were verified to go **red** against the pre-fix revision before being trusted.
+
+The general rule: when a collection feeds several assertions, check what the collection silently discards. `.filter(Boolean)`, `|| ""`, and optional chaining all turn a missing value into an absent one, and an absent one is easy to assert as fine.
+
 ### Self-referential URLs (canonical + hreflang) before deploy
 
 These point at the page's own future public URL, so they 404 until the page is deployed. The checker reports them separately as *not published yet* rather than as failures.
@@ -403,6 +437,7 @@ When the page is intended to rank (public URL, indexed, linked from the site), u
 The slug should read as the search query a buyer would type. Keep the `hreflang` alternates and the JSON-LD `@graph` in sync with whatever slug you choose.
 
 ## Version history
+- **v1.5** (2026-09-18) — Added the empty-`src` trap (see above): `src=""` resolves against the document base URL, so `<img src="">` re-requests the page as an image, `<iframe src="">` loads the page inside itself, and `el.src = ""` in a close handler repeats it on every close. 19 occurrences across 9 pages, all lightbox/video-modal placeholders. The verifier had been blind to it because it built its image list with `.filter(Boolean)`, which drops empty strings — so the same defect that made `sf320at`'s iframe reload the page 668 KB at a time was invisible to a check that reported green. `verify_landing_page.js` gained two assertions (no empty `src` attribute; no runtime assignment of an empty `src`), both verified to fail against the pre-fix revision. Also documented the general rule: when one collection feeds several assertions, check what it silently discards.
 - **v1.4** (2026-09-18) — `check_links.py` hardened twice, both times because the *checker* was wrong rather than the page. (a) It only probed `src`/`href`, so `<meta property="og:image">` and JSON-LD `logo`/`image` were never checked — which is exactly how SME-6300's dead share thumbnail survived: the header logo is masked by a JS `error` handler swapping in a base64 fallback, but `og:image` is the thumbnail LinkedIn/WhatsApp render and it has **no fallback**, and the three JSON-LD `logo` entries are simply invalid structured data. `URL_ATTRS` now covers `content` / `poster` / `data-full` / `data-src` / `data-original` / `action` plus the JSON-LD asset keys. (b) A single `000` was reported as BROKEN; `https://smthelp.com/` returned 200, 200, then 000 seconds apart — a flaky network, not a dead link. Added retry (3 attempts, 1.5 s apart) with a "(passed on attempt N)" note. **A checker that cries wolf gets ignored, and then the real 404 hides in the noise.** Also added the dashed-vs-slash date trap below. Found by sweeping all 8 repo pages, which surfaced **22 broken URLs across two pages** — including an 11-URL regression on a page built in a *different session*, proving the trap propagates with the template. (c) **The reporting path itself was wrong, and silently so.** The sweep piped the script through `grep -E '^(=== RESULT|FAIL|BROKEN|ALL EXTERNAL|  \S+ 404)'`, and that produced a false *clean* reading on a page that had broken links. Two independent causes, both verified: the `^` sat outside the alternation group so it anchored **every** alternative (`^FAIL` never matches the indented `  FAIL 404  url`, and `^BROKEN` never matches `4 BROKEN external link(s)`); and `grep` in this environment is **toybox, not GNU grep**, which silently ignores `\S` (`grep -Ec '  \S+ 404'` → 0, `grep -Ec '  [^[:space:]]+ 404'` → 1) and BRE `\|` alternation (every earlier grep that returned "nothing" contained `\|`). **Never let a text tool sit in the reporting path of a checker — parse in Python, and if you must use grep, use `[^[:space:]]` not `\S`, and `-E` with `|`.** (d) Added `templates/check_links_repo.py`: dedups URLs across pages before probing (8 pages shared most of their URLs, so the per-page loop re-fetched the same ones eight times), reports failures per page, and exits non-zero so it can gate a push. Also taught the checker that **LinkedIn answers `999` to every non-interactive client** — verified with a genuine desktop Chrome User-Agent — so that is reported as BOT-BLOCKED rather than BROKEN. Counting it as broken made all eight pages report FAIL, which is the same cry-wolf failure that hides the real 404.
 - **v1.3** (2026-09-18) — Added `templates/check_links.py`: the QA checklist had always said "every external URL must return 200" but **nothing executed it**, so it had only ever been run against the sources while sourcing images. Run against a built page for the first time it found a catalog PDF returning 404 — `file.autoinsertion.com` stores that filename with U+00A0 (`%C2%A0`) while the directory part uses regular spaces, in the same URL, so any URL-normalising step silently breaks it. The script also reports canonical/hreflang self-references separately as "not published yet", and the skill now says why leaving them at a 404 is worse than having no canonical at all. Workflow gained step 6b (link probe is separate from the jsdom pass — jsdom cannot make network requests). Distilled from the S7020T terminal insertion machine build.
 - **v1.2** (2026-09-18) — Verification harness made genuinely reusable: `verify_landing_page.js` now takes a **JSON config** as a second argument (deep-merged into `CFG`, with `/…/` strings revived as regexes), so the page-specific ids, storage keys and calculator arithmetic live beside the page instead of being edited into the script. Group 7 no longer hardcodes the S380A conveyor formula — `calc.steps[]` / `calc.degenerate[]` drive it. Exact `stepsPerPost` replaced by a floor `minStepsPerPost`. Added `templates/example.config.json`. Documented two failure modes this harness exists to catch: a key referenced only from JavaScript (invisible to a `data-i18n` extractor, falls back to the bare key name in every language) and an exact-count structural assertion that gets weakened until it catches nothing. Also documented that the managed node workspace is read-only inside the sandbox — `npm install jsdom` there reports "up to date" and creates nothing, so install next to the page. Distilled from the S7020T terminal insertion machine build.

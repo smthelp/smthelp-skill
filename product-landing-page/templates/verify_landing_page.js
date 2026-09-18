@@ -499,6 +499,33 @@ const hostImgs = imgs.filter(s => s.startsWith(CFG.imageHost));
 check(`at least ${CFG.minHostImages} images served from ${CFG.imageHost}`, hostImgs.length >= CFG.minHostImages, String(hostImgs.length));
 check("no base64 placeholder images", imgs.filter(s => s.startsWith("data:")).length === 0);
 check("every <img> has alt text", Array.from(doc.querySelectorAll("img")).every(i => i.hasAttribute("alt")));
+
+/* An EMPTY src attribute is not "no src". The browser resolves the empty string
+   against the document's base URL, so `src=""` makes the page request ITSELF as
+   an image. The same applies to `<iframe src="">` and, at runtime, to
+   `el.src = ""` in a close handler -- setting src to the empty string is how you
+   accidentally reload the page inside a 1000px box.
+
+   The line above cannot catch this: `.map(i => i.getAttribute("src"))` followed
+   by `.filter(Boolean)` drops empty strings, so `src=""` is invisible to every
+   check that consumes `imgs`. That is exactly how five pages shipped with a
+   lightbox placeholder `<img src="" alt="">` while the image group reported
+   green. Use `hasAttribute("src")` plus an emptiness test instead.
+
+   Correct fixes: drop the attribute from the markup; in a close handler use
+   `el.removeAttribute("src")` for an <img> and `el.src = "about:blank"` for an
+   <iframe>. */
+const emptySrcEls = Array.from(doc.querySelectorAll("img[src], iframe[src], script[src], source[src], video[src], audio[src]"))
+  .filter(el => (el.getAttribute("src") || "").trim() === "");
+check("no element has an empty src attribute", emptySrcEls.length === 0,
+  emptySrcEls.slice(0, 4).map(el => `${el.tagName.toLowerCase()}#${el.id || "?"}`).join(", ") ||
+  "0 found");
+
+const rawHtml = fs.readFileSync(FILE, "utf8");
+const emptySrcAssignments = rawHtml.match(/\.\s*src\s*=\s*""\s*;/g) || [];
+check("no runtime assignment of an empty src", emptySrcAssignments.length === 0,
+  emptySrcAssignments.slice(0, 3).join(" | ") || "0 found");
+
 if (CFG.expectLazyImages) {
   const exempt = i => {
     const src = i.getAttribute("src") || "";
