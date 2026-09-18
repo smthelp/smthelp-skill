@@ -1,12 +1,19 @@
 ---
 name: smt-product-landing-page
 description: 从 1688/产品链接/手册PDF一键生成 Southern Machinery 品牌风格外贸单文件产品 Landing Page（FAB 销售模型），覆盖爬取、文案转换、品牌模板渲染、Playwright 校验、WebDAV 发布到 file.autoinsertion.com；支持 s7000 式多语言框架（EN/ES/PT/FR/AR/RU/ZH 七语 i18n+暗黑模式+六大步 Blog 板块+Chatwoot 客服）与 GitHub 推送。Use when user asks 做产品页/landing page/详情页/1688链接转外贸页/上传 file.autoinsertion.com/product presentation HTML/多语言产品页/暗黑模式页/blog营销页.
-version: 1.7.0
+version: 1.7.1
 ---
 
 # SMT Product Landing Page Factory
 
 把「1688 产品链接 → Southern Machinery 品牌英文 Landing Page → 线上发布实测」固化为可复用流程。v1.0.0 由 S-680A SMT Reel Scrap Tape Cutter 项目沉淀。
+
+> **两个 landing-page skill 的分工（待 Jason 决定是否合并）**
+> 本 skill 是**端到端工厂流程**（intake → 爬取 → 文案 → 渲染 → 校验 → WebDAV 发布 → GitHub 推送）。
+> `product-landing-page` 是**页面契约**（品牌资产、15 个必需区块、硬性构建规则、图片选源、
+> 远端分享模式、证据标签与冲突披露、多语言/主题层、jsdom 语义层校验 + `templates/verify_landing_page.js`）。
+> 两者内容有重叠（品牌资产、页脚 CTA、图片选源三处几乎重复），改一处容易漏另一处。
+> 本 skill 的其他引用（如 `customer-solution-page`）指向的是**本 skill**，不是 `product-landing-page`。
 
 ## 适用场景
 
@@ -56,6 +63,48 @@ SMFILE_PASS='<用户提供>' bash scripts/publish_webdav.sh "<本地html>" "Sout
 ```
 发布后 curl 公网 URL 核对 200 与字节数，再跑 `verify.py <https-url>`。
 
+## 语义层校验（jsdom，与 `verify.py` 互补）
+
+`verify.py`（Playwright）管「页面能不能正常跑」；**语义层断言它管不到** —— 多语言有没有漏键、
+计算器算得对不对、JSON-LD 与可见 FAQ 条数是否一致。这类检查用
+`product-landing-page/templates/verify_landing_page.js`（jsdom，改顶部 `CFG` 后直接跑）：
+
+```bash
+NODE_PATH=/Users/jasonwu/.workbuddy-ai/binaries/node/workspace/node_modules \
+/Users/jasonwu/.workbuddy-ai/binaries/node/versions/22.22.2-2/bin/node \
+  verify_landing_page.js "<页面.html>"
+```
+
+覆盖 11 组，缺功能的项报 SKIP 不报 FAIL（**SKIP 要逐条看过**，该有语言层却报一堆 SKIP 是缺陷）：
+启动无异常 / 7 语言逐元素无裸键（含 placeholder 与 title 属性）/ 译文语种真实性（CJK·西里尔·
+阿拉伯正则）/ 视频网格 / 主题切换 / 跨刷新持久化 + `?lang=` 覆盖 / 计算器算术对拍 +
+退化输入不出 Infinity·NaN / 计算器输出无 `unit_*` 裸键 / 语言菜单顺序 / 页脚链接与 Chatwoot /
+文章数×步数 + 禁用词扫描 + JSON-LD 与可见 FAQ 条数一致 / 图床图片数 + 无 base64 占位。
+
+### 四条新增判定规则（2026-09-18，S380A 页沉淀）
+
+1. **SEO 标题按「显示宽度」判，不按字符数** —— Google 按像素（标题约 600px）截断，
+   用 `.length` 会两个方向都错。CJK 计 2、窄字符（`iljtfrI.,'!|:;()[]-/ `）计 0.5、
+   大写计 1.15，其余计 1；阈值 **标题 ≤60 / 描述 ≤160**，跨文种通用。
+   俄语、西语比英语长 15–25%，**英语达标不代表其他语言达标，每种语言单独查**。
+   （S380A 原英文标题 83 字符 / 70.9 单位 → 收敛到 62 字符 / 52.8 单位；描述 287 → 161 字符。）
+2. **懒加载检查必须给白名单** —— 页眉 Logo、页脚 Logo、带 `fetchpriority="high"` 的首图
+   本来就该立即加载。会误报的检查会让人开始忽略整份报告；**修检查，不要改页面去迎合它**。
+3. **JS 生成的字符串要单独进字典** —— 计算器单位/提示、动态卡片标题从不出现在标记里，
+   `EN_SNAPSHOT` 类快照兜底抓不到 → 必须显式合并 `EXTRA`，否则英文界面会显示 `40.0 unit_sec`。
+4. **发布前剥掉可视化编辑器元数据** —— 页面被编辑器打开过后，每个元素多一个
+   `data-page-node-id="..."`（400KB 页约 +40KB）。**只剥推送副本，工作文件保持原样**（编辑器还要靠它打开），
+   剥完重跑校验确认正则没伤到别处。
+
+### 图床搜索的两条实测校正
+
+- 路径是 `https://ph.smthelp.com/search/images/?q=<词>`（v1.2.1 记的没错）。
+  写成 `/search?q=` 返回 **404，但页面有 25KB 正常 HTML**，极易误判成「搜索功能下线」而绕道爬板页。
+- **提取正则必须含 `webp`**：2026 年起新上传的图都是 `.md.webp`，只写 `jpg|png` 会「搜到 0 条」。
+  `.md` 前的内容哈希要原样保留（`...-front-053a8ddbf9bc04a152.md.webp`），去掉即 404。
+- 与 v1.7.0 ③ 的「curl GET 404 / HEAD 200（WAF 按 UA）」并不矛盾：
+  **带上 `-A "Mozilla/5.0"` 后 GET 正常返回 200**，无 UA 才被 WAF 挡。
+
 ## Pitfalls
 
 - Puter.js 在 file:// 弹 "Unsupported Protocol" 阻断框 → 动态加载 + 兜底，绝不静态引 script
@@ -74,6 +123,7 @@ SMFILE_PASS='<用户提供>' bash scripts/publish_webdav.sh "<本地html>" "Sout
 
 ## 版本与迭代
 
+- v1.7.1：S380A 全视觉曲线 / V-CUT 分板机页（基于规格书 + 2023 操作手册两份 PDF）沉淀。新增 **语义层校验** 一节：`product-landing-page/templates/verify_landing_page.js`（jsdom，11 组断言，缺功能的项报 SKIP），补 `verify.py` 管不到的语义层——7 语言逐元素无裸键、译文语种真实性、计算器算术与本地化、跨刷新持久化、JSON-LD 与可见 FAQ 条数一致。四条判定规则：① **SEO 标题按显示宽度判不按字符数**（CJK 计 2 / 窄字符计 0.5 / 大写计 1.15，阈值标题 ≤60·描述 ≤160，7 语言各自单查）；② 懒加载检查必须给白名单（页眉/页脚 Logo、`fetchpriority="high"` 首图豁免），**误报要修检查不要改页面**；③ JS 生成字符串（计算器单位/提示）必须显式合并进字典，否则英文界面显示 `40.0 unit_sec`；④ 发布前剥掉可视化编辑器注入的 `data-page-node-id`（约 +40KB），只剥推送副本。另校正图床两条：`/search?q=` 是 404 而 `/search/images/?q=` 正常（404 页有 25KB 正常 HTML 极易误判功能下线）；提取正则必须含 `webp`（2026 年起新图均为 `.md.webp`）。补记：两份源文件冲突（长度 1180 vs 1230mm、工作面积 350×550 vs L350×W330、自动换刀归属 Q380A）**如实并列成「待确认」表 + 该怎么办列**，不二选一。
 - v1.7.0：SME-6300 在线清洗机页（复用 s7000-turnkey-line 模板框架，推 smthelping/smt-product-landing-html）。新沉淀：① **s7000 模板自带完整 i18n/暗黑框架**——I18N 字典驱动全部 UI 文案（含 seo_title/og 动态切换）、data-i18n 绑定、LANGS 七语（en/es/pt/fr/ar/ru/zh，ar 自动 dir=rtl）、theme 切换+localStorage(try/catch)、协议自适应 Chatwoot；换产品=重建 body+换新字典，JS 骨架原样复用。② 字典键位规划教训：build 卡与 blog 卡同用 b1t 撞键→blog 统一 bl 前缀；构建后必跑「各语言键数与 EN 全等」校验（345×7）。③ ph 图床新状态：curl GET 404 / HEAD 200 / Chromium 可加载（WAF 按 UA），远程 URL 照用+onError 换内嵌 base64 兜底（logo 镜像 file.aismt.kdns.fr）。④ 模板 .modal .cl 按钮 top:-42px 被 .inner overflow:hidden 裁掉（模板自带隐患），覆盖为 top:10px 内嵌角标。⑤ .ev 徽章 white-space:nowrap 在 390px 视口撑破横向滚动，须覆盖 normal+evline flex-wrap。⑥ 六步 Blog 板块：标题 7 语翻译、正文英文+enonly 注明；页面标题禁 hook/diagnosis/Framework/Vehicle/Loop/CTA——构建后正则扫描 title/h1/h2/h3 断言。⑦ 证据纪律（learn-SMT-in-3-hours）：参数只引手册/安装文档，.ev-v/.ev-c 徽章标注，重量等冲突值如实并列。⑧ exFAT 卷 ._ AppleDouble 文件：PIL 批处理须过滤 not startswith('._')；git 报 non-monotonic index pack/._pack-*.idx 为噪音不影响操作；du 显示 1.0M/文件是簇大小失真，核实用 ls -l 字节数。⑨ smthelping 组织仓库权限会变动（push→pull-only），API .permissions.push 先探测，被拒时 AskUser 让 Jason 在 repo Settings→Collaborators 恢复 Write，勿自行推去个人仓库。
 
 - v1.6.0：清洗机家族批次（PCBA Fixture & Pallet Cleaning、SME-6300 Inline、SME5600D Batch、S-168 Brush 四页，全 base64 内嵌 + WebDAV 发布）。新能力：① **Chatwoot 智能客服**固定右下角：`window.chatwootSettings={"position":"right","type":"standard","launcherTitle":"Southern Machinery Global Support"}` + sdk 注入 **https://chat.smthelp.com**（http 在 https 页混合内容被拦），token `saMcpgSupcmd1VQwytgPLfbK`，`</body>` 前插脚本；② **3D 交互式工作原理动画**两种形态：批量腔体（立方体 6 面 + 旋转篮筐 basket-ring/post + 水滴 + 热波）和三腔体产线（WASH/RINSE/DRY 并排 + 板沿传送带移动 + 旋转毛刷 brushSpin + 气泡 + 热波）；交互 JS：pointerdown/move 拖拽旋转 + wheel 缩放 + auto-rotate toggle（`cube.classList.toggle('auto')` + `@keyframes spin3d`）+ `prefers-reduced-motion` 全部冻结；③ 坑：Python 源码里三引号字符串互相嵌套（`'''` 内嵌 `"""`）易踩 "unterminated triple-quoted string" → 大块替换内容写独立 .txt 文件读取；④ 坑：替换 `HERO = hero([...])` 调用块时只删到 `\n]` 会残留旧参数尾（`), "old eyebrow"...`）→ 用 `src.find('")', i)` 找 hero-note 串尾再 `find('\n\n')` 定位整块；⑤ 清洗机家族共享 ph 图：ph-pcba-cleaning-room / ph-pallet-batch / ph-air-blower（图床无 SME5600/S-168 专图）；⑥ 视频映射：SME-5200→9HBoNAb1Is4/z44XY1Nk0PQ/gaBQ5wjoJz0/0Q9slVY3eG4，SME-6300→Tu3ObkB9bQw/QeBL1s5fL_8/tCdZgJu6oMw/DTVppmKrAK0，SME5600D→QeBL1s5fL_8/tCdZgJu6oMw/z44XY1Nk0PQ/bi24UcdIYNM，S-168→yWO-fxwpoq8/Tu3ObkB9bQw/tCdZgJu6oMw/QeBL1s5fL_8（DTVppmKrAK 无尾 0 失效、DTVppmKrAK0 存活，oEmbed 逐个验）；⑦ 参考模板 SME6300-PCBA-Cleaning-Machine-Landing.html 在服务器 Product landing Page/；SME-6300 2020 / SME5600D 2021 / SCM5600 手册 / S-168 手册均已传 Southern Machinery Product/。
