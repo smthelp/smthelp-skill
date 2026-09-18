@@ -33,11 +33,25 @@ UA = "Mozilla/5.0 (compatible; SouthernMachinery-linkcheck/1.0)"
 
 
 def extract(path):
+    """Return (urls_to_probe, origins_only).
+
+    `origins_only` collects bare origins from <link rel="preconnect"> and
+    <link rel="dns-prefetch">. Those are socket hints, not navigable links: the
+    root path of fonts.googleapis.com legitimately 404s, and probing it produces
+    a false failure. A checker that reports false failures gets ignored, which
+    is how a real 404 hides behind noise.
+    """
     s = open(path, encoding="utf-8").read()
+    origins = set()
+    for m in re.finditer(
+            r'<link[^>]+rel="(?:preconnect|dns-prefetch)"[^>]*>', s, re.I):
+        h = re.search(r'href="(https?://[^/"]+)', m.group(0))
+        if h:
+            origins.add(html.unescape(h.group(1)))
     out = set()
     for m in re.finditer(r'(?:src|href)="(https?://[^"]+)"', s):
         out.add(html.unescape(m.group(1)))
-    return out
+    return out - origins, origins
 
 
 def probe(url, timeout=30):
@@ -58,7 +72,7 @@ def main():
                     help="site prefix; URLs under it are treated as self-referential")
     a = ap.parse_args()
 
-    urls = extract(a.page)
+    urls, origins = extract(a.page)
     site = a.site
     if not site:
         m = re.search(r'<link rel="canonical" href="(https?://[^/"]+)', 
@@ -74,7 +88,11 @@ def main():
     print(f"page: {a.page}")
     print(f"site: {site}")
     print(f"{len(external)} external + {len(self_ref)} self-referential URL(s) "
-          f"(skipped: {', '.join(SKIP_HOSTS)})\n")
+          f"(skipped: {', '.join(SKIP_HOSTS)})")
+    if origins:
+        print(f"skipped {len(origins)} preconnect/dns-prefetch origin(s) "
+              f"(socket hints, not navigable): {', '.join(sorted(origins))}")
+    print()
 
     fails, pending = [], []
     for u in sorted(external):
