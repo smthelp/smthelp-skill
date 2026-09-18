@@ -1,6 +1,6 @@
 ---
 name: smt-product-landing-page
-description: 从 1688/产品链接一键生成 Southern Machinery 品牌风格的纯英文外贸单文件产品 Landing Page（FAB 销售模型），覆盖爬取、文案转换、品牌模板渲染、Playwright 双环境校验、WebDAV 发布到 file.autoinsertion.com 与 Puter.js 产品聊天窗。Use when user asks 做产品页/landing page/详情页/1688链接转外贸页/上传 file.autoinsertion.com/product presentation HTML.
+description: 从 1688/产品链接/手册PDF一键生成 Southern Machinery 品牌风格外贸单文件产品 Landing Page（FAB 销售模型），覆盖爬取、文案转换、品牌模板渲染、Playwright 校验、WebDAV 发布到 file.autoinsertion.com；支持 s7000 式多语言框架（EN/ES/PT/FR/AR/RU/ZH 七语 i18n+暗黑模式+六大步 Blog 板块+Chatwoot 客服）与 GitHub 推送。Use when user asks 做产品页/landing page/详情页/1688链接转外贸页/上传 file.autoinsertion.com/product presentation HTML/多语言产品页/暗黑模式页/blog营销页.
 version: 1.7.0
 ---
 
@@ -13,24 +13,6 @@ version: 1.7.0
 - 用户给出 1688/供应商链接或产品型号，要求生成外贸产品页 / landing page / product presentation HTML
 - 要求 Southern Machinery 品牌风格、FAB 销售模型、纯英文、单文件、双击可用
 - 要求发布到 file.autoinsertion.com 并实测（含 AI 聊天窗）
-- **客户专属方案页**（输入是客户 PCB 参数 + 产能，不是供应商链接）：见下节「模式 B」
-
-## 两种输入模式
-
-| | 模式 A · 通用产品页 | 模式 B · 客户专属方案页 |
-| --- | --- | --- |
-| 输入 | 1688/供应商链接、产品型号 | 客户 PCB 尺寸/层数/月产能/THT 元件构成/现有人工工位 |
-| 骨架 | `assets/reference-*.html` 模板 | **同机型族的现有 `Product Html/*.html`**，继承其 CSS 变量契约与交互组件，只换内容层 |
-| 核心增量 | FAB 文案转换、爬取 | 产能测算、产线定位图、ROI 表（含 `Pending` 行）、规格冲突披露 |
-| 发布 | WebDAV → file.autoinsertion.com | 落 `Product Html/`，直接发链接给客户 |
-
-模式 B 的两条硬规则（与模式 A 不同，不可省）：
-1. **算得出来的给算式，算不出来的写 `Pending`** —— 留空也不许填行业平均值；
-2. **源文件之间冲突 → 双侧并列 + 显式披露 + 取保守值** —— 绝不取平均、绝不只引一组。
-   页面上的 AI 聊天 system prompt 要写死这条约束。
-
-模式 B 的完整流程（含两段式装配器、70 项静态校验脚本）已独立沉淀为
-`~/.workbuddy-ai/skills/customer-solution-page/`（v1.0.0），可直接调用。
 
 ## 前置条件
 
@@ -83,44 +65,18 @@ SMFILE_PASS='<用户提供>' bash scripts/publish_webdav.sh "<本地html>" "Sout
 - 1688 价格（¥6000 等）是内贸参考，外贸页不写价格，引导询盘
 - 空 `src=""` 的 img 会被浏览器请求成页面 URL → lightbox 占位图不要写 src 属性
 
-### 构建与校验类（v1.7.0 实测补充）
-
-- **`Write` 工具会截断超长脚本** → 别把整个 HTML body 写成 Python 三引号字符串。
-  改**两段式**：body 写独立模板文件用 `__PLACEHOLDER__` 占位，脚本只做「读源页 → 提取 CSS/JS → 填占位符 → 输出」。
-  这条同时规避 v1.6.0 记的三引号嵌套坑。参考实现见 `customer-solution-page` skill 的 `scripts/build_solution_page.py`。
-- **375px 横向溢出**：4 列 `white-space:nowrap` 的表格最小内容宽度会超容器（实测 373px > 335px → 溢出 12px）。
-  修法——`@media (max-width:620px)` 下把 `table/tbody/tr/td` 转 `display:block` 卡片化，
-  `thead{display:none}`，用 `td:nth-child(n)::before { content:"列名: " }` 补列标签。
-  复验口径：`document.documentElement.scrollWidth > clientWidth` 必须为 0。
-- **全页截图里 sticky header 看似错位** → 这是 Playwright `full_page=True` 的**截图假象**，不是页面 bug。
-  核验页头一律用**首屏截图**或 `getBoundingClientRect`（实测 utility-bar top=0 h=34、header top=34 h=77）。
-  别照着全页截图去"修"一个不存在的 bug。
-- **`loading="lazy"` 的图片 `naturalWidth==0`** → 断言坏图前必须先
-  `window.scrollTo(0, document.body.scrollHeight)` 并等待，否则会把未进入视口的图全判为坏图。
-- **沙箱 broker 会拦 `Path.mkdir`**（目录已存在也报 `PermissionError: EEXIST`）
-  → 脚本里不要调 `mkdir`，改用 shell 层 `mkdir -p`。
-- **Playwright 截图是 RGBA 模式** → 存 JPEG 前先 `.convert("RGB")`，否则
-  `OSError: cannot write mode RGBA as JPEG`。
-- **系统 pip 受 PEP668 限制** → 用托管 venv：`/Users/jasonwu/.workbuddy-ai/binaries/python/envs/default/bin/python`，
-  已装 `pymupdf`（读 PDF 文本层）与 `pillow`（图片缩放/缩略）。
-  读源页前先**剥离 base64**：`Product Html/S3000-Radial-Inserter-Southern-Machinery.html` 原始 2.57 MB、
-  含 24 个 base64 内嵌图，剥离后仅 60.2 KB —— 直接读会撑爆上下文。
-
 ## 验证清单
 
 - [ ] file:// 打开：无阻断框、无 console error、tabs/lightbox/chat/视频按钮可点
 - [ ] https 打开：零 403、零坏图、聊天窗 http 模式正常
 - [ ] 公网 URL 200 且 size 与本地一致
 - [ ] 页脚 CTA、Logo、WhatsApp 链接逐一核对与需求逐字一致
-- [ ] **375px 与 1440px 均无横向滚动**（`scrollWidth <= clientWidth`，两档都要量）
-- [ ] **CSS 变量契约完整**：`:root` 12 个变量齐全；`rel="stylesheet"` 0、外部 `<script src>` 0
-- [ ] **模式 B 专属**：技术数字带来源标注；冲突行显式披露未取平均；无来源的 ROI 行标 `Pending`
 
 ## 版本与迭代
 
-- v1.7.0：**新增模式 B「客户专属方案页」**（S3000 Radial Inserter × LED 驱动电源板方案页沉淀）。输入从"供应商链接"扩展为"客户 PCB 参数 + 产能"——180×120×1.6mm 2 拼板 / 60,000 片/月 / 26 天 2 班 / 14 radial + 6 axial + 4 terminal / 现状 radial 手插 3 人/班。新能力：① **继承式骨架**：不新建模板，直接以同机型族现有页 `Product Html/S3000-Radial-Inserter-Southern-Machinery.html` 为骨架，逐字保留其 CSS 变量契约与全部交互组件（FAB 六组 tab 键盘导航 / lightbox / click-to-load 视频 / Puter.js 聊天窗 / back-to-top / reduced-motion / print），只替换内容层；② **两段式装配**规避 `Write` 截断与三引号嵌套（body 模板 + 占位符 + 装配脚本）；③ **诚实化 ROI 表**：算得出的给算式（1,154 板/班、16,154 次插装、1.6h 机器工时），需客户数据的 3 行显式标 `Pending`（人力节省 / 良率收益 / 回本周期），聊天 system prompt 写死"绝不用行业均值"；④ **规格冲突披露**：`S-3000 Radial Inserter.pdf` 与现有落地页 6 项冲突（18,000 vs 20,000 CPH、PCB 450×450 vs 400×300、本体 10 vs 13mm、span、供料、运行成本），页面用 `class="src conflict"` 双侧并列 + 取保守值，**不取平均**；⑤ 同源产出 8 页方案 PPT 大纲（封面/痛点/方案/配置/收益/案例位/服务/联系，每页带配图路径 + 源文件备注）。校验：静态 70 项全通过 + Playwright 双环境（溢出 0px、坏图 0、pageerror 0、requestfailed 0）+ 4 个 YouTube 视频 oEmbed 全 200。坑（已补入 Pitfalls）：375px 表格溢出、sticky header 全页截图假象、lazy 图 `naturalWidth==0`、沙箱拦 `Path.mkdir`、截图 RGBA。**该流程另独立沉淀为 `~/.workbuddy-ai/skills/customer-solution-page/` v1.0.0。**
+- v1.7.0：SME-6300 在线清洗机页（复用 s7000-turnkey-line 模板框架，推 smthelping/smt-product-landing-html）。新沉淀：① **s7000 模板自带完整 i18n/暗黑框架**——I18N 字典驱动全部 UI 文案（含 seo_title/og 动态切换）、data-i18n 绑定、LANGS 七语（en/es/pt/fr/ar/ru/zh，ar 自动 dir=rtl）、theme 切换+localStorage(try/catch)、协议自适应 Chatwoot；换产品=重建 body+换新字典，JS 骨架原样复用。② 字典键位规划教训：build 卡与 blog 卡同用 b1t 撞键→blog 统一 bl 前缀；构建后必跑「各语言键数与 EN 全等」校验（345×7）。③ ph 图床新状态：curl GET 404 / HEAD 200 / Chromium 可加载（WAF 按 UA），远程 URL 照用+onError 换内嵌 base64 兜底（logo 镜像 file.aismt.kdns.fr）。④ 模板 .modal .cl 按钮 top:-42px 被 .inner overflow:hidden 裁掉（模板自带隐患），覆盖为 top:10px 内嵌角标。⑤ .ev 徽章 white-space:nowrap 在 390px 视口撑破横向滚动，须覆盖 normal+evline flex-wrap。⑥ 六步 Blog 板块：标题 7 语翻译、正文英文+enonly 注明；页面标题禁 hook/diagnosis/Framework/Vehicle/Loop/CTA——构建后正则扫描 title/h1/h2/h3 断言。⑦ 证据纪律（learn-SMT-in-3-hours）：参数只引手册/安装文档，.ev-v/.ev-c 徽章标注，重量等冲突值如实并列。⑧ exFAT 卷 ._ AppleDouble 文件：PIL 批处理须过滤 not startswith('._')；git 报 non-monotonic index pack/._pack-*.idx 为噪音不影响操作；du 显示 1.0M/文件是簇大小失真，核实用 ls -l 字节数。⑨ smthelping 组织仓库权限会变动（push→pull-only），API .permissions.push 先探测，被拒时 AskUser 让 Jason 在 repo Settings→Collaborators 恢复 Write，勿自行推去个人仓库。
+
 - v1.6.0：清洗机家族批次（PCBA Fixture & Pallet Cleaning、SME-6300 Inline、SME5600D Batch、S-168 Brush 四页，全 base64 内嵌 + WebDAV 发布）。新能力：① **Chatwoot 智能客服**固定右下角：`window.chatwootSettings={"position":"right","type":"standard","launcherTitle":"Southern Machinery Global Support"}` + sdk 注入 **https://chat.smthelp.com**（http 在 https 页混合内容被拦），token `saMcpgSupcmd1VQwytgPLfbK`，`</body>` 前插脚本；② **3D 交互式工作原理动画**两种形态：批量腔体（立方体 6 面 + 旋转篮筐 basket-ring/post + 水滴 + 热波）和三腔体产线（WASH/RINSE/DRY 并排 + 板沿传送带移动 + 旋转毛刷 brushSpin + 气泡 + 热波）；交互 JS：pointerdown/move 拖拽旋转 + wheel 缩放 + auto-rotate toggle（`cube.classList.toggle('auto')` + `@keyframes spin3d`）+ `prefers-reduced-motion` 全部冻结；③ 坑：Python 源码里三引号字符串互相嵌套（`'''` 内嵌 `"""`）易踩 "unterminated triple-quoted string" → 大块替换内容写独立 .txt 文件读取；④ 坑：替换 `HERO = hero([...])` 调用块时只删到 `\n]` 会残留旧参数尾（`), "old eyebrow"...`）→ 用 `src.find('")', i)` 找 hero-note 串尾再 `find('\n\n')` 定位整块；⑤ 清洗机家族共享 ph 图：ph-pcba-cleaning-room / ph-pallet-batch / ph-air-blower（图床无 SME5600/S-168 专图）；⑥ 视频映射：SME-5200→9HBoNAb1Is4/z44XY1Nk0PQ/gaBQ5wjoJz0/0Q9slVY3eG4，SME-6300→Tu3ObkB9bQw/QeBL1s5fL_8/tCdZgJu6oMw/DTVppmKrAK0，SME5600D→QeBL1s5fL_8/tCdZgJu6oMw/z44XY1Nk0PQ/bi24UcdIYNM，S-168→yWO-fxwpoq8/Tu3ObkB9bQw/tCdZgJu6oMw/QeBL1s5fL_8（DTVppmKrAK 无尾 0 失效、DTVppmKrAK0 存活，oEmbed 逐个验）；⑦ 参考模板 SME6300-PCBA-Cleaning-Machine-Landing.html 在服务器 Product landing Page/；SME-6300 2020 / SME5600D 2021 / SCM5600 手册 / S-168 手册均已传 Southern Machinery Product/。
-- v1.5.0：PCB Conveyor 综合单文件页（7 个 1688 链接主题：接驳台，5 个被验证码墙 → 用 2 个成功爬取 + 本地目录）。新能力：① **图片 base64 内嵌**（用户要求"所有图片嵌入 html"）——PIL resize ≤800px q78 → data URI，HTML 用 `DATA:assets/x.jpg` 占位 + 正则替换，FAB stations 数组里的 `image: 'path'` 也要一并替换；② 模板新增 4 个区块占位符：%%ANIMATION%%（工作原理 CSS 动画：机器→皮带→缓冲→下机，PCB keyframes 移动 + 传感器闪烁，prefers-reduced-motion 冻结）、%%ROI%%（暗色带 ROI 数字 + 备注）、%%OPTIONS%%（设备选型建议表）、%%INSTALL%%（安装指南步骤，参考 S-460C 手册：场地/水平/接线 SMEMA/皮带检查/试运行）；③ 坑：Python 三引号字符串尾逗号会把变量变 tuple 导致 replace 报错（CTA/PAIN 中过招），构建后 AST 检查 tuple；④ 目录服务器状态核对：S-350C/SFBC05/S350C serial 已在线，Dual Link Conveyor.pdf 需上传。S-460C 手册参数：板 50×50–460×460mm、高 900±20mm、速度 0.5–12m/min、SMEMA 信号 Y2/CM2 X1/GND Y3/COM3 X2/GND。
 - v1.4.8：批次6 沉淀（S-300B 全自动高速成型编带机独立页 + 批次5系列页更新互链）。经验：① 新批次产品属于已有系列页家族时，除新子页外**回写更新系列页**（选型卡+链接，重新生成发布），保持家族互链完整；② DOCX 附件可能是演示讲稿而非规格（S-300B 的 docx 是 PPT 讲稿含市场数据，规格在 PDF）→ docx 用 zipfile 解 word/document.xml 提取；③ 无规格 PDF 的型号（S-120FC 等）在系列页以品名+范围呈现；④ S-300B 视频沿用编带家族映射（8gsWp7j6UJA/_ixWTgu1ejM/m2Mytl5D1EU）。
 - v1.4.7：批次5 沉淀（SMD 编带机：SJL80A 半自动 + 自动成型编带家族 S-120FC/S-250ART/S-300BSTD/S-300RT/S-350/S-60TP）。经验：① 4 个 1688 链接**整批全被登录墙拦截**（首见）→ 先问 Jason 是否「本地素材先做」，确认后基于附件 PDF + 图床家族图构建；② 规格表数值冲突（PDF 文本层 L170×W60×H60 vs 渲染 OCR L375×W40×H40）→ 以文本层为准并放大核对 spec 单元格；③ 图床有图无规格 PDF 的家族型号（S-120FC 等）以品名+产品范围呈现 + qualification「规格按图纸另询」；④ 编带视频映射：_ixWTgu1ejM（散装转径向编带）/m2Mytl5D1EU（电容编带极性检测）/8gsWp7j6UJA（大电容自动编带）/djJ8zjSwZpY（卷带拼接）/CMoQ-RQWKkQ（HD 拼接演示）。
 - v1.4.6：`doc_band`（文档目录卡，批次2 定义）正式入库 `scripts/lp_helpers.py`，至此组件库 = 13 区块 + options/roi/install/doc 四卡；批次4 沉淀（SM-650 视觉旗舰 BGA 返修台 ← ZM-R7220A、SR-430A 光学对位 ← ZM-B750、系列页 BGA Rework）。经验：① 服务器缺的产品 PDF 先补传 `Southern Machinery Product/` 再引用（S-B001/S-B002 本例）；② 手册类在 `Southern Machinery Manual/`；③ BGA 视频仅 3 条（VREGTSBDvGA/N-JNx4txhU0/81UVQBKF2io）页面可共用；④ 图床无返修台直拍图时品牌图全用官方 PDF 渲染页。
@@ -128,6 +84,7 @@ SMFILE_PASS='<用户提供>' bash scripts/publish_webdav.sh "<本地html>" "Sout
 - v1.4.4：把批量渲染器沉淀为内置模块 `scripts/lp_helpers.py`（含 13 个页面区块组件 + assemble；`READY_DIR` 环境变量指定压缩图目录；REF 模板路径改为相对 skill 目录，跨机器可用）；渲染步骤文档同步更新。批次脚本范式：设 READY_DIR → import lp_helpers → 写页面 dict → assemble 输出单文件 base64 页。
 - v1.4.3：批次2 两个独立单页（S7020T 端子/AC弹片 ← IST-M6000-2、S7900 Odd Form ← DD-8600 在线端子机）。沉淀：① 1688 主图 banner 常带与 SKU 规格表不同的第二套参数 → 以 SKU 规格表为准，banner 数字只进 qualification；② 批量复用：把渲染器抽成 lp_helpers.py（READY_DIR 环境变量指定图片目录），新批次脚本只写页面 dict；③ 新增 doc_band 文档目录卡组件（3 张 PDF 卡+Open the PDF 按钮），放在 FAQ 前、导航加 Catalogs 锚点；④ 图床 S7020/S7900 图均为 Southern 自家水印（smthelp.com）可直接内嵌；⑤ 规格冲突处理示例：S7020T 页官方 datasheet（12,000 CPH/380×280/1200kg）为主表，1688 平台数据为 Production reference 副表。
 - v1.4.2：Radial 系列页+2 子页（S3000 经济型 ← 1688 714770702134 / S3010A 高性能 ← 1066739310954，全图 base64 内嵌单文件发布 Product landing Page/）。沉淀：① 用户要求"图片全部内嵌 html"时走 base64 data URI（每页 25 图≈2.6MB 可接受），无需 WebDAV 自托管 alicdn 图；② 模板化时把 FAB stations 与 SYSTEM_PROMPT 放 `<script type="application/json">` 数据块，JS 里 JSON.parse，彻底规避撇号/引号转义坑；③ ph.smthelp.com 搜 "S3000" 命中的 CAD 渲染图带供应商水印 "GIANNG www.cn-guang.com" 必须弃用（Read 目检发现），S3000 真机图以官方 PDF p1 裁切为准；④ 发布前 grep 校验 `tel:+86` href 数字与页脚逐位一致（曾生成 62576 多打一个 6）；⑤ 系列页 lineup 卡互链子页（相对文件名），子页 footer 互链系列页；⑥ Radial 视频映射：S3000→WP61N6pmDJU/NUvAg0JvGYY/0iKa7qjICCg/51JqMMJlVA4，S3010A→jI5O2w86n1A/Y6v_U97S_Ho/xSHWpqCgaoQ/EXbYdskdXkM，系列页→NUvAg0JvGYY/T5JxQTrP27I/4O5ZjZ5CwAg（全存活）。
+- v1.5.0：PCB Conveyor 综合单文件页（7 个 1688 链接主题：接驳台，5 个被验证码墙 → 用 2 个成功爬取 + 本地目录）。新能力：① **图片 base64 内嵌**（用户要求"所有图片嵌入 html"）——PIL resize ≤800px q78 → data URI，HTML 用 `DATA:assets/x.jpg` 占位 + 正则替换，FAB stations 数组里的 `image: 'path'` 也要一并替换；② 模板新增 4 个区块占位符：%%ANIMATION%%（工作原理 CSS 动画：机器→皮带→缓冲→下机，PCB keyframes 移动 + 传感器闪烁，prefers-reduced-motion 冻结）、%%ROI%%（暗色带 ROI 数字 + 备注）、%%OPTIONS%%（设备选型建议表）、%%INSTALL%%（安装指南步骤，参考 S-460C 手册：场地/水平/接线 SMEMA/皮带检查/试运行）；③ 坑：Python 三引号字符串尾逗号会把变量变 tuple 导致 replace 报错（CTA/PAIN 中过招），构建后 AST 检查 tuple；④ 目录服务器状态核对：S-350C/SFBC05/S350C serial 已在线，Dual Link Conveyor.pdf 需上传。S-460C 手册参数：板 50×50–460×460mm、高 900±20mm、速度 0.5–12m/min、SMEMA 信号 Y2/CM2 X1/GND Y3/COM3 X2/GND。
 - v1.4.1：Feeder/Nozzle 批量页（系列页+编带飞达+Samsung 标签飞达）。淘宝 item.taobao.com 详情页登录墙（PC+H5+Playwright 均跳登录），crawl4ai 抓不到 → 直接请用户提供商品标题+主图；1688 详情页可爬。图床搜图关键词：feeder/nozzle/gripper nozzle/solder chip feeder 命中多张品牌图。Feeder Nozzle Catalog V03 及各型号（SAF1001/SLF100X/SBF1001/STF1003/STP1001...）PDF 已在服务器 Southern Machinery Product/ 可直接引用。YouTube 匹配：label feeder(Oh9W9qnHpjE/KxhQlW6qhpY)、axial tape feeder(JmYHPfN69yY/OCPt-18Lmrk/bOYijZA4Msc)、nozzle(cbvWhqnld2M/RJt3nJx21oQ/nKkwd9ooJGw) 全存活。
 - v1.4.0：新增多页批量构建模式（ESD 挂篮车系列页+3 子页沉淀）。reference HTML 转 `%%占位符%%` 模板 + Python dict 渲染 N 页。新坑：① stations 数组占位符后残留模板的 `];` → JS 报 `Unexpected token ]`（占位符替换后逐页 grep 校验 JS 括号平衡）；② section-head（pain/gallery/videos/service）、静态 FAB 内容（system-image/system-name/fab-rows）、chat placeholder/greeting 必须全部模板化，否则泄漏上一产品文案（如 S-680A）；③ meta 块替换时误留双 `<style><style>` → :root CSS 变量失效 → `.btn.light` 白字白底不可见（用 computed style 排查：`getComputedStyle(document.documentElement).getPropertyValue('--teal-dark')` 为空即中招）；④ 视频/图库/聊天交互用 Playwright 实测（click .video-load → iframe 数、lightbox open/close、chat intro 文案）。多源图片策略：品牌 PDF 页转 JPG（pymupdf dpi 110 + PIL q82）+ ph.smthelp.com 图 + 1688 实拍图（带中文营销字的可作 gallery，hero 慎用）统一放 `esd-trolley-assets/images/` 相对路径引用，file:// 与 https 通吃。ESD 系列页视频选题：ESD PCB Magazine Rack install/assembly、SMT PCB magazine、AGV trolley、feeder cart（oEmbed 全存活）。
 - v1.3.2：新增 `assets/reference-ai-splice-tape.html`（耗材类，AI 接料带 Radial/Axial Lead）。新坑：图床唯一 AI 接料带图水印是 "Southern Electronics"（他家公司）→ 弃用；图床无正确水印接料带图时，可裁切 1688 实拍图的自托管（避开供应商 DHR/ESOCOO 水印区）+ 图床正确水印的工具/推车/接料机图组合。参考图纸 PDF（Universal Instruments C24782000）可 WebDAV 自托管后作为 catalog 卡
