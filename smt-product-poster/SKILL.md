@@ -2,7 +2,7 @@
 name: smt-product-poster
 description: "Southern Machinery 产品海报流水线 — 从产品 PDF/PPT 一键生成 SP-830 品牌模板风格的 16:9 高保真营销海报（PNG），自动生成 SEO 文件名/标题/描述/标签，保存本地并把海报 + 元数据推送到 GitHub 仓库 smthelping 系 poster 库（可开 GitHub Pages 展示页）。"
 whenToUse: "做产品海报，PPT转海报，PDF转海报，poster，营销海报生成，海报推仓库，poster SEO 元数据，smt-Machine-poster，Southern Machinery 产品宣传图"
-version: 1.0.1
+version: 1.0.2
 metadata:
   source: hermes
   origin: "marketing/smt-product-poster"
@@ -60,6 +60,8 @@ EOF
 ```
 
 ⚠️ **必须目检裁切结果**（Read 查看），照片里出现可辨认的员工/人脸要重新裁切排除（品牌红线）。裁 1–2 张最能代表设备外观的即可，参考图不是越多越好。
+
+**源文档无产品图时**（赋能文档 / 调研笔记 / FABE 文案类，纯文字 PDF）：不要凭空生成设备外观。按型号在同目录匹配真实产品册（如源为《Automated Reel Terminal Feeding…》→ 取图自《SRT7001 Terminal Reel Feeder.pdf》），从该册裁参考图并交叉核对参数；meta.json 增加 `photo_source_pdf` 字段记录取图来源。同目录找不到对应册时，向用户要图源，不得臆造设备造型。
 
 ### Step 3 · 生成 SEO 元数据（基于原文件名）
 
@@ -196,6 +198,7 @@ Pages 站点即海报的永久分享直链（PNG raw URL 也可直接嵌邮件/�
 
 ## 升级路径（v1.x → v2）
 
+- **v1.0.2**（2026-09-22）: 新增「源文档无产品图 → 同目录按型号匹配产品册取图」流程（Step 2）与 `photo_source_pdf` 元数据字段（SRT7001 调研文档实战验证）
 - **v1.0.1**（2026-09-03）: AGV 目录 17 型批量实战验证；新增批量流水提交策略（Step 4）与 Pitfall #8 任务卡 processing 重提交、#9 outputs 命名整理
 - **v1.1**: 模板注册表 `assets/templates.json`（多模板：SP-830 横版 / 9:16 竖版电商 / 1:1 社媒），一源多尺寸批量出图
 - **v1.2**: 批量模式——给一个文件夹自动扫描全部 PDF 逐个出海报（增量：以 `.meta.json` 是否存在 + PDF mtime 判断）
