@@ -1,0 +1,14 @@
+{
+  "id": "khamu8103-obsidian-skills-obsidian-cli",
+  "name": "obsidian-cli",
+  "source_type": "skill",
+  "repo": "khamu8103/obsidian-skills",
+  "repo_url": "https://github.com/khamu8103/obsidian-skills",
+  "extracted_from": "khamu8103/obsidian-skills@main/obsidian-skills-main/skills/obsidian-cli",
+  "local_path": "01_可用Skill源码/第三方Skill/khamu8103-obsidian-skills-obsidian-cli",
+  "license": "MIT",
+  "author": "khamu8103",
+  "status": "downloaded",
+  "install_note": "复制整个 Skill 文件夹到目标 Agent 的 Skill 目录。",
+  "verify_note": "让 Agent 读取 SKILL.md 并说明该 Skill 的触发条件、流程和需要的资源。"
+}

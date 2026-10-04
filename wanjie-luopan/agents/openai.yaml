@@ -1,0 +1,7 @@
+interface:
+  display_name: "万界罗盘"
+  short_description: "把模糊方向转成有证据、值得继续研究的开源项目路引"
+  default_prompt: "使用 $wanjie-luopan 帮我发现并筛选值得继续研究的开源项目。"
+  icon_small: "./assets/icon.png"
+  icon_large: "./assets/logo-mark.svg"
+  brand_color: "#0B1C31"

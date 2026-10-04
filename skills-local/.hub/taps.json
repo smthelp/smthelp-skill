@@ -1,0 +1,8 @@
+{
+  "taps": [
+    {
+      "repo": "win4r/notebooklm-py",
+      "path": "skills/"
+    }
+  ]
+}

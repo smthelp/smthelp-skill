@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>{{company_name}} — Brand Preview</title>
+<style>
+  :root {
+    --primary: #{{primary}};
+    --primary-dark: #{{primary_dark}};
+    --primary-light: #{{primary_light}};
+    --secondary: #{{secondary}};
+    --secondary-dark: #{{secondary_dark}};
+    --secondary-light: #{{secondary_light}};
+    --bg-page: #FFFFFF;
+    --bg-card: #F8FAFC;
+    --bg-subtle: #F1F5F9;
+    --text-primary: #1E293B;
+    --text-secondary: #475569;
+    --text-muted: #94A3B8;
+    --text-on-primary: #FFFFFF;
+    --success: #16A34A;
+    --warning: #D97706;
+    --error: #DC2626;
+    --info: #2563EB;
+    --font-heading: Arial, Helvetica, sans-serif;
+    --font-body: Arial, Helvetica, sans-serif;
+    --font-mono: Courier New, monospace;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: var(--font-body); background: var(--bg-page); color: var(--text-primary); padding: 60px 40px; max-width: 900px; margin: 0 auto; }
+  h1 { font-size: 28px; color: var(--primary); margin-bottom: 8px; }
+  h2 { font-size: 20px; color: var(--primary); margin: 40px 0 16px; border-bottom: 2px solid var(--primary); padding-bottom: 8px; }
+  h3 { font-size: 14px; color: var(--text-muted); text-transform: uppercase; letter-spacing: 1px; margin-bottom: 16px; }
+  .swatch-row { display: flex; gap: 16px; flex-wrap: wrap; margin-bottom: 24px; }
+  .swatch { flex: 1; min-width: 120px; }
+  .swatch-color { height: 80px; border-radius: 8px; margin-bottom: 8px; border: 1px solid #e2e8f0; }
+  .swatch-label { font-size: 13px; font-weight: 700; }
+  .swatch-hex { font-size: 12px; color: var(--text-muted); font-family: var(--font-mono); }
+  table { width: 100%; border-collapse: collapse; margin: 16px 0; }
+  th { background: var(--primary); color: white; padding: 10px 16px; text-align: left; font-size: 14px; }
+  td { padding: 10px 16px; border-bottom: 1px solid #e2e8f0; font-size: 14px; }
+  tr:nth-child(even) td { background: var(--bg-subtle); }
+  .card { background: var(--bg-card); border: 1px solid #e2e8f0; border-radius: 8px; padding: 24px; margin: 16px 0; }
+  .card h4 { color: var(--primary); font-size: 16px; margin-bottom: 8px; }
+  .card p { color: var(--text-secondary); font-size: 14px; line-height: 1.6; }
+  .tag { display: inline-block; padding: 4px 12px; border-radius: 4px; font-size: 12px; font-weight: 700; margin: 4px; }
+  .tag-primary { background: var(--primary); color: white; }
+  .tag-secondary { background: var(--secondary); color: white; }
+  .tag-success { background: var(--success); color: white; }
+  .header-bar { background: var(--primary); color: white; padding: 16px 24px; border-radius: 8px; margin-bottom: 24px; display: flex; align-items: center; gap: 16px; }
+  .header-bar .logo-placeholder { background: white; color: var(--primary); padding: 8px 16px; border-radius: 4px; font-weight: 700; font-size: 14px; }
+  .footer-bar { background: var(--text-primary); color: white; padding: 12px 24px; border-radius: 8px; margin-top: 24px; display: flex; justify-content: space-between; font-size: 12px; }
+  .mono { font-family: var(--font-mono); font-size: 13px; background: var(--bg-subtle); padding: 2px 6px; border-radius: 4px; }
+  hr { border: none; border-top: 1px solid #e2e8f0; margin: 24px 0; }
+  .chart-row { display: flex; gap: 12px; margin: 12px 0; }
+  .chart-bar { flex: 1; height: 40px; border-radius: 4px; display: flex; align-items: center; justify-content: center; color: white; font-size: 12px; font-weight: 700; }
+</style>
+</head>
+<body>
+<h1>{{company_name}}</h1>
+<p style="color: var(--text-muted); font-size: 14px;">{{tagline}}</p>
+
+<h2>01 · Color Palette</h2>
+<h3>Primary</h3>
+<div class="swatch-row">
+  <div class="swatch"><div class="swatch-color" style="background: #{{primary}};"></div><div class="swatch-label">Primary</div><div class="swatch-hex">#{{primary}}</div></div>
+  <div class="swatch"><div class="swatch-color" style="background: #{{primary_dark}};"></div><div class="swatch-label">Dark</div><div class="swatch-hex">#{{primary_dark}}</div></div>
+  <div class="swatch"><div class="swatch-color" style="background: #{{primary_light}};"></div><div class="swatch-label">Light</div><div class="swatch-hex">#{{primary_light}}</div></div>
+</div>
+<h3>Secondary</h3>
+<div class="swatch-row">
+  <div class="swatch"><div class="swatch-color" style="background: #{{secondary}};"></div><div class="swatch-label">Secondary</div><div class="swatch-hex">#{{secondary}}</div></div>
+  <div class="swatch"><div class="swatch-color" style="background: #{{secondary_dark}};"></div><div class="swatch-label">Dark</div><div class="swatch-hex">#{{secondary_dark}}</div></div>
+  <div class="swatch"><div class="swatch-color" style="background: #{{secondary_light}};"></div><div class="swatch-label">Light</div><div class="swatch-hex">#{{secondary_light}}</div></div>
+</div>
+
+<h2>02 · Typography</h2>
+<p style="font-size:32px;font-weight:700;color:var(--primary);margin-bottom:8px;">Heading Sample — Aa</p>
+<p style="font-size:18px;color:var(--text-primary);margin-bottom:8px;">{{tagline}}</p>
+<p style="font-size:14px;font-family:var(--font-mono);background:var(--bg-subtle);padding:8px;border-radius:4px;">Spec: S-70LD · 18,000 CPH · ±0.05mm</p>
+
+<h2>03 · Components</h2>
+<div class="header-bar"><div class="logo-placeholder">SM</div><span>{{full_name}}</span></div>
+<table>
+  <thead><tr><th>Product</th><th>Type</th><th>CPH</th><th>Status</th></tr></thead>
+  <tbody>
+    <tr><td>S-70LD</td><td>Odd Form Insertion</td><td>18,000</td><td><span class="tag tag-primary">Active</span></td></tr>
+    <tr><td>S-WS450</td><td>Wave Soldering</td><td>—</td><td><span class="tag tag-secondary">Standard</span></td></tr>
+  </tbody>
+</table>
+<div class="card">
+  <h4>{{company_name}} — {{tagline}}</h4>
+  <p>Professional equipment for global electronics manufacturing.</p>
+</div>
+<div>
+  <span class="tag tag-primary">Primary</span>
+  <span class="tag tag-secondary">Secondary</span>
+  <span class="tag" style="background:var(--success);color:white;">Success</span>
+  <span class="tag" style="background:var(--warning);color:white;">Warning</span>
+  <span class="tag" style="background:var(--error);color:white;">Error</span>
+  <span class="tag" style="background:var(--info);color:white;">Info</span>
+</div>
+<div class="footer-bar"><span>{{company_name}}</span><span>{{website}}</span></div>
+</body>
+</html>

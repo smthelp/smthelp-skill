@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>{{H1_SHORT}} | Southern Machinery</title>
+<meta name="description" content="{{META_DESCRIPTION}}">
+<meta name="keywords" content="{{KEYWORDS_CSV}}">
+<meta name="author" content="Southern Machinery Co., Ltd.">
+<meta name="robots" content="index,follow,max-image-preview:large">
+<link rel="canonical" href="{{CANONICAL_URL}}">
+<meta property="og:type" content="article">
+<meta property="og:title" content="{{H1_SHORT}}">
+<meta property="og:description" content="{{META_DESCRIPTION}}">
+<meta property="og:image" content="{{HERO_IMAGE_URL}}">
+<meta property="og:url" content="{{CANONICAL_URL}}">
+<meta property="og:site_name" content="Southern Machinery">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="@smtspecialist">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{--brand:#1C64F2;--brand-dark:#0d3b8c;--brand-light:#e8f0ff;--accent:#f59e0b;--ink:#0f172a;--ink-2:#334155;--muted:#64748b;--bg:#f8fafc;--line:#e2e8f0;--shadow:0 10px 25px -10px rgba(15,23,42,.18);--radius:14px;}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;font-family:'Inter',system-ui,-apple-system,sans-serif;color:var(--ink);background:var(--bg);line-height:1.7}
+img{max-width:100%;display:block;height:auto}
+a{color:var(--brand);text-decoration:none}
+a:hover{text-decoration:underline}
+.wrap{max-width:1100px;margin:0 auto;padding:0 1.25rem}
+header.site{background:#fff;border-bottom:1px solid var(--line);position:sticky;top:0;z-index:50}
+.nav{display:flex;align-items:center;justify-content:space-between;gap:1rem;padding:.75rem 1.25rem;max-width:1200px;margin:0 auto}
+.brand{display:flex;align-items:center;gap:.85rem}
+.brand img{height:56px;width:auto}
+.brand .tagline{font-size:.78rem;color:var(--muted);max-width:240px;line-height:1.3}
+nav.menu{display:flex;gap:1.25rem;flex-wrap:wrap}
+nav.menu a{color:var(--ink-2);font-weight:500;font-size:.95rem}
+.cta-mini{background:var(--brand);color:#fff!important;padding:.55rem 1rem;border-radius:8px;font-weight:600}
+@media(max-width:860px){.brand .tagline{display:none}nav.menu{display:none}}
+.hero{position:relative;color:#fff;padding:4.5rem 1.25rem 4rem;background:linear-gradient(135deg,rgba(13,59,140,.93),rgba(28,100,242,.78)),url('{{HERO_IMAGE_URL}}') center/cover no-repeat}
+.hero h1{font-size:clamp(2rem,3.6vw,2.85rem);font-weight:800;margin:0 0 1rem;line-height:1.2;max-width:900px}
+.hero h1 .accent{color:#fcd34d}
+.hero p.lead{font-size:1.1rem;opacity:.95;margin:0 0 1.5rem;max-width:780px}
+.hero .meta{display:flex;flex-wrap:wrap;gap:1rem;font-size:.85rem;opacity:.9}
+.hero .meta span{background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.22);padding:.3rem .7rem;border-radius:999px}
+.hero-stats{display:grid;grid-template-columns:repeat(4,1fr);gap:1rem;margin-top:2rem;max-width:780px}
+.hero-stats .stat{background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.18);padding:.85rem;border-radius:10px;text-align:center}
+.hero-stats .num{font-size:1.5rem;font-weight:800;color:#fcd34d}
+.hero-stats .lbl{font-size:.72rem;text-transform:uppercase;letter-spacing:.06em;opacity:.85;margin-top:.35rem}
+@media(max-width:700px){.hero-stats{grid-template-columns:repeat(2,1fr)}}
+article{background:#fff;border-radius:var(--radius);padding:2.5rem 2rem;margin:-2.5rem auto 3rem;max-width:900px;box-shadow:var(--shadow);position:relative;z-index:5}
+article h2{font-size:1.6rem;font-weight:800;margin:2.4rem 0 .9rem;scroll-margin-top:90px}
+article h3{font-size:1.2rem;font-weight:700;margin:1.6rem 0 .6rem}
+article p{margin:.75rem 0;color:var(--ink-2)}
+article ul,article ol{padding-left:1.3rem;color:var(--ink-2)}
+article blockquote{margin:1rem 0;padding:1rem 1.2rem;border-left:4px solid var(--brand);background:var(--brand-light);border-radius:0 8px 8px 0;color:var(--ink)}
+.toc{background:var(--brand-light);border:1px solid #c7dbff;border-radius:10px;padding:1rem 1.25rem;margin:1.5rem 0 2rem}
+.toc h4{margin:0 0 .5rem;font-size:.95rem;color:var(--brand-dark);text-transform:uppercase;letter-spacing:.05em}
+table.spec{width:100%;border-collapse:collapse;margin:1rem 0;font-size:.95rem}
+table.spec th,table.spec td{border:1px solid var(--line);padding:.6rem .8rem;text-align:left}
+table.spec th{background:#f1f5f9;font-weight:700}
+table.spec tr:nth-child(even) td{background:#fafbfc}
+.callout{background:#fff7ed;border:1px solid #fed7aa;border-left:4px solid var(--accent);border-radius:0 8px 8px 0;padding:1rem 1.2rem;margin:1.2rem 0;color:#7c2d12}
+.cta-box{background:linear-gradient(135deg,var(--brand-dark),var(--brand));color:#fff;border-radius:14px;padding:1.8rem;margin:2.2rem 0;text-align:center}
+.cta-box h3{color:#fff;margin:0 0 .5rem;font-size:1.3rem}
+.cta-box p{color:#dbeafe;margin:0 0 1rem}
+.cta-box .btn{display:inline-block;background:var(--accent);color:#0f172a!important;padding:.8rem 1.4rem;border-radius:10px;font-weight:700}
+details.faq{border:1px solid var(--line);border-radius:10px;padding:.9rem 1.1rem;margin:.6rem 0;background:#fff}
+details.faq[open]{border-color:var(--brand)}
+details.faq summary{cursor:pointer;font-weight:700;list-style:none;position:relative;padding-right:1.5rem}
+details.faq summary::after{content:"+";position:absolute;right:0;top:0;font-size:1.3rem;color:var(--brand)}
+details.faq[open] summary::after{content:"−"}
+footer.site{background:#0f172a;color:#cbd5e1;padding:3rem 1.25rem 1.5rem;margin-top:3rem}
+footer.site .cols{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:2rem;max-width:1100px;margin:0 auto}
+footer.site h5{color:#fff;font-size:1rem;margin:0 0 .85rem;text-transform:uppercase;letter-spacing:.05em}
+footer.site a{color:#cbd5e1}
+footer.site .social{display:flex;flex-wrap:wrap;gap:.55rem;margin-top:.5rem}
+footer.site .social a{display:inline-flex;gap:.4rem;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.12);padding:.45rem .8rem;border-radius:999px;font-size:.85rem}
+.bottom-bar{border-top:1px solid #1e293b;margin-top:2rem;padding-top:1rem;text-align:center;font-size:.82rem;color:#94a3b8}
+@media(max-width:780px){footer.site .cols{grid-template-columns:1fr}}
+</style>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Article",
+      "headline": "{{H1_LONG}}",
+      "description": "{{META_DESCRIPTION}}",
+      "image": "{{HERO_IMAGE_URL}}",
+      "author": {"@type":"Organization","name":"Southern Machinery Co., Ltd.","url":"https://www.smthelp.com"},
+      "publisher": {"@type":"Organization","name":"Southern Machinery Co., Ltd.","logo":{"@type":"ImageObject","url":"https://ph.smthelp.com/images/2024/06/26/Southern-Machinery-logo-300x83.png"}},
+      "datePublished": "{{DATE_ISO}}",
+      "dateModified": "{{DATE_ISO}}",
+      "mainEntityOfPage": "{{CANONICAL_URL}}"
+    },
+    {
+      "@type": "Product",
+      "name": "{{PRODUCT_NAME}}",
+      "image": "{{HERO_IMAGE_URL}}",
+      "description": "{{PRODUCT_DESCRIPTION}}",
+      "brand": {"@type":"Brand","name":"Southern Machinery"},
+      "manufacturer": {"@type":"Organization","name":"Southern Machinery Co., Ltd."},
+      "category": "{{PRODUCT_CATEGORY}}",
+      "sku": "{{MODEL}}",
+      "url": "{{PRODUCT_URL}}"
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {"@type":"Question","name":"{{FAQ1_Q}}","acceptedAnswer":{"@type":"Answer","text":"{{FAQ1_A}}"}},
+        {"@type":"Question","name":"{{FAQ2_Q}}","acceptedAnswer":{"@type":"Answer","text":"{{FAQ2_A}}"}},
+        {"@type":"Question","name":"{{FAQ3_Q}}","acceptedAnswer":{"@type":"Answer","text":"{{FAQ3_A}}"}},
+        {"@type":"Question","name":"{{FAQ4_Q}}","acceptedAnswer":{"@type":"Answer","text":"{{FAQ4_A}}"}},
+        {"@type":"Question","name":"{{FAQ5_Q}}","acceptedAnswer":{"@type":"Answer","text":"{{FAQ5_A}}"}}
+      ]
+    }
+  ]
+}
+</script>
+</head>
+<body>
+<header class="site">
+  <div class="nav">
+    <a class="brand" href="https://www.smthelp.com" aria-label="Southern Machinery home">
+      <img src="https://ph.smthelp.com/images/2024/06/26/Southern-Machinery-logo-300x83.png" alt="Southern Machinery — Smart PCB Assembly Automation Since 2011">
+      <span class="tagline">Smart PCB Assembly Automation Partner — Since 2011</span>
+    </a>
+    <nav class="menu" aria-label="Primary">
+      <a href="https://www.smthelp.com/product-category/smt-machine/">SMT Machines</a>
+      <a href="https://www.smthelp.com/product-category/tht-machine/">THT Machines</a>
+      <a href="https://www.smthelp.com/product-category/peripheral-equipment/">Peripheral</a>
+      <a href="https://www.smthelp.com/blog/">Blog</a>
+      <a class="cta-mini" href="mailto:jasonwu@smthelp.com?subject={{MODEL}}%20Inquiry">Get Quote</a>
+    </nav>
+  </div>
+</header>
+<section class="hero">
+  <div class="wrap">
+    <div class="meta">
+      <span>{{SERIES_TAG}}</span><span>Updated {{DATE_HUMAN}}</span><span>{{READ_MIN}} min read</span><span>By {{AUTHOR}}</span>
+    </div>
+    <h1>{{H1_LONG_HTML_WITH_ACCENT}}</h1>
+    <p class="lead">{{LEAD_PARAGRAPH}}</p>
+    <div class="hero-stats">
+      <div class="stat"><div class="num">{{STAT1_NUM}}</div><div class="lbl">{{STAT1_LBL}}</div></div>
+      <div class="stat"><div class="num">{{STAT2_NUM}}</div><div class="lbl">{{STAT2_LBL}}</div></div>
+      <div class="stat"><div class="num">{{STAT3_NUM}}</div><div class="lbl">{{STAT3_LBL}}</div></div>
+      <div class="stat"><div class="num">{{STAT4_NUM}}</div><div class="lbl">{{STAT4_LBL}}</div></div>
+    </div>
+  </div>
+</section>
+<article class="wrap">
+<p><em>{{SUMMARY_ITALIC}}</em></p>
+<div class="toc"><h4>What you’ll get in this article</h4>
+<ol>{{TOC_ITEMS}}</ol></div>
+{{BODY_SECTIONS}}
+<div class="cta-box" id="cta">
+  <h3>{{CTA_HEADLINE}}</h3>
+  <p>{{CTA_SUBLINE}}</p>
+  <a class="btn" href="mailto:jasonwu@smthelp.com?subject={{CTA_SUBJECT_ENC}}&body={{CTA_BODY_ENC}}">{{CTA_BUTTON_LABEL}}</a>
+</div>
+<p style="font-size:.85rem;color:var(--muted);margin-top:2rem"><em>Disclosure:</em> This article is published by Southern Machinery Co., Ltd. for educational and marketing purposes. Specifications come from the {{MODEL}} datasheet. Wage / payback figures are illustrative; please validate with your operations and finance teams. Pricing, lead times, certifications and customer references are confirmed only via formal written quotation.</p>
+</article>
+<footer class="site">
+  <div class="cols">
+    <div>
+      <img src="https://ph.smthelp.com/images/2024/06/26/Southern-Machinery-logo-300x83.png" alt="Southern Machinery" style="height:60px;width:auto;background:#fff;padding:.4rem .6rem;border-radius:8px;margin-bottom:.85rem">
+      <p style="margin:.25rem 0;color:#cbd5e1;font-size:.92rem">Southern Machinery Co., Ltd. — Smart PCB Assembly Automation Partner since 2011.</p>
+      <ul>
+        <li>📧 <a href="mailto:jasonwu@smthelp.com">jasonwu@smthelp.com</a></li>
+        <li>📱 WhatsApp: <a href="https://api.whatsapp.com/send?phone=8613602562576">+86 136 0256 2576</a></li>
+        <li>🏭 Shenzhen, China</li>
+      </ul>
+    </div>
+    <div>
+      <h5>Resources</h5>
+      <ul>
+        <li><a href="https://www.smthelp.com">Website — smthelp.com</a></li>
+        <li><a href="https://file.autoinsertion.com">Machine catalog — file.autoinsertion.com</a></li>
+        <li><a href="https://ph.smthelp.com">Machine photos — ph.smthelp.com</a></li>
+        <li><a href="{{PRODUCT_URL}}">{{MODEL}} product page</a></li>
+        <li><a href="https://www.smthelp.com/blog/">Lean SMT blog</a></li>
+      </ul>
+    </div>
+    <div>
+      <h5>Connect</h5>
+      <div class="social">
+        <a href="https://www.linkedin.com/company/smtmachine" rel="noopener">in · LinkedIn Company</a>
+        <a href="https://cn.linkedin.com/in/smtsupplier" rel="noopener">in · LinkedIn Profile</a>
+        <a href="https://twitter.com/smtspecialist" rel="noopener">𝕏 · Twitter</a>
+        <a href="https://www.facebook.com/autoinsertion" rel="noopener">f · Facebook</a>
+        <a href="https://www.youtube.com/c/Smthelping" rel="noopener">▶ YouTube</a>
+      </div>
+      <p style="margin-top:1rem;font-size:.85rem;color:#94a3b8">Browse our machine catalog at <a href="https://file.autoinsertion.com">file.autoinsertion.com</a> and find machine photos at <a href="https://ph.smthelp.com">ph.smthelp.com</a>.</p>
+    </div>
+  </div>
+  <div class="bottom-bar">© {{YEAR}} Southern Machinery Co., Ltd. — All rights reserved. · {{MODEL}} {{PRODUCT_NAME_SHORT}} · Specs per datasheet; pricing per quotation.<br>{{HASHTAGS}}</div>
+</footer>
+</body>
+</html>

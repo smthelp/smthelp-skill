@@ -1,0 +1,4 @@
+interface:
+  display_name: "Reply Inquiry"
+  short_description: "Draft concise inquiry replies"
+  default_prompt: "Use $reply-inquiry to support a Southern Machinery sales task."

@@ -1,0 +1,23 @@
+{
+  "skill_name": "Smart-SMT",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "Create three English LinkedIn visual concepts for Southern Machinery promoting THT auto insertion upgrades for EMS factories. Include imagegen prompts.",
+      "expected_output": "Three concise English concepts with B2B copy, Smart-SMT visual prompts, and a human-review note for any claims.",
+      "files": []
+    },
+    {
+      "id": 2,
+      "prompt": "I need a futuristic YouTube thumbnail concept for an SMT LED pick and place machine video. Keep it simple and direct, with English text.",
+      "expected_output": "A thumbnail visual concept, short English text, imagegen prompt, alt text, and avoidance of fake specs or clutter.",
+      "files": []
+    },
+    {
+      "id": 3,
+      "prompt": "Make a clean hero image prompt and short headline for a Southern Machinery landing page about complete SMT + THT production line solutions.",
+      "expected_output": "A concise headline plus a high-tech industrial imagegen prompt centered on complete line automation.",
+      "files": []
+    }
+  ]
+}

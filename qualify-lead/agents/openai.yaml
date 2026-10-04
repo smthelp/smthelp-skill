@@ -1,0 +1,4 @@
+interface:
+  display_name: "Qualify Lead"
+  short_description: "Grade and route SMT/THT sales leads"
+  default_prompt: "Use $qualify-lead to support a Southern Machinery sales task."

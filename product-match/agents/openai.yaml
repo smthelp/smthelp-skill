@@ -1,0 +1,4 @@
+interface:
+  display_name: "Product Match"
+  short_description: "Match PCB needs to machine models"
+  default_prompt: "Use $product-match to support a Southern Machinery sales task."

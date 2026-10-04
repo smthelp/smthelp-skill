@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>{{TITLE}} | Southern Machinery</title>
+<meta name="description" content="{{META_DESCRIPTION}}" />
+<style>
+  /* ===== Reset & Base ===== */
+  *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{
+    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Helvetica Neue",Arial,sans-serif;
+    background:#050a13;color:#cfe6ff;line-height:1.65;overflow-x:hidden;
+  }
+  a{color:inherit;text-decoration:none}
+  img{max-width:100%;display:block}
+
+  :root{
+    --bg:#050a13;--bg-2:#0a1626;--panel:#0e1d33;--line:#13283f;
+    --text:#cfe6ff;--muted:#7fa3c7;
+    --accent:#00e5ff;--accent-2:#39ff7a;--warn:#ffb84d;
+    --shadow:0 18px 50px rgba(0,229,255,.08);
+  }
+
+  /* PCB-grid background */
+  body::before{
+    content:"";position:fixed;inset:0;z-index:0;pointer-events:none;
+    background-image:
+      linear-gradient(rgba(0,229,255,.06) 1px,transparent 1px),
+      linear-gradient(90deg,rgba(0,229,255,.06) 1px,transparent 1px);
+    background-size:48px 48px;
+    mask-image:radial-gradient(ellipse at center,#000 30%,transparent 80%);
+  }
+  body::after{
+    content:"";position:fixed;inset:0;z-index:0;pointer-events:none;
+    background:radial-gradient(ellipse at 20% 0%,rgba(0,229,255,.12),transparent 50%),
+               radial-gradient(ellipse at 80% 60%,rgba(57,255,122,.08),transparent 50%);
+  }
+  main,header,footer{position:relative;z-index:1}
+
+  /* Header */
+  header{
+    position:fixed;top:0;left:0;right:0;z-index:50;
+    display:flex;align-items:center;justify-content:space-between;
+    padding:14px 36px;background:rgba(5,10,19,.72);
+    backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);
+    border-bottom:1px solid rgba(0,229,255,.12);
+  }
+  .logo img{height:38px;width:auto;filter:drop-shadow(0 0 8px rgba(0,229,255,.35))}
+  .tagline{font-size:12px;letter-spacing:.18em;color:var(--muted);text-transform:uppercase}
+  .tagline b{color:var(--accent)}
+
+  /* Hero */
+  .hero{min-height:100vh;display:flex;align-items:center;justify-content:center;
+        text-align:center;padding:120px 24px 80px;position:relative}
+  .hero-inner{max-width:1080px}
+  .kicker{display:inline-block;padding:6px 16px;border:1px solid rgba(0,229,255,.4);
+          border-radius:999px;color:var(--accent);font-size:12px;letter-spacing:.3em;
+          text-transform:uppercase;margin-bottom:24px;background:rgba(0,229,255,.06)}
+  h1{font-size:clamp(36px,5.6vw,72px);line-height:1.05;letter-spacing:-.02em;
+     background:linear-gradient(135deg,#fff 0%,var(--accent) 60%,var(--accent-2) 100%);
+     -webkit-background-clip:text;background-clip:text;color:transparent;
+     margin-bottom:18px;font-weight:800}
+  .hero p.lead{font-size:clamp(15px,1.4vw,19px);color:var(--muted);
+               max-width:760px;margin:0 auto 36px}
+  .hero-stats{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));
+              gap:18px;max-width:880px;margin:0 auto}
+  .stat{background:linear-gradient(180deg,rgba(0,229,255,.08),rgba(0,229,255,.02));
+        border:1px solid rgba(0,229,255,.2);border-radius:14px;padding:18px 14px}
+  .stat .num{font-size:clamp(24px,3vw,36px);font-weight:800;color:#fff;font-variant-numeric:tabular-nums}
+  .stat .num .unit{font-size:14px;color:var(--accent);margin-left:4px}
+  .stat .lbl{font-size:11px;letter-spacing:.18em;color:var(--muted);text-transform:uppercase;margin-top:4px}
+  @media (max-width:720px){.hero-stats{grid-template-columns:repeat(2,1fr)}}
+
+  /* Sections */
+  section{padding:96px 24px;max-width:1200px;margin:0 auto}
+  .eyebrow{font-size:12px;letter-spacing:.32em;color:var(--accent);
+           text-transform:uppercase;margin-bottom:12px;display:inline-block}
+  h2{font-size:clamp(26px,3.2vw,40px);margin-bottom:14px;color:#fff;font-weight:800;letter-spacing:-.01em}
+  h2 .accent{color:var(--accent)}
+  .sub{color:var(--muted);max-width:780px;margin-bottom:48px;font-size:15px}
+
+  /* Reveal */
+  .reveal{opacity:0;transform:translateY(28px);transition:all .8s cubic-bezier(.2,.7,.2,1)}
+  .reveal.in{opacity:1;transform:none}
+
+  /* Cards */
+  .grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+  @media (max-width:900px){.grid-3{grid-template-columns:1fr}}
+  .card{background:linear-gradient(180deg,var(--panel),var(--bg-2));
+        border:1px solid var(--line);border-radius:16px;padding:26px;
+        transition:transform .3s ease,border-color .3s ease,box-shadow .3s ease}
+  .card:hover{transform:translateY(-4px);border-color:rgba(0,229,255,.5);box-shadow:var(--shadow)}
+  .card .ico{width:44px;height:44px;border-radius:12px;display:grid;place-items:center;
+             margin-bottom:14px;background:radial-gradient(circle,rgba(0,229,255,.25),rgba(0,229,255,.05));
+             color:var(--accent);font-weight:800;font-size:18px;
+             border:1px solid rgba(0,229,255,.3)}
+  .card h3{color:#fff;font-size:17px;margin-bottom:8px}
+  .card p{color:var(--muted);font-size:14px}
+
+  /* Math panel */
+  .math-panel{background:linear-gradient(135deg,#0a1626 0%,#0e2240 100%);
+              border:1px solid rgba(0,229,255,.25);border-radius:20px;padding:36px;
+              display:grid;grid-template-columns:1fr 1fr;gap:36px;align-items:center}
+  @media (max-width:900px){.math-panel{grid-template-columns:1fr;padding:24px}}
+  .math-formula{font-family:"SF Mono",Menlo,Consolas,monospace;
+                color:var(--accent-2);font-size:14px;line-height:2}
+  .math-formula b{color:#fff}
+  .big-num{font-size:clamp(46px,6vw,78px);font-weight:900;color:#fff;
+           line-height:1;letter-spacing:-.03em}
+  .big-num .accent{color:var(--accent)}
+  .big-num .small{font-size:18px;color:var(--muted);font-weight:500;margin-left:6px}
+  .result-line{display:flex;justify-content:space-between;align-items:baseline;
+               padding:8px 0;border-bottom:1px dashed rgba(0,229,255,.18);font-size:14px}
+  .result-line span:last-child{color:var(--accent);font-weight:700;font-family:"SF Mono",monospace}
+
+  /* Process flow */
+  .flow-wrap{background:linear-gradient(180deg,var(--bg-2),var(--bg));
+             border:1px solid var(--line);border-radius:20px;padding:30px;overflow-x:auto}
+  .flow{width:100%;min-width:880px;height:auto;display:block}
+  .flow text{font-family:-apple-system,"Segoe UI",sans-serif;fill:#cfe6ff;font-size:11px;letter-spacing:.06em}
+  .flow .lbl{font-weight:700;fill:#fff;font-size:13px}
+  .flow .pulse{animation:flowDash 2.2s linear infinite}
+  @keyframes flowDash{to{stroke-dashoffset:-36}}
+  @keyframes machineFloat{0%,100%{transform:translateY(0)}50%{transform:translateY(-3px)}}
+  .machine{transform-origin:center;transform-box:fill-box;animation:machineFloat 3.4s ease-in-out infinite}
+
+  /* Specs */
+  .specs{display:grid;grid-template-columns:repeat(2,1fr);gap:18px}
+  @media (max-width:720px){.specs{grid-template-columns:1fr}}
+  .spec{background:var(--panel);border:1px solid var(--line);
+        border-radius:14px;padding:22px;position:relative;overflow:hidden}
+  .spec::before{content:"";position:absolute;left:0;top:0;bottom:0;width:3px;
+                background:linear-gradient(180deg,var(--accent),transparent)}
+  .spec h4{color:#fff;font-size:15px;margin-bottom:6px;display:flex;align-items:center;gap:8px}
+  .spec h4 .tag{font-size:10px;padding:2px 8px;border-radius:6px;
+                background:rgba(0,229,255,.15);color:var(--accent);font-weight:600;letter-spacing:.1em}
+  .spec p{color:var(--muted);font-size:13.5px}
+  .spec ul{margin-top:8px;padding-left:0;list-style:none}
+  .spec li{font-size:13px;color:#a8c4e3;padding:4px 0;display:flex;align-items:center;gap:8px}
+  .spec li::before{content:"▸";color:var(--accent)}
+
+  /* Why-us */
+  .why-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+  @media (max-width:900px){.why-grid{grid-template-columns:repeat(2,1fr)}}
+  @media (max-width:480px){.why-grid{grid-template-columns:1fr}}
+  .why{background:linear-gradient(180deg,rgba(0,229,255,.06),rgba(0,229,255,.01));
+       border:1px solid rgba(0,229,255,.18);border-radius:14px;
+       padding:22px;text-align:center}
+  .why .v{font-size:30px;font-weight:900;color:#fff;line-height:1}
+  .why .v .pct{color:var(--accent);font-size:18px;margin-left:2px}
+  .why .k{font-size:11px;letter-spacing:.22em;color:var(--muted);text-transform:uppercase;margin-top:8px}
+
+  /* CTA + SPIN */
+  .cta{background:radial-gradient(ellipse at top,rgba(0,229,255,.12),transparent 60%),
+       linear-gradient(180deg,#0a1626,#050a13);
+       border:1px solid rgba(0,229,255,.25);border-radius:22px;
+       padding:48px 36px;text-align:center}
+  .cta h2{margin-bottom:8px}
+  .spin-q{text-align:left;max-width:760px;margin:24px auto 0;
+          background:rgba(0,229,255,.04);border-left:3px solid var(--accent);
+          border-radius:0 12px 12px 0;padding:18px 22px;color:#dceaff;font-size:15px}
+  .spin-q b{color:var(--accent-2)}
+  .btn{display:inline-block;margin-top:24px;padding:14px 28px;
+       background:linear-gradient(135deg,var(--accent),#00b3d4);
+       color:#00131f;font-weight:800;border-radius:10px;letter-spacing:.04em;
+       box-shadow:0 12px 30px rgba(0,229,255,.3);
+       transition:transform .2s ease,box-shadow .2s ease}
+  .btn:hover{transform:translateY(-2px);box-shadow:0 18px 40px rgba(0,229,255,.45)}
+
+  /* Footer */
+  footer{border-top:1px solid var(--line);padding:36px 24px 30px;
+         text-align:center;color:var(--muted);font-size:13px;background:rgba(5,10,19,.6)}
+  .socials{display:flex;flex-wrap:wrap;justify-content:center;gap:14px 24px;margin-bottom:14px}
+  .socials a{color:#cfe6ff;border-bottom:1px dashed transparent;transition:color .2s,border-color .2s}
+  .socials a:hover{color:var(--accent);border-color:var(--accent)}
+  .copy{opacity:.7;font-size:12px;letter-spacing:.04em}
+
+  /* ===== Print hardening (Chrome headless --print-to-pdf) =====
+     Fixes 3 silent breakage classes that occur when this HTML is exported
+     to PDF: (1) gradient text via background-clip:text renders as a
+     solid colored block; (2) dark backgrounds and accent card colors
+     get dropped to white to save ink; (3) running animations freeze
+     mid-frame. The @page rule pins A4 + 12mm margin. */
+  @media print {
+    h1, h2, h3 {
+      background: none !important;
+      -webkit-background-clip: initial !important;
+      background-clip: initial !important;
+      -webkit-text-fill-color: var(--accent) !important;
+      color: var(--accent) !important;
+    }
+    h2 { color: #fff !important; }
+    h2 .accent { color: var(--accent) !important; }
+    body { background: #050a13 !important; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+    header, footer, section, .card, .stat, .why, .spec, .math-panel, .flow-wrap, .cta, .spin-q {
+      -webkit-print-color-adjust: exact;
+      print-color-adjust: exact;
+    }
+    .machine, .pulse, .flow .pulse { animation: none !important; }
+    .reveal { opacity: 1 !important; transform: none !important; }
+    /* Drop fixed header so each printed page starts cleanly at the section */
+    header { position: static !important; backdrop-filter: none !important; }
+    .kicker { background: rgba(0,229,255,.15) !important; }
+    @page { size: A4; margin: 12mm; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <a class="logo" href="https://www.smthelp.com" target="_blank" rel="noopener">
+    <img src="https://ph.smthelp.com/images/2024/06/26/Southern-Machinery-logo-300x83.png" alt="Southern Machinery Logo" />
+  </a>
+  <span class="tagline">Shenzhen <b>·</b> SMT + THT Automation since 2011</span>
+</header>
+
+<main>
+
+<!-- ========== 1. HERO ========== -->
+<section class="hero">
+  <div class="hero-inner">
+    <span class="kicker">{{KICKER}}</span>
+    <h1>{{HERO_TITLE_LINE_1}}<br/>{{HERO_TITLE_LINE_2}}</h1>
+    <p class="lead">{{HERO_LEAD_PARAGRAPH}}</p>
+    <div class="hero-stats">
+      <div class="stat"><div class="num" data-target="{{STAT_1_VALUE}}">0<span class="unit">{{STAT_1_UNIT}}</span></div><div class="lbl">{{STAT_1_LABEL}}</div></div>
+      <div class="stat"><div class="num" data-target="{{STAT_2_VALUE}}">0<span class="unit">{{STAT_2_UNIT}}</span></div><div class="lbl">{{STAT_2_LABEL}}</div></div>
+      <div class="stat"><div class="num" data-target="{{STAT_3_VALUE}}">0<span class="unit">{{STAT_3_UNIT}}</span></div><div class="lbl">{{STAT_3_LABEL}}</div></div>
+      <div class="stat"><div class="num" data-target="{{STAT_4_VALUE}}">0<span class="unit">{{STAT_4_UNIT}}</span></div><div class="lbl">{{STAT_4_LABEL}}</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== 2. CHALLENGE ========== -->
+<section>
+  <span class="eyebrow reveal">The Challenge</span>
+  <h2 class="reveal">{{CHALLENGE_HEADING}}</h2>
+  <p class="sub reveal">{{CHALLENGE_INTRO}}</p>
+  <div class="grid-3">
+    <div class="card reveal"><div class="ico">01</div><h3>{{CARD_1_TITLE}}</h3><p>{{CARD_1_BODY}}</p></div>
+    <div class="card reveal"><div class="ico">02</div><h3>{{CARD_2_TITLE}}</h3><p>{{CARD_2_BODY}}</p></div>
+    <div class="card reveal"><div class="ico">03</div><h3>{{CARD_3_TITLE}}</h3><p>{{CARD_3_BODY}}</p></div>
+  </div>
+</section>
+
+<!-- ========== 3. MATH ========== -->
+<section>
+  <span class="eyebrow reveal">The Math</span>
+  <h2 class="reveal">{{MATH_HEADING}}</h2>
+  <p class="sub reveal">{{MATH_INTRO}}</p>
+  <div class="math-panel reveal">
+    <div>
+      <div class="big-num"><span class="accent">{{BIG_NUMBER}}</span><span class="small">{{BIG_NUMBER_UNIT}}</span></div>
+      <p style="color:var(--muted);margin-top:10px;font-size:14px">{{BIG_NUMBER_CAPTION}}</p>
+      <div style="margin-top:18px">
+        <div class="result-line"><span>{{ROW_1_LABEL}}</span><span>{{ROW_1_VALUE}}</span></div>
+        <div class="result-line"><span>{{ROW_2_LABEL}}</span><span>{{ROW_2_VALUE}}</span></div>
+        <div class="result-line"><span>{{ROW_3_LABEL}}</span><span>{{ROW_3_VALUE}}</span></div>
+        <div class="result-line"><span>{{ROW_4_LABEL}}</span><span>{{ROW_4_VALUE}}</span></div>
+        <div class="result-line"><span>{{ROW_5_LABEL}}</span><span>{{ROW_5_VALUE}}</span></div>
+      </div>
+    </div>
+    <div class="math-formula">{{FORMULA_BODY}}</div>
+  </div>
+</section>
+
+<!-- ========== 4. THE LINE (SVG) ========== -->
+<section>
+  <span class="eyebrow reveal">The Line</span>
+  <h2 class="reveal">{{LINE_HEADING}}</h2>
+  <p class="sub reveal">{{LINE_INTRO}}</p>
+  <div class="flow-wrap reveal">
+    <svg class="flow" viewBox="0 0 1100 360" xmlns="http://www.w3.org/2000/svg" aria-label="SMT line flow">
+      <line x1="40" y1="180" x2="1060" y2="180" stroke="#13283f" stroke-width="6" stroke-linecap="round"/>
+      <line class="pulse" x1="40" y1="180" x2="1060" y2="180"
+            stroke="#00e5ff" stroke-width="2" stroke-linecap="round"
+            stroke-dasharray="8 28" fill="none" opacity=".7"/>
+      <!-- Replace these 7 <g class="machine"> blocks with the actual stations for the solution -->
+      <g class="machine">
+        <rect x="60" y="130" width="100" height="100" rx="10" fill="#0e1d33" stroke="#00e5ff" stroke-width="1.5"/>
+        <text x="110" y="170" text-anchor="middle" class="lbl">{{STATION_1_NAME}}</text>
+        <text x="110" y="190" text-anchor="middle">{{STATION_1_SUB}}</text>
+        <text x="110" y="252" text-anchor="middle" fill="#7fa3c7">{{STATION_1_MODEL}}</text>
+      </g>
+      <g class="machine" style="animation-delay:.2s">
+        <rect x="200" y="130" width="100" height="100" rx="10" fill="#0e1d33" stroke="#00e5ff" stroke-width="1.5"/>
+        <text x="250" y="170" text-anchor="middle" class="lbl">{{STATION_2_NAME}}</text>
+        <text x="250" y="190" text-anchor="middle">{{STATION_2_SUB}}</text>
+        <text x="250" y="252" text-anchor="middle" fill="#7fa3c7">{{STATION_2_MODEL}}</text>
+      </g>
+      <g class="machine" style="animation-delay:.4s">
+        <rect x="340" y="125" width="115" height="110" rx="10" fill="#0e2240" stroke="#39ff7a" stroke-width="2"/>
+        <text x="397" y="160" text-anchor="middle" class="lbl" fill="#39ff7a">{{STATION_3_NAME}}</text>
+        <text x="397" y="180" text-anchor="middle">{{STATION_3_SUB}}</text>
+        <text x="397" y="200" text-anchor="middle">{{STATION_3_SUB2}}</text>
+        <text x="397" y="252" text-anchor="middle" fill="#7fa3c7">{{STATION_3_MODEL}}</text>
+      </g>
+      <g class="machine" style="animation-delay:.6s">
+        <rect x="495" y="130" width="100" height="100" rx="10" fill="#0e1d33" stroke="#00e5ff" stroke-width="1.5"/>
+        <text x="545" y="170" text-anchor="middle" class="lbl">{{STATION_4_NAME}}</text>
+        <text x="545" y="190" text-anchor="middle">{{STATION_4_SUB}}</text>
+        <text x="545" y="252" text-anchor="middle" fill="#7fa3c7">{{STATION_4_MODEL}}</text>
+      </g>
+      <g class="machine" style="animation-delay:.8s">
+        <rect x="635" y="125" width="160" height="110" rx="10" fill="#0e2240" stroke="#39ff7a" stroke-width="2"/>
+        <text x="715" y="160" text-anchor="middle" class="lbl" fill="#39ff7a">{{STATION_5_NAME}}</text>
+        <text x="715" y="180" text-anchor="middle">{{STATION_5_SUB}}</text>
+        <text x="715" y="200" text-anchor="middle">{{STATION_5_SUB2}}</text>
+        <text x="715" y="252" text-anchor="middle" fill="#7fa3c7">{{STATION_5_MODEL}}</text>
+      </g>
+      <g class="machine" style="animation-delay:1s">
+        <rect x="835" y="130" width="100" height="100" rx="10" fill="#0e1d33" stroke="#00e5ff" stroke-width="1.5"/>
+        <text x="885" y="170" text-anchor="middle" class="lbl">{{STATION_6_NAME}}</text>
+        <text x="885" y="190" text-anchor="middle">{{STATION_6_SUB}}</text>
+        <text x="885" y="252" text-anchor="middle" fill="#7fa3c7">{{STATION_6_MODEL}}</text>
+      </g>
+      <g class="machine" style="animation-delay:1.2s">
+        <rect x="975" y="130" width="90" height="100" rx="10" fill="#0e1d33" stroke="#00e5ff" stroke-width="1.5"/>
+        <text x="1020" y="170" text-anchor="middle" class="lbl">{{STATION_7_NAME}}</text>
+        <text x="1020" y="190" text-anchor="middle">{{STATION_7_SUB}}</text>
+        <text x="1020" y="252" text-anchor="middle" fill="#7fa3c7">{{STATION_7_MODEL}}</text>
+      </g>
+      <g fill="#00e5ff" opacity=".7">
+        <polygon points="160,175 175,180 160,185"/>
+        <polygon points="300,175 315,180 300,185"/>
+        <polygon points="455,175 470,180 455,185"/>
+        <polygon points="595,175 610,180 595,185"/>
+        <polygon points="795,175 810,180 795,185"/>
+        <polygon points="935,175 950,180 935,185"/>
+      </g>
+      <g>
+        <line x1="715" y1="240" x2="715" y2="290" stroke="#ffb84d" stroke-width="1.5" stroke-dasharray="4 4"/>
+        <line x1="715" y1="290" x2="200" y2="290" stroke="#ffb84d" stroke-width="1.5" stroke-dasharray="4 4" opacity=".5"/>
+        <rect x="80" y="305" width="240" height="44" rx="8" fill="#0e1d33" stroke="#ffb84d" stroke-width="1.5"/>
+        <text x="200" y="332" text-anchor="middle" fill="#ffb84d" font-weight="700" font-size="13">{{OFFLINE_BRANCH_TITLE}}</text>
+        <text x="200" y="350" text-anchor="middle" fill="#7fa3c7" font-size="10">{{OFFLINE_BRANCH_SUB}}</text>
+      </g>
+      <text x="550" y="40" text-anchor="middle" font-size="14" font-weight="700" fill="#fff" letter-spacing="2">{{FLOW_TITLE}}</text>
+      <text x="550" y="60" text-anchor="middle" font-size="11" fill="#7fa3c7">{{FLOW_SUBTITLE}}</text>
+    </svg>
+  </div>
+</section>
+
+<!-- ========== 5. EQUIPMENT SPECS ========== -->
+<section>
+  <span class="eyebrow reveal">Equipment</span>
+  <h2 class="reveal">{{SPECS_HEADING}}</h2>
+  <p class="sub reveal">{{SPECS_INTRO}}</p>
+  <div class="specs">
+    <div class="spec reveal"><h4>{{SPEC_1_TITLE}} <span class="tag">{{SPEC_1_MODEL}}</span></h4>
+      <p>{{SPEC_1_BODY}}</p>
+      <ul><li>{{SPEC_1_BULLET_1}}</li><li>{{SPEC_1_BULLET_2}}</li><li>{{SPEC_1_BULLET_3}}</li><li>{{SPEC_1_BULLET_4}}</li></ul>
+    </div>
+    <div class="spec reveal"><h4>{{SPEC_2_TITLE}} <span class="tag">{{SPEC_2_MODEL}}</span></h4>
+      <p>{{SPEC_2_BODY}}</p>
+      <ul><li>{{SPEC_2_BULLET_1}}</li><li>{{SPEC_2_BULLET_2}}</li><li>{{SPEC_2_BULLET_3}}</li></ul>
+    </div>
+    <div class="spec reveal"><h4>{{SPEC_3_TITLE}} <span class="tag">{{SPEC_3_MODEL}}</span></h4>
+      <p>{{SPEC_3_BODY}}</p>
+      <ul><li>{{SPEC_3_BULLET_1}}</li><li>{{SPEC_3_BULLET_2}}</li><li>{{SPEC_3_BULLET_3}}</li></ul>
+    </div>
+    <div class="spec reveal"><h4>{{SPEC_4_TITLE}} <span class="tag">{{SPEC_4_MODEL}}</span></h4>
+      <p>{{SPEC_4_BODY}}</p>
+      <ul><li>{{SPEC_4_BULLET_1}}</li><li>{{SPEC_4_BULLET_2}}</li><li>{{SPEC_4_BULLET_3}}</li></ul>
+    </div>
+  </div>
+</section>
+
+<!-- ========== 6. WHY US ========== -->
+<section>
+  <span class="eyebrow reveal">Why Southern Machinery</span>
+  <h2 class="reveal">Shenzhen Speed, <span class="accent">Global Support</span></h2>
+  <p class="sub reveal">{{WHY_INTRO}}</p>
+  <div class="why-grid">
+    <div class="why reveal"><div class="v">{{WHY_1_VALUE}}<span class="pct">{{WHY_1_UNIT}}</span></div><div class="k">{{WHY_1_LABEL}}</div></div>
+    <div class="why reveal"><div class="v">{{WHY_2_VALUE}}<span class="pct">{{WHY_2_UNIT}}</span></div><div class="k">{{WHY_2_LABEL}}</div></div>
+    <div class="why reveal"><div class="v">{{WHY_3_VALUE}}<span class="pct">{{WHY_3_UNIT}}</span></div><div class="k">{{WHY_3_LABEL}}</div></div>
+    <div class="why reveal"><div class="v">{{WHY_4_VALUE}}<span class="pct">{{WHY_4_UNIT}}</span></div><div class="k">{{WHY_4_LABEL}}</div></div>
+  </div>
+</section>
+
+<!-- ========== 7. CTA + SPIN ========== -->
+<section>
+  <div class="cta reveal">
+    <span class="eyebrow">Next Step</span>
+    <h2>{{CTA_HEADING}}</h2>
+    <p class="sub" style="margin:14px auto 0">{{CTA_BODY}}</p>
+    <a class="btn" href="https://www.smthelp.com" target="_blank" rel="noopener">Visit www.SMThelp.com →</a>
+    <div class="spin-q"><b>Q1 — Current State:</b> {{SPIN_Q1}}</div>
+    <div class="spin-q"><b>Q2 — Growth &amp; Pain:</b> {{SPIN_Q2}}</div>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="socials">
+    <a href="https://www.linkedin.com/company/smtmachine" target="_blank" rel="noopener">LinkedIn Company Page</a>
+    <a href="https://cn.linkedin.com/in/smtsupplier" target="_blank" rel="noopener">LinkedIn Profile</a>
+    <a href="https://twitter.com/smtspecialist" target="_blank" rel="noopener">Twitter</a>
+    <a href="https://www.facebook.com/autoinsertion" target="_blank" rel="noopener">Facebook</a>
+    <a href="https://www.youtube.com/c/Smthelping" target="_blank" rel="noopener">YouTube Channel</a>
+  </div>
+  <div>
+    Browse our machine catalog at <a href="https://file.autoinsertion.com" target="_blank" rel="noopener" style="color:var(--accent)">file.autoinsertion.com</a>
+    and find machine photos at <a href="https://ph.smthelp.com" target="_blank" rel="noopener" style="color:var(--accent)">ph.smthelp.com</a>.
+  </div>
+  <div class="copy" style="margin-top:14px">© 2011–2026 Southern Machinery Sales And Service Co., Ltd. · Shenzhen, China · All rights reserved.</div>
+</footer>
+
+<script>
+  // Reveal on scroll
+  const io = new IntersectionObserver(entries=>{
+    entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}});
+  },{threshold:.12,rootMargin:'0px 0px -40px 0px'});
+  document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+
+  // SAFETY FALLBACK: reveal everything after 1.6s (screenshot tools / short pages never fire observer)
+  setTimeout(()=>{document.querySelectorAll('.reveal:not(.in)').forEach(el=>el.classList.add('in'));},1600);
+
+  // Animated counters
+  function animateNum(el){
+    const target = parseFloat(el.dataset.target);
+    const dur = 1600, start = performance.now();
+    const fmt = v => target >= 1000 ? Math.round(v).toLocaleString()
+                    : target < 100  ? v.toFixed(1)
+                    : Math.round(v).toLocaleString();
+    const tick = now => {
+      const p = Math.min(1,(now-start)/dur);
+      const ease = 1 - Math.pow(1-p,3);
+      el.firstChild.nodeValue = fmt(target*ease);
+      if(p<1) requestAnimationFrame(tick);
+    };
+    requestAnimationFrame(tick);
+  }
+  const numObserver = new IntersectionObserver(entries=>{
+    entries.forEach(e=>{if(e.isIntersecting){animateNum(e.target);numObserver.unobserve(e.target);}});
+  },{threshold:.4});
+  document.querySelectorAll('.num').forEach(el=>numObserver.observe(el));
+</script>
+
+</body>
+</html>

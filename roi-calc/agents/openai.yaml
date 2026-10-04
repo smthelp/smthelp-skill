@@ -1,0 +1,4 @@
+interface:
+  display_name: "ROI Calc"
+  short_description: "Calculate automation ROI clearly"
+  default_prompt: "Use $roi-calc to support a Southern Machinery sales task."

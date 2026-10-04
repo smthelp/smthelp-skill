@@ -1,0 +1,212 @@
+﻿---
+name: b2b-osint
+description: 客户背景调查 — 6 层验证：WHOIS/邮箱/制裁名单/技术栈/LinkedIn/风险评分
+triggers:
+  - 背景调查
+  - 背调
+  - 尽职调查
+  - 查一下这家公司
+  - 查一下这个域名
+  - 域名注册时间
+  - 制裁名单
+  - OFAC
+  - 企业邮箱验证
+  - 查公司
+  # ... (see skill_registry.py for full list)
+category: 客户开发
+version: 1.0.0
+author: Foreign Trade Assistant
+---
+
+## Southern Machinery SMT/THT 专属覆盖规则
+
+- 本节优先于下方任何通用 B2B 行业示例。仅使用公开或用户提供的信息评估电子制造企业的工艺相关性、现有产线、决策角色、市场覆盖和风险；将事实、间接证据与推断分开。
+- 先确认应用、产量/班次、PCB 与元件特征、现有设备或瓶颈、自动化/预算以及质量或追溯需求；一次只问下一步需要的信息。
+- 技术和商业事实优先引用 Southern Machinery 当前目录、手册和产品资料；图片、旧文案、竞争对手资料和文件名不能单独证明参数。无来源的型号、规格、认证、价格、交期、ROI 或客户案例必须标记 待确认 / to be confirmed。
+- 推荐 Southern Machinery 的设备类别或整线流程；没有经核实的型号时，不得虚构型号或性能。
+- 对外输出按渠道选择合适 CTA：官网 https://www.smthelp.com、目录 https://file.autoinsertion.com、图片 https://ph.smthelp.com、邮箱 info@smthelp.com 或 WhatsApp https://api.whatsapp.com/send?phone=+8613602562576；不得无差别堆叠链接。
+
+
+---|------|---------|
+  | name | ✅ | 官网 Team 页 / LinkedIn Employees / About 页 |
+  | title | ✅ | 同上 |
+  | email | ✅ | 官网 / LinkedIn 联系方式 / 邮箱推测（见下） |
+  | linkedin_url | ⭐ | LinkedIn 搜索 "site:linkedin.com/in {公司名} {title}" |
+  | whatsapp | ⭐ | 官网 Contact 页 / LinkedIn 个人页 About |
+  | phone | ⭐ | 官网 / WHOIS 注册电话（慎用，可能隐私） |
+  | decision_maker | ✅ | 是否决策人（Y/N），依据 title 判断 |
+
+  ⭐ = 强烈建议但允许缺失；✅ = 必须有，缺失需在报告中标注
+
+  **邮箱推测（email pattern discovery）**：
+
+  如果官网只给了 info@，但 LinkedIn 找到了具体人名，尝试推测邮箱：
+  1. 用 browser_navigate 访问 https://hunter.io/email-finder/{domain} （免费 5 次/月）
+  2. 或用 email-checker 类工具验证以下模式：
+     - `{first}.{last}@{domain}` (john.smith@x.com)
+     - `{first}@{domain}` (john@x.com)
+     - `{first}{last}@{domain}` (johnsmith@x.com)
+     - `{first_initial}{last}@{domain}` (jsmith@x.com)
+     - `{last}@{domain}` (smith@x.com)
+  3. 推测出的邮箱必须用 verify_corporate_email 验证存在性才能列入 [确切]
+  4. 未经验证的推测邮箱标注为 [推测 — 待验证]
+
+  **双跑验证（WebFetch + WebSearch 强制双跑）**：
+
+  关键事实（关键人姓名/邮箱/职位）必须双跑验证，避免单一来源失真：
+
+  1. **WebFetch 路径**：用 browser_navigate 直接访问官网 Team/About/Contact 页 → 提取结构化字段
+  2. **WebSearch 路径**：用 web_search 搜 "{person name} {company name}" + "{person name} {title} LinkedIn"
+  3. **交叉对比**：
+     - 两个来源一致 → 标为 [确切]
+     - 仅 WebFetch 有 → 标为 [网页确认]
+     - 仅 WebSearch 有 → 标为 [搜索确认 — 建议人工核对]
+     - 两个来源冲突 → 在报告中明确标注「⚠️ 来源冲突」并列出两个来源
+
+  ### 采购偏好结构化输出
+
+  背调不仅要查「这家公司是谁」，更要推断「他们怎么买」。基于官网/LinkedIn/News 提取以下字段：
+
+  | 字段 | 推断依据 | 输出值示例 |
+  |------|---------|----------|
+  | typical_order_size | 员工规模 / 产品线 / 海关数据 | "中等（$10K-50K）" / "大批量（>$100K）" / "小试单（<$5K）" |
+  | price_sensitivity | 行业 / 客户类型 | "高（零售商）/ 中（品牌方）/ 低（OEM）" |
+  | quality_vs_price | 官网是否强调认证 / 案例客户 | "质量优先" / "价格优先" / "平衡" |
+  | preferred_channels | 官网 Contact 页 + LinkedIn 活跃度 | "邮箱" / "LinkedIn" / "WhatsApp" / "电话" |
+  | certification_requirements | 行业 + 目标市场 | "CE/FDA 必须" / "ISO 9001 加分" / "无要求" |
+  | language_preference | 官网语言 + 所在国 | "英语" / "本地语 + 英语" / "本地语" |
+  | buying_cycle_signals | News / LinkedIn 近期动态 | "扩张期（最近招聘）" / "稳定" / "收缩（裁员）" |
+
+  缺失字段标为 [未观察到]，不要瞎猜。
+
+  ════════════════════════════════════════
+  Phase 3: 深度背调 (Deep Verification)
+  ════════════════════════════════════════
+  1. 对发现的每个邮箱调用 email_background_check(邮箱) — 查 120+ 平台注册情况
+  2. 调用 verify_corporate_email(邮箱) — 判断企业邮箱 vs 个人邮箱
+  3. 输出每个邮箱的社交档案 URL 列表和真实性评分
+  4. 个人邮箱 (Gmail/Yahoo/QQ/163 等) = 重大红旗 ⚠️
+  5. 对发现的域名：调用 domain_whois(域名)、detect_tech_stack(https://域名)、check_sanctions(公司名)
+  6. 调用 linkedin_company_verify(域名, 公司名) 生成 LinkedIn 验证指令
+  7. 所有信息汇总后调用 compute_risk_score() 和 generate_recommendations()
+  8. **对 Phase 2 富化出的每个关键联系人**：再次调用 email_background_check 验证邮箱是否真实存在 + 检查是否有 LinkedIn/WhatsApp 社交档案
+
+  ════════════════════════════════════════
+  输出格式（建议结构，可在基础上补充）
+  ════════════════════════════════════════
+  ## 📋 公司概况
+  | 项目 | 内容 | 来源 |
+  |------|------|------|
+  | 公司名称 | [name] | [source_url] |
+  | 官网 | [url] | [source_url] |
+  | 所在国家 | [country] | [source_url] |
+  | 成立时间 | [year] | [source_url] |
+
+  ## 🔗 发现的联系方式
+  | 姓名 | 职位 | 邮箱 | 电话 | 来源 |
+  |------|------|------|------|------|
+
+  ## 👥 关键联系人详表（富化版）
+
+  对每个关键决策人输出完整结构化字段：
+
+  ### 联系人 1: [姓名] — [职位]
+  | 字段 | 值 | 验证状态 |
+  |------|-----|---------|
+  | 姓名 | [name] | [确切/网页确认/搜索确认] |
+  | 职位 | [title] | [验证状态] |
+  | 是否决策人 | [Y/N — 依据] | - |
+  | 邮箱 | [email] | [确切/推测-待验证] |
+  | LinkedIn | [url] | [验证状态] |
+  | WhatsApp | [number] | [验证状态] |
+  | 电话 | [phone] | [验证状态] |
+
+  **双跑验证结果**：
+  - WebFetch 来源：[URL] → 提取到 [字段]
+  - WebSearch 来源：[query] → 提取到 [字段]
+  - 交叉对比：[一致/冲突/单源]
+
+  （如有多个联系人，逐一列出）
+
+  ## 🎯 采购偏好（用于后续开发信个性化）
+
+  | 字段 | 推断值 | 依据 |
+  |------|--------|------|
+  | 典型订单规模 | [...] | [员工数/海关数据/产品线] |
+  | 价格敏感度 | [...] | [客户类型] |
+  | 质量 vs 价格 | [...] | [官网认证/案例客户] |
+  | 偏好沟通渠道 | [...] | [Contact 页/LinkedIn 活跃度] |
+  | 认证要求 | [...] | [行业/目标市场] |
+  | 语言偏好 | [...] | [官网语言/所在国] |
+  | 采购周期信号 | [...] | [近期 News/LinkedIn 动态] |
+
+  **给开发信撰写的提示**（直接喂给 b2b-lead-generation）：
+  - ✅ 推荐切入点：[基于采购偏好推断的最有效 hook]
+  - ⚠️ 避雷点：[基于客户特征应避免的话术]
+
+  ## 📋 引用验证
+  以下每条关键 claim 需标注来源，确保信息可追溯。
+  | claim | 来源 URL | 可信度 |
+  |-------|----------|--------|
+  | 公司主营钢铁出口 | www.targetco.com/products | ✅ 高 |
+  | 2026年获得ISO认证 | news.example.com/iso | ⚠️ 间接 |
+  | CEO 背景信息 | linkedin.com/in/ceo | ✅ 高 |
+
+  可信度定义：
+    ✅ 高 = 直接来自官网/LinkedIn/公开数据
+    ⚠️ 中 = 间接来源（行业报告/第三方描述）
+    ❌ 推测 = AI 基于上下文的合理推测，需人工核实
+
+  ## 🕵️ 邮箱背景调查
+  对每个邮箱输出：平台注册数 | 社交档案 | 真实性评分 | 风险标记
+  个人邮箱必须标注 ⚠️ 红旗
+
+  ## 🌐 域名与技术
+  域名 | 注册时间/天数 | 注册商 | 技术栈 | DNS记录(MX/SPF)
+  WHOIS 注册人详情（如有）
+
+  ## 🚫 制裁与合规
+  命中制裁名单 / 风险等级 / 命中详情
+
+  ## 📊 LinkedIn 验证
+  公司页存在性 | 员工规模 | 域名一致性
+
+  ## 🎯 综合风险评级
+  评级 [低/中/高风险] | 分数 X/100 | 红旗列表
+
+  ## ✅ 行动建议
+  按优先级排列，给出具体可执行的下一步
+
+    ## 💼 业务深度字段（建议用户补充）
+  以下字段表示该客户在供应链中的商业价值，但无法通过 OSINT 自动获取。
+  在报告中以灰色列出，标记为【建议询问】，供用户在后续沟通中主动了解：
+
+  - **年采购额/年进口量**：判断客户体量和议价能力
+  - **工厂验厂状态**：是否已有验厂经验、验厂标准（BSCI/SEDEX/WCA）
+  - **AQL 抽样标准**：客户对品质的严格要求程度
+  - **常用付款方式**：TT/LC/DA/OA — 影响风险定价
+  - **进口渠道结构**：从工厂直采 / 通过贸易商 / 从分销商采购
+  - **已有供应商情况**：现有供应商国家/合作时长 — 判断替换难度
+  - **认证要求**：CE/FDA/UL/ISO 等 — 判断准入门槛
+
+  ## 💡 额外发现
+  补充以上结构未涵盖的任何信息：
+  - 邮箱注册平台命中详情（holehe 扫描结果）
+  - WHOIS 额外字段、DNS 记录详情
+  - 关联公司/子域名/社媒账号/负面信息
+  - 搜索过程中发现的任何有用线索
+
+  ## 🔒 数据合规
+  本次查询数据：
+  - 查询记录：仅存储于用户本地 `~/.trade/data/`
+  - API 调用：不缓存至第三方
+  - 客户数据：不外传、不上传云端
+
+  如果用户没有提供具体目标（只说"帮我背调"），请先询问目标（邮箱/域名/公司名）。
+---
+
+
+## Southern Machinery 数据安全补充
+
+- 不读取、使用、保存或披露 chrome_profile_notebooklm/ 中的浏览器状态、Cookie、登录信息、历史记录或任何凭据；它不是产品、客户或市场证据。
+

@@ -1,0 +1,91 @@
+{
+  "langKey": "s7020t_lang",
+  "themeKey": "s7020t_theme",
+  "chatwoot": {
+    "token": "saMcpgSupcmd1VQwytgPLfbK",
+    "launcherTitle": "Southern Machinery Global Support"
+  },
+  "minStepsPerPost": 5,
+  "calc": {
+    "inputs": {
+      "cOps": "2",
+      "cWage": "9000",
+      "cFreed": "2",
+      "cPoints": "1200",
+      "cSec": "40",
+      "cBoards": "30",
+      "cPrice": "45000"
+    },
+    "outputs": {
+      "manual": "rManual",
+      "machine": "rMachine",
+      "saved": "rSaved",
+      "labour": "rLabour",
+      "payback": "rPayback",
+      "paybackUnit": "rPaybackU"
+    },
+    "steps": [
+      {
+        "out": "manual",
+        "re": "/^400$/",
+        "label": "manual hours/month = 1200 pts x 40 s x 30 boards / 3600 (400 h)"
+      },
+      {
+        "out": "machine",
+        "re": "/^6$/",
+        "label": "machine hours/month = 1200 x 0.6 s x 30 / 3600 (6 h)"
+      },
+      {
+        "out": "saved",
+        "re": "/^394$/",
+        "label": "operator hours released = 400 - 6 (394 h)"
+      },
+      {
+        "out": "labour",
+        "re": "/216[.,]?\\s?000/",
+        "label": "labour released/year = 2 operators x 9000 x 12 (216,000)"
+      },
+      {
+        "out": "payback",
+        "re": "/^2\\.5$/",
+        "label": "payback = 45000 / (216000/12) = 2.5 months"
+      },
+      {
+        "out": "paybackUnit",
+        "re": "/month/",
+        "label": "under 24 months is reported in months, not years"
+      }
+    ],
+    "degenerate": [
+      {
+        "label": "zero investment shows a prompt, not Infinity/NaN",
+        "set": {
+          "cPrice": "0"
+        },
+        "watch": "payback"
+      },
+      {
+        "label": "zero operators and zero wage show a prompt, not Infinity/NaN",
+        "set": {
+          "cOps": "0",
+          "cWage": "0"
+        },
+        "watch": "payback"
+      },
+      {
+        "label": "zero points does not crash the manual-hours figure",
+        "set": {
+          "cPoints": "0"
+        },
+        "watch": "manual"
+      },
+      {
+        "label": "manual seconds below the machine's 0.6 s does not produce a negative saving",
+        "set": {
+          "cSec": "0.1"
+        },
+        "watch": "saved"
+      }
+    ]
+  }
+}

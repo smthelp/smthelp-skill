@@ -1,0 +1,4 @@
+interface:
+  display_name: "Southern Feeder Evaluation"
+  short_description: "Qualify components and mounter compatibility"
+  default_prompt: "Use $southern-feeder-evaluation to collect feeder evaluation inputs and prepare the customer-facing workflow."

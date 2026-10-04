@@ -1,0 +1,4 @@
+interface:
+  display_name: "Build Fast 3D HTML Viewer"
+  short_description: "Fast single-file 3D product pages"
+  default_prompt: "Use $build-fast-3d-html-viewer to convert this STEP or 3D product asset into a fast-loading WordPress-compatible single HTML page with compressed 3D, text-first loading, step-by-step 3D display, and SMT layout grid floor when appropriate."

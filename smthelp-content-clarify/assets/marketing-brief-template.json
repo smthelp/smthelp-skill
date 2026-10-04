@@ -1,0 +1,28 @@
+{
+  "project": "",
+  "target_customer": {
+    "region": "",
+    "industry": "",
+    "company_size": "",
+    "decision_role": ["owner", "purchasing", "process_engineer", "production_manager"],
+    "buying_stage": "awareness | evaluation | comparison | decision"
+  },
+  "platform": "",
+  "content_format": "",
+  "pain_point": "",
+  "core_claim": "",
+  "product_line": "",
+  "model": "",
+  "evidence": [
+    {
+      "type": "parameter | certification | case | photo | video | fact",
+      "source": "",
+      "verified": false,
+      "note": ""
+    }
+  ],
+  "style": "technical | data_comparison | customer_story | direct_sales",
+  "conversion_goal": "inquiry | whatsapp | download_spec | demo | exhibition",
+  "language": "en",
+  "unverified_items": []
+}

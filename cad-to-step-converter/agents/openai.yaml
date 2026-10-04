@@ -1,0 +1,4 @@
+interface:
+  display_name: "CAD to STEP Converter"
+  short_description: "Batch convert CAD formats to STEP"
+  default_prompt: "Use $cad-to-step-converter to convert local CAD files to STEP with logs and safe source-file preservation."

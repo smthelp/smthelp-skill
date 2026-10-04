@@ -1,0 +1,87 @@
+{
+  "brand": {
+    "company_name": "Southern Machinery",
+    "full_name": "Shenzhen Southern Machinery Sales And Service Co., Ltd",
+    "website": "https://www.smthelp.com",
+    "tagline": "Precision SMT/THT Equipment Solutions",
+    "contact": {
+      "email": "jasonwu@smthelp.com",
+      "phone": "+86-136-0256-2576",
+      "wechat": "jasonwuuic"
+    },
+    "social": {
+      "linkedin_company": "https://www.linkedin.com/company/smtmachine",
+      "linkedin_personal": "https://cn.linkedin.com/in/smtsupplier",
+      "twitter": "https://twitter.com/smtspecialist",
+      "youtube": "https://www.youtube.com/c/Smthelping",
+      "facebook": "https://www.facebook.com/autoinsertion"
+    }
+  },
+  "colors": {
+    "primary": "#1E40AF",
+    "primary_dark": "#1E3A8A",
+    "primary_light": "#3B82F6",
+    "secondary": "#EA580C",
+    "secondary_dark": "#C2410C",
+    "secondary_light": "#FB923C",
+    "accent": "#DC2626",
+    "background": {
+      "page": "#FFFFFF",
+      "card": "#F8FAFC",
+      "subtle": "#F1F5F9"
+    },
+    "text": {
+      "primary": "#1E293B",
+      "secondary": "#475569",
+      "muted": "#94A3B8",
+      "on_primary": "#FFFFFF",
+      "on_secondary": "#FFFFFF"
+    },
+    "functional": {
+      "success": "#16A34A",
+      "warning": "#D97706",
+      "error": "#DC2626",
+      "info": "#2563EB"
+    },
+    "chart": [
+      "#1E40AF",
+      "#EA580C",
+      "#16A34A",
+      "#7C3AED",
+      "#0891B2",
+      "#DC2626",
+      "#CA8A04"
+    ]
+  },
+  "typography": {
+    "heading": {
+      "font_family": "Arial, Helvetica, sans-serif",
+      "weight": "700",
+      "fallback": "system-ui, sans-serif"
+    },
+    "body": {
+      "font_family": "Arial, Helvetica, sans-serif",
+      "weight": "400",
+      "fallback": "system-ui, sans-serif"
+    },
+    "mono": {
+      "font_family": "Courier New, monospace",
+      "weight": "400"
+    }
+  },
+  "layout": {
+    "margin": "40px",
+    "gap": "24px",
+    "radius": "4px",
+    "shadow": "0 1px 3px rgba(0,0,0,0.1)"
+  },
+  "logo": {
+    "aspect_ratio": 1.33,
+    "primary_color": "#1E40AF",
+    "white_version": false,
+    "source_url": "https://ph.smthelp.com/images/2025/09/06/Welcome-Inquiry-to-Southern-Machinery.png",
+    "local_path": "~/brand-assets/logo-color.png"
+  },
+  "style": "professional",
+  "industry": "electronics manufacturing equipment"
+}

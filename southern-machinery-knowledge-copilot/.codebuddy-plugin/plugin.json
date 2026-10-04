@@ -1,0 +1,47 @@
+{
+  "name": "southern-machinery-knowledge-copilot",
+  "version": "1.0.0",
+  "description": "Southern Machinery SMT/THT product knowledge copilot that compiles raw product materials into structured Markdown wiki, knowledge cards, FAQs, and GEO/SEO content.",
+  "author": {
+    "name": "Southern Machinery",
+    "email": "info@smthelp.com"
+  },
+  "agents": ["./agents/southern-machinery-knowledge-copilot.md"],
+  "skills": ["./skills/southern-product-kb"],
+
+  "expertType": "agent",
+  "agentName": "southern-machinery-knowledge-copilot",
+
+  "displayName": {
+    "en": "Southern Machinery Knowledge Copilot",
+    "zh": "Southern Machinery 产品知识 Copilot"
+  },
+  "profession": {
+    "en": "SMT/THT Product Knowledge Architect",
+    "zh": "SMT/THT 产品知识库架构师"
+  },
+  "displayDescription": {
+    "en": "Compiles Southern Machinery SMT/THT product materials into structured wiki, knowledge cards, FAQs, and GEO/SEO content for site, marketing and sales.",
+    "zh": "SMT/THT 产品知识库架构师，专注资料结构化、知识卡片、FAQ 与 SEO 销售话术生成。"
+  },
+  "avatar": "avatars/expert.png",
+  "categoryId": "05-MarketingGrowth",
+  "defaultInitPrompt": {
+    "zh": "帮我整理一份 S-70LD 自动插件机的产品知识卡片，按标准结构输出",
+    "en": "Help me compile a product knowledge card for the S-70LD auto insertion machine using the standard structure"
+  },
+  "plugin": "southern-machinery-knowledge-copilot",
+  "tags": [
+    { "en": "SMT/THT Product Knowledge", "zh": "SMT/THT 产品知识" },
+    { "en": "GEO/SEO Content Generation", "zh": "GEO/SEO 内容生成" },
+    { "en": "B2B Sales Enablement", "zh": "B2B 销售支持" }
+  ],
+  "quickPrompts": [
+    { "en": "Help me compile a product knowledge card for the S-70LD auto insertion machine using the standard structure",
+      "zh": "帮我整理一份 S-70LD 自动插件机的产品知识卡片，按标准结构输出" },
+    { "en": "Compile this wave soldering product manual into a structured wiki with cross-references and an index",
+      "zh": "把这份波峰焊产品手册编译成结构化 Wiki，建立交叉引用和索引" },
+    { "en": "Generate an SEO article outline for the Southern Machinery SMT production line",
+      "zh": "为 Southern Machinery SMT 产线生成一篇 SEO 文章大纲" }
+  ]
+}

@@ -1,0 +1,4 @@
+interface:
+  display_name: "Annual Review"
+  short_description: "Create VIP customer annual reviews"
+  default_prompt: "Use $annual-review to draft a Southern Machinery VIP customer annual review."

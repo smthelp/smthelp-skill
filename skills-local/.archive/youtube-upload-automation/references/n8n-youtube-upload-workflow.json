@@ -1,0 +1,81 @@
+{
+  "name": "YouTube Auto Upload",
+  "nodes": [
+    {
+      "parameters": {
+        "rule": {
+          "interval": [
+            { "field": "minutes", "interval": 60 }
+          ]
+        }
+      },
+      "id": "watch-folder-trigger",
+      "name": "Folder Watch Trigger",
+      "type": "n8n-nodes-base.folderTrigger",
+      "typeVersion": 1,
+      "position": [100, 300]
+    },
+    {
+      "parameters": {
+        "filePattern": "*.mp4",
+        "folderPath": "/home/jasonwu/videos/upload"
+      },
+      "id": "read-video-file",
+      "name": "Read Video File",
+      "type": "n8n-nodes-base.readBinaryFile",
+      "typeVersion": 1,
+      "position": [320, 300]
+    },
+    {
+      "parameters": {
+        "operation": "refresh",
+        "clientId": "={{$env.YOUTUBE_CLIENT_ID}}",
+        "clientSecret": "={{$env.YOUTUBE_CLIENT_SECRET}}",
+        "refreshToken": "={{$env.YOUTUBE_REFRESH_TOKEN}}"
+      },
+      "id": "youtube-refresh-token",
+      "name": "YouTube Refresh Token",
+      "type": "n8n-nodes-base.youtubeOAuth2",
+      "typeVersion": 1,
+      "position": [540, 300]
+    },
+    {
+      "parameters": {
+        "operation": "upload",
+        "title": "={{$json.filename}}",
+        "description": "Southern Machinery - SMT/THT Automation Solution",
+        "tags": "SMT,EMS,automation",
+        "privacyStatus": "public",
+        "videoMetadata": "={{$json}}"
+      },
+      "id": "youtube-upload",
+      "name": "YouTube Upload",
+      "type": "n8n-nodes-base.youtube",
+      "typeVersion": 1,
+      "position": [760, 300],
+      "credentials": { "youtubeApi": "={{$credentials.youtubeApi}}" }
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://open.feishu.cn/open-apis/bot/v2/hook/={{$env.FEISHU_WEBHOOK}}",
+        "header": { "Content-Type": "application/json" },
+        "body": "={\n  \"msg_type\": \"text\",\n  \"content\": {\n    \"text\": \"✅ YouTube Uploaded: {{$json.filename}}\\n📺 https://youtu.be/{{$json.videoId}}\"\n  }\n}"
+      },
+      "id": "feishu-notify",
+      "name": "Feishu Notification",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 1,
+      "position": [980, 300]
+    }
+  ],
+  "connections": {
+    "Folder Watch Trigger": { "main": [[{ "node": "Read Video File", "type": "main", "index": 0 }]] },
+    "Read Video File": { "main": [[{ "node": "YouTube Refresh Token", "type": "main", "index": 0 }]] },
+    "YouTube Refresh Token": { "main": [[{ "node": "YouTube Upload", "type": "main", "index": 0 }]] },
+    "YouTube Upload": { "main": [[{ "node": "Feishu Notification", "type": "main", "index": 0 }]] }
+  },
+  "active": false,
+  "settings": {},
+  "id": "yt-upload-workflow"
+}

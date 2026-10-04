@@ -1,0 +1,4 @@
+interface:
+  display_name: "Competitor Compare"
+  short_description: "Compare competitors objectively"
+  default_prompt: "Use $competitor-compare to support a Southern Machinery sales task."

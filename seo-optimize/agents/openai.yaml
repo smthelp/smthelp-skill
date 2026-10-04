@@ -1,0 +1,4 @@
+interface:
+  display_name: "Seo Optimize"
+  short_description: "Optimize SMT/THT marketing SEO"
+  default_prompt: "Use $seo-optimize to create YouTube or website SEO content for Southern Machinery."
