@@ -1,0 +1,9 @@
+{
+  "slug": "docker",
+  "name": "Docker 容器化",
+  "version": "1.0.4",
+  "installedAt": 1784379538636,
+  "source": "skillhub",
+  "iconDownloadFailedAt": 1790844722896,
+  "installedContentHash": "sha256:82e3eafb5ceb980b0eceb90c91f6cca2d544118b8a719ec9bd5c0a4e3b75e702"
+}

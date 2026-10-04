@@ -1,0 +1,45 @@
+{
+  "schema": "smthelp-lp-machine/v1",
+  "model": "SUL460",
+  "page_type": "single-machine",
+  "updated": "2026-09-06",
+  "source": "smthelp-brand-voice / references/smt-term-bank.md 二·B 已确认参数锚点",
+  "fields": {
+    "MODEL": "SUL460",
+    "PROCESS": "Board Unloading",
+    "CATEGORY": "BOARD HANDLING",
+    "ONE_LINER": "Automatic magazine unloader - 30 s magazine change, 10-40 mm pitch, +-5 mm docking with SFY03 AGV.",
+    "NARRATIVE": "Boards stack into the magazine without an operator watching the exit. When the magazine fills, the swap takes about 30 seconds, so the station ahead keeps running.",
+    "HOTSPOT_1": "30 s magazine change",
+    "HOTSPOT_2": "10-40 mm pitch",
+    "HOTSPOT_3": "+-5 mm AGV docking",
+    "CORNER_1": "CHANGEOVER / 30 s",
+    "CORNER_2": "PITCH / 10-40 mm",
+    "CORNER_3": "AGV DOCKING / +-5 mm",
+    "CORNER_4": "PAIRING / S-WS450 wave soldering",
+    "SPEC_01": "01  FUNCTION              Automatic magazine unloader",
+    "SPEC_02": "02  MAGAZINE CHANGE       Approximately 30 s",
+    "SPEC_03": "03  PITCH                 10-40 mm",
+    "SPEC_04": "04  AGV DOCKING           +-5 mm with SFY03",
+    "SPEC_05": "05  UPSTREAM              S-WS450 wave soldering",
+    "SPEC_06": "06  APPLICATION           THT line exit buffering",
+    "SPEC_07": "07  PCB WIDTH             On request",
+    "PAIRING": "S-WS450 Wave Soldering Machine - keeps the wave exit clear",
+    "APP_01": "Wave soldering line exit",
+    "APP_02": "THT line buffering",
+    "APP_03": "AGV-linked board transport",
+    "HERO_MEDIA": "SUL460 magazine unloader stacked with boards, 3/4 view or muted looping MP4",
+    "MARQUEE_MEDIA": "board into magazine / stack advancing / magazine swap / AGV docking / pitch adjustment / HMI screen"
+  },
+  "params_confirmed": [
+    "automatic magazine unloader",
+    "magazine change approximately 30 s",
+    "pitch 10-40 mm",
+    "docking with SFY03 AGV at +-5 mm"
+  ],
+  "params_withheld": [
+    "PCB width capacity - 未确认，写 On request"
+  ],
+  "pairing_required": false,
+  "notes": "整线连带件：S-WS450 页面上必须出现 SUL460。反向在做 SUL460 页时也推荐回指 S-WS450。"
+}
