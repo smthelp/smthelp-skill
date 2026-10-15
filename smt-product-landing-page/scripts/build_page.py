@@ -129,7 +129,9 @@ for i, paras in enumerate(BLOGS, 1):
 # ---------------- tables ----------------
 SPEC_EV = {int(k): v for k, v in P["spec_evidence"].items()}  # "v" verified, "c" to be confirmed, "t" concept
 spec_rows = "".join(f'<tr><th data-i18n="s{i}p">{t(f"s{i}p")}</th><td data-i18n="s{i}v">{t(f"s{i}v")}</td><td data-i18n="s{i}s">{t(f"s{i}s")}</td><td>{ev(SPEC_EV[i])}</td></tr>' for i in range(1, N_SPEC + 1))
-disc_rows = "".join(f'<tr><th data-i18n="d{i}p">{t(f"d{i}p")}</th><td data-i18n="d{i}a">{t(f"d{i}a")}</td><td data-i18n="d{i}b">{t(f"d{i}b")}</td><td data-i18n="d{i}c">{t(f"d{i}c")}</td><td>{ev("c")}</td></tr>' for i in range(1, N_DISC + 1))
+# optional "disc_status" key: the table lists product versions rather than conflicts
+DISC_ST = f'<span class="ev ev-v" data-i18n="disc_status">{t("disc_status")}</span>' if "disc_status" in EN else ev("c")
+disc_rows = "".join(f'<tr><th data-i18n="d{i}p">{t(f"d{i}p")}</th><td data-i18n="d{i}a">{t(f"d{i}a")}</td><td data-i18n="d{i}b">{t(f"d{i}b")}</td><td data-i18n="d{i}c">{t(f"d{i}c")}</td><td>{DISC_ST}</td></tr>' for i in range(1, N_DISC + 1))
 qf = "".join(f'<dt data-i18n="qf{i}k">{t(f"qf{i}k")}</dt><dd data-i18n="qf{i}v">{t(f"qf{i}v")}</dd>' for i in range(1, N_QF + 1))
 faq = "".join(f'<details{" open" if i==1 else ""}><summary data-i18n="q{i}">{t(f"q{i}")}</summary><div class="ans" data-i18n="a{i}">{t(f"a{i}")}</div></details>' for i in range(1, N_FAQ + 1))
 study = "".join(f'<div class="b"><h4 data-i18n="l{i}t">{t(f"l{i}t")}</h4><p data-i18n="l{i}d">{t(f"l{i}d")}</p><p class="ck" data-i18n="l{i}c">{t(f"l{i}c")}</p></div>' for i in range(1, N_STUDY + 1))
@@ -343,7 +345,7 @@ page = f"""<!DOCTYPE html>
   {el("span","disc_kick",'class="kick"')}
   {el("h2","disc_h2",'class="sec"')}
   {el("p","disc_lead",'class="lead"')}
-  <div class="evline"><span class="ev ev-c" data-i18n="disc_ev">{t("disc_ev")}</span></div>
+  <div class="evline"><span class="ev {'ev-v' if 'disc_status' in EN else 'ev-c'}" data-i18n="disc_ev">{t("disc_ev")}</span></div>
   <div class="tw"><table class="t-wide"><thead><tr><th data-i18n="dh_p">{t("dh_p")}</th><th data-i18n="dh_a">{t("dh_a")}</th><th data-i18n="dh_b">{t("dh_b")}</th><th data-i18n="dh_c">{t("dh_c")}</th><th data-i18n="dh_s">{t("dh_s")}</th></tr></thead><tbody>{disc_rows}</tbody></table></div>
 </div></section>
 
