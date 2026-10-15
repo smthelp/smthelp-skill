@@ -2,8 +2,8 @@
 name: smt-product-landing-page
 description: Build a marketing-grade single-file HTML product landing page for a Southern Machinery SMT/THT product (machine, feeder, nozzle, jig, spare part), with 7-language switch (EN default, ES, PT, FR, AR rtl, RU, ZH), dark/light mode, ph.smthelp.com photos, matched YouTube videos and catalogues from file.autoinsertion.com, 8 Dan Koe six-step blogs, Chatwoot support widget, SEO/GEO JSON-LD, then push to GitHub smthelping/smt-product-landing-html. Use when Jason asks for a product landing page, 产品落地页, 营销型单页, or to update/upgrade an existing one.
 metadata:
-  version: 1.0.0
-  updated: 2026-10-13
+  version: 1.1.0
+  updated: 2026-10-15
   reference_page: https://file.autoinsertion.com/public/Product%20landing%20Page/s-mvf01-reciprocating-belt-feeder-smart-ems-pcb-assembly.html
   first_build: sfcjf1-fuji-nxt-feeder-calibration-jig-smart-ems-pcb-assembly.html
 ---
@@ -15,7 +15,7 @@ One product = one product dir (`product.json` + `blogs.json` + `i18n/<lang>.json
 ## Workflow
 
 1. **Collect evidence.** Read every attachment (manual, brochure, quotation, packing list, nameplate, video, AGENTS.md). Load `learn-SMT-in-3-hours` and the product folder's AGENTS.md rules. Build a fact table: value, source document, label `Verified source` / `To be confirmed` / `Concept view`. Conflicting values go to Open points with both values; never average or pick one. Never publish price, lead time, warranty, payment terms, customer names, certifications or yield/ROI numbers. See `references/content-rules.md`.
-2. **Harvest assets.** `python3 scripts/harvest_assets.py "<regex>" <image terms...>` lists ph.smthelp.com images, matching YouTube board videos and catalogue-board documents. Download the `.md.` images, make a contact sheet (`montage`) and look at it; drop photos of other machines; caption only what is visible.
+2. **Harvest assets.** Prefer ph.smthelp.com URLs. Attached photos not yet on ph.smthelp.com go into `<product_dir>/photos/` and are referenced with `"file"` (embedded; keep it to about 8 photos, the page grows ~55 KB each). `python3 scripts/harvest_assets.py "<regex>" <image terms...>` lists ph.smthelp.com images, matching YouTube board videos and catalogue-board documents. Download the `.md.` images, make a contact sheet (`montage`) and look at it; drop photos of other machines; caption only what is visible.
 3. **Write the en strings.** Copy the example `i18n/en.json` and rewrite every value for the new product. Keep the key families (see `references/page-structure.md`); add or remove numbered rows (`s18p/v/s`, `d8p/a/b/c`, `q9/a9`, `tr6` ...) freely - the builder counts them.
 4. **Write 8 blogs** into `blogs.json` (English bodies, 6 paragraphs each in six-step order; titles and summaries `bl{n}t`, `bl{n}s` live in i18n). Method in `references/content-rules.md`.
 5. **Fill `product.json`**: SEO file name `<model>-<product-slug>-smart-ems-pcb-assembly.html`, gallery, hero indices, fit images, videos, catalogues, `spec_evidence`, JSON-LD extras, `storage_prefix`. Schema in `references/page-structure.md`.
@@ -40,4 +40,5 @@ One product = one product dir (`product.json` + `blogs.json` + `i18n/<lang>.json
 
 ## Version history
 
+- 1.1.0 (2026-10-15) - gallery entries may use "file" (photo embedded once as WebP, `embed_px`/`embed_q`), SEO tags use only public URLs, lightbox falls back to the thumbnail, `calc_defaults` per product; second build: S-D508 lower cutting blade D508S4601007.
 - 1.0.0 (2026-10-13) - extracted from the FUJI NXT Feeder Calibration Jig page; data-driven builder, asset harvester, quality gate, GitHub pusher.
