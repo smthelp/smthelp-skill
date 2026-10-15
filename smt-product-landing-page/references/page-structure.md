@@ -13,7 +13,7 @@ Section order (ids): top(hero) → metrics/trust → answer → why → how(+con
 - spec: spec_kick/h2/lead, sh_p/v/s/e, `s{n}p/s{n}v/s{n}s` (evidence per row in product.json spec_evidence)
 - open points: disc_kick/h2/lead/ev, dh_p/a/b/c/s, `d{n}p/a/b/c`
 - learn: learn_kick/h2/lead, `l{n}t/l{n}d/l{n}c`, fc_h, fc_lead, `fc{n}`, mc_h, `mc{n}` (mc1 = evidence text, rendered from mc2)
-- payback calculator: roi_*, calc_*, c_*, r_*, unit_month, unit_year (inputs ids are fixed in runtime.js; change formula there)
+- payback calculator (formula fixed: value = count x share x minutes x rate; cost = count x upkeep minutes x upkeep rate; relabel the inputs per product): roi_*, calc_*, c_*, r_*, unit_month, unit_year (inputs ids are fixed in runtime.js; change formula there)
 - gallery: gal_kick/h2/lead + caption keys named in product.json gallery
 - videos: vid_kick/h2/lead/more + keys named in product.json videos
 - catalog: cat_kick/h2/lead/preview/open/more/frame + keys named in product.json catalogs
@@ -30,7 +30,10 @@ Section order (ids): top(hero) → metrics/trust → answer → why → how(+con
  "storage_prefix": "shortname_",
  "product_name": "...", "alternate_names": ["MODEL"], "category": "...", "breadcrumb_category": "...",
  "date_published": "YYYY-MM-DD",
- "gallery": [{"md": "https://ph.smthelp.com/...md.jpg", "full": "https://ph.smthelp.com/....jpg", "key": "g1t"}],
+ "gallery": [{"md": "https://ph.smthelp.com/...md.jpg", "full": "https://ph.smthelp.com/....jpg", "key": "g1t"},
+             {"file": "photos/local-photo.jpg", "key": "g2t"}],
+ "embed_px": 720, "embed_q": 55,
+ "calc_defaults": ["count", "share %", "minutes", "rate", "upkeep minutes", "upkeep rate", "price"],
  "hero": [0, 1, 2, 3, 4],
  "fit_images": ["url1", "url2", "url3"],
  "how_labels": ["01", "02", "03", "04"],
