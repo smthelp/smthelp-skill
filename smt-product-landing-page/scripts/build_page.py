@@ -94,6 +94,17 @@ def ev(kind):
 
 # ---------------- gallery (product.json "gallery": [{"md":url,"full":url,"key":i18n key}]) ----------------
 GAL = P["gallery"]
+# A gallery entry may give "file" (path inside the product dir) instead of URLs: the photo is
+# embedded once as a WebP data URI (max 900 px). Use it only for photos not yet on ph.smthelp.com.
+def embed(path, px=900, q=62):
+    import base64, io
+    from PIL import Image
+    im = Image.open(os.path.join(PD, path)).convert("RGB"); im.thumbnail((px, px))
+    b = io.BytesIO(); im.save(b, "WEBP", quality=q)
+    return "data:image/webp;base64," + base64.b64encode(b.getvalue()).decode()
+for g in GAL:
+    if g.get("file"): g["md"], g["full"] = embed(g["file"], P.get("embed_px", 720), P.get("embed_q", 55)), ""
+WEB = [g["full"] for g in GAL if g["full"].startswith("http")] or [LOGO]  # public URLs for SEO tags
 gal = "".join(f'<figure data-full="{g["full"]}"><img src="{g["md"]}" alt="{t(g["key"])}" data-i18n-alt="{g["key"]}" loading="lazy" decoding="async" width="500" height="320"><figcaption data-i18n="{g["key"]}">{t(g["key"])}</figcaption></figure>' for g in GAL)
 hero_imgs = [GAL[i] for i in P.get("hero", [0, 1, 2, 3, 4])]
 hero = "".join(f'<img src="{g["md"]}" alt="{t(g["key"])}" data-i18n-alt="{g["key"]}"' + (' fetchpriority="high"' if i == 0 else ' loading="lazy" decoding="async"') + '>' for i, g in enumerate(hero_imgs))
@@ -133,6 +144,8 @@ def fitcard(i, img):
     return (f'<div class="mach"><img src="{img}" alt="{t(f"f{i}t")}" data-i18n-alt="f{i}t" loading="lazy" decoding="async"><div class="mb"><span class="tag" data-i18n="f{i}tag">{t(f"f{i}tag")}</span>'
             f'<h3 data-i18n="f{i}t">{t(f"f{i}t")}</h3><p data-i18n="f{i}d">{t(f"f{i}d")}</p><ul>{lis}</ul><div class="role" data-i18n="f{i}r">{t(f"f{i}r")}</div></div></div>')
 
+# calculator defaults: product.json "calc_defaults" = [count, share %, minutes, rate, upkeep minutes, upkeep rate, price]
+CD = [str(x) for x in P.get("calc_defaults", ["120", "5", "30", "", "10", "", ""])]
 def fld(id_, k, val="", hint=None):
     h = f'<div class="hint" data-i18n="{hint}">{t(hint)}</div>' if hint else ""
     return f'<div class="fld"><label for="{id_}" data-i18n="{k}">{t(k)}</label><input id="{id_}" type="number" min="0" step="any" inputmode="decimal" value="{val}">{h}</div>'
@@ -152,7 +165,7 @@ LD = {"@context": "https://schema.org", "@graph": [
     ORG,
     {"@type": "WebPage", "@id": URL + "#webpage", "url": URL, "name": EN["seo_title"], "description": EN["seo_desc"], "inLanguage": "en",
      "isPartOf": {"@type": "WebSite", "name": "Southern Machinery", "url": "https://www.smthelp.com"},
-     "primaryImageOfPage": GAL[0]["full"],
+     "primaryImageOfPage": WEB[0],
      "speakable": {"@type": "SpeakableSpecification", "cssSelector": ["#answer .answer p", "h1"]}},
     {"@type": "BreadcrumbList", "itemListElement": [
         {"@type": "ListItem", "position": 1, "name": "Southern Machinery", "item": "https://www.smthelp.com"},
@@ -160,7 +173,7 @@ LD = {"@context": "https://schema.org", "@graph": [
         {"@type": "ListItem", "position": 3, "name": P["product_name"], "item": URL}]},
     {"@type": "Product", "name": P["product_name"], "alternateName": P.get("alternate_names", []),
      "description": EN["ans_p"], "category": P.get("category", "SMT equipment"),
-     "image": [g["full"] for g in GAL[:6]], "brand": {"@id": ORG["@id"]}, "manufacturer": {"@id": ORG["@id"]}, "url": URL,
+     "image": WEB[:6], "brand": {"@id": ORG["@id"]}, "manufacturer": {"@id": ORG["@id"]}, "url": URL,
      "additionalProperty": [{"@type": "PropertyValue", "name": a, "value": b} for a, b in props],
      "disambiguatingDescription": P.get("disambiguation", "")},
     {"@type": "HowTo", "name": P.get("howto_name", EN["learn_h2"]), "totalTime": P.get("howto_time", "PT30M"),
@@ -174,7 +187,7 @@ LD = {"@context": "https://schema.org", "@graph": [
     {"@type": "Blog", "name": EN["blog_h2"], "blogPost": [
         {"@type": "BlogPosting", "headline": EN[f"bl{i}t"], "description": EN[f"bl{i}s"], "url": f"{URL}#article-{i}",
          "author": {"@id": ORG["@id"]}, "publisher": {"@id": ORG["@id"]}, "datePublished": P.get("date_published", "2026-01-01"), "inLanguage": "en",
-         "image": GAL[i % len(GAL)]["full"]} for i in range(1, len(BLOGS) + 1)]}
+         "image": WEB[i % len(WEB)]} for i in range(1, len(BLOGS) + 1)]}
 ]}
 for v in LD["@graph"][6]["itemListElement"]: v.pop("uploadDate")  # upload dates unknown
 
@@ -221,12 +234,12 @@ page = f"""<!DOCTYPE html>
 <meta property="og:title" content="{t("og_title")}">
 <meta property="og:description" content="{t("og_desc")}">
 <meta property="og:url" content="{URL}">
-<meta property="og:image" content="{GAL[0]["full"]}">
+<meta property="og:image" content="{WEB[0]}">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:site" content="@smtspecialist">
 <meta name="twitter:title" content="{t("og_title")}">
 <meta name="twitter:description" content="{t("og_desc")}">
-<meta name="twitter:image" content="{GAL[0]["full"]}">
+<meta name="twitter:image" content="{WEB[0]}">
 <script type="application/ld+json">{json.dumps(LD, ensure_ascii=False)}</script>
 <style>{css}</style>
 </head>
@@ -352,7 +365,7 @@ page = f"""<!DOCTYPE html>
   <div class="calc">
     <div class="ch"><h3 data-i18n="calc_h">{t("calc_h")}</h3><p data-i18n="calc_sub">{t("calc_sub")}</p></div>
     <div class="cb">
-      <div>{fld("cFeeders","c_feeders","120")}{fld("cShare","c_share","5")}{fld("cMin","c_min","30")}{fld("cRate","c_rate")}{fld("cTech","c_tech","10")}{fld("cTechRate","c_techrate")}{fld("cPrice","c_price","",'c_hint_price')}</div>
+      <div>{fld("cFeeders","c_feeders",CD[0])}{fld("cShare","c_share",CD[1])}{fld("cMin","c_min",CD[2])}{fld("cRate","c_rate",CD[3])}{fld("cTech","c_tech",CD[4])}{fld("cTechRate","c_techrate",CD[5])}{fld("cPrice","c_price",CD[6],'c_hint_price')}</div>
       <div class="cres">{rrow("r_hours","rHours")}{rrow("r_value","rValue")}{rrow("r_cost","rCost")}{rrow("r_net","rNet")}
         <div class="big"><div class="k" data-i18n="r_pb">{t("r_pb")}</div><div class="v" id="rPayback">—</div><div class="u" id="rPaybackU"></div></div></div>
     </div>
