@@ -154,8 +154,8 @@ function applyTheme(mode,persist){
   lbx.addEventListener("click",function(e){ if(e.target!==lbimg) closeLb(); });
   document.querySelectorAll(".galgrid figure").forEach(function(f){
     f.addEventListener("click",function(){
-      var full=f.getAttribute("data-full"); if(!full) return;
       var th=f.querySelector("img"); if(th) lbimg.setAttribute("alt",th.getAttribute("alt")||"");
+      var full=f.getAttribute("data-full")||(th&&th.getAttribute("src")); if(!full) return;
       lbimg.onerror=function(){ lbimg.onerror=null; lbimg.src=th.getAttribute("src"); };
       lbimg.src=full; lbx.classList.add("open");
     });
