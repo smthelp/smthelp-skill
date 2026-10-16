@@ -49,8 +49,8 @@ function fmt(n,lang){
 function renderVideos(lang){
   var g=document.getElementById("vidGrid"); if(!g) return;
   g.innerHTML=VIDEOS.map(function(v){
-    return '<article class="vid" data-vid="'+v.id+'" tabindex="0" role="button">'
-      +'<div class="th"><img loading="lazy" decoding="async" src="https://i.ytimg.com/vi/'+v.id+'/hqdefault.jpg" alt="'+esc(T(lang,v.t))+'">'
+    return '<article class="vid" data-vid="'+v.id+'" data-src="'+esc(v.src||"")+'" tabindex="0" role="button">'
+      +'<div class="th"><img loading="lazy" decoding="async" src="'+(v.th||("https://i.ytimg.com/vi/"+v.id+"/hqdefault.jpg"))+'" alt="'+esc(T(lang,v.t))+'">'
       +'<div class="pl"><i></i></div></div>'
       +'<div class="bd"><span class="dur">'+v.dur+'</span><h3>'+esc(isolateRuns(T(lang,v.t)))+'</h3><p>'+esc(isolateRuns(T(lang,v.d)))+'</p></div></article>';
   }).join("");
@@ -140,10 +140,15 @@ function applyTheme(mode,persist){
 
   /* video modal - never set src="" (it would load this page inside the frame) */
   var modal=document.getElementById("vModal"), frame=document.getElementById("vFrame");
-  window.closeVideo=function(){ modal.classList.remove("open"); frame.removeAttribute("src"); };
+  var player=document.getElementById("vPlayer");
+  window.closeVideo=function(){ modal.classList.remove("open"); frame.removeAttribute("src"); if(player){ player.pause(); player.removeAttribute("src"); player.load(); } };
   document.getElementById("vClose").addEventListener("click",closeVideo);
   modal.addEventListener("click",function(e){ if(e.target===modal) closeVideo(); });
-  function openVideo(c){ frame.src="https://www.youtube-nocookie.com/embed/"+c.getAttribute("data-vid")+"?rel=0&autoplay=1"; modal.classList.add("open"); }
+  function openVideo(c){
+    var src=c.getAttribute("data-src");
+    if(src&&player){ frame.style.display="none"; player.style.display="block"; player.src=src; modal.classList.add("open"); var pr=player.play(); if(pr&&pr.catch) pr.catch(function(){}); return; }
+    if(player) player.style.display="none"; frame.style.display="";
+    frame.src="https://www.youtube-nocookie.com/embed/"+c.getAttribute("data-vid")+"?rel=0&autoplay=1"; modal.classList.add("open"); }
   var vg=document.getElementById("vidGrid");
   vg.addEventListener("click",function(e){ var c=e.target.closest(".vid"); if(c) openVideo(c); });
   vg.addEventListener("keydown",function(e){ if(e.key!=="Enter"&&e.key!==" ") return; var c=e.target.closest(".vid"); if(!c) return; e.preventDefault(); openVideo(c); });
