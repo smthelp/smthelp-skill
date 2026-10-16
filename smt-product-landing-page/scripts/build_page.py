@@ -110,9 +110,14 @@ hero_imgs = [GAL[i] for i in P.get("hero", [0, 1, 2, 3, 4])]
 hero = "".join(f'<img src="{g["md"]}" alt="{t(g["key"])}" data-i18n-alt="{g["key"]}"' + (' fetchpriority="high"' if i == 0 else ' loading="lazy" decoding="async"') + '>' for i, g in enumerate(hero_imgs))
 
 # ---------------- videos ----------------
-VIDEOS = [(v["id"], v["t"], v["d"], v["dur"]) for v in P["videos"]]
+# A video is a YouTube id ("id") or, since 1.2.0, a self-hosted MP4 ("src": URL or path relative to
+# the published HTML, e.g. "videos/x.mp4") with a "poster" photo inside the product dir (embedded).
+def _vthumb(v):
+    if v.get("src"): return embed(v["poster"], 480, 60) if v.get("poster") else LOGO
+    return f"https://i.ytimg.com/vi/{v['id']}/hqdefault.jpg"
+VIDEOS = [(v.get("id", ""), v["t"], v["d"], v["dur"], v.get("src", ""), _vthumb(v)) for v in P["videos"]]
 # static fallback cards (runtime re-renders them per language)
-vid_static = "".join(f'<article class="vid" data-vid="{i}" tabindex="0" role="button"><div class="th"><img loading="lazy" decoding="async" src="https://i.ytimg.com/vi/{i}/hqdefault.jpg" alt="{t(a)}"><div class="pl"><i></i></div></div><div class="bd"><span class="dur">{d}</span><h3>{t(a)}</h3><p>{t(b)}</p></div></article>' for i, a, b, d in VIDEOS)
+vid_static = "".join(f'<article class="vid" data-vid="{i}" data-src="{sr}" tabindex="0" role="button"><div class="th"><img loading="lazy" decoding="async" src="{th}" alt="{t(a)}"><div class="pl"><i></i></div></div><div class="bd"><span class="dur">{d}</span><h3>{t(a)}</h3><p>{t(b)}</p></div></article>' for i, a, b, d, sr, th in VIDEOS)
 
 # ---------------- catalogues ----------------
 CATS = [(c["t"], c["d"], c["url"], c.get("type", "PDF")) for c in P["catalogs"]]
@@ -142,6 +147,7 @@ def card(n, t1, d1):
     return f'<div class="card"><div class="num">{n}</div><h3 data-i18n="{t1}">{t(t1)}</h3><p data-i18n="{d1}">{t(d1)}</p></div>'
 
 def fitcard(i, img):
+    if isinstance(img, int): img = GAL[img]["md"]  # 1.2.0: a gallery index reuses that photo
     lis = "".join(f'<li data-i18n="f{i}l{j}">{t(f"f{i}l{j}")}</li>' for j in range(1, 4))
     return (f'<div class="mach"><img src="{img}" alt="{t(f"f{i}t")}" data-i18n-alt="f{i}t" loading="lazy" decoding="async"><div class="mb"><span class="tag" data-i18n="f{i}tag">{t(f"f{i}tag")}</span>'
             f'<h3 data-i18n="f{i}t">{t(f"f{i}t")}</h3><p data-i18n="f{i}d">{t(f"f{i}d")}</p><ul>{lis}</ul><div class="role" data-i18n="f{i}r">{t(f"f{i}r")}</div></div></div>')
@@ -183,9 +189,11 @@ LD = {"@context": "https://schema.org", "@graph": [
      "step": [{"@type": "HowToStep", "position": i, "name": EN[f"l{i}t"].split(": ", 1)[-1], "text": EN[f"l{i}d"]} for i in range(1, N_STUDY + 1)]},
     {"@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": EN[f"q{i}"], "acceptedAnswer": {"@type": "Answer", "text": EN[f"a{i}"]}} for i in range(1, N_FAQ + 1)]},
     {"@type": "ItemList", "name": P["product_name"] + " videos", "itemListElement": [
-        {"@type": "VideoObject", "position": n, "name": EN[a], "description": EN[b], "thumbnailUrl": f"https://i.ytimg.com/vi/{i}/hqdefault.jpg",
-         "embedUrl": f"https://www.youtube-nocookie.com/embed/{i}", "contentUrl": f"https://www.youtube.com/watch?v={i}", "uploadDate": "2023-05-13"}
-        for n, (i, a, b, d) in enumerate(VIDEOS, 1)]},
+        {"@type": "VideoObject", "position": n, "name": EN[a], "description": EN[b],
+         "thumbnailUrl": (f"https://i.ytimg.com/vi/{i}/hqdefault.jpg" if i else (th if th.startswith("http") else LOGO)),
+         "contentUrl": (f"https://www.youtube.com/watch?v={i}" if i else (sr if sr.startswith("http") else P["canonical_base"] + sr)),
+         **({"embedUrl": f"https://www.youtube-nocookie.com/embed/{i}"} if i else {}), "uploadDate": P.get("video_upload_date", "2023-05-13")}
+        for n, (i, a, b, d, sr, th) in enumerate(VIDEOS, 1)]},
     {"@type": "Blog", "name": EN["blog_h2"], "blogPost": [
         {"@type": "BlogPosting", "headline": EN[f"bl{i}t"], "description": EN[f"bl{i}s"], "url": f"{URL}#article-{i}",
          "author": {"@id": ORG["@id"]}, "publisher": {"@id": ORG["@id"]}, "datePublished": P.get("date_published", "2026-01-01"), "inLanguage": "en",
@@ -196,7 +204,7 @@ for v in LD["@graph"][6]["itemListElement"]: v.pop("uploadDate")  # upload dates
 hreflang = "".join(f'<link rel="alternate" hreflang="{l}" href="{URL}{"" if l=="en" else "?lang="+l}">\n' for l in LANGS) + f'<link rel="alternate" hreflang="x-default" href="{URL}">'
 
 RUNTIME = open(os.path.join(BASE, "runtime.js"), encoding="utf-8").read().replace("__STORE__", STORE)
-RUNTIME = RUNTIME.replace("__I18N__", json.dumps(I18N, ensure_ascii=False)).replace("__VIDEOS__", json.dumps([{"id": i, "t": a, "d": b, "dur": d} for i, a, b, d in VIDEOS]))
+RUNTIME = RUNTIME.replace("__I18N__", json.dumps(I18N, ensure_ascii=False)).replace("__VIDEOS__", json.dumps([{"id": i, "t": a, "d": b, "dur": d, "src": sr, "th": th} for i, a, b, d, sr, th in VIDEOS]))
 
 CHAT = """window.chatwootSettings = {"position":"right","type":"standard","launcherTitle":"Southern Machinery Global Support"};
 (function(d,t) {
@@ -497,6 +505,7 @@ page = f"""<!DOCTYPE html>
   <div class="inner">
     <button class="cl" id="vClose" type="button">✕</button>
     <iframe id="vFrame" title="YouTube video" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    <video id="vPlayer" controls playsinline preload="none" style="display:none;width:100%;max-height:82vh;background:#000"></video>
   </div>
 </div>
 <div id="lb" role="dialog" aria-modal="true" aria-label="{t("aria_viewer")}" data-i18n-aria="aria_viewer"><button type="button" aria-label="{t("aria_close")}" data-i18n-aria="aria_close">✕</button><img alt="" data-i18n-alt="lb_alt"></div>
