@@ -1,0 +1,247 @@
+{
+ "format": "landscape",
+ "product_label": "Smart EMS X3100 X-ray Counter",
+ "outro": {
+  "title": "Smart EMS X3100",
+  "subtitle": "X-ray Counter with Inspection",
+  "image": "photos/x3100-offline-x-ray-counter-angle.jpg"
+ },
+ "scenes": [
+  {
+   "id": "s01",
+   "kind": "still",
+   "media": [
+    "photos/x3100-four-reel-tray.jpg"
+   ],
+   "box": "v",
+   "kicker": "THE PROBLEM",
+   "head": "The label says 5,000.\nThe reel says otherwise.",
+   "bullets": [
+    "Partly used reels return with old labels",
+    "MES plans on numbers that are no longer true",
+    "The shortage shows up at the feeder"
+   ],
+   "vo": [
+    [
+     "A reel comes back from the line, and its label still says five thousand parts.",
+     "A reel comes back from the line, and its label still says 5,000 parts."
+    ],
+    [
+     "Only a few hundred are left.",
+     null
+    ],
+    [
+     "Your MES doesn't know, so the shortage shows up at the feeder, in the middle of a job.",
+     null
+    ]
+   ]
+  },
+  {
+   "id": "s02",
+   "kind": "still",
+   "media": [
+    "photos/x3100-offline-x-ray-counter-front.jpg"
+   ],
+   "box": "v",
+   "kicker": "INTRODUCING",
+   "head": "Smart EMS X3100\nX-ray Counter",
+   "bullets": [
+    "X-ray component counting",
+    "Built-in X-ray inspection mode",
+    "By Southern Machinery"
+   ],
+   "vo": [
+    [
+     "Meet the Smart EMS X3100 from Southern Machinery.",
+     null
+    ],
+    [
+     "An X-ray component counter that counts every part through the closed tape, in seconds.",
+     null
+    ]
+   ]
+  },
+  {
+   "id": "s03",
+   "kind": "clip",
+   "box": "v",
+   "clips": [
+    {
+     "src": "videos/x3100-x-ray-counter-mes-label.mp4",
+     "a": 16.3,
+     "b": 22.0,
+     "crop": [
+      0.085,
+      0.86
+     ]
+    },
+    {
+     "src": "videos/x3100-x-ray-counter-mes-label.mp4",
+     "a": 26.4,
+     "b": 30.0,
+     "crop": [
+      0.085,
+      0.86
+     ]
+    }
+   ],
+   "kicker": "STEP 1  ·  LOAD",
+   "head": "Up to four reels\nin one shot",
+   "bullets": [
+    "Reels 4 to 17 inch, up to 10 kg",
+    "Sensors detect every position",
+    "Two-hand start for operator safety"
+   ],
+   "vo": [
+    [
+     "Place up to four reels in the marked positions.",
+     null
+    ],
+    [
+     "Sensors detect each reel, and the two-hand start keeps the operator safe.",
+     null
+    ]
+   ]
+  },
+  {
+   "id": "s04",
+   "kind": "clip",
+   "box": "v",
+   "clips": [
+    {
+     "src": "videos/x3100-x-ray-counter-mes-label.mp4",
+     "a": 38.3,
+     "b": 41.0,
+     "crop": [
+      0.085,
+      0.86
+     ]
+    },
+    {
+     "src": "videos/x3100-x-ray-counter-mes-label.mp4",
+     "a": 70.0,
+     "b": 72.6,
+     "crop": [
+      0.085,
+      0.86
+     ]
+    },
+    {
+     "src": "videos/x3100-x-ray-counter-with-inspection.mp4",
+     "a": 66.0,
+     "b": 71.0,
+     "crop": [
+      0.085,
+      0.86
+     ]
+    }
+   ],
+   "kicker": "STEP 2  ·  COUNT",
+   "head": "One X-ray shot.\nEvery reel counted.",
+   "bullets": [
+    "6 to 10 s per 4 reels (chip 0201)",
+    "Parts as small as 01005",
+    "3072 x 3072 px flat panel detector"
+   ],
+   "vo": [
+    [
+     "One X-ray shot images all four reels on a large flat panel detector.",
+     null
+    ],
+    [
+     "Four reels are counted in six to ten seconds, with parts as small as zero one zero zero five.",
+     "Four reels are counted in 6 to 10 seconds, with parts as small as 01005."
+    ]
+   ]
+  },
+  {
+   "id": "s05",
+   "kind": "clip",
+   "box": "l",
+   "clips": [
+    {
+     "src": "videos/x3100-inline-x-ray-counter.mp4",
+     "a": 25.6,
+     "b": 29.2,
+     "crop": [
+      0.14,
+      0.8
+     ]
+    }
+   ],
+   "kicker": "STEP 3  ·  CONNECT",
+   "head": "Straight into\nMES, ERP or WMS",
+   "bullets": [
+    "20 MP camera reads every barcode",
+    "Export as TXT, CSV or XLS",
+    "New label printed at once"
+   ],
+   "vo": [
+    [
+     "A twenty megapixel camera reads every barcode, and the result goes straight to your MES, ERP or WMS.",
+     "A 20-megapixel camera reads every barcode, and the result goes straight to your MES, ERP or WMS."
+    ]
+   ]
+  },
+  {
+   "id": "s06",
+   "kind": "specs",
+   "kicker": "KEY SPECIFICATIONS",
+   "head": "Built for the warehouse floor",
+   "specs": [
+    [
+     "80 kV",
+     "closed X-ray tube"
+    ],
+    [
+     "30 µm",
+     "spatial resolution"
+    ],
+    [
+     "427 x 427 mm",
+     "imaging area"
+    ],
+    [
+     "3072 x 3072",
+     "pixel flat panel"
+    ],
+    [
+     "20 MP",
+     "barcode camera"
+    ],
+    [
+     "< 1 µSv/h",
+     "radiation test value"
+    ],
+    [
+     "4 – 17 in",
+     "reels, up to 10 kg"
+    ],
+    [
+     "Windows 11",
+     "AC 110–220 V, 1200 W"
+    ]
+   ],
+   "vo": [
+    [
+     "Under the hood: a closed eighty kilovolt X-ray tube and thirty micron resolution.",
+     "Under the hood: a closed 80 kV X-ray tube and 30 µm resolution."
+    ]
+   ]
+  },
+  {
+   "id": "s07",
+   "kind": "outro",
+   "vo": [
+    [
+     "Smart EMS X3100, by Southern Machinery.",
+     null
+    ],
+    [
+     "Send us your reel mix for a trial count, at S M T help dot com.",
+     "Send us your reel mix for a trial count at smthelp.com."
+    ]
+   ]
+  }
+ ]
+}
