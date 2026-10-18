@@ -1,0 +1,60 @@
+{
+ "product": {
+  "model": "X3100",
+  "name": "Smart EMS X3100 X-ray Counter with Inspection",
+  "category": "X-ray component counter",
+  "one_line": "Counts up to 4 reels in one X-ray shot and syncs MES"
+ },
+ "facts": [
+  {
+   "key": "speed",
+   "label": "Counting speed",
+   "value": "6 - 10",
+   "unit": "s per 4 reels (chip 0201)",
+   "source": "brochure; manual ch.6",
+   "evidence": "v"
+  },
+  {
+   "key": "accuracy",
+   "label": "Counting accuracy",
+   "value": "99.99",
+   "unit": "% (0201 example)",
+   "source": "brochure; manual ch.6",
+   "evidence": "v"
+  },
+  {
+   "key": "min_part",
+   "label": "Smallest part",
+   "value": "01005",
+   "unit": "",
+   "source": "brochure",
+   "evidence": "v"
+  },
+  {
+   "key": "tube",
+   "label": "X-ray tube",
+   "value": "closed, 80 kV (limited to 50 kV), 0.01 - 0.089 mA",
+   "unit": "",
+   "source": "brochure; manual ch.6",
+   "evidence": "v"
+  }
+ ],
+ "versions": [
+  {
+   "point": "Handling",
+   "a": "X3100 offline: operator loads 4 reels",
+   "b": "X3100 Inline: automatic",
+   "decide": "reels per shift"
+  }
+ ],
+ "conflicts": [
+  {
+   "label": "Machine size",
+   "values": [
+    "949 x 1456 x 1934 mm with printer (brochure)",
+    "950 x 1460 x 1960 mm (manual)"
+   ],
+   "status": "c - confirm per order"
+  }
+ ]
+}
