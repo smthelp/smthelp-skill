@@ -1,0 +1,222 @@
+{
+ "title": "Smart EMS X3100 X-ray Counter - marketing deck",
+ "slides": [
+  {
+   "type": "cover",
+   "kicker": "Smart EMS warehouse automation",
+   "title": "Smart EMS X3100 X-ray Counter with Inspection",
+   "subtitle": "Count four reels in one X-ray shot, sync MES, print the new label",
+   "image": "photos/x3100-offline-x-ray-counter-front.jpg",
+   "focus": [
+    0.5,
+    0.4
+   ],
+   "metrics": [
+    {
+     "v": "6 - 10 s",
+     "l": "per 4 reels (chip 0201)"
+    },
+    {
+     "v": "99.99 %",
+     "l": "accuracy, 0201 example"
+    },
+    {
+     "v": "01005",
+     "l": "smallest part"
+    },
+    {
+     "v": "MES",
+     "l": "ERP / WMS link"
+    }
+   ],
+   "notes": "Sources: X3100 brochure; English operation manual chapter 6."
+  },
+  {
+   "type": "cards",
+   "kicker": "The problem",
+   "title": "The stock count is wrong long before the line stops",
+   "lead": "A reel that says 5,000 on its label and holds 1,200 is invisible until a feeder runs empty in the middle of a job.",
+   "cols": 1,
+   "cards": [
+    {
+     "h": "Lines stop for parts the system says you have",
+     "b": "Partly used reels return with the original label quantity; MES plans the next job on a number that is no longer true."
+    },
+    {
+     "h": "Counting costs labour and opens sensitive packs",
+     "b": "Tape-wheel counters handle one reel at a time; every opening adds handling, ESD and moisture exposure."
+    },
+    {
+     "h": "Audits and consignment never reconcile",
+     "b": "Cycle counts need a quantity per reel ID. Without a fast count the warehouse writes estimates."
+    }
+   ],
+   "image": "photos/x3100-four-reel-tray.jpg",
+   "caption": "Four reels on the tray in the marked counting positions",
+   "notes": "Pain points from the X3100 brochure positioning; no customer data."
+  },
+  {
+   "type": "steps",
+   "kicker": "How it works",
+   "title": "Four steps from reel to correct label",
+   "steps": [
+    {
+     "h": "Load up to four reels",
+     "b": "Place 1 - 4 reels, trays, tubes or bags in the marked positions and press both start buttons."
+    },
+    {
+     "h": "One X-ray shot",
+     "b": "The closed tube and 3072 x 3072 px flat panel image all reels through tape and cover."
+    },
+    {
+     "h": "Count and read labels",
+     "b": "Software counts every reel; the 20 MP camera reads all barcodes and matches quantity to reel ID."
+    },
+    {
+     "h": "Sync MES and print",
+     "b": "Result saved (TXT / CSV / XLS), sent to MES, ERP or WMS and printed as a new 60 x 40 mm label."
+    }
+   ],
+   "image": "photos/x3100-x-ray-image-reel-count.jpg",
+   "caption": "X-ray image of a reel counted at 1,522 parts",
+   "notes": "Operation manual 9.4 and 10."
+  },
+  {
+   "type": "metrics",
+   "kicker": "Key specifications",
+   "title": "Built for the warehouse floor",
+   "metrics": [
+    {
+     "v": "80 kV",
+     "l": "closed tube, limited to 50 kV"
+    },
+    {
+     "v": "30 µm",
+     "l": "spatial resolution"
+    },
+    {
+     "v": "427 mm",
+     "l": "square imaging area"
+    },
+    {
+     "v": "20 MP",
+     "l": "barcode camera"
+    },
+    {
+     "v": "4 - 17 in",
+     "l": "reels up to 92 mm high"
+    },
+    {
+     "v": "≤ 10 kg",
+     "l": "load weight"
+    },
+    {
+     "v": "< 1 µSv/h",
+     "l": "radiation test value"
+    },
+    {
+     "v": "1200 W",
+     "l": "AC 110 - 220 V"
+    }
+   ],
+   "text": "Values for the offline X3100. Accuracy 99.99 % is the brochure's 0201 example - we recommend a trial count with your own reels.",
+   "image": "photos/x3100-offline-x-ray-counter-angle.jpg",
+   "notes": "Brochure + manual 6."
+  },
+  {
+   "type": "table",
+   "kicker": "Versions",
+   "title": "X3100 offline or X3100 Inline",
+   "colw": [
+    0.24,
+    0.38,
+    0.38
+   ],
+   "rows": [
+    [
+     "Point",
+     "X3100 offline",
+     "X3100 Inline"
+    ],
+    [
+     "Handling",
+     "Operator loads up to 4 reels",
+     "Automatic load, count, label, unload"
+    ],
+    [
+     "Counting time",
+     "6 - 10 s per 4 reels (0201)",
+     "9 - 15 s per reel"
+    ],
+    [
+     "Reel diameter",
+     "4 - 17 inch",
+     "7 - 17 inch"
+    ],
+    [
+     "Reel height",
+     "1 - 92 mm",
+     "1 - 80 mm"
+    ],
+    [
+     "Weight",
+     "450 kg",
+     "1500 kg"
+    ]
+   ],
+   "note": "Version chosen per order from your reel volume and floor space.",
+   "image": "photos/x3100-inline-x-ray-counter-line.jpg",
+   "notes": "X3100 and X3100 Inline brochures."
+  },
+  {
+   "type": "gallery",
+   "kicker": "One cabinet",
+   "title": "Reels, trays, tubes, bags and loose parts",
+   "images": [
+    {
+     "src": "photos/x3100-tube-parts-on-tray.jpg",
+     "cap": "Tube-packed parts across the tray"
+    },
+    {
+     "src": "photos/x3100-jedec-tray-parts.jpg",
+     "cap": "Parts in a JEDEC tray"
+    },
+    {
+     "src": "photos/x3100-x-ray-image-loose-parts.jpg",
+     "cap": "Loose parts counted at 1,000"
+    },
+    {
+     "src": "photos/x3100-x-ray-inspection-broken-wire.jpg",
+     "cap": "Inspection mode: broken wires in a cable"
+    }
+   ]
+  },
+  {
+   "type": "cta",
+   "kicker": "Before you order",
+   "title": "Five facts get the right X3100 on the first reply",
+   "facts": [
+    {
+     "h": "Reel flow",
+     "b": "Reels counted per day at peak and the mix of reel sizes."
+    },
+    {
+     "h": "Hardest parts",
+     "b": "Smallest and densest part numbers - ideally reels for a trial count."
+    },
+    {
+     "h": "Packages",
+     "b": "Besides reels: JEDEC trays, tubes, bags or loose parts."
+    },
+    {
+     "h": "Data link",
+     "b": "Your MES, ERP or WMS and a photo of your current reel label."
+    },
+    {
+     "h": "Site",
+     "b": "Mains voltage, floor space and the route into the building."
+    }
+   ]
+  }
+ ]
+}
