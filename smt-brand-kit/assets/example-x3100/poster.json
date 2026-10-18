@@ -1,0 +1,23 @@
+{
+ "formats": ["a3", "social", "story"],
+ "product_label": "Smart EMS X3100 X-ray Counter",
+ "kicker": "Smart EMS warehouse automation",
+ "headline": "4 reels counted\nin one X-ray shot",
+ "sub": "Counts through the closed tape, reads every barcode, syncs MES and prints the new label.",
+ "image": "photos/x3100-offline-x-ray-counter-front.jpg",
+ "focus": [0.5, 0.45],
+ "metrics": [
+  {"v": "6 - 10 s", "l": "per 4 reels, chip 0201"},
+  {"v": "99.99 %", "l": "accuracy, 0201 example"},
+  {"v": "01005", "l": "smallest part"},
+  {"v": "MES", "l": "ERP / WMS sync"}
+ ],
+ "benefits": [
+  "Reels 4 - 17 inch, trays, tubes, bags, loose parts",
+  "20 MP camera reads every reel label",
+  "One click to X-ray inspection mode"
+ ],
+ "cta": "Send your reel mix for a trial count",
+ "qr": "https://wa.me/8613602562576",
+ "footnote": "Speed and accuracy: X3100 brochure, 0201 example. Price and lead time quoted per order."
+}
