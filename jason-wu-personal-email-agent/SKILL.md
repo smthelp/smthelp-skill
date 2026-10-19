@@ -18,15 +18,16 @@ metadata:
 **IMAP**: `imap.exmail.qq.com:993` | **SMTP**: `smtp.exmail.qq.com:465`  
 **Python + certifi** (Himalaya hangs on Tencent SSL):  
 ```python
-import imaplib, ssl, certifi, smtplib
+import imaplib, ssl, certifi, smtplib, os
+# Password is NOT stored here. Set env var SMTHELP_MAIL_PASSWORD (or use a vault) before running.
 ctx = ssl.create_default_context(cafile=certifi.where())
 # IMAP
 m = imaplib.IMAP4_SSL('imap.exmail.qq.com', 993, ssl_context=ctx)
-m.login('jasonwu@smthelp.com', 'rPNGzQDik8bJ8D9H')
+m.login('jasonwu@smthelp.com', os.environ['SMTHELP_MAIL_PASSWORD'])
 m.select('INBOX', readonly=False)
 # SMTP
 s = smtplib.SMTP_SSL('smtp.exmail.qq.com', 465, context=ctx)
-s.login('jasonwu@smthelp.com', 'rPNGzQDik8bJ8D9H')
+s.login('jasonwu@smthelp.com', os.environ['SMTHELP_MAIL_PASSWORD'])
 ```
 
 **Total inbox: 337 emails | 147 unique senders**
