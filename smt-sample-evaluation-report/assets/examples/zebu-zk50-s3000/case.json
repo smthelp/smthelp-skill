@@ -1,0 +1,209 @@
+{
+ "slug": "Zebu-ZK50-S3000-Radial-Insertion-Solution",
+ "customer": "Zebu",
+ "country": "Brazil",
+ "board": "ZK50",
+ "board_variant": "ZK50 AUTO",
+ "machine": "s3000",
+ "languages": [
+  "en",
+  "pt"
+ ],
+ "test": {
+  "cycle_s_per_panel": 7,
+  "boards_per_panel": 2,
+  "program_points_per_board": 7,
+  "source": "Zebu test video and program, Southern Machinery demo room, 2026"
+ },
+ "bom_source": "Zebu Ficha Tecnica ZK50 AUTOMATICO, BOM ZK50 Aut R11",
+ "bom": [
+  {
+   "refs": "C3, C13",
+   "pn": "286",
+   "desc": {
+    "en": "Electrolytic capacitor",
+    "pt": "Cap. eletrolítico"
+   },
+   "value": "1 µF / 100 V",
+   "qty": 2,
+   "span_mm": 2.5,
+   "polarised": true
+  },
+  {
+   "refs": "C12, C14",
+   "pn": "282",
+   "desc": {
+    "en": "Electrolytic capacitor",
+    "pt": "Cap. eletrolítico"
+   },
+   "value": "100 µF / 25 V",
+   "qty": 2,
+   "span_mm": 2.5,
+   "polarised": true
+  },
+  {
+   "refs": "C6, C7",
+   "pn": "276",
+   "desc": {
+    "en": "Polyester capacitor",
+    "pt": "Cap. poliéster"
+   },
+   "value": "100 nF",
+   "qty": 2,
+   "span_mm": 5.0,
+   "polarised": false
+  },
+  {
+   "refs": "T2",
+   "pn": "986",
+   "desc": {
+    "en": "PUT transistor",
+    "pt": "Transistor PUT"
+   },
+   "value": "2N6027",
+   "qty": 1,
+   "span_mm": 2.5,
+   "polarised": true
+  },
+  {
+   "refs": "Q3, Q4",
+   "pn": "3661",
+   "desc": {
+    "en": "NPN transistor",
+    "pt": "Transistor NPN"
+   },
+   "value": "BC337-40",
+   "qty": 2,
+   "span_mm": 2.5,
+   "polarised": true
+  },
+  {
+   "refs": "LD1",
+   "pn": "2368",
+   "desc": {
+    "en": "High-brightness LED",
+    "pt": "LED alto brilho"
+   },
+   "value": "LED 5 mm",
+   "qty": 1,
+   "span_mm": 2.5,
+   "polarised": true
+  },
+  {
+   "refs": "F2",
+   "pn": "4060",
+   "desc": {
+    "en": "Taped fuse",
+    "pt": "Fusível fitado"
+   },
+   "value": "2 A",
+   "qty": 1,
+   "span_mm": 5.0,
+   "polarised": false
+  }
+ ],
+ "out_of_scope": {
+  "en": "Out of scope: 33 axial parts per board (axial inserter) and large film capacitors, terminals, relay and other odd-form parts.",
+  "pt": "Fora do escopo: 33 axiais por placa (insersora axial) e capacitores de filme grandes, terminais, relé e outras peças odd-form."
+ },
+ "labour": {
+  "currency": "R$",
+  "monthly_wage": 1621,
+  "wage_source": "Decreto 12.797/2025 (Brazil minimum wage 2026)",
+  "wage_card": {
+   "en": "Brazil's minimum wage rose 6.79 % to R$ 1,621 in January 2026, before employer charges.",
+   "pt": "O salário mínimo subiu 6,79 % para R$ 1.621 em janeiro de 2026, antes dos encargos."
+  }
+ },
+ "params": {},
+ "photos": {
+  "cover": {
+   "src": "photos/frame26.jpg",
+   "focus": [
+    0.5,
+    0.45
+   ]
+  },
+  "why": {
+   "src": "photos/zebu4.jpg",
+   "cap": {
+    "en": "ZK50 test boards after radial insertion",
+    "pt": "Placas ZK50 de teste após a inserção radial"
+   }
+  },
+  "test": {
+   "src": "photos/frame19.jpg",
+   "cap": {
+    "en": "Panel clamped on the board-handling conveyor",
+    "pt": "Painel fixado na esteira de manuseio"
+   }
+  },
+  "capacity": {
+   "src": "photos/s3000_1.jpg"
+  },
+  "benefits": {
+   "src": "photos/zebu5.jpg"
+  },
+  "assumptions": {
+   "src": "photos/zebu1.jpg",
+   "cap": {
+    "en": "Zebu sample panels",
+    "pt": "Painéis de amostra Zebu"
+   }
+  },
+  "gallery": [
+   {
+    "src": "photos/zebu2.jpg",
+    "cap": {
+     "en": "ZK50 AUTO panel (Gerber)",
+     "pt": "Painel ZK50 AUTO (Gerber)"
+    }
+   },
+   {
+    "src": "photos/frame56.jpg",
+    "cap": {
+     "en": "Radial parts after insertion",
+     "pt": "Radiais após a inserção"
+    }
+   },
+   {
+    "src": "photos/zebu6.jpg",
+    "cap": {
+     "en": "Clinched leads, solder side",
+     "pt": "Terminais dobrados, lado da solda"
+    }
+   },
+   {
+    "src": "photos/s3000_5.jpg",
+    "cap": {
+     "en": "S3000 radial feeder bank",
+     "pt": "Banco de alimentadores S3000"
+    }
+   },
+   {
+    "src": "photos/s3000_34.jpg",
+    "cap": {
+     "en": "Insertion head and clinch unit",
+     "pt": "Cabeça de inserção e dobra"
+    }
+   },
+   {
+    "src": "photos/s3000_11.jpg",
+    "cap": {
+     "en": "8 servo drives",
+     "pt": "8 servoacionamentos"
+    }
+   }
+  ]
+ },
+ "open_points": [
+  {
+   "en": "To be confirmed: component body heights and final panel outline from Zebu samples.",
+   "pt": "A confirmar: altura dos corpos e contorno final do painel a partir das amostras da Zebu."
+  }
+ ],
+ "lead_range_mm": [
+  0.4,
+  0.6
+ ]
+}
