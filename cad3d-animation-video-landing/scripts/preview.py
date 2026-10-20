@@ -1,4 +1,4 @@
-import sys,json,base64,time
+import os,sys,json,base64,time
 from playwright.sync_api import sync_playwright
 PROJ=os.environ.get('PROJ', os.path.abspath(os.path.join(os.path.dirname(os.path.abspath(__file__)), '..')))
 B=os.path.join(PROJ,"build")+"/"; W=B+"../work/prev/"
