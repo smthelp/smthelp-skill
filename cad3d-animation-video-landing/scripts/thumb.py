@@ -12,6 +12,6 @@ with sync_playwright() as p:
     pg.evaluate("c=>setupVideo(c)",{'portrait':False,'w':3840,'h':2160,'vo':vo,'model':model,'logo':logo})
     u=pg.evaluate("o=>renderThumb(o)",opt)
     im=Image.open(io.BytesIO(base64.b64decode(u.split(',')[1]))).convert('RGB')
-    im.save(B+'../deliverables/CN-SM-2713_thumbnail_4K.png')
-    im.resize((1280,720),Image.LANCZOS).save(B+'../deliverables/CN-SM-2713_YouTube_thumbnail_1280x720.jpg',quality=92)
+    im.save(B+'../deliverables/'+os.environ.get('CODE','PRODUCT')+'_thumbnail_4K.png')
+    im.resize((1280,720),Image.LANCZOS).save(B+'../deliverables/'+os.environ.get('CODE','PRODUCT')+'_YouTube_thumbnail_1280x720.jpg',quality=92)
     b.close()
