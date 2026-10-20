@@ -1,0 +1,47 @@
+=== 16:9 MAIN VIDEO ===
+TITLE (65 chars):
+JUKI Coil Gripper Nozzle CN-SM-2713 | 3-Point Grip, No Bent Leads
+
+DESCRIPTION:
+Heavy, round coils slip and tilt on vacuum nozzles. The CN-SM-2713 custom gripper nozzle for JUKI odd-form insertion machines holds an Ø8.5 mm wire-wound coil with a self-centering 3-point grip and inserts it with straight, untouched leads.
+
+Built from the production CAD model, this 4K animation shows exactly how it works:
+• JUKI-standard nozzle shank: plug & play on the standard nozzle changer, no adapters, no head modifications
+• Spring-closed toggle linkage: one plunger drives one center pin that swings twin pivot jaws open; the return spring snaps them closed
+• 3-point self-centering grip: two contact pins on one jaw, one on the other
+• Z-datum center stop pin: fixed insertion depth, force goes through the body, never the leads
+• 21 precision parts with E-clip-retained pivot pins: rigid in production, easy to service
+
+⏱ Chapters
+0:00 Why round coils are hard to place
+0:11 Meet the CN-SM-2713 gripper nozzle
+0:23 JUKI-standard shank (plug & play)
+0:33 How the gripper mechanism works
+0:48 3-point self-centering grip
+0:59 Z-datum stop pin & straight leads
+1:12 21 parts + pick-and-insert cycle
+1:32 Custom gripper nozzles in 7 days
+
+Southern Machinery designs and builds custom gripper nozzles for JUKI JM-10 / JM-20 / JM-50 / JM-100 and KE-series machines, with custom tooling in as little as 7 days. Source factory since 2011, Shenzhen, China.
+
+👉 Send us your component and we'll engineer the grip: https://www.smthelp.com
+📘 JUKI JM odd-form gripper nozzles: https://www.smthelp.com/juki-jm-odd-form-insertion-gripper-nozzle-design-manufacturing.html
+🔔 Subscribe for more SMT & THT tooling: https://www.youtube.com/c/Smthelping
+
+#JUKI #SMT #GripperNozzle #OddFormInsertion #PCBA #THT #ElectronicsManufacturing
+
+TAGS (comma-separated, ~480 chars):
+JUKI gripper nozzle, JUKI coil gripper, CN-SM-2713, JUKI JM nozzle, JUKI JM-20 nozzle, JUKI JM-100 nozzle, odd form insertion, odd-form gripper nozzle, SMT gripper nozzle, THT insertion, coil insertion, inductor insertion, through hole automation, custom SMT nozzle, JUKI chuck nozzle, PCB assembly automation, Southern Machinery, smthelp, pick and place gripper, SMT nozzle design
+
+CATEGORY: Science & Technology   |   LANGUAGE: English   |   CAPTIONS: upload CN-SM-2713_16x9_EN.srt (English)
+
+=== 9:16 SHORTS VERSION ===
+TITLE (60 chars):
+This JUKI Gripper Nozzle Holds Round Coils Perfectly #shorts
+
+DESCRIPTION:
+CN-SM-2713 custom gripper nozzle for JUKI odd-form insertion: spring-closed twin pivot jaws, 3-point self-centering grip and a Z-datum stop pin, so Ø8.5 mm coils go in straight with no slip, no tilt and no bent leads.
+Custom JUKI gripper nozzles in as little as 7 days 👉 https://www.smthelp.com
+#JUKI #SMT #GripperNozzle #PCBA #Shorts
+
+CAPTIONS: upload CN-SM-2713_9x16_EN.srt (English)
