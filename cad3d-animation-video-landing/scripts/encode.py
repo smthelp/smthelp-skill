@@ -14,7 +14,7 @@ if sys.argv[2]!='final':
 else:
     segs=sorted(f for f in os.listdir(P+'enc') if f.startswith(m+'_') and f.endswith('.mp4'))
     open(P+f'enc/{m}_list.txt','w').write(''.join(f"file '{P}enc/{s}'\n" for s in segs))
-    name={'l':'CN-SM-2713_JUKI_Gripper_Nozzle_4K_16x9.mp4','p':'CN-SM-2713_JUKI_Gripper_Nozzle_4K_9x16_Shorts.mp4'}[m]
+    code=os.environ.get('CODE','PRODUCT'); name={'l':code+'_4K_16x9.mp4','p':code+'_4K_9x16_Shorts.mp4'}[m]
     subprocess.run(['ffmpeg','-y','-v','error','-f','concat','-safe','0','-i',P+f'enc/{m}_list.txt','-i',P+'build/audio/final_mix.wav',
       '-map','0:v','-map','1:a','-c:v','copy','-c:a','aac','-b:a','320k','-shortest','-movflags','+faststart','/tmp/'+name],check=True); import shutil; shutil.copy('/tmp/'+name,P+'deliverables/'+name)
     print(subprocess.check_output(['ffprobe','-v','error','-show_entries','format=duration,size:stream=width,height,r_frame_rate','-of','compact',P+'deliverables/'+name]).decode())
