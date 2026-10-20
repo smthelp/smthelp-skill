@@ -1,7 +1,7 @@
 ---
 name: cad3d-animation-video-landing
 description: Turn a product 3D drawing (SolidWorks eDrawings / HOOPS HTML export, or STEP/GLB) into (1) a real-time interactive mechanism animation merged into an existing product landing page as ONE new single HTML file, (2) 1–3 min 4K YouTube marketing videos in 16:9 and 9:16 Shorts with English voice-over and word-synced subtitles, (3) a YouTube thumbnail, and (4) SEO title, description, chapters and tags. Use for Southern Machinery SMT/THT nozzles, grippers, feeders and machine modules when the user asks to "把 3D 图做成动画/视频/落地页", "explain how this works", or "make a product video from the 3D drawing".
-version: 1.0.0
+version: 1.1.0
 ---
 
 # CAD 3D → Mechanism Animation, 4K Videos & Single-HTML Landing Page
@@ -132,6 +132,18 @@ into `build/fonts/`. Logo: `https://ph.smthelp.com/images/2024/06/26/Southern-Ma
 One answer with: landing HTML, 16:9 MP4, 9:16 MP4, thumbnail (JPG + 4K PNG), 2 SRTs, SEO text as a copyable template.
 Offer a revision pass (VO wording, camera, scenes) — re-render cost ≈ 2–3 h CPU for both aspects.
 
+## Lessons from product #2 (SBF1001 bowl feeder, large assembly)
+- Unnamed assemblies (all nodes "instance"/"body"): dump per-body world bboxes, render id-labelled analysis views
+  (ana.py pattern), then classify bodies into groups by id + geometry in pack.py. Colors from HOOPS are unreliable — pick brand materials.
+- Mechanisms missing from CAD (e.g. helical bowl track) may be drawn as clearly illustrative overlays; say so in the landing lead/note.
+- Large models (≈100k tris) at 4K on SwiftShader: use MeshStandardMaterial (no Physical/clearcoat), render 3D into a
+  render target at R3D≈0.67 and upscale under full-res 4K overlays (video.js GLC.rt path; bg drawn as its own quad,
+  rt quad toneMapped:true), and run 2 shards `SHARD=0/2|1/2 run_render.sh` (≈2.5–3 s/frame combined). Stagger shard launches ~15 s.
+- Only claim numbers printed on the client's landing page; never quote frame dimensions from CAD when they differ from the spec.
+- Landing pages without Tailwind: inject a self-styled section using the page's CSS variables; merge i18n into the
+  page's own I18N object and wrap its global applyLang.
+- thumb.py / encode.py output names come from env CODE=<product code>; enc_all.sh l|p does segments + mux resumably.
+
 ## Upgrade roadmap (next versions)
 - Generic product config (`product.json`: part names, groups, pivots, stroke, explode, anchors, scenes) so engine/video/landing
   need no code edits per product.
@@ -143,3 +155,4 @@ Offer a revision pass (VO wording, camera, scenes) — re-render cost ≈ 2–3 
 - v1.0.0 (2026-10-19) — First version distilled from the CN-SM-2713 JUKI coil gripper project (Hark agent):
   eDrawings mesh extraction, shared Three.js engine, word-synced 4K timeline renderer (16:9 + 9:16), edge-tts VO,
   music bed, SRT, thumbnail, SEO, 7-language landing merge.
+- v1.1.0 (2026-10-20) — SBF1001 vibratory bowl feeder: unnamed-body classification, illustrative overlays, render-target upscale + sharded 4K rendering, CODE-based output names, non-Tailwind landing merge.
