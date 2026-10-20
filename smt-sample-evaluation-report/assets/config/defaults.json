@@ -1,0 +1,18 @@
+{
+ "_doc": "Default parameters. A case overrides any key in case.json -> params. See references/input-spec.md for meaning and units.",
+ "efficiency": 0.85,
+ "hours_per_shift": 8,
+ "working_days_month": 22,
+ "days_per_week": 5,
+ "shifts_compare": [1, 2, 3],
+ "manual_parts_per_operator_hour": 900,
+ "employer_factor": 1.8,
+ "machine_operators_per_shift": 1,
+ "machine_running_cost_month": 550,
+ "manual_ppm": 2000,
+ "ramp": [0.60, 0.80, 0.95, 1.00],
+ "payback_months": [12, 24],
+ "layout": "16x9",
+ "template": "assets/template/template.json",
+ "forbidden_patterns": ["(?i)\\bprice\\s*[:=]\\s*\\S*\\d", "(?i)pre[cç]o\\s*[:=]\\s*\\S*\\d", "(?i)lead time\\s*[:=]", "(?i)\\d+\\s*(months?|meses)\\s+warrant", "(?i)garantia de\\s*\\d"]
+}
