@@ -10,13 +10,15 @@ OUT=f"{PROJ}/frames_{mode}/"; os.makedirs(OUT,exist_ok=True)
 vo=json.load(open(B+'audio/vo_timing.json')); model=open(B+'model.b64').read(); logo='data:image/png;base64,'+base64.b64encode(open(B+'logo.png','rb').read()).decode()
 with sync_playwright() as p:
     b=p.chromium.launch(args=["--use-gl=angle","--use-angle=swiftshader","--ignore-gpu-blocklist","--enable-unsafe-swiftshader"])
-    pg=b.new_page(); pg.goto('file://'+B+'video.html')
+    pg=b.new_page(); pg.goto('file://'+B+'video.html'); pg.evaluate('window.R3D=%s'%os.environ.get('R3D','1'))
     info=pg.evaluate("c=>setupVideo(c)",{'portrait':portrait,'w':w,'h':h,'vo':vo,'model':model,'logo':logo,'r3':float(os.environ.get('R3','1.0'))})
     pg.evaluate("enableGLComposite()")
     N=int(info['total']*fps)
     json.dump({'N':N,'fps':fps,'total':info['total']},open(OUT+'meta.json','w'))
     done=0
+    SK,SN=[int(x) for x in os.environ.get('SHARD','0/1').split('/')]
     for i in range(N):
+        if i%SN!=SK: continue
         fn=OUT+f"{i:05d}.jpg"
         if os.path.exists(fn): continue
         if time.time()-start>budget: break
