@@ -14,7 +14,7 @@ Southern Machinery（南方机械）Agent Skills 集合 — SMT/THT 外贸营销
 | `smt-product-landing-page` | QwenWork agent | 1688/产品链接 → Southern Machinery 品牌英文单文件产品 Landing Page（FAB 模型），覆盖爬取、base64 图片内嵌、3D 交互动画、Chatwoot 客服、Playwright 校验、WebDAV 发布 |
 | `inquiry-to-proposal` | Hark agent | 新客户询盘 → 客户背调 + 联系人画像 + 产品匹配（含适配边界）+ 跟进计划与英文回复邮件；含产能估算脚本 |
 | `smt-brand-kit` | Hark agent | 供应商产品资料 → Southern Machinery 全套品牌物料：单 HTML 落地页、营销 PPT、海报（A3/社媒）、宣传视频 + Shorts、英文说明书；品牌规范、事实表与证据标签、去供应商标识、质检与反馈迭代（v1.0.0） |
-| `cad3d-animation-video-landing` | Hark agent | 产品 3D 图（eDrawings/STEP）→ 机构原理分析 + 实时 3D 交互动画并入现有 Landing Page（单 HTML，7 语言）+ 16:9/9:16 4K 英文配音逐词字幕营销视频 + 缩略图 + YouTube SEO；含网格提取、Three.js 引擎、可续跑 4K 渲染与编码脚本（v1.0.0） |
+| `smt-sample-evaluation-report` | Hark agent | 客户打样结果（实测节拍、客户 BOM、测试视频/照片、当地人工成本）→ 客户专属评估报告 PPT（英/葡等多语言，SM 16:9 模板）：产能 UPH/CPH、爬坡、人工 vs 自动化 ROI、回本、收益、BOM 适配、假设与待确认项；参数可配置、质检闸门、版本与反馈记录（v1.0.0） |
 
 ### CLI App 技能（nanobot workspace）
 
