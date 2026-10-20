@@ -1,0 +1,38 @@
+[
+ {
+  "id": "hook",
+  "text": "Heavy, round coils are tough to place. A vacuum nozzle can't hold them securely, and at full gantry speed they tilt, slip, and bend their leads."
+ },
+ {
+  "id": "title",
+  "text": "Meet the CN-SM-2713: a custom gripper nozzle for JUKI odd-form insertion machines, engineered around an eight-point-five millimeter coil."
+ },
+ {
+  "id": "shank",
+  "text": "It's built on a JUKI-standard nozzle shank, so it drops straight into your nozzle changer. No adapters. No head modifications."
+ },
+ {
+  "id": "mech",
+  "text": "Inside, a spring-loaded plunger drives a single center pin. As the plunger moves down, the pin pushes both jaw arms, and the twin pivot jaws swing open. Release it, and the spring snaps them closed."
+ },
+ {
+  "id": "grip",
+  "text": "The jaws close on three contact pins: two on one side, one on the other. That three-point grip self-centers the round body, every single time."
+ },
+ {
+  "id": "stop",
+  "text": "A center stop pin seats on top of the coil, setting a fixed Z datum. Insertion force goes straight through the body, while the leads hang free, straight and untouched."
+ },
+ {
+  "id": "explode",
+  "text": "Twenty-one precision parts, with pivot pins locked by E-clips, keep it rigid in production and easy to service."
+ },
+ {
+  "id": "cycle",
+  "text": "Pick from the tray. Seat on the stop. Grip. Insert straight into the board, release, and go again. No tilt, no slip, no bent leads."
+ },
+ {
+  "id": "cta",
+  "text": "Southern Machinery designs and builds custom gripper nozzles for JUKI JM and KE series machines, with tooling in as little as seven days. Send us your component, and we'll engineer the grip. Visit smthelp dot com."
+ }
+]
