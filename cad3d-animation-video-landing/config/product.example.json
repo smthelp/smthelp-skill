@@ -1,0 +1,35 @@
+{
+  "$schema": "./product.schema.json",
+  "skill_version": "2.0.0",
+  "product": {
+    "code": "SBF1001",
+    "name": "SBF1001 Vibratory Bowl Feeder",
+    "brand": "Southern Machinery",
+    "site": "https://www.smthelp.com",
+    "channel": "https://www.youtube.com/c/Smthelping",
+    "landing_live_url": "https://smthelp.com/sbf1001-vibratory-bowl-feeder-odd-form-auto-insertion-smart-ems.html"
+  },
+  "inputs": {
+    "drawing": "https://file.autoinsertion.com/public/SMT%20machine%203D%20Drawing%20in%20Html/SMT_Odd_Bowl_feeder.html",
+    "landing": "https://file.autoinsertion.com/public/Product%20landing%20Page/sbf1001-vibratory-bowl-feeder-odd-form-auto-insertion-smart-ems.html",
+    "landing_insert_before": "<section id=\"machine\">",
+    "claims_source": "landing"
+  },
+  "voice": { "language": "en", "voice": "en-US-AndrewMultilingualNeural", "rate": "+2%", "script": "build/vo.json" },
+  "video": {
+    "fps": 24,
+    "aspects": ["l", "p"],
+    "resolution": { "l": [3840, 2160], "p": [2160, 3840] },
+    "render_scale_3d": 0.67,
+    "shards": 2,
+    "chunk_seconds": 1150,
+    "segments": 8,
+    "crf": 17
+  },
+  "audio": { "loudness_lufs": -16, "music": "synth-pad", "music_gain": 0.22 },
+  "thumbnail": { "camera": { "target": [0, 640, 160], "dist": 2500, "az": -128, "el": 22, "sx": 0.24 } },
+  "landing": { "languages": ["en", "es", "pt", "fr", "ar", "ru", "zh"], "i18n_file": "build/s3d_i18n.json", "dpr_max": 1.75 },
+  "brand": { "teal": "#00A896", "teal2": "#00C2AD", "navy": "#0B132B", "dark": "#070D1E", "sky": "#38BDF8", "amber": "#F5B13D",
+             "logo": "https://ph.smthelp.com/images/2024/06/26/Southern-Machinery-logo-300x83.png" },
+  "delivery": { "drive_folder_id": "1l_83yav0aSOi_M0gL3jiGzK1iFDCzIiU", "subfolder": "SBF1001 Vibratory Bowl Feeder - 3D animation, landing page & YouTube" }
+}
