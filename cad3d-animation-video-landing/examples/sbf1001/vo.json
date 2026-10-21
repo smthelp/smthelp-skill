@@ -1,0 +1,11 @@
+[
+{"id":"hook","text":"Bulk parts arrive in a bag. Your machine needs them one at a time, the same way up, every cycle. Sorting by hand is where automation stops."},
+{"id":"title","text":"Meet the SBF1001 vibratory bowl feeder from Southern Machinery. Bulk in. Sorted, oriented, and presented at a fixed pick point."},
+{"id":"drive","text":"Under the bowl, a coil drive creates controlled vibration. Speed is tuned by voltage and frequency, so one platform handles parts from 3 to 50 millimetres, and 10 to 300 grams."},
+{"id":"sort","text":"Parts climb the helical track, and the track itself is the filter. Only parts in the right attitude survive the climb. Anything upside down or doubled up falls back and tries again. Direction and polarity screening are options, matched to your part."},
+{"id":"rail","text":"At the outlet, a separate linear vibrator drives the rail. Direct vibration carries each part forward, while air blowing speeds it along and keeps the track clean."},
+{"id":"pick","text":"At the pick point, an optical fibre confirms a part is really there before the head picks. The result: 0.8 seconds per feed, at plus or minus 0.5 millimetres."},
+{"id":"platform","text":"The bowl rides on isolators over a height adjustable plate, so it lines up with your machine. The controller sits inside a mobile cart with casters and levelling feet, and this build adds a camera and light on adjustable clamps."},
+{"id":"connect","text":"It runs on 220 volts and plant air, and talks to the host over I O through an 8 core plug, or runs standalone on its own buttons. Every unit passes a 2 hour feeding test and a 48 hour ageing run."},
+{"id":"cta","text":"Send us the part, and we will tell you if it sorts. Southern Machinery builds custom bowls around your component. Visit smthelp dot com, and subscribe for more."}
+]
