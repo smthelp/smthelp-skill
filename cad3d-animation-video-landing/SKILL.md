@@ -1,10 +1,14 @@
 ---
 name: cad3d-animation-video-landing
 description: Turn a product 3D drawing (SolidWorks eDrawings / HOOPS HTML export, or STEP/GLB) into (1) a real-time interactive mechanism animation merged into an existing product landing page as ONE new single HTML file, (2) 1–3 min 4K YouTube marketing videos in 16:9 and 9:16 Shorts with English voice-over and word-synced subtitles, (3) a YouTube thumbnail, and (4) SEO title, description, chapters and tags. Use for Southern Machinery SMT/THT nozzles, grippers, feeders and machine modules when the user asks to "把 3D 图做成动画/视频/落地页", "explain how this works", or "make a product video from the 3D drawing".
-version: 1.1.0
+version: 2.0.0
 ---
 
-# CAD 3D → Mechanism Animation, 4K Videos & Single-HTML Landing Page
+# CAD 3D → Mechanism Animation, 4K Videos & Single-HTML Landing Page (v2.0.0)
+
+> Module layout, I/O spec, config parameters and versioning rules: `README.md`, `docs/`, `config/`, `CHANGELOG.md`.
+> New projects: put `product.json` (from `config/product.example.json`) in PROJ and drive stages with `scripts/pipeline.sh`.
+> Start product-specific code from the closest `examples/<code>/` (cn-sm-2713 = small kinematic part; sbf1001 = large process machine).
 
 把产品 3D 图转化为：交互式机构动画（并入现有 Landing Page，输出全新单 HTML）+ 16:9 / 9:16 4K 英文配音字幕营销视频 + 缩略图 + YouTube SEO 文案。
 
@@ -156,3 +160,4 @@ Offer a revision pass (VO wording, camera, scenes) — re-render cost ≈ 2–3 
   eDrawings mesh extraction, shared Three.js engine, word-synced 4K timeline renderer (16:9 + 9:16), edge-tts VO,
   music bed, SRT, thumbnail, SEO, 7-language landing merge.
 - v1.1.0 (2026-10-20) — SBF1001 vibratory bowl feeder: unnamed-body classification, illustrative overlays, render-target upscale + sharded 4K rendering, CODE-based output names, non-Tailwind landing merge.
+- v2.0.0 (2026-10-21) — Standardised module: README, docs/ (IO_SPEC, CONFIG, WORKFLOW, VERSIONING), config schema + example, cfg.py + pipeline.sh, full examples for both products, CHANGELOG/VERSION.
