@@ -1,5 +1,14 @@
 # CHANGELOG
 
+## v2.1.0 — 2026-10-22 · SAF1001 轴向编带送料器 + SMT 智能料架（5 层）
+- Added: `examples/saf1001/`（命名 CAD、多机构慢动作）、`examples/sir-rack/`（静态结构 + 流程故事，500 个实例化料位/LED）。
+- Added: 通用 `scripts/video.js` 升级为 SAF1001 版本：`machineTime()` 无跳变慢动作、`CAPMAP` 读音→字幕、`scrim`、callout 自动翻转/限位；新增 `dbgShot`。
+- Added: `scripts/dbg.py`（裸 3D 调试截图）、`sheet.py`（联系表）、`bench.py`（4K 每帧耗时）、`tts1.py`（单场景重配音）、`rr.sh`（单进程续跑渲染）、通用 `testlanding.py`。
+- Added: pipeline 阶段 `sheet / dbg / bench / testlanding`；配置 `render_scale_3d_landscape/portrait`、`antialias`。
+- Changed: 默认单进程渲染（SHARDS=1），R3D 横版 0.6 / 竖版 0.5，AA 关闭。
+- Fixed: `pack.py` 量化溢出断言（S×32767 必须 > 最大坐标 mm）。
+- Lessons: 重复几何用 InstancedMesh 并设 `frustumCulled=false`；宽产品竖版需独立机位；近景是填充率瓶颈；140 s 两个比例约 5–6 h；渲染时不要并行跑测试/编码；CAD 没有的电子件/LED 必须示意并注明；不引用无依据形容词（如 "strong"）。
+
 ## v2.0.0 — 2026-10-21 · 标准化模块
 - Added: `README.md` 快速上手；`docs/IO_SPEC.md`、`docs/CONFIG.md`、`docs/WORKFLOW.md`、`docs/VERSIONING.md`。
 - Added: `config/product.schema.json` + `product.example.json` 统一产品配置；`scripts/cfg.py` 配置→环境变量；
