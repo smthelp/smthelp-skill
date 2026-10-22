@@ -10,8 +10,10 @@
 | voice.voice | VOICE | en-US-AndrewMultilingualNeural | 任意 edge-tts 声音（如 en-GB-RyanNeural） |
 | voice.rate | VOICE_RATE | +2% | 语速；改动后需重跑 tts → preview → render |
 | video.fps | FPS | 24 | 24 足够；30 会增加 25% 渲染时间 |
-| video.render_scale_3d | R3D | 0.67 | 3D 层内部分辨率比例；1.0 最清晰但慢约 2×；文字层始终 4K 原生 |
-| video.shards | SHARDS | 2 | 并行渲染进程数（2 vCPU 下 2 最优），相差 15 s 启动 |
+| video.render_scale_3d | R3D | 0.6 | 3D 层内部分辨率比例；1.0 最清晰但慢约 2×；文字层始终 4K 原生 |
+| video.render_scale_3d_landscape / _portrait | R3D_L / R3D_P | 0.6 / 0.5 | v2.1：按比例分开。竖版近景填充率高，0.5 才能维持 ≈3 s/帧 |
+| video.antialias | AA | 0 | v2.1：R3D 放大后 AA 几乎无收益，关掉省 20–30% |
+| video.shards | SHARDS | 1 | v2.1：2 vCPU 下单进程即可（SAF1001 实测 2 分片无提速） |
 | video.chunk_seconds | CHUNK | 1150 | 单次渲染预算，须 < 后台 1200 s 上限 |
 | video.segments | NSEG | 8 | 编码分段数，每段需 < 20 分钟 |
 | video.crf | — | 17 | 画质；YouTube 4K 建议 16–20 |
@@ -22,7 +24,7 @@
 | delivery.drive_folder_id / subfolder | DRIVE_FOLDER / DRIVE_SUBFOLDER | — | 交付上传位置 |
 
 ## 产品相关参数（目前在代码中，v2.x 将并入配置）
-- `pack.py`：零件 id → 组名映射、坐标原点、量化范围 S。
+- `pack.py`：零件 id → 组名映射、坐标原点、量化范围 S（v2.1 起有断言：S×32767 必须大于最大 |坐标| mm，否则 int16 溢出、网格错乱）。
 - `engine.js`：材质映射、运动组与轴（枢轴/行程或振动/物料流路径）、EXPLODE 偏移表、ANCHORS 标注点、道具。
 - `video.js`：场景 id 与 vo.json 对应、镜头关键帧（target, dist, az, el, fov, sx, sy）、标注与文案。
 - `landing.js`：STEPS（导览步骤、机位、标签）、stepState。
