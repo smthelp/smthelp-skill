@@ -2,45 +2,212 @@
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "title": "cad3d-animation-video-landing product config",
   "type": "object",
-  "required": ["product", "inputs"],
+  "required": [
+    "product",
+    "inputs"
+  ],
   "properties": {
-    "skill_version": { "type": "string", "description": "Skill version this config was written for (semver)." },
+    "skill_version": {
+      "type": "string",
+      "description": "Skill version this config was written for (semver)."
+    },
     "product": {
-      "type": "object", "required": ["code", "name"],
+      "type": "object",
+      "required": [
+        "code",
+        "name"
+      ],
       "properties": {
-        "code": { "type": "string", "pattern": "^[A-Za-z0-9._-]+$", "description": "Product code; prefixes every output file." },
-        "name": { "type": "string" }, "brand": { "type": "string" },
-        "site": { "type": "string", "format": "uri" }, "channel": { "type": "string", "format": "uri" },
-        "landing_live_url": { "type": "string", "format": "uri" }
+        "code": {
+          "type": "string",
+          "pattern": "^[A-Za-z0-9._-]+$",
+          "description": "Product code; prefixes every output file."
+        },
+        "name": {
+          "type": "string"
+        },
+        "brand": {
+          "type": "string"
+        },
+        "site": {
+          "type": "string",
+          "format": "uri"
+        },
+        "channel": {
+          "type": "string",
+          "format": "uri"
+        },
+        "landing_live_url": {
+          "type": "string",
+          "format": "uri"
+        }
       }
     },
     "inputs": {
-      "type": "object", "required": ["drawing", "landing"],
+      "type": "object",
+      "required": [
+        "drawing",
+        "landing"
+      ],
       "properties": {
-        "drawing": { "type": "string", "description": "URL or path of eDrawings/HOOPS HTML (STEP/GLB planned)." },
-        "landing": { "type": "string", "description": "URL or path of the existing landing page." },
-        "landing_insert_before": { "type": "string", "description": "Exact HTML anchor the 3D section is inserted before." },
-        "claims_source": { "enum": ["landing", "user", "cad"], "default": "landing" }
+        "drawing": {
+          "type": "string",
+          "description": "URL or path of eDrawings/HOOPS HTML (STEP/GLB planned)."
+        },
+        "landing": {
+          "type": "string",
+          "description": "URL or path of the existing landing page."
+        },
+        "landing_insert_before": {
+          "type": "string",
+          "description": "Exact HTML anchor the 3D section is inserted before."
+        },
+        "claims_source": {
+          "enum": [
+            "landing",
+            "user",
+            "cad"
+          ],
+          "default": "landing"
+        }
       }
     },
-    "voice": { "type": "object", "properties": {
-      "language": { "type": "string", "default": "en" },
-      "voice": { "type": "string", "default": "en-US-AndrewMultilingualNeural" },
-      "rate": { "type": "string", "pattern": "^[+-][0-9]+%$", "default": "+2%" },
-      "script": { "type": "string", "default": "build/vo.json" } } },
-    "video": { "type": "object", "properties": {
-      "fps": { "type": "integer", "enum": [24, 25, 30], "default": 24 },
-      "aspects": { "type": "array", "items": { "enum": ["l", "p"] }, "default": ["l", "p"] },
-      "render_scale_3d": { "type": "number", "minimum": 0.4, "maximum": 1, "default": 0.67 },
-      "shards": { "type": "integer", "minimum": 1, "maximum": 4, "default": 2 },
-      "chunk_seconds": { "type": "integer", "maximum": 1180, "default": 1150 },
-      "segments": { "type": "integer", "default": 8 },
-      "crf": { "type": "integer", "minimum": 12, "maximum": 28, "default": 17 } } },
-    "audio": { "type": "object" }, "thumbnail": { "type": "object" },
-    "landing": { "type": "object", "properties": {
-      "languages": { "type": "array", "items": { "type": "string" } },
-      "i18n_file": { "type": "string" }, "dpr_max": { "type": "number", "default": 1.75 } } },
-    "brand": { "type": "object" },
-    "delivery": { "type": "object", "properties": { "drive_folder_id": { "type": "string" }, "subfolder": { "type": "string" } } }
+    "voice": {
+      "type": "object",
+      "properties": {
+        "language": {
+          "type": "string",
+          "default": "en"
+        },
+        "voice": {
+          "type": "string",
+          "default": "en-US-AndrewMultilingualNeural"
+        },
+        "rate": {
+          "type": "string",
+          "pattern": "^[+-][0-9]+%$",
+          "default": "+2%"
+        },
+        "script": {
+          "type": "string",
+          "default": "build/vo.json"
+        }
+      }
+    },
+    "video": {
+      "type": "object",
+      "properties": {
+        "fps": {
+          "type": "integer",
+          "enum": [
+            24,
+            25,
+            30
+          ],
+          "default": 24
+        },
+        "aspects": {
+          "type": "array",
+          "items": {
+            "enum": [
+              "l",
+              "p"
+            ]
+          },
+          "default": [
+            "l",
+            "p"
+          ]
+        },
+        "render_scale_3d": {
+          "type": "number",
+          "minimum": 0.4,
+          "maximum": 1,
+          "default": 0.67
+        },
+        "shards": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 4,
+          "default": 1
+        },
+        "chunk_seconds": {
+          "type": "integer",
+          "maximum": 1180,
+          "default": 1150
+        },
+        "segments": {
+          "type": "integer",
+          "default": 8
+        },
+        "crf": {
+          "type": "integer",
+          "minimum": 12,
+          "maximum": 28,
+          "default": 17
+        },
+        "render_scale_3d_landscape": {
+          "type": "number",
+          "minimum": 0.3,
+          "maximum": 1,
+          "default": 0.6,
+          "description": "16:9 3D layer scale (v2.1)"
+        },
+        "render_scale_3d_portrait": {
+          "type": "number",
+          "minimum": 0.3,
+          "maximum": 1,
+          "default": 0.5,
+          "description": "9:16 3D layer scale (v2.1)"
+        },
+        "antialias": {
+          "type": "integer",
+          "enum": [
+            0,
+            1
+          ],
+          "default": 0,
+          "description": "MSAA on the GL canvas (v2.1 default off)"
+        }
+      }
+    },
+    "audio": {
+      "type": "object"
+    },
+    "thumbnail": {
+      "type": "object"
+    },
+    "landing": {
+      "type": "object",
+      "properties": {
+        "languages": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "i18n_file": {
+          "type": "string"
+        },
+        "dpr_max": {
+          "type": "number",
+          "default": 1.75
+        }
+      }
+    },
+    "brand": {
+      "type": "object"
+    },
+    "delivery": {
+      "type": "object",
+      "properties": {
+        "drive_folder_id": {
+          "type": "string"
+        },
+        "subfolder": {
+          "type": "string"
+        }
+      }
+    }
   }
 }
