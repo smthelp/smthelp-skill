@@ -18,7 +18,8 @@
 - 重复出现 2 次以上的手工改动 → 提升为配置参数或通用脚本（这是 v2.x 抽离 product.json 的依据）。
 
 ## 路线图
-- v2.1：engine/video/landing 产品参数并入 product.json（groups、motion、explode、anchors、scenes、tour）。
-- v2.2：STEP/GLB 输入（occt-import-js / trimesh）。
-- v2.3：1440p 预览片供客户确认后再出 4K；可选 GPU/云渲染。
-- v2.4：多语言配音与字幕（es/pt/ru/ar）复用同一时间线。
+- ✅ v2.1.0（2026-10-22）：慢动作/字幕映射/版式工具、实例化几何、调试与测速脚本、按比例 R3D。
+- v2.2：engine/video/landing 产品参数并入 product.json（groups、motion、explode、anchors、scenes、tour）。
+- v2.3：STEP/GLB 输入（occt-import-js / trimesh）。
+- v2.4：1440p 预览片供客户确认后再出 4K；可选 GPU/云渲染。
+- v2.5：多语言配音与字幕（es/pt/ru/ar）复用同一时间线。
