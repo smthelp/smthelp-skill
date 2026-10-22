@@ -1,14 +1,14 @@
 ---
 name: cad3d-animation-video-landing
 description: Turn a product 3D drawing (SolidWorks eDrawings / HOOPS HTML export, or STEP/GLB) into (1) a real-time interactive mechanism animation merged into an existing product landing page as ONE new single HTML file, (2) 1–3 min 4K YouTube marketing videos in 16:9 and 9:16 Shorts with English voice-over and word-synced subtitles, (3) a YouTube thumbnail, and (4) SEO title, description, chapters and tags. Use for Southern Machinery SMT/THT nozzles, grippers, feeders and machine modules when the user asks to "把 3D 图做成动画/视频/落地页", "explain how this works", or "make a product video from the 3D drawing".
-version: 2.0.0
+version: 2.1.0
 ---
 
-# CAD 3D → Mechanism Animation, 4K Videos & Single-HTML Landing Page (v2.0.0)
+# CAD 3D → Mechanism Animation, 4K Videos & Single-HTML Landing Page (v2.1.0)
 
 > Module layout, I/O spec, config parameters and versioning rules: `README.md`, `docs/`, `config/`, `CHANGELOG.md`.
 > New projects: put `product.json` (from `config/product.example.json`) in PROJ and drive stages with `scripts/pipeline.sh`.
-> Start product-specific code from the closest `examples/<code>/` (cn-sm-2713 = small kinematic part; sbf1001 = large process machine).
+> Start product-specific code from the closest `examples/<code>/` (cn-sm-2713 = small kinematic part; sbf1001 = large process machine; saf1001 = named multi-part mechanism with slow-mo; sir-rack = static structure + workflow story with instanced slots/LEDs).
 
 把产品 3D 图转化为：交互式机构动画（并入现有 Landing Page，输出全新单 HTML）+ 16:9 / 9:16 4K 英文配音字幕营销视频 + 缩略图 + YouTube SEO 文案。
 
@@ -155,9 +155,44 @@ Offer a revision pass (VO wording, camera, scenes) — re-render cost ≈ 2–3 
 - GPU or cloud render option; 1440p preview render for client approval before 4K.
 - Multi-language VO + captions (es/pt/ru/ar) reusing the same timeline.
 
+## v2.1.0 additions (SAF1001 axial tape feeder + SMT Intelligent Reel Storage Rack, 2026-10-21/22)
+Examples: `examples/saf1001/` (fully named CAD, fast multi-part mechanism) and `examples/sir-rack/` (static structure + process/workflow story, 500 instanced slots).
+
+**Mechanism & geometry**
+- Named CAD (Chinese part tree): classify by name in pack.py; parts that are heavy or missing (springs 24k tris, silencers, taped components) → record bboxes in `extra.json` and draw procedurally at the exact CAD position.
+- Repetitive geometry (wire dividers, stored reels, LEDs): rebuild ONE simplified geometry at each exact CAD position with `InstancedMesh` (505 dividers 531k → 44k tris). Set `frustumCulled = false` on every InstancedMesh whose matrices change — otherwise the bounding sphere from the first frame culls them forever.
+- Per-instance state function: `state.slotFn(i, layer, k, occ) → [occ, pullOut, ledColor, ledK]` drives occupancy, pull-out and LED colour per slot from the timeline (store/pick/FIFO stories).
+- Quantization: `S × 32767` must exceed the largest |coord| in mm (rack 1850 mm overflowed S=1300/32767 → garbage mesh). Template pack.py now asserts this. Check the hero part with `dbg.py` before writing scenes.
+- Electronics / LEDs / lights / scanners not in CAD → illustrative, disclosed on page note + one line in the video (e.g. "Rack geometry from CAD · LEDs, lights and scanner shown illustratively").
+
+**Timeline (video.js, see examples/saf1001)**
+- `machineTime(t)`: integrates a per-scene playback RATE (e.g. 0.3 in mechanism scenes) so slow motion never jumps phase; label it "Slowed for clarity".
+- `CAPMAP`: spoken-word sequences → caption text (`plus or minus 0.3 millimetres` → `±0.3 mm`, `smthelp dot com` → `smthelp.com`, `error prone` → `error-prone`). Print `vo_timing.json` words first to see how edge-tts splits numbers ("99.9 percent", "since 2011" come as one token).
+- `scrim()` gradient behind the text column; `textBlock()` returns the y after the text → place cards/chips at `yb` so wrapped headlines never overlap.
+- `callout()` auto-flips side and clamps inside the frame and above the caption band.
+- Cameras as `V(landscapeCam, portraitCam)` pairs: wide products (2.5 m rack) need their own portrait framing (steeper azimuth, larger distance, target lower) instead of a fixed ×1.55.
+- Portrait CTA hides captions; landscape keeps them.
+- `dbgShot` + `scripts/dbg.py '[{"st":{...},"tg":[..],"d":..,"az":..,"el":..}]'` renders the bare stage — first check after pack.
+- `sheet.py <l|p> <cols> <w>` builds contact sheets from preview frames; review both aspects every iteration.
+- Re-voice a single scene with `IDS=build python tts1.py` (e.g. removing an unsupported claim like "strong").
+
+**Render speed (2 vCPU SwiftShader, 4K, 24 fps)**
+- One process (`rr.sh l|p`, budget 1150 s, rerun until "have N of N"); 2 shards gave no gain.
+- `R3D=0.6 AA=0` landscape, `R3D=0.5` portrait. Cost is fill-rate: close-ups full of overlapping parts are 4–5 s/frame, wide shots ≈2–2.5 s. Run `bench.py <R3D>` on a close-up and a wide time first.
+- Realistic ETA for ~140 s: 16:9 ≈ 2.5 h, 9:16 ≈ 2.5 h, encode 2×8 min → tell the user ~5–6 h up front.
+- Don't run landing tests / encodes concurrently with a render (each halves render speed).
+
+**Landing pages**
+- Tailwind English-only page (e.g. How-it-works): insert a self-styled section (own CSS vars, `.dark` variants) before the first content section, hero button "Explore the 3D …", tabs = the page's own steps, specs card only from product sheets + CAD-derived (marked "(CAD)"), Product JSON-LD, og tags, keyword enrichment. Do not add languages the page doesn't have.
+- Test with `PAGE=... SECTION=... TAB=... python testlanding.py`; in the sandbox Tailwind CDN may fail (400/407) — only own-section errors matter.
+
+**Delivery**
+- Upload to a new product subfolder under Jason's Drive output folder (1l_83yav0aSOi_M0gL3jiGzK1iFDCzIiU) with `gws drive +upload <file> --parent <id>`; verify with `files list` (8 files).
+
 ## 版本与迭代
 - v1.0.0 (2026-10-19) — First version distilled from the CN-SM-2713 JUKI coil gripper project (Hark agent):
   eDrawings mesh extraction, shared Three.js engine, word-synced 4K timeline renderer (16:9 + 9:16), edge-tts VO,
   music bed, SRT, thumbnail, SEO, 7-language landing merge.
 - v1.1.0 (2026-10-20) — SBF1001 vibratory bowl feeder: unnamed-body classification, illustrative overlays, render-target upscale + sharded 4K rendering, CODE-based output names, non-Tailwind landing merge.
 - v2.0.0 (2026-10-21) — Standardised module: README, docs/ (IO_SPEC, CONFIG, WORKFLOW, VERSIONING), config schema + example, cfg.py + pipeline.sh, full examples for both products, CHANGELOG/VERSION.
+- v2.1.0 (2026-10-22) — SAF1001 + reel storage rack: machineTime slow-mo, CAPMAP, scrim + textBlock-y layout, callout clamp, V(l,p) cameras, procedural parts for named CAD, InstancedMesh fleets + slotFn (frustumCulled=false), quant-scale assert, single-process render with per-aspect R3D (0.6/0.5, AA off), dbg.py/sheet.py/bench.py/tts1.py/rr.sh/testlanding.py, Tailwind English-only landing section, Drive delivery.
