@@ -1,0 +1,49 @@
+=== 16:9 VIDEO ===
+
+TITLE (68 chars):
+How an Axial Tape Feeder Works | SAF1001 Lead Cut & U-Form (4K 3D)
+
+DESCRIPTION:
+Axial resistors, diodes and jump wires still arrive on paper tape, and picking them by hand is the hidden bottleneck on a mixed-technology PCB line: slow, inconsistent and easy to get wrong. The SAF1001 axial tape feeder from Southern Machinery turns a taped strip into a trimmed, U-formed component at a fixed pick point, ready for your odd-form inserter or robot.
+
+This 4K animation is built from the feeder's own 3D CAD model and walks through every step:
+• Load: a horizontal tape tray, guide blocks, press blocks and anti-reverse claws keep the strip flat and moving one way
+• Index: a compact air cylinder pushes a slide with index pawls on the leads, one pitch per cycle; an adjustable stop block sets the stroke
+• Trim + form: a Ø32 mm cylinder drives the moving knife up, trimming both leads against the fixed knife and bending them into a U in one stroke
+• Pick point: optical fibre sensing plus air-cylinder fine-tuning, 0.8 s per feed at ±0.3 mm feeding accuracy
+• Waste tape: a second cylinder chops the empty paper tape; front-end vertical drop (reflow type optional)
+• Inside: solenoid valves and a PLC-based control board; key-located mounting with a spring-loaded press block
+• 24 V, 0.4–0.6 MPa air, IO over an 8-core aviation plug, or standalone button operation
+• Components 3×3 to 6×20 mm on 35 / 64 / 92 mm tape (customised widths on request)
+• Every unit passes 1000 consecutive feeds and a 48-hour ageing test
+
+Already installed on Panasonic, JUKI, Yamaha and Mirae odd-form machines.
+
+Chapters
+0:00 The axial-parts problem
+0:15 Meet the SAF1001 axial tape feeder
+0:26 Load: tray, guide blocks, press blocks, anti-reverse claws
+0:39 Index: air cylinder, slide and index pawls
+0:56 Trim + U-form in one stroke
+1:09 Pick point: optical fibre, 0.8 s per feed, ±0.3 mm
+1:25 Waste tape chopped and dropped
+1:37 Inside: solenoid valves, PLC board, key-located mounting
+1:48 24 V, air, IO or standalone + factory validation
+2:06 Send us your part
+
+Send us your part and your machine: https://www.smthelp.com
+SAF1001 axial tape feeder page (3D model, specs): https://smthelp.com/saf1001-axial-tape-feeder-smart-ems-pcb-assembly.html
+Subscribe for more SMT & THT automation: https://www.youtube.com/c/Smthelping
+
+#AxialFeeder #TapeFeeder #THT #PCBA #SMT #OddForm #FactoryAutomation
+
+TAGS (comma separated, < 500 chars):
+axial tape feeder, axial feeder, SAF1001, taped resistor feeder, taped diode feeder, jumper wire feeder, axial lead cutting, lead forming, U forming, THT automation, odd form insertion, auto insertion, PCB assembly, PCBA, SMT feeder, Southern Machinery, smthelp, Panasonic odd form, JUKI odd form, Yamaha odd form, Mirae odd form, how a tape feeder works, 3D animation
+
+=== 9:16 SHORTS ===
+
+SHORTS TITLE (56 chars):
+How Taped Resistors Get Cut & U-Formed in 0.8 s #shorts
+
+SHORTS DESCRIPTION:
+SAF1001 axial tape feeder by Southern Machinery: index, trim, U-form and present a taped part every 0.8 s at ±0.3 mm. Full 4K breakdown on our channel. https://www.smthelp.com #shorts #THT #PCBA #AxialFeeder
