@@ -1,7 +1,7 @@
 #!/bin/bash
-# cad3d-animation-video-landing pipeline driver (v2.0.0)
+# cad3d-animation-video-landing pipeline driver (v2.1.0)
 # usage: PROJ=/path/to/proj bash pipeline.sh <stage> [aspect]
-# stages: setup | fetch | extract | pack | tts | preview | render | encode | audio | srt | thumb | landing | status
+# stages: setup | fetch | extract | pack | tts | preview | sheet | dbg | bench | render | encode | audio | srt | thumb | landing | testlanding | status
 # Every stage is idempotent / resumable. Product-specific code (pack.py, engine.js, video.js, landing.js, build_landing.py)
 # must already be adapted in $PROJ/build (start from examples/<closest product>/).
 set -e
@@ -18,7 +18,13 @@ case "$1" in
   tts)     mkdir -p audio; $PY tts.py ;;
   preview) node_modules/.bin/esbuild video.js --bundle --format=iife --outfile=video.bundle.js --log-level=warning && $PY mkpage.py
            $PY preview.py ${2:-l} ${3:-5,20,40,60,80,100} 0.25 ;;
-  render)  # launches $SHARDS resumable shards for one aspect and waits; rerun until "have N of N"
+  sheet)   $PY sheet.py ${2:-l} ${3:-3} ${4:-640} ;;                    # contact sheet of work/prev/<aspect>_*.jpg
+  dbg)     $PY dbg.py "$2" ;;                                              # JSON list of {st,tg,d,az,el} bare-stage shots
+  bench)   $PY bench.py ${2:-0.6} x 0 0 ;;                                 # s/frame at 4K for the given R3D
+  testlanding) PAGE=${PAGE:-$(ls $PROJ/deliverables/*.html | head -1)} $PY testlanding.py ;;
+  render)  # SHARDS=1 recommended (v2.1: two shards gave no gain on 2 vCPU). Per-aspect R3D: R3D_L / R3D_P
+           [ "${2:-l}" = p ] && export R3D=${R3D_P:-${R3D:-0.5}} || export R3D=${R3D_L:-${R3D:-0.6}}; export AA=${AA:-0}
+           # launches $SHARDS resumable shards for one aspect and waits; rerun until "have N of N"
            for k in $(seq 0 $((SHARDS-1))); do SHARD=$k/$SHARDS bash run_render.sh ${2:-l} $CHUNK > $PROJ/work_render_${2:-l}_$k.log 2>&1 & sleep 15; done; wait
            tail -n1 $PROJ/work_render_${2:-l}_*.log ;;
   encode)  NSEG=$NSEG CODE=$CODE bash enc_all.sh ${2:-l} ;;
