@@ -1,4 +1,4 @@
-# cad3d-animation-video-landing · v2.0.0
+# cad3d-animation-video-landing · v2.1.0
 
 把产品 3D 图（SolidWorks eDrawings / HOOPS HTML）一次性转化为：
 
@@ -7,7 +7,7 @@
 3. **YouTube 缩略图**（1280×720 JPG + 4K PNG）
 4. **SEO 文案**：标题、描述、章节、标签、Shorts 标题；以及每个比例的 SRT 字幕
 
-已用于：CN-SM-2713 JUKI 定制夹爪吸嘴（v1.0）、SBF1001 振动盘送料器（v1.1）。
+已用于：CN-SM-2713 JUKI 定制夹爪吸嘴（v1.0）、SBF1001 振动盘送料器（v1.1）、SAF1001 轴向编带送料器与 SMT 智能料架 5 层（v2.1）。
 
 ## 目录结构
 
@@ -29,12 +29,15 @@ cad3d-animation-video-landing/
 │   ├── pipeline.sh      ← 一键分阶段驱动（setup/fetch/extract/pack/tts/preview/render/encode/audio/srt/thumb/landing）
 │   ├── cfg.py           ← 读取 product.json → 环境变量
 │   ├── setup_env.sh  extract_mesh.py  ana.py/ana.js  loader.js  mkpage.py  preview.py
-│   ├── render.py  run_render.sh  encode.py  enc_all.sh  audio_mix.py  tts.py  make_srt.py  thumb.py
+│   ├── render.py  run_render.sh  rr.sh  encode.py  enc_all.sh  audio_mix.py  tts.py  tts1.py  make_srt.py  thumb.py
+│   ├── dbg.py  sheet.py  bench.py  testlanding.py   ← v2.1 调试/联系表/测速/落地页测试
 │   └── pack.py  engine.js  video.js  landing.js  build_landing.py   ← 通用模板（产品相关，需改写）
 ├── references/          ← 机构分析范例
 └── examples/
     ├── cn-sm-2713/      ← 夹爪吸嘴：小零件、命名完整、运动学（柱塞+摆动夹爪）
-    └── sbf1001/         ← 振动盘：大装配体、零件未命名、流程类动画（物料流+振动+吹气+光纤）
+    ├── sbf1001/         ← 振动盘：大装配体、零件未命名、流程类动画（物料流+振动+吹气+光纤）
+    ├── saf1001/         ← 轴向编带送料器：命名 CAD、多机构节拍、慢动作 machineTime
+    └── sir-rack/        ← SMT 智能料架：静态结构 + 入库/亮灯/拣料/FIFO 流程，InstancedMesh 料位与 LED
 ```
 
 ## 快速开始（新产品）
@@ -47,9 +50,10 @@ cp config/product.example.json $PROJ/product.json    # 修改 code / 输入 URL 
 cd $PROJ/build
 bash pipeline.sh setup && bash pipeline.sh fetch && bash pipeline.sh extract
 # ▶ 机构分析（人工 + AI）：读 bbox、渲染分析图，改写 pack.py / engine.js（分组、运动、爆炸、锚点）
-bash pipeline.sh pack
+bash pipeline.sh pack && bash pipeline.sh dbg '[{"st":{},"tg":[0,0,0],"d":1500,"az":-30,"el":15}]'   # 先看裸模型
 # ▶ 写 vo.json 配音脚本，改写 video.js 场景与镜头
-bash pipeline.sh tts && bash pipeline.sh preview l && bash pipeline.sh preview p   # 看联系表，修正遮挡
+bash pipeline.sh tts && bash pipeline.sh preview l && bash pipeline.sh preview p && bash pipeline.sh sheet l   # 看联系表，修正遮挡
+bash pipeline.sh bench 0.6                       # 测近景/远景每帧耗时，向用户报 ETA
 bash pipeline.sh landing                         # 落地页（改写 landing.js + i18n json + build_landing.py 插入点）
 bash pipeline.sh audio && bash pipeline.sh srt && bash pipeline.sh thumb
 bash pipeline.sh render l   # 反复执行直到 "have N of N"（每次 ≤ 20 分钟）
