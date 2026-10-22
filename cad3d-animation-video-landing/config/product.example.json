@@ -21,7 +21,7 @@
     "aspects": ["l", "p"],
     "resolution": { "l": [3840, 2160], "p": [2160, 3840] },
     "render_scale_3d": 0.67,
-    "shards": 2,
+    "shards": 1,
     "chunk_seconds": 1150,
     "segments": 8,
     "crf": 17
