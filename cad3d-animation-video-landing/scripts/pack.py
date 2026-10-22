@@ -21,6 +21,7 @@ for r in d:
 parts=[];bufs=[];off=0
 pad=lambda b:b+b'\0'*((-len(b))%4)
 for nm,p,n in todo:
+    assert np.abs(p).max() < S*32767, f'quant overflow: max |coord| {np.abs(p).max():.0f} mm > {S*32767:.0f}; raise S'
     qp=np.round(p/S).astype(np.int16); qn=np.round(n*127).astype(np.int8)
     key=np.c_[qp.astype(np.int32),qn.astype(np.int32)]
     u,inv=np.unique(key,axis=0,return_inverse=True); inv=inv.reshape(-1)
