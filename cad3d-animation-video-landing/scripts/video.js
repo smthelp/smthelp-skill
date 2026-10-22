@@ -1,42 +1,44 @@
-// Video timeline renderer for CN-SM-2713 marketing film (16:9 + 9:16)
+// Video timeline renderer for SAF1001 axial tape feeder film (16:9 + 9:16)
 import { createStage, ease, seg, lerp, lerp3, orbit, clamp01, ANCHORS } from './engine.js';
 
-const TEAL = '#00C2AD', TEAL2 = '#00A896', SKY = '#38BDF8', AMBER = '#F5B13D', LIME = '#84CC16', NAVY = '#0B132B', DARK = '#070D1E';
-
+const TEAL = '#00C2AD', TEAL2 = '#00A896', SKY = '#38BDF8', AMBER = '#F5B13D', RED = '#ff5a4f';
 let stage, out, ctx, glCanvas, W, H, LW, LH, S, portrait, VO, scenes, logoImg, TOTAL;
 
+// caption phrase map: spoken word sequences -> on-screen text (lower-case match, punctuation kept from the script)
+const CAPMAP = [
+  [['0.8 seconds'], '0.8 s'], [['plus', 'or', 'minus', '0.3', 'millimetres'], '±0.3 mm'], [['32', 'millimetre'], 'Ø32 mm'],
+  [['24', 'volts'], '24 V'], [['megapascal'], 'MPa'], [['8', 'core'], '8-core'], [['48', 'hour'], '48-hour'], [['smthelp', 'dot', 'com'], 'smthelp.com'],
+  [['u', 'formed'], 'U-formed'], [['anti', 'reverse'], 'anti-reverse'], [['mixed', 'technology'], 'mixed-technology'], [['spring', 'loaded'], 'spring-loaded'],
+  [['odd', 'form'], 'odd-form'],
+];
 function buildTimeline(vo) {
   const by = {}; let t = 0.6; const list = [];
   for (const s of vo) {
-    const extra = s.id === 'cta' ? 4.6 : 1.25;
+    const extra = s.id === 'cta' ? 4.8 : 1.15;
     const sc = { id: s.id, start: t, voStart: t + 0.4, len: s.dur + 0.4 + extra, words: s.words, text: s.text };
     sc.end = sc.start + sc.len; list.push(sc); by[s.id] = sc; t = sc.end;
   }
-  // caption tokens aligned to word timings
   for (const sc of list) {
-    const toks = sc.text.split(/\s+/);
-    sc.tokens = sc.words.map((w, i) => ({ a: sc.voStart + w[0], b: sc.voStart + w[1], txt: toks.length === sc.words.length ? toks[i] : w[2] }));
-    for (const k of sc.tokens) {
-      const m = { 'eight-point-five': '8.5', 'millimeter': 'mm', 'smthelp': 'smthelp.com.', 'dot': '', 'com.': '', 'Twenty-one': '21' };
-      if (k.txt in m) k.txt = m[k.txt];
+    // tokens with trailing punctuation recovered from the script text
+    let pos = 0; const low = sc.text;
+    let toks = sc.words.map(w => { const i = low.indexOf(w[2], pos); let tr = ''; if (i >= 0) { pos = i + w[2].length; const m = low.slice(pos).match(/^[.,:;!?]+/); if (m) { tr = m[0]; pos += tr.length; } }
+      return { a: sc.voStart + w[0], b: sc.voStart + w[1], txt: w[2], tr }; });
+    const outT = [];
+    for (let i = 0; i < toks.length;) {
+      let hit = null; for (const [seq, rep] of CAPMAP) { if (seq.every((w, j) => toks[i + j] && toks[i + j].txt.toLowerCase() === w)) { hit = [seq.length, rep]; break; } }
+      if (hit) { const last = toks[i + hit[0] - 1]; outT.push({ a: toks[i].a, b: last.b, txt: hit[1] + last.tr }); i += hit[0]; }
+      else { outT.push({ a: toks[i].a, b: toks[i].b, txt: toks[i].txt + toks[i].tr }); i++; }
     }
-    sc.tokens = sc.tokens.filter(k => k.txt);
-    // chunk into caption lines
+    sc.tokens = outT;
     const chunks = []; let cur = [];
-    for (const k of sc.tokens) {
-      cur.push(k); const len = cur.map(x => x.txt).join(' ').length;
-      if (/[.,:;?!]$/.test(k.txt) && len > 14 || len > (portrait ? 26 : 40)) { chunks.push(cur); cur = []; }
-    }
+    for (const k of sc.tokens) { cur.push(k); const len = cur.map(x => x.txt).join(' ').length;
+      if (/[.,:;?!]$/.test(k.txt) && len > 14 || len > (portrait ? 26 : 40)) { chunks.push(cur); cur = []; } }
     if (cur.length) chunks.push(cur);
     sc.chunks = chunks.map((c, i) => ({ toks: c, a: c[0].a, b: (i < chunks.length - 1 ? chunks[i + 1][0].a : c[c.length - 1].b + 0.6) }));
   }
-  TOTAL = t;
-  return { list, by };
+  TOTAL = t; return { list, by };
 }
-function wordT(sc, word, nth = 0) { // absolute time of the n-th occurrence of a spoken word
-  let k = 0; for (const w of sc.words) if (w[2].toLowerCase().startsWith(word.toLowerCase())) { if (k++ === nth) return sc.voStart + w[0]; }
-  return sc.voStart;
-}
+function wordT(sc, word, nth = 0) { let k = 0; for (const w of sc.words) if (w[2].toLowerCase().startsWith(word.toLowerCase())) { if (k++ === nth) return sc.voStart + w[0]; } return sc.voStart; }
 
 // ---------------------------------------------------------------- drawing helpers
 function font(px, wt = 700, fam = 'Inter') { return `${wt} ${px}px ${fam}`; }
@@ -67,7 +69,7 @@ function drawBrand(t) {
   rr(x, y, 210, 58, 12); ctx.fillStyle = 'rgba(255,255,255,0.96)'; ctx.fill();
   if (logoImg) ctx.drawImage(logoImg, x + 12, y + 7, 186, 186 * 83 / 300);
   ctx.font = font(15, 600, 'JetBrains Mono'); ctx.fillStyle = 'rgba(255,255,255,0.7)'; ctx.textBaseline = 'middle';
-  ctx.fillText('CN-SM-2713  ·  JUKI GRIPPER NOZZLE', x + 228, y + 29);
+  ctx.fillText('SAF1001  ·  AXIAL TAPE FEEDER', x + 228, y + 29);
   ctx.restore();
 }
 function textBlock(t, a, b, kicker, head, sub, opt = {}) {
@@ -103,43 +105,49 @@ function chips(t, a, b, items, x, y, colors) {
   items.forEach((it, i) => {
     const ai = al * ease.out(seg(t, a + 0.15 * i, a + 0.15 * i + 0.5)); if (ai <= 0) return;
     const w = ctx.measureText(it).width + 44, h = portrait ? 58 : 52;
-    if (cx + w > LW - 40) { cx = x; cy += h + 14; }
+    if (cx + w > (portrait ? LW - 40 : 980)) { cx = x; cy += h + 14; }
     ctx.globalAlpha = ai; rr(cx, cy, w, h, h / 2);
     ctx.fillStyle = 'rgba(0,194,173,0.12)'; ctx.fill(); ctx.strokeStyle = (colors && colors[i]) || TEAL; ctx.lineWidth = 2; ctx.stroke();
     ctx.fillStyle = '#fff'; ctx.fillText(it, cx + 22, cy + h / 2 + 1); cx += w + 14;
   });
   ctx.restore();
 }
-function P(anchor, inRig = true) { const p = stage.project(anchor, LW, LH, inRig); return p; }
+function P(anchor) { return stage.project(anchor, LW, LH); }
 function callout(t, a, b, anchor, label, side = 'r', opt = {}) {
   const al = fadeIO(t, a, b, 0.35, 0.35); if (al <= 0) return;
-  const p = opt.screen || P(anchor);
-  const dx = (opt.dx ?? (portrait ? 150 : 210)) * (side === 'r' ? 1 : -1), dy = opt.dy ?? -70;
+  const p = opt.screen || P(anchor); if (p[2] > 1 || p[0] < 10 || p[0] > LW - 10 || p[1] < 10 || p[1] > LH - 10) return;
+  const fs = portrait ? 30 : 28; ctx.save(); ctx.font = font(fs, 700); const tw = ctx.measureText(label).width; const sub = opt.sub; let sw = 0;
+  if (sub) { ctx.font = font(fs * 0.72, 500); sw = ctx.measureText(sub).width; } ctx.restore();
+  const bw = Math.max(tw, sw) + 40, bh = sub ? fs * 2.6 : fs * 1.75;
+  let adx = Math.abs(opt.dx ?? (portrait ? 150 : 210));
+  if (side === 'r' && p[0] + adx + bw > LW - 24) side = 'l'; else if (side === 'l' && p[0] - adx - bw < 24) side = 'r';
+  if (side === 'r' && p[0] + adx + bw > LW - 24) adx = Math.max(40, LW - 24 - bw - p[0]);
+  if (side === 'l' && p[0] - adx - bw < 24) adx = Math.max(40, p[0] - 24 - bw);
+  const dx = adx * (side === 'r' ? 1 : -1); let dy = opt.dy ?? -70;
+  const capTop = portrait ? LH * 0.75 : LH - 160; if (p[1] + dy + bh / 2 > capTop) dy = capTop - bh / 2 - p[1]; if (p[1] + dy - bh / 2 < 140) dy = 140 + bh / 2 - p[1];
   const grow = ease.out(seg(t, a, a + 0.5));
-  ctx.save(); ctx.globalAlpha = al;
-  const col = opt.color || TEAL;
-  // pulse ring
+  ctx.save(); ctx.globalAlpha = al; const col = opt.color || TEAL;
   const pr = 10 + 10 * ((t * 1.4) % 1);
-  ctx.strokeStyle = col; ctx.globalAlpha = al * (1 - ((t * 1.4) % 1)); ctx.lineWidth = 2.5;
-  ctx.beginPath(); ctx.arc(p[0], p[1], pr, 0, 7); ctx.stroke(); ctx.globalAlpha = al;
-  ctx.fillStyle = col; ctx.beginPath(); ctx.arc(p[0], p[1], 7, 0, 7); ctx.fill();
-  ctx.fillStyle = '#fff'; ctx.beginPath(); ctx.arc(p[0], p[1], 3, 0, 7); ctx.fill();
+  ctx.strokeStyle = col; ctx.globalAlpha = al * (1 - ((t * 1.4) % 1)); ctx.lineWidth = 2.5; ctx.beginPath(); ctx.arc(p[0], p[1], pr, 0, 7); ctx.stroke(); ctx.globalAlpha = al;
+  ctx.fillStyle = col; ctx.beginPath(); ctx.arc(p[0], p[1], 7, 0, 7); ctx.fill(); ctx.fillStyle = '#fff'; ctx.beginPath(); ctx.arc(p[0], p[1], 3, 0, 7); ctx.fill();
   const ex = p[0] + dx * 0.55, ey = p[1] + dy, fx = p[0] + dx, fy = ey;
   ctx.strokeStyle = col; ctx.lineWidth = 2.5; ctx.beginPath(); ctx.moveTo(p[0], p[1]);
   const k1 = Math.min(1, grow * 2), k2 = clamp01(grow * 2 - 1);
   ctx.lineTo(lerp(p[0], ex, k1), lerp(p[1], ey, k1)); if (k2 > 0) ctx.lineTo(lerp(ex, fx, k2), fy); ctx.stroke();
   if (grow > 0.6) {
-    ctx.globalAlpha = al * seg(grow, 0.6, 1);
-    const fs = portrait ? 30 : 28; ctx.font = font(fs, 700); ctx.textBaseline = 'middle';
-    const tw = ctx.measureText(label).width; const sub = opt.sub; let sw = 0;
-    if (sub) { ctx.font = font(fs * 0.72, 500); sw = ctx.measureText(sub).width; }
-    const bw = Math.max(tw, sw) + 40, bh = sub ? fs * 2.6 : fs * 1.75;
+    ctx.globalAlpha = al * seg(grow, 0.6, 1); ctx.textBaseline = 'middle';
     const bx = side === 'r' ? fx : fx - bw, by = fy - bh / 2;
-    rr(bx, by, bw, bh, 10); ctx.fillStyle = 'rgba(7,13,30,0.86)'; ctx.fill(); ctx.strokeStyle = col; ctx.lineWidth = 2; ctx.stroke();
+    rr(bx, by, bw, bh, 10); ctx.fillStyle = 'rgba(7,13,30,0.88)'; ctx.fill(); ctx.strokeStyle = col; ctx.lineWidth = 2; ctx.stroke();
     ctx.fillStyle = col; ctx.fillRect(side === 'r' ? bx : bx + bw - 5, by + 8, 5, bh - 16);
     ctx.fillStyle = '#fff'; ctx.font = font(fs, 700); ctx.fillText(label, bx + 20, sub ? by + bh * 0.36 : by + bh / 2 + 1);
     if (sub) { ctx.font = font(fs * 0.72, 500); ctx.fillStyle = 'rgba(203,213,225,0.95)'; ctx.fillText(sub, bx + 20, by + bh * 0.72); }
   }
+  ctx.restore();
+}
+function scrim(t, sid) {
+  const k = sid === 'cta' ? 0.9 : 1; ctx.save();
+  if (!portrait) { const g = ctx.createLinearGradient(0, 0, 980, 0); g.addColorStop(0, `rgba(4,8,20,${0.78 * k})`); g.addColorStop(0.55, `rgba(4,8,20,${0.5 * k})`); g.addColorStop(1, 'rgba(4,8,20,0)'); ctx.fillStyle = g; ctx.fillRect(0, 0, 980, LH); }
+  else { const g = ctx.createLinearGradient(0, 0, 0, 980); g.addColorStop(0, `rgba(4,8,20,${0.8 * k})`); g.addColorStop(0.6, `rgba(4,8,20,${0.5 * k})`); g.addColorStop(1, 'rgba(4,8,20,0)'); ctx.fillStyle = g; ctx.fillRect(0, 0, LW, 980); }
   ctx.restore();
 }
 function arrow(x1, y1, x2, y2, col, w = 6, head = 22) {
@@ -149,6 +157,7 @@ function arrow(x1, y1, x2, y2, col, w = 6, head = 22) {
   ctx.beginPath(); ctx.moveTo(x2, y2); ctx.lineTo(x2 - head * Math.cos(ang - 0.45), y2 - head * Math.sin(ang - 0.45)); ctx.lineTo(x2 - head * Math.cos(ang + 0.45), y2 - head * Math.sin(ang + 0.45)); ctx.closePath(); ctx.fill();
 }
 function captions(t) {
+  if (portrait && t > scenes.by.cta.start + 0.8) return;
   for (const sc of scenes.list) {
     for (const ch of sc.chunks) {
       if (t < ch.a || t >= ch.b) continue;
@@ -172,268 +181,231 @@ function captions(t) {
 }
 
 // ---------------------------------------------------------------- per-scene choreography
-function cam(target, dist, az, el, fov = 28, shiftX = null, shiftY = null) {
-  const pd = portrait ? 1.32 : 1;
-  const sx = shiftX ?? (portrait ? 0 : 0.17), sy = shiftY ?? (portrait ? 0.09 : -0.045);
+function cam(target, dist, az, el, fov = 30, shiftX = null, shiftY = null) {
+  const pd = portrait ? 1.55 : 1;
+  const sx = shiftX ?? (portrait ? 0 : 0.17), sy = shiftY ?? (portrait ? 0.13 : -0.04);
   stage.setCamera(orbit(target, dist * pd, az, el), target, fov, W, H, sx, sy);
 }
-function camBlend(A, B, k) { // A,B = [target,dist,az,el,fov,sx,sy]
-  const kk = ease.io(clamp01(k));
-  const tg = lerp3(A[0], B[0], kk);
-  cam(tg, lerp(A[1], B[1], kk), lerp(A[2], B[2], kk), lerp(A[3], B[3], kk), lerp(A[4] ?? 28, B[4] ?? 28, kk), A[5] == null ? null : lerp(A[5], B[5], kk), A[6] == null ? null : lerp(A[6], B[6], kk));
+function camBlend(A, B, k) {
+  const kk = ease.io(clamp01(k)); const tg = lerp3(A[0], B[0], kk);
+  cam(tg, lerp(A[1], B[1], kk), lerp(A[2], B[2], kk), lerp(A[3], B[3], kk), lerp(A[4] ?? 30, B[4] ?? 30, kk), A[5] == null ? null : lerp(A[5], B[5], kk), A[6] == null ? null : lerp(A[6], B[6], kk));
+}
+const HOOK0 = [[-215, 230, 0], 300, -8, 38], HOOK1 = [[-200, 230, 0], 360, -32, 30];
+const HERO = [[-10, 140, 0], 1500, -52, 18];
+const BACK = [[110, 185, 0], 850, 42, 28];
+const TRACK = [[-170, 225, 0], 600, -28, 36];
+const INDEX = [[-222, 228, 8], 300, -18, 44], INDEX2 = [[-232, 228, 8], 270, -38, 36];
+const FRONT = [[-280, 205, 0], 520, -70, 34], FRONT2 = [[-284, 222, 0], 290, -96, 40];
+const PICKC = [[-283, 240, 0], 330, -80, 34], PICKC2 = [[-280, 240, 0], 400, -55, 32];
+const UNDER = [[-140, 110, 0], 920, -82, 6], UNDER2 = [[-170, 115, 0], 820, -100, 10];
+const INSIDE = [[-60, 150, 0], 760, -70, 14];
+const MOUNT = [[-180, 50, 0], 900, -48, 10];
+const EXPL = [[-10, 150, 0], 2350, -55, 20], EXPLP = [[-10, 150, 0], 2100, -55, 20, 30, 0, 0.1];
+
+const RATE = { hook: 0.5, title: 1, load: 1, index: 0.3, form: 0.3, pick: 0.3, waste: 0.6, inside: 1, connect: 1, cta: 1 };
+let mtCache = { t: 0, mt: 0 };
+function machineTime(t) { // integral of the playback rate (slow motion in the mechanism scenes, no phase jumps)
+  let t0 = 0, mt = 0; if (t >= mtCache.t) { t0 = mtCache.t; mt = mtCache.mt; }
+  const dt = 1 / 96; for (let x = t0; x < t; x += dt) { const r = rateAt(x); mt += r * Math.min(dt, t - x); }
+  mtCache = { t, mt }; return mt;
+}
+function rateAt(x) {
+  const L = scenes.list; let i = L.findIndex(s => x >= s.start && x < s.end); if (i < 0) i = x < L[0].start ? 0 : L.length - 1;
+  const s = L[i]; let r = RATE[s.id]; if (s.id === 'pick') { const tr = wordT(s, 'result'); r = lerp(0.3, 1, seg(x, tr - 0.5, tr + 0.5)); }
+  const prev = L[i - 1]; if (prev) r = lerp(prev.id === 'pick' ? 1 : RATE[prev.id], r, seg(x, s.start, s.start + 1));
+  return r;
 }
 
 function frame(t) {
   const { by } = scenes;
-  const st = { open: 0, explode: 0, cut: 0, highlight: {}, rigPos: [0, 0, 0], coilPos: [0, 0, 0], coilAttached: true, props: false, rigRotY: 0, coilVisible: true };
+  const st = { explode: 0, ghost: 0, time: t, cycT: machineTime(t), run: 1, head: 0, fibre: 0.6, air: 0, chips: 0, highlight: {}, compsVisible: true };
   let overlay = () => { };
   const sid = scenes.list.find(s => t >= s.start && t < s.end)?.id || (t < 0.6 ? 'hook' : 'cta');
-  const sc = by[sid]; const lt = t - sc.start; const L = sc.len;
-  const PS = portrait; // shorthand
-  const yClip = { on: false };
+  const sc = by[sid]; const lt = t - sc.start; const L = sc.len; const PS = portrait;
+  const pulse = 0.55 + 0.45 * Math.sin(t * 6);
+  const TB = PS ? {} : {};
 
   if (sid === 'hook') {
-    // coil alone, then the gripper drops in and grabs it
-    const arrive = sc.end - 3.2, grab = sc.end - 1.25;
-    st.coilAttached = false;
-    const wob = Math.sin((t - sc.start) * 7) * 0.05 * seg(t, wordT(sc, 'tilt') - 0.2, wordT(sc, 'tilt') + 0.2) * (1 - seg(t, wordT(sc, 'leads') + 0.4, wordT(sc, 'leads') + 0.9));
-    stage.coilG.rotation.z = wob;
-    const k = ease.io(seg(t, arrive, grab - 0.1));
-    st.rigPos = [0, lerp(70, 0, k), 0];
-    st.open = 1 - ease.io(seg(t, grab, grab + 0.35));
-    st.coilPos = [0, 0, 0];
-    const A = [[0, -26, 0], 62, 20, 10, 28], B = [[0, -12, 0], 125, 42, 12, 28];
-    camBlend([[0, -27, 0], 70, -10, 6, 28], A, seg(lt, 0, 3));
-    if (lt > 3) camBlend(A, B, seg(t, arrive - 1.0, sc.end));
+    st.head = 0; st.fibre = 0;
+    camBlend(HOOK0, HOOK1, seg(lt, 0, L));
     overlay = () => {
-      const blockY = PS ? 260 : 300;
-      textBlock(t, sc.start + 0.4, arrive + 0.6, 'THE ODD-FORM PROBLEM', 'Heavy. Round. Hard to hold.', null, PS ? { y: blockY } : { x: 110, y: 330, w: 640 });
-      const tags = [['✕  Tilt', wordT(sc, 'tilt')], ['✕  Slip', wordT(sc, 'slip')], ['✕  Bent leads', wordT(sc, 'bend')]];
+      textBlock(t, sc.start + 0.4, sc.end - 0.2, 'THE AXIAL PROBLEM', 'Taped parts. Picked by hand.', null, PS ? { y: 250 } : { x: 110, y: 330, w: 700 });
+      const tags = [['✕  Slow', wordT(sc, 'slow')], ['✕  Inconsistent', wordT(sc, 'inconsistent')], ['✕  Wrong part, wrong way', wordT(sc, 'wrong')]];
       tags.forEach(([lab, ta], i) => {
-        const al = fadeIO(t, ta, arrive + 0.6, 0.25, 0.4); if (al <= 0) return;
-        ctx.save(); ctx.globalAlpha = al; ctx.font = font(PS ? 38 : 36, 800); ctx.textBaseline = 'middle';
-        const x = PS ? 64 + i * 300 : 110, y = PS ? 520 : 560 + i * 78; const w = ctx.measureText(lab).width + 48;
+        const al = fadeIO(t, ta - 0.1, sc.end - 0.2, 0.25, 0.4); if (al <= 0) return;
+        ctx.save(); ctx.globalAlpha = al; ctx.font = font(PS ? 34 : 36, 800); ctx.textBaseline = 'middle';
+        const w = ctx.measureText(lab).width + 48; const x = PS ? 64 : 110, y = PS ? 470 + i * 78 : 560 + i * 78;
         rr(x, y - 30, w, 60, 12); ctx.fillStyle = 'rgba(239,68,68,0.16)'; ctx.fill(); ctx.strokeStyle = '#ef4444'; ctx.lineWidth = 2; ctx.stroke();
         ctx.fillStyle = '#fecaca'; ctx.fillText(lab, x + 24, y + 2); ctx.restore();
       });
     };
   }
   else if (sid === 'title') {
-    st.rigRotY = lerp(0.5, -0.35, ease.io(seg(lt, 0, L)));
-    const A = [[0, -12, 0], 125, 42, 12], B = [[0, -11, 0], 112, 10, 16];
-    camBlend(A, B, seg(lt, 0, L));
-    // gentle demonstration of the jaw action
+    camBlend(HOOK1, HERO, seg(lt, 0, L * 0.8));
     overlay = () => {
-      textBlock(t, sc.start + 0.3, sc.end - 0.1, 'INTRODUCING', 'CN-SM-2713', 'Custom gripper nozzle for JUKI odd-form insertion machines', PS ? { hs: 104 } : { hs: 108, y: 300 });
-      chips(t, wordT(sc, 'engineered') - 0.2, sc.end - 0.1, ['Ø8.5 mm coil', 'JUKI JM / KE series', 'Spring-closed jaws'], PS ? 64 : 110, PS ? 600 : 640);
+      textBlock(t, sc.start + 0.3, sc.end - 0.1, 'INTRODUCING', 'SAF1001', 'Axial tape feeder by Southern Machinery', PS ? { hs: 112 } : { hs: 118, y: 300 });
+      chips(t, wordT(sc, 'Taped') - 0.2, sc.end - 0.1, ['Taped parts in', 'Trimmed + U-formed', 'Fixed pick point'], PS ? 64 : 110, PS ? 610 : 640);
     };
   }
-  else if (sid === 'shank') {
-    const pulse = 0.5 + 0.5 * Math.sin(lt * 5);
-    st.highlight = { nozzle: seg(lt, 0.4, 1.0) * (0.35 + 0.4 * pulse) * (1 - seg(lt, L - 0.8, L)) };
-    camBlend([[0, -11, 0], 112, 10, 16], [[0, 3, 0], 92, 38, 20], seg(lt, 0, 2.2));
-    if (lt > 2.2) camBlend([[0, 3, 0], 92, 38, 20], [[0, 1, 0], 96, 18, 14], seg(lt, 2.2, L));
+  else if (sid === 'load') {
+    const tg = wordT(sc, 'Guide'), tp = wordT(sc, 'press'), tc = wordT(sc, 'claws');
+    st.highlight = { tray: fadeIO(t, wordT(sc, 'tray') - 0.3, tg, 0.3, 0.3) * pulse * 0.6, carton: fadeIO(t, wordT(sc, 'strip') - 0.3, tg, 0.3, 0.3) * pulse,
+      guideblk: fadeIO(t, tg - 0.2, tp, 0.3, 0.3) * pulse, press: fadeIO(t, tp - 0.2, tc, 0.3, 0.3) * pulse, claw: fadeIO(t, tc - 0.3, sc.end, 0.3, 0.3) * pulse };
+    camBlend(HERO, BACK, seg(lt, 0, 2.4));
+    if (t > tg - 0.6) camBlend(BACK, TRACK, seg(t, tg - 0.6, tp + 0.4));
     overlay = () => {
-      textBlock(t, sc.start + 0.3, sc.end - 0.1, '01 · PLUG & PLAY', 'JUKI-standard nozzle shank', 'Drops straight into your nozzle changer. No adapters. No head modifications.');
-      callout(t, wordT(sc, 'shank') - 0.3, sc.end - 0.2, ANCHORS.shank, 'JUKI-standard shank', PS ? 'r' : 'r', { dx: PS ? 120 : 190, dy: -60, sub: 'Native tool-changer fit' });
+      textBlock(t, sc.start + 0.3, sc.end - 0.1, '01 · LOAD', 'Flat, guided, held', 'Taped resistors, diodes and jump wires feed from a horizontal tray.');
+      callout(t, wordT(sc, 'tray') - 0.3, tg - 0.3, ANCHORS.tray, 'Horizontal tape tray', 'l', { dx: PS ? 130 : 200, dy: 80, sub: 'Incoming parts in boxes' });
+      callout(t, tg - 0.2, tp + 0.4, ANCHORS.guideblk, 'Guide blocks', 'r', { dx: PS ? 120 : 190, dy: -80 });
+      callout(t, tp - 0.2, sc.end - 0.2, ANCHORS.press, 'Press blocks', 'r', { dx: PS ? 120 : 190, dy: -90 });
+      callout(t, tc - 0.2, sc.end - 0.2, ANCHORS.claw, 'Anti-reverse claws', 'l', { dx: PS ? 120 : 190, dy: 80, color: AMBER });
     };
   }
-  else if (sid === 'mech') {
-    st.cut = ease.io(seg(lt, 0.0, 1.4));
-    const tDown = wordT(sc, 'down') - 0.2, tOpen = wordT(sc, 'open') - 0.1, tClose = wordT(sc, 'snaps') - 0.05;
-    st.open = ease.io(seg(t, tDown, tOpen + 0.2)) * (1 - ease.out(seg(t, tClose, tClose + 0.28)));
-    // second quick cycle at the end
-    const tEnd = sc.end - 1.25; st.open = Math.max(st.open, Math.sin(Math.PI * seg(t, tEnd, tEnd + 1.0)));
-    st.highlight = {
-      plunger: fadeIO(t, wordT(sc, 'plunger') - 0.1, wordT(sc, 'center') - 0.1, 0.2, 0.3) + fadeIO(t, wordT(sc, 'plunger', 1) - 0.1, wordT(sc, 'moves') + 0.6, 0.2, 0.3),
-      spring: fadeIO(t, wordT(sc, 'spring') - 0.1, wordT(sc, 'plunger') + 0.3, 0.2, 0.3) + fadeIO(t, wordT(sc, 'spring', 1) - 0.1, sc.end, 0.2, 0.3),
-      pinC: fadeIO(t, wordT(sc, 'center') - 0.1, wordT(sc, 'As') + 0.2, 0.2, 0.3) + fadeIO(t, wordT(sc, 'pin', 1) - 0.1, wordT(sc, 'arms') + 0.3, 0.2, 0.3),
-      jawL: fadeIO(t, wordT(sc, 'jaw') - 0.1, wordT(sc, 'Release'), 0.2, 0.3), jawR: fadeIO(t, wordT(sc, 'jaw') - 0.1, wordT(sc, 'Release'), 0.2, 0.3),
-    };
-    st.highlight.pin_inner = st.highlight.plunger;
-    camBlend([[0, 1, 0], 96, 18, 14], [[0, -11, 0], 122, 4, 3, 28], seg(lt, 0, 1.6));
-    if (lt > 1.6) camBlend([[0, -11, 0], 122, 4, 3, 28], [[0, -12, 0], 112, -6, 3, 28], seg(lt, 1.6, L));
+  else if (sid === 'index') {
+    st.head = 0; st.air = 1;
+    const tp = wordT(sc, 'pawls'), ts = wordT(sc, 'stop'), tr = wordT(sc, 'return');
+    st.highlight = { feedcyl: fadeIO(t, wordT(sc, 'cylinder') - 0.3, tp, 0.3, 0.3) * pulse, slider: fadeIO(t, wordT(sc, 'slide') - 0.3, ts, 0.3, 0.3) * pulse * 0.5,
+      pawls: fadeIO(t, tp - 0.3, sc.end, 0.3, 0.3) * pulse, stop: fadeIO(t, ts - 0.3, tr, 0.3, 0.3) * pulse };
+    camBlend(TRACK, INDEX, seg(lt, 0, 2.4));
+    if (t > ts - 1) camBlend(INDEX, [[-205, 205, 20], 380, -12, 30], seg(t, ts - 1, ts + 0.6));
+    if (t > tr - 0.8) camBlend([[-205, 205, 20], 380, -12, 30], INDEX2, seg(t, tr - 0.8, tr + 0.8));
     overlay = () => {
-      textBlock(t, sc.start + 0.3, sc.end - 0.1, '02 · MECHANISM', 'Spring-closed toggle jaws', 'One plunger. One center pin. Two pivot jaws.');
-      const sd = PS ? 'r' : 'l';
-      callout(t, wordT(sc, 'plunger') - 0.25, sc.end - 0.2, ANCHORS.plunger, 'Plunger', 'r', { dx: PS ? 130 : 200, dy: -50 });
-      callout(t, wordT(sc, 'spring') - 0.25, sc.end - 0.2, ANCHORS.spring, 'Return spring', 'r', { dx: PS ? 120 : 190, dy: 40 });
-      callout(t, wordT(sc, 'center') - 0.25, sc.end - 0.2, ANCHORS.pinC, 'Center pin', 'l', { dx: PS ? 140 : 210, dy: -40 });
-      callout(t, wordT(sc, 'twin') - 0.25, sc.end - 0.2, ANCHORS.pivotR, 'Pivot pins', 'r', { dx: PS ? 120 : 180, dy: 70 });
-      // motion arrows on plunger + jaws
-      const op = fadeIO(t, tDown, tClose + 0.4, 0.2, 0.3);
-      if (op > 0) {
-        ctx.save(); ctx.globalAlpha = op;
-        const p = P([0, -11, 4]); arrow(p[0] + (PS ? 70 : 90), p[1] - 40, p[0] + (PS ? 70 : 90), p[1] + 40, AMBER, 6, 20);
-        const l = P([-7.5, -25, 2]), r = P([7.5, -25, 2]);
-        const opening = t < tClose; const d = opening ? 1 : -1;
-        arrow(l[0] + 10 * d, l[1], l[0] - 50 * d, l[1], AMBER, 6, 20); arrow(r[0] - 10 * d, r[1], r[0] + 50 * d, r[1], AMBER, 6, 20);
-        ctx.restore();
-      }
+      textBlock(t, sc.start + 0.3, sc.end - 0.1, '02 · INDEX', 'One pitch per cycle', 'Air cylinder + slide + index pawls on the leads.');
+      callout(t, wordT(sc, 'cylinder') - 0.3, ts - 0.4, ANCHORS.feedcyl, 'Feed cylinder', 'r', { dx: PS ? 120 : 190, dy: -90, color: SKY, sub: 'Air-pressure speed regulation' });
+      callout(t, tp - 0.3, ts - 0.4, ANCHORS.pawl, 'Index pawls', 'l', { dx: PS ? 120 : 190, dy: -80, color: AMBER });
+      callout(t, ts - 0.2, tr - 0.2, ANCHORS.stop, 'Adjustable stop block', 'r', { dx: PS ? 110 : 180, dy: 80, color: AMBER, sub: 'Sets the stroke' });
+      callout(t, tr - 0.2, sc.end - 0.2, ANCHORS.pawl, 'Pawls tip over on return', 'l', { dx: PS ? 120 : 190, dy: -80, color: AMBER });
+      chips(t, sc.start + 2.6, sc.end - 0.2, ['Slowed for clarity'], PS ? 64 : 110, PS ? 1650 : 880, [SKY]);
     };
   }
-  else if (sid === 'grip') {
-    st.cut = 1 - ease.io(seg(lt, 0, 0.8));
-    const tc = wordT(sc, 'close') - 0.15;
-    st.open = Math.min(ease.io(seg(lt, 0, 0.6)), 1 - ease.out(seg(t, tc, tc + 0.4)));
-    const pads = fadeIO(t, wordT(sc, 'three') - 0.2, sc.end, 0.3, 0.3) * (0.55 + 0.45 * Math.sin(lt * 6));
-    st.highlight = { padL1: pads, padL2: pads, padR: pads };
-    yClip.on = seg(lt, 0.6, 1.4) > 0; yClip.k = ease.io(seg(lt, 0.6, 1.6)) * (1 - ease.io(seg(lt, L - 0.9, L)));
-    camBlend([[0, -12, 0], 112, -6, 3], [[0, -25.3, 0], 62, 25, -72, 30, PS ? 0 : 0.17, PS ? 0.09 : -0.045], seg(lt, 0, 1.8));
+  else if (sid === 'form') {
+    st.head = 0; st.ghost = 0.75 * fadeIO(t, sc.start + 1.4, sc.end - 0.3, 0.6, 0.6); st.ghostU = fadeIO(t, sc.start + 0.8, sc.end + 5, 0.6, 0.6);
+    const tk = wordT(sc, 'moving'), tt = wordT(sc, 'trims'), tu = wordT(sc, 'bends');
+    st.highlight = { cutcyl: fadeIO(t, wordT(sc, '32') - 0.3, tk + 0.3, 0.3, 0.3) * pulse, knife_move: fadeIO(t, tk - 0.3, sc.end, 0.3, 0.3) * pulse * 0.7, knife_fixed: fadeIO(t, tt - 0.2, tu, 0.3, 0.3) * pulse * 0.5 };
+    camBlend(INDEX2, FRONT, seg(lt, 0, 2.4));
+    if (t > tt - 0.8) camBlend(FRONT, FRONT2, seg(t, tt - 0.8, tu + 0.6));
     overlay = () => {
-      textBlock(t, sc.start + 0.3, sc.end - 0.1, '03 · 3-POINT GRIP', 'Self-centering, every time', '2 + 1 contact pins lock the round body on center.');
-      const al = fadeIO(t, wordT(sc, 'That') - 0.2, sc.end - 0.15, 0.4, 0.3);
-      if (al > 0) {
-        const c1 = P([4.25, -25.3, 0]), c2 = P([-3.47, -25.3, 2.45]), c3 = P([-3.47, -25.3, -2.45]), c0 = P([0, -25.3, 0]);
-        ctx.save(); ctx.globalAlpha = al; ctx.strokeStyle = AMBER; ctx.lineWidth = 4; ctx.setLineDash([14, 10]);
-        ctx.beginPath(); ctx.moveTo(c1[0], c1[1]); ctx.lineTo(c2[0], c2[1]); ctx.lineTo(c3[0], c3[1]); ctx.closePath(); ctx.stroke(); ctx.setLineDash([]);
-        for (const c of [c1, c2, c3]) { ctx.fillStyle = AMBER; ctx.beginPath(); ctx.arc(c[0], c[1], 10, 0, 7); ctx.fill(); }
-        ctx.strokeStyle = '#fff'; ctx.lineWidth = 3; const r = 26; ctx.beginPath(); ctx.moveTo(c0[0] - r, c0[1]); ctx.lineTo(c0[0] + r, c0[1]); ctx.moveTo(c0[0], c0[1] - r); ctx.lineTo(c0[0], c0[1] + r); ctx.stroke();
-        ctx.restore();
-      }
-      callout(t, wordT(sc, 'two') - 0.2, sc.end - 0.2, [-4.6, -25.3, 0], '2 pins', 'l', { color: AMBER, dx: PS ? 130 : 190, dy: -60 });
-      callout(t, wordT(sc, 'one', 1) - 0.2, sc.end - 0.2, [6.0, -25.3, 0], '1 pin', 'r', { color: AMBER, dx: PS ? 120 : 170, dy: -60 });
+      textBlock(t, sc.start + 0.3, sc.end - 0.1, '03 · TRIM + FORM', 'One stroke, two jobs', 'Leads trimmed against the fixed knife and bent into a U.');
+      callout(t, wordT(sc, '32') - 0.3, tt - 0.3, ANCHORS.cutcyl, 'Ø32 mm cut cylinder', 'r', { dx: PS ? 120 : 190, dy: 70, color: SKY });
+      callout(t, tk - 0.2, tu - 0.2, ANCHORS.knife, 'Moving knife', 'l', { dx: PS ? 120 : 190, dy: -90 });
+      callout(t, tu - 0.2, sc.end - 0.2, ANCHORS.formed, 'U-formed, ready to insert', 'r', { dx: PS ? 120 : 190, dy: -90, color: AMBER });
+      chips(t, sc.start + 2.6, sc.end - 0.2, ['Slowed for clarity'], PS ? 64 : 110, PS ? 1650 : 880, [SKY]);
     };
   }
-  else if (sid === 'stop') {
-    const hs = fadeIO(t, sc.voStart, wordT(sc, 'Insertion'), 0.3, 0.3) * (0.6 + 0.4 * Math.sin(lt * 6));
-    const hlv = fadeIO(t, wordT(sc, 'leads') - 0.2, sc.end, 0.3, 0.3) * (0.5 + 0.4 * Math.sin(lt * 6));
-    st.highlight = { stop: hs, coil_leads: hlv, lead_ext: hlv };
-    const sy2 = PS ? 0.15 : -0.045;
-    camBlend([[0, -25.3, 0], 62, 25, -72, 30, PS ? 0 : 0.17, PS ? 0.09 : -0.045], [[0, -22, 0], PS ? 118 : 92, 88, 6, 28, PS ? 0 : 0.17, sy2], seg(lt, 0, 1.6));
-    if (lt > 1.6) camBlend([[0, -22, 0], PS ? 118 : 92, 88, 6, 28, PS ? 0 : 0.17, sy2], [[0, -20, 0], PS ? 130 : 102, 66, 8, 28, PS ? 0 : 0.17, sy2], seg(lt, 1.6, L));
+  else if (sid === 'pick') {
+    const to = wordT(sc, 'optical'), tr = wordT(sc, 'result'); st.head = 1; st.ghostU = 1 - seg(lt, L - 2, L);
+    st.fibre = 0.15 + 0.85 * fadeIO(t, to - 0.3, sc.end + 2, 0.3, 0.3);
+    st.highlight = { fibre: fadeIO(t, to - 0.3, tr, 0.3, 0.3) * pulse };
+    camBlend(FRONT2, PICKC, seg(lt, 0, 2.4));
+    if (lt > 2.4) camBlend(PICKC, PICKC2, seg(lt, 2.4, L));
     overlay = () => {
-      textBlock(t, sc.start + 0.3, sc.end - 0.1, '04 · Z-DATUM STOP', 'Fixed depth. Straight leads.', 'Insertion force goes through the body, never the leads.');
-      callout(t, wordT(sc, 'stop') - 0.25, sc.end - 0.2, ANCHORS.stop, 'Center stop pin', 'r', { color: AMBER, dx: PS ? 140 : 220, dy: -110, sub: 'Fixed Z datum' });
-      const fa = fadeIO(t, wordT(sc, 'Insertion') - 0.2, wordT(sc, 'while') + 0.3, 0.3, 0.3);
-      if (fa > 0) {
-        const a = P([0, 16, 0]), b = P([0, -30, 0]);
-        ctx.save(); ctx.globalAlpha = fa * 0.9; const off = PS ? -120 : -150;
-        const k = ease.out(seg(t, wordT(sc, 'Insertion') - 0.2, wordT(sc, 'body')));
-        arrow(a[0] + off, a[1], a[0] + off, lerp(a[1], b[1], k), TEAL, 10, 34);
-        ctx.font = font(PS ? 28 : 26, 700); ctx.fillStyle = TEAL; ctx.textAlign = 'right'; ctx.fillText('INSERTION FORCE', a[0] + off - 24, lerp(a[1], b[1], 0.35));
-        ctx.restore();
-      }
-      callout(t, wordT(sc, 'leads') - 0.2, sc.end - 0.2, ANCHORS.leads, 'Leads hang free', 'r', { dx: PS ? 120 : 190, dy: 30, sub: 'Untouched, straight' });
-    };
-  }
-  else if (sid === 'explode') {
-    st.explode = ease.io(seg(lt, 0.2, 2.4)) * (1 - ease.io(seg(lt, L - 2.0, L - 0.2)));
-    st.rigRotY = lerp(0, 0.9, ease.io(seg(lt, 0, L)));
-    st.coilVisible = true;
-    const sy3 = PS ? 0.15 : -0.045, sx3 = PS ? 0 : 0.17;
-    camBlend([[0, -20, 0], PS ? 130 : 102, 66, 8, 28, sx3, sy3], [[0, -8, 0], 215, 28, 16, 28, sx3, sy3], seg(lt, 0, 2.0));
-    if (lt > 2) camBlend([[0, -8, 0], 215, 28, 16, 28, sx3, sy3], [[0, -10, 0], 150, 10, 12, 28, sx3, PS ? 0.09 : -0.045], seg(lt, L - 2.2, L));
-    overlay = () => {
-      textBlock(t, sc.start + 0.3, sc.end - 0.1, '05 · BUILT TO LAST', '21 precision parts', 'E-clip–locked pivot pins. Rigid in production, easy to service.');
-      const al = fadeIO(t, sc.start + 1.2, sc.end - 1.6);
-      if (al > 0) callout(t, wordT(sc, 'E-clips') - 0.3, sc.end - 1.8, [-5.5, -15.6, 2.9], 'E-clip retained', 'l', { dx: PS ? 120 : 160, dy: -90 });
-    };
-  }
-  else if (sid === 'cycle') {
-    st.props = true; st.coilAttached = false;
-    const T = { pick: wordT(sc, 'Pick'), seat: wordT(sc, 'Seat'), grip: wordT(sc, 'Grip'), ins: wordT(sc, 'Insert'), rel: wordT(sc, 'release'), go: wordT(sc, 'go') };
-    const up = 22, tray = [-30, -6, 0], pcb = [30, -9, 0];
-    let pos = [-30, up, 0], open = 0, attached = false, coilPos = tray.slice();
-    const a = (x, y) => seg(t, x, y);
-    open = ease.io(a(T.pick - 0.6, T.pick + 0.1));
-    pos = lerp3([-30, up, 0], tray, ease.io(a(T.pick + 0.2, T.seat + 0.35)));
-    if (t > T.grip - 0.15) { open = 1 - ease.out(a(T.grip - 0.15, T.grip + 0.2)); }
-    if (t > T.grip + 0.25) { attached = true; const k1 = ease.io(a(T.grip + 0.25, T.ins - 0.05)); pos = lerp3(tray, [-30, up, 0], k1); }
-    if (t > T.ins - 0.05) { pos = lerp3([-30, up, 0], [30, up + 2, 0], ease.io(a(T.ins - 0.05, T.ins + 0.9))); }
-    if (t > T.ins + 0.9) { pos = lerp3([30, up + 2, 0], pcb, ease.io(a(T.ins + 0.9, T.rel - 0.05))); }
-    if (t > T.rel - 0.05) { attached = false; coilPos = pcb.slice(); open = ease.out(a(T.rel - 0.05, T.rel + 0.25)); pos = pcb; }
-    if (t > T.rel + 0.35) { pos = lerp3(pcb, [30, up + 4, 0], ease.io(a(T.rel + 0.35, T.go + 0.7))); open = 1 - ease.io(a(T.go + 0.3, T.go + 0.9)); }
-    st.rigPos = pos; st.open = open; st.coilAttached = attached; st.coilPos = coilPos;
-    if (attached) st.coilPos = pos;
-    camBlend([[0, -10, 0], 150, 10, 12], [[0, -22, 0], 255, 8, 20, 28, PS ? 0 : 0.0, PS ? 0.06 : 0.0], seg(lt, 0, 1.2));
-    if (t > T.go) camBlend([[0, -22, 0], 255, 8, 20, 28, 0, PS ? 0.06 : 0], [[30, -42, 0], 95, 30, 10, 28, PS ? 0 : 0.14, PS ? 0.09 : -0.045], seg(t, T.go, sc.end - 0.3));
-    overlay = () => {
-      const steps = [['PICK', T.pick], ['SEAT', T.seat], ['GRIP', T.grip], ['INSERT', T.ins], ['RELEASE', T.rel]];
-      const al = fadeIO(t, sc.start + 0.2, T.go + 0.6); if (al <= 0) return;
-      ctx.save(); ctx.globalAlpha = al; ctx.font = font(PS ? 32 : 30, 800); ctx.textBaseline = 'middle';
-      const gap = 16; const ws = steps.map(s => ctx.measureText(s[0]).width + 50); const tw = ws.reduce((a, b) => a + b, 0) + gap * (steps.length - 1);
-      let x = LW / 2 - tw / 2; const y = PS ? 300 : 150;
-      steps.forEach((s, i) => {
-        const on = t >= s[1] - 0.1; rr(x, y - 32, ws[i], 64, 32);
-        ctx.fillStyle = on ? 'rgba(0,194,173,0.95)' : 'rgba(255,255,255,0.07)'; ctx.fill(); ctx.strokeStyle = on ? TEAL : 'rgba(255,255,255,0.25)'; ctx.lineWidth = 2; ctx.stroke();
-        ctx.fillStyle = on ? '#04121a' : 'rgba(255,255,255,0.7)'; ctx.fillText(s[0], x + 25, y + 2); x += ws[i] + gap;
+      textBlock(t, sc.start + 0.3, tr + 0.1, '04 · PICK POINT', 'Sensed, not timed', 'An optical fibre confirms the part before the head picks.');
+      callout(t, to - 0.3, tr - 0.2, ANCHORS.fibre, 'Optical fibre sensing', 'l', { color: RED, dx: PS ? 120 : 190, dy: 90 });
+      const stats = [['0.8 s', 'per feed', wordT(sc, '0.8')], ['±0.3 mm', 'feeding accuracy', wordT(sc, 'plus')]];
+      stats.forEach(([big, small, tb], i) => {
+        const al = fadeIO(t, Math.max(tr - 0.1, tb - 0.2), sc.end - 0.15, 0.35, 0.3); if (al <= 0) return;
+        ctx.save(); ctx.globalAlpha = al;
+        const x = PS ? 64 + i * 480 : 110, y = PS ? 260 : 300 + i * 220; const w = PS ? 450 : 520, h = 190;
+        rr(x, y, w, h, 20); ctx.fillStyle = 'rgba(7,13,30,0.82)'; ctx.fill(); ctx.strokeStyle = TEAL; ctx.lineWidth = 3; ctx.stroke();
+        ctx.fillStyle = TEAL; ctx.fillRect(x, y + 20, 7, h - 40);
+        ctx.textBaseline = 'alphabetic'; ctx.font = font(PS ? 96 : 104, 900); ctx.fillStyle = '#fff'; ctx.fillText(big, x + 36, y + 112);
+        ctx.font = font(32, 600); ctx.fillStyle = 'rgba(203,213,225,0.95)'; ctx.fillText(small, x + 38, y + 160); ctx.restore();
       });
-      ctx.restore();
-      textBlock(t, T.go + 0.3, sc.end - 0.1, '06 · THE RESULT', 'No tilt. No slip. No bent leads.', null, PS ? { y: 270, hs: 66 } : { y: 330, w: 680, hs: 66 });
+    };
+  }
+  else if (sid === 'waste') {
+    st.ghost = fadeIO(t, sc.start + 0.8, sc.end + 3, 0.8, 0.5); st.chips = fadeIO(t, wordT(sc, 'pieces') - 0.5, sc.end, 0.4, 0.4);
+    st.highlight = { tapecyl: fadeIO(t, wordT(sc, 'cylinder') - 0.3, wordT(sc, 'pieces'), 0.3, 0.3) * pulse, tapeknife: fadeIO(t, wordT(sc, 'chops') - 0.3, sc.end, 0.3, 0.3) * pulse * 0.7, chute: fadeIO(t, wordT(sc, 'chute') - 0.4, sc.end, 0.3, 0.3) * pulse * 0.5 };
+    camBlend(PICKC2, UNDER, seg(lt, 0, 2.6));
+    if (lt > 2.6) camBlend(UNDER, UNDER2, seg(lt, 2.6, L));
+    overlay = () => {
+      textBlock(t, sc.start + 0.3, sc.end - 0.1, '05 · WASTE TAPE', 'Chopped and gone', 'Front-end vertical drop; reflow type optional.');
+      callout(t, wordT(sc, 'cylinder') - 0.3, sc.end - 0.2, ANCHORS.tapecyl, 'Tape-cut cylinder', 'r', { dx: PS ? 120 : 190, dy: -90, color: SKY });
+      callout(t, wordT(sc, 'chops') - 0.2, sc.end - 0.2, ANCHORS.tapeknife, 'Paper-tape knife', 'l', { dx: PS ? 110 : 180, dy: 80 });
+      callout(t, wordT(sc, 'chute') - 0.3, sc.end - 0.2, ANCHORS.chute, 'Waste chute', 'r', { dx: PS ? 110 : 170, dy: 80 });
+    };
+  }
+  else if (sid === 'inside') {
+    const tl = wordT(sc, 'locks');
+    st.ghost = 1 - seg(t, tl - 0.4, tl + 0.6) * 0.7;
+    st.highlight = { valve: fadeIO(t, wordT(sc, 'solenoid') - 0.3, tl, 0.3, 0.3) * pulse, pcb: fadeIO(t, wordT(sc, 'PLC') - 0.3, tl, 0.3, 0.3) * pulse,
+      pins: fadeIO(t, wordT(sc, 'locating') - 0.3, sc.end, 0.3, 0.3) * pulse, clamp: fadeIO(t, wordT(sc, 'spring') - 0.3, sc.end, 0.3, 0.3) * pulse, mount: fadeIO(t, tl - 0.2, sc.end, 0.3, 0.3) * pulse * 0.4 };
+    camBlend(UNDER2, INSIDE, seg(lt, 0, 2.2));
+    if (t > tl - 0.8) camBlend(INSIDE, MOUNT, seg(t, tl - 0.8, tl + 1));
+    overlay = () => {
+      textBlock(t, sc.start + 0.3, sc.end - 0.1, '06 · INSIDE + MOUNTING', 'PLC-controlled, key-located', null);
+      callout(t, wordT(sc, 'solenoid') - 0.3, tl - 0.4, ANCHORS.valve, 'Solenoid valve banks', 'r', { dx: PS ? 110 : 180, dy: 90, color: SKY });
+      callout(t, wordT(sc, 'PLC') - 0.3, tl - 0.4, ANCHORS.pcb, 'PLC control board', 'r', { dx: PS ? 110 : 180, dy: -90 });
+      callout(t, wordT(sc, 'locating') - 0.3, sc.end - 0.2, ANCHORS.pins, 'Locating pins', 'l', { dx: PS ? 110 : 170, dy: -80 });
+      callout(t, wordT(sc, 'spring') - 0.3, sc.end - 0.2, ANCHORS.clamp, 'Spring-loaded press block', 'r', { dx: PS ? 100 : 170, dy: -90, color: AMBER });
+    };
+  }
+  else if (sid === 'connect') {
+    st.explode = ease.io(seg(lt, 0.3, 2.6)) * (1 - ease.io(seg(lt, L - 2.4, L - 0.3)));
+    st.highlight = { plug: fadeIO(t, wordT(sc, 'aviation') - 0.3, wordT(sc, 'Every'), 0.3, 0.3) * pulse, btn_g: fadeIO(t, wordT(sc, 'buttons') - 0.4, wordT(sc, 'Every'), 0.3, 0.3) * pulse };
+    const EX = PS ? EXPLP : EXPL;
+    camBlend(MOUNT, EX, seg(lt, 0, 2.4));
+    if (lt > L - 2.6) camBlend(EX, HERO, seg(lt, L - 2.6, L));
+    overlay = () => {
+      textBlock(t, sc.start + 0.3, sc.end - 0.1, '07 · PLUG IN & RUN', 'Power, air, IO', 'Or no communication at all: it runs on its own buttons.');
+      chips(t, wordT(sc, '24') - 0.2, sc.end - 0.1, ['24 V', '0.4 – 0.6 MPa air', '8-core aviation plug · IO', 'Standalone button operation'], PS ? 64 : 110, PS ? 560 : 560);
+      chips(t, wordT(sc, 'Every') - 0.2, sc.end - 0.1, ['1000 consecutive feeds', '48 h ageing test'], PS ? 64 : 110, PS ? 780 : 760, [AMBER, AMBER]);
     };
   }
   else if (sid === 'cta') {
-    st.rigRotY = lerp(-0.6, 0.6, ease.io(seg(lt, 0, L)));
-    st.open = Math.max(0, Math.sin(Math.PI * seg(lt, 3.0, 4.2)));
-    camBlend([[30, -42, 0], 95, 30, 10, 28, PS ? 0 : 0.14, PS ? 0.09 : -0.045], [[0, -11, 0], PS ? 200 : 140, 25, 14, 28, PS ? 0 : 0.2, PS ? -0.23 : -0.045], seg(lt, 0, 1.8));
+    st.head = 1;
+    camBlend([...HERO, 30, PS ? 0 : 0.17, PS ? 0.13 : -0.04], [[-10, 140, 0], PS ? 1700 : 1650, -40, 16, 30, PS ? 0 : 0.2, PS ? 0.3 : -0.04], seg(lt, 0, L));
     overlay = () => {
-      const a0 = sc.start + 0.6;
-      const al = ease.out(seg(t, a0, a0 + 0.8));
+      const a0 = sc.start + 0.6; const al = ease.out(seg(t, a0, a0 + 0.8));
       ctx.save(); ctx.globalAlpha = al;
-      const x = PS ? 64 : 110; let y = PS ? 880 : 170;
+      const x = PS ? 64 : 110; let y = PS ? 150 : 150;
       rr(x, y, 300, 83, 14); ctx.fillStyle = '#fff'; ctx.fill(); if (logoImg) ctx.drawImage(logoImg, x + 16, y + 9, 268, 268 * 83 / 300);
-      y += PS ? 170 : 165; ctx.font = font(PS ? 66 : 64, 800); ctx.fillStyle = '#fff'; ctx.textBaseline = 'alphabetic';
-      for (const l of wrap('Custom gripper nozzles for JUKI', PS ? LW - 128 : 760)) { ctx.fillText(l, x, y); y += 74; }
+      y += 160; ctx.font = font(62, 800); ctx.fillStyle = '#fff'; ctx.textBaseline = 'alphabetic';
+      for (const l of wrap('Send us your part and your machine.', PS ? LW - 128 : 780)) { ctx.fillText(l, x, y); y += 72; }
       ctx.restore();
-      const bullets = [['Designed around your component', wordT(sc, 'designs')], ['JUKI JM & KE series compatible', wordT(sc, 'JUKI')], ['Tooling in as little as 7 days', wordT(sc, 'tooling')], ['Source factory since 2011', wordT(sc, 'Send')]];
-      ctx.save(); ctx.font = font(PS ? 36 : 34, 600); ctx.textBaseline = 'middle';
+      const bullets = [['Taped resistors, diodes, jump wires', sc.start + 0.9], ['35 / 64 / 92 mm tape widths', sc.start + 1.4], ['Panasonic · JUKI · Yamaha · Mirae installs', wordT(sc, 'Panasonic')], ['Source factory since 2011', wordT(sc, 'Send')]];
+      ctx.save(); ctx.font = font(PS ? 34 : 33, 600); ctx.textBaseline = 'middle';
       bullets.forEach(([b, ta], i) => {
         const ai = ease.out(seg(t, ta - 0.2, ta + 0.3)); if (ai <= 0) return;
-        ctx.globalAlpha = ai; const yy = y + 30 + i * (PS ? 66 : 62);
+        ctx.globalAlpha = ai; const yy = y + 20 + i * (PS ? 64 : 60);
         ctx.fillStyle = TEAL; ctx.beginPath(); ctx.arc(x + 14, yy, 12, 0, 7); ctx.fill();
         ctx.strokeStyle = '#04121a'; ctx.lineWidth = 4; ctx.beginPath(); ctx.moveTo(x + 8, yy); ctx.lineTo(x + 13, yy + 5); ctx.lineTo(x + 21, yy - 5); ctx.stroke();
         ctx.fillStyle = '#e2e8f0'; ctx.fillText(b, x + 44, yy + 1);
       });
       ctx.restore();
-      const uy = y + 30 + 4 * (PS ? 66 : 62) + 40;
+      const uy = y + 20 + 4 * (PS ? 64 : 60) + 30;
       const ua = ease.out(seg(t, wordT(sc, 'Visit') - 0.3, wordT(sc, 'Visit') + 0.4));
-      if (ua > 0) {
-        ctx.save(); ctx.globalAlpha = ua; ctx.font = font(PS ? 58 : 56, 800); ctx.textBaseline = 'middle';
-        const w = ctx.measureText('www.smthelp.com').width + 60; rr(x, uy, w, 92, 18); ctx.fillStyle = TEAL2; ctx.fill();
-        ctx.fillStyle = '#fff'; ctx.fillText('www.smthelp.com', x + 30, uy + 48);
-        ctx.font = font(PS ? 30 : 28, 600); ctx.fillStyle = 'rgba(226,232,240,0.85)'; ctx.fillText('Send us your component — we engineer the grip.', x, uy + 140);
-        ctx.restore();
-      }
-      const ya = ease.out(seg(t, sc.end - 3.6, sc.end - 3.0));
-      if (ya > 0) {
-        ctx.save(); ctx.globalAlpha = ya * (1 - seg(t, sc.end - 0.9, sc.end)); ctx.font = font(30, 800); ctx.textBaseline = 'middle';
-        const bx = PS ? 64 : 110, byy = uy + (PS ? 210 : 200); rr(bx, byy, 330, 70, 14); ctx.fillStyle = '#ef0000'; ctx.fill();
+      if (ua > 0) { ctx.save(); ctx.globalAlpha = ua; ctx.font = font(PS ? 58 : 56, 800); ctx.textBaseline = 'middle';
+        const w = ctx.measureText('www.smthelp.com').width + 60; rr(x, uy, w, 92, 18); ctx.fillStyle = TEAL2; ctx.fill(); ctx.fillStyle = '#fff'; ctx.fillText('www.smthelp.com', x + 30, uy + 48); ctx.restore(); }
+      const ya = ease.out(seg(t, sc.end - 3.8, sc.end - 3.2));
+      if (ya > 0) { ctx.save(); ctx.globalAlpha = ya * (1 - seg(t, sc.end - 0.9, sc.end)); ctx.font = font(30, 800); ctx.textBaseline = 'middle';
+        const bx = x, byy = uy + 130; rr(bx, byy, 330, 70, 14); ctx.fillStyle = '#ef0000'; ctx.fill();
         ctx.fillStyle = '#fff'; ctx.beginPath(); ctx.moveTo(bx + 30, byy + 20); ctx.lineTo(bx + 30, byy + 50); ctx.lineTo(bx + 56, byy + 35); ctx.closePath(); ctx.fill();
-        ctx.fillText('SUBSCRIBE', bx + 76, byy + 37); ctx.font = font(26, 600); ctx.fillStyle = 'rgba(255,255,255,0.8)'; ctx.fillText('youtube.com/c/Smthelping', bx + 350, byy + 37);
-        ctx.restore();
-      }
+        ctx.fillText('SUBSCRIBE', bx + 76, byy + 37); ctx.font = font(26, 600); ctx.fillStyle = 'rgba(255,255,255,0.8)'; ctx.fillText('youtube.com/c/Smthelping', PS ? bx : bx + 350, PS ? byy + 105 : byy + 37); ctx.restore(); }
     };
   }
 
-  // apply y-section for grip scene (global clipping plane)
-  if (yClip.on && yClip.k > 0.001) {
-    const THREE = stage.THREE;
-    if (!stage._yPlane) stage._yPlane = new THREE.Plane(new THREE.Vector3(0, 1, 0), 0);
-    stage._yPlane.constant = lerp(60, 25.3, yClip.k);
-    stage.renderer.clippingPlanes = [stage._yPlane];
-  } else stage.renderer.clippingPlanes = [];
-  if (sid !== 'hook') stage.coilG.rotation.z = 0;
-
   stage.apply(st);
-  if (!GLC) { stage.render(); compose2D(t, overlay); return; }
+  if (!GLC) { stage.render(); compose2D(t, overlay, sid); return; }
   const r = stage.renderer; r.autoClear = true;
-  r.render(stage.scene, stage.camera);
+  if (GLC.rt) { const bg = stage.scene.background; stage.scene.background = null; r.setRenderTarget(GLC.rt); r.setClearColor(0x000000, 0); r.clear(); r.render(stage.scene, stage.camera); r.setRenderTarget(null); stage.scene.background = bg;
+    r.render(GLC.bgScene, GLC.cam); r.autoClear = false; r.render(GLC.up, GLC.cam); r.autoClear = true; }
+  else r.render(stage.scene, stage.camera);
   // overlay layer drawn in 2D, uploaded as one texture, composited in GL
   const save = ctx; ctx = GLC.ctx; ctx.setTransform(1, 0, 0, 1, 0, 0); ctx.clearRect(0, 0, W, H); ctx.setTransform(S, 0, 0, S, 0, 0);
-  overlay(); drawBrand(t); captions(t);
+  scrim(t, sid); overlay(); drawBrand(t); captions(t);
   const fin = 1 - seg(t, 0, 0.6), fout = seg(t, TOTAL - 0.9, TOTAL);
   const dip = (x) => Math.max(0, 1 - Math.abs(t - x) / 0.3);
-  const f = Math.max(fin, fout, dip(scenes.by.cycle.start), dip(scenes.by.cta.start)); if (f > 0) { ctx.fillStyle = `rgba(0,0,0,${f})`; ctx.fillRect(0, 0, LW, LH); }
+  const f = Math.max(fin, fout, dip(scenes.by.cta.start)); if (f > 0) { ctx.fillStyle = `rgba(0,0,0,${f})`; ctx.fillRect(0, 0, LW, LH); }
   ctx = save;
   GLC.tex.needsUpdate = true;
   const cp = r.clippingPlanes; r.clippingPlanes = []; r.autoClear = false; r.render(GLC.scene, GLC.cam); r.clippingPlanes = cp; r.autoClear = true;
 }
-function compose2D(t, overlay) {
+function compose2D(t, overlay, sid) {
   ctx.setTransform(S, 0, 0, S, 0, 0);
   drawBG(t);
   ctx.setTransform(1, 0, 0, 1, 0, 0); ctx.drawImage(glCanvas, 0, 0, W, H); ctx.setTransform(S, 0, 0, S, 0, 0);
-  drawVignette(); overlay(); drawBrand(t); captions(t);
+  drawVignette(); scrim(t, sid); overlay(); drawBrand(t); captions(t);
 }
 let GLC = null;
 function setupGLComposite() {
@@ -447,6 +419,15 @@ function setupGLComposite() {
   const scene = new THREE.Scene(); scene.add(new THREE.Mesh(new THREE.PlaneGeometry(2, 2), mat));
   const cam = new THREE.OrthographicCamera(-1, 1, 1, -1, 0, 1);
   GLC = { ctx: octx, tex, scene, cam };
+  const k = window.R3D || 1;
+  if (k < 0.999) {
+    const rt = new THREE.WebGLRenderTarget(Math.round(W * k), Math.round(H * k), { samples: window.R3D_MSAA || 0 });
+    rt.texture.minFilter = THREE.LinearFilter; rt.texture.magFilter = THREE.LinearFilter;
+    const up = new THREE.Scene(); up.add(new THREE.Mesh(new THREE.PlaneGeometry(2, 2), new THREE.MeshBasicMaterial({ map: rt.texture, toneMapped: true, transparent: true, depthTest: false, depthWrite: false })));
+    const bgScene = new THREE.Scene(); bgScene.add(new THREE.Mesh(new THREE.PlaneGeometry(2, 2), new THREE.MeshBasicMaterial({ map: stage.scene.background, toneMapped: false, depthTest: false, depthWrite: false })));
+    GLC.rt = rt; GLC.up = up; GLC.bgScene = bgScene;
+    // camera aspect stays W/H; projection is resolution independent
+  }
 }
 
 window.setupVideo = async (cfg) => {
@@ -475,44 +456,29 @@ window.profile = (t) => {
   return r;
 };
 window.renderThumb = (opt = {}) => {
-  const st = { open: opt.open ?? 0, explode: 0, cut: opt.cut ?? 0, highlight: { padL1: 0.9, padL2: 0.9, padR: 0.9, stop: 0.6 }, rigPos: [0, 0, 0], coilPos: [0, 0, 0], coilAttached: true, props: false, rigRotY: opt.rot ?? 0.25, coilVisible: true };
   stage.renderer.clippingPlanes = [];
-  stage.apply(st);
-  stage.setCamera(orbit(opt.target || [0, -16, 0], opt.dist || 78, opt.az ?? 32, opt.el ?? 10), opt.target || [0, -16, 0], 28, W, H, opt.sx ?? 0.2, opt.sy ?? 0.0);
+  stage.apply({ explode: 0, ghost: 0, time: 0.3, cycT: 0.5, run: 1, head: 1, fibre: 1, air: 0, chips: 0, highlight: { pawls: 0.6, knife_move: 0.5 }, compsVisible: true });
+  const tg = opt.target || [-120, 170, 0];
+  stage.setCamera(orbit(tg, opt.dist || 1150, opt.az ?? -50, opt.el ?? 24), tg, 30, W, H, opt.sx ?? 0.22, opt.sy ?? 0.0);
   stage.render();
-  ctx.setTransform(S, 0, 0, S, 0, 0);
-  drawBG(0);
-  // glow behind product
-  const gx = LW * 0.7, gy = LH * 0.5; const g = ctx.createRadialGradient(gx, gy, 10, gx, gy, 520);
-  g.addColorStop(0, 'rgba(0,194,173,0.35)'); g.addColorStop(1, 'rgba(0,194,173,0)'); ctx.fillStyle = g; ctx.fillRect(0, 0, LW, LH);
+  ctx.setTransform(S, 0, 0, S, 0, 0); drawBG(0);
+  const gx = LW * 0.7, gy = LH * 0.5; const g = ctx.createRadialGradient(gx, gy, 10, gx, gy, 560);
+  g.addColorStop(0, 'rgba(0,194,173,0.38)'); g.addColorStop(1, 'rgba(0,194,173,0)'); ctx.fillStyle = g; ctx.fillRect(0, 0, LW, LH);
   ctx.setTransform(1, 0, 0, 1, 0, 0); ctx.drawImage(glCanvas, 0, 0, W, H); ctx.setTransform(S, 0, 0, S, 0, 0);
   drawVignette();
-  // triangle of contact points
-  const c1 = P([4.25, -25.3, 0]), c2 = P([-3.47, -25.3, 2.45]), c3 = P([-3.47, -25.3, -2.45]);
-  ctx.strokeStyle = AMBER; ctx.lineWidth = 6; ctx.setLineDash([18, 12]); ctx.beginPath(); ctx.moveTo(c1[0], c1[1]); ctx.lineTo(c2[0], c2[1]); ctx.lineTo(c3[0], c3[1]); ctx.closePath(); ctx.stroke(); ctx.setLineDash([]);
-  for (const c of [c1, c2, c3]) { ctx.fillStyle = AMBER; ctx.beginPath(); ctx.arc(c[0], c[1], 14, 0, 7); ctx.fill(); ctx.strokeStyle = '#fff'; ctx.lineWidth = 4; ctx.stroke(); }
-  // text
   const x = 90; ctx.textBaseline = 'alphabetic';
-  ctx.font = font(34, 800, 'JetBrains Mono'); const kt = 'JUKI ODD-FORM INSERTION'; const kw = ctx.measureText(kt).width + 48;
-  rr(x, 120, kw, 64, 32); ctx.fillStyle = 'rgba(0,194,173,0.18)'; ctx.fill(); ctx.strokeStyle = TEAL; ctx.lineWidth = 3; ctx.stroke(); ctx.fillStyle = TEAL; ctx.fillText(kt, x + 24, 165);
+  ctx.font = font(34, 800, 'JetBrains Mono'); const kt = 'SMT / THT AXIAL FEEDING'; const kw = ctx.measureText(kt).width + 48;
+  rr(x, 110, kw, 64, 32); ctx.fillStyle = 'rgba(0,194,173,0.18)'; ctx.fill(); ctx.strokeStyle = TEAL; ctx.lineWidth = 3; ctx.stroke(); ctx.fillStyle = TEAL; ctx.fillText(kt, x + 24, 155);
   ctx.save(); ctx.shadowColor = 'rgba(0,0,0,0.6)'; ctx.shadowBlur = 24;
-  ctx.font = font(176, 900); ctx.fillStyle = '#fff'; ctx.fillText('NO SLIP.', x - 6, 380);
-  ctx.fillText('NO TILT.', x - 6, 560);
-  ctx.fillStyle = TEAL; ctx.font = font(150, 900); ctx.fillText('3-POINT GRIP', x - 4, 730);
+  ctx.font = font(172, 900); ctx.fillStyle = '#fff'; ctx.fillText('TAPE IN.', x - 6, 370);
+  ctx.fillStyle = TEAL; ctx.font = font(150, 900); ctx.fillText('U-FORMED', x - 4, 540); ctx.fillText('OUT.', x - 4, 700);
   ctx.restore();
-  ctx.font = font(46, 800); const sub = 'Custom Gripper Nozzle · Ø8.5 mm Coil'; const sw = ctx.measureText(sub).width + 56;
-  rr(x, 790, sw, 86, 16); ctx.fillStyle = AMBER; ctx.fill(); ctx.fillStyle = '#111827'; ctx.fillText(sub, x + 28, 849);
-  rr(x, 940, 330, 92, 16); ctx.fillStyle = '#fff'; ctx.fill(); if (logoImg) ctx.drawImage(logoImg, x + 18, 949, 294, 294 * 83 / 300);
-  ctx.font = font(40, 700, 'JetBrains Mono'); ctx.fillStyle = 'rgba(255,255,255,0.85)'; ctx.fillText('CN-SM-2713', x + 360, 1000);
+  ctx.font = font(44, 800); const sub = 'SAF1001 Axial Tape Feeder'; const sw = ctx.measureText(sub).width + 56;
+  rr(x, 760, sw, 86, 16); ctx.fillStyle = AMBER; ctx.fill(); ctx.fillStyle = '#111827'; ctx.fillText(sub, x + 28, 818);
+  ctx.font = font(40, 700, 'JetBrains Mono'); ctx.fillStyle = 'rgba(255,255,255,0.9)'; ctx.fillText('0.8 s / feed  ·  ±0.3 mm', x, 912);
+  rr(x, 960, 300, 83, 14); ctx.fillStyle = '#fff'; ctx.fill(); if (logoImg) ctx.drawImage(logoImg, x + 16, 969, 268, 268 * 83 / 300);
   return out.toDataURL('image/png');
 };
-window.profile2 = (t) => {
-  const r = {}; frame(t); const gl = stage.renderer.getContext(); const px = new Uint8Array(4); gl.readPixels(0, 0, 1, 1, gl.RGBA, gl.UNSIGNED_BYTE, px); ctx.getImageData(0,0,1,1);
-  let t0 = performance.now(); stage.render(); gl.readPixels(0, 0, 1, 1, gl.RGBA, gl.UNSIGNED_BYTE, px); r.gl = performance.now() - t0;
-  t0 = performance.now(); ctx.setTransform(1,0,0,1,0,0); ctx.drawImage(glCanvas, 0, 0, W, H); ctx.getImageData(0,0,1,1); r.drawGL = performance.now() - t0;
-  t0 = performance.now(); ctx.setTransform(S,0,0,S,0,0); drawBG(t); ctx.getImageData(0,0,1,1); r.bg = performance.now() - t0;
-  t0 = performance.now(); drawVignette(); ctx.getImageData(0,0,1,1); r.vig = performance.now() - t0;
-  t0 = performance.now(); captions(t); drawBrand(t); ctx.getImageData(0,0,1,1); r.text = performance.now() - t0;
-  t0 = performance.now(); glCanvas.toDataURL('image/jpeg', 0.94); r.glJpeg = performance.now() - t0;
-  return r;
-};
+// debug: render the bare 3D stage with any state/camera (used by dbg.py) — catches mesh/quantization/culling bugs early
+window.dbgShot = (o) => { stage.apply(Object.assign({}, o.st || {}));
+  stage.setCamera(orbit(o.tg, o.d, o.az, o.el), o.tg, 30, W, H, 0, 0); stage.render(); return glCanvas.toDataURL('image/jpeg', 0.9); };
