@@ -1,0 +1,43 @@
+=== TITLE (≤70) ===
+SMT Intelligent Reel Storage Rack: LED Guided Storing & Picking | 3D
+
+=== DESCRIPTION ===
+How an SMT Intelligent Reel Storage Rack works, shown in 3D from the real CAD model: scan a reel, store it in any lit slot, pick a full BOM by light, and let FIFO and shortage alerts run themselves.
+
+This 5-layer rack has 100 slots per layer and an LED for every slot. Reels are registered with one barcode scan (part number, quantity, lot code, unique ID), stored in any lit position, and picked by light when the BOM is imported from your MES or ERP. Seven colour modes let several operators kit at the same time. Date code and lot code are tracked per reel for automatic first in, first out.
+
+Results: 99.9% picking accuracy, kitting more than 75% faster, 100% inventory visibility, typical payback 3–12 months.
+
+Chapters
+00:00 Finding reels by hand
+00:12 Intelligent Reel Storage Rack: 5 layers, 100 slots per layer
+00:24 1 · Register: one barcode scan
+00:36 2 · Guided storing: any lit slot
+00:48 3 · Request & pick by light (7 colour modes)
+01:03 4 · FIFO and shortage alerts
+01:14 The rack: end panels, rails, 24 mm wire dividers
+01:30 Connect: LAN / Wi-Fi, HTTP + JSON, SAP / Oracle, 220 V < 100 W
+01:46 The result
+02:00 Get a configured rack
+
+Key data
+• LED per slot, 7 colour modes, 2 top lights
+• Adjustable slots for 7 / 13 / 15 inch reels
+• Ethernet or Wi-Fi 2.4 / 5 GHz, HTTP + JSON interface, ERP / MES integration (SAP, Oracle…)
+• 220 V (DC 12 V adapter), < 100 W
+• Larger models: 7-layer SIR7000B, 1624 reels double-sided
+
+Rack geometry from CAD; slot LEDs, top lights and scanner shown illustratively.
+
+How it works (interactive 3D): https://www.smthelp.com
+Contact: info@SMThelp.com · WhatsApp +86 136 0256 2576
+Southern Machinery, your SMT & THT partner since 2011.
+Subscribe: https://www.youtube.com/c/Smthelping
+
+#SMT #SmartWarehouse #ReelStorage #PCBA #EMS #SMTAutomation #Industry40
+
+=== TAGS ===
+SMT intelligent reel storage rack, smart reel rack, SMT reel storage, LED reel shelf, intelligent reel shelf, SMT smart warehouse, SMT material management, reel storage system, SMT kitting, BOM picking, FIFO reel management, MSD control, SMT ERP MES integration, PCB assembly warehouse, EMS factory automation, SIR7000B, SIS7200A, Southern Machinery, smthelp
+
+=== SHORTS TITLE (≤60) ===
+LED Reel Rack: Find Any SMT Reel in Seconds #shorts
