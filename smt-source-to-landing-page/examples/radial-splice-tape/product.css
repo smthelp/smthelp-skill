@@ -1,0 +1,16 @@
+/* product-specific: 3-hole splice concept illustration (class prefix .splsvg) */
+.splsvg{width:100%;height:auto;display:block}
+.splsvg .sbg{fill:var(--bg3)}
+.splsvg .tapeA,.splsvg .tapeB{fill:#f3ead2;stroke:#c9b98e;stroke-width:1}
+html[data-theme="dark"] .splsvg .tapeA,html[data-theme="dark"] .splsvg .tapeB{fill:#d9cfb4}
+.splsvg .hold{fill:#fffdf6;opacity:.85}
+.splsvg .hole{fill:var(--bg3);stroke:#a99a70}
+.splsvg .lead{stroke:#9aa6a4;stroke-width:2}
+.splsvg .cap{fill:#2a6fb0}
+.splsvg .capband{fill:#cfd8e6}
+.splsvg .splice{fill:rgba(224,166,59,.55);stroke:var(--gold2);stroke-width:1.5}
+.splsvg .shole{fill:none;stroke:#7a5a12;stroke-width:1.5;stroke-dasharray:3 2}
+.splsvg .cut{stroke:#c0392b;stroke-width:2;stroke-dasharray:5 4}
+.splsvg .dim{stroke:var(--fg2);stroke-width:1.5}
+.splsvg .tagc{fill:var(--brand)}
+.splsvg .tagt{fill:#fff;font:700 12px Arial,sans-serif;text-anchor:middle}

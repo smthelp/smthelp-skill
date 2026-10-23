@@ -1,0 +1,1492 @@
+{
+ "categories": [
+  "connector",
+  "io",
+  "capacitor",
+  "protection",
+  "magnetic",
+  "electromech",
+  "semiconductor",
+  "socket",
+  "passive",
+  "terminal"
+ ],
+ "packaging": [
+  "bulk",
+  "tube",
+  "tray",
+  "radial_tape",
+  "axial_tape",
+  "tape",
+  "reel"
+ ],
+ "nozzles": [
+  "gripper",
+  "vacuum",
+  "axial",
+  "tbc"
+ ],
+ "statuses": [
+  "fit",
+  "conf",
+  "custom",
+  "tbc",
+  "fam"
+ ],
+ "sources": [
+  "bomA",
+  "bomB",
+  "bomC",
+  "bomD",
+  "mvf",
+  "cat"
+ ],
+ "bins": {
+  "pitch": [
+   [
+    0,
+    2.0,
+    "≤ 2.0 mm"
+   ],
+   [
+    2.0,
+    2.6,
+    "2.0 – 2.6 mm"
+   ],
+   [
+    2.6,
+    5.0,
+    "2.6 – 5.0 mm"
+   ],
+   [
+    5.0,
+    10.0,
+    "5.0 – 10 mm"
+   ],
+   [
+    10.0,
+    999,
+    "> 10 mm"
+   ]
+  ],
+  "size": [
+   [
+    0,
+    5,
+    "≤ 5 mm"
+   ],
+   [
+    5,
+    10,
+    "5 – 10 mm"
+   ],
+   [
+    10,
+    15,
+    "10 – 15 mm"
+   ],
+   [
+    15,
+    25,
+    "15 – 25 mm"
+   ],
+   [
+    25,
+    50,
+    "25 – 50 mm"
+   ],
+   [
+    50,
+    9999,
+    "> 50 mm"
+   ]
+  ],
+  "leads": [
+   [
+    0,
+    2,
+    "1 – 2"
+   ],
+   [
+    2,
+    4,
+    "3 – 4"
+   ],
+   [
+    4,
+    10,
+    "5 – 10"
+   ],
+   [
+    10,
+    40,
+    "11 – 40"
+   ],
+   [
+    40,
+    9999,
+    "> 40"
+   ]
+  ],
+  "ld": [
+   [
+    0,
+    0.5,
+    "≤ 0.5 mm"
+   ],
+   [
+    0.5,
+    0.7,
+    "0.5 – 0.7 mm"
+   ],
+   [
+    0.7,
+    9,
+    "> 0.7 mm"
+   ]
+  ]
+ },
+ "feeders": [
+  {
+   "id": "srf1001",
+   "model": "SRF1001",
+   "page": 3,
+   "pack": [
+    "radial_tape"
+   ],
+   "env": {
+    "L": [
+     2,
+     15
+    ],
+    "W": [
+     2,
+     15
+    ],
+    "H": [
+     3,
+     30
+    ],
+    "ld": [
+     0.3,
+     1.0
+    ]
+   },
+   "envtxt": "2×2×3 – 15×15×30 mm · Ø 0.3–1.0 mm · 12.7 / 15 mm",
+   "image": "https://ph.smthelp.com/images/2026/08/09/southern-machinery-radial-tape-feeder-image-0082.webp",
+   "url": "https://file.autoinsertion.com/public/Southern%20Machinery%20Product/SRF1001%20Radial%20Tape%20Feeder%20Southern%20Machinery%20Customized%20Feeder%20Nozzle%20Catalog%20V03.pdf"
+  },
+  {
+   "id": "saf1001",
+   "model": "SAF1001",
+   "page": 2,
+   "pack": [
+    "axial_tape"
+   ],
+   "env": {
+    "L": [
+     3,
+     20
+    ],
+    "W": [
+     3,
+     6
+    ],
+    "H": [
+     3,
+     6
+    ]
+   },
+   "envtxt": "3×3 – 6×20 mm · 35 / 64 / 92 mm",
+   "url": "https://file.autoinsertion.com/public/Southern%20Machinery%20Product/SAF1001%20Axial%20Tape%20Feeder%20%20Southern%20Machinery%20Customized%20Feeder%20Nozzle%20Catalog%20V03.pdf"
+  },
+  {
+   "id": "stf1003",
+   "model": "STF1003",
+   "page": 4,
+   "pack": [
+    "tube"
+   ],
+   "env": {
+    "L": [
+     3,
+     25
+    ],
+    "W": [
+     3,
+     25
+    ],
+    "H": [
+     3,
+     25
+    ]
+   },
+   "envtxt": "3×3×3 – 25×25×25 mm · 200–650 mm",
+   "image": "https://ph.smthelp.com/images/2026/09/14/smthelp-feeder-tube-feeder-product-17.webp",
+   "url": "https://file.autoinsertion.com/public/Southern%20Machinery%20Product/STF1003%20Tube%20Feeder%20%20Southern%20Machinery%20Customized%20Feeder%20Nozzle%20Catalog%20V03.pdf"
+  },
+  {
+   "id": "sbf1001",
+   "model": "SBF1001",
+   "page": 5,
+   "pack": [
+    "bulk"
+   ],
+   "env": {
+    "L": [
+     3,
+     50
+    ],
+    "W": [
+     3,
+     50
+    ],
+    "wt": [
+     10,
+     300
+    ]
+   },
+   "envtxt": "3×3 – 50×50 mm · 10–300 g",
+   "image": "https://ph.smthelp.com/images/2026/08/09/southern-machinery-bowl-feeder-img-1424-0163.webp",
+   "url": "https://file.autoinsertion.com/public/Southern%20Machinery%20Product/SBF1001%20Vibration%20Bowl%20Feeder%20Southern%20Machinery%20Customized%20Feeder%20Nozzle%20Catalog%20V03.pdf"
+  },
+  {
+   "id": "sbf2002",
+   "model": "SBF2002",
+   "page": 6,
+   "pack": [
+    "bulk"
+   ],
+   "env": {
+    "L": [
+     3,
+     20
+    ],
+    "W": [
+     3,
+     20
+    ],
+    "H": [
+     3,
+     20
+    ]
+   },
+   "envtxt": "3×3×3 – 20×20×20 mm",
+   "url": "https://file.autoinsertion.com/public/Southern%20Machinery%20Product/SBF2002%20Reciprocating%20Belt%20Feeder%20%20Southern%20Machinery%20Customized%20Feeder%20Nozzle%20Catalog%20V03.pdf"
+  },
+  {
+   "id": "smvf01",
+   "model": "S-MVF01",
+   "pack": [
+    "bulk"
+   ],
+   "url": "https://file.autoinsertion.com/public/Product%20landing%20Page/s-mvf01-reciprocating-belt-feeder-smart-ems-pcb-assembly.html"
+  },
+  {
+   "id": "stp1001",
+   "model": "STP1001",
+   "page": 9,
+   "pack": [
+    "tray"
+   ],
+   "env": {
+    "L": [
+     3,
+     50
+    ],
+    "W": [
+     3,
+     50
+    ],
+    "H": [
+     3,
+     50
+    ]
+   },
+   "envtxt": "3×3×3 – 50×50×50 mm · 150×150 – 200×300 mm · ≤ 3 kg",
+   "url": "https://file.autoinsertion.com/public/Southern%20Machinery%20Product/STP1001%20Tray%20Feeder%20%20Southern%20Machinery%20Customized%20Feeder%20Nozzle%20Catalog%20V03.pdf"
+  },
+  {
+   "id": "sjf1001",
+   "model": "SJF1001",
+   "page": 8,
+   "pack": [
+    "reel"
+   ],
+   "env": {
+    "ld": [
+     0.5,
+     1.2
+    ]
+   },
+   "envtxt": "Ø 0.5–1.2 mm · 6–40 mm · 3–5 mm",
+   "url": "https://file.autoinsertion.com/public/Southern%20Machinery%20Product/SJF1001%20Jumper%20Wire%20Feeder%20%20Southern%20Machinery%20Customized%20Feeder%20Nozzle%20Catalog%20V03.pdf"
+  },
+  {
+   "id": "srt7001",
+   "model": "SRT7001",
+   "page": 11,
+   "pack": [
+    "reel"
+   ],
+   "env": {},
+   "envtxt": "6.35 × 0.81 mm · 10.21 mm",
+   "url": "https://file.autoinsertion.com/public/Southern%20Machinery%20Product/SRT7001%20Reel%20Terminal%20Feeder%20Southern%20Machinery%20Customized%20Feeder%20Nozzle%20Catalog%20V03.pdf"
+  },
+  {
+   "id": "sspc101",
+   "model": "SSPC101",
+   "page": 10,
+   "pack": [
+    "reel"
+   ],
+   "env": {},
+   "envtxt": "1–16 mm × 0.1–1 mm",
+   "url": "https://file.autoinsertion.com/public/Southern%20Machinery%20Product/SSPC101%20Solder%20Chip%20Feeder%20Southern%20Machinery%20Customized%20Feeder%20Nozzle%20Catalog%20V03.pdf"
+  },
+  {
+   "id": "slf1001",
+   "model": "SLF1001",
+   "page": 7,
+   "pack": [
+    "reel"
+   ],
+   "env": {},
+   "envtxt": "< 60 / 80 / 100 mm · 0.05–0.08 mm",
+   "url": "https://file.autoinsertion.com/public/Southern%20Machinery%20Product/SLF1001%20Label%20Feeder%20%20Southern%20Machinery%20Customized%20Feeder%20Nozzle%20Catalog%20V03.pdf"
+  },
+  {
+   "id": "host_tape",
+   "model": "",
+   "own": false,
+   "pack": [
+    "tape"
+   ],
+   "env": {},
+   "envtxt": "32 mm"
+  }
+ ],
+ "rows": [
+  {
+   "id": "A01",
+   "type": "y_cap",
+   "spec": "Y1 2.2 nF, Ø11 × 5.5 mm",
+   "cat": "capacitor",
+   "pack": "radial_tape",
+   "L": 10,
+   "W": 5,
+   "H": 10,
+   "OH": 14,
+   "pitch": 10,
+   "leads": 2,
+   "ld": 0.55,
+   "feeder": "srf1001",
+   "nozzle": "gripper",
+   "status": "custom",
+   "src": "bomA"
+  },
+  {
+   "id": "A02",
+   "type": "surge",
+   "spec": "200 Vdc, Ø2.6 × 7.0 mm",
+   "cat": "protection",
+   "pack": "axial_tape",
+   "L": 7.0,
+   "W": 2.6,
+   "H": 2.6,
+   "OH": 7.8,
+   "pitch": 7,
+   "leads": 2,
+   "ld": 0.5,
+   "feeder": "saf1001",
+   "nozzle": "axial",
+   "status": "tbc",
+   "note": "below_env",
+   "src": "bomA"
+  },
+  {
+   "id": "A03",
+   "type": "mov",
+   "spec": "10D, Ø12.5 × 5.9 mm, Y-kink",
+   "cat": "protection",
+   "pack": "radial_tape",
+   "L": 12.5,
+   "W": 4.9,
+   "H": 16.5,
+   "OH": 20.5,
+   "pitch": 7.5,
+   "leads": 2,
+   "ld": 0.8,
+   "feeder": "srf1001",
+   "nozzle": "gripper",
+   "status": "custom",
+   "src": "bomA"
+  },
+  {
+   "id": "A04",
+   "type": "ecap",
+   "spec": "220 µF 35 V, Ø8 × 12 mm",
+   "cat": "capacitor",
+   "pack": "radial_tape",
+   "L": 8,
+   "W": 8,
+   "H": 11,
+   "OH": 15,
+   "pitch": 3.5,
+   "leads": 2,
+   "ld": 0.6,
+   "feeder": "srf1001",
+   "nozzle": "vacuum",
+   "status": "custom",
+   "src": "bomA"
+  },
+  {
+   "id": "A05",
+   "type": "x2_cap",
+   "spec": "X2 2.2 µF, 27 × 30 × 14.5 mm",
+   "cat": "capacitor",
+   "pack": "radial_tape",
+   "L": 26.5,
+   "W": 13,
+   "H": 22,
+   "OH": 26,
+   "pitch": 22.5,
+   "leads": 2,
+   "ld": 0.8,
+   "feeder": "srf1001",
+   "nozzle": "vacuum",
+   "status": "tbc",
+   "note": "outside_env_pitch",
+   "src": "bomA"
+  },
+  {
+   "id": "A06",
+   "type": "ntc",
+   "spec": "NTC 10 kΩ, Ø4 × 3.5 mm",
+   "cat": "protection",
+   "pack": "radial_tape",
+   "L": 4,
+   "W": 3,
+   "H": 7,
+   "OH": 11,
+   "pitch": 2.54,
+   "leads": 2,
+   "ld": 0.5,
+   "feeder": "srf1001",
+   "nozzle": "gripper",
+   "status": "custom",
+   "note": "pitch_conflict",
+   "src": "bomA"
+  },
+  {
+   "id": "A07",
+   "type": "ptc",
+   "spec": "PTC 25 Ω 2 A, Ø13 × 6 mm",
+   "cat": "protection",
+   "pack": "radial_tape",
+   "L": 13,
+   "W": 7,
+   "H": 16.5,
+   "OH": 19.5,
+   "pitch": 5,
+   "leads": 2,
+   "ld": 0.6,
+   "feeder": "srf1001",
+   "nozzle": "gripper",
+   "status": "custom",
+   "note": "pitch_conflict",
+   "src": "bomA"
+  },
+  {
+   "id": "A08",
+   "type": "ecap",
+   "spec": "1 mF 50 V, Ø13 × 25 mm",
+   "cat": "capacitor",
+   "pack": "radial_tape",
+   "L": 13,
+   "W": 13,
+   "H": 25,
+   "OH": 29,
+   "pitch": 5,
+   "leads": 2,
+   "ld": 0.6,
+   "feeder": "srf1001",
+   "nozzle": "vacuum",
+   "status": "custom",
+   "src": "bomA"
+  },
+  {
+   "id": "A09",
+   "type": "x2_cap",
+   "spec": "X2 1 µF, 27 × 22.4 × 9 mm",
+   "cat": "capacitor",
+   "pack": "radial_tape",
+   "L": 26.5,
+   "W": 8.5,
+   "H": 17,
+   "OH": 21,
+   "pitch": 22.5,
+   "leads": 2,
+   "ld": 0.8,
+   "feeder": "srf1001",
+   "nozzle": "vacuum",
+   "status": "tbc",
+   "note": "outside_env_pitch",
+   "src": "bomA"
+  },
+  {
+   "id": "A10",
+   "type": "y_cap",
+   "spec": "Y1 3.3 nF, Ø13 × 5.5 mm",
+   "cat": "capacitor",
+   "pack": "radial_tape",
+   "L": 12,
+   "W": 5,
+   "H": 12,
+   "OH": 16,
+   "pitch": 10,
+   "leads": 2,
+   "ld": 0.55,
+   "feeder": "srf1001",
+   "nozzle": "gripper",
+   "status": "custom",
+   "src": "bomA"
+  },
+  {
+   "id": "A11",
+   "type": "surge",
+   "spec": "3300 Vdc 5 kA, Ø8 × 6 mm",
+   "cat": "protection",
+   "pack": "axial_tape",
+   "L": 8,
+   "W": 6,
+   "H": 8,
+   "OH": 12,
+   "pitch": 12,
+   "leads": 2,
+   "ld": 0.8,
+   "feeder": "saf1001",
+   "nozzle": "axial",
+   "status": "tbc",
+   "note": "outside_env",
+   "src": "bomA"
+  },
+  {
+   "id": "A12",
+   "type": "ptc",
+   "spec": "PTC 50 Ω 10 A, Ø18 × 7 mm",
+   "cat": "protection",
+   "pack": "radial_tape",
+   "L": 18,
+   "W": 7,
+   "H": 21.5,
+   "OH": 25.5,
+   "pitch": 10,
+   "leads": 2,
+   "ld": 0.6,
+   "feeder": "srf1001",
+   "nozzle": "gripper",
+   "status": "tbc",
+   "note": "outside_env",
+   "src": "bomA"
+  },
+  {
+   "id": "B01",
+   "type": "pin_header_dual",
+   "spec": "2-row, red housing",
+   "cat": "connector",
+   "pack": "bulk",
+   "L": 16,
+   "W": 4,
+   "H": 6,
+   "OH": 8.5,
+   "feeder": "sbf2002",
+   "alt": "sbf1001",
+   "nozzle": "gripper",
+   "status": "fit",
+   "src": "bomB"
+  },
+  {
+   "id": "B02",
+   "type": "audio_jack",
+   "spec": "3.5 mm, green",
+   "cat": "io",
+   "pack": "tape",
+   "L": 17.63,
+   "W": 11.8,
+   "H": 11,
+   "OH": 14,
+   "feeder": "host_tape",
+   "nozzle": "vacuum",
+   "status": "conf",
+   "note": "host_tape",
+   "src": "bomB"
+  },
+  {
+   "id": "B03",
+   "type": "pin_header_dual",
+   "spec": "2 × 3, black housing",
+   "cat": "connector",
+   "pack": "bulk",
+   "L": 6.55,
+   "W": 5.65,
+   "H": 5.65,
+   "OH": 7.9,
+   "feeder": "sbf2002",
+   "alt": "sbf1001",
+   "nozzle": "gripper",
+   "status": "fit",
+   "src": "bomB"
+  },
+  {
+   "id": "B04",
+   "type": "inductor",
+   "spec": "box body, 2 leads",
+   "cat": "magnetic",
+   "pack": "bulk",
+   "L": 10.41,
+   "W": 6.55,
+   "H": 9.9,
+   "OH": 13.05,
+   "leads": 2,
+   "feeder": "sbf2002",
+   "alt": "sbf1001",
+   "nozzle": "vacuum",
+   "status": "fit",
+   "note": "photo_id",
+   "src": "bomB"
+  },
+  {
+   "id": "B05",
+   "type": "pin_header",
+   "spec": "1-row, yellow housing",
+   "cat": "connector",
+   "pack": "bulk",
+   "L": 15.78,
+   "W": 4,
+   "H": 6.4,
+   "OH": 7.9,
+   "feeder": "sbf2002",
+   "alt": "sbf1001",
+   "nozzle": "gripper",
+   "status": "fit",
+   "src": "bomB"
+  },
+  {
+   "id": "B06",
+   "type": "pin_header",
+   "spec": "1-row, black housing",
+   "cat": "connector",
+   "pack": "bulk",
+   "L": 10,
+   "W": 4,
+   "H": 5.85,
+   "OH": 8.55,
+   "feeder": "sbf2002",
+   "alt": "sbf1001",
+   "nozzle": "gripper",
+   "status": "fit",
+   "src": "bomB"
+  },
+  {
+   "id": "B07",
+   "type": "buzzer",
+   "spec": "Ø11.84 mm",
+   "cat": "electromech",
+   "pack": "bulk",
+   "L": 11.84,
+   "W": 11.84,
+   "H": 9.43,
+   "OH": 13.1,
+   "leads": 2,
+   "feeder": "sbf2002",
+   "alt": "sbf1001",
+   "nozzle": "vacuum",
+   "status": "fit",
+   "note": "buzzer_pack",
+   "src": "bomB"
+  },
+  {
+   "id": "B08",
+   "type": "pin_header",
+   "spec": "1-row, white housing",
+   "cat": "connector",
+   "pack": "bulk",
+   "L": 12,
+   "W": 5.65,
+   "H": 5.9,
+   "OH": 8,
+   "feeder": "sbf2002",
+   "alt": "sbf1001",
+   "nozzle": "gripper",
+   "status": "fit",
+   "src": "bomB"
+  },
+  {
+   "id": "B09",
+   "type": "audio_jack",
+   "spec": "3.5 mm, black",
+   "cat": "io",
+   "pack": "tape",
+   "L": 16,
+   "W": 12.45,
+   "H": 6.55,
+   "OH": 8.71,
+   "feeder": "host_tape",
+   "nozzle": "vacuum",
+   "status": "conf",
+   "note": "host_tape",
+   "src": "bomB"
+  },
+  {
+   "id": "B10",
+   "type": "led_indicator",
+   "spec": "right-angle housing",
+   "cat": "semiconductor",
+   "pack": "tape",
+   "L": 12,
+   "W": 4.26,
+   "H": 9.26,
+   "OH": 12,
+   "feeder": "host_tape",
+   "nozzle": "gripper",
+   "status": "conf",
+   "note": "host_tape",
+   "src": "bomB"
+  },
+  {
+   "id": "B11",
+   "type": "sata",
+   "spec": "7-pin vertical",
+   "cat": "io",
+   "pack": "tray",
+   "L": 16,
+   "W": 6.4,
+   "H": 8.9,
+   "OH": 11.44,
+   "pitch": 1.7,
+   "leads": 7,
+   "feeder": "stp1001",
+   "nozzle": "gripper",
+   "status": "custom",
+   "note": "joined_desc",
+   "src": "bomB"
+  },
+  {
+   "id": "B12",
+   "type": "usb_stack",
+   "spec": "USB 3.0, dual stacked",
+   "cat": "io",
+   "pack": "tray",
+   "L": 17.5,
+   "W": 14.8,
+   "H": 14.8,
+   "OH": 18.7,
+   "feeder": "stp1001",
+   "nozzle": "vacuum",
+   "status": "custom",
+   "src": "bomB"
+  },
+  {
+   "id": "B13",
+   "type": "wafer",
+   "spec": "4-pin, friction lock, red",
+   "cat": "connector",
+   "pack": "bulk",
+   "L": 10.24,
+   "W": 5.78,
+   "H": 9.6,
+   "OH": 13.5,
+   "leads": 4,
+   "feeder": "sbf2002",
+   "alt": "sbf1001",
+   "nozzle": "gripper",
+   "status": "fit",
+   "src": "bomB"
+  },
+  {
+   "id": "B14",
+   "type": "wafer",
+   "spec": "4-pin, white",
+   "cat": "connector",
+   "pack": "bulk",
+   "L": 10.2,
+   "W": 5.85,
+   "H": 10.45,
+   "OH": 13.5,
+   "leads": 4,
+   "feeder": "sbf2002",
+   "alt": "sbf1001",
+   "nozzle": "gripper",
+   "status": "fit",
+   "src": "bomB"
+  },
+  {
+   "id": "B15",
+   "type": "usb_a",
+   "spec": "single port, low profile",
+   "cat": "io",
+   "pack": "tape",
+   "L": 14.5,
+   "W": 14.4,
+   "H": 5.8,
+   "OH": 8.2,
+   "feeder": "host_tape",
+   "nozzle": "vacuum",
+   "status": "conf",
+   "note": "host_tape",
+   "src": "bomB"
+  },
+  {
+   "id": "B16",
+   "type": "wafer",
+   "spec": "2-pin, white",
+   "cat": "connector",
+   "pack": "bulk",
+   "L": 5.86,
+   "W": 5.13,
+   "H": 10.2,
+   "OH": 13.5,
+   "leads": 2,
+   "feeder": "sbf2002",
+   "alt": "sbf1001",
+   "nozzle": "gripper",
+   "status": "fit",
+   "src": "bomB"
+  },
+  {
+   "id": "B17",
+   "type": "power_header",
+   "spec": "2 × 2, black",
+   "cat": "connector",
+   "pack": "bulk",
+   "L": 8.75,
+   "W": 6.65,
+   "H": 9.3,
+   "OH": 12.56,
+   "leads": 4,
+   "feeder": "sbf2002",
+   "alt": "sbf1001",
+   "nozzle": "gripper",
+   "status": "fit",
+   "src": "bomB"
+  },
+  {
+   "id": "B18",
+   "type": "power_header",
+   "spec": "2 × 4, white",
+   "cat": "connector",
+   "pack": "bulk",
+   "L": 18.44,
+   "W": 10.8,
+   "H": 12.8,
+   "OH": 16.22,
+   "leads": 8,
+   "feeder": "sbf2002",
+   "alt": "sbf1001",
+   "nozzle": "gripper",
+   "status": "tbc",
+   "note": "conditional",
+   "src": "bomB"
+  },
+  {
+   "id": "C01",
+   "type": "jumper_shunt",
+   "spec": "2-position, 2.54 mm",
+   "cat": "connector",
+   "pack": "bulk",
+   "pitch": 2.54,
+   "leads": 2,
+   "feeder": "sbf1001",
+   "status": "fam",
+   "note": "dims_needed",
+   "src": "bomC"
+  },
+  {
+   "id": "C02",
+   "type": "audio_jack",
+   "spec": "3.5 mm, 5-pin, on reel",
+   "cat": "io",
+   "pack": "tape",
+   "leads": 5,
+   "feeder": "host_tape",
+   "status": "fam",
+   "note": "host_tape",
+   "src": "bomC"
+  },
+  {
+   "id": "C03",
+   "type": "audio_jack",
+   "spec": "3.5 mm, 6-pin, on reel",
+   "cat": "io",
+   "pack": "tape",
+   "leads": 6,
+   "feeder": "host_tape",
+   "status": "fam",
+   "note": "host_tape",
+   "src": "bomC"
+  },
+  {
+   "id": "C04",
+   "type": "pin_header",
+   "spec": "1 × 2, 2.54 mm",
+   "cat": "connector",
+   "pack": "bulk",
+   "pitch": 2.54,
+   "leads": 2,
+   "feeder": "sbf1001",
+   "alt": "sbf2002",
+   "status": "fam",
+   "note": "dims_needed",
+   "src": "bomC"
+  },
+  {
+   "id": "C05",
+   "type": "buzzer",
+   "spec": "5 V 40 mA",
+   "cat": "electromech",
+   "pack": "tray",
+   "leads": 2,
+   "feeder": "stp1001",
+   "status": "fam",
+   "note": "buzzer_pack",
+   "src": "bomC"
+  },
+  {
+   "id": "C06",
+   "type": "led",
+   "spec": "THT LED",
+   "cat": "semiconductor",
+   "pack": "tray",
+   "leads": 2,
+   "feeder": "stp1001",
+   "status": "fam",
+   "note": "dims_needed",
+   "src": "bomC"
+  },
+  {
+   "id": "C07",
+   "type": "ecap",
+   "spec": "Ø6.3 × 8 mm, 4 part numbers",
+   "cat": "capacitor",
+   "pack": "radial_tape",
+   "L": 6.3,
+   "W": 6.3,
+   "H": 8,
+   "leads": 2,
+   "feeder": "srf1001",
+   "status": "fam",
+   "note": "pitch_needed",
+   "src": "bomC"
+  },
+  {
+   "id": "C08",
+   "type": "ecap",
+   "spec": "33 µF 25 V, Ø5 × 11 mm",
+   "cat": "capacitor",
+   "pack": "radial_tape",
+   "L": 5,
+   "W": 5,
+   "H": 11,
+   "leads": 2,
+   "feeder": "srf1001",
+   "status": "fam",
+   "note": "pitch_needed",
+   "src": "bomC"
+  },
+  {
+   "id": "C09",
+   "type": "ecap",
+   "spec": "Ø6.3 × 11 mm, 2 part numbers",
+   "cat": "capacitor",
+   "pack": "radial_tape",
+   "L": 6.3,
+   "W": 6.3,
+   "H": 11,
+   "leads": 2,
+   "feeder": "srf1001",
+   "status": "fam",
+   "note": "pitch_needed",
+   "src": "bomC"
+  },
+  {
+   "id": "C10",
+   "type": "pin_header",
+   "spec": "1 × 3, 2.54 mm",
+   "cat": "connector",
+   "pack": "bulk",
+   "pitch": 2.54,
+   "leads": 3,
+   "feeder": "sbf1001",
+   "alt": "sbf2002",
+   "status": "fam",
+   "note": "dims_needed",
+   "src": "bomC"
+  },
+  {
+   "id": "C11",
+   "type": "power_header",
+   "spec": "2 × 2, 3.0 mm",
+   "cat": "connector",
+   "pack": "bulk",
+   "pitch": 3.0,
+   "leads": 4,
+   "feeder": "sbf1001",
+   "alt": "sbf2002",
+   "status": "fam",
+   "note": "dims_needed",
+   "src": "bomC"
+  },
+  {
+   "id": "C12",
+   "type": "pin_header_dual",
+   "spec": "2 × 6 keyed (11 pins), 2.54 mm",
+   "cat": "connector",
+   "pack": "bulk",
+   "pitch": 2.54,
+   "leads": 11,
+   "feeder": "sbf1001",
+   "alt": "sbf2002",
+   "status": "fam",
+   "note": "dims_needed",
+   "src": "bomC"
+  },
+  {
+   "id": "C13",
+   "type": "pin_header_dual",
+   "spec": "2 × 3 keyed (5 pins), 2.54 mm",
+   "cat": "connector",
+   "pack": "bulk",
+   "pitch": 2.54,
+   "leads": 5,
+   "feeder": "sbf1001",
+   "alt": "sbf2002",
+   "status": "fam",
+   "note": "dims_needed",
+   "src": "bomC"
+  },
+  {
+   "id": "C14",
+   "type": "wafer",
+   "spec": "1 × 2, 2.5 mm",
+   "cat": "connector",
+   "pack": "bulk",
+   "pitch": 2.5,
+   "leads": 2,
+   "feeder": "sbf1001",
+   "alt": "sbf2002",
+   "status": "fam",
+   "note": "dims_needed",
+   "src": "bomC"
+  },
+  {
+   "id": "C15",
+   "type": "usb_stack",
+   "spec": "USB 3.0, 18-pin",
+   "cat": "io",
+   "pack": "tray",
+   "leads": 18,
+   "feeder": "stp1001",
+   "status": "fam",
+   "note": "dims_needed",
+   "src": "bomC"
+  },
+  {
+   "id": "C16",
+   "type": "pcie_slot",
+   "spec": "PCIe x1, 36-pin, 1.0 mm",
+   "cat": "socket",
+   "pack": "tray",
+   "pitch": 1.0,
+   "leads": 36,
+   "feeder": "stp1001",
+   "status": "tbc",
+   "note": "dims_needed",
+   "src": "bomC"
+  },
+  {
+   "id": "C17",
+   "type": "power_header",
+   "spec": "2 × 2, 4.2 mm",
+   "cat": "connector",
+   "pack": "bulk",
+   "pitch": 4.2,
+   "leads": 4,
+   "feeder": "sbf1001",
+   "alt": "sbf2002",
+   "status": "fam",
+   "note": "dims_needed",
+   "src": "bomC"
+  },
+  {
+   "id": "C18",
+   "type": "power_header",
+   "spec": "2 × 3, 4.2 mm",
+   "cat": "connector",
+   "pack": "bulk",
+   "pitch": 4.2,
+   "leads": 6,
+   "feeder": "sbf1001",
+   "alt": "sbf2002",
+   "status": "fam",
+   "note": "dims_needed",
+   "src": "bomC"
+  },
+  {
+   "id": "C19",
+   "type": "pin_header",
+   "spec": "1 × 4 fan header, 2.54 mm",
+   "cat": "connector",
+   "pack": "bulk",
+   "pitch": 2.54,
+   "leads": 4,
+   "feeder": "sbf1001",
+   "alt": "sbf2002",
+   "status": "fam",
+   "note": "dims_needed",
+   "src": "bomC"
+  },
+  {
+   "id": "C20",
+   "type": "tact_switch",
+   "spec": "DIP 4-pin",
+   "cat": "electromech",
+   "pack": "bulk",
+   "leads": 4,
+   "feeder": "sbf1001",
+   "alt": "sbf2002",
+   "status": "fam",
+   "note": "dims_needed",
+   "src": "bomC"
+  },
+  {
+   "id": "C21",
+   "type": "battery_holder",
+   "spec": "CR2032, 2-pin",
+   "cat": "socket",
+   "pack": "tray",
+   "leads": 2,
+   "feeder": "stp1001",
+   "status": "fam",
+   "note": "dims_needed",
+   "src": "bomC"
+  },
+  {
+   "id": "C22",
+   "type": "usb_stack",
+   "spec": "USB 3.0 + USB 2.0, 27-pin",
+   "cat": "io",
+   "pack": "tray",
+   "leads": 27,
+   "feeder": "stp1001",
+   "status": "fam",
+   "note": "dims_needed",
+   "src": "bomC"
+  },
+  {
+   "id": "C23",
+   "type": "smd_transistor",
+   "spec": "3-pin, SMD body",
+   "cat": "semiconductor",
+   "pack": "bulk",
+   "leads": 3,
+   "feeder": "sbf1001",
+   "status": "tbc",
+   "note": "smd_bulk",
+   "src": "bomC"
+  },
+  {
+   "id": "C24",
+   "type": "dimm",
+   "spec": "DDR4, 288-pin",
+   "cat": "socket",
+   "pack": "tray",
+   "leads": 288,
+   "feeder": "stp1001",
+   "status": "tbc",
+   "note": "dimm_size",
+   "src": "bomC"
+  },
+  {
+   "id": "C25",
+   "type": "inductor",
+   "spec": "power choke, 2 part numbers",
+   "cat": "magnetic",
+   "pack": "tray",
+   "feeder": "stp1001",
+   "status": "fam",
+   "note": "dims_needed",
+   "src": "bomC"
+  },
+  {
+   "id": "C26",
+   "type": "dsub",
+   "spec": "15-pin",
+   "cat": "io",
+   "pack": "tray",
+   "leads": 15,
+   "feeder": "stp1001",
+   "status": "fam",
+   "note": "dims_needed",
+   "src": "bomC"
+  },
+  {
+   "id": "C27",
+   "type": "pin_header_dual",
+   "spec": "2 × 21, 2.54 mm",
+   "cat": "connector",
+   "pack": "bulk",
+   "pitch": 2.54,
+   "feeder": "sbf1001",
+   "status": "tbc",
+   "note": "desc_conflict",
+   "src": "bomC"
+  },
+  {
+   "id": "D01",
+   "type": "transformer",
+   "spec": "single tray",
+   "cat": "magnetic",
+   "pack": "tray",
+   "feeder": "stp1001",
+   "status": "fam",
+   "note": "dims_needed",
+   "src": "bomD"
+  },
+  {
+   "id": "D02",
+   "type": "dip_ic",
+   "spec": "PWM off-line switch, DIP-8",
+   "cat": "semiconductor",
+   "pack": "tube",
+   "pitch": 2.54,
+   "leads": 8,
+   "feeder": "stf1003",
+   "status": "fam",
+   "note": "dims_needed",
+   "src": "bomD"
+  },
+  {
+   "id": "D03",
+   "type": "trimmer",
+   "spec": "0.1 W, 2 part numbers",
+   "cat": "electromech",
+   "pack": "bulk",
+   "leads": 3,
+   "feeder": "sbf1001",
+   "alt": "sbf2002",
+   "status": "fam",
+   "note": "dims_needed",
+   "src": "bomD"
+  },
+  {
+   "id": "D04",
+   "type": "pin_header",
+   "spec": "vertical, 4-pin, 2.5 mm",
+   "cat": "connector",
+   "pack": "bulk",
+   "pitch": 2.5,
+   "leads": 4,
+   "feeder": "sbf1001",
+   "alt": "sbf2002",
+   "status": "fam",
+   "note": "dims_needed",
+   "src": "bomD"
+  },
+  {
+   "id": "D05",
+   "type": "wafer",
+   "spec": "2-pin, 1 row, right-angle shrouded, 2.5 mm",
+   "cat": "connector",
+   "pack": "bulk",
+   "pitch": 2.5,
+   "leads": 2,
+   "feeder": "sbf1001",
+   "alt": "sbf2002",
+   "status": "fam",
+   "note": "dims_needed",
+   "src": "bomD"
+  },
+  {
+   "id": "M01",
+   "type": "wire_header",
+   "spec": "4-circuit, 3.0 mm (.120 in)",
+   "cat": "connector",
+   "pack": "bulk",
+   "L": 12,
+   "W": 6.6,
+   "OH": 14.7,
+   "pitch": 3.0,
+   "leads": 4,
+   "feeder": "smvf01",
+   "alt": "sbf1001",
+   "nozzle": "gripper",
+   "status": "conf",
+   "src": "mvf"
+  },
+  {
+   "id": "M02",
+   "type": "pin_header",
+   "spec": "2-position, 2.54 mm (.1 in)",
+   "cat": "connector",
+   "pack": "bulk",
+   "L": 6.35,
+   "W": 5,
+   "OH": 14.22,
+   "pitch": 2.54,
+   "leads": 2,
+   "feeder": "smvf01",
+   "alt": "sbf1001",
+   "nozzle": "gripper",
+   "status": "conf",
+   "src": "mvf"
+  },
+  {
+   "id": "M03",
+   "type": "pin_header",
+   "spec": "3-pin, 3.96 mm (.156 in), vertical",
+   "cat": "connector",
+   "pack": "bulk",
+   "L": 7.62,
+   "W": 6.35,
+   "OH": 14.22,
+   "pitch": 3.96,
+   "leads": 3,
+   "feeder": "smvf01",
+   "alt": "sbf1001",
+   "nozzle": "gripper",
+   "status": "conf",
+   "src": "mvf"
+  },
+  {
+   "id": "M04",
+   "type": "pin_header",
+   "spec": "6-pin, 3.96 mm (.156 in), vertical",
+   "cat": "connector",
+   "pack": "bulk",
+   "L": 15,
+   "W": 6.35,
+   "OH": 14.22,
+   "pitch": 3.96,
+   "leads": 6,
+   "feeder": "smvf01",
+   "alt": "sbf1001",
+   "nozzle": "gripper",
+   "status": "conf",
+   "src": "mvf"
+  },
+  {
+   "id": "K01",
+   "type": "reel_terminal",
+   "spec": "tab 6.35 × 0.81 mm, 10.21 mm above PCB",
+   "cat": "terminal",
+   "pack": "reel",
+   "W": 0.81,
+   "feeder": "srt7001",
+   "status": "fit",
+   "note": "catalog_example",
+   "src": "cat"
+  },
+  {
+   "id": "K02",
+   "type": "jumper_wire",
+   "spec": "tinned copper Ø0.5–1.2 mm, span 6–40 mm",
+   "cat": "terminal",
+   "pack": "reel",
+   "ld": 1.2,
+   "feeder": "sjf1001",
+   "status": "fit",
+   "note": "catalog_example",
+   "src": "cat"
+  },
+  {
+   "id": "K03",
+   "type": "solder_preform",
+   "spec": "width 1–16 mm, thickness 0.1–1 mm",
+   "cat": "terminal",
+   "pack": "reel",
+   "feeder": "sspc101",
+   "status": "fit",
+   "note": "catalog_example",
+   "src": "cat"
+  },
+  {
+   "id": "K04",
+   "type": "label",
+   "spec": "liner < 60 / 80 / 100 mm, 0.05–0.08 mm",
+   "cat": "terminal",
+   "pack": "reel",
+   "feeder": "slf1001",
+   "status": "fit",
+   "note": "catalog_example",
+   "src": "cat"
+  },
+  {
+   "id": "K05",
+   "type": "relay",
+   "spec": "up to 25 × 25 × 25 mm",
+   "cat": "electromech",
+   "pack": "tube",
+   "feeder": "stf1003",
+   "status": "fam",
+   "note": "catalog_example",
+   "src": "cat"
+  },
+  {
+   "id": "K06",
+   "type": "network_port",
+   "spec": "up to 20 × 20 × 20 mm",
+   "cat": "io",
+   "pack": "bulk",
+   "feeder": "sbf2002",
+   "alt": "sbf1001",
+   "status": "fam",
+   "note": "catalog_example",
+   "src": "cat"
+  },
+  {
+   "id": "K07",
+   "type": "spring",
+   "spec": "up to 15 × 15 × 30 mm",
+   "cat": "terminal",
+   "pack": "radial_tape",
+   "feeder": "srf1001",
+   "status": "fam",
+   "note": "catalog_example",
+   "src": "cat"
+  },
+  {
+   "id": "K08",
+   "type": "taped_resistor",
+   "spec": "3 × 3 – 6 × 20 mm, U-forming option",
+   "cat": "passive",
+   "pack": "axial_tape",
+   "feeder": "saf1001",
+   "status": "fam",
+   "note": "catalog_example",
+   "src": "cat"
+  },
+  {
+   "id": "K09",
+   "type": "memory_socket",
+   "spec": "up to 50 × 50 × 50 mm",
+   "cat": "socket",
+   "pack": "tray",
+   "feeder": "stp1001",
+   "status": "fam",
+   "note": "catalog_example",
+   "src": "cat"
+  },
+  {
+   "id": "K10",
+   "type": "hardware",
+   "spec": "3 × 3 – 50 × 50 mm, 10–300 g",
+   "cat": "terminal",
+   "pack": "bulk",
+   "feeder": "sbf1001",
+   "status": "fam",
+   "note": "catalog_example",
+   "src": "cat"
+  }
+ ]
+}

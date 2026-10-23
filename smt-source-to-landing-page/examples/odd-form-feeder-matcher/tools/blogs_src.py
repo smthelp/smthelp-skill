@@ -1,0 +1,175 @@
+# -*- coding: utf-8 -*-
+"""Eight English articles, each written internally in the six-step order (attention, the real problem, a reusable method,
+the product that carries the method, the reason to come back, the next step). Headings never name those steps."""
+import json, os
+
+P = []
+
+P.append([
+ {"h": "Look at what is left on the manual line", "p": [
+  "Walk to the end of a through-hole line and count the people. The radial and axial parts went in on machines an hour ago. What the operators are still pushing into boards is a short list of odd shapes: a 2×6 header, a stacked USB jack, a transformer, two X2 capacitors, a buzzer.",
+  "Ask why those parts are still manual and the first answer is usually 'they are odd-form'. That is a description, not a reason."]},
+ {"h": "The shape is rarely the obstacle", "p": [
+  "Modern odd-form inserters can pick and insert almost any of those bodies. The real obstacle is that each part arrives in a different container. The header comes loose in a bag, the transformer in a tray, the IC in a tube, the capacitor on ammo tape. A machine can only insert what a feeder presents at a repeatable position.",
+  "In the evaluations behind this page, one connector board had 18 odd-form lines in three packaging types, and a desktop board had 35 lines spread over bulk, reel, tape and tray. None of that is exotic. It is simply more variety than one feeder bank was designed for."]},
+ {"h": "Sort the list by packaging first", "p": [
+  "Before anyone argues about nozzles or cycle time, sort the odd-form list by how each part arrives. Bulk, tube, tray, radial tape, axial tape, embossed tape and coil. That single column decides the feeder family for every line.",
+  "Then measure what the feeder will see: body length, width and height, lead pitch, lead count and lead diameter. Those numbers decide whether the standard model of that family works or a customized one is needed."]},
+ {"h": "Ten feeder models, one per packaging", "p": [
+  "This is how the Southern Machinery Customized Feeder Nozzle Catalog V03 is organised: tube (STF1003), tray (STP1001), vibratory bowl (SBF1001), belt (SBF2002), radial tape (SRF1001), axial tape (SAF1001), plus jumper wire, reel terminal, solder chip and label feeders. Each one is a base that is customized to the part.",
+  "The quick-match table on this page applies the same sorting to 76 real component lines, so you can see how parts like yours were mapped."]},
+ {"h": "Why the list gets shorter every project", "p": [
+  "Once a feeder family is on your machine, every new board with the same packaging is a smaller step. The second bowl feeder is a track change, not a new project. Most lines find that the manual station shrinks board by board."]},
+ {"h": "Start with your own list", "p": [
+  "Take the odd-form lines still inserted by hand, add the packaging column and the dimensions, and send it for a free feasibility check. You get a per-line answer: feeder, nozzle and what needs a sample test."]},
+])
+
+P.append([
+ {"h": "One column changes the whole review", "p": [
+  "Most odd-form BOM reviews start with the part description. Start with the packaging column instead and the review gets shorter.",
+  "The reason is mechanical. A feeder is a device that turns one container format into a part at a pick position. Change the container and you change the feeder, whatever the part is. A relay in a tube and the same relay loose in a bag are two different feeding problems."]},
+ {"h": "Where NPI reviews lose time", "p": [
+  "When packaging is not recorded, the team discovers it at the line: the header that was supposed to be on tape arrives loose, the relay comes in a tray instead of a tube. The feeder plan is redone after the first trial.",
+  "In one of the source lists the same buzzer type arrived in bulk on one board and in trays on another. Same component, two different feeders.",
+  "The second cost is slot planning. Every feeder family takes a different amount of room on the machine, and a tray feeder or a bowl is not something you squeeze in at the last minute. If the packaging is wrong, the space plan for the whole cell is wrong too."]},
+ {"h": "Six codes, six families", "p": [
+  "Bulk parts go to a vibratory bowl or a belt feeder. Tubes go to a tube feeder. Trays go to a tray feeder. Radial tape goes to a radial tape feeder that cuts and forms the leads. Axial tape goes to an axial feeder that forms and trims. Wire, terminals, solder and labels on a coil each have a dedicated coil feeder.",
+  "Embossed carrier tape is the exception. Parts on 32 mm carrier tape run on the host machine's own 32 mm tape feeder, and the Southern Machinery part of the job is the nozzle or gripper that picks them."]},
+ {"h": "How the catalog maps them", "p": [
+  "Catalog V03 gives one model per code: SBF1001 or SBF2002 for bulk, STF1003 for tubes (200–650 mm, several stacked), STP1001 for blister trays 150×150 to 200×300 mm, SRF1001 for radial tape at 12.7 or 15 mm hole pitch, SAF1001 for axial tape 35, 64 or 92 mm wide, and SJF1001, SRT7001, SSPC101 and SLF1001 for coils.",
+  "Bulk has one more option outside the catalog: the S-MVF01 reciprocating belt feeder, a separate model with its own specification sheets and videos. Whether a bulk part goes to it is decided per part, with a sample.",
+  "Filter the quick-match table by packaging and you see the same mapping applied line by line."]},
+ {"h": "Keep the column in every BOM", "p": [
+  "Ask purchasing to keep the packaging code on the BOM for every odd-form line, and to flag any line where the supplier offers more than one packaging. Note the tape hole pitch for radial parts and the tube length for tube parts while you are at it. It costs one column and it saves a trial run each time a board changes."]},
+ {"h": "Send the sorted list", "p": [
+  "Once your list is sorted by packaging, send it with dimensions for a free feasibility check and get the feeder for each line in writing."]},
+])
+
+P.append([
+ {"h": "Three numbers, measured on the sample", "p": [
+  "A datasheet tells you what a part can be. The feeder sees what the sample is. Before choosing a feeder model, measure three things on the real part: the body envelope, the lead pitch and the lead diameter."]},
+ {"h": "Why datasheet numbers mislead", "p": [
+  "In one evaluation sheet the column labelled lead width held the lead pitch on most lines and the body width on three others. A PTC described as P = 5 mm carried 13 mm in that column. Copy the wrong number into a feeder request and the forming mould is wrong.",
+  "Body height and overall height get mixed up as well. On the connector board behind this page both were measured, and the overall height, leads included, ran roughly 2 to 4 mm above the body height on most lines. A feeder request that gives only one of them leaves the designer guessing.",
+  "Half of the lines on another list had no dimensions at all, only a description and a packaging code. Those lines cannot be confirmed until someone measures a part."]},
+ {"h": "What each number decides", "p": [
+  "The body envelope, length × width × height, decides whether the part fits the track, bowl or tray of the standard model. The lead pitch decides the forming mould on a radial feeder and the hole pattern on the board. The lead diameter decides whether the cutter and forming tools of the feeder can handle the wire.",
+  "Record overall height above the board as well; it matters for clearance under the head. Count the leads too: a keyed header with one pin removed is a different part for the track than the full row.",
+  "Weigh heavy parts too. The bowl feeder publishes a range of 10–300 g, and a transformer or a large relay can sit near the top of it."]},
+ {"h": "The envelopes in Catalog V03", "p": [
+  "SRF1001 radial: 2×2×3 to 15×15×30 mm, lead core 0.3–1.0 mm, cut length 3–6 mm. STF1003 tube: 3×3×3 to 25×25×25 mm. SBF2002 belt: up to 20×20×20 mm. SBF1001 bowl: 3×3 to 50×50 mm and 10–300 g. STP1001 tray: up to 50×50×50 mm. SJF1001 jumper wire: Ø0.5–1.2 mm.",
+  "The check-your-part box under the quick-match table compares your numbers with these envelopes. A part inside an envelope is a candidate, not a guarantee: orientation, lead stiffness and the pick height on your machine still decide the result."]},
+ {"h": "A habit that pays back", "p": [
+  "Keep a measured-dimension sheet for every odd-form part you qualify: L, W, H, overall height, pitch, lead count, lead diameter, weight and packaging, plus one photo from the side. The next board that reuses the part needs no new measurement and no new test."]},
+ {"h": "Measure, then ask", "p": [
+  "Measure the three numbers, add packaging, and send the sheet. Lines outside every envelope are where a customized feeder starts, and the sample test is free."]},
+])
+
+P.append([
+ {"h": "Two parts, two pick tools", "p": [
+  "Put an aluminium electrolytic capacitor next to an open 2×6 pin header. Both are odd-form, both are THT, and they need completely different pick tools."]},
+ {"h": "Where the insert actually fails", "p": [
+  "Most odd-form insertion failures are not in the feeder or the inserter. They are in the moment the nozzle holds the part. A vacuum cup on an open header leaks and the part drops. A gripper that closes on a soft body tilts it, and the leads miss the holes.",
+  "The evaluations behind this page record the nozzle choice per line: on the connector board, 12 of 18 lines were gripper and 6 vacuum. Two copies of that evaluation listed different nozzle numbers for the same parts, but both agreed on the type, which is why the table publishes the type and not the number."]},
+ {"h": "A simple rule set", "p": [
+  "If the part has a flat, closed top larger than the nozzle tip, start with vacuum: jacks, electrolytic capacitors, buzzers, many USB connectors.",
+  "If the top is open, ribbed or too small, use a gripper on the body: pin headers, wafers, Y-capacitors, thermistors.",
+  "If the part is heavy for its top area, prefer a gripper even when the top is flat.",
+  "Axial parts are handled by their leads, not their body.",
+  "Check one more thing before the trial: the pick surface after the feeder has presented the part. A bowl track or a tube end can rotate a part by a few degrees, and a gripper tolerates that better than a small vacuum tip."]},
+ {"h": "What Southern Machinery builds", "p": [
+  "Catalog V03 lists gripper nozzles with a fixed arm and a swing arm that grab odd shapes, for odd-form components, special connectors and hybrid circuits, and custom nozzles for THT parts with interchangeable rubber tips. A worn tip is replaced, not the whole nozzle.",
+  "The same applies to parts that arrive on 32 mm carrier tape: they run on the host machine's own tape feeder, and the Southern Machinery work is the nozzle or gripper shaped for the part.",
+  "The quick-match table shows the nozzle type per line so the nozzle column of your BOM can be filled in before the trial."]},
+ {"h": "Reuse across boards", "p": [
+  "A gripper designed for one header family usually serves every board that uses it. Keep a nozzle-to-part list next to the measured-dimension sheet, with the nozzle type, the tip and the part families it has run, and the next NPI starts with the nozzles already on the shelf."]},
+ {"h": "Send the doubtful ones", "p": [
+  "For parts where the rule set gives no clear answer, send five to ten samples. The free test decides gripper or vacuum on the real part."]},
+])
+
+P.append([
+ {"h": "The capacitor that is too wide", "p": [
+  "An X2 safety capacitor of 27 × 30 × 14.5 mm with 22.5 mm lead pitch sits on many power-supply boards. It comes on ammo tape like any radial part. It does not fit a standard radial feeder."]},
+ {"h": "Why the standard feeder stops", "p": [
+  "Catalog V03 publishes the SRF1001 radial tape feeder for outlines from 2×2×3 to 15×15×30 mm. A 26.5 mm wide body is outside that envelope, and a 22.5 mm pitch needs its own forming mould.",
+  "The evaluation of that power-supply board says the same thing in its own words: pending confirmation of the pitch, a custom feeder is needed. Four of its twelve lines were outside the standard envelope: two X2 capacitors, a large PTC thermistor and a surge absorber.",
+  "An envelope can also be missed from below. A surge absorber of 2.6 mm diameter on the same board is under the 3 mm minimum printed for the SAF1001 axial feeder, so it goes to a sample test as well."]},
+ {"h": "How to specify a customized feeder", "p": [
+  "Give the feeder designer four things: the measured body, the lead pitch, the lead diameter and the tape (hole pitch 12.7 or 15 mm, ammo or reel). Add a photo of the part in the tape and of the board hole pattern.",
+  "Then say how the part must be presented: lead length after cutting, whether it is inserted straight or bent, and the pick height on your machine.",
+  "Ask for the result per part, not per feeder. A customized radial feeder that takes the X2 capacitor may also take the larger PTC thermistor on the same board, which saves a feeder slot."]},
+ {"h": "Where it is built", "p": [
+  "The catalog describes SRF1001 as customizable for odd-form and non-standard equipment, with tape cutting and component bending options. The same base, with wider guides and a new mould, is where a customized radial feeder starts. The Southern Machinery video board also shows a 27.5 mm large-span radial feeder, an example of how far a customized design has been taken.",
+  "In the quick-match table such lines are marked 'to be confirmed'. That status is an invitation to test, not a refusal."]},
+ {"h": "One design, many boards", "p": [
+  "Power boards tend to reuse the same safety capacitors. A feeder customized for one X2 family usually covers the next design as well. Ask which pitches and body widths the customized guides and mould can take, and note them next to the part, so the next power board can be checked against the feeder you already own."]},
+ {"h": "Send one tape strip", "p": [
+  "Send a strip of the taped part and the board drawing. The feasibility check tells you in writing what the customized feeder needs."]},
+])
+
+P.append([
+ {"h": "Two ways to feed loose parts", "p": [
+  "Loose connectors, trimmers and buzzers can be fed by a vibratory bowl or by a belt feeder. Both turn a pile into a row of parts at a pick point. They are not interchangeable."]},
+ {"h": "Where bulk feeding goes wrong", "p": [
+  "A bowl that is too aggressive bends delicate pins. A belt that cannot tell the part's direction delivers half the parts reversed. Either way the head picks a part it cannot insert.",
+  "The third failure is space. A floor-standing bowl with its stand and guarding is a different object from a feeder that sits in the machine's feeder bank, and the choice decides how many bulk parts one machine can carry."]},
+ {"h": "Decide with four questions", "p": [
+  "How big is the part? How heavy? How stiff are its pins? Can its direction be told from its shape?",
+  "Small, light parts with physically distinct features suit a belt. Larger or heavier parts, parts that need polarity sorting or lead cutting, and parts with pins that bend easily suit a bowl with a dedicated track.",
+  "In the connector-board evaluation behind this page, all twelve bulk lines fitted inside 20×20×20 mm, so the belt feeder is the first candidate and the bowl the alternative. One of them, a 2×4 power header 18.4 mm long, was still marked conditional and goes to a sample test before either is chosen."]},
+ {"h": "The catalog numbers side by side", "p": [
+  "SBF2002 belt feeder: connectors, buzzers, network ports, terminals and square capacitors from 3×3×3 to 20×20×20 mm, material selection and NG return, ±1 mm, 1.5–2 s, 850×140×260 mm and 12 kg. Unsuitable: pins that deform easily.",
+  "SBF1001 bowl feeder: electronic components, hardware, plastic parts and connectors from 3×3 to 50×50 mm and 10–300 g, polarity sorting and lead cutting as options, ±0.5 mm, 0.8 s, single bowl 760×460×910 mm or front-and-rear bowls 1120×460×910 mm.",
+  "The weights tell the space story: 12 kg for the belt against 150 kg for a single bowl and 190 kg for the double frame."]},
+ {"h": "A second belt model", "p": [
+  "Southern Machinery also builds the S-MVF01 reciprocating belt feeder. It is a separate model from the Catalog V03 SBF2002, documented in its own specification sheets, manual and videos, and it feeds its own range of components. The qualification template behind four connector rows in the quick-match table was written for the S-MVF01, so those rows name it.",
+  "Which belt model suits a given part is settled with a sample, not from a name. The comparison video on this page shows the S-MVF01 next to a bowl feeder."]},
+ {"h": "Plan for the next part", "p": [
+  "A bowl track is specific to a part; the bowl and drive are not. A belt feeder can often take a related connector with small adjustments. Ask which parts of the feeder are reusable before choosing. Then send samples of the bulk lines: the free test shows which feeder presents them reliably."]},
+])
+
+P.append([
+ {"h": "An answer you can file", "p": [
+  "A feasibility check is only useful if it ends in a document an NPI engineer can file: each line, its feeder, its nozzle and what still needs proof."]},
+ {"h": "Why verbal answers fail", "p": [
+  "'Should be fine' becomes a problem in the first trial week. Without a written per-line result, nobody knows which parts were actually checked and which were assumed.",
+  "Verbal answers also hide the conditions. A part can fit a feeder only in one packaging, or only after a nozzle change, or only once the real pitch is measured. If those conditions are not written next to the line, they are forgotten by the time the order is placed."]},
+ {"h": "What to send", "p": [
+  "The BOM lines that are still manual, with packaging, measured dimensions and quantity per board. Photos of each part, including leads and polarity mark. Five to ten samples of every line marked 'custom' or 'to be confirmed'.",
+  "The insertion machine brand and exact model, with photos of the feeder rail and the free positions. Part numbers can stay internal; the description is enough.",
+  "If dimensions are missing, say so. In one of the lists behind this page, none of the 35 lines carried measured dimensions; only the capacitor descriptions gave a size. Those lines were still mapped to a feeder family, but each one is marked for measurement before a model is confirmed."]},
+ {"h": "What comes back", "p": [
+  "Southern Machinery engineering maps every line to a feeder family and nozzle type, checks it against the Catalog V03 envelope, and runs doubtful parts on a feeder. Each line gets one of four results: fits the catalog model, needs customization of feeder or nozzle, needs a sample test, or is not possible in the current packaging.",
+  "That is the same status column you see in the quick-match table. Some answers are fixed mappings rather than tests: parts on 32 mm carrier tape come back as the host machine's own 32 mm tape feeder plus a Southern Machinery nozzle.",
+  "Lead time is not a catalog figure. It is stated in the quotation once the sample test shows how much customization each line needs."]},
+ {"h": "A record for later boards", "p": [
+  "Keep the result sheet with the BOM. When a part comes back on a new board, its feeder and nozzle are already known, and only the new lines need a check. Over a few projects the sheet becomes your own odd-form library."]},
+ {"h": "Start the check", "p": [
+  "Use the WhatsApp or email button in any row of the table, or the form at the end of this page. The check is free."]},
+])
+
+P.append([
+ {"h": "The trial is the real test", "p": [
+  "A feeder that passed the bench test still has to prove itself on your machine, with your parts and your operators. The trial is where the paper result becomes a number your management can approve."]},
+ {"h": "Why payback cases get rejected", "p": [
+  "Most automation cases fail review because the numbers are guesses: an assumed speed, an assumed headcount saving. A trial log replaces both with measurements.",
+  "The other common gap is scope. A case that counts every operator on the line as saved will be challenged at once, because someone still loads feeders, refills bowls and clears the odd stop. Count only the stations that disappear."]},
+ {"h": "Run the trial in three parts", "p": [
+  "First, feeding alone: count parts fed, mis-presented parts and stops over a fixed number of cycles.",
+  "Second, picking and insertion with the chosen nozzle: count drops and failed inserts per hundred.",
+  "Third, a shift of real production: note every stop with its cause and the time to recover.",
+  "Keep the log simple: time, feeder, part, what happened, what was done. Ten lines of honest data are more convincing in a review than a polished average.",
+  "Run the trial with the operators who will own the cell. They find the refill and changeover problems that an engineer at the bench does not."]},
+ {"h": "What the catalog already guarantees", "p": [
+  "Catalog V03 release records give the baseline: 48 hours of continuous ageing on every model, and 500 to 1,000 consecutive feeds without abnormality (2 hours of continuous feeding for the bowl). Published feeding accuracy runs from ±0.2 mm on radial feeders to ±1 mm on tray and belt feeders.",
+  "Your trial checks what the catalog cannot: your part, your machine, your pick height. Commissioning support covers the pick position, the IO hand-shake and operator training, remotely or on site."]},
+ {"h": "Turn hours into a case", "p": [
+  "Count the operators whose station disappears, multiply by shifts, hours and working days, and you have the hours released per month. The worksheet on this page does that arithmetic with your own numbers; it does not price the feeders.",
+  "Put the trial log next to the result: stops per shift and their causes show whether the released hours are real. Agree spare parts and wear items before the order so the saving holds."]},
+ {"h": "Book the first test", "p": [
+  "Send the parts you want to automate first. The free sample test is the start of the trial plan."]},
+])
+
+out = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), "blogs.json")
+json.dump({"en": P}, open(out, "w", encoding="utf-8"), ensure_ascii=False, indent=1)
+print([len(" ".join(" ".join(s["p"]) for s in p).split()) for p in P])

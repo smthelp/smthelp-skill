@@ -1,0 +1,3 @@
+/* product-specific CSS (optional) */
+/* status "conf": confirmed mapping with a feeder outside Catalog V03 (host 32 mm tape feeder, S-MVF01) */
+.mx-s-conf{background:color-mix(in srgb,var(--ok) 8%,transparent);color:var(--ok);border-color:var(--ok);border-style:dashed}
