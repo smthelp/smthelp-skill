@@ -1,0 +1,257 @@
+{
+ "meta": {
+  "title": "ESD PCB Storage Board L-Type FJD250-95 – Southern Machinery",
+  "subject": "Anti-static L-type PCB storage stand, 25 slots",
+  "keywords": "ESD PCB storage board, anti-static PCB stand, L type ESD board, PCB slot rack, ESD circulation board, FJD250-95, Southern Machinery"
+ },
+ "title": {
+  "eyebrow": "ESD STORAGE",
+  "name": "ESD PCB Storage Board — L-Type FJD250-95",
+  "subtitle": "Compact anti-static slotted stand for storing and presenting PCBs at the workstation",
+  "tagline": "25 slots · ESD safe · Custom sizes",
+  "date": "October 2026",
+  "image": "std_pcb.jpg",
+  "notes": "Introduce the FJD250-95 L-type ESD PCB storage board."
+ },
+ "contents": [
+  [
+   "Product Overview",
+   "What it is and where it is used"
+  ],
+  [
+   "Key Figures",
+   "Capacity, slots and ESD values"
+  ],
+  [
+   "Features · Advantages · Benefits",
+   "The FAB value story"
+  ],
+  [
+   "Design Details",
+   "Views and family options"
+  ],
+  [
+   "Technical Specifications",
+   "Data sheet"
+  ],
+  [
+   "Summary & Support",
+   "Key takeaways, service and contact"
+  ]
+ ],
+ "slides": [
+  {
+   "type": "overview",
+   "title": "ESD Storage Board at a Glance",
+   "lead": "The FJD250-95 is an L-shaped stand moulded from high-grade ESD material. PCBs stand upright in individual slots — separated, visible and protected from static.",
+   "apps": [
+    [
+     "Workstation buffer",
+     "Boards waiting for assembly, inspection or rework"
+    ],
+    [
+     "Test & repair",
+     "Presenting PCBs at test, debug and repair benches"
+    ],
+    [
+     "Shelf storage",
+     "Organized, upright storage inside ESD cabinets and racks"
+    ]
+   ],
+   "image": "std_dim.jpg",
+   "caption": "L x W x H = 250 x 210 x 95 mm",
+   "notes": "Source: Stand for ESD boards PDF."
+  },
+  {
+   "type": "metrics",
+   "title": "Key Figures",
+   "items": [
+    [
+     "25",
+     "PCB slots",
+     "One board per slot"
+    ],
+    [
+     "6.2 mm",
+     "Slot pitch",
+     "Slot 4.6 mm deep, 3.3 mm wide"
+    ],
+    [
+     "10⁶–10⁹ Ω",
+     "Surface resistance",
+     "Conductive 10³–10⁵ Ω option"
+    ],
+    [
+     "300 g",
+     "Board weight",
+     "250 x 210 x 95 mm, customizable"
+    ]
+   ]
+  },
+  {
+   "type": "fab",
+   "title": "FAB · ESD Storage Board",
+   "rows": [
+    [
+     [
+      "High-grade ESD material",
+      "10⁶–10⁹ Ω or 10³–10⁵ Ω"
+     ],
+     [
+      "Controlled discharge",
+      "Boards rest on a grounded-safe surface"
+     ],
+     [
+      "Fewer ESD failures",
+      "Protects sensitive assemblies at the bench"
+     ]
+    ],
+    [
+     [
+      "25 individual slots",
+      "6.2 mm pitch, 4.6 mm deep"
+     ],
+     [
+      "Boards stay separated",
+      "No stacking, no rubbing"
+     ],
+     [
+      "No scratches",
+      "Clean, organized workstations"
+     ]
+    ],
+    [
+     [
+      "Durable moulding",
+      "Scratch, wear and corrosion resistant; non-toxic, odourless"
+     ],
+     [
+      "Long service life",
+      "Light 300 g, easy to clean"
+     ],
+     [
+      "Custom sizes",
+      "Made to your PCB dimensions"
+     ]
+    ]
+   ],
+   "notes": "Details: raw material high grade, non-toxic and tasteless, environmentally friendly; scratch, wear and corrosion resistant."
+  },
+  {
+   "type": "gallery",
+   "title": "Design Details",
+   "items": [
+    {
+     "image": "std_c.jpg",
+     "head": "Front view",
+     "body": [
+      "Upright L-profile",
+      "Easy board access"
+     ]
+    },
+    {
+     "image": "std_side.jpg",
+     "head": "Bottom view",
+     "body": [
+      "Stable, ribbed base",
+      "Stays flat on the bench"
+     ]
+    },
+    {
+     "image": "std_top.jpg",
+     "head": "Back view",
+     "body": [
+      "Uniform slot spacing",
+      "Moulded in one piece"
+     ]
+    },
+    {
+     "image": "sy_boards.jpg",
+     "head": "Family options",
+     "body": [
+      "L, U and flat types",
+      "Ask for your size"
+     ],
+     "fit": true
+    }
+   ],
+   "imgh": 2.7,
+   "notes": "Family options image from ESD series catalogue."
+  },
+  {
+   "type": "table",
+   "title": "Technical Specifications",
+   "columns": [
+    "Item",
+    "Specification"
+   ],
+   "widths": [
+    3.0,
+    7.9
+   ],
+   "rows": [
+    [
+     "Product",
+     "L-type ESD storage board"
+    ],
+    [
+     "Brand / model",
+     "Southern Machinery / FJD250-95"
+    ],
+    [
+     "Material",
+     "High-grade ESD material, non-toxic, odourless"
+    ],
+    [
+     "Dimensions (L x W x H)",
+     "250 x 210 x 95 mm (customizable)"
+    ],
+    [
+     "Surface resistance",
+     "10⁶–10⁹ Ω or 10³–10⁵ Ω"
+    ],
+    [
+     "Slot depth / width",
+     "4.6 mm / 3.3 mm"
+    ],
+    [
+     "Slot pitch",
+     "6.2 mm"
+    ],
+    [
+     "Capacity",
+     "25 PCBs (1 slot per PCB)"
+    ],
+    [
+     "Weight",
+     "300 g"
+    ]
+   ],
+   "footer": "Tell us your PCB size — the board can be tailor-made."
+  },
+  {
+   "type": "summary",
+   "title": "Summary & Key Takeaways",
+   "lead": "Simple, low-cost ESD protection for every workstation.",
+   "items": [
+    [
+     "Protection",
+     "10⁶–10⁹ Ω ESD material, conductive option"
+    ],
+    [
+     "Organization",
+     "25 separated slots, boards upright and visible"
+    ],
+    [
+     "Durability",
+     "Scratch, wear and corrosion resistant"
+    ],
+    [
+     "Why Southern Machinery",
+     "One-stop SMT peripheral supply, customization and worldwide after-sales support"
+    ]
+   ],
+   "cta": "Share your PCB size — we will propose a standard or custom storage board"
+  }
+ ]
+}

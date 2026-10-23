@@ -16,6 +16,7 @@ Southern Machinery（南方机械）Agent Skills 集合 — SMT/THT 外贸营销
 | `inquiry-to-proposal` | Hark agent | 新客户询盘 → 客户背调 + 联系人画像 + 产品匹配（含适配边界）+ 跟进计划与英文回复邮件；含产能估算脚本 |
 | `smt-brand-kit` | Hark agent | 供应商产品资料 → Southern Machinery 全套品牌物料：单 HTML 落地页、营销 PPT、海报（A3/社媒）、宣传视频 + Shorts、英文说明书；品牌规范、事实表与证据标签、去供应商标识、质检与反馈迭代（v1.0.0） |
 | `smt-sample-evaluation-report` | Hark agent | 客户打样结果（实测节拍、客户 BOM、测试视频/照片、当地人工成本）→ 客户专属评估报告 PPT（英/葡等多语言，SM 16:9 模板）：产能 UPH/CPH、爬坡、人工 vs 自动化 ROI、回本、收益、BOM 适配、假设与待确认项；参数可配置、质检闸门、版本与反馈记录（v1.0.0） |
+| `smt-product-ppt-rebrand` | Hark agent | 旧产品 PDF/PPT（Drive 文件夹）→ 统一 Southern Machinery 品牌模板（SM-PPT-202309）的英文产品介绍 PPT：提取文字/表格/图片、按产品线分组、FAB 结构、型号表、SEO 文件名、回传 Drive；brand.json/deck-rules.json 配置、spec 校验 + QA 闸门、错误码、semver 版本与 git tag 发布（v1.0.0） |
 
 ### CLI App 技能（nanobot workspace）
 
