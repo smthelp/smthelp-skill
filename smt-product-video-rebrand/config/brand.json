@@ -1,0 +1,48 @@
+{
+  "_doc": "Southern Machinery brand defaults for every product video. A project can override any key under project.json -> brand_overrides. Change here = change for all future videos (bump MINOR version).",
+  "brand_version": "SM-VIDEO-2026-10",
+  "company": "Southern Machinery",
+  "legal_name": "Shenzhen Southern Machinery Sales and Service Co., Ltd.",
+  "tagline": "Southern Machinery  ·  Shenzhen, since 2011",
+  "about_line": "SMT / THT equipment since 2011.",
+  "logo": "assets/logo.png",
+  "contact": {
+    "whatsapp_display": "+86 136 0256 2576",
+    "whatsapp_digits": "8613602562576",
+    "whatsapp_desc": "+86 13602562576",
+    "web": "smthelp.com",
+    "web_url": "https://www.smthelp.com",
+    "email": "info@smthelp.com"
+  },
+  "colors": {
+    "bg": "#0b1514", "bg2": "#101d1b", "bg3": "#162523", "deep": "#04110f",
+    "fg": "#eaf3f1", "fg2": "#b9cdc9", "fg3": "#8aa19d",
+    "brand": "#0c665c", "brand2": "#4fc4b0", "brand3": "#6ad4c1",
+    "gold": "#e8b558", "gold2": "#e0a63b",
+    "line": "#213734", "line2": "#2c4744", "card": "#111f1d",
+    "red": "#e07a5f", "ok": "#4ecfa3", "whatsapp": "#25d366",
+    "grid_top": "#07302b", "grid_bottom": "#04110f", "hero_top": "#0a4a42", "slide_top": "#0c3a35", "slide_bottom": "#061513"
+  },
+  "fonts": {
+    "black": "Inter-Black.ttf", "xbold": "Inter-ExtraBold.ttf", "bold": "Inter-Bold.ttf", "semi": "Inter-SemiBold.ttf",
+    "med": "Inter-Medium.ttf", "reg": "Inter-Regular.ttf", "mono": "JetBrainsMono-Bold.ttf", "monom": "JetBrainsMono-Medium.ttf"
+  },
+  "voice": { "engine": "edge-tts", "name": "en-US-AndrewNeural", "rate": "+3%" },
+  "video": { "width": 3840, "height": 2160, "fps": 30, "crf": 20, "audio_bitrate": "192k", "intro_seconds": 4.0, "loudness_lufs": -15, "music_volume": 0.10 },
+  "pronunciations": [
+    ["\\+86 136 0256 2576", "plus eight six, one three six, zero two five six, two five seven six"],
+    ["smthelp\\.com", "S M T help dot com"],
+    ["Smart EMS", "Smart E M S"],
+    ["\\bMES\\b", "M E S"], ["\\bERP\\b", "E R P"], ["\\bWMS\\b", "W M S"],
+    ["\\bTXT\\b", "T X T"], ["\\bCSV\\b", "C S V"], ["\\bXLS\\b", "X L S"],
+    ["\\bSMT\\b", "S M T"], ["\\bSMD\\b", "S M D"], ["\\bTHT\\b", "T H T"], ["\\bESD\\b", "E S D"], ["\\bPCB\\b", "P C B"],
+    ["\\bEMS\\b", "E M S"], ["\\bAGVs\\b", "A G Vs"], ["\\bAGV\\b", "A G V"], ["\\bIQC\\b", "I Q C"],
+    ["\\bBGAs\\b", "B G As"], ["\\bBGA\\b", "B G A"], ["\\bICs\\b", "I Cs"], ["\\bIC\\b", "I C"], ["\\bID\\b", "I D"],
+    ["\\bNG\\b", "N G"], ["\\bMSD\\b", "M S D"], ["\\bIT team", "I T team"], ["\\b01005\\b", "oh one oh oh five"], ["\\b0201\\b", "oh two oh one"], ["\\b0402\\b", "oh four oh two"]
+  ],
+  "description_footer": [
+    "Email: {email} · Web: {web_url}",
+    "{legal_name} — {about_line}"
+  ],
+  "banned_in_frame": ["supplier logos / brand names (e.g. rmi, 瑞茂光学, leenol, Shuaiyi)", "supplier model numbers and software title bars", "large Chinese UI text or subtitles", "faces or bodies (hands-only is fine)", "watermarks"]
+}

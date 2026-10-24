@@ -1,0 +1,40 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "smt-product-video-rebrand project.json",
+  "type": "object",
+  "required": ["product", "file_prefix", "landing_page", "landing_label", "utm_prefix", "desc_cta", "default_intro_shot"],
+  "properties": {
+    "product": {
+      "type": "object",
+      "required": ["model", "name", "chip", "tag", "footer_cta", "outro_headline", "outro_line"],
+      "properties": {
+        "model": {"type": "string", "description": "Southern Machinery model name, never the supplier's"},
+        "name": {"type": "string", "description": "Generic English product name (search term)"},
+        "chip": {"type": "string", "maxLength": 24, "description": "Short label on blank slides and thumbnails"},
+        "tag": {"type": "string", "maxLength": 60, "description": "Top-right tag and intro kicker"},
+        "footer_cta": {"type": "string", "maxLength": 48},
+        "outro_headline": {"type": "string", "maxLength": 44},
+        "outro_line": {"type": "string", "maxLength": 110},
+        "outro_chapter": {"type": "string"}
+      }
+    },
+    "file_prefix": {"type": "string", "pattern": "^[a-z0-9]+(-[a-z0-9]+)*$"},
+    "source_dir": {"type": "string", "default": "source"},
+    "default_batch": {"type": "string", "default": "batch1"},
+    "default_intro_shot": {"type": "array", "prefixItems": [{"type": "string"}, {"type": "number"}]},
+    "landing_page": {"type": "string", "format": "uri"},
+    "landing_label": {"type": "string"},
+    "utm_prefix": {"type": "string"},
+    "desc_cta": {"type": "string"},
+    "desc_disclaimer": {"type": "string"},
+    "outro_text": {"type": "string"},
+    "primary_keyword": {"type": "string"},
+    "pronunciations": {"type": "array", "items": {"type": "array", "minItems": 2, "maxItems": 2}},
+    "forbidden_claims": {"type": "array", "items": {"type": "string"}},
+    "example_only_patterns": {"type": "array", "items": {"type": "string"}},
+    "drive_folder_id": {"type": "string"},
+    "doc_title": {"type": "string"},
+    "logo": {"type": "string", "description": "optional project-relative logo override"},
+    "brand_overrides": {"type": "object", "description": "deep-merged over config/brand.json"}
+  }
+}
