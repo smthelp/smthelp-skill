@@ -8,6 +8,7 @@ sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 import cfg
 
 FOLDER = sys.argv[1]
+os.chdir(cfg.OUT)  # gws only uploads files under the current directory
 LOG = os.path.join(cfg.OUT, 'uploads.json')
 done = json.load(open(LOG)) if os.path.exists(LOG) else {}
 

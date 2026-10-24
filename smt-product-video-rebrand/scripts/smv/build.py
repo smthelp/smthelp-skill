@@ -105,7 +105,7 @@ def seg_filter(sid, d, S):
     if sh['kind'] in ('p', 'm'):
         cw, ch = sh.get('cw'), sh.get('ch')
         if not cw: cw, ch = KIND[sh['kind']]
-        f = f"[0:v]crop={cw}:{ch}:0:{sh['y0']}"
+        f = f"[0:v]crop={cw}:{ch}:{sh.get('x0', 0)}:{sh['y0']}"
         if sh.get('blur'):
             f += ',split=2[m][b0]'
             chain = '[m]'
@@ -398,7 +398,7 @@ def shot_still(sid, t, path):
     cw, ch = sh.get('cw'), sh.get('ch')
     if not cw: cw, ch = KIND.get(sh['kind'], (960, 400))
     y0 = sh.get('y0', 50)
-    run(f"ffmpeg -v error -y -ss {sh['a'] + t} -i {SRC}{sh['src']}.mp4 -frames:v 1 -vf crop={cw}:{ch}:0:{y0} -update 1 {path}")
+    run(f"ffmpeg -v error -y -ss {sh['a'] + t} -i {SRC}{sh['src']}.mp4 -frames:v 1 -vf crop={cw}:{ch}:{sh.get('x0', 0)}:{y0} -update 1 {path}")
     im = Image.open(path).convert('RGB')
     for bx in sh.get('blur', []):
         x, y, w, h = bx[:4]; sg = bx[4] if len(bx) > 4 else 16

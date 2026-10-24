@@ -2,7 +2,7 @@
 name: smt-product-video-rebrand
 description: Turn raw supplier / factory product demo clips (phone videos, Chinese UI, supplier logos, people in frame) into Southern Machinery branded English marketing videos for YouTube - 16:9 4K, English voice-over, burned-in subtitles + .srt, generated music, branded motion-graphic slides, 1280x720 thumbnail, SEO title / description / chapters / tags, and a copy Google Doc - one video per marketing theme, delivered to Google Drive (never auto-published). Use when Jason says 把产品视频做成营销视频/品牌化视频/YouTube 视频/再做 N 条视频/按主题做视频/视频二次创作, gives a Drive folder of product clips plus topics or titles, or asks for more videos of a product already done (add a batch).
 metadata:
-  version: 1.0.0
+  version: 1.0.1
   updated: 2026-10-24
   brand_version: SM-VIDEO-2026-10
   first_case: Smart EMS X3100 X-ray SMD counter - batch1 7 videos, batch2 10 videos (Oct 2026)
