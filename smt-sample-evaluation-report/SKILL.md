@@ -1,16 +1,21 @@
 ---
 name: smt-sample-evaluation-report
-description: Turn a customer sample (trial) run on a Southern Machinery machine - measured cycle time, customer BOM, test video/photos, local labour cost - into a customer-specific evaluation report deck (EN/PT/...) with capacity (UPH/CPH), ramp-up, ROI manual vs automation, payback/break-even, benefits, BOM fit, assumptions and next steps, on the SM 16:9 PPT template. Use when Jason says 打样结果/样板测试/试产 + 评估报告/方案/ROI/产能分析 for a customer board, or asks for a sample-test report, solution deck or ROI deck for a named customer.
+description: Turn a customer's boards into a customer-specific evaluation report deck on the SM 16:9 PPT template (EN/PT/...). Two report types - sample_test (one board measured on one machine; capacity, ramp-up, ROI manual vs automation, payback, benefits, BOM fit) and line_evaluation (several boards estimated from PCBA photos or BOMs on a multi-machine line such as radial + odd-form; marked board photos, cycle per machine, line output, bottleneck and balance option, feeder plan per station, component readiness). Use when Jason says 打样结果/样板测试/试产/PCBA 评估/照片评估 + 评估报告/方案/ROI/产能分析/线体配置 for a customer board, or asks for a sample-test report, PCBA evaluation, solution deck or ROI deck for a named customer, or to refresh an old evaluation PPT.
 metadata:
-  version: 1.0.0
-  updated: 2026-10-20
-  first_case: Zebu (Brazil) ZK50 AUTO board on S3000 radial inserter
+  version: 2.0.0
+  updated: 2026-10-26
+  cases: Zebu ZK50 / S3000 (sample_test); Acuity Brands 4 boards / S-3010 + 3x S-70DL (line_evaluation, reissue of 2020 PCBA Evaluation)
   depends_on: smt-brand-kit (smdeck.py primitives, A4 make_deck.py), learn-SMT-in-3-hours (evidence labels)
 ---
 
 # SMT Sample Evaluation Report
 
-Sample run -> one `case.json` -> one calculation -> one slide spec per language -> PPTX -> QA gate.
+Customer boards -> one `case.json` -> one calculation -> one slide spec per language -> PPTX -> QA gate.
+
+| case.json `type` | When | Slides |
+|---|---|---|
+| `sample_test` (default) | one board was run on one machine; cycle measured | cover, why automate, test evidence, BOM fit, capacity, ramp-up, ROI, payback, why machine, benefits, gallery, specs, assumptions, next steps |
+| `line_evaluation` | several boards, estimated from PCBA photos/BOM, multi-machine line (radial + odd-form / axial) | cover, method, proposed line, results table, one marked-photo slide per board, feeder plan, line balance, component readiness, specs, gallery, accuracy & open points, next steps |
 Figures are computed once in `calc.py`; every slide number is formatted from that result, never typed by hand.
 
 ```
@@ -26,10 +31,11 @@ assets/machines/<id>.json ────┘        └─> make_spec.py (+ assets/
 - `references/method.md` - every formula, rounding rule and evidence label; the 16-slide report structure
 - `references/output-spec.md` - files produced, slide types, delivery checklist
 - `references/feedback-log.md` - rules learned from Jason; apply all `done` rules, ask about `open` ones
-- Worked example: `assets/examples/zebu-zk50-s3000/` (case.json + photos) -> `python3 scripts/run.py assets/examples/zebu-zk50-s3000`
+- Worked examples: `assets/examples/zebu-zk50-s3000/` (sample_test) and `assets/examples/acuity-pcba-line/` (line_evaluation) -> `python3 scripts/run.py <example>`
 
 ## Workflow
-1. **Case folder**: copy `assets/examples/zebu-zk50-s3000/case.json` to a new folder (e.g. `output/solutions/<customer>-<board>/case.json`); put chosen photos in `photos/`.
+0. **Refreshing an old evaluation PPT**: read every slide (python-pptx: text, tables, pictures); take board photos with their crop, and read engineer markers (ellipse = radial, rectangle = odd-form/axial) as fractions of the picture into `boards[].markers`; carry the old counts/rates into case.json and list every inconsistency found as a board `note` (never silently fix).
+1. **Case folder**: copy the example matching the report type to a new folder (e.g. `output/solutions/<customer>-<board>/case.json`); put chosen photos in `photos/`.
 2. **Facts in** (input-spec.md):
    - from the test video/program: cycle seconds per panel, boards per panel, program points per board;
    - from the customer BOM: every part of this process with refs, qty, value, span, polarity; mark parts outside the machine limits `"fit": false`; put other processes (axial, odd-form, SMT) in `out_of_scope`;
@@ -62,21 +68,28 @@ assets/machines/<id>.json ────┘        └─> make_spec.py (+ assets/
 ## Folder layout
 ```
 SKILL.md                      this guide (metadata.version = current version)
-scripts/  run.py calc.py make_spec.py render16.py qa.py bump_version.py feedback.py
+scripts/  run.py calc.py make_spec.py render16.py mark_board.py qa.py bump_version.py feedback.py
 references/ input-spec.md method.md output-spec.md feedback-log.md changelog.md
 assets/config/defaults.json   parameters      assets/i18n/<lang>.json   wording (en, pt)
-assets/machines/<id>.json     machine facts   assets/template/          SM PPT template 202309 + template.json
-assets/examples/zebu-zk50-s3000/              worked case (case.json + photos)
+assets/machines/<id>.json     machine facts (s3000, s3010, s70dl)   assets/template/          SM PPT template 202309 + template.json
+assets/examples/zebu-zk50-s3000/ (sample_test) · assets/examples/acuity-pcba-line/ (line_evaluation)
 ```
 
 ## Version record
 `metadata.version` in this file + `references/changelog.md` (newest first) + `references/feedback-log.md` (Jason's remarks -> rules). Every run stamps the version into calc.json, deck specs and summary.md, so any delivered deck can be traced to the skill version that made it.
+
+## Line evaluation inputs (summary - full list in input-spec.md)
+- `line`: machine groups `[{"machine": "s3010", "qty": 1}, {"machine": "s70dl", "qty": 3, "stations": ["FS#1","FS#2","FS#3"]}]`; rate = machine file `eval_cph` (or `cph` override).
+- `boards[]`: id, pcb, model, boards_per_panel, parts per process per board, photo, markers, feeders per station, optional `qty` override per machine, `note`.
+- `evidence: "photo"` requires `accuracy_note` (QA E7). `scripts/mark_board.py` draws the markers (red circle radial, blue box odd-form, amber box axial).
 
 ## Rules
 - Measured figures come only from the test (video, program, report). Catalogue figures carry the catalogue as source. Everything else is a planning assumption and is listed on the assumptions slide.
 - If the test program covered fewer points than the BOM, the report computes on the BOM and states the cycle must be re-confirmed with the full program (QA E4). Never present it as a contractual performance.
 - No machine price anywhere; payback is "customer quote ÷ monthly saving".
 - Numbers are formatted per language (EN 1,029 / 0.32; PT 1.029 / 0,32). Add a language = add `assets/i18n/<lang>.json` with identical keys (translate with one subagent per language) plus that language in every `{en,pt}` text of case/machine files.
+- Every report ends with the disclaimer: the equipment PO specification prevails and SM may adjust after acceptance (from the 2020 evaluation format).
+- Missing translations fall back to English and QA warns (W3); translate before sending a non-English deck.
 - Template slides kept at the end (after-sales, contact) are translated through `template_text` in the language file.
 
 ## Upgrading the skill
