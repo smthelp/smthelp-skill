@@ -42,6 +42,15 @@ def main():
         print(lang, (r.stdout.strip().splitlines() or ["?"])[0], "->", pptx)
     res = qa.run(case_dir)
     F = make_spec.Fmt({"thousands": ",", "decimal": "."})
+    if c.get("type") == "line_evaluation":
+        lines = [f"# {case['customer']} - line evaluation (skill v{c['skill_version']})", "",
+                 "- Line: " + " + ".join(f"{g['qty']} x {g['name']} ({g['process']}, ~{F(g['cph'])} CPH)" for g in c["line"])]
+        for b in c["boards"]:
+            lines.append(f"- {b['id']} {b['pcb']}: " + ", ".join(f"{g['name']} {F(g['cycle'],1)} s" for g in b["groups"])
+                         + f" -> {F(b['line_boards_h'])} boards/h (bottleneck {b['bottleneck_name']}; +1 {b['alt_add']}: {F(b['alt_boards_h'])})")
+        lines += ["", f"QA: {len(res['errors'])} errors, {len(res['warnings'])} warnings"] + [f"- {x}" for x in res["errors"] + res["warnings"]]
+        open(os.path.join(out, "summary.md"), "w", encoding="utf-8").write("\n".join(lines) + "\n"); print("\n".join(lines))
+        sys.exit(0 if res["ok"] else 1)
     lines = [f"# {case['customer']} {case['board']} - {m['name']} sample evaluation (skill v{c['skill_version']})", "",
              f"- Measured: {c['cycle']} s per {c['bpp']}-board panel; BOM {c['ppb']} parts/board, {c['ppp']}/panel"
              + (f"; test program {c['prog_pts']} pts/board (to be confirmed with full BOM)" if c['prog_pts'] and c['prog_pts'] != c['ppb'] else ""),
