@@ -50,10 +50,18 @@ def values(case, c, m, T, lang):
     return v, F
 
 
+def load_lang(lang):
+    """Language file merged over English, so a key not yet translated falls back to EN (qa.py warns W3)."""
+    en = json.load(open(os.path.join(SKILL, "assets", "i18n", "en.json"), encoding="utf-8"))
+    if lang != "en": en.update(json.load(open(os.path.join(SKILL, "assets", "i18n", lang + ".json"), encoding="utf-8")))
+    return en
+
+
 def build(case_dir, lang, c=None):
     case, p, m = load_case(case_dir)
     c = c or compute(case, p, m)
-    T = json.load(open(os.path.join(SKILL, "assets", "i18n", lang + ".json"), encoding="utf-8"))
+    if case.get("type") == "line_evaluation": return build_line(case_dir, lang, case, p, m, c)
+    T = load_lang(lang)
     V, F = values(case, c, m, T, lang)
     t = lambda k: T[k].format_map(V) if isinstance(T[k], str) else [x.format_map(V) for x in T[k]]
     fm = lambda s: L(s, lang).format_map(V)
@@ -122,12 +130,101 @@ def build(case_dir, lang, c=None):
               "rows": [t("spec_cols")] + [[L(a, lang), L(b, lang)] for a, b in m["specs"]], "notes": m.get("source", "")})
     bl = [t("a_measured"), t("a_bom"), t("a_params")]
     if c["prog_pts"] and c["prog_pts"] != c["ppb"]: bl.append(t("a_prog"))
-    bl += [L(x, lang) for x in case.get("open_points", [])] + [t("a_price")]
+    bl += [L(x, lang) for x in case.get("open_points", [])] + [t("a_price"), t("a_disclaimer")]
     S.append({"type": "bullets", "kicker": t("ass_kicker"), "title": t("ass_title"), "bullets": bl,
               "image": pic("assumptions"), "caption": cap("assumptions")})
     S.append({"type": "cta", "kicker": t("cta_kicker"), "title": t("cta_title"),
               "facts": [{"h": t(f"n{i}_h"), "b": t(f"n{i}_b")} for i in range(1, 4)], "text": t("cta_bar")})
     return {"title": t("deck_title"), "lang": lang, "slides": S, "template_text": T.get("template_text", {})}
+
+
+def build_line(case_dir, lang, case, p, M, c):
+    """Line evaluation (several boards, one machine group per process, e.g. radial + odd-form)."""
+    from mark_board import mark
+    T = load_lang(lang); F = Fmt(T["_locale"]); PN = T["process_name"]
+    out = os.path.join(case_dir, "out"); os.makedirs(out, exist_ok=True)
+    A = lambda r: os.path.join(os.path.abspath(case_dir), r)
+    ph = case.get("photos", {})
+    grp = {g["process"]: g for g in c["line"]}
+    rad, odd = grp.get("radial"), grp.get("oddform")
+    line_desc = " + ".join(f"{g['qty']} × {g['name']} {PN[g['process']]}" for g in c["line"])
+    V = {"customer": case["customer"], "board_count": c["board_count"], "line_desc": line_desc[0].upper() + line_desc[1:],
+         "radial_name": rad["name"] if rad else "-", "odd_name": odd["name"] if odd else "-",
+         "odd_stations": len(odd["stations"]) if odd and odd["stations"] else (odd["qty"] if odd else 0),
+         "rate_min": F(c["rate_min"]), "rate_max": F(c["rate_max"]), "eff_pct": F(c["eff"] * 100),
+         "plan_min": F(c["rate_min"] * c["eff"]), "plan_max": F(c["rate_max"] * c["eff"]), "shift_h": c["shift_h"], "days": c["days"],
+         "rates_list": "; ".join(f"{g['name']} ~{F(g['cph'])} CPH ({M[g['machine']].get('eval_cph_note', '')})" for g in c["line"])}
+    t = lambda k, **kw: (T[k].format_map({**V, **kw}) if isinstance(T[k], str) else [x.format_map({**V, **kw}) for x in T[k]])
+    cap = lambda k: L(ph[k].get("cap", ""), lang) if ph.get(k) else ""
+    pic = lambda k: A(ph[k]["src"]) if ph.get(k) else None
+    acc = L(case.get("accuracy_note", ""), lang)
+    src = f"Sources: {case.get('source', '')}; " + "; ".join(M[g['machine']].get("source", "") for g in c["line"])
+    S = []
+    S.append({"type": "cover", "kicker": t("L_cover_kicker"), "title": t("L_cover_title"), "subtitle": t("L_cover_sub"),
+              "image": pic("cover"), "focus": ph.get("cover", {}).get("focus", [0.5, 0.5]),
+              "metrics": [{"v": str(c["board_count"]), "l": t("L_m_boards")}, {"v": str(sum(g["qty"] for g in c["line"])), "l": t("L_m_line")},
+                          {"v": f"{V['rate_min']}–{V['rate_max']}", "l": t("L_m_rate")}, {"v": "±5 %" if case.get("evidence") == "photo" else "—", "l": t("L_m_acc")}],
+              "notes": src + " [Estimate from photos]"})
+    S.append({"type": "steps", "kicker": t("L_method_kicker"), "title": t("L_method_title"),
+              "steps": [{"h": t(f"L_s{i}_h"), "b": t(f"L_s{i}_b")} for i in range(1, 5)], "image": pic("method"), "caption": cap("method"), "notes": acc})
+    cards = []
+    for g in c["line"]:
+        cards.append({"h": t("L_grp_h", name=g["name"], proc=PN[g["process"]]),
+                      "b": t("L_grp_b_" + g["process"], qty=g["qty"], name=g["name"], cph=F(g["cph"]), stations=" / ".join(g["stations"]))})
+    S.append({"type": "cards", "kicker": t("L_line_kicker"), "title": t("L_line_title"), "cols": 1, "cards": cards,
+              "image": pic("line"), "caption": cap("line"), "notes": src})
+    gcol = lambda b, proc: next((x for x in b["groups"] if x["process"] == proc), None)
+    rows = [t("L_sum_cols")]
+    for b in c["boards"]:
+        r, o = gcol(b, "radial"), gcol(b, "oddform")
+        rows.append([f"{b['id']} · {b['pcb']}", str(b["bpp"]), str(b["parts_board"]), F(r["cycle"], 1) if r else "—", F(o["cycle"], 1) if o else "—", F(b["line_boards_h"])])
+    S.append({"type": "table", "kicker": t("L_sum_kicker"), "title": t("L_sum_title") if c["board_count"] == 4 else t("L_sum_title_n"),
+              "colw": [0.26, 0.13, 0.13, 0.16, 0.16, 0.16], "rows": rows, "note": t("L_sum_note"), "notes": src})
+    cb = {x["id"]: x for x in case["boards"]}
+    for b in c["boards"]:
+        cbd = cb[b["id"]]; img = A(cbd["photo"])
+        if cbd.get("markers"): img = mark(img, cbd["markers"], os.path.join(os.path.abspath(out), f"marked-{b['id']}.jpg"))
+        mets = []
+        for g in b["groups"]:
+            mets.append({"v": str(g["ppp"]), "l": t("L_b_m_parts", proc=PN[g["process"]])})
+            mets.append({"v": F(g["cycle"], 1), "l": t("L_b_m_cycle", qty=g["qty"], name=g["name"])})
+        mets += [{"v": F(b["line_boards_h"]), "l": t("L_b_m_line")}, {"v": F(b["planned_boards_h"]), "l": t("L_b_m_plan")}]
+        parts_list = ", ".join(f"{g['per_board']} {PN[g['process']]}" for g in b["groups"])
+        S.append({"type": "board", "kicker": t("L_b_kicker", id=b["id"], pcb=b["pcb"], model=b["model"]),
+                  "title": t("L_b_title", id=b["id"], line_boards_h=F(b["line_boards_h"]), bottleneck=b["bottleneck_name"]),
+                  "image": img, "metrics": mets, "text": t("L_b_text", bpp=b["bpp"], parts_list=parts_list) + (" " + L(cbd["note"], lang) if cbd.get("note") else ""),
+                  "notes": "Cycle = parts per panel / (CPH x machines) x 3600. " + (L(cbd.get("note", ""), lang))})
+    if odd and any(x.get("feeders") for x in case["boards"]):
+        st = odd["stations"] or sorted({k for x in case["boards"] for k in x.get("feeders", {})})
+        rows = [[T["L_feed_cols0"]] + [x["id"] for x in case["boards"]]]
+        for s_ in st: rows.append([s_] + [x.get("feeders", {}).get(s_, "—") for x in case["boards"]])
+        n = len(case["boards"])
+        S.append({"type": "table", "kicker": t("L_feed_kicker"), "title": t("L_feed_title"), "colw": [0.12] + [0.88 / n] * n,
+                  "rows": rows, "note": t("L_feed_note"), "size": 13})
+    bn = {b["bottleneck_name"] for b in c["boards"]}
+    rows = [t("L_bal_cols", alt=(list(bn)[0] if len(bn) == 1 else "machine"))]
+    for b in c["boards"]:
+        o = gcol(b, "oddform")
+        rows.append([b["id"], b["bottleneck_name"], F(o["util"] * 100) + " %" if o else "—", F(b["line_boards_h"]), F(b["alt_boards_h"]), "+" + F(b["alt_gain"] * 100) + " %"])
+    S.append({"type": "table", "kicker": t("L_bal_kicker"), "title": t("L_bal_title", bott_main=list(bn)[0]) if len(bn) == 1 else t("L_bal_title_mixed"),
+              "colw": [0.12, 0.18, 0.17, 0.17, 0.2, 0.16], "rows": rows, "note": t("L_bal_note"), "notes": "[Concept view]"})
+    S.append({"type": "bullets", "kicker": t("L_ready_kicker"), "title": t("L_ready_title"), "bullets": t("L_ready"),
+              "image": pic("readiness"), "caption": cap("readiness")})
+    rows = [t("L_spec_cols")]
+    for g in c["line"]:
+        for a, b in M[g["machine"]]["specs"]: rows.append([f"{g['name']} · {L(a, lang)}", L(b, lang)])
+    S.append({"type": "table", "kicker": t("L_spec_kicker"), "title": t("L_spec_title"), "colw": [0.36, 0.64], "rows": rows,
+              "size": 12 if len(rows) > 10 else 13, "notes": src})
+    if ph.get("gallery"):
+        S.append({"type": "gallery", "kicker": t("L_gal_kicker"), "title": t("L_gal_title"),
+                  "images": [{"src": A(g["src"]), "cap": L(g["cap"], lang)} for g in ph["gallery"][:6]]})
+    bl = ([acc] if acc else []) + [t("L_a_rates"), t("L_a_eff")]
+    bl += [f"{x['id']}: {L(x['note'], lang)}" for x in case["boards"] if x.get("note")]
+    bl += [L(x, lang) for x in case.get("open_points", [])] + [t("a_price")]
+    S.append({"type": "bullets", "kicker": t("L_ass_kicker"), "title": t("L_ass_title"), "bullets": bl, "size": 13})
+    S.append({"type": "cta", "kicker": t("cta_kicker"), "title": t("cta_title"),
+              "facts": [{"h": t(f"L_n{i}_h"), "b": t(f"L_n{i}_b")} for i in range(1, 4)], "text": t("cta_bar")})
+    return {"title": t("L_deck_title"), "lang": lang, "slides": S, "template_text": T.get("template_text", {}) if lang != "en" else {}}
 
 
 if __name__ == "__main__":
