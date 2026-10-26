@@ -4,7 +4,7 @@
 usage: render16.py <spec.json> <out.pptx> [--template assets/template/template.json] [--preview DIR]
 template.json names the .pptx, the chrome layout index, the template slides to drop and to keep at
 the end (keep slides are translated with spec["template_text"]), the safe area and colours.
-Slide types: cover, cards (cols 1|2, numbered), steps, table, metrics, gallery, bullets, cta.
+Slide types: cover, cards (cols 1|2, numbered), steps, table, metrics, board (wide marked PCB photo + metric row), gallery, bullets, cta.
 Exit code 1 when any text overflows or media is missing (shorten copy; never shrink fonts).
 Needs smt-brand-kit/scripts/smdeck.py (sibling skill) for text/table/picture primitives."""
 import json, os, sys
@@ -174,6 +174,19 @@ for s in spec["slides"]:
             h = D.measure(s["text"], ww, 13.5, False, 1.2); D.text(X0, yt, ww, h, s["text"], 13.5, False, GREY, lsp=1.2, name="mtext")
             if yt + h > Y1: D.errors.append("metrics text overflow")
         if s.get("image"): img(s, X0 + ww + 0.3, y, X1 - X0 - ww - 0.3, Y1 - y)
+    elif t == "board":
+        y = D.title(s["title"], s.get("kicker")); y = lead(s, y)
+        from PIL import Image as _I
+        iw, ih = _I.open(D.path(s["image"])).size
+        m = s["metrics"]; mh = 1.25; th = D.measure(s.get("text", ""), W, 12.5, False, 1.15) if s.get("text") else 0
+        ph = min(W * ih / iw, Y1 - y - mh - 0.2 - th - 0.1); pw = ph * iw / ih
+        D.pic(s["image"], X0 + (W - pw) / 2, y, pw, ph, fit="contain"); y += ph + 0.15
+        mw = (W - 0.12 * (len(m) - 1)) / len(m)
+        for i, mm in enumerate(m): metric(X0 + i * (mw + 0.12), y, mw, mh, mm["v"], mm["l"])
+        y += mh + 0.1
+        if s.get("text"):
+            D.text(X0, y, W, th, s["text"], 12.5, False, GREY, lsp=1.15, name="btext")
+            if y + th > Y1 + 0.01: D.errors.append("board text overflow")
     elif t == "gallery":
         y = D.title(s["title"], s.get("kicker")); ims = s["images"]; cols = 3 if len(ims) > 4 else len(ims); rows = (len(ims) + cols - 1) // cols
         gw = (W - 0.2 * (cols - 1)) / cols; gh = (Y1 - y - 0.15 * (rows - 1)) / rows
@@ -182,10 +195,10 @@ for s in spec["slides"]:
             D.pic(g["src"], x, yy, gw, gh - 0.36); D.text(x, yy + gh - 0.34, gw, 0.32, g["cap"], 10.5, False, GREY, name="caption")
     elif t == "bullets":
         y = D.title(s["title"], s.get("kicker")); y = lead(s, y)
-        bw = 7.4; h = D.measure(s["bullets"], bw, 14.5, False, 1.25, True)
-        D.text(X0, y, bw, h, s["bullets"], 14.5, False, NAVY, lsp=1.25, name="bullets", bullets=True)
+        bw = 7.4 if s.get("image") else W; bs = s.get("size", 14.5); h = D.measure(s["bullets"], bw, bs, False, 1.25, True)
+        D.text(X0, y, bw, h, s["bullets"], bs, False, NAVY, lsp=1.25, name="bullets", bullets=True)
         if y + h > Y1: D.errors.append("bullets overflow")
-        img(s, X0 + bw + 0.35, y, X1 - X0 - bw - 0.35, Y1 - y)
+        if s.get("image"): img(s, X0 + bw + 0.35, y, X1 - X0 - bw - 0.35, Y1 - y)
     elif t == "cta":
         y = D.title(s["title"], s.get("kicker")) + 0.1
         fs = s["facts"]; cw = (W - 0.25 * (len(fs) - 1)) / len(fs); h = max(cardh(cw, f["b"], 13.5) for f in fs) + 0.2
