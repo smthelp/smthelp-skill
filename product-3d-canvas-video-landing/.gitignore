@@ -1,0 +1,4 @@
+__pycache__/
+*.pyc
+# project folders created by `p3cv init` should live OUTSIDE the skill folder
+/projects/

@@ -1,0 +1,470 @@
+{
+ "$schema": "../../config/product.schema.json",
+ "slug": "juki-gripper-nozzle",
+ "product_name": "JUKI Gripper Nozzle SM-2070 / SM-2071",
+ "brand": {
+  "primary": "#00A896",
+  "primary_dark": "#028090",
+  "dark_bg": "#0B132B",
+  "dark_glow": "#123a5a",
+  "accent": "#38BDF8",
+  "bar_label": "JUKI GRIPPER NOZZLES"
+ },
+ "sources": {
+  "drawings": [
+   {
+    "id": "d2",
+    "url": "https://file.autoinsertion.com/public/SMT%20machine%203D%20Drawing%20in%20Html/JUKI-Gripper-Nozzle-2583-Interactive-WordPress.html",
+    "viewer": "threejs",
+    "capture": true
+   },
+   {
+    "id": "d1",
+    "url": "https://file.autoinsertion.com/public/SMT%20machine%203D%20Drawing%20in%20Html/juki-a-2723-smt-gripper-nozzle-wordpress.html",
+    "viewer": "threejs"
+   },
+   {
+    "id": "d3",
+    "url": "https://file.autoinsertion.com/public/SMT%20machine%203D%20Drawing%20in%20Html/SMT%20Gripper%20nozzle%20JUKI.html",
+    "viewer": "edrawings"
+   }
+  ],
+  "landing": [
+   {
+    "id": "land2",
+    "url": "https://file.autoinsertion.com/public/Product%20landing%20Page/juki-jm-odd-form-insertion-gripper-nozzle-design-manufacturing.html"
+   },
+   {
+    "id": "land1",
+    "url": "https://file.autoinsertion.com/public/Product%20landing%20Page/smart_gripper_nozzle_industry_4_0_system.html"
+   }
+  ],
+  "docs": []
+ },
+ "anim": {
+  "module": "jaw-anim.js",
+  "global": "JawAnim"
+ },
+ "voice": {
+  "voice": "en-US-AndrewNeural",
+  "rate": "-2%",
+  "replacements": {
+   "info at smthelp dot com": "info@smthelp.com"
+  }
+ },
+ "segments": [
+  {
+   "text": "Coils, relays, connectors and terminal blocks don't have a flat top. A vacuum nozzle can't seal on them, and at high speed the part tilts or drops.",
+   "chapter": "Why vacuum nozzles fail on odd-form parts"
+  },
+  {
+   "text": "Southern Machinery designs and manufactures gripper nozzles for JUKI JM odd-form insertion machines, in our own factory in Shenzhen since 2011.",
+   "chapter": "Southern Machinery JUKI gripper nozzles"
+  },
+  {
+   "text": "This is the SM-2070. Over the part, its jaws slide open, up to eleven millimetres.",
+   "chapter": "Jaws open over the part"
+  },
+  {
+   "text": "It descends into the tray pocket. The slim jaws pass the neighbouring parts and reach below the middle of the component.",
+   "chapter": "Descend into the tray pocket"
+  },
+  {
+   "text": "Then the jaws slide together horizontally. A true parallel clamp, with no scissor tilt.",
+   "chapter": "Parallel horizontal clamp"
+  },
+  {
+   "text": "The head lifts and moves at full speed. The part is held mechanically, so it stays square.",
+   "chapter": "Lift and move at speed"
+  },
+  {
+   "text": "Over the upward camera, the machine checks the part and its leads.",
+   "chapter": "Vision check"
+  },
+  {
+   "text": "Then the leads go straight into the holes in the PCB.",
+   "chapter": "Insert into the PCB"
+  },
+  {
+   "text": "The jaws open, release the part, and the head returns for the next one.",
+   "chapter": "Release and retract"
+  },
+  {
+   "text": "Two models cover the range. The SM-2070 opens from zero to eleven millimetres, for parts from one to nine point five millimetres. The SM-2071 opens from eight point five to eighteen point five, for parts from nine point five to seventeen point five millimetres. Both have slim, seven by seven millimetre arms.",
+   "chapter": "SM-2070 vs SM-2071"
+  },
+  {
+   "text": "They plug into the standard tool changer on the JUKI JM-10, JM-20, JM-50 and JM-100, and on KE-2000, FX and RS-1 series machines. We also supply standard JUKI 700-series and 800-series gripper nozzles.",
+   "chapter": "JUKI compatibility and standard grippers"
+  },
+  {
+   "text": "Need a custom design, like our 2723 or 2583 C grippers? Send us your JUKI model, a drawing of the part, and samples or photos. Custom tooling in about seven days. Email info at smthelp dot com.",
+   "chapter": "Order a custom gripper nozzle"
+  }
+ ],
+ "landing": {
+  "base": "land2",
+  "insert_before": "  <!-- SECTION 4: JUKI STANDARD & LEGACY GRIPPER NOZZLE MATRIX -->",
+  "nav_after_href": "#models",
+  "output": "juki-gripper-nozzle-landing-page-animated.html",
+  "section": {
+   "eyebrow": "SM-2070 · How it works",
+   "title": "Open. Descend. Clamp. Insert.",
+   "intro": "Watch one full cycle of the SM-2070 horizontal slide gripper on a JUKI JM: the jaws open over a coil in a dense matrix tray, clamp it in true parallel, pass the vision check and insert its leads into the PCB.",
+   "canvas_label": "Animated side view: SM-2070 gripper nozzle picks a coil from a matrix tray, passes the upward camera and inserts it into a PCB",
+   "steps": [
+    [
+     "Jaws open over the part",
+     "The opposed jaws slide apart, up to 11 mm on the SM-2070."
+    ],
+    [
+     "Descend into the tray pocket",
+     "Slim 7 mm arms pass neighbouring parts and reach below the component's middle."
+    ],
+    [
+     "Parallel horizontal clamp",
+     "The jaws slide together in true parallel, with no scissor tilt."
+    ],
+    [
+     "Lift and move at speed",
+     "The part is held mechanically, so it stays square under gantry acceleration."
+    ],
+    [
+     "Vision check from below",
+     "The machine's upward camera checks the part and its leads."
+    ],
+    [
+     "Insert leads into the PCB",
+     "The leads go straight down into the through-holes."
+    ],
+    [
+     "Release and retract",
+     "The jaws open, the head rises and returns for the next part."
+    ]
+   ],
+   "tt_panel": {
+    "title": "Custom JUKI gripper in 3D",
+    "text": "Our JUKI 2583 C gripper nozzle, one of the custom designs built for odd-form, connector, terminal and E-cap parts. Drag to turn.",
+    "alt": "3D model of the Southern Machinery JUKI 2583 C gripper nozzle"
+   },
+   "photo_panel": {
+    "title": "SM-2070 vs SM-2071",
+    "text": "Same horizontal slide method, two ranges: 0–11 mm opening for 1–9.5 mm parts, and 8.5–18.5 mm opening for 9.5–17.5 mm parts.",
+    "image": "img/land2_b64_2.jpg",
+    "alt": "JUKI 2070 and 2071 gripper nozzle comparison, closed and opened",
+    "fit": "contain"
+   },
+   "cards": [
+    [
+     "0–11 mm",
+     "SM-2070 opening",
+     "For parts from 1 to 9.5 mm, closes fully to 0 mm."
+    ],
+    [
+     "8.5–18.5 mm",
+     "SM-2071 opening",
+     "For parts from 9.5 to 17.5 mm: coils, relays, terminal blocks."
+    ],
+    [
+     "7 × 7 mm",
+     "Slim arms",
+     "Arm width and height on both models, for dense matrix trays."
+    ],
+    [
+     "~7 days",
+     "Custom tooling",
+     "Send your JUKI model, a part drawing and samples or photos."
+    ]
+   ],
+   "cta": {
+    "whatsapp_text": "Hi, I need a JUKI gripper nozzle",
+    "email_subject": "JUKI gripper nozzle RFQ",
+    "whatsapp_label": "Send your part on WhatsApp"
+   }
+  },
+  "nav_after_text": "SM-2070 & SM-2071"
+ },
+ "video": {
+  "basename": "JUKI_Gripper_Nozzle_SM2070",
+  "chunks": 2,
+  "scenes": [
+   {
+    "type": "hero",
+    "from_segment": 0,
+    "kicker": "The odd-form problem",
+    "headline": "Not every part<br>has a flat top.",
+    "chips": [
+     [
+      "Contoured tops: no vacuum seal",
+      "#38BDF8"
+     ],
+     [
+      "High-speed turns: parts tilt",
+      "#f59e0b"
+     ],
+     [
+      "Dense trays: tight clearance",
+      "#ef4444"
+     ]
+    ],
+    "chip_times": [
+     2.6,
+     5.2,
+     7.6
+    ]
+   },
+   {
+    "type": "turntable",
+    "from_segment": 1,
+    "kicker": "Southern Machinery · Shenzhen · since 2011",
+    "title": "JUKI Gripper<br>Nozzles",
+    "subtitle": "Design &amp; manufacturing · JUKI JM odd-form",
+    "chips": [
+     [
+      "Coils · relays · connectors",
+      "#00A896"
+     ],
+     [
+      "Custom &amp; standard",
+      "#38BDF8"
+     ],
+     [
+      "Our own factory",
+      "#84CC16"
+     ]
+    ],
+    "chip_times": [
+     4,
+     6,
+     8
+    ]
+   },
+   {
+    "type": "mechanism",
+    "from_segment": 2,
+    "kicker": "SM-2070 · how it works",
+    "map": [
+     [
+      2,
+      0,
+      1.49
+     ],
+     [
+      3,
+      1.5,
+      2.99
+     ],
+     [
+      4,
+      3,
+      4.49
+     ],
+     [
+      5,
+      4.5,
+      6.49
+     ],
+     [
+      6,
+      6.5,
+      7.49
+     ],
+     [
+      7,
+      7.5,
+      9.29
+     ],
+     [
+      8,
+      9.3,
+      11.95
+     ]
+    ],
+    "focus": {
+     "169": {
+      "x": 800,
+      "y": 525,
+      "s": 0.98
+     },
+     "916": {
+      "x": 820,
+      "y": 470,
+      "s": 1.9
+     }
+    },
+    "track": {
+     "916": [
+      460,
+      460,
+      460,
+      620,
+      820,
+      1180,
+      1180
+     ]
+    },
+    "opts": {
+     "916": {
+      "noHud": true
+     }
+    }
+   },
+   {
+    "type": "cards",
+    "from_segment": 9,
+    "kicker": "Dual-range kinematics",
+    "title": "Two models.<br>One method.",
+    "cards": [
+     [
+      "SM-2070",
+      "opens 0 – 11 mm · parts 1 – 9.5 mm"
+     ],
+     [
+      "SM-2071",
+      "opens 8.5 – 18.5 mm · parts 9.5 – 17.5 mm"
+     ],
+     [
+      "7 × 7 mm arms",
+      "on both models"
+     ]
+    ],
+    "card_times": [
+     1.6,
+     8.4,
+     17.0
+    ],
+    "photo": "img/land2_b64_2.jpg"
+   },
+   {
+    "type": "chips",
+    "from_segment": 10,
+    "kicker": "Plug and play",
+    "title": "Fits your<br>JUKI tool changer.",
+    "chips": [
+     "JM-10",
+     "JM-20",
+     "JM-50",
+     "JM-100",
+     "KE-2000 series",
+     "FX-1 / 2 / 3",
+     "RS-1"
+    ],
+    "chip_start": 3.0,
+    "chip_step": 0.7,
+    "card": [
+     "Standard JUKI grippers too",
+     "700-series GA – GE chucks · 800-series Type 800 – 803"
+    ],
+    "card_time": 13.5,
+    "photo": "img/land2_b64_0.jpg"
+   },
+   {
+    "type": "cta",
+    "from_segment": 11,
+    "kicker": "Custom design · about 7 days",
+    "title": "Send us your part.<br>We design the gripper.",
+    "checklist": [
+     "Your JUKI model",
+     "A drawing of the part",
+     "Samples or photos"
+    ],
+    "check_times": [
+     4.2,
+     5.2,
+     6.2
+    ],
+    "contacts": [
+     [
+      "info@smthelp.com",
+      "#00A896"
+     ],
+     [
+      "WhatsApp +86 136 0256 2576",
+      "#25d366"
+     ]
+    ],
+    "contact_times": [
+     11.5,
+     12.1
+    ]
+   }
+  ]
+ },
+ "thumbnail": {
+  "headline_html": "NO FLAT TOP?<br><span>GRIP IT.</span>",
+  "badges": [
+   [
+    "JUKI JM",
+    "#ff6600",
+    "#fff"
+   ],
+   [
+    "0–11 MM",
+    "#22c55e",
+    "#052e12"
+   ]
+  ],
+  "subline": "Horizontal slide gripper · SM-2070 / SM-2071",
+  "anim_t": 3.9,
+  "anim_focus": {
+   "x": 420,
+   "y": 470,
+   "s": 1.75
+  }
+ },
+ "seo": {
+  "title": "JUKI Gripper Nozzle Design & Manufacturing | SM-2070 Horizontal Slide Gripper for JM Odd-Form Insertion (3D Animation)",
+  "alt_titles": [
+   "Why Vacuum Nozzles Fail on Odd-Form Parts, and How a JUKI Gripper Nozzle Fixes It",
+   "SM-2070 vs SM-2071: JUKI JM Gripper Nozzles for Coils, Relays and Connectors",
+   "How a Horizontal Slide Gripper Picks and Inserts Coils on a JUKI JM-20"
+  ],
+  "shorts_title": "No flat top? Grip it. 🤖 JUKI JM gripper nozzle in action #SMT #Shorts",
+  "description": "Coils, relays, connectors and terminal blocks don't have a flat top. A vacuum nozzle can't seal on them, and at high speed the part tilts or drops. Southern Machinery designs and manufactures gripper nozzles for JUKI JM odd-form insertion machines, in our own factory in Shenzhen since 2011.\n\nHow the SM-2070 works\n• Jaws slide open over the part, up to 11 mm\n• Descends into the tray pocket; slim jaws pass neighbouring parts and reach below the component's middle\n• Jaws slide together horizontally: a true parallel clamp, no scissor tilt\n• Lifts and moves at full speed; the part is held mechanically and stays square\n• Upward camera checks the part and its leads\n• Leads go straight into the PCB holes\n• Jaws open, release, and the head returns for the next part\n\nTwo models, one method\n• SM-2070: opening 0–11 mm, for parts 1–9.5 mm (Molex / Hirose FPC, TO-220, D-PAK, micro-relays, small pin headers)\n• SM-2071: opening 8.5–18.5 mm, for parts 9.5–17.5 mm (Bobina coils, transformers, power relays, terminal blocks, heavy E-caps)\n• Both: 7 × 7 mm arms (width × height)\n\nCompatibility\n• JUKI JM-10, JM-20, JM-50, JM-100\n• JUKI KE-2000 series (KE-2010 to KE-2060), FX-1/2/3, RS-1 series\n• Plug and play on the standard tool changer\n• We also supply standard JUKI 700-series GA/GB/GC/GD/GE chucks and 800-series Type 800–803 gripper nozzles\n\nCustom gripper nozzles (for example our JUKI A 2723 and 2583 C designs) in about 7 days. Send us:\n1. Your JUKI machine model and nozzle station\n2. A dimensioned drawing of the part\n3. Samples or photos\nEmail: info@smthelp.com\nWhatsApp: +86 136 0256 2576\nWebsite: https://www.smthelp.com",
+  "hashtags": [
+   "#SMT",
+   "#JUKI",
+   "#GripperNozzle",
+   "#OddForm",
+   "#THT",
+   "#PCBA",
+   "#ElectronicsManufacturing",
+   "#SouthernMachinery"
+  ],
+  "tags": [
+   "JUKI gripper nozzle",
+   "JUKI JM gripper",
+   "JUKI JM-20 nozzle",
+   "JM-100 gripper nozzle",
+   "odd form insertion gripper",
+   "SMT gripper nozzle",
+   "gripper chuck nozzle",
+   "horizontal slide gripper",
+   "SM-2070",
+   "SM-2071",
+   "JUKI 2070 nozzle",
+   "JUKI 2071 nozzle",
+   "JUKI 800 gripper",
+   "E36237210A0",
+   "JUKI GA chuck",
+   "custom SMT nozzle",
+   "odd form component placement",
+   "through hole automation",
+   "Bobina coil insertion",
+   "Southern Machinery",
+   "SMThelp"
+  ],
+  "shorts_description": "Coils and relays have no flat top, so vacuum fails. The SM-2070 slides its jaws open, clamps in true parallel and inserts the leads straight into the PCB. JUKI JM-10 to JM-100. Custom in about 7 days: info@smthelp.com #SMT #JUKI #Shorts",
+  "notes": [
+   "Specs (openings, part ranges, 7 × 7 mm arms, compatibility list, 700/800 series) come from the JUKI JM gripper landing page; 'about 7 days' is the page's custom-tooling claim.",
+   "Not used: the page's '≥99.99% pick-up rate' and the Industry 4.0 page's telemetry figures (no test data or source document).",
+   "The animated coil, tray and PCB are a simplified schematic; the vision check is the standard JUKI JM process, not a nozzle feature."
+  ]
+ },
+ "upload": {
+  "sink": "gdrive",
+  "parent_id": "1m6aYsBz31FAkRWqon9RBPyjZW0h5lW7n",
+  "folder_name": "JUKI Gripper Nozzle SM-2070 SM-2071 ({date})",
+  "auto": false
+ }
+}

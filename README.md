@@ -19,6 +19,7 @@ Southern Machinery（南方机械）Agent Skills 集合 — SMT/THT 外贸营销
 | `smt-product-ppt-rebrand` | Hark agent | 旧产品 PDF/PPT（Drive 文件夹）→ 统一 Southern Machinery 品牌模板（SM-PPT-202309）的英文产品介绍 PPT：提取文字/表格/图片、按产品线分组、FAB 结构、型号表、SEO 文件名、回传 Drive；brand.json/deck-rules.json 配置、spec 校验 + QA 闸门、错误码、semver 版本与 git tag 发布（v1.0.0） |
 | `smt-product-video-rebrand` | Hark agent | 原始产品展示视频 + 营销主题 → Southern Machinery 品牌英文 4K YouTube 营销视频（配音、烧录字幕+SRT、生成配乐、品牌动态图形幻灯片、缩略图）+ SEO 标题/描述/章节/标签 + 文案 Google Doc；brand.json/project.json/内容模块配置、8 种数据驱动幻灯片、lint/QC 闸门、事实与声明政策、Drive 交付与原位替换、semver 升级与反馈日志，X3100 17 条范例（v1.0.0） |
 | `douyin-video-harvester` | Hark agent | 抖音主页 → 互动分排序 + 关键词初筛 + 画面审核闸门 → 精选 N 条主题视频（如 SMT 吸嘴）→ 英文 SEO 文件名 → Google Drive/本地交付 + manifest；9 个独立阶段可断点续跑、JSON 配置+schema、错误码、结构化日志、sink 插件扩展点、离线单测（v1.0.0） |
+| `product-3d-canvas-video-landing` | Hark agent | 产品 3D 查看器（Three.js/eDrawings HTML）+ 现有落地页 → 画布机构动画并入单 HTML 落地页 + 16:9/9:16 4K 英文配音烧录字幕视频 + SRT + 缩略图 + SEO/Shorts 文案 + Drive 上传；`p3cv` Python 包 12 个独立可续跑阶段（下载模块可单独使用）、product.json 配置+schema、错误码、结构化日志、插件扩展点（阶段/查看器/配音/交付端/场景类型）、离线单测，JUKI 夹爪吸嘴范例（v1.0.0） |
 
 ### CLI App 技能（nanobot workspace）
 

@@ -1,0 +1,239 @@
+{
+ "$schema": "./product.schema.json",
+ "slug": "my-product",
+ "product_name": "My Product Name",
+ "brand": {
+  "primary": "#0056b3",
+  "primary_dark": "#003d80",
+  "dark_bg": "#0B132B",
+  "accent": "#38BDF8",
+  "bar_label": "MY PRODUCT"
+ },
+ "sources": {
+  "drawings": [
+   {
+    "id": "d1",
+    "url": "https://file.autoinsertion.com/public/SMT%20machine%203D%20Drawing%20in%20Html/YOUR-VIEWER.html",
+    "viewer": "threejs",
+    "capture": true
+   }
+  ],
+  "landing": [
+   {
+    "id": "page",
+    "url": "https://file.autoinsertion.com/public/Product%20landing%20Page/YOUR-PAGE.html"
+   }
+  ],
+  "docs": []
+ },
+ "anim": {
+  "module": "anim.js",
+  "global": "MyAnim"
+ },
+ "voice": {
+  "voice": "en-US-AndrewNeural",
+  "rate": "-2%",
+  "replacements": {
+   "info at smthelp dot com": "info@smthelp.com"
+  }
+ },
+ "segments": [
+  {
+   "text": "Hook: the customer's pain in one or two sentences.",
+   "chapter": "The problem"
+  },
+  {
+   "text": "Southern Machinery designs and manufactures this product in Shenzhen.",
+   "chapter": "Introduction"
+  },
+  {
+   "text": "Step one of the mechanism.",
+   "chapter": "How it works"
+  },
+  {
+   "text": "Step two of the mechanism."
+  },
+  {
+   "text": "Key specs, only from the sources.",
+   "chapter": "Specifications"
+  },
+  {
+   "text": "Send us your requirements. Email info at smthelp dot com.",
+   "chapter": "Contact"
+  }
+ ],
+ "landing": {
+  "base": "page",
+  "insert_before": "<!-- NEXT SECTION MARKER (must be unique) -->",
+  "nav_after_href": "#overview",
+  "nav_after_text": "Overview",
+  "section": {
+   "eyebrow": "How it works",
+   "title": "Short punchy title.",
+   "intro": "One paragraph describing the animated cycle.",
+   "steps": [
+    [
+     "Step one",
+     "What happens."
+    ],
+    [
+     "Step two",
+     "What happens."
+    ],
+    [
+     "Step three",
+     "What happens."
+    ],
+    [
+     "Return",
+     "What happens."
+    ]
+   ],
+   "tt_panel": {
+    "title": "3D model",
+    "text": "Drag to turn."
+   },
+   "photo_panel": {
+    "title": "Real product",
+    "text": "Photo caption.",
+    "image": "img/page_b64_0.jpg"
+   },
+   "cards": [
+    [
+     "10 mm",
+     "Spec name",
+     "Short explanation."
+    ]
+   ],
+   "cta": {
+    "whatsapp_text": "Hi, I am interested in My Product"
+   }
+  }
+ },
+ "video": {
+  "basename": "My_Product",
+  "chunks": 2,
+  "scenes": [
+   {
+    "type": "hero",
+    "from_segment": 0,
+    "kicker": "The problem",
+    "headline": "Big<br>headline.",
+    "chips": [
+     [
+      "Pain one",
+      "#38BDF8"
+     ],
+     [
+      "Pain two",
+      "#f59e0b"
+     ]
+    ]
+   },
+   {
+    "type": "turntable",
+    "from_segment": 1,
+    "kicker": "Southern Machinery",
+    "title": "My<br>Product",
+    "subtitle": "One-line positioning",
+    "chips": [
+     [
+      "Benefit",
+      "#22c55e"
+     ]
+    ]
+   },
+   {
+    "type": "mechanism",
+    "from_segment": 2,
+    "kicker": "How it works",
+    "map": [
+     [
+      2,
+      0,
+      4
+     ],
+     [
+      3,
+      4,
+      8
+     ]
+    ],
+    "focus": {
+     "169": {
+      "x": 800,
+      "y": 500,
+      "s": 1
+     },
+     "916": {
+      "x": 800,
+      "y": 500,
+      "s": 1.9
+     }
+    }
+   },
+   {
+    "type": "cards",
+    "from_segment": 4,
+    "kicker": "Specs",
+    "title": "Key<br>numbers.",
+    "cards": [
+     [
+      "10 mm",
+      "what it means"
+     ]
+    ]
+   },
+   {
+    "type": "cta",
+    "from_segment": 5,
+    "kicker": "Contact",
+    "title": "Send us<br>your part.",
+    "checklist": [
+     "Machine model",
+     "Drawing"
+    ],
+    "contacts": [
+     [
+      "info@smthelp.com",
+      "#0056b3"
+     ]
+    ]
+   }
+  ]
+ },
+ "thumbnail": {
+  "headline_html": "BIG<br><span>HOOK.</span>",
+  "badges": [
+   [
+    "BRAND",
+    "#ff6600",
+    "#fff"
+   ]
+  ],
+  "subline": "Product · key fact",
+  "anim_t": 2
+ },
+ "seo": {
+  "title": "Main YouTube title (<100 chars)",
+  "alt_titles": [],
+  "shorts_title": "",
+  "description": "Description body. Chapters are added automatically.",
+  "hashtags": [
+   "#SMT"
+  ],
+  "tags": [
+   "tag one",
+   "tag two"
+  ],
+  "shorts_description": "",
+  "notes": [
+   "Which claims were left out and why."
+  ]
+ },
+ "upload": {
+  "sink": "local",
+  "local_dir": "deliveries",
+  "folder_name": "{product_name} ({date})"
+ }
+}

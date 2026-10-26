@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<!-- p3cv video page. Data-driven: scenes come from product.json video.scenes. stages/video.py fills
+     __CFG__ __CUES__ __TL__ __TT__ __ANIMJS__ and the brand tokens. renderAt(t) draws frame t (seconds).
+     Add a scene type: register SCENE_TYPES.<name> = function(sc, layer, api){ return function update(t){...} } -->
+<html><head><meta charset="utf-8">
+<style>
+:root{--blue:__P__;--blueD:__PD__;--ink:#111827;--muted:#6b7280;--green:#22c55e}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{width:100%;height:100%;overflow:hidden;background:#000;font-family:Inter,Arial,sans-serif}
+#stage{position:absolute;inset:0;overflow:hidden;background:#f9fafb}
+.layer{position:absolute;inset:0;opacity:0;display:none}
+.studio{background:radial-gradient(120% 90% at 50% 42%,#ffffff 0%,#f1f5f9 55%,#dbe4f0 100%)}
+.dark{background:radial-gradient(120% 100% at 30% 20%,__PDARK1__ 0%,__DARKBG__ 45%,#030712 100%)}
+.grid{position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,.05) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.05) 1px,transparent 1px);background-size:4vmin 4vmin}
+.abs{position:absolute}
+.contain{position:absolute;width:100%;height:100%;object-fit:contain;mix-blend-mode:multiply}
+.kick{font-weight:800;letter-spacing:.3em;text-transform:uppercase;color:var(--blue);font-size:2.1vmin}
+.dark .kick{color:__PLIGHT__}
+.h1{font-weight:900;letter-spacing:-.03em;line-height:.98;color:var(--ink)}
+.chip{display:inline-flex;align-items:center;gap:1.4vmin;padding:1.5vmin 2.6vmin;border-radius:10vmin;background:#fff;color:var(--ink);font-weight:800;font-size:2.9vmin;box-shadow:0 1.5vmin 4vmin -1.5vmin __PD45__;border:.3vmin solid __P18__;white-space:nowrap}
+.chip i{display:inline-block;width:1.6vmin;height:1.6vmin;border-radius:50%;background:var(--green);font-style:normal}
+.chip.dk{background:rgba(255,255,255,.09);color:#fff;border-color:rgba(255,255,255,.2)}
+.card{background:#fff;border-radius:2vmin;padding:2.4vmin 3vmin;box-shadow:0 2vmin 5vmin -2vmin __PD45__;border-top:.9vmin solid var(--blue)}
+.card.dk{background:rgba(255,255,255,.08);border-top-color:__ACCENT__;box-shadow:none;border-left:.2vmin solid rgba(255,255,255,.15);border-right:.2vmin solid rgba(255,255,255,.15);border-bottom:.2vmin solid rgba(255,255,255,.15)}
+.card .k{font-weight:900;letter-spacing:-.02em;color:var(--blue)}
+.card.dk .k{color:__PLIGHT__}
+.card .d{color:var(--muted);font-weight:500;margin-top:.6vmin;line-height:1.35}
+.card.dk .d{color:#c7d2fe}
+.big{font-weight:900;color:#fff;letter-spacing:-.03em;line-height:1}
+#subs{position:absolute;left:0;right:0;text-align:center;pointer-events:none;z-index:50}
+#subs span{display:inline-block;background:rgba(3,7,18,.8);color:#fff;font-weight:700;border-radius:1.2vmin;padding:1vmin 2.4vmin;line-height:1.3;max-width:88%}
+#subs span:empty{display:none}
+#brandbar{position:absolute;z-index:40;display:flex;align-items:center;gap:1.4vmin;font-weight:800;letter-spacing:.18em;font-size:1.6vmin;color:var(--blueD);background:rgba(255,255,255,.92);padding:1vmin 2vmin;border-radius:10vmin}
+#brandbar img{height:3vmin}
+#prog{position:absolute;left:0;bottom:0;height:.6vmin;background:var(--blue);z-index:45}
+.photo{object-fit:cover;border-radius:2vmin;box-shadow:0 3vmin 7vmin -2vmin rgba(0,0,0,.6);display:block}
+</style></head>
+<body><div id="stage">
+<div id="brandbar"><img src="__LOGO__"><span>__BARLABEL__</span></div>
+<div id="subs"><span id="subt"></span></div>
+<div id="prog"></div>
+</div>
+<script>
+__ANIMJS__
+</script>
+<script>
+var AR=(new URLSearchParams(location.search).get("ar")||"169"),V=AR==="916";
+var CFG=__CFG__,CUES=__CUES__,TL=__TL__,TT=__TT__,TOTAL=TL.total,SEG=TL.segments,ANIM=window[CFG.anim_global];
+function S(i){return SEG[i].start}
+function $(id){return document.getElementById(id)}
+function cl(x){return Math.max(0,Math.min(1,x))}
+function ez(x){x=cl(x);return 1-Math.pow(1-x,3)}
+function pop(t,a,d){return ez((t-a)/(d||0.45))}
+function mk(p,html,css){var d=document.createElement("div");d.innerHTML=html;d.style.cssText="position:absolute;"+css;p.appendChild(d);return d}
+function setIn(e,t,a,dy){var p=pop(t,a);e.style.opacity=p;e.style.transform="translateY("+((1-p)*(dy==null?4:dy))+"vmin)"}
+function setupCanvas(c,css){c.style.cssText+=css;var r=c.getBoundingClientRect();c.width=Math.round(r.width*2);c.height=Math.round(r.height*2);return c.getContext("2d")}
+function pick(o){return (o&&typeof o==="object"&&("169" in o||"916" in o))?o[AR]:o}
+TT.forEach(function(s){var i=new Image();i.src=s});
+function sweep(a,b,t,rate){var n=TT.length,per=(n-1)*2,f=(Math.max(0,t)*rate)%per;var i=Math.floor(f),fr=f-i;function idx(k){k=k%per;return k<n?k:per-k}a.src=TT[idx(i)];b.src=TT[idx(i+1)];b.style.opacity=fr}
+function chip(txt,col,dk,fs){return '<span class="chip'+(dk?' dk':'')+'"'+(fs?' style="font-size:'+fs+'vmin"':'')+'><i style="background:'+(col||'var(--blue)')+'"></i>'+txt+'</span>'}
+function times(list,n,start,step){var r=[];for(var i=0;i<n;i++)r.push(list&&list[i]!=null?list[i]:start+i*step);return r}
+function turntable(layer,css){var d=mk(layer,'<img class="contain"><img class="contain">',css);var im=d.querySelectorAll("img");return function(t,rate){sweep(im[0],im[1],t,rate||1.4)}}
+
+var SCENE_TYPES={
+ hero:function(sc,L){
+  if(sc.grid!==false)mk(L,'<div class="grid"></div>',"inset:0");
+  var h=mk(L,'<div class="kick">'+(sc.kicker||'')+'</div><div class="big" style="font-size:'+(V?5.6:7.6)+'vh;margin-top:1.4vh">'+sc.headline+'</div>',V?"left:7vw;top:14vh":"left:5vw;top:20vh");
+  var C=(sc.chips||[]).map(function(a,i){return mk(L,chip(a[0],a[1],true,V?2.6:3),V?("left:7vw;top:"+(50+i*7.5)+"vh"):("left:52vw;top:"+(28+i*13)+"vh"))});
+  var T=times(sc.chip_times,C.length,2.6,2.5);
+  return function(t){setIn(h,t,0.3);C.forEach(function(e,i){setIn(e,t,T[i])})}},
+ turntable:function(sc,L){
+  var tt=turntable(L,V?"left:5vw;top:30vh;width:90vw;height:40vh":"left:47vw;top:8vh;width:51vw;height:80vh");
+  var k=mk(L,'<div class="kick">'+(sc.kicker||'')+'</div>',V?"left:7vw;top:9.5vh":"left:5vw;top:16vh");
+  var h=mk(L,'<div class="h1" style="font-size:'+(V?5.6:7.4)+'vh">'+sc.title+'</div><div style="font-weight:700;color:#334155;font-size:'+(V?2.1:3.4)+'vh;margin-top:1.2vh">'+(sc.subtitle||'')+'</div>',V?"left:7vw;top:13.5vh":"left:5vw;top:21vh");
+  var C=(sc.chips||[]).map(function(a,i){return mk(L,chip(a[0],a[1]),V?("left:7vw;top:"+(72+i*6.2)+"vh"):("left:5vw;top:"+(54+i*10)+"vh"))});
+  var T=times(sc.chip_times,C.length,4,2);
+  return function(t){tt(t,sc.sweep_rate||1.6);setIn(k,t,0.1);setIn(h,t,0.3);C.forEach(function(e,i){setIn(e,t,T[i])})}},
+ mechanism:function(sc,L,api){
+  if(!ANIM)throw new Error("anim global "+CFG.anim_global+" not found");
+  var cv=mk(L,'<canvas style="width:100vw;height:100vh;display:block"></canvas>',"left:0;top:0;width:100vw;height:100vh").firstChild;
+  var c2=setupCanvas(cv,"");
+  var names=ANIM.STEPS.map(function(s){return s.name});
+  var k=mk(L,'<div class="kick">'+(sc.kicker||'')+'</div>',V?"left:6vw;top:76.5vh":"left:3vw;top:9.5vh");
+  var s=mk(L,'<span class="chip" style="font-size:2.4vmin"><b class="stn" style="display:inline-grid;place-items:center;width:4.2vmin;height:4.2vmin;border-radius:50%;background:var(--blue);color:#fff;font-size:2vmin">1</b><span class="stt">'+names[0]+'</span></span>',V?"left:6vw;top:80vh":"left:3vw;top:13vh");
+  var stn=s.querySelector(".stn"),stt=s.querySelector(".stt");
+  var M=sc.map,focus=pick(sc.focus)||{x:800,y:500,s:1},opts=pick(sc.opts)||{},track=pick(sc.track);
+  return function(t,ta){
+   var ct=M[0][1];
+   for(var j=0;j<M.length;j++){var m=M[j];var segEnd=(m[0]+1<SEG.length)?S(m[0]+1):TOTAL;if(j===M.length-1||ta<segEnd){ct=m[1]+cl((ta-S(m[0]))/(SEG[m[0]].dur-0.1))*(m[2]-m[1]);break}}
+   var st=ANIM.stepAt(ct),foc={x:focus.x,y:focus.y,s:focus.s};
+   if(track){var S0=ANIM.STEPS[st],pv=track[Math.max(0,st-1)],q=st===0?1:ez((ct-S0.a)/0.6);foc.x=pv+(track[st]-pv)*q}
+   var o={t:ct,focus:foc,theme:sc.theme==='studio'?'light':'dark'};for(var kk in opts)o[kk]=opts[kk];
+   ANIM.render(c2,c2.canvas.width,c2.canvas.height,o);
+   stn.textContent=st+1;stt.textContent=names[st];setIn(k,t,0.2);setIn(s,t,0.4)}},
+ cards:function(sc,L){
+  var h=mk(L,'<div class="kick">'+(sc.kicker||'')+'</div><div class="h1" style="font-size:'+(V?5:6.2)+'vh;margin-top:1vh">'+sc.title+'</div>',V?"left:7vw;top:8vh":"left:5vw;top:10vh");
+  var C=(sc.cards||[]).map(function(a,i){return mk(L,'<div class="card" style="width:'+(V?86:38)+'vw"><div class="k" style="font-size:'+(V?4:4.8)+'vh">'+a[0]+'</div><div class="d" style="font-size:'+(V?2.1:2.5)+'vh">'+a[1]+'</div></div>',V?("left:7vw;top:"+(24+i*12)+"vh"):("left:5vw;top:"+(34+i*17)+"vh"))});
+  var P=sc.photo?mk(L,'<img src="'+sc.photo+'" class="photo" style="width:'+(V?86:52)+'vw;height:'+(V?22:66)+'vh;background:#fff;object-fit:'+(sc.photo_fit||'contain')+'">',V?"left:7vw;top:60vh":"right:3vw;top:16vh"):null;
+  var T=times(sc.card_times,C.length,1.6,6);
+  return function(t){setIn(h,t,0.1);if(P)setIn(P,t,0.5);C.forEach(function(e,i){setIn(e,t,T[i])})}},
+ chips:function(sc,L){
+  var h=mk(L,'<div class="kick">'+(sc.kicker||'')+'</div><div class="big" style="font-size:'+(V?5:6.2)+'vh;margin-top:1vh">'+sc.title+'</div>',V?"left:7vw;top:8vh":"left:5vw;top:10vh");
+  var C=(sc.chips||[]).map(function(a,i){var col=V?i%2:i%4,row=V?Math.floor(i/2):Math.floor(i/4);return mk(L,chip(typeof a==="string"?a:a[0],typeof a==="string"?null:a[1],true,V?2.6:2.8),V?("left:"+(7+col*44)+"vw;top:"+(27+row*6.5)+"vh"):("left:"+(5+col*15)+"vw;top:"+(40+row*10)+"vh"))});
+  var K=sc.card?mk(L,'<div class="card dk" style="width:'+(V?86:50)+'vw"><div class="k" style="font-size:'+(V?3.4:4)+'vh">'+sc.card[0]+'</div><div class="d" style="font-size:'+(V?2:2.4)+'vh">'+sc.card[1]+'</div></div>',V?"left:7vw;top:55vh":"left:5vw;top:66vh"):null;
+  var P=(sc.photo&&!V)?mk(L,'<img src="'+sc.photo+'" class="photo" style="width:26vw;height:56vh;object-fit:cover">',"right:4vw;top:24vh"):null;
+  var T=times(sc.chip_times,C.length,sc.chip_start||3,sc.chip_step||0.7);
+  return function(t){setIn(h,t,0.1);if(P)setIn(P,t,0.6);C.forEach(function(e,i){setIn(e,t,T[i])});if(K)setIn(K,t,sc.card_time||10)}},
+ cta:function(sc,L){
+  var tt=turntable(L,V?"left:5vw;top:8vh;width:90vw;height:34vh":"left:52vw;top:8vh;width:46vw;height:80vh");
+  var h=mk(L,'<div class="kick">'+(sc.kicker||'')+'</div><div class="h1" style="font-size:'+(V?4.6:5.8)+'vh;margin-top:1vh">'+sc.title+'</div>',V?"left:7vw;top:45vh":"left:5vw;top:14vh");
+  var R=(sc.checklist||[]).map(function(a,i){return mk(L,chip(a,'#84CC16'),V?("left:7vw;top:"+(58+i*5.6)+"vh"):("left:5vw;top:"+(40+i*8)+"vh"))});
+  var C=(sc.contacts||[]).map(function(a,i){return mk(L,chip(a[0],a[1]),V?("left:7vw;top:"+(76+i*5.5)+"vh"):("left:5vw;top:"+(68+i*9)+"vh"))});
+  var TR=times(sc.check_times,R.length,4.2,1.0),TC=times(sc.contact_times,C.length,sc.contact_time||10,0.6);
+  return function(t){tt(t,sc.sweep_rate||1.4);setIn(h,t,0.3);R.forEach(function(e,i){setIn(e,t,TR[i])});C.forEach(function(e,i){setIn(e,t,TC[i])})}}
+};
+
+var SCENES=CFG.scenes.map(function(sc,i){
+ var L=document.createElement("div");L.className="layer "+(sc.theme||((sc.type==="hero"||sc.type==="chips"||sc.type==="mechanism")?"dark":"studio"));
+ $("stage").insertBefore(L,$("brandbar"));L.style.display="block";  /* visible while building so canvases get a size */
+ var st=i===0?0:S(sc.from_segment),en=i+1<CFG.scenes.length?S(CFG.scenes[i+1].from_segment):TOTAL+1;
+ var f=SCENE_TYPES[sc.type];if(!f)throw new Error("unknown scene type "+sc.type);
+ var up=f(sc,L);L.style.display="none";return {L:L,a:st,b:en,first:i===0,up:up}});
+$("brandbar").style.cssText+=V?"left:5vw;top:3vh":"left:3vw;top:4vh";
+$("subs").style.bottom=V?"7vh":"5.5vh";$("subt").style.fontSize=V?"2.3vh":"3vh";
+function sub(t){var s="";for(var i=0;i<CUES.length;i++){if(t>=CUES[i][0]&&t<CUES[i][1]){s=CUES[i][2];break}}$("subt").textContent=s}
+window.renderAt=function(t){
+ SCENES.forEach(function(s){var a=s.a-0.45,b=s.b-0.45;var o=s.first?cl((b-t)/0.45)*cl((t+0.3)/0.6):cl((t-a)/0.45)*cl((b-t)/0.45);
+  s.L.style.opacity=o;s.L.style.display=o>0?"block":"none";if(o>0)s.up(t-s.a,t)});
+ sub(t);$("prog").style.width=(100*t/TOTAL)+"%";
+};
+renderAt(0);
+</script>
+</body></html>
