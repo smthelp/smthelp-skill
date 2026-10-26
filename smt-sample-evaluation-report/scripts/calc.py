@@ -14,11 +14,14 @@ def load_case(case_dir):
     case = json.load(open(os.path.join(case_dir, "case.json"), encoding="utf-8"))
     p = json.load(open(os.path.join(SKILL, "assets", "config", "defaults.json"), encoding="utf-8"))
     p.update(case.get("params", {}))
-    m = json.load(open(os.path.join(SKILL, "assets", "machines", case["machine"] + ".json"), encoding="utf-8"))
-    return case, p, m
+    mach = lambda i: json.load(open(os.path.join(SKILL, "assets", "machines", i + ".json"), encoding="utf-8"))
+    if case.get("type") == "line_evaluation":
+        return case, p, {g["machine"]: mach(g["machine"]) for g in case["line"]}
+    return case, p, mach(case["machine"])
 
 
 def compute(case, p, m):
+    if case.get("type") == "line_evaluation": return compute_line(case, p, m)
     t, lab, bom = case["test"], case["labour"], case["bom"]
     ppb = sum(b["qty"] for b in bom if b.get("fit", True))          # insertions per board on this machine
     bpp = t["boards_per_panel"]; cyc = t["cycle_s_per_panel"]
@@ -71,6 +74,39 @@ def compute(case, p, m):
     }
 
 
+def compute_line(case, p, M):
+    """Multi-board, multi-machine line estimate (e.g. from PCBA photos): one machine group per process.
+    group cycle = parts per panel / (eval CPH x machines) x 3600; line cycle = slowest group (bottleneck)."""
+    eff = p["efficiency"]; boards = []
+    for b in case["boards"]:
+        bpp = b["boards_per_panel"]; groups = []
+        for g in case["line"]:
+            mm = M[g["machine"]]; proc = mm["process"]; qty = b.get("qty", {}).get(g["machine"], g["qty"])
+            cph = g.get("cph", mm["eval_cph"]); per_board = b["parts"].get(proc, 0)
+            ppp = per_board * bpp; cyc = ppp / (cph * qty) * 3600 if ppp else 0
+            groups.append({"machine": g["machine"], "name": mm["name"], "process": proc, "qty": qty, "cph": cph,
+                           "per_board": per_board, "ppp": ppp, "cycle": cyc,
+                           "panels_h": 3600 / cyc if cyc else None, "boards_h": 3600 / cyc * bpp if cyc else None})
+        cyc = max(x["cycle"] for x in groups); bott = max(groups, key=lambda x: x["cycle"])
+        for x in groups: x["util"] = x["cycle"] / cyc if cyc else 0
+        # balance option: one more machine on the bottleneck group
+        alt = [x["cycle"] * (x["qty"] / (x["qty"] + 1) if x is bott else 1) for x in groups]
+        cyc2 = max(alt)
+        lb = 3600 / cyc * bpp
+        boards.append({"id": b["id"], "pcb": b.get("pcb", ""), "model": b.get("model", ""), "bpp": bpp, "groups": groups,
+                       "line_cycle": cyc, "bottleneck": bott["machine"], "bottleneck_name": bott["name"],
+                       "line_panels_h": 3600 / cyc, "line_boards_h": lb, "planned_boards_h": lb * eff,
+                       "boards_shift": lb * eff * p["hours_per_shift"], "boards_month": lb * eff * p["hours_per_shift"] * p["working_days_month"],
+                       "parts_board": sum(b["parts"].values()),
+                       "alt_add": bott["name"], "alt_cycle": cyc2, "alt_boards_h": 3600 / cyc2 * bpp, "alt_gain": cyc / cyc2 - 1})
+    rates = [x["line_boards_h"] for x in boards]
+    return {"type": "line_evaluation", "boards": boards, "board_count": len(boards), "eff": eff,
+            "shift_h": p["hours_per_shift"], "days": p["working_days_month"],
+            "line": [{"machine": g["machine"], "name": M[g["machine"]]["name"], "process": M[g["machine"]]["process"],
+                      "qty": g["qty"], "cph": g.get("cph", M[g["machine"]]["eval_cph"]), "stations": g.get("stations", [])} for g in case["line"]],
+            "rate_min": min(rates), "rate_max": max(rates), "params": p}
+
+
 if __name__ == "__main__":
     a = sys.argv[1:]
     if not a: sys.exit(__doc__)
@@ -79,4 +115,5 @@ if __name__ == "__main__":
     c = compute(case, p, m)
     os.makedirs(os.path.dirname(out), exist_ok=True)
     json.dump(c, open(out, "w", encoding="utf-8"), ensure_ascii=False, indent=1)
-    print(json.dumps({k: c[k] for k in ("boards_h_eff", "boards_month", "ops_manual", "saving_m", "saving_y", "defects_avoided")}, indent=1))
+    keys = ("rate_min", "rate_max") if c.get("type") == "line_evaluation" else ("boards_h_eff", "boards_month", "ops_manual", "saving_m", "saving_y", "defects_avoided")
+    print(json.dumps({k: c[k] for k in keys}, indent=1))
