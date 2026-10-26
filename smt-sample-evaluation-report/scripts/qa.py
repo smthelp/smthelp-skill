@@ -9,7 +9,10 @@ Writes out/qa.json and exits 1 on any error. Checks:
   E4 test program points != BOM points -> a 'to be confirmed' line must be present
   E5 BOM parts outside machine limits (lead diameter, span) must be marked fit:false
   E6 renderer reported 0 overflow / missing-media errors
-  W1 photos missing for a slide, W2 manual_ppm / efficiency left at default (flag as assumption)"""
+  E7 photo-based line estimate without an accuracy note
+  line_evaluation: E1 checks line cycle = slowest machine and line output per board
+  W1 photos missing for a slide, W2 parameters left at default (flag as assumption),
+  W3 strings not yet translated (fall back to English), W4 photo markers vs part counts"""
 import json, glob, math, os, re, sys
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 from calc import load_case, SKILL
@@ -20,9 +23,20 @@ def run(case_dir):
     out = os.path.join(case_dir, "out"); c = json.load(open(os.path.join(out, "calc.json"), encoding="utf-8"))
     E, Wn = [], []
     near = lambda a, b: abs(a - b) < 0.01
-    if not near(c["saving_m"], c["manual_total"] - c["auto_total"]): E.append("E1 saving != manual - auto")
-    if not near(c["saving_y"], c["saving_m"] * 12): E.append("E1 yearly != 12 x monthly")
-    if c["ops_manual"] != math.ceil(c["parts_h"] / c["manual_rate"] - 1e-9): E.append("E1 operator count")
+    if c.get("type") == "line_evaluation":
+        cb = {b["id"]: b for b in case["boards"]}
+        for b in c["boards"]:
+            if not near(b["line_cycle"], max(g["cycle"] for g in b["groups"])): E.append(f"E1 {b['id']} line cycle != slowest machine")
+            if not near(b["line_boards_h"], 3600 / b["line_cycle"] * b["bpp"]): E.append(f"E1 {b['id']} line output")
+            mk = cb[b["id"]].get("markers", [])
+            for proc, n in cb[b["id"]]["parts"].items():
+                k = sum(1 for m in mk if m["type"] == proc)
+                if mk and k != n: Wn.append(f"W4 {b['id']} {proc}: {k} markers on photo vs {n} parts per board")
+            if not cb[b["id"]].get("markers"): Wn.append(f"W4 {b['id']} photo has no part markers")
+        if case.get("evidence") == "photo" and not case.get("accuracy_note"): E.append("E7 photo-based estimate without accuracy_note")
+    elif not near(c["saving_m"], c["manual_total"] - c["auto_total"]): E.append("E1 saving != manual - auto")
+    if c.get("type") != "line_evaluation" and not near(c["saving_y"], c["saving_m"] * 12): E.append("E1 yearly != 12 x monthly")
+    if c.get("type") != "line_evaluation" and c["ops_manual"] != math.ceil(c["parts_h"] / c["manual_rate"] - 1e-9): E.append("E1 operator count")
     raw = json.dumps(case, ensure_ascii=False).lower()
     if re.search(r'"(price|preco|preço|unit_price)"', raw): E.append("E3 case.json carries a price field - remove it")
     specs = sorted(glob.glob(os.path.join(out, "deck-*.json")))
@@ -35,19 +49,26 @@ def run(case_dir):
         for pat in p.get("forbidden_patterns", []):
             mm = re.search(pat, body)
             if mm: E.append(f"E3 {os.path.basename(sp)} forbidden text: {mm.group(0)}")
-        if c.get("prog_pts") and c["prog_pts"] != c["ppb"] and str(c["prog_pts"]) not in json.dumps(
+        if c.get("type") != "line_evaluation" and c.get("prog_pts") and c["prog_pts"] != c["ppb"] and str(c["prog_pts"]) not in json.dumps(
                 [s for s in d["slides"] if s["type"] == "bullets"], ensure_ascii=False):
             E.append(f"E4 {os.path.basename(sp)} test program {c['prog_pts']} pts vs BOM {c['ppb']} not flagged")
         for s in d["slides"]:
             for k in ("image",):
                 if k in s and (not s[k] or not os.path.exists(s[k])): Wn.append(f"W1 {s['type']} slide without photo")
-    bad = set(c["lead_over_limit"]) | set(c["span_unsupported"])
-    for b in case["bom"]:
+    bad = set(c.get("lead_over_limit", [])) | set(c.get("span_unsupported", []))
+    for b in case.get("bom", []):
         if b["refs"] in bad and b.get("fit", True): E.append(f"E5 {b['refs']} outside machine limits but fit != false")
     for lg in glob.glob(os.path.join(out, "render-*.log")):
         t = open(lg, encoding="utf-8").read(); mm = re.search(r"errors (\d+)", t)
         if not mm or mm.group(1) != "0": E.append(f"E6 {os.path.basename(lg)}: {t.strip()[-300:]}")
-    for k in ("efficiency", "manual_ppm", "manual_parts_per_operator_hour"):
+    en = json.load(open(os.path.join(SKILL, "assets", "i18n", "en.json"), encoding="utf-8"))
+    for lang in case.get("languages", []):
+        if lang == "en": continue
+        lp = os.path.join(SKILL, "assets", "i18n", lang + ".json")
+        line = c.get("type") == "line_evaluation"
+        miss = [k for k in en if (k.startswith("L_") or k == "process_name") == line and (not os.path.exists(lp) or k not in json.load(open(lp, encoding="utf-8")))]
+        if miss: Wn.append(f"W3 {lang}: {len(miss)} strings fall back to English (e.g. {miss[0]})")
+    for k in (("efficiency",) if c.get("type") == "line_evaluation" else ("efficiency", "manual_ppm", "manual_parts_per_operator_hour")):
         if k not in case.get("params", {}): Wn.append(f"W2 {k} = default {p[k]} (planning assumption - say so to the customer)")
     res = {"errors": E, "warnings": Wn, "ok": not E}
     json.dump(res, open(os.path.join(out, "qa.json"), "w", encoding="utf-8"), ensure_ascii=False, indent=1)
