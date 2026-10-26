@@ -36,3 +36,19 @@ Slide notes carry the sources; the assumptions slide lists every assumption and 
 
 ## Report structure (16 slides on the 202309 template)
 1 Cover (4 key metrics) · 2 Why automate · 3 Test evidence · 4 BOM fit · 5 Capacity · 6 Ramp-up · 7 ROI manual vs automation · 8 Payback / break-even · 9 Why <machine> · 10 Benefits · 11 Gallery · 12 Machine specifications · 13 Assumptions & open points · 14 Next steps · 15-16 template after-sales and contact slides.
+
+## line_evaluation formulas
+| Figure | Formula |
+|---|---|
+| parts per panel (group) | parts per board of that process × boards per panel |
+| group cycle s / panel | parts per panel ÷ (eval CPH × machines in group) × 3600 (eval CPH already includes PCB transfer and mark recognition) |
+| line cycle | slowest group cycle (bottleneck) |
+| line boards / h | 3600 ÷ line cycle × boards per panel (theoretical); planned = × efficiency |
+| group load | group cycle ÷ line cycle |
+| balance option | add one machine to the bottleneck group: its cycle × qty ÷ (qty + 1); new line cycle = slowest group |
+
+Reference figures (Acuity example, v2.0.0): PCB1 24.0 / 18.0 s -> 750 boards/h; PCB2 19.2 / 14.4 s -> 750; PCB3 38.4 / 16.2 s -> 562; PCB4 25.6 / 14.4 s (2 × S-70DL) -> 562; +1 S-3010 -> 1,000 / 1,000 / 1,125 / 1,000.
+Evidence: photo-based estimates are labelled Estimate (about ±5 %), never Measured.
+
+## line_evaluation report structure
+1 Cover · 2 Method · 3 Proposed line · 4 Results table · 5..n one marked-photo slide per board · Feeder plan · Line balance · Component readiness · Specifications · Gallery · Accuracy & open points · Next steps · template after-sales + contact.
