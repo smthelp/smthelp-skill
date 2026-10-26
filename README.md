@@ -18,6 +18,7 @@ Southern Machinery（南方机械）Agent Skills 集合 — SMT/THT 外贸营销
 | `smt-sample-evaluation-report` | Hark agent | 客户打样结果（实测节拍、客户 BOM、测试视频/照片、当地人工成本）→ 客户专属评估报告 PPT（英/葡等多语言，SM 16:9 模板）：产能 UPH/CPH、爬坡、人工 vs 自动化 ROI、回本、收益、BOM 适配、假设与待确认项；参数可配置、质检闸门、版本与反馈记录（v1.0.0） |
 | `smt-product-ppt-rebrand` | Hark agent | 旧产品 PDF/PPT（Drive 文件夹）→ 统一 Southern Machinery 品牌模板（SM-PPT-202309）的英文产品介绍 PPT：提取文字/表格/图片、按产品线分组、FAB 结构、型号表、SEO 文件名、回传 Drive；brand.json/deck-rules.json 配置、spec 校验 + QA 闸门、错误码、semver 版本与 git tag 发布（v1.0.0） |
 | `smt-product-video-rebrand` | Hark agent | 原始产品展示视频 + 营销主题 → Southern Machinery 品牌英文 4K YouTube 营销视频（配音、烧录字幕+SRT、生成配乐、品牌动态图形幻灯片、缩略图）+ SEO 标题/描述/章节/标签 + 文案 Google Doc；brand.json/project.json/内容模块配置、8 种数据驱动幻灯片、lint/QC 闸门、事实与声明政策、Drive 交付与原位替换、semver 升级与反馈日志，X3100 17 条范例（v1.0.0） |
+| `douyin-video-harvester` | Hark agent | 抖音主页 → 互动分排序 + 关键词初筛 + 画面审核闸门 → 精选 N 条主题视频（如 SMT 吸嘴）→ 英文 SEO 文件名 → Google Drive/本地交付 + manifest；9 个独立阶段可断点续跑、JSON 配置+schema、错误码、结构化日志、sink 插件扩展点、离线单测（v1.0.0） |
 
 ### CLI App 技能（nanobot workspace）
 

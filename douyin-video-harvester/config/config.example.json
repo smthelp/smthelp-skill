@@ -1,0 +1,16 @@
+{
+  "run_name": "example-account-2026-10",
+  "profile": "https://www.douyin.com/user/MS4wLjABAAAA...?from_tab_name=main",
+  "cookies": "secrets/douyin.cookies.txt",
+  "chromium": "/usr/bin/chromium",
+  "yt_dlp": "yt-dlp",
+  "filter": {
+    "include_keywords": [],
+    "exclude_keywords": [],
+    "require_include": false,
+    "exclude_id_files": [],
+    "candidate_limit": 40
+  },
+  "select": {"count": 20},
+  "sink": {"type": "local", "options": {"dir": "delivered"}}
+}

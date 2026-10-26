@@ -1,0 +1,10 @@
+# never commit sessions or outputs
+secrets/
+*.cookies.txt
+cookies*.txt
+dy.txt
+runs/
+*.mp4
+*.log
+__pycache__/
+config/config.json
