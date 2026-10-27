@@ -35,7 +35,7 @@ def walk(spec):
             if g.get("cap"): yield f"{p}_g{j}", g["cap"]
         for r, row in enumerate(s.get("rows", [])):
             for k, cell in enumerate(row):
-                if re.search(r"[A-Za-z]{3,}", str(cell)) and not re.fullmatch(r"(Board \d+|FS#\d|S-\d+\w*)", str(cell)): yield f"{p}_r{r}c{k}", str(cell)
+                if re.search(r"[A-Za-z]{3,}", str(cell)) and not re.fullmatch(r"(Board \d+|FS#\d|S-\d+\w*|SM-[A-Z0-9-]+)", str(cell)): yield f"{p}_r{r}c{k}", str(cell)
 
 
 def main():
