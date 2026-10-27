@@ -1,5 +1,8 @@
 # Changelog
 
+## 2.1.0 - 2026-10-27
+- HTML report output (render_html.py, assets/html/report.css; run.py --html/--no-pptx): one self-contained page per language from the deck spec. --customer-alias anonymises customer name in every output (QA E8), --slug sets file stem. First use: LED Driver Manufacturer THT auto insertion line solution evaluation report.
+
 ## 2.0.0 - 2026-10-26
 - line_evaluation report type (several boards on a multi-machine line from PCBA photos: marked photos, cycle per machine, bottleneck + balance option, feeder plan, component readiness); mark_board.py; render16 'board' slide; machines S-3010 and S-70DL; Acuity Brands example reissuing the 2020 S-70DL PCBA Evaluation; EN fallback for untranslated strings (QA W3); PO-prevails disclaimer on every report; bullets slide full width without photo. sample_test cases from v1 run unchanged (Zebu figures identical).
 
