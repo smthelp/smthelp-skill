@@ -1,0 +1,442 @@
+{
+ "title": "LED T8 SMT line for 1,170 mm LED strips",
+ "lang": "en",
+ "slides": [
+  {
+   "type": "cover",
+   "kicker": "SMT line solution · LED T8 Tube Manufacturer",
+   "title": "LED T8 SMT line for 1,170 mm LED strips",
+   "subtitle": "Loader, printer, 180,000 CPH LED placer, 20-zone reflow, cooling buffer, AOI and unloader in one left-to-right line, sized for 300 good strips an hour.",
+   "image": "/workspace/smthelp-skill/smt-sample-evaluation-report/assets/examples/led-t8-smt-line/photos/placer.jpg",
+   "metrics": [
+    {
+     "v": "300",
+     "l": "good strips / h target"
+    },
+    {
+     "v": "124,800",
+     "l": "strips / month at 416 h"
+    },
+    {
+     "v": "180,000",
+     "l": "CPH published placer rate"
+    },
+    {
+     "v": "96 / 120",
+     "l": "SMD2835 LEDs per strip"
+    }
+   ],
+   "notes": "Southern Machinery technical quotation for an LED T8 SMT line, 22-Oct-2026 (customer, prices and commercial terms removed). Concept view: engineering targets pending FAT."
+  },
+  {
+   "type": "steps",
+   "kicker": "Process flow",
+   "title": "From bare strip to inspected LED board",
+   "steps": [
+    {
+     "h": "Load and print",
+     "b": "Strips are loaded by hand into carriers. SM-VL1200 vacuum loader feeds the SM-1200 stencil printer with 2D inspection. SM-PM500 mixes paste off-line."
+    },
+    {
+     "h": "Place LEDs",
+     "b": "SM-F7S places SMD2835 LEDs with 34 heads and 68 feeder stations, group picking and group placement."
+    },
+    {
+     "h": "Reflow and cool",
+     "b": "SM-R733 reflow with 10 top / 10 bottom heating zones and 3 cooling zones, then the SM-CVB1200 vertical buffer cools carriers before AOI."
+    },
+    {
+     "h": "Inspect and unload",
+     "b": "SM-AI1251 AOI checks polarity, missing or shifted LEDs and visible solder defects; SM-UL1200 unloads; carriers return to loading."
+    }
+   ],
+   "image": "/workspace/smthelp-skill/smt-sample-evaluation-report/assets/examples/led-t8-smt-line/photos/printer.jpg",
+   "caption": "Automatic stencil printer for boards up to 1,200 mm"
+  },
+  {
+   "type": "table",
+   "kicker": "Line configuration",
+   "title": "Nine machine types, 11 units, left to right",
+   "rows": [
+    [
+     "Step",
+     "Machine",
+     "Model",
+     "Qty"
+    ],
+    [
+     "Off-line",
+     "Solder paste mixer",
+     "SM-PM500",
+     "1"
+    ],
+    [
+     "1",
+     "Long-board vacuum loader",
+     "SM-VL1200",
+     "1"
+    ],
+    [
+     "2",
+     "Automatic stencil printer",
+     "SM-1200",
+     "1"
+    ],
+    [
+     "3, 5, 9",
+     "Linking conveyor 1.5 m",
+     "SM-C1500",
+     "3"
+    ],
+    [
+     "4",
+     "High-speed LED pick-and-place",
+     "SM-F7S",
+     "1"
+    ],
+    [
+     "6",
+     "Hot-air reflow oven",
+     "SM-R733",
+     "1"
+    ],
+    [
+     "7",
+     "Cooling vertical buffer",
+     "SM-CVB1200",
+     "1"
+    ],
+    [
+     "8",
+     "Online SMT AOI",
+     "SM-AI1251",
+     "1"
+    ],
+    [
+     "10",
+     "Long-board unloader",
+     "SM-UL1200",
+     "1"
+    ]
+   ],
+   "note": "Transport left to right, front fixed rail, 900 mm nominal height, SMEMA between all stations."
+  },
+  {
+   "type": "table",
+   "kicker": "Tooling and options",
+   "title": "What comes with the line",
+   "rows": [
+    [
+     "Item",
+     "Model",
+     "Qty"
+    ],
+    [
+     "8 mm electric tape feeders",
+     "SM-FD08",
+     "38"
+    ],
+    [
+     "Spare LED pickup nozzles",
+     "SM-NZ2835",
+     "34"
+    ],
+    [
+     "Long-strip SMT carriers",
+     "SM-CR1170",
+     "40"
+    ],
+    [
+     "Laser-cut framed stencils",
+     "SM-ST1170",
+     "4"
+    ],
+    [
+     "8-channel thermal profiler",
+     "SM-TP8",
+     "1"
+    ],
+    [
+     "Carrier handling adaptation",
+     "SM-AD1200",
+     "1 lot"
+    ],
+    [
+     "Carrier workstations / return trolleys",
+     "SM-WS1200",
+     "2"
+    ],
+    [
+     "Start-up spare parts package",
+     "SM-SPK",
+     "1 lot"
+    ],
+    [
+     "Option: online 3D SPI",
+     "SM-S1200",
+     "1"
+    ],
+    [
+     "Option: printer dispensing function",
+     "SM-DP1200",
+     "1"
+    ],
+    [
+     "Option: LED light-up / FCT fixture",
+     "SM-FCT1200",
+     "1"
+    ],
+    [
+     "Option: on-site installation and training",
+     "SM-INST",
+     "10 engineer-days"
+    ]
+   ],
+   "note": "Feeders, nozzles, carriers, stencils and the FCT fixture are provisional until carrier design and sample run are approved."
+  },
+  {
+   "type": "metrics",
+   "kicker": "Capacity",
+   "title": "300 good strips an hour on two shifts",
+   "metrics": [
+    {
+     "v": "416 h",
+     "l": "26 days × 16 h per month"
+    },
+    {
+     "v": "240.4",
+     "l": "good strips / h for 100,000 a month"
+    },
+    {
+     "v": "300",
+     "l": "good strips / h target"
+    },
+    {
+     "v": "124,800",
+     "l": "strips / month at target"
+    },
+    {
+     "v": "75 %",
+     "l": "combined effectiveness"
+    },
+    {
+     "v": "98 %",
+     "l": "planning first-pass yield"
+    }
+   ],
+   "image": "/workspace/smthelp-skill/smt-sample-evaluation-report/assets/examples/led-t8-smt-line/photos/reflow.jpg",
+   "text": "At 300 good 120-LED strips an hour the line needs 36,000 net LED placements an hour, 48,000 ideal at 75 % effectiveness. Bottleneck cycle: ≤108 s with 12 strips per carrier, ≤144 s with 16. A single 8-hour shift would need 480.8 good strips an hour for 100,000 a month. 3–4 operators per shift; changeover 30–60 min.",
+   "notes": "Concept view: engineering targets pending FAT on the approved product and carriers."
+  },
+  {
+   "type": "table",
+   "kicker": "Key specifications",
+   "title": "The machines at a glance",
+   "rows": [
+    [
+     "Machine",
+     "Key specification"
+    ],
+    [
+     "SM-PM500 mixer",
+     "500 g × 2 jars; 1,400 / 400 rpm; timer 0.1–30 min"
+    ],
+    [
+     "SM-VL1200 loader",
+     "Boards 50 × 50 to 1,200 × 350 mm; 100 bare boards; PLC + touchscreen"
+    ],
+    [
+     "SM-1200 printer",
+     "Up to 1,200 × 350 mm, 0.4–6 mm; auto alignment; 2D inspection; dry / wet / vacuum cleaning"
+    ],
+    [
+     "SM-C1500 conveyor",
+     "1,500 mm rail, 350 mm max width; variable speed; SMEMA"
+    ],
+    [
+     "SM-F7S LED placer",
+     "1,200 × 330 mm max; 34 heads / 68 stations; 180,000 CPH published optimum; parts ≤5 mm"
+    ],
+    [
+     "SM-R733 reflow",
+     "10 top / 10 bottom heating zones, 3 cooling; rail 460 mm; 380 V three-phase"
+    ],
+    [
+     "SM-CVB1200 buffer",
+     "1,200 × 350 mm; 15 positions at 30 mm pitch"
+    ],
+    [
+     "SM-AI1251 AOI",
+     "1,200 × 510 mm max; 12 MP top camera; 15 µm at 60 × 45 mm field"
+    ],
+    [
+     "SM-UL1200 unloader",
+     "1,200 mm × 50–250 mm; 15 positions; 0.49 MPa air"
+    ],
+    [
+     "SM-TP8 profiler",
+     "8 channels; ±0.3 °C accuracy; 0.1 s sampling"
+    ]
+   ],
+   "note": "Published catalogue values; the placer rate is not a guaranteed line output."
+  },
+  {
+   "type": "bullets",
+   "kicker": "Strips and carriers",
+   "title": "Built around 1,170 mm LED strips",
+   "bullets": [
+    "Rigid FR4 and aluminium MCPCB strips, 8 mm and 10 mm wide, 1,150 mm nominal and 1,170 mm required.",
+    "96 and 120 SMD2835 LEDs per strip; two recipes, four stencil patterns.",
+    "Carrier envelope target ≤1,200 × 250 mm: only 30 mm remains for end features and tolerances.",
+    "12–16 strips per carrier; 40 carriers to start, provisionally 20 for each width.",
+    "Bare 8/10 mm strips cannot be fed directly: carriers hold them through every station.",
+    "If a safe carrier is longer than 1,200 mm, the 1,200 mm stations must be revised."
+   ],
+   "image": "/workspace/smthelp-skill/smt-sample-evaluation-report/assets/examples/led-t8-smt-line/photos/carrier.jpg",
+   "caption": "Example SMT carrier (illustrative, not the 1,170 mm design)"
+  },
+  {
+   "type": "table",
+   "kicker": "Site and utilities",
+   "title": "What the floor needs",
+   "rows": [
+    [
+     "Item",
+     "Current definition"
+    ],
+    [
+     "Line length",
+     "About 22.0 m of machine bodies, before gaps or optional SPI"
+    ],
+    [
+     "Planning area",
+     "About 25 × 5 m including access and carrier handling"
+    ],
+    [
+     "Electricity",
+     "220 V AC auxiliaries; 380 V three-phase for placer and oven"
+    ],
+    [
+     "Compressed air",
+     "0.49 MPa at the unloader; total flow to follow"
+    ],
+    [
+     "Exhaust",
+     "Reflow exhaust flow and duct size to be confirmed"
+    ],
+    [
+     "Transport",
+     "Left to right, front fixed rail, 900 mm, SMEMA"
+    ]
+   ],
+   "note": "Final layout, floor loading and electrical / air / exhaust schedules follow the approved configuration."
+  },
+  {
+   "type": "gallery",
+   "kicker": "The machines",
+   "title": "The line behind the numbers",
+   "images": [
+    {
+     "src": "/workspace/smthelp-skill/smt-sample-evaluation-report/assets/examples/led-t8-smt-line/photos/loader.jpg",
+     "cap": "Long-board vacuum loader"
+    },
+    {
+     "src": "/workspace/smthelp-skill/smt-sample-evaluation-report/assets/examples/led-t8-smt-line/photos/placer.jpg",
+     "cap": "High-speed LED pick-and-place, 180,000 CPH"
+    },
+    {
+     "src": "/workspace/smthelp-skill/smt-sample-evaluation-report/assets/examples/led-t8-smt-line/photos/buffer.jpg",
+     "cap": "Cooling vertical buffer"
+    },
+    {
+     "src": "/workspace/smthelp-skill/smt-sample-evaluation-report/assets/examples/led-t8-smt-line/photos/aoi.jpg",
+     "cap": "Online SMT AOI"
+    },
+    {
+     "src": "/workspace/smthelp-skill/smt-sample-evaluation-report/assets/examples/led-t8-smt-line/photos/unloader.jpg",
+     "cap": "Long-board unloader"
+    },
+    {
+     "src": "/workspace/smthelp-skill/smt-sample-evaluation-report/assets/examples/led-t8-smt-line/photos/mixer.jpg",
+     "cap": "Solder paste mixer"
+    },
+    {
+     "src": "/workspace/smthelp-skill/smt-sample-evaluation-report/assets/examples/led-t8-smt-line/photos/conveyor.jpg",
+     "cap": "Linking conveyor"
+    },
+    {
+     "src": "/workspace/smthelp-skill/smt-sample-evaluation-report/assets/examples/led-t8-smt-line/photos/fct.jpg",
+     "cap": "Example light-up / FCT fixture (illustrative)"
+    }
+   ]
+  },
+  {
+   "type": "steps",
+   "kicker": "Acceptance",
+   "title": "Seven stages from design review to hand-over",
+   "steps": [
+    {
+     "h": "Design review",
+     "b": "Approved product data, carriers and full-length station interfaces."
+    },
+    {
+     "h": "Dry-run handling",
+     "b": "Loaded-carrier dry run, sensor, SMEMA and interlock checks, safe stops."
+    },
+    {
+     "h": "Print and placement",
+     "b": "Real print and placement run for both 96- and 120-LED recipes."
+    },
+    {
+     "h": "Reflow and cooling",
+     "b": "Loaded FR4 and MCPCB thermal profiles within paste and LED limits."
+    },
+    {
+     "h": "AOI validation",
+     "b": "Known-good and seeded-defect samples; agreed false-call and escape limits."
+    },
+    {
+     "h": "Capacity trial",
+     "b": "One full 8-hour shift on the bottleneck product, logging good output, rejects and stops; target 300 good strips an hour."
+    },
+    {
+     "h": "Site acceptance and training",
+     "b": "Functional, thermal and sample checks on site; operator and maintenance training."
+    }
+   ]
+  },
+  {
+   "type": "bullets",
+   "kicker": "Open points",
+   "title": "What is still to be confirmed",
+   "bullets": [
+    "Items marked provisional (placer configuration, unloader, feeders, nozzles, carriers, stencils, profiler, FCT) need sample-run approval.",
+    "Loader pickup on loaded carriers, stack weight and double-pick prevention need joint approval.",
+    "96/120-LED cycle time on the placer is a FAT item; published 180,000 CPH is not line output.",
+    "Reflow zone revision, cooling count, exhaust flow and full-load profiles to be confirmed.",
+    "AOI false calls, escapes and full-carrier cycle time are acceptance items; no 3D claim is made.",
+    "Optional FCT checks continuity, polarity and light-up only, not CCT or CRI."
+   ]
+  },
+  {
+   "type": "cta",
+   "kicker": "Next steps",
+   "title": "Three steps to a confirmed line",
+   "facts": [
+    {
+     "h": "Share product data",
+     "b": "Final Gerber, BOM and LED circuit for both strip widths."
+    },
+    {
+     "h": "Approve the carrier",
+     "b": "Carrier drawing, strips per carrier and station interfaces."
+    },
+    {
+     "h": "Sample run and FAT",
+     "b": "Print, place, reflow and AOI on your strips; capacity trial before shipment."
+    }
+   ],
+   "text": "info@smthelp.com · WhatsApp +86 136 0256 2576"
+  }
+ ]
+}
