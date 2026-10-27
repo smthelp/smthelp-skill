@@ -1,0 +1,168 @@
+{
+ "title": "<Line or product> solution for <customer alias>",
+ "lang": "en",
+ "slides": [
+  {
+   "type": "cover",
+   "kicker": "<Solution type> · <Customer alias>",
+   "title": "<Headline with the main result>",
+   "subtitle": "<One sentence: what the line does for this industry>",
+   "image": "photos/hero.jpg",
+   "metrics": [
+    {
+     "v": "<n>",
+     "l": "<metric label>"
+    },
+    {
+     "v": "<n>",
+     "l": "<metric label>"
+    },
+    {
+     "v": "<n>",
+     "l": "<metric label>"
+    },
+    {
+     "v": "<n>",
+     "l": "<metric label>"
+    }
+   ],
+   "notes": "<source document, version, date>"
+  },
+  {
+   "type": "steps",
+   "kicker": "How the line works",
+   "title": "<From input to output>",
+   "steps": [
+    {
+     "h": "<step>",
+     "b": "<what happens, with numbers>"
+    }
+   ],
+   "image": "photos/machine.jpg",
+   "caption": "<caption>"
+  },
+  {
+   "type": "table",
+   "kicker": "Your boards",
+   "title": "<What was evaluated>",
+   "rows": [
+    [
+     "Board",
+     "<col>",
+     "<col>"
+    ],
+    [
+     "Board 1",
+     "<v>",
+     "<v>"
+    ]
+   ],
+   "note": "<missing data: To be confirmed>"
+  },
+  {
+   "type": "table",
+   "kicker": "Results at a glance",
+   "title": "<Result headline>",
+   "rows": [
+    [
+     "Board",
+     "<metric A>",
+     "<metric B>"
+    ],
+    [
+     "Board 1",
+     "<n>",
+     "<n>"
+    ]
+   ],
+   "chart": {
+    "label_col": 0,
+    "cols": [
+     1,
+     2
+    ],
+    "mode": "bars+table"
+   },
+   "note": "<formula>",
+   "notes": "<source>; To be confirmed when the source disagrees"
+  },
+  {
+   "type": "metrics",
+   "kicker": "<Comparison>",
+   "title": "<Comparison headline>",
+   "metrics": [
+    {
+     "v": "<n>",
+     "l": "<label>"
+    }
+   ],
+   "image": "photos/drawing.jpg",
+   "text": "<configuration>",
+   "notes": "Concept view"
+  },
+  {
+   "type": "bullets",
+   "kicker": "<Technology>",
+   "title": "<Why it matters>",
+   "bullets": [
+    "<fact>"
+   ],
+   "image": "photos/detail.jpg",
+   "caption": "<caption>"
+  },
+  {
+   "type": "table",
+   "kicker": "Machine at a glance",
+   "title": "<Model> key specifications",
+   "rows": [
+    [
+     "Item",
+     "Value"
+    ],
+    [
+     "<spec>",
+     "<value>"
+    ]
+   ]
+  },
+  {
+   "type": "gallery",
+   "kicker": "The equipment",
+   "title": "The line behind the numbers",
+   "images": [
+    {
+     "src": "photos/hero.jpg",
+     "cap": "<caption>"
+    }
+   ]
+  },
+  {
+   "type": "bullets",
+   "kicker": "Accuracy & open points",
+   "title": "What the plan rests on",
+   "bullets": [
+    "<assumption / conflict / missing data>"
+   ]
+  },
+  {
+   "type": "cta",
+   "kicker": "Next steps",
+   "title": "<Three steps to ...>",
+   "facts": [
+    {
+     "h": "Send samples",
+     "b": "<...>"
+    },
+    {
+     "h": "<step 2>",
+     "b": "<...>"
+    },
+    {
+     "h": "Sample run",
+     "b": "<...>"
+    }
+   ],
+   "text": "info@smthelp.com · WhatsApp +86 136 0256 2576"
+  }
+ ]
+}

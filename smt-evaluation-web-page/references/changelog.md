@@ -1,0 +1,2 @@
+# Changelog
+- 1.0.0 (2026-10-27): first release, generalised from smt-sample-evaluation-report render_web.py (v2.2.0). Input/output contracts, brand config + palette, page.html template, configurable sections/menu/chart (CSS bars)/tone, UI strings per language in templates/ui, case scaffold, check_page.py (15 checks), smoke_test.js, example odd-form-spd-line (7 languages). Fixed: JSON-LD "about" and hero alt were hard-coded to one case; Chatwoot skipped on file://; logo inlined for offline use.

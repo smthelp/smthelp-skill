@@ -1,0 +1,144 @@
+{
+ "file": "tht-odd-form-insertion-solution-s7900-6-head-lead-clinching-tray-feeder-spd-boards-smart-ems-pcb-assembly.html",
+ "canonical_base": "https://file.autoinsertion.com/public/Product%20landing%20Page/",
+ "storage_prefix": "smtoddspd_",
+ "date_published": "2026-10-27",
+ "langs": [
+  "en",
+  "es",
+  "pt",
+  "fr",
+  "ar",
+  "ru",
+  "zh"
+ ],
+ "videos": [
+  {
+   "id": "4_-IFfZk7Ys",
+   "t": "v1t",
+   "d": "v1d",
+   "dur": ""
+  },
+  {
+   "id": "GQcnWn7h3jg",
+   "t": "v2t",
+   "d": "v2d",
+   "dur": ""
+  },
+  {
+   "id": "7aeeWq-SiPI",
+   "t": "v3t",
+   "d": "v3d",
+   "dur": ""
+  },
+  {
+   "id": "o1WeoMJFo8E",
+   "t": "v4t",
+   "d": "v4d",
+   "dur": ""
+  },
+  {
+   "id": "l4jLwLFpO_k",
+   "t": "v5t",
+   "d": "v5d",
+   "dur": ""
+  },
+  {
+   "id": "V4T9UpTxbAg",
+   "t": "v6t",
+   "d": "v6d",
+   "dur": ""
+  },
+  {
+   "id": "cbvWhqnld2M",
+   "t": "v7t",
+   "d": "v7d",
+   "dur": ""
+  },
+  {
+   "id": "YD2C2oew7dU",
+   "t": "v8t",
+   "d": "v8d",
+   "dur": ""
+  }
+ ],
+ "catalogs": [
+  {
+   "url": "https://file.autoinsertion.com/public/Southern%20Machinery%20Product/S7900%20ODD%20FORM%20MACHINE%20CATALOG%202025.pdf",
+   "t": "cat1t",
+   "d": "cat1d",
+   "type": "PDF"
+  },
+  {
+   "url": "https://file.autoinsertion.com/public/Product%20landing%20Page/S7900%20Odd%20Form%20Insertion%20Solution.html",
+   "t": "cat2t",
+   "d": "cat2d",
+   "type": "HTML"
+  },
+  {
+   "url": "https://file.autoinsertion.com/public/Southern%20Machinery%20Product/STP1001%20Tray%20Feeder%20%20Southern%20Machinery%20Customized%20Feeder%20Nozzle%20Catalog%20V03.pdf",
+   "t": "cat3t",
+   "d": "cat3d",
+   "type": "PDF"
+  },
+  {
+   "url": "https://file.autoinsertion.com/public/Southern%20Machinery%20Product/Southern%20Machinery%20Customized%20Feeder%20Nozzle%20Catalog%20V03.pdf",
+   "t": "cat4t",
+   "d": "cat4d",
+   "type": "PDF"
+  },
+  {
+   "url": "https://file.autoinsertion.com/public/Product%20landing%20Page/SMT%20Nozzle%20%26%20Gripper%20Customization%20Process.html",
+   "t": "cat5t",
+   "d": "cat5d",
+   "type": "HTML"
+  },
+  {
+   "url": "https://file.autoinsertion.com/public/Blog%20file/auto-insertion-readiness-checklist.pdf",
+   "t": "cat6t",
+   "d": "cat6d",
+   "type": "PDF"
+  }
+ ],
+ "extra_gallery": [],
+ "blogs": 8,
+ "faq": 6,
+ "skill": "smt-evaluation-web-page",
+ "tone": "engineering-plain",
+ "sections": [
+  "answer",
+  "report",
+  "videos",
+  "docs",
+  "blog",
+  "faq",
+  "contact"
+ ],
+ "nav_slides": [
+  1,
+  4,
+  6
+ ],
+ "about": [
+  "THT odd-form insertion",
+  "Lead clinching",
+  "Tray feeder for odd-form components",
+  "Surge protection device PCB assembly",
+  "S7900 odd-form insertion machine"
+ ],
+ "hero_alt": "Odd-form insertion cell: conveyor, S7900 6-head inserter and conveyor ahead of wave soldering",
+ "breadcrumb": "THT odd-form insertion solutions",
+ "redact": [
+  "Schneider",
+  "Mexico",
+  "Mersen",
+  "TDK",
+  "74720005",
+  "NNZ63128",
+  "JYT",
+  "5601-SUR",
+  "SFAB",
+  "USD"
+ ],
+ "palette": {}
+}
