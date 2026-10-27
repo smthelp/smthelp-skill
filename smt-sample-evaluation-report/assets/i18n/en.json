@@ -248,5 +248,7 @@
   "concept": "Concept view",
   "tbc": "To be confirmed",
   "generated": "Report generated {date} · skill smt-sample-evaluation-report v{ver}"
- }
+ },
+ "L_b_kicker_anon": "{id} · {bpp} boards per panel",
+ "L_sum_col0_anon": "Board"
 }
