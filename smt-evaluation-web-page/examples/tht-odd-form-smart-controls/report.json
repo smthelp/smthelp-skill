@@ -1,0 +1,447 @@
+{
+ "title": "THT Odd Form Insertion Solution",
+ "lang": "en",
+ "slides": [
+  {
+   "type": "cover",
+   "kicker": "THT odd-form insertion solution · Smart Lighting Controls Manufacturer",
+   "title": "One S7900VI cell inserts relays, fuses, MOVs, MOSFETs, capacitors and Faston terminals on 3 control boards",
+   "subtitle": "Magazine loader, S7900VI 6-head odd-form inserter with lead clinching and magazine unloader, fed from tube, bulk, radial, axial and reel-terminal feeders.",
+   "image": "photos/line.jpg",
+   "metrics": [
+    {
+     "v": "3",
+     "l": "boards analysed"
+    },
+    {
+     "v": "91",
+     "l": "insertion points across the 3 boards"
+    },
+    {
+     "v": "8 s",
+     "l": "Board 1 cycle without clinching (30 s with)"
+    },
+    {
+     "v": "4.7×",
+     "l": "machine vs manual insertion rate"
+    }
+   ],
+   "notes": "Source: customer proposal 2026-01-20, 16 slides. Verified source"
+  },
+  {
+   "type": "steps",
+   "kicker": "How the cell works",
+   "title": "From magazine to magazine in six steps",
+   "steps": [
+    {
+     "h": "PCB infeed",
+     "b": "The SLD250 magazine loader feeds the board; the S7900VI conveyor clamps it in position."
+    },
+    {
+     "h": "Component feeding",
+     "b": "Tube, bulk belt, radial tape, axial tape and reel-terminal feeders present each part."
+    },
+    {
+     "h": "Pick-up",
+     "b": "The head picks the part with a vacuum nozzle or a mechanical gripper."
+    },
+    {
+     "h": "Vision lead check",
+     "b": "Six industrial cameras capture the leads simultaneously in 0.5 s."
+    },
+    {
+     "h": "Insertion and clinching",
+     "b": "The head follows the programmed X-Y-Z path and inserts with controlled force and depth; the clinch unit bends the leads under the board."
+    },
+    {
+     "h": "PCB outfeed",
+     "b": "The finished board goes to the SLUD250 magazine unloader."
+    }
+   ],
+   "image": "photos/flow.jpg",
+   "caption": "Process flow of the S7900VI odd-form inserter"
+  },
+  {
+   "type": "table",
+   "kicker": "Your boards",
+   "title": "Three boards, 6 component families, 91 insertion points",
+   "rows": [
+    [
+     "Board",
+     "Panel",
+     "Component types",
+     "Insertion points",
+     "Parts",
+     "Supply"
+    ],
+    [
+     "Board 1",
+     "12-up",
+     "6",
+     "10",
+     "Relay ×2, fuse ×1 + ×1, MOV ×2, MOSFET TO-220F ×2, electrolytic capacitor ×2",
+     "Tray, tape, bulk"
+    ],
+    [
+     "Board 2",
+     "12-up",
+     "5",
+     "8",
+     "Relay ×2, fuse ×1, MOV ×2, MOSFET TO-220F ×2, electrolytic capacitor ×1",
+     "Tray, bulk"
+    ],
+    [
+     "Board 3",
+     "Single",
+     "3",
+     "73",
+     "Film capacitor ×14, axial resistor ×14, Faston terminal ×45",
+     "Tape, reel"
+    ]
+   ],
+   "note": "Relay SPST 5 A 12 V; fuse 2 A slow; MOV 140 VAC; capacitor 4.7 µF 400 V 8×11; film capacitor 0.022 µF 400 V radial.",
+   "notes": "Verified source (BOM slides); Board 2 quantities To be confirmed"
+  },
+  {
+   "type": "table",
+   "kicker": "Results at a glance",
+   "title": "Board 1 and 2 cycle drops by about 71–73 % without clinching",
+   "rows": [
+    [
+     "Board",
+     "Cycle with clinching",
+     "Cycle without clinching",
+     "Boards/h with clinching",
+     "Boards/h without clinching",
+     "Reduction"
+    ],
+    [
+     "Board 1",
+     "30 s",
+     "8 s",
+     "120",
+     "450",
+     "73 %"
+    ],
+    [
+     "Board 2",
+     "24 s",
+     "7 s",
+     "150",
+     "514",
+     "71 %"
+    ],
+    [
+     "Board 3",
+     "185 s",
+     "62 s",
+     "19",
+     "58",
+     "66 %"
+    ]
+   ],
+   "chart": {
+    "label_col": 0,
+    "cols": [
+     3,
+     4
+    ],
+    "mode": "bars+table"
+   },
+   "note": "Boards/h = 3600 ÷ cycle per board. Clinching adds 2 s per point. Boards 1 and 2 run as 12-up panels: 360 s → 96 s and 288 s → 84 s per panel.",
+   "notes": "Cycle times: Verified source; boards/h computed. To be confirmed"
+  },
+  {
+   "type": "metrics",
+   "kicker": "Monthly capacity",
+   "title": "Board 3: 6,849 → 20,438 boards a month",
+   "metrics": [
+    {
+     "v": "6,849",
+     "l": "Board 3 per month with clinching"
+    },
+    {
+     "v": "20,438",
+     "l": "Board 3 per month without clinching"
+    },
+    {
+     "v": "2.98×",
+     "l": "capacity gain without clinching"
+    },
+    {
+     "v": "16 h × 22 d",
+     "l": "working time basis (1,267,200 s)"
+    },
+    {
+     "v": "42,240",
+     "l": "Board 1 per month with clinching"
+    },
+    {
+     "v": "158,400",
+     "l": "Board 1 per month without clinching"
+    }
+   ],
+   "image": "photos/board1.jpg",
+   "text": "Board 1 and Board 2 monthly figures are computed on the same 16 h × 22 day basis (Board 2: 52,800 with, 181,029 without clinching).",
+   "notes": "Board 3: Verified source; Board 1/2: Estimate"
+  },
+  {
+   "type": "table",
+   "kicker": "Machine vs manual",
+   "title": "4.7× the output of manual insertion",
+   "rows": [
+    [
+     "Mode",
+     "Insertions/h",
+     "Insertion points per panel",
+     "Panels/h",
+     "Efficiency"
+    ],
+    [
+     "Manual insertion",
+     "1,000",
+     "84",
+     "11.9",
+     "1×"
+    ],
+    [
+     "S7900VI",
+     "4,700",
+     "84",
+     "55.9",
+     "4.7×"
+    ]
+   ],
+   "note": "Proposal comparison; the 84 points per panel basis is to be confirmed against the cycle analysis.",
+   "notes": "Verified source; To be confirmed"
+  },
+  {
+   "type": "table",
+   "kicker": "Configuration",
+   "title": "S7900VI cell and feeders",
+   "rows": [
+    [
+     "Item",
+     "Model",
+     "Qty",
+     "Use"
+    ],
+    [
+     "Odd-form insertion machine",
+     "S7900VI",
+     "1",
+     "4 grippers + 1 nozzle, 2-side feeder base, lead clinching"
+    ],
+    [
+     "Tube feeder",
+     "STF201",
+     "2",
+     "Tube-supplied parts; bend before or after insertion to be confirmed"
+    ],
+    [
+     "Belt feeder",
+     "SMVF01",
+     "1",
+     "Bulk parts"
+    ],
+    [
+     "Radial tape feeder",
+     "SRF1001",
+     "4",
+     "Radial taped parts"
+    ],
+    [
+     "Axial tape feeder",
+     "SAF1001",
+     "1",
+     "Axial resistors"
+    ],
+    [
+     "Reel terminal feeder",
+     "SRT201",
+     "1",
+     "Faston terminals on reel"
+    ],
+    [
+     "Magazine loader / unloader",
+     "SLD250 / SLUD250",
+     "1 + 1",
+     "Board infeed and outfeed"
+    ]
+   ],
+   "notes": "Verified source"
+  },
+  {
+   "type": "bullets",
+   "kicker": "Lead clinching",
+   "title": "Clinched leads stop parts floating in wave soldering",
+   "bullets": [
+    "Clinch units for U-shaped resistors, pins, USB, capacitors, inductors, connectors, transformers and PCB modules.",
+    "Four bend types: outward, inner, circular and 2 turns.",
+    "Bend angle 15–30° where an angle is specified.",
+    "Lead diameter below 1.0 mm and protruding lead at least 2 mm (final design decides).",
+    "Each clinched point adds about 2 s to the cycle."
+   ],
+   "image": "photos/clinch.jpg",
+   "caption": "Lead clinching units and bend types",
+   "notes": "Verified source"
+  },
+  {
+   "type": "table",
+   "kicker": "Machine at a glance",
+   "title": "S7900VI key specifications",
+   "rows": [
+    [
+     "Item",
+     "Value"
+    ],
+    [
+     "Size (L×W×H)",
+     "1300 × 1700 × 2000 mm"
+    ],
+    [
+     "Weight",
+     "1750 kg"
+    ],
+    [
+     "Insertion heads",
+     "6"
+    ],
+    [
+     "Speed per component",
+     "0.6 s"
+    ],
+    [
+     "Placement accuracy",
+     "±0.06 mm"
+    ],
+    [
+     "Insertion force",
+     "≤29.4 N"
+    ],
+    [
+     "Insertion direction",
+     "0–360°"
+    ],
+    [
+     "Max component size",
+     "30 mm (17 × 17)"
+    ],
+    [
+     "Component height",
+     "<20 mm"
+    ],
+    [
+     "PCB size",
+     "70 × 70 – 410 × 350 mm"
+    ],
+    [
+     "PCB thickness",
+     "0.6–2.0 mm"
+    ],
+    [
+     "Max PCB weight",
+     "2 kg"
+    ],
+    [
+     "Conveyor height",
+     "900 ± 20 mm"
+    ],
+    [
+     "Power",
+     "5.2 kW max, 3.5 kW running"
+    ],
+    [
+     "Feeder stations",
+     "up to 20 (radial 259, tube 222), 10 for most feeder types"
+    ],
+    [
+     "Interfaces",
+     "SMEMA, MES"
+    ]
+   ],
+   "notes": "Verified source (spec slide)"
+  },
+  {
+   "type": "gallery",
+   "kicker": "The equipment",
+   "title": "The cell behind the numbers",
+   "images": [
+    {
+     "src": "photos/s7900vi.jpg",
+     "cap": "S7900VI odd-form inserter with dimensions"
+    },
+    {
+     "src": "photos/grippers.jpg",
+     "cap": "Custom grippers for resistors, pins and USB parts"
+    },
+    {
+     "src": "photos/clinch-video.jpg",
+     "cap": "Lead clinching seen from below the board"
+    },
+    {
+     "src": "photos/similar.jpg",
+     "cap": "Similar parts already run: relays, MOSFETs, capacitors, fuses, axial resistors, Faston"
+    }
+   ]
+  },
+  {
+   "type": "cards",
+   "kicker": "Support",
+   "title": "Service behind the cell",
+   "cards": [
+    {
+     "h": "7×24 worldwide support",
+     "b": "Remote engineers around the clock."
+    },
+    {
+     "h": "Free installation and training",
+     "b": "On-site start-up and operator training."
+    },
+    {
+     "h": "1-day spare parts",
+     "b": "Spare parts ship within one day."
+    },
+    {
+     "h": "1-month custom solution",
+     "b": "Grippers, feeders and clinch units customised in about a month."
+    }
+   ],
+   "notes": "Verified source"
+  },
+  {
+   "type": "bullets",
+   "kicker": "Accuracy & open points",
+   "title": "What the plan rests on",
+   "bullets": [
+    "Board 2 summary repeats Board 1 figures (73 %, 3.75×); 24 s → 7 s gives 71 % and 3.43×.",
+    "Machine-vs-manual table uses 84 points per panel and 55.9 panels/h; the cycle analysis gives 37.5 panels/h for Board 1 without clinching.",
+    "Tube-fed parts: bend before or after insertion to be confirmed.",
+    "Board 1 lists two fuse options (taped 250 VAC and bulk 350 V); confirm which is fitted.",
+    "Board 2 quantities read from the BOM image; confirm with the final BOM.",
+    "Clinch limits (lead <1.0 mm, protrusion ≥2 mm) to be checked part by part with samples."
+   ],
+   "notes": "To be confirmed"
+  },
+  {
+   "type": "cta",
+   "kicker": "Next steps",
+   "title": "Three steps to a running odd-form cell",
+   "facts": [
+    {
+     "h": "Send samples",
+     "b": "Bare PCBs and every component of Boards 1–3, with tube, tray and reel packaging."
+    },
+    {
+     "h": "Confirm the open points",
+     "b": "Clinch or no clinch per part, bend timing and final BOM."
+    },
+    {
+     "h": "Sample run and video",
+     "b": "We run your boards on the S7900VI and send cycle data and video."
+    }
+   ],
+   "text": "info@smthelp.com · WhatsApp +86 136 0256 2576"
+  }
+ ]
+}
