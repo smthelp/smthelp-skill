@@ -156,5 +156,20 @@
   "axial": "axiais",
   "smt": "SMT"
  },
- "a_disclaimer": "Prevalece a especificação do contrato (PO) do equipamento; a Southern Machinery pode ajustar esta avaliação após os testes de aceitação."
+ "a_disclaimer": "Prevalece a especificação do contrato (PO) do equipamento; a Southern Machinery pode ajustar esta avaliação após os testes de aceitação.",
+ "html": {
+  "report": "Relatório de avaliação",
+  "contents": "Conteúdo",
+  "contact": "Fale com um engenheiro",
+  "email": "Envie um e-mail",
+  "whatsapp": "WhatsApp",
+  "theme": "Escuro / claro",
+  "f_about": "A Southern Machinery (Shenzhen) fornece equipamentos de inserção automática THT, SMT e manuseio de placas, com mais de 30 anos de experiência em montagem de linhas.",
+  "f_cat": "Catálogo de produtos",
+  "f_ph": "Biblioteca de fotos das máquinas",
+  "estimate": "Estimativa ±5 %",
+  "concept": "Visão conceitual",
+  "tbc": "A confirmar",
+  "generated": "Relatório gerado em {date} · skill smt-sample-evaluation-report v{ver}"
+ }
 }
