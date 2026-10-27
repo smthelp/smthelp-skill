@@ -5,6 +5,9 @@ usage: run.py <case_dir> [--langs en,pt] [--layout 16x9|a4] [--no-preview] [--ht
               [--customer-alias "LED Driver Manufacturer"] [--slug NAME]
 --customer-alias  replaces the customer name everywhere (spec, notes, file names) for anonymous/public use;
                   QA E8 fails if the real name is left in any output. --slug sets the output file stem.
+--board-alias     boards become "Board 1..n"; PCB and model numbers are dropped (line_evaluation).
+--web             multilingual marketing page from <case_dir>/web/ (render_web.py): exports web/strings_en.json
+                  (translate to web/i18n/<lang>.json with identical keys) and builds out/<page.json file>.
 --html            also writes <slug>-<lang>.html: one self-contained HTML report (render_html.py).
 Outputs in <case_dir>/out/:
   calc.json                 raw figures (+ skill version)
@@ -32,6 +35,9 @@ def main():
     layout = a[a.index("--layout") + 1] if "--layout" in a else p.get("layout", "16x9")
     c = compute(case, p, m); c["skill_version"] = version()
     alias = a[a.index("--customer-alias") + 1] if "--customer-alias" in a else None
+    if "--board-alias" in a:   # Board 1..n instead of the customer's PCB / model numbers
+        for i, b in enumerate(case["boards"], 1): b["id"], b["pcb"], b["model"] = f"Board {i}", "", ""
+        c = compute(case, p, m); c["skill_version"] = version()
     real = case["customer"]; hide = []
     if alias:
         w = real.split()
@@ -47,7 +53,7 @@ def main():
         return o
     json.dump(c, open(os.path.join(out, "calc.json"), "w", encoding="utf-8"), ensure_ascii=False, indent=1)
     for lang in langs:
-        spec = make_spec.build(case_dir, lang, c); spec["skill_version"] = c["skill_version"]
+        spec = make_spec.build(case_dir, lang, c, case); spec["skill_version"] = c["skill_version"]
         if alias: spec = redact(spec)
         sp = os.path.join(out, f"deck-{lang}.json"); json.dump(spec, open(sp, "w", encoding="utf-8"), ensure_ascii=False, indent=1)
         pptx = os.path.join(out, f"{stem}-{lang}.pptx")
@@ -55,6 +61,11 @@ def main():
             hp = os.path.join(out, f"{stem}-{lang}.html")
             r = subprocess.run([sys.executable, os.path.join(HERE, "render_html.py"), sp, hp], capture_output=True, text=True); print(r.stdout.strip() or r.stderr[-800:])
             if alias and any(h.lower() in open(hp, encoding="utf-8").read().lower() for h in hide): print("QA E8 real customer name left in HTML"); sys.exit(1)
+        if "--web" in a and lang == "en" and os.path.isdir(os.path.join(case_dir, "web")):
+            wd = os.path.join(case_dir, "web")
+            for mode in ("export", "build"):
+                r = subprocess.run([sys.executable, os.path.join(HERE, "render_web.py"), mode, sp, wd] + ([out] if mode == "build" else []), capture_output=True, text=True)
+                print(r.stdout.strip() or r.stderr[-800:])
         if "--no-pptx" in a: continue
         if layout == "a4":
             cmd = [sys.executable, os.path.join(SKILL, "..", "smt-brand-kit", "scripts", "make_deck.py"), sp, pptx]
