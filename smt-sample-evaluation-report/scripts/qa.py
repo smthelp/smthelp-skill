@@ -25,7 +25,8 @@ def run(case_dir):
     near = lambda a, b: abs(a - b) < 0.01
     if c.get("type") == "line_evaluation":
         cb = {b["id"]: b for b in case["boards"]}
-        for b in c["boards"]:
+        for i, b in enumerate(c["boards"]):
+            if b["id"] not in cb: cb[b["id"]] = case["boards"][i]   # --board-alias renamed the boards
             if not near(b["line_cycle"], max(g["cycle"] for g in b["groups"])): E.append(f"E1 {b['id']} line cycle != slowest machine")
             if not near(b["line_boards_h"], 3600 / b["line_cycle"] * b["bpp"]): E.append(f"E1 {b['id']} line output")
             mk = cb[b["id"]].get("markers", [])
