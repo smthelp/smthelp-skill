@@ -232,6 +232,21 @@
  "L_n2_b": "Floor layout with conveyors, feeder carts and operator positions for your plant.",
  "L_n3_h": "Quotation",
  "L_n3_b": "Formal quotation for the line with feeders, programming, installation and training.",
- "L_deck_title": "{customer} - PCBA evaluation",
- "a_disclaimer": "The specification in the equipment PO agreement prevails; Southern Machinery may adjust this evaluation after acceptance tests."
+ "L_deck_title": "THT Auto Insertion Line Solution Evaluation Report - {customer}",
+ "a_disclaimer": "The specification in the equipment PO agreement prevails; Southern Machinery may adjust this evaluation after acceptance tests.",
+ "html": {
+  "report": "Evaluation report",
+  "contents": "Contents",
+  "contact": "Talk to an engineer",
+  "email": "Email us",
+  "whatsapp": "WhatsApp",
+  "theme": "Dark / light",
+  "f_about": "Southern Machinery (Shenzhen) supplies THT auto insertion, SMT and board-handling equipment, with 30+ years of line set-up experience.",
+  "f_cat": "Product catalogue",
+  "f_ph": "Machine photo library",
+  "estimate": "Estimate ±5 %",
+  "concept": "Concept view",
+  "tbc": "To be confirmed",
+  "generated": "Report generated {date} · skill smt-sample-evaluation-report v{ver}"
+ }
 }
