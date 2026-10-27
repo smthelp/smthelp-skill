@@ -1,0 +1,32 @@
+{
+ "quote_no": "VI26070801",
+ "date": "2026-07-08",
+ "valid_days": 30,
+ "project": "Smart Reel Storage",
+ "prepared_by": "Jason Wu",
+ "buyer": {"company": "Visam", "address": "", "country": "Mexico", "attn": "Enrique Perez",
+           "email": "enrique.perez@visam.com.mx", "tel": ""},
+ "currency": "USD", "incoterm": "EXW", "place": "Shenzhen, China",
+ "layout": "single",
+ "items": [
+  {"model": "SIS7200A", "name": "Smart Reel Storage Rack, 7 layers (7-inch reels)", "qty": 1, "unit": "set", "price": 3980,
+   "photo": "photos/sis7200a.jpg",
+   "specs": ["Dimensions: 2070 x 400 x 1900 mm, 7 layers", "Capacity: 1,400 reels of 7 inch", "Slot width: 17 mm",
+             "Network: wired and wireless", "Finish: baked enamel (stoving varnish)", "Power: 220 V AC, 100 W",
+             "Two indicator lights on top; 7-colour LED indication", "Upgraded pressure sensors for easier storage and picking"]},
+  {"model": "SIS4000A", "name": "Smart Reel Storage Rack, 4 layers (13-inch reels)", "qty": 1, "unit": "set", "price": 3500,
+   "photo": "photos/sis4000a.jpg",
+   "specs": ["Dimensions: 2070 x 400 x 1900 mm, 4 layers", "Capacity: 400 reels of 13 inch", "Slot width: 40 mm",
+             "Network: wired and wireless", "Finish: baked enamel (stoving varnish)", "Power: 220 V AC, 100 W",
+             "Two indicator lights on top; 7-colour LED indication", "Upgraded pressure sensors for easier storage and picking"]},
+  {"model": "SSL2P", "name": "Smart PDA (handheld scanner)", "qty": 1, "unit": "pc", "price": 900}
+ ],
+ "charges": [{"name": "Export packing: vacuum-sealed, fumigation-free wooden case", "qty": 2, "unit": "case", "price": 300}],
+ "terms": {
+  "payment": "50% T/T deposit with order, 50% T/T before shipment",
+  "delivery": "Within 4 weeks after receipt of the deposit",
+  "installation": "Free installation guidance and operator training (remote)",
+  "packing": "Export packing as listed above. Freight from Shenzhen is arranged and paid by the buyer (EXW).",
+  "insurance": "To be covered by the buyer"
+ }
+}

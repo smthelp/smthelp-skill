@@ -1,0 +1,29 @@
+{
+ "quote_no": "MR25050501",
+ "date": "2025-05-05",
+ "valid_days": 30,
+ "project": "AGV for Soldering Pallet Transport",
+ "prepared_by": "Frank",
+ "buyer": {"company": "MRO Proveedores", "address": "502 E San Ysidro Blvd., Suite C-99, San Ysidro, CA 92173-3111", "country": "USA",
+           "attn": "Ing. Francisco Leal", "email": "mroproveedores@gmail.com", "tel": "+52 664 348 23 34"},
+ "currency": "USD", "incoterm": "EXW", "place": "Shenzhen, China",
+ "layout": "single",
+ "items": [
+  {"model": "SFY02", "name": "AGV (Automated Guided Vehicle) for Soldering Pallets", "qty": 1, "unit": "set", "price": 2330,
+   "specs": ["Outer dimensions (L x W x H): 550 x 450 x 550 mm", "Top plate (L x W x H): 520 x 430 x 50 mm, carries the soldering pallet",
+             "Max. load: 50 kg; net weight: approx. 35 kg", "Speed: 20 - 45 m/min, adjustable",
+             "Driving modes: straight line and turning", "Stopping accuracy: +/- 2 cm",
+             "Battery: lithium 24 V 20 Ah; run time > 15 h, standby > 200 h, charging 4 h",
+             "Navigation: magnetic strip, forward and backward", "Parameter setting: LCD touch screen or remote control",
+             "Obstacle detection sensors", "Drive: brushless motors, differential steering",
+             "Branch routes: min. turning radius 0.8 m at 90°; 40 m magnetic strip", "Wi-Fi module with API for MES"]}
+ ],
+ "terms": {
+  "payment": "50% T/T deposit with order, 50% T/T after installation",
+  "delivery": "Within 30 days after receipt of the deposit",
+  "warranty": "12 months, excluding consumable and wear parts",
+  "installation": "Free installation and training",
+  "packing": "Packing and freight are paid by the buyer",
+  "insurance": "To be covered by the buyer"
+ }
+}
