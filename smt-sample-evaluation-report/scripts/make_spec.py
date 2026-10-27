@@ -57,8 +57,9 @@ def load_lang(lang):
     return en
 
 
-def build(case_dir, lang, c=None):
+def build(case_dir, lang, c=None, case_override=None):
     case, p, m = load_case(case_dir)
+    if case_override: case = case_override
     c = c or compute(case, p, m)
     if case.get("type") == "line_evaluation": return build_line(case_dir, lang, case, p, m, c)
     T = load_lang(lang)
@@ -175,9 +176,11 @@ def build_line(case_dir, lang, case, p, M, c):
               "image": pic("line"), "caption": cap("line"), "notes": src})
     gcol = lambda b, proc: next((x for x in b["groups"] if x["process"] == proc), None)
     rows = [t("L_sum_cols")]
+    anon = not any(b["pcb"] for b in c["boards"])
+    if anon: rows[0][0] = T["L_sum_col0_anon"]
     for b in c["boards"]:
         r, o = gcol(b, "radial"), gcol(b, "oddform")
-        rows.append([f"{b['id']} · {b['pcb']}", str(b["bpp"]), str(b["parts_board"]), F(r["cycle"], 1) if r else "—", F(o["cycle"], 1) if o else "—", F(b["line_boards_h"])])
+        rows.append([b["id"] if anon else f"{b['id']} · {b['pcb']}", str(b["bpp"]), str(b["parts_board"]), F(r["cycle"], 1) if r else "—", F(o["cycle"], 1) if o else "—", F(b["line_boards_h"])])
     S.append({"type": "table", "kicker": t("L_sum_kicker"), "title": t("L_sum_title") if c["board_count"] == 4 else t("L_sum_title_n"),
               "colw": [0.26, 0.13, 0.13, 0.16, 0.16, 0.16], "rows": rows, "note": t("L_sum_note"), "notes": src})
     cb = {x["id"]: x for x in case["boards"]}
@@ -190,7 +193,7 @@ def build_line(case_dir, lang, case, p, M, c):
             mets.append({"v": F(g["cycle"], 1), "l": t("L_b_m_cycle", qty=g["qty"], name=g["name"])})
         mets += [{"v": F(b["line_boards_h"]), "l": t("L_b_m_line")}, {"v": F(b["planned_boards_h"]), "l": t("L_b_m_plan")}]
         parts_list = ", ".join(f"{g['per_board']} {PN[g['process']]}" for g in b["groups"])
-        S.append({"type": "board", "kicker": t("L_b_kicker", id=b["id"], pcb=b["pcb"], model=b["model"]),
+        S.append({"type": "board", "kicker": t("L_b_kicker", id=b["id"], pcb=b["pcb"], model=b["model"]) if b["pcb"] else t("L_b_kicker_anon", id=b["id"], bpp=b["bpp"]),
                   "title": t("L_b_title", id=b["id"], line_boards_h=F(b["line_boards_h"]), bottleneck=b["bottleneck_name"]),
                   "image": img, "metrics": mets, "text": t("L_b_text", bpp=b["bpp"], parts_list=parts_list) + (" " + L(cbd["note"], lang) if cbd.get("note") else ""),
                   "notes": "Cycle = parts per panel / (CPH x machines) x 3600. " + (L(cbd.get("note", ""), lang))})
