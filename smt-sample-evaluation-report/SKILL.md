@@ -2,7 +2,7 @@
 name: smt-sample-evaluation-report
 description: Turn a customer's boards into a customer-specific evaluation report deck on the SM 16:9 PPT template (EN/PT/...). Two report types - sample_test (one board measured on one machine; capacity, ramp-up, ROI manual vs automation, payback, benefits, BOM fit) and line_evaluation (several boards estimated from PCBA photos or BOMs on a multi-machine line such as radial + odd-form; marked board photos, cycle per machine, line output, bottleneck and balance option, feeder plan per station, component readiness). Use when Jason says 打样结果/样板测试/试产/PCBA 评估/照片评估 + 评估报告/方案/ROI/产能分析/线体配置 for a customer board, or asks for a sample-test report, PCBA evaluation, solution deck or ROI deck for a named customer, or to refresh an old evaluation PPT.
 metadata:
-  version: 2.1.0
+  version: 2.2.0
   updated: 2026-10-27
   cases: Zebu ZK50 / S3000 (sample_test); Acuity Brands 4 boards / S-3010 + 3x S-70DL (line_evaluation, reissue of 2020 PCBA Evaluation)
   depends_on: smt-brand-kit (smdeck.py primitives, A4 make_deck.py), learn-SMT-in-3-hours (evidence labels)
@@ -13,6 +13,8 @@ metadata:
 Customer boards -> one `case.json` -> one calculation -> one slide spec per language -> PPTX (and/or single-file HTML report) -> QA gate.
 
 - `--html` writes `<slug>-<lang>.html` from the same spec (render_html.py): one self-contained page, images embedded, SM logo, dark/light, contents menu, JSON-LD, footer CTA, Chatwoot; speaker notes (sources) are not published. Use `--no-pptx` for HTML only.
+- `--web`: multilingual marketing page (EN default + ES, PT, FR, AR rtl, RU, ZH; dark/light + language saved in localStorage) from `<case>/web/` (page.json: SEO file name, matched YouTube videos from the SM video board, catalogues from the SM catalogue board, extra ph.smthelp.com photos; web_en.json: SEO/GEO quick answer, video/catalogue texts, 8 Dan Koe six-step blogs, FAQ, UI). Flow: run once -> `web/strings_en.json` -> one subagent per language writes `web/i18n/<lang>.json` (same keys, numbers and model names unchanged) -> run again. Blog/heading titles never contain hook/diagnosis/framework/vehicle/loop/CTA (build fails). Example: assets/examples/acuity-pcba-line/web/.
+- `--board-alias`: Board 1..n instead of PCB/model numbers (anonymous pages).
 - `--customer-alias "LED Driver Manufacturer"` anonymises the report (all text, notes, file names; paths untouched); QA E8 fails if the real name survives. `--slug` sets the file stem (SEO: `<topic>-<alias>-smart-ems-pcb-assembly` style).
 
 | case.json `type` | When | Slides |
