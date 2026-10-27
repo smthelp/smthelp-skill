@@ -1,0 +1,106 @@
+{
+ "file": "led-t8-tube-smt-line-1170mm-strip-180000cph-led-placer-reflow-aoi-smart-ems-pcb-assembly.html",
+ "canonical_base": "https://file.autoinsertion.com/public/Product%20landing%20Page/",
+ "storage_prefix": "smtledt8_",
+ "date_published": "2026-10-27",
+ "langs": [
+  "en",
+  "es",
+  "pt",
+  "fr",
+  "ar",
+  "ru",
+  "zh"
+ ],
+ "videos": [
+  {
+   "id": "quVPVo0yAhk",
+   "t": "v1t",
+   "d": "v1d",
+   "dur": "1:20"
+  },
+  {
+   "id": "X83dD33SeVY",
+   "t": "v2t",
+   "d": "v2d",
+   "dur": "0:56"
+  },
+  {
+   "id": "KByvH_hqrpk",
+   "t": "v3t",
+   "d": "v3d",
+   "dur": "1:01"
+  },
+  {
+   "id": "pa4GMlrevPs",
+   "t": "v4t",
+   "d": "v4d",
+   "dur": "0:36"
+  },
+  {
+   "id": "0rtYCeU_ZZ0",
+   "t": "v5t",
+   "d": "v5d",
+   "dur": "0:31"
+  },
+  {
+   "id": "qKykkxPKAyo",
+   "t": "v6t",
+   "d": "v6d",
+   "dur": "0:57"
+  },
+  {
+   "id": "XKjB6jfvt4c",
+   "t": "v7t",
+   "d": "v7d",
+   "dur": "0:53"
+  },
+  {
+   "id": "dhfKfdGaEnw",
+   "t": "v8t",
+   "d": "v8d",
+   "dur": "1:39"
+  }
+ ],
+ "catalogs": [
+  {
+   "url": "https://file.autoinsertion.com/public/Product%20landing%20Page/LED_Tube_1.2M_SMT_Solution.html",
+   "t": "cat1t",
+   "d": "cat1d",
+   "type": "HTML"
+  },
+  {
+   "url": "https://file.autoinsertion.com/public/Southern%20Machinery%20Product/S-1200-SV%20High%20end%20LED%20Lamp%20SMT%20Line.pdf",
+   "t": "cat2t",
+   "d": "cat2d",
+   "type": "PDF"
+  },
+  {
+   "url": "https://file.autoinsertion.com/public/Southern%20Machinery%20Product/One%20stop%20SMT%20solution%20for%20LED%20lighting%20-SMThelp.pdf",
+   "t": "cat3t",
+   "d": "cat3d",
+   "type": "PDF"
+  },
+  {
+   "url": "https://file.autoinsertion.com/public/Southern%20Machinery%20Product/1.2M%20LED%20PCB%20Magazine%20loader%20unloader.pdf",
+   "t": "cat4t",
+   "d": "cat4d",
+   "type": "PDF"
+  },
+  {
+   "url": "https://file.autoinsertion.com/public/Southern%20Machinery%20Product/SMT%20Solder%20Paste%20Mixer%20serial%20brochure-Southern%20Machinery%202020.pdf",
+   "t": "cat5t",
+   "d": "cat5d",
+   "type": "PDF"
+  },
+  {
+   "url": "https://file.autoinsertion.com/public/Southern%20Machinery%20Product/AOI%20Catalog%20Design%20by%20Southern%20Machinery.pdf",
+   "t": "cat6t",
+   "d": "cat6d",
+   "type": "PDF"
+  }
+ ],
+ "extra_gallery": [],
+ "blogs": 8,
+ "faq": 6
+}
