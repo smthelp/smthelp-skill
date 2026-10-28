@@ -582,10 +582,13 @@ def to_pdf(xlsx):
         return None
     outdir = os.path.dirname(os.path.abspath(xlsx))
     env = dict(os.environ, SAL_USE_VCLPLUGIN="svp")
-    subprocess.run([s, "--headless", "--invisible", "--norestore", "-env:UserInstallation=file:///tmp/lo_smq",
-                    "--convert-to", "pdf", "--outdir", outdir, xlsx], env=env, capture_output=True, timeout=180)
     pdf = os.path.splitext(os.path.abspath(xlsx))[0] + ".pdf"
-    return pdf if os.path.exists(pdf) else None
+    for _ in range(2):  # first run on a fresh profile often exits before converting
+        subprocess.run([s, "--headless", "--invisible", "--norestore", "-env:UserInstallation=file:///tmp/lo_smq",
+                        "--convert-to", "pdf", "--outdir", outdir, xlsx], env=env, capture_output=True, timeout=180)
+        if os.path.exists(pdf):
+            return pdf
+    return None
 
 
 def main():
