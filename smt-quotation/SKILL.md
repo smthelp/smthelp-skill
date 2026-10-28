@@ -2,7 +2,7 @@
 name: smt-quotation
 description: Make and check Southern Machinery formal customer quotations (报价单 / Quotation) in one branded Excel + PDF format. Use when Jason asks to 做报价单, 出报价, 统一报价单模板, 审核/检查报价单, convert an old quotation (.xlsx/.xls) to the new template, or re-issue a quotation. Covers quote.json -> branded XLSX/PDF (summary + optional detail sheets, live formulas, terms, bank, signature), a QA gate for prices/terms/brand/English, and an importer for the legacy 2025-2026 layout.
 metadata:
-  version: 1.3.0
+  version: 1.4.0
   updated: 2026-10-28
   depends_on: smt-brand-kit (colours, logo, contact block, voice)
   samples: Levven CA26101201 (summary + detail), Visam VI26070801, MRO MR25050501
@@ -51,6 +51,7 @@ One quotation = one folder with `quote.json` + `photos/` + `out/`. Seller data l
 - Version: major = quote.json format change; minor = new field/check/output; patch = fixes. Sync with GitHub smthelp/smthelp-skill.
 
 ## Version history
+- 1.4.0 (2026-10-28) - body text darker (#111111) and one point larger via profile style.body_size_delta=1 (row heights scale with it); Unit column widened so 'Quotation No.' fits; signature block grows to fit long buyer names (Jason). CT26102801 prepared by Jason Wu.
 - 1.3.0 (2026-10-28) - letterhead and signature name unified with the bank account name: 'Southern Machinery Sales and Service Co., Limited' (Jason); QA now flags 'Co., Ltd.'.
 - 1.2.0 (2026-10-28) - bank details filled from Jason (JPMorgan Chase HK, USD account; beneficiary name 'Southern Machinery Sales and Service Co., Limited' exactly as on the account, differs from the letterhead 'Co., Ltd.' on purpose); optional bank.account_label; body text colour darkened 4A5A63 -> 1F2B33 at Jason's request.
 - 1.1.2 (2026-10-28) - PDF export retries once (LibreOffice cold start); first used on Creation Technologies AGV quote CT26102801.

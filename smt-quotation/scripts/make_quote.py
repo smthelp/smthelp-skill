@@ -40,7 +40,7 @@ from openpyxl.worksheet.page import PageMargins
 HERE = os.path.dirname(os.path.abspath(__file__))
 ROOT = os.path.dirname(HERE)
 
-COLS = [("A", 5.5), ("B", 17), ("C", 12), ("D", 44), ("E", 6), ("F", 6), ("G", 13), ("H", 15)]
+COLS = [("A", 5.5), ("B", 17), ("C", 12), ("D", 42), ("E", 6), ("F", 8), ("G", 13), ("H", 15)]
 NCOL = 8
 MONEY = '#,##0.00'
 
@@ -101,11 +101,15 @@ class Q:
         st = profile["style"]
         self.font = st["font"]
         self.c = st
+        self.delta = st.get("body_size_delta", 0)  # +1 = body text one point larger
+        self.k = 1 + 0.1 * self.delta               # row heights grow with it
         self.thin = Side(style="thin", color=st["muted"])
         self.navy_side = Side(style="medium", color=st["navy"])
 
     # ---------- style helpers ----------
     def f(self, size=10, bold=False, color=None, italic=False):
+        if size <= 10:
+            size += self.delta
         return Font(name=self.font, size=size, bold=bold, italic=italic, color=color or self.c["grey"])
 
     def fill(self, color):
@@ -129,6 +133,8 @@ class Q:
 
     def lines_needed(self, text, width_units, size=10):
         """Wrapped line count for text in a cell `width_units` wide (Excel column units) at font `size`."""
+        if size <= 10:
+            size += self.delta
         per_unit = 1.15 * 10.0 / size  # Arial: ~1.15 chars per column unit at 10 pt
         cap = max(1, int(width_units * per_unit) - 2)
         n = 0
@@ -163,9 +169,9 @@ class Q:
     def header(self, ws, compact=False):
         p = self.p
         logo = os.path.join(ROOT, "assets", p["logo"])
-        ws.row_dimensions[1].height = 24
-        ws.row_dimensions[2].height = 15
-        ws.row_dimensions[3].height = 15
+        ws.row_dimensions[1].height = self.k * (24)
+        ws.row_dimensions[2].height = self.k * (15)
+        ws.row_dimensions[3].height = self.k * (15)
         if os.path.exists(logo):
             img = XLImage(logo)
             ratio = img.height / img.width
@@ -186,7 +192,7 @@ class Q:
         title = "QUOTATION" if not compact else "QUOTATION - DETAIL"
         self.put(ws, f"A{r}", title, 18 if not compact else 14, True, self.c["navy"])
         self.merge(ws, r, 1, 4)
-        ws.row_dimensions[r].height = 26
+        ws.row_dimensions[r].height = self.k * (26)
         if self.q.get("project"):
             self.put(ws, f"E{r}", self.q["project"], 11, True, self.c["teal"], h="right")
             self.merge(ws, r, 5, 8)
@@ -228,7 +234,7 @@ class Q:
                 self.put(ws, f"G{rr}", v, 9, bold=(k == "Quotation No."), wrap=True, v="top")
                 self.merge(ws, rr, 7, 8)
                 lines = max(lines, self.lines_needed(v, self.width(7, 8), 9))
-            ws.row_dimensions[rr].height = 14 * lines + 1
+            ws.row_dimensions[rr].height = self.k * (14 * lines + 1)
             for c in range(1, NCOL + 1):
                 ws.cell(rr, c).fill = self.fill(self.c["light"])
         return r + n + 1
@@ -239,7 +245,7 @@ class Q:
         for i, h in enumerate(heads, 1):
             self.put(ws, f"{get_column_letter(i)}{r}", h, 9, True, "FFFFFF", h="center", wrap=True,
                      fill=self.c["navy"])
-        ws.row_dimensions[r].height = 28
+        ws.row_dimensions[r].height = self.k * (28)
         return r + 1
 
     def box(self, ws, r1, r2):
@@ -277,18 +283,18 @@ class Q:
         self.put(ws, f"F{r}", it.get("unit", "set"), 10, h="center", v="top")
         self.put(ws, f"G{r}", it.get("price", 0), 10, h="right", v="top", fmt=MONEY)
         self.put(ws, f"H{r}", f"=E{r}*G{r}", 10, h="right", v="top", fmt=MONEY)
-        ws.row_dimensions[r].height = 14 * self.lines_needed(it.get("name", ""), self.width(4, 4), 10) + 1
+        ws.row_dimensions[r].height = self.k * (14 * self.lines_needed(it.get("name", ""), self.width(4, 4), 10) + 1)
         base_row = r
         r += 1
         if inline:
             for s in it.get("specs", []):
                 self.put(ws, f"D{r}", "•  " + s, 8, wrap=True, v="top")
-                ws.row_dimensions[r].height = 11 * self.lines_needed("•  " + s, self.width(4, 4), 8) + 1
+                ws.row_dimensions[r].height = self.k * (11 * self.lines_needed("•  " + s, self.width(4, 4), 8) + 1)
                 r += 1
         opt_rows = []
         if it.get("options"):
             self.put(ws, f"D{r}", "Options", 9, True, self.c["teal"])
-            ws.row_dimensions[r].height = 14
+            ws.row_dimensions[r].height = self.k * (14)
             r += 1
             for o in it["options"]:
                 self.put(ws, f"D{r}", o["name"], 9, wrap=True, indent=1, v="top")
@@ -300,7 +306,7 @@ class Q:
                     opt_rows.append(r)
                 else:
                     self.put(ws, f"H{r}", "optional", 8, h="right", v="top", italic=True)
-                ws.row_dimensions[r].height = 12.5 * self.lines_needed(o["name"], self.width(4, 4) - 2, 9) + 1
+                ws.row_dimensions[r].height = self.k * (12.5 * self.lines_needed(o["name"], self.width(4, 4) - 2, 9) + 1)
                 r += 1
         # photo sizing
         total_h = sum((ws.row_dimensions[x].height or 15) for x in range(start, r))
@@ -314,7 +320,7 @@ class Q:
             self.merge(ws, r, 4, 7)
             refs = ",".join([f"H{base_row}"] + [f"H{x}" for x in opt_rows])
             self.put(ws, f"H{r}", f"=SUM({refs})", 10, True, self.c["navy"], h="right", fmt=MONEY)
-            ws.row_dimensions[r].height = 16
+            ws.row_dimensions[r].height = self.k * (16)
             amount_ref = f"H{r}"
             r += 1
         self.box(ws, start, r - 1)
@@ -348,7 +354,7 @@ class Q:
             self.put(ws, f"F{r}", ch.get("unit", ""), 9, h="center")
             self.put(ws, f"G{r}", ch.get("price", 0), 9, h="right", fmt=MONEY)
             self.put(ws, f"H{r}", f"=E{r}*G{r}", 9, h="right", fmt=MONEY)
-            ws.row_dimensions[r].height = 12.5 * self.lines_needed(label, self.width(4, 4), 9) + 1
+            ws.row_dimensions[r].height = self.k * (12.5 * self.lines_needed(label, self.width(4, 4), 9) + 1)
             charge_rows.append(r)
             r += 1
         if q.get("discount"):
@@ -364,7 +370,7 @@ class Q:
         self.merge(ws, r, 1, 7)
         refs = "+".join(([f"H{sub}"] if sub else [sub_formula]) + [f"H{x}" for x in charge_rows])
         self.put(ws, f"H{r}", f"={refs}", 12, True, "FFFFFF", h="right", fill=self.c["navy"], fmt=MONEY)
-        ws.row_dimensions[r].height = 22
+        ws.row_dimensions[r].height = self.k * (22)
         total_row = r
         r += 1
         total_val = sum(self.amount(i) for i in q["items"]) + sum(
@@ -372,7 +378,7 @@ class Q:
         self.total_value = total_val
         self.put(ws, f"A{r}", amount_in_words(total_val, cur), 9, True, self.c["teal"], italic=True)
         self.merge(ws, r, 1, 8)
-        ws.row_dimensions[r].height = 16
+        ws.row_dimensions[r].height = self.k * (16)
         return r + 2, total_row
 
     def terms_block(self, ws, r):
@@ -403,14 +409,14 @@ class Q:
             text = "\n".join(vals)
             self.put(ws, f"C{r}", text, 9, wrap=True, v="top")
             self.merge(ws, r, 3, 8)
-            ws.row_dimensions[r].height = 12.5 * self.lines_needed(text, self.width(3, 8), 9) + 3
+            ws.row_dimensions[r].height = self.k * (12.5 * self.lines_needed(text, self.width(3, 8), 9) + 3)
             r += 1
         for note in q.get("notes", []):
             n += 1
             self.put(ws, f"A{r}", f"{n}.", 9, True, self.c["navy"], h="right", v="top")
             self.put(ws, f"B{r}", note, 9, wrap=True, v="top")
             self.merge(ws, r, 2, 8)
-            ws.row_dimensions[r].height = 12.5 * self.lines_needed(note, self.width(2, 8), 9) + 3
+            ws.row_dimensions[r].height = self.k * (12.5 * self.lines_needed(note, self.width(2, 8), 9) + 3)
             r += 1
         return r + 1
 
@@ -443,7 +449,9 @@ class Q:
         self.put(ws, f"E{r}", "Accepted and confirmed by the buyer\n" + q["buyer"].get("company", ""), 9, True,
                  self.c["navy"], wrap=True, v="top")
         self.merge(ws, r, 5, 8)
-        ws.row_dimensions[r].height = 28
+        n = 1 + max(self.lines_needed(p["company"], self.width(1, 4), 9),
+                    self.lines_needed(q["buyer"].get("company", ""), self.width(5, 8), 9))
+        ws.row_dimensions[r].height = self.k * (14 * n)
         r += 3
         line = Side(style="thin", color=self.c["grey"])
         for c in list(range(1, 4)) + list(range(5, 9)):
@@ -506,10 +514,10 @@ class Q:
                 self.put(ws, f"E{r}", it.get("qty", 1), 10, h="center", v="top")
                 self.put(ws, f"F{r}", it.get("unit", "set"), 10, h="center", v="top")
                 # G/H filled after detail sheet is written
-                ws.row_dimensions[r].height = 30
+                ws.row_dimensions[r].height = self.k * (30)
                 if it.get("photo"):
                     need = self.photo(ws, it["photo"], r, 60)
-                    ws.row_dimensions[r].height = max(30, need)
+                    ws.row_dimensions[r].height = self.k * (max(30, need))
                 self.box(ws, start, r)
                 item_refs.append(f"H{r}")
                 r += 1

@@ -40,9 +40,10 @@
   "navy": "003142",
   "green": "93AC3E",
   "teal": "0097B2",
-  "grey": "1F2B33",
+  "grey": "111111",
   "light": "EEF5F7",
-  "muted": "B2CDD6"
+  "muted": "B2CDD6",
+  "body_size_delta": 1
  },
  "quote_no_pattern": "^[A-Z]{2}\\d{8}$",
  "quote_no_rule": "2 letters (customer or country code) + YYMMDD + 2-digit sequence, e.g. CA26101201",
