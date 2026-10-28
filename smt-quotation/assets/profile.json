@@ -1,6 +1,6 @@
 {
  "_doc": "Seller profile for every Southern Machinery quotation. Change a value here once; make_quote.py and qa_quote.py read it. Values marked TO_CONFIRM must be checked by Jason before the first real use.",
- "company": "Shenzhen Southern Machinery Sales and Service Co., Ltd.",
+ "company": "Southern Machinery Sales and Service Co., Ltd.",
  "short": "Southern Machinery",
  "address": "Rm 1806, Block 3, Jinyun COFCO, Qianjin 2nd Road, Xixiang, Bao'an District, Shenzhen 518102, China",
  "tel": "+86 755 8320 3237",
@@ -15,7 +15,7 @@
   "Frank": {"title": "Sales Engineer", "email": "info@smthelp.com", "whatsapp": ""}
  },
  "bank": {
-  "beneficiary": "TO_CONFIRM (must match the registered company name exactly)",
+  "beneficiary": "TO_CONFIRM (account name exactly as on the bank account)",
   "bank_name": "TO_CONFIRM",
   "bank_address": "TO_CONFIRM",
   "account_no": "TO_CONFIRM",
