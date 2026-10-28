@@ -7,7 +7,7 @@
 输出格式：每份报价单一张问题表：# | 严重度 | 位置(页/单元格/段落) | 现文 | 问题 | 建议改法。
 
 ## A. 品牌一致性
-1. 公司全称：Southern Machinery Sales and Service Co., Ltd.（Jason 2026-10-28 定：报价单不加 Shenzhen 前缀；"and" 小写，结尾带句点）；正文简称 Southern Machinery。全文统一，不混用 SM / 南方机械 / 其他拼写。
+1. 公司全称：Southern Machinery Sales and Service Co., Limited（Jason 2026-10-28 定：不加 Shenzhen 前缀；抬头、签字栏与银行收款人名完全一致，用 Co., Limited 不用 Co., Ltd.；"and" 小写，结尾带句点）；正文简称 Southern Machinery。全文统一，不混用 SM / 南方机械 / 其他拼写。
 2. Logo：sm-logo.png 原色、原比例，不拉伸、不改色；深色底时放白色圆角卡。
 3. 颜色：Navy #003142（标题、表头）、Green #93AC3E（强调线）、Teal #0097B2、Body #1F2B33（正文，2026-10-28 Jason 要求加深）、Light #EEF5F7（底纹）。不出现其他主色。
 4. 字体：英文报价单用 Arial（客户 Mac/Windows 都有，profile.json style.font 可改为 Microsoft YaHei）；同一文档字号层级统一。
@@ -42,7 +42,7 @@
 
 ## D. 旧报价单常见问题（2025-2026 三份样板实测，qa_quote.py 已自动检查）
 - Date 用 =NOW()：每次打开都变成当天，客户和自己都无法确认报价日期 → 写固定日期。
-- 公司名三种写法（Sales And Service Co Limited / Sales and  Service Co.,Ltd）→ 统一为 Southern Machinery Sales and Service Co., Ltd.
+- 公司名三种写法（Sales And Service Co Limited / Sales and  Service Co.,Ltd）→ 统一为 Southern Machinery Sales and Service Co., Limited
 - "T0:"（数字 0）、"Ex-work SZ"、"receipt deposit"、"to be cover"、"responsibled"、"1 years"、"no mentioned"、"Payment terms：Payment terms"、全角标点、"KG/c ㎡"、"Ralay"、"Signa/Plugl"、"Parament"。
 - 总表型号与明细表不一致（SLD250 vs SLD-250）。
 - 只写 "free installation and training"，不说远程还是上门、差旅谁付。

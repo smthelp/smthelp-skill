@@ -1,6 +1,6 @@
 {
  "_doc": "Seller profile for every Southern Machinery quotation. Change a value here once; make_quote.py and qa_quote.py read it. Values marked TO_CONFIRM must be checked by Jason before the first real use.",
- "company": "Southern Machinery Sales and Service Co., Ltd.",
+ "company": "Southern Machinery Sales and Service Co., Limited",
  "short": "Southern Machinery",
  "address": "Rm 1806, Block 3, Jinyun COFCO, Qianjin 2nd Road, Xixiang, Bao'an District, Shenzhen 518102, China",
  "tel": "+86 755 8320 3237",
