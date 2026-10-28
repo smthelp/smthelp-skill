@@ -598,7 +598,7 @@ def main():
     quote = load(a.quote)
     profile = load(a.profile)
     base = os.path.dirname(os.path.abspath(a.quote))
-    name = f"Quotation-{quote['quote_no']}-{re.sub(r'[^A-Za-z0-9]+', '-', quote['buyer'].get('company', '')).strip('-')}"
+    name = f"Quotation-{quote['quote_no']}-{re.sub(r'[^A-Za-z0-9]+', '-', (quote['buyer'].get('short') or quote['buyer'].get('company', ''))).strip('-')}"
     out = a.out or os.path.join(base, "out", name + ".xlsx")
     q = Q(quote, profile, base)
     q.build(out)

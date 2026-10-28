@@ -2,7 +2,7 @@
 name: smt-quotation
 description: Make and check Southern Machinery formal customer quotations (报价单 / Quotation) in one branded Excel + PDF format. Use when Jason asks to 做报价单, 出报价, 统一报价单模板, 审核/检查报价单, convert an old quotation (.xlsx/.xls) to the new template, or re-issue a quotation. Covers quote.json -> branded XLSX/PDF (summary + optional detail sheets, live formulas, terms, bank, signature), a QA gate for prices/terms/brand/English, and an importer for the legacy 2025-2026 layout.
 metadata:
-  version: 1.1.0
+  version: 1.1.1
   updated: 2026-10-28
   depends_on: smt-brand-kit (colours, logo, contact block, voice)
   samples: Levven CA26101201 (summary + detail), Visam VI26070801, MRO MR25050501
@@ -29,7 +29,7 @@ One quotation = one folder with `quote.json` + `photos/` + `out/`. Seller data l
 1. **Start**: new quote -> copy `examples/_template/quote.json` into `quotes/<QUOTE_NO>/`; old quote -> `python3 scripts/extract_quote.py <old file> -o quotes/<QUOTE_NO>`.
 2. **Fill / rewrite quote.json** (schema in make_quote.py docstring):
    - quote_no = 2 letters (customer/country) + YYMMDD + 2-digit seq; `date` fixed ISO date; `valid_days` 30.
-   - buyer: company, address, country, attn, email (address only), tel.
+   - buyer: company, address, country, attn, email (address only), tel; optional `short` (e.g. "Visam") used in the output file name.
    - items: SM model (one spelling everywhere), plain product name, qty, unit, price, specs ("Label: value unit"), options (`included: false` = listed, not summed), `sheet` to move specs/options to a detail sheet (items may share a sheet), photo path.
    - charges: packing, freight, etc. `discount` positive number.
    - terms: only what differs from profile defaults; wording from terms-library.md. Never invent price, lead time, warranty or stock - ask Jason when the source does not say.
@@ -51,5 +51,6 @@ One quotation = one folder with `quote.json` + `photos/` + `out/`. Seller data l
 - Version: major = quote.json format change; minor = new field/check/output; patch = fixes. Sync with GitHub smthelp/smthelp-skill.
 
 ## Version history
+- 1.1.1 (2026-10-28) - optional buyer.short for the output file name (first used on Visam XC3100 inline/offline quotes VI26102801/02).
 - 1.1.0 (2026-10-28) - company name without 'Shenzhen' prefix (Jason); bank information block kept as a standing section; QA flags the old 'Shenzhen Southern Machinery' form; examples and blank template re-rendered.
 - 1.0.0 (2026-10-27) - first release from three 2025-2026 quotations: branded XLSX/PDF renderer with summary + detail sheets, QA gate (terms, arithmetic, model spelling, legacy slips, =NOW()), legacy importer, checklist and terms library.
