@@ -424,7 +424,7 @@ class Q:
             ws.cell(r, c).border = Border(bottom=Side(style="thin", color=self.c["green"]))
         r += 1
         for k, lab in (("beneficiary", "Beneficiary"), ("bank_name", "Bank"), ("bank_address", "Bank address"),
-                       ("account_no", "Account No."), ("swift", "SWIFT")):
+                       ("account_no", b.get("account_label", "Account No.")), ("swift", "SWIFT")):
             self.put(ws, f"A{r}", lab, 9, True, self.c["navy"])
             self.merge(ws, r, 1, 2)
             red = "C0392B" if "TO_CONFIRM" in str(b.get(k, "")) else None

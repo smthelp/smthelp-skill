@@ -9,7 +9,7 @@
 ## A. 品牌一致性
 1. 公司全称：Southern Machinery Sales and Service Co., Ltd.（Jason 2026-10-28 定：报价单不加 Shenzhen 前缀；"and" 小写，结尾带句点）；正文简称 Southern Machinery。全文统一，不混用 SM / 南方机械 / 其他拼写。
 2. Logo：sm-logo.png 原色、原比例，不拉伸、不改色；深色底时放白色圆角卡。
-3. 颜色：Navy #003142（标题、表头）、Green #93AC3E（强调线）、Teal #0097B2、Grey #4A5A63（正文）、Light #EEF5F7（底纹）。不出现其他主色。
+3. 颜色：Navy #003142（标题、表头）、Green #93AC3E（强调线）、Teal #0097B2、Body #1F2B33（正文，2026-10-28 Jason 要求加深）、Light #EEF5F7（底纹）。不出现其他主色。
 4. 字体：英文报价单用 Arial（客户 Mac/Windows 都有，profile.json style.font 可改为 Microsoft YaHei）；同一文档字号层级统一。
 5. 联系方式块（固定顺序）：smthelp.com · info@smthelp.com · WhatsApp +86 136 0256 2576；可加地址 Xixiang, Bao'an, Shenzhen, China 及销售人邮箱 jasonwu@smthelp.com。
 6. 型号命名：首次 "Smart EMS <SM型号> <通用品名>"，之后用 SM 型号；供应商型号只在 Jason 要求时出现。

@@ -10,24 +10,37 @@
  "whatsapp": "+86 136 0256 2576",
  "logo": "sm-logo.png",
  "sales": {
-  "Jason Wu": {"title": "CEO", "email": "jasonwu@smthelp.com", "whatsapp": "+86 136 0256 2576"},
-  "Leon Hong": {"title": "Sales Engineer", "email": "info@smthelp.com", "whatsapp": ""},
-  "Frank": {"title": "Sales Engineer", "email": "info@smthelp.com", "whatsapp": ""}
+  "Jason Wu": {
+   "title": "CEO",
+   "email": "jasonwu@smthelp.com",
+   "whatsapp": "+86 136 0256 2576"
+  },
+  "Leon Hong": {
+   "title": "Sales Engineer",
+   "email": "info@smthelp.com",
+   "whatsapp": ""
+  },
+  "Frank": {
+   "title": "Sales Engineer",
+   "email": "info@smthelp.com",
+   "whatsapp": ""
+  }
  },
  "bank": {
-  "beneficiary": "TO_CONFIRM (account name exactly as on the bank account)",
-  "bank_name": "TO_CONFIRM",
-  "bank_address": "TO_CONFIRM",
-  "account_no": "TO_CONFIRM",
-  "swift": "TO_CONFIRM",
-  "show": true
+  "beneficiary": "Southern Machinery Sales and Service Co., Limited",
+  "bank_name": "JPMorgan Chase Bank N.A., Hong Kong Branch",
+  "bank_address": "18/F, 20/F, 22-29/F, Chater House, 8 Connaught Road Central, Hong Kong",
+  "account_no": "63007917455",
+  "swift": "CHASHKHH (CHASHKHHXXX if 11 characters are required)",
+  "show": true,
+  "account_label": "USD Account No."
  },
  "style": {
   "font": "Arial",
   "navy": "003142",
   "green": "93AC3E",
   "teal": "0097B2",
-  "grey": "4A5A63",
+  "grey": "1F2B33",
   "light": "EEF5F7",
   "muted": "B2CDD6"
  },
@@ -49,7 +62,18 @@
    "other": "Any terms not stated here follow the sales contract"
   }
  },
- "terms_order": ["price_basis", "payment", "delivery", "warranty", "installation", "packing", "insurance", "validity", "taxes", "other"],
+ "terms_order": [
+  "price_basis",
+  "payment",
+  "delivery",
+  "warranty",
+  "installation",
+  "packing",
+  "insurance",
+  "validity",
+  "taxes",
+  "other"
+ ],
  "terms_labels": {
   "price_basis": "Price basis",
   "payment": "Payment terms",

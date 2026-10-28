@@ -2,7 +2,7 @@
 name: smt-quotation
 description: Make and check Southern Machinery formal customer quotations (报价单 / Quotation) in one branded Excel + PDF format. Use when Jason asks to 做报价单, 出报价, 统一报价单模板, 审核/检查报价单, convert an old quotation (.xlsx/.xls) to the new template, or re-issue a quotation. Covers quote.json -> branded XLSX/PDF (summary + optional detail sheets, live formulas, terms, bank, signature), a QA gate for prices/terms/brand/English, and an importer for the legacy 2025-2026 layout.
 metadata:
-  version: 1.1.2
+  version: 1.2.0
   updated: 2026-10-28
   depends_on: smt-brand-kit (colours, logo, contact block, voice)
   samples: Levven CA26101201 (summary + detail), Visam VI26070801, MRO MR25050501
@@ -17,7 +17,7 @@ new inquiry ------------------------> quote.json (from examples/_template) ----^
 One quotation = one folder with `quote.json` + `photos/` + `out/`. Seller data lives once in `assets/profile.json`.
 
 ## Files
-- `assets/profile.json` - company name, address, tel, contact block, sales people, **bank details (TO_CONFIRM until Jason fills them)**, colours/font, quote-number rule, default terms, term order and labels, supplier terms to block.
+- `assets/profile.json` - company name, address, tel, contact block, sales people, bank details (filled 2026-10-28; beneficiary must stay exactly as on the bank account), colours/font, quote-number rule, default terms, term order and labels, supplier terms to block.
 - `assets/sm-logo.png` - logo (from smt-brand-kit). `assets/SM-Quotation-Template.xlsx` - blank rendered template for manual use.
 - `scripts/make_quote.py` - quote.json -> XLSX (A4 portrait, fit to width, page breaks between blocks, footer with contact block and Page x of y). `--pdf` exports PDF with LibreOffice (`SOFFICE=` path if not on PATH).
 - `scripts/qa_quote.py` - gate. `qa_quote.py quote.json --xlsx out.xlsx` for new quotes; `qa_quote.py --legacy old.xlsx` to review any old file directly.
@@ -51,6 +51,7 @@ One quotation = one folder with `quote.json` + `photos/` + `out/`. Seller data l
 - Version: major = quote.json format change; minor = new field/check/output; patch = fixes. Sync with GitHub smthelp/smthelp-skill.
 
 ## Version history
+- 1.2.0 (2026-10-28) - bank details filled from Jason (JPMorgan Chase HK, USD account; beneficiary name 'Southern Machinery Sales and Service Co., Limited' exactly as on the account, differs from the letterhead 'Co., Ltd.' on purpose); optional bank.account_label; body text colour darkened 4A5A63 -> 1F2B33 at Jason's request.
 - 1.1.2 (2026-10-28) - PDF export retries once (LibreOffice cold start); first used on Creation Technologies AGV quote CT26102801.
 - 1.1.1 (2026-10-28) - optional buyer.short for the output file name (first used on Visam XC3100 inline/offline quotes VI26102801/02).
 - 1.1.0 (2026-10-28) - company name without 'Shenzhen' prefix (Jason); bank information block kept as a standing section; QA flags the old 'Shenzhen Southern Machinery' form; examples and blank template re-rendered.
