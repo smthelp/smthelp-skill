@@ -1,0 +1,33 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "douyin-video-harvester config",
+  "type": "object",
+  "required": ["run_name"],
+  "properties": {
+    "run_name": {"type": "string", "description": "Folder name under runs/; one per account batch"},
+    "profile": {"type": "string", "description": "Douyin profile URL or sec_uid"},
+    "run_dir": {"type": "string", "default": "runs/{run_name}"},
+    "cookies": {"type": "string", "description": "Netscape cookies.txt exported while logged in to douyin.com; only douyin domains are used"},
+    "chromium": {"type": "string"}, "yt_dlp": {"type": "string"}, "ffmpeg": {"type": "string"}, "ffprobe": {"type": "string"},
+    "proxy_from_env": {"type": "boolean", "description": "Pass HTTPS_PROXY to Chromium"},
+    "scrape": {"type": "object", "properties": {"max_scrolls": {"type": "integer"}, "stall_limit": {"type": "integer"},
+      "scroll_wait_ms": {"type": "integer"}, "first_wait_ms": {"type": "integer"}}},
+    "rank": {"type": "object", "properties": {"weights": {"type": "object", "additionalProperties": {"type": "number"}},
+      "skip_image_posts": {"type": "boolean"}}},
+    "filter": {"type": "object", "properties": {"include_keywords": {"type": "array", "items": {"type": "string"}},
+      "exclude_keywords": {"type": "array", "items": {"type": "string"}}, "require_include": {"type": "boolean"},
+      "exclude_id_files": {"type": "array", "items": {"type": "string"}, "description": "CSV with aweme_id column or JSON list"},
+      "candidate_limit": {"type": "integer"}}},
+    "download": {"type": "object", "properties": {"workers": {"type": "integer"}, "timeout_s": {"type": "integer"},
+      "max_urls": {"type": "integer"}, "min_bytes": {"type": "integer"}, "referer": {"type": "string"}}},
+    "frames": {"type": "object", "properties": {"positions": {"type": "array", "items": {"type": "number"}},
+      "tile": {"type": "string", "pattern": "^\\d+x\\d+$"}, "thumb": {"type": "integer"}}},
+    "dedupe": {"type": "object", "properties": {"times_s": {"type": "array"}, "threshold": {"type": "number"},
+      "compare_dirs": {"type": "array", "items": {"type": "string"}}}},
+    "select": {"type": "object", "properties": {"count": {"type": "integer"}}},
+    "verify": {"type": "object", "properties": {"duration_tolerance_s": {"type": "number"}, "full_decode": {"type": "boolean"}}},
+    "sink": {"type": "object", "required": ["type"], "properties": {"type": {"enum": ["local", "gdrive_gws"]},
+      "options": {"type": "object"}}},
+    "log_level": {"enum": ["DEBUG", "INFO", "WARNING", "ERROR"]}
+  }
+}

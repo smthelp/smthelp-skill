@@ -1,0 +1,36 @@
+{
+ "name": "Southern Machinery",
+ "legal_name": "Shenzhen Southern Machinery Sales and Service Co., Ltd.",
+ "org_id": "https://www.smthelp.com/#organization",
+ "website": "https://www.smthelp.com",
+ "logo": "https://ph.smthelp.com/images/2024/06/26/Southern-Machinery-logo-300x83.png",
+ "founding_date": "2011",
+ "email": "info@smthelp.com",
+ "whatsapp": "https://wa.me/8613602562576",
+ "tel": "+8613602562576",
+ "tel_display": "+86 136 0256 2576",
+ "tel_ld": "+86-136-0256-2576",
+ "address_ld": {"@type": "PostalAddress", "streetAddress": "Xixiang, Bao'an District", "addressLocality": "Shenzhen", "addressCountry": "CN"},
+ "twitter_handle": "@smtspecialist",
+ "theme_color_light": "#0c665c",
+ "theme_color_dark": "#0b1514",
+ "catalog_site": "https://file.autoinsertion.com",
+ "photo_site": "https://ph.smthelp.com",
+ "video_board": "https://file.autoinsertion.com/public/Southern-Machinery-YouTube-Video-Board.html",
+ "catalog_board": "https://file.autoinsertion.com/public/Southern-Machinery-Product-Catalog-Board.html",
+ "landing_dir": "https://file.autoinsertion.com/public/Product%20landing%20Page/",
+ "socials": [
+  {"key": "soc_lic", "url": "https://www.linkedin.com/company/smtmachine", "glyph": "in"},
+  {"key": "soc_lip", "url": "https://cn.linkedin.com/in/smtsupplier", "glyph": "in"},
+  {"key": "soc_tw", "url": "https://twitter.com/smtspecialist", "glyph": "X"},
+  {"key": "soc_fb", "url": "https://www.facebook.com/autoinsertion", "glyph": "f"},
+  {"key": "soc_yt", "url": "https://www.youtube.com/c/Smthelping", "glyph": "▶"}
+ ],
+ "chatwoot": {
+  "base_url": "https://chat.smthelp.com",
+  "website_token": "saMcpgSupcmd1VQwytgPLfbK",
+  "settings": {"position": "right", "type": "standard", "launcherTitle": "Southern Machinery Global Support"}
+ },
+ "github_landing_repo": "smthelping/smt-product-landing-html",
+ "webdav": {"base": "https://file.autoinsertion.com/dav", "user": "smtfile", "public_base": "https://file.autoinsertion.com/public", "default_dir": "Product%20landing%20Page"}
+}

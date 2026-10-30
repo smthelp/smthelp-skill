@@ -1,0 +1,40 @@
+{
+  "name": "foreign-trade-email-sorter",
+  "version": "1.0.0",
+  "description": "Gmail-based email classifier for foreign trade businesses. Auto-categorizes emails into Spam, Marketing, and Inquiries.",
+  "author": "Morment",
+  "source": "openclaw-workspace",
+  "tags": ["外贸", "邮件分类", "Gmail", "询盘", "飞书"],
+  "license": "MIT",
+  "minOpenclawVersion": "2026.2.26",
+  "requirements": [
+    "Python 3.x",
+    "Gmail API credentials",
+    "飞书机器人 Webhook (可选，用于推送)"
+  ],
+  "files": [
+    "SKILL.md",
+    "_meta.json",
+    "README.md",
+    "QUICKSTART.md",
+    "GMAIL_SETUP.md",
+    "FEISHU_SETUP.md",
+    "PUBLISH_CHECKLIST.md",
+    "RELEASE_NOTES.md",
+    "requirements.txt",
+    "gmail_sorter.py",
+    "gmail_sorter_cn.py",
+    "gmail_sorter_notify.py",
+    "run_and_report.py",
+    "auth_flow.py",
+    "auth_test.py",
+    "check_all_emails.py",
+    "check_inquiries.py",
+    "debug_classifier.py",
+    "find_specific_email.py",
+    "test_gmail.py",
+    "scripts/gmail_reader.py",
+    "scripts/gmail_reader_full.py",
+    "scripts/test_feishu.py"
+  ]
+}

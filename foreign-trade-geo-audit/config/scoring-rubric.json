@@ -1,0 +1,626 @@
+{
+  "rubric_version": "1.0.1",
+  "updated": "2026-09-08",
+  "framework": "E-E-A-T 四层 × 2026 生成式引擎逻辑（RAG 召回 → 打分重排 → 交叉验证）",
+  "scale": {
+    "min": 0,
+    "max": 100,
+    "agent_adjust_range": 10,
+    "note": "脚本产出 baseline；Agent 可在 ±agent_adjust_range 内调整，必须在 data.json 的 dims[].adjust_reason 写明理由"
+  },
+  "grades": {
+    "80-100": "GEO 就绪 — AI 可稳定识别并引用",
+    "60-79": "半成品 — 站内可用，站外欠账",
+    "40-59": "挂牌未营业 — 实体未被机器确认",
+    "0-39": "隐形 — AI 基本无法自行召回"
+  },
+  "cap_rules": [
+    {
+      "id": "CAP-D1",
+      "dimension": "D",
+      "when": "independent_source_count < 3",
+      "cap": 35,
+      "reason": "2026 可信度分层要求 ≥3 个独立信源交叉验证，单信源占比 ≤8%；不足则 AI 无第三方可佐证"
+    },
+    {
+      "id": "CAP-E1",
+      "dimension": "E",
+      "when": "nap_conflicts > 1 || mirror_domain_count > 1",
+      "cap": 40,
+      "reason": "实体消歧失败时，AI 无证据判断哪个是权威主站，权重被稀释"
+    },
+    {
+      "id": "CAP-B1",
+      "dimension": "B",
+      "when": "jsonld_total == 0",
+      "cap": 25,
+      "reason": "无机器可读实体档案，AI 只能靠正文猜测实体身份"
+    },
+    {
+      "id": "CAP-C1",
+      "dimension": "C",
+      "when": "content_freshness_days > 730",
+      "cap": 45,
+      "reason": "生成引擎对时间衰减的敏感度远高于传统搜索，两年以上内容几乎不被优先召回"
+    }
+  ],
+  "dimensions": [
+    {
+      "id": "A",
+      "name": "技术地基",
+      "en": "Technical Foundation",
+      "scope": "可抓取性 / HTTPS / robots / sitemap / canonical / hreflang",
+      "weight": 1.0,
+      "mode": "auto",
+      "checks": [
+        {
+          "key": "https",
+          "label": "HTTPS 生效",
+          "points": 10,
+          "type": "bool"
+        },
+        {
+          "key": "http2_or_cdn",
+          "label": "HTTP/2 或 CDN 加速",
+          "points": 8,
+          "type": "bool"
+        },
+        {
+          "key": "robots_txt",
+          "label": "robots.txt 存在",
+          "points": 8,
+          "type": "bool"
+        },
+        {
+          "key": "sitemap_valid",
+          "label": "sitemap 可解析且非空",
+          "points": 12,
+          "type": "bool"
+        },
+        {
+          "key": "sitemap_urls",
+          "label": "sitemap URL 数量",
+          "points": 12,
+          "type": "threshold",
+          "thresholds": [
+            [
+              1000,
+              12
+            ],
+            [
+              500,
+              10
+            ],
+            [
+              100,
+              7
+            ],
+            [
+              20,
+              4
+            ],
+            [
+              1,
+              2
+            ]
+          ]
+        },
+        {
+          "key": "sitemap_lastmod_coverage",
+          "label": "lastmod 覆盖率",
+          "points": 5,
+          "type": "ratio"
+        },
+        {
+          "key": "no_robots_block",
+          "label": "robots 未屏蔽抓取",
+          "points": 5,
+          "type": "bool"
+        },
+        {
+          "key": "viewport",
+          "label": "移动端 viewport",
+          "points": 5,
+          "type": "bool"
+        },
+        {
+          "key": "curl_renders_content",
+          "label": "无需 JS 即可直出正文",
+          "points": 5,
+          "type": "bool"
+        },
+        {
+          "key": "canonical_coverage",
+          "label": "canonical 覆盖率",
+          "points": 10,
+          "type": "ratio"
+        },
+        {
+          "key": "hreflang_valid",
+          "label": "hreflang 有效（含完整协议）",
+          "points": 10,
+          "type": "bool"
+        },
+        {
+          "key": "no_soft404",
+          "label": "无 soft-404 与导航死链",
+          "points": 10,
+          "type": "bool"
+        },
+        {
+          "key": "render_block_ok",
+          "label": "渲染阻塞资源 ≤ 3",
+          "points": 10,
+          "type": "bool"
+        }
+      ]
+    },
+    {
+      "id": "B",
+      "name": "结构化数据",
+      "en": "Structured Data",
+      "scope": "JSON-LD / Schema.org / meta / OG / canonical",
+      "weight": 1.0,
+      "mode": "auto",
+      "checks": [
+        {
+          "key": "has_jsonld",
+          "label": "存在 JSON-LD",
+          "points": 25,
+          "type": "bool"
+        },
+        {
+          "key": "has_organization",
+          "label": "Organization schema",
+          "points": 15,
+          "type": "bool"
+        },
+        {
+          "key": "has_product_schema",
+          "label": "Product / ItemList schema",
+          "points": 10,
+          "type": "bool"
+        },
+        {
+          "key": "has_faqpage",
+          "label": "FAQPage schema",
+          "points": 10,
+          "type": "bool"
+        },
+        {
+          "key": "has_breadcrumb",
+          "label": "BreadcrumbList schema",
+          "points": 6,
+          "type": "bool"
+        },
+        {
+          "key": "has_person",
+          "label": "Person schema（创始人/负责人）",
+          "points": 6,
+          "type": "bool"
+        },
+        {
+          "key": "has_og",
+          "label": "Open Graph 标签",
+          "points": 10,
+          "type": "bool"
+        },
+        {
+          "key": "has_article_schema",
+          "label": "Article / BlogPosting schema",
+          "points": 5,
+          "type": "bool"
+        },
+        {
+          "key": "title_unique",
+          "label": "各页 title 唯一",
+          "points": 8,
+          "type": "bool"
+        },
+        {
+          "key": "meta_keywords_present",
+          "label": "meta keywords 存在",
+          "points": 4,
+          "type": "bool"
+        },
+        {
+          "key": "meta_desc_coverage",
+          "label": "meta description 覆盖率",
+          "points": 8,
+          "type": "ratio"
+        },
+        {
+          "key": "h1_coverage",
+          "label": "H1 覆盖率（含首页）",
+          "points": 10,
+          "type": "ratio"
+        }
+      ]
+    },
+    {
+      "id": "C",
+      "name": "内容 AI 友好度",
+      "en": "Content AI-Friendliness",
+      "scope": "FAQ / 问句结构 / 数据化表达 / 内容新鲜度 / 标题层级",
+      "weight": 1.0,
+      "mode": "semi",
+      "checks": [
+        {
+          "key": "has_faq_content",
+          "label": "存在真实 Q&A 内容",
+          "points": 15,
+          "type": "bool"
+        },
+        {
+          "key": "has_faq_schema",
+          "label": "Q&A 已声明 FAQPage",
+          "points": 10,
+          "type": "bool"
+        },
+        {
+          "key": "homepage_h1",
+          "label": "首页有 H1",
+          "points": 10,
+          "type": "bool"
+        },
+        {
+          "key": "content_depth",
+          "label": "页面平均正文词数",
+          "points": 15,
+          "type": "threshold",
+          "thresholds": [
+            [
+              1200,
+              15
+            ],
+            [
+              800,
+              11
+            ],
+            [
+              500,
+              7
+            ],
+            [
+              200,
+              3
+            ],
+            [
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "key": "data_density",
+          "label": "可量化参数密度（数字/百词）",
+          "points": 15,
+          "type": "threshold",
+          "thresholds": [
+            [
+              3.0,
+              15
+            ],
+            [
+              1.5,
+              10
+            ],
+            [
+              0.8,
+              6
+            ],
+            [
+              0.3,
+              2
+            ],
+            [
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "key": "content_freshness_days",
+          "label": "内容新鲜度（距最近更新天数）",
+          "points": 20,
+          "type": "inverse_threshold",
+          "thresholds": [
+            [
+              30,
+              20
+            ],
+            [
+              90,
+              15
+            ],
+            [
+              365,
+              8
+            ],
+            [
+              730,
+              3
+            ],
+            [
+              99999,
+              0
+            ]
+          ]
+        },
+        {
+          "key": "question_style_headings",
+          "label": "问句式小标题数量",
+          "points": 10,
+          "type": "threshold",
+          "thresholds": [
+            [
+              8,
+              10
+            ],
+            [
+              4,
+              7
+            ],
+            [
+              1,
+              3
+            ],
+            [
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "key": "has_spec_table",
+          "label": "产品页存在参数表 <table>",
+          "points": 10,
+          "type": "bool"
+        },
+        {
+          "key": "has_video_object",
+          "label": "视频资产已结构化",
+          "points": 5,
+          "type": "bool"
+        }
+      ],
+      "needs_agent": [
+        "证据链质量：正文是否已包含年限/规模/响应时效/赔付承诺等 E-E-A-T 的 Experience 证据（即使未结构化）",
+        "问句是否使用了买家会问 AI 的原话（含品牌/地域/场景限定词）",
+        "文案是形容词堆砌还是可验证的事实陈述"
+      ]
+    },
+    {
+      "id": "D",
+      "name": "站外信源生态",
+      "en": "Off-site Source Ecosystem",
+      "scope": "第三方独立信源数量与质量 / 场景词占位",
+      "weight": 1.0,
+      "mode": "agent",
+      "checks": [
+        {
+          "key": "independent_source_count",
+          "label": "独立第三方信源数量",
+          "points": 25,
+          "type": "threshold",
+          "thresholds": [
+            [
+              6,
+              25
+            ],
+            [
+              3,
+              18
+            ],
+            [
+              1,
+              8
+            ],
+            [
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "key": "independent_ratio",
+          "label": "独立信源占比",
+          "points": 20,
+          "type": "threshold",
+          "thresholds": [
+            [
+              0.5,
+              20
+            ],
+            [
+              0.3,
+              14
+            ],
+            [
+              0.15,
+              7
+            ],
+            [
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "key": "social_matrix",
+          "label": "社媒矩阵完整度（LinkedIn/FB/X/YT）",
+          "points": 15,
+          "type": "bool"
+        },
+        {
+          "key": "multimodal_assets",
+          "label": "多模态资产（视频/图纸/手册）",
+          "points": 15,
+          "type": "bool"
+        },
+        {
+          "key": "scenario_word_presence",
+          "label": "核心场景词占位情况",
+          "points": 25,
+          "type": "threshold",
+          "thresholds": [
+            [
+              0.6,
+              25
+            ],
+            [
+              0.3,
+              15
+            ],
+            [
+              0.1,
+              6
+            ],
+            [
+              0,
+              0
+            ]
+          ]
+        }
+      ],
+      "needs_agent": [
+        "按品牌词 / 场景词 / 人物词三类各检索一轮，统计独立信源数量与占比",
+        "记录 AI 引用了哪些网址 —— 引用清单即信源缺口地图",
+        "判断场景词前列被哪些竞品占位"
+      ]
+    },
+    {
+      "id": "E",
+      "name": "实体一致性",
+      "en": "Entity Consistency",
+      "scope": "品牌唯一性 / NAP / 消歧难度 / 域名归一",
+      "weight": 1.0,
+      "mode": "semi",
+      "checks": [
+        {
+          "key": "mirror_domain_count",
+          "label": "同族镜像域名数量（含主站）",
+          "points": 25,
+          "type": "inverse_count",
+          "thresholds": [
+            [
+              1,
+              25
+            ],
+            [
+              2,
+              10
+            ],
+            [
+              3,
+              3
+            ],
+            [
+              99,
+              0
+            ]
+          ]
+        },
+        {
+          "key": "nap_conflicts",
+          "label": "NAP 冲突数（并存地址/电话）",
+          "points": 25,
+          "type": "inverse_count",
+          "thresholds": [
+            [
+              1,
+              25
+            ],
+            [
+              2,
+              8
+            ],
+            [
+              3,
+              3
+            ],
+            [
+              99,
+              0
+            ]
+          ]
+        },
+        {
+          "key": "name_variants",
+          "label": "公司名变体数量",
+          "points": 20,
+          "type": "inverse_count",
+          "thresholds": [
+            [
+              1,
+              20
+            ],
+            [
+              2,
+              13
+            ],
+            [
+              3,
+              6
+            ],
+            [
+              99,
+              0
+            ]
+          ]
+        },
+        {
+          "key": "has_altname",
+          "label": "品牌别名已声明 alternateName",
+          "points": 10,
+          "type": "bool"
+        },
+        {
+          "key": "founding_year_consistent",
+          "label": "成立年份跨平台一致",
+          "points": 10,
+          "type": "bool"
+        },
+        {
+          "key": "sameas_declared",
+          "label": "sameAs 已声明社媒关联",
+          "points": 10,
+          "type": "bool"
+        }
+      ],
+      "needs_agent": [
+        "跨平台 NAP 巡检：官网 / LinkedIn / Facebook / B2B 平台 / 招聘平台的 名称-地址-电话-网址 四项是否对齐",
+        "是否存在同名或近名公司干扰实体消歧"
+      ]
+    },
+    {
+      "id": "F",
+      "name": "AI 平台认知",
+      "en": "AI Platform Recognition",
+      "scope": "五平台实测盲测（豆包 / DeepSeek / 元宝 / 文心 / Kimi）",
+      "weight": 0.0,
+      "mode": "agent",
+      "counted_in_overall": false,
+      "checks": [],
+      "needs_agent": [
+        "按模板生成 T1–T6 盲测题，在五平台各问一遍",
+        "每题开新会话（避免上下文污染），同一题隔 3 天复测看稳定性",
+        "截图存档并记录「AI 引用了哪些网址」"
+      ]
+    }
+  ],
+  "issue_levels": {
+    "P0": {
+      "label": "致命级",
+      "desc": "直接决定 AI 能否读懂实体，不修则其他优化无效"
+    },
+    "P1": {
+      "label": "重要级",
+      "desc": "决定召回广度，影响 AI 能否在场景词下找到你"
+    },
+    "P2": {
+      "label": "改进级",
+      "desc": "决定精度与效率，影响引用质量与排名"
+    }
+  }
+}

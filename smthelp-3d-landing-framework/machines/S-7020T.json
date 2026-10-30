@@ -1,0 +1,46 @@
+{
+  "schema": "smthelp-lp-machine/v1",
+  "model": "S-7020T",
+  "page_type": "single-machine",
+  "updated": "2026-09-06",
+  "source": "smthelp-brand-voice / references/smt-term-bank.md 二·B 已确认参数锚点",
+  "fields": {
+    "MODEL": "S-7020T",
+    "PROCESS": "Odd-form Insertion",
+    "CATEGORY": "THT LINE",
+    "ONE_LINER": "Dual-head insertion at 12,000 CPH with +-0.015 mm accuracy and vision correction as standard.",
+    "NARRATIVE": "Two heads, one vision loop. Every placement is corrected against the fiducial before the lead enters the hole, so terminals and relay sockets seat square at speed.",
+    "HOTSPOT_1": "Dual heads",
+    "HOTSPOT_2": "12,000 CPH",
+    "HOTSPOT_3": "Vision correction, standard",
+    "CORNER_1": "HEADS / 2 (dual)",
+    "CORNER_2": "THROUGHPUT / 12,000 CPH",
+    "CORNER_3": "ACCURACY / +-0.015 mm",
+    "CORNER_4": "VISION / Correction, standard",
+    "SPEC_01": "01  INSERTION HEADS       2 (dual)",
+    "SPEC_02": "02  THROUGHPUT            12,000 CPH",
+    "SPEC_03": "03  ACCURACY              +-0.015 mm",
+    "SPEC_04": "04  VISION                Vision correction, standard",
+    "SPEC_05": "05  APPLICATION           Terminals and relay sockets",
+    "SPEC_06": "06  FEEDING               STF1003 tube feeder",
+    "SPEC_07": "07  COMPONENT RANGE       On request",
+    "PAIRING": "STF1003 Tube Feeder - 0.8 s per component, +-0.5 mm",
+    "APP_01": "Terminal insertion",
+    "APP_02": "Relay socket assembly",
+    "APP_03": "High-volume consumer boards",
+    "HERO_MEDIA": "S-7020T dual-head unit, 3/4 view or muted looping MP4",
+    "MARQUEE_MEDIA": "dual head cycling / vision correction / terminal seating / relay socket placement / HMI screen"
+  },
+  "params_confirmed": [
+    "dual head",
+    "12,000 CPH",
+    "accuracy +-0.015 mm",
+    "vision correction standard",
+    "terminals and relay sockets"
+  ],
+  "params_withheld": [
+    "Component range / PCB size range - 未确认，写 On request"
+  ],
+  "pairing_required": false,
+  "notes": "高速机型。精度 +-0.015 mm 是全家最高，适合做精度对比锚点。"
+}

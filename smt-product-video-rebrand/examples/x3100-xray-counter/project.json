@@ -1,0 +1,47 @@
+{
+  "_doc": "Worked example: Smart EMS X3100 X-ray SMD counter (batch1 = 7 videos, batch2 = 10 videos, Oct 2026). Source clips live in Drive folder 1fAp98Cd-Yis6KYNEMwdgrrx1-91pPjno (renamed originals); copy them to source/ as v1..v11, old-mes, old-inline.",
+  "product": {
+    "model": "X3100",
+    "name": "X-ray SMD component counter",
+    "chip": "SMART EMS X3100",
+    "tag": "SMART EMS X3100  ·  X-RAY SMD COMPONENT COUNTER",
+    "footer_cta": "Free trial count with your own reels",
+    "outro_headline": "Free trial count with your own reels",
+    "outro_line": "Smart EMS X3100 X-ray SMD component counter  ·  Shenzhen Southern Machinery, since 2011",
+    "outro_chapter": "Free trial count & contact"
+  },
+  "file_prefix": "x3100-x-ray-smd-counter",
+  "source_dir": "source",
+  "default_batch": "batch1",
+  "default_intro_shot": [
+    "F14",
+    4.0
+  ],
+  "landing_page": "https://file.autoinsertion.com/public/Product%20landing%20Page/x3100-x-ray-component-counter-with-inspection-smart-ems-pcb-assembly.html",
+  "landing_label": "X3100 specifications, FAQ and quotation request",
+  "utm_prefix": "x3100",
+  "desc_cta": "Enquiries and free trial count with your own reels",
+  "desc_disclaimer": "Specifications follow the X3100 brochure; accuracy figures are the brochure's example — we recommend a trial count with your own reels. Price and lead time are quoted per order.",
+  "outro_text": "Want to see it count your own reels? Ask us for a free trial count. WhatsApp {whatsapp_display}, or visit {web}.",
+  "primary_keyword": "x-ray smd counter",
+  "pronunciations": [
+    [
+      "X3100",
+      "X thirty-one hundred"
+    ]
+  ],
+  "forbidden_claims": [
+    "\\bAI\\b",
+    "zero[- ]programming",
+    "(?<!not a )\\bguarantee",
+    "100% accura",
+    "\\bzero (loss|risk|damage)",
+    "replaces? (a |any )?dedicated"
+  ],
+  "example_only_patterns": [
+    "99\\.99 ?%"
+  ],
+  "drive_folder_id": "1fAp98Cd-Yis6KYNEMwdgrrx1-91pPjno",
+  "doc_title": "X3100 YouTube Video Copy",
+  "brand_overrides": {}
+}

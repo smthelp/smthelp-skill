@@ -1,0 +1,731 @@
+{
+ "schema": "smt-source-to-landing-page/1",
+ "product_line": "materials-consumables",
+ "filename": "ai-radial-splicing-tape-3-5-6-hole-masking-kraft-paper-splice-cutter-southern-machinery.html",
+ "canonical_base": "https://www.smthelp.com/",
+ "pub_date": "2026-10-13",
+ "storage_prefix": "aisplice_radial",
+ "languages": [
+  "en",
+  "es",
+  "pt",
+  "fr",
+  "ar",
+  "ru",
+  "zh"
+ ],
+ "brand": "southern-machinery",
+ "css": [
+  "product.css"
+ ],
+ "i18n_dir": "i18n",
+ "blogs": "blogs.json",
+ "sections": [
+  "hero",
+  "metrics",
+  "trust",
+  "summary",
+  "pain",
+  "how",
+  "fab",
+  "models",
+  "spec",
+  "disclosure",
+  "calc",
+  "gallery",
+  "videos",
+  "blog",
+  "docs",
+  "service",
+  "faq",
+  "family",
+  "contact"
+ ],
+ "nav": [
+  [
+   "why",
+   "nav_why"
+  ],
+  [
+   "how",
+   "nav_how"
+  ],
+  [
+   "fab",
+   "nav_fab"
+  ],
+  [
+   "models",
+   "nav_models"
+  ],
+  [
+   "spec",
+   "nav_spec"
+  ],
+  [
+   "videos",
+   "nav_videos"
+  ],
+  [
+   "blog",
+   "nav_blog"
+  ],
+  [
+   "docs",
+   "nav_docs"
+  ],
+  [
+   "faq",
+   "nav_faq"
+  ],
+  [
+   "contact",
+   "nav_contact"
+  ]
+ ],
+ "hero": {
+  "images": [
+   {
+    "src": "asset:rolls.jpg",
+    "alt": "g1"
+   },
+   {
+    "src": "https://hk03-1251009151.file.myqcloud.com/smthelp.com/shop_imgs/2023-11-27-17010653528230.png?imageMogr2/thumbnail/800x800/pad/1/color/I2ZmZmZmZg==/format/webp",
+    "alt": "g4"
+   },
+   {
+    "src": "https://ph.smthelp.com/images/2026/08/09/southern-machinery-radial-tape-feeder-img-1081-0086.md.webp",
+    "alt": "g9"
+   },
+   {
+    "src": "asset:strip.jpg",
+    "alt": "g2"
+   }
+  ]
+ },
+ "metrics": {
+  "count": 4,
+  "ltr": [
+   "m1v",
+   "m3v",
+   "m4v"
+  ]
+ },
+ "trust": {
+  "count": 3
+ },
+ "summary": {
+  "facts": 6
+ },
+ "pain": {
+  "count": 6
+ },
+ "how": {
+  "steps": 4,
+  "evidence": "c",
+  "illustration": "illustration.svg",
+  "legend": [
+   [
+    "A",
+    "ill_a"
+   ],
+   [
+    "B",
+    "ill_b"
+   ],
+   [
+    "S",
+    "ill_s"
+   ],
+   [
+    "P",
+    "ill_h"
+   ]
+  ],
+  "safety_note": true
+ },
+ "fab": {
+  "count": 6
+ },
+ "models": {
+  "cards": 6,
+  "ltr_titles": [
+   "mc1t",
+   "mc2t",
+   "mc3t",
+   "mc4t"
+  ],
+  "fit_rows": 4
+ },
+ "spec": {
+  "evidence": [
+   "v",
+   "v",
+   "t",
+   "v",
+   "v",
+   "v",
+   "t",
+   "v",
+   "v",
+   "v",
+   "t",
+   "v",
+   "c"
+  ],
+  "ltr": [
+   "spr9v"
+  ]
+ },
+ "disclosure": {
+  "rows": 4
+ },
+ "calc": {
+  "inputs": [
+   {
+    "id": "cStops",
+    "key": "cf1",
+    "value": 6
+   },
+   {
+    "id": "cMin",
+    "key": "cf2",
+    "value": 4
+   },
+   {
+    "id": "cShifts",
+    "key": "cf3",
+    "value": 2
+   },
+   {
+    "id": "cDays",
+    "key": "cf4",
+    "value": 26
+   },
+   {
+    "id": "cBph",
+    "key": "cf5",
+    "value": 120
+   }
+  ],
+  "vars": [
+   [
+    "changes",
+    "cStops*cShifts*cDays"
+   ],
+   [
+    "hours",
+    "changes*cMin/60"
+   ]
+  ],
+  "outputs": [
+   {
+    "id": "rHours",
+    "key": "cr1",
+    "expr": "hours",
+    "decimals": 1
+   },
+   {
+    "id": "rBoards",
+    "key": "cr2",
+    "expr": "hours*cBph"
+   },
+   {
+    "id": "rSplices",
+    "key": "cr3",
+    "expr": "changes"
+   },
+   {
+    "id": "rRolls",
+    "key": "cr4",
+    "expr": "changes/1000",
+    "decimals": 1
+   }
+  ]
+ },
+ "gallery": [
+  {
+   "key": "g1",
+   "thumb": "asset:rolls.jpg",
+   "full": "asset:rolls.jpg"
+  },
+  {
+   "key": "g2",
+   "thumb": "asset:strip.jpg",
+   "full": "asset:strip.jpg"
+  },
+  {
+   "key": "g3",
+   "thumb": "https://ph.smthelp.com/images/2023/05/08/AI-splicing-tape---Radial.png",
+   "full": "https://ph.smthelp.com/images/2023/05/08/AI-splicing-tape---Radial.png"
+  },
+  {
+   "key": "g4",
+   "thumb": "https://hk03-1251009151.file.myqcloud.com/smthelp.com/shop_imgs/2023-11-27-17010653528230.png?imageMogr2/thumbnail/575x575/pad/1/color/I2ZmZmZmZg==/format/webp",
+   "full": "https://hk03-1251009151.file.myqcloud.com/smthelp.com/shop_imgs/2023-11-27-17010653528230.png?imageMogr2/thumbnail/800x800/pad/1/color/I2ZmZmZmZg==/format/webp"
+  },
+  {
+   "key": "g5",
+   "thumb": "https://hk03-1251009151.file.myqcloud.com/smthelp.com/shop_imgs/2023-11-27-17010653648070.png?imageMogr2/thumbnail/575x575/pad/1/color/I2ZmZmZmZg==/format/webp",
+   "full": "https://hk03-1251009151.file.myqcloud.com/smthelp.com/shop_imgs/2023-11-27-17010653648070.png?imageMogr2/thumbnail/800x800/pad/1/color/I2ZmZmZmZg==/format/webp"
+  },
+  {
+   "key": "g6",
+   "thumb": "https://hk03-1251009151.file.myqcloud.com/smthelp.com/shop_imgs/2023-11-27-17010653674810.png?imageMogr2/thumbnail/575x575/pad/1/color/I2ZmZmZmZg==/format/webp",
+   "full": "https://hk03-1251009151.file.myqcloud.com/smthelp.com/shop_imgs/2023-11-27-17010653674810.png?imageMogr2/thumbnail/800x800/pad/1/color/I2ZmZmZmZg==/format/webp"
+  },
+  {
+   "key": "g7",
+   "thumb": "https://ph.smthelp.com/images/2026/08/09/southern-machinery-radial-tape-feeder-image-0082.md.webp",
+   "full": "https://ph.smthelp.com/images/2026/08/09/southern-machinery-radial-tape-feeder-image-0082.webp"
+  },
+  {
+   "key": "g8",
+   "thumb": "https://ph.smthelp.com/images/2026/08/09/southern-machinery-radial-tape-feeder-image-0085.md.webp",
+   "full": "https://ph.smthelp.com/images/2026/08/09/southern-machinery-radial-tape-feeder-image-0085.webp"
+  },
+  {
+   "key": "g9",
+   "thumb": "https://ph.smthelp.com/images/2026/08/09/southern-machinery-radial-tape-feeder-img-1081-0086.md.webp",
+   "full": "https://ph.smthelp.com/images/2026/08/09/southern-machinery-radial-tape-feeder-img-1081-0086.webp"
+  },
+  {
+   "key": "g10",
+   "thumb": "https://ph.smthelp.com/images/2026/08/09/southern-machinery-radial-tape-feeder-img-6958-20210225-141420-0087.md.webp",
+   "full": "https://ph.smthelp.com/images/2026/08/09/southern-machinery-radial-tape-feeder-img-6958-20210225-141420-0087.webp"
+  },
+  {
+   "key": "g11",
+   "thumb": "https://ph.smthelp.com/images/2026/08/09/southern-machinery-radial-tape-feeder-image-0083.md.webp",
+   "full": "https://ph.smthelp.com/images/2026/08/09/southern-machinery-radial-tape-feeder-image-0083.webp"
+  },
+  {
+   "key": "g12",
+   "thumb": "https://ph.smthelp.com/images/2026/09/21/front-view-of-S3000-Radial-insert-machine.md.jpg",
+   "full": "https://ph.smthelp.com/images/2026/09/21/front-view-of-S3000-Radial-insert-machine.jpg"
+  }
+ ],
+ "videos": {
+  "filters": [
+   [
+    "splice",
+    "vf_splice"
+   ],
+   [
+    "radial",
+    "vf_radial"
+   ],
+   [
+    "taping",
+    "vf_taping"
+   ]
+  ],
+  "items": [
+   {
+    "id": "G6uNv0OXYmk",
+    "title": "How to manually use Radial splice cutter to Splicing Component to improve production efficiency",
+    "dur": "0:52",
+    "cat": "splice"
+   },
+   {
+    "id": "geoCEzNc0q4",
+    "title": "How to operate Splicing THT Radial Tape for Assembly PCB",
+    "dur": "0:57",
+    "cat": "splice"
+   },
+   {
+    "id": "GcRmX0t57qA",
+    "title": "How to manually splice AI tape? What if the material in the pick and place machine is not delivered?",
+    "dur": "6:07",
+    "cat": "splice"
+   },
+   {
+    "id": "hjwiHn-nHy0",
+    "title": "SMT Splicing cart and Splicing tools for Smart EMS factory PCB assembly",
+    "dur": "1:23",
+    "cat": "splice"
+   },
+   {
+    "id": "yGyB_yxEXl0",
+    "title": "How to Use SMT Splicing tools to Save downtime for factory? increase productivity?",
+    "dur": "0:46",
+    "cat": "splice"
+   },
+   {
+    "id": "E04_fDtBn1k",
+    "title": "How to improve SMT efficiency by Splicing tape",
+    "dur": "0:36",
+    "cat": "splice"
+   },
+   {
+    "id": "WP61N6pmDJU",
+    "title": "Radial Insertion machine working for Smart EMS factory PCB assembly",
+    "dur": "1:19",
+    "cat": "radial"
+   },
+   {
+    "id": "NUvAg0JvGYY",
+    "title": "China Made Radial Insertion machine for Smart EMS factory PCB assembly",
+    "dur": "0:32",
+    "cat": "radial"
+   },
+   {
+    "id": "0iKa7qjICCg",
+    "title": "Radial Insertion Machine SMT",
+    "dur": "0:47",
+    "cat": "radial"
+   },
+   {
+    "id": "51JqMMJlVA4",
+    "title": "LED traffic signal industry Radial Insertion Machine for Smart EMS factory PCB assembly",
+    "dur": "3:27",
+    "cat": "radial"
+   },
+   {
+    "id": "jI5O2w86n1A",
+    "title": "S3010A Radial Inserter, Inserting a Full Array of Radial Lead Components in Tape-Package",
+    "dur": "0:54",
+    "cat": "radial"
+   },
+   {
+    "id": "Y6v_U97S_Ho",
+    "title": "How to insert components in S3010A",
+    "dur": "1:38",
+    "cat": "radial"
+   },
+   {
+    "id": "xSHWpqCgaoQ",
+    "title": "S3010A radial insertion machine and S7000T pin terminal insertion machine",
+    "dur": "0:40",
+    "cat": "radial"
+   },
+   {
+    "id": "EXbYdskdXkM",
+    "title": "The Radial Insertion Head and Cutter head work together for Smart EMS factory PCB assembly",
+    "dur": "0:17",
+    "cat": "radial"
+   },
+   {
+    "id": "j8uu7TQkWMY",
+    "title": "How Radial tape component feeder works for Auto Insertion PCB assembly",
+    "dur": "0:11",
+    "cat": "radial"
+   },
+   {
+    "id": "Q27fcxMPOgI",
+    "title": "12.5/15mm Radial Lead Span auto insertion solution to Assembly PCB by Through hole technology",
+    "dur": "1:11",
+    "cat": "radial"
+   },
+   {
+    "id": "sw1DypWjiYw",
+    "title": "Carrier clip for Radial Insertion machine",
+    "dur": "1:21",
+    "cat": "radial"
+   },
+   {
+    "id": "_ixWTgu1ejM",
+    "title": "Bulk Axial electronic components to Radial taping machine for Smart EMS factory PCB assembly",
+    "dur": "0:31",
+    "cat": "taping"
+   },
+   {
+    "id": "m2Mytl5D1EU",
+    "title": "20mm lead span Bulk electronic capacitor taping machine polarity check for Smart EMS PCB assembly",
+    "dur": "0:31",
+    "cat": "taping"
+   },
+   {
+    "id": "8gsWp7j6UJA",
+    "title": "How to Automatic taping machine for big capacitor electronic component",
+    "dur": "1:37",
+    "cat": "taping"
+   }
+  ]
+ },
+ "docs": {
+  "items": [
+   {
+    "key": "dk1",
+    "url": "https://file.autoinsertion.com/public/Southern%20Machinery%20Product/Splice%20Tape%20and%20Splice%20tools.pdf",
+    "size": "1.0 MB"
+   },
+   {
+    "key": "dk2",
+    "url": "https://file.autoinsertion.com/public/Southern%20Machinery%20Product/SMT%20Splicing%20cart%20and%20Splicing%20tools.pdf",
+    "size": "0.95 MB"
+   },
+   {
+    "key": "dk3",
+    "url": "https://file.autoinsertion.com/public/SMT%20machine%203D%20drawing/C24639000%20HAND%20SPLICING%20TOOL%203D.pdf",
+    "size": "0.12 MB"
+   },
+   {
+    "key": "dk4",
+    "url": "https://file.autoinsertion.com/public/Southern%20Machinery%20Product/AI%20SMT%20spare%20parts%20-%202020.pdf",
+    "size": "2.5 MB"
+   },
+   {
+    "key": "dk5",
+    "url": "https://file.autoinsertion.com/public/Southern%20Machinery%20Product/S3000%20Radial%20Insertion%20machine%202024.pdf",
+    "size": "18 MB"
+   },
+   {
+    "key": "dk6",
+    "url": "https://file.autoinsertion.com/public/Southern%20Machinery%20Product/S3010A%20Radial%20Inserter.pdf",
+    "size": "3.1 MB"
+   },
+   {
+    "key": "dk7",
+    "url": "https://file.autoinsertion.com/public/Southern%20Machinery%20Product/Carrier%20Clips%20for%20UIC%20Radial%20Insertion%20Machine%202018.pdf",
+    "size": "1.4 MB"
+   },
+   {
+    "key": "dk8",
+    "url": "https://file.autoinsertion.com/public/Southern%20Machinery%20Product/S-300B%20Fully%20Automatic%20High-Speed%20Molding%20and%20Taping%20Machine.pdf",
+    "size": "0.28 MB"
+   },
+   {
+    "key": "dk9",
+    "url": "https://file.autoinsertion.com/public/Southern%20Machinery%20Manual/Radial%20Feeder%20User%20Manual.pdf",
+    "size": "2.2 MB"
+   },
+   {
+    "key": "dk10",
+    "url": "https://file.autoinsertion.com/public/Southern%20Machinery%20Product/SMThelp%20Auto%20Insertion%20PCB%20assembly%20requirements.pdf",
+    "size": "0.59 MB"
+   }
+  ],
+  "boards": true
+ },
+ "service": {
+  "count": 5
+ },
+ "faq": {
+  "count": 10
+ },
+ "family": [
+  {
+   "key": "fam1",
+   "url": "https://file.autoinsertion.com/public/Product%20landing%20Page/s3000-radial-insertion-machine-smart-ems-tht-pcb-assembly.html"
+  },
+  {
+   "key": "fam2",
+   "url": "https://file.autoinsertion.com/public/Product%20landing%20Page/s-300b-radial-lead-molding-taping-machine-smart-ems-pcb-assembly.html"
+  },
+  {
+   "key": "fam3",
+   "url": "https://file.autoinsertion.com/public/Product%20landing%20Page/s4000-axial-insertion-machine-smart-ems-tht-pcb-assembly.html"
+  },
+  {
+   "key": "fam4",
+   "url": "https://file.autoinsertion.com/public/Product%20landing%20Page/S3010A-Radial-Auto-Insertion-Landing.html"
+  }
+ ],
+ "contact": {
+  "wa_text": "Hello Southern Machinery, I would like a quote for AI radial splicing tape.",
+  "fields": [
+   [
+    "fName",
+    "f_name",
+    "name"
+   ],
+   [
+    "fCo",
+    "f_company",
+    "organization"
+   ],
+   [
+    "fMail",
+    "f_email",
+    "email"
+   ],
+   [
+    "fTape",
+    "f_tape",
+    ""
+   ],
+   [
+    "fQty",
+    "f_qty",
+    "numeric"
+   ],
+   [
+    "fMsg",
+    "f_msg",
+    "textarea"
+   ]
+  ]
+ },
+ "footer": {
+  "product_links": [
+   {
+    "key": "fl1",
+    "url": "https://www.smthelp.com/product/high-viscosity-ai-splicing-tape"
+   },
+   {
+    "key": "fl2",
+    "url": "https://www.smthelp.com/radial-tape-splice-cutter-for-12-7-mm-15-0-mm-tape.html"
+   },
+   {
+    "key": "fl3",
+    "url": "https://file.autoinsertion.com/public/Southern%20Machinery%20Product/Splice%20Tape%20and%20Splice%20tools.pdf"
+   }
+  ]
+ },
+ "seo": {
+  "og_image": "https://ph.smthelp.com/images/2023/05/08/AI-splicing-tape---Radial.png",
+  "og_image_alt": "Radial AI splicing tape with die-cut feed holes",
+  "primary_image": "https://ph.smthelp.com/images/2023/05/08/AI-splicing-tape---Radial.png"
+ },
+ "jsonld": {
+  "products": [
+   {
+    "@type": "Product",
+    "@id": "{{canonical}}#product",
+    "name": "AI Radial Splicing Tape (3-hole / 5-hole, masking or kraft paper)",
+    "alternateName": [
+     "AI splice tape",
+     "Auto insertion splicing tape",
+     "Radial vertical insertion splice tape"
+    ],
+    "description": "{{t:seo_desc}}",
+    "image": [
+     "https://ph.smthelp.com/images/2023/05/08/AI-splicing-tape---Radial.png",
+     "https://hk03-1251009151.file.myqcloud.com/smthelp.com/shop_imgs/2023-11-27-17010653528230.png?imageMogr2/thumbnail/800x800/pad/1/color/I2ZmZmZmZg==/format/webp"
+    ],
+    "brand": {
+     "@type": "Brand",
+     "name": "Southern Machinery"
+    },
+    "manufacturer": {
+     "@id": "https://www.smthelp.com/#organization"
+    },
+    "category": "THT auto-insertion consumables",
+    "model": [
+     "SCT-031000",
+     "SCT-030500",
+     "SCT-051000",
+     "SCT-050500"
+    ],
+    "material": "Masking paper or kraft paper with high-viscosity adhesive",
+    "additionalProperty": [
+     {
+      "@type": "PropertyValue",
+      "name": "Hole count",
+      "value": "3-hole, 5-hole (6-hole, 2-hole, single-hole on request)"
+     },
+     {
+      "@type": "PropertyValue",
+      "name": "Backing",
+      "value": "Masking paper (no residue) or kraft paper (coated, smooth)"
+     },
+     {
+      "@type": "PropertyValue",
+      "name": "Packing",
+      "value": "Masking paper 1,000 pcs/roll; kraft paper 500 pcs/roll"
+     },
+     {
+      "@type": "PropertyValue",
+      "name": "Converting",
+      "value": "Precision die-cut on both faces, enlarged holes, locating dots"
+     },
+     {
+      "@type": "PropertyValue",
+      "name": "3-hole splice size (one source)",
+      "value": "42 mm x 36 mm unfolded"
+     },
+     {
+      "@type": "PropertyValue",
+      "name": "Delivery",
+      "value": "Packed by carton, about 2 days after order confirmation"
+     }
+    ],
+    "isRelatedTo": {
+     "@id": "{{canonical}}#cutter"
+    }
+   },
+   {
+    "@type": "Product",
+    "@id": "{{canonical}}#cutter",
+    "name": "Radial Tape Splice Cutter for 12.7 mm and 15.0 mm tape",
+    "description": "Hand splice cutter that cuts radial component tape square through the centre of a feed hole so a splice registers at the correct pitch. Versions for 12.7 mm and 15.0 mm tape.",
+    "image": [
+     "https://hk03-1251009151.file.myqcloud.com/smthelp.com/shop_imgs/2023-11-27-17010653528230.png?imageMogr2/thumbnail/800x800/pad/1/color/I2ZmZmZmZg==/format/webp",
+     "https://hk03-1251009151.file.myqcloud.com/smthelp.com/shop_imgs/2023-11-27-17010653648070.png?imageMogr2/thumbnail/800x800/pad/1/color/I2ZmZmZmZg==/format/webp"
+    ],
+    "brand": {
+     "@type": "Brand",
+     "name": "Southern Machinery"
+    },
+    "manufacturer": {
+     "@id": "https://www.smthelp.com/#organization"
+    },
+    "url": "https://www.smthelp.com/radial-tape-splice-cutter-for-12-7-mm-15-0-mm-tape.html"
+   }
+  ],
+  "howto": {
+   "@type": "HowTo",
+   "name": "How to splice taped radial components with AI splicing tape",
+   "tool": [
+    {
+     "@type": "HowToTool",
+     "name": "Radial tape splice cutter (12.7 mm or 15.0 mm)"
+    }
+   ],
+   "supply": [
+    {
+     "@type": "HowToSupply",
+     "name": "AI radial splicing tape, 3-hole or 5-hole"
+    }
+   ],
+   "step": "{{steps}}"
+  },
+  "breadcrumb": [
+   [
+    "THT auto-insertion consumables",
+    "https://file.autoinsertion.com"
+   ],
+   [
+    "AI Radial Splicing Tape",
+    "{{canonical}}"
+   ]
+  ],
+  "blog_list_name": "Articles on keeping a radial line fed",
+  "video_list_name": "Splicing, radial insertion and radial taping videos",
+  "terms": {
+   "@type": "DefinedTermSet",
+   "name": "AI splicing tape terms",
+   "hasDefinedTerm": [
+    {
+     "@type": "DefinedTerm",
+     "name": "AI splicing tape",
+     "description": "Pre-cut adhesive splice that joins two lengths of taped components for auto-insertion (AI) machines without stopping the feeder."
+    },
+    {
+     "@type": "DefinedTerm",
+     "name": "3-hole / 5-hole splice",
+     "description": "Splice length expressed as the number of tape feed holes it bridges; more holes means more bonded area and more load capacity."
+    },
+    {
+     "@type": "DefinedTerm",
+     "name": "Feed-hole pitch",
+     "description": "Distance between the sprocket holes of the component tape; radial tape commonly uses 12.7 mm, some larger parts 15.0 mm."
+    },
+    {
+     "@type": "DefinedTerm",
+     "name": "Masking paper splice",
+     "description": "Splice on masking (crepe) paper with high-viscosity masking adhesive that leaves no residue."
+    },
+    {
+     "@type": "DefinedTerm",
+     "name": "Kraft paper splice",
+     "description": "Splice on kraft paper with a coated, smooth surface for low friction through tape guides."
+    }
+   ]
+  }
+ },
+ "verify": {
+  "forbidden_terms": []
+ }
+}

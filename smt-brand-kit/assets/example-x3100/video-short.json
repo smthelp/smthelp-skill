@@ -1,0 +1,207 @@
+{
+ "format": "vertical",
+ "product_label": "Smart EMS X3100 X-ray Counter",
+ "outro": {
+  "title": "Smart EMS X3100",
+  "subtitle": "X-ray Counter with Inspection",
+  "image": "photos/x3100-offline-x-ray-counter-front.jpg"
+ },
+ "scenes": [
+  {
+   "id": "k1",
+   "kind": "still",
+   "media": [
+    "photos/x3100-four-reel-tray.jpg"
+   ],
+   "box": "v",
+   "kicker": "SMT WAREHOUSE",
+   "head": "The label says 5,000.\nWhat's really left?",
+   "vo": [
+    [
+     "Your reel label says five thousand parts.",
+     "Your reel label says 5,000 parts."
+    ],
+    [
+     "How many are really left?",
+     null
+    ]
+   ]
+  },
+  {
+   "id": "k2",
+   "kind": "clip",
+   "box": "v",
+   "clips": [
+    {
+     "src": "videos/x3100-x-ray-counter-mes-label.mp4",
+     "a": 16.3,
+     "b": 19.5,
+     "crop": [
+      0.085,
+      0.86
+     ]
+    },
+    {
+     "src": "videos/x3100-x-ray-counter-mes-label.mp4",
+     "a": 38.3,
+     "b": 41.0,
+     "crop": [
+      0.085,
+      0.86
+     ]
+    },
+    {
+     "src": "videos/x3100-x-ray-counter-with-inspection.mp4",
+     "a": 66.0,
+     "b": 71.0,
+     "crop": [
+      0.085,
+      0.86
+     ]
+    }
+   ],
+   "kicker": "SMART EMS X3100",
+   "head": "4 reels counted\nin one X-ray shot",
+   "vo": [
+    [
+     "The Smart EMS X3100 counts up to four reels in one X-ray shot.",
+     null
+    ],
+    [
+     "Six to ten seconds, right through the tape.",
+     "6 to 10 seconds, right through the tape."
+    ]
+   ]
+  },
+  {
+   "id": "k3",
+   "kind": "clip",
+   "box": "v",
+   "clips": [
+    {
+     "src": "videos/x3100-x-ray-counter-mes-label.mp4",
+     "a": 41.0,
+     "b": 44.2,
+     "crop": [
+      0.085,
+      0.86
+     ]
+    },
+    {
+     "src": "videos/x3100-x-ray-counter-mes-label.mp4",
+     "a": 46.0,
+     "b": 50.0,
+     "crop": [
+      0.085,
+      0.86
+     ]
+    },
+    {
+     "src": "videos/x3100-x-ray-counter-mes-label.mp4",
+     "a": 74.0,
+     "b": 77.0,
+     "crop": [
+      0.085,
+      0.86
+     ]
+    }
+   ],
+   "kicker": "LABEL + DATA",
+   "head": "New label.\nStraight to your MES.",
+   "vo": [
+    [
+     "It reads every barcode, prints a new quantity label,",
+     null
+    ],
+    [
+     "and sends the count straight to your MES, ERP or WMS.",
+     null
+    ]
+   ]
+  },
+  {
+   "id": "k4",
+   "kind": "clip",
+   "box": "v",
+   "clips": [
+    {
+     "src": "videos/x3100-x-ray-counter-with-inspection.mp4",
+     "a": 30.5,
+     "b": 38.5,
+     "crop": [
+      0.085,
+      0.86
+     ]
+    }
+   ],
+   "kicker": "BONUS MODE",
+   "head": "X-ray inspection\nin one click",
+   "vo": [
+    [
+     "One click turns it into an X-ray inspection station.",
+     null
+    ]
+   ]
+  },
+  {
+   "id": "k5",
+   "kind": "clip",
+   "box": "l",
+   "clips": [
+    {
+     "src": "videos/x3100-inline-x-ray-counter.mp4",
+     "a": 21.3,
+     "b": 22.8,
+     "crop": [
+      0.14,
+      0.8
+     ]
+    },
+    {
+     "src": "videos/x3100-inline-x-ray-counter.mp4",
+     "a": 29.5,
+     "b": 31.2,
+     "crop": [
+      0.14,
+      0.8
+     ]
+    },
+    {
+     "src": "videos/x3100-inline-x-ray-counter.mp4",
+     "a": 31.5,
+     "b": 35.6,
+     "crop": [
+      0.14,
+      0.8
+     ]
+    }
+   ],
+   "kicker": "X3100 INLINE",
+   "head": "Fully automatic\nreel counting",
+   "vo": [
+    [
+     "Or go fully automatic with the X3100 Inline:",
+     null
+    ],
+    [
+     "robot loading, counting, labeling and NG sorting.",
+     null
+    ]
+   ]
+  },
+  {
+   "id": "k6",
+   "kind": "outro",
+   "vo": [
+    [
+     "Southern Machinery.",
+     null
+    ],
+    [
+     "Send us your reel mix for a trial count, at S M T help dot com.",
+     "Send us your reel mix for a trial count at smthelp.com."
+    ]
+   ]
+  }
+ ]
+}

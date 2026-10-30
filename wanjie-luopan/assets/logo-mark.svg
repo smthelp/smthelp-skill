@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-labelledby="title desc">
+  <title id="title">万界罗盘标志</title>
+  <desc id="desc">一张折叠舆图上连接四个证据节点的研究路线</desc>
+  <g fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M72 154 198 108l116 42 126-46v254l-126 46-116-42-126 46Z" stroke="#0B1C31" stroke-width="24"/>
+    <path d="M198 108v254M314 150v254" stroke="#0B1C31" stroke-width="18" opacity=".72"/>
+    <path d="M108 334c48-16 70-92 120-83 45 8 42 82 94 73 39-7 48-75 86-111" stroke="#D45D3F" stroke-width="20"/>
+    <circle cx="108" cy="334" r="17" fill="#F4F0E6" stroke="#D45D3F" stroke-width="14"/>
+    <circle cx="228" cy="251" r="17" fill="#F4F0E6" stroke="#D45D3F" stroke-width="14"/>
+    <circle cx="322" cy="324" r="17" fill="#F4F0E6" stroke="#D45D3F" stroke-width="14"/>
+    <circle cx="408" cy="213" r="24" fill="#D45D3F" stroke="#F4F0E6" stroke-width="10"/>
+    <path d="m399 213 8 8 14-18" stroke="#0B1C31" stroke-width="8"/>
+  </g>
+</svg>

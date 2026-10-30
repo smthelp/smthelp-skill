@@ -1,0 +1,30 @@
+{
+ "file": "tht-auto-insertion-line-solution-evaluation-led-driver-boards-s3010-radial-s70dl-odd-form-smart-ems-pcb-assembly.html",
+ "canonical_base": "https://file.autoinsertion.com/public/Product%20landing%20Page/",
+ "storage_prefix": "smtlineeval_",
+ "date_published": "2026-10-27",
+ "langs": ["en", "es", "pt", "fr", "ar", "ru", "zh"],
+ "videos": [
+  {"id": "WP61N6pmDJU", "t": "v1t", "d": "v1d", "dur": "1:19"},
+  {"id": "NUvAg0JvGYY", "t": "v2t", "d": "v2d", "dur": "0:32"},
+  {"id": "EXbYdskdXkM", "t": "v3t", "d": "v3d", "dur": "0:17"},
+  {"id": "fYQ0qVcgjGw", "t": "v4t", "d": "v4d", "dur": "1:25"},
+  {"id": "P0rfpkHpPxg", "t": "v5t", "d": "v5d", "dur": "7:15"},
+  {"id": "MqxVCydxUkU", "t": "v6t", "d": "v6d", "dur": "0:55"},
+  {"id": "omxIkpIkxS4", "t": "v7t", "d": "v7d", "dur": "0:17"},
+  {"id": "Z314HXYjiBo", "t": "v8t", "d": "v8d", "dur": "1:00"}
+ ],
+ "catalogs": [
+  {"url": "https://file.autoinsertion.com/public/Southern%20Machinery%20Product/S3010A%20Radial%20Inserter.pdf", "t": "cat1t", "d": "cat1d", "type": "PDF"},
+  {"url": "https://file.autoinsertion.com/public/SMThelp%20Machine%20Presentation/Precision_S7900%20odd%20form%20insertion%20machine.pdf", "t": "cat2t", "d": "cat2d", "type": "PDF"},
+  {"url": "https://file.autoinsertion.com/public/Blog%20file/auto-insertion-readiness-checklist.pdf", "t": "cat3t", "d": "cat3d", "type": "PDF"},
+  {"url": "https://file.autoinsertion.com/public/Southern%20Machinery%20Product/STF1003%20Tube%20Feeder%20%20Southern%20Machinery%20Customized%20Feeder%20Nozzle%20Catalog%20V03.pdf", "t": "cat4t", "d": "cat4d", "type": "PDF"},
+  {"url": "https://file.autoinsertion.com/public/Southern%20Machinery%20Product/STP1001%20Tray%20Feeder%20%20Southern%20Machinery%20Customized%20Feeder%20Nozzle%20Catalog%20V03.pdf", "t": "cat5t", "d": "cat5d", "type": "PDF"},
+  {"url": "https://file.autoinsertion.com/public/Southern%20Machinery%20Product/SRF1001%20Radial%20Tape%20Feeder%20Southern%20Machinery%20Customized%20Feeder%20Nozzle%20Catalog%20V03.pdf", "t": "cat6t", "d": "cat6d", "type": "PDF"}
+ ],
+ "extra_gallery": [
+  {"url": "https://ph.smthelp.com/images/2023/04/30/S3010-Radial-Insertion-machine-10-feeders_1-001.md.jpg", "full": "https://ph.smthelp.com/images/2023/04/30/S3010-Radial-Insertion-machine-10-feeders_1-001.jpg", "cap": "g_x1"},
+  {"url": "https://ph.smthelp.com/images/2023/04/30/S3010-Radial-Insertion-machine-10-feeders_2.md.jpg", "full": "https://ph.smthelp.com/images/2023/04/30/S3010-Radial-Insertion-machine-10-feeders_2.jpg", "cap": "g_x2"}
+ ],
+ "blogs": 8, "faq": 6
+}

@@ -1,0 +1,49 @@
+{
+  "schema": "smthelp-lp-machine/v1",
+  "model": "BF-2002D",
+  "page_type": "single-machine",
+  "updated": "2026-09-06",
+  "source": "smthelp-brand-voice / references/smt-term-bank.md 二·B 已确认参数锚点",
+  "fields": {
+    "MODEL": "BF-2002D",
+    "PROCESS": "Bowl Feeding",
+    "CATEGORY": "SMT FEEDING",
+    "ONE_LINER": "Double-deck vibratory bowl feeder for 3x3 to 50x50 mm parts - interfaces with Panasonic CM602, Juki, Fuji and ASM.",
+    "NARRATIVE": "Two decks keep a buffer of oriented parts in front of the pick head, so a refill does not stop the line. The transfer track is built to sit on the feeder bank of the machines you already run.",
+    "HOTSPOT_1": "Double-deck buffer",
+    "HOTSPOT_2": "3x3 - 50x50 mm, 10-300 g",
+    "HOTSPOT_3": "231 mm transfer track",
+    "CORNER_1": "COMPONENT / 3x3 - 50x50 mm",
+    "CORNER_2": "WEIGHT / 10-300 g",
+    "CORNER_3": "TRANSFER TRACK / 231 mm",
+    "CORNER_4": "FEED RATE / 0.8 s per component",
+    "SPEC_01": "01  COMPONENT SIZE        3x3 - 50x50 mm",
+    "SPEC_02": "02  COMPONENT WEIGHT      10-300 g",
+    "SPEC_03": "03  FEED RATE             0.8 s per component",
+    "SPEC_04": "04  ACCURACY              +-0.5 mm",
+    "SPEC_05": "05  TRANSFER TRACK        231 mm wide",
+    "SPEC_06": "06  COMPATIBILITY         Panasonic CM602 / Juki / Fuji / ASM",
+    "SPEC_07": "07  SUPPLY                110 / 220 V, air 0.4-0.6 MPa",
+    "PAIRING": "",
+    "APP_01": "Odd-form parts on an existing SMT line",
+    "APP_02": "Shield cans and clips",
+    "APP_03": "Heatsinks and hardware",
+    "HERO_MEDIA": "BF-2002D double-deck bowl with parts oriented on the track, 3/4 view or muted looping MP4",
+    "MARQUEE_MEDIA": "bowl vibration / part orientation / track transfer / pick by SMT head / refill / integration on a CM602 bank"
+  },
+  "params_confirmed": [
+    "double-deck bowl",
+    "component 3x3 - 50x50 mm, 10-300 g",
+    "compatible with Panasonic CM602 / Juki / Fuji / ASM",
+    "transfer track width 231 mm",
+    "1700 x 600 x 1200 mm",
+    "110/220 V",
+    "0.8 s per component",
+    "accuracy +-0.5 mm"
+  ],
+  "params_withheld": [
+    "整线改造的具体适配接口清单 - 需按客户 feeder 型号确认，页面写 'send your feeder model list'"
+  ],
+  "pairing_required": false,
+  "notes": "兼容性是最大卖点。竞品品牌写原名不贬损，只做接口陈述。"
+}

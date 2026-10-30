@@ -1,0 +1,4 @@
+interface:
+  display_name: "Multilingual Sales"
+  short_description: "Localize sales messages accurately"
+  default_prompt: "Use $multilingual-sales to support a Southern Machinery sales task."

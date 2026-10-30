@@ -1,0 +1,4 @@
+interface:
+  display_name: "Southern Machinery Cloudflare Site"
+  short_description: "Build and deploy secure SMT/THT marketing sites"
+  default_prompt: "Use $southern-machinery-cloudflare-site to build or deploy a verified Southern Machinery THT website on Cloudflare."

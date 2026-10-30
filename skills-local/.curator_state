@@ -1,0 +1,9 @@
+{
+  "last_report_path": "/Users/jasonwu/.hermes/logs/curator/20260921-032819",
+  "last_run_at": "2026-09-21T03:28:19.696435+00:00",
+  "last_run_duration_seconds": 2.020101,
+  "last_run_summary": "auto: 11 marked stale, 2 reactivated; llm: skipped (consolidation off)",
+  "last_run_summary_shown_at": "2026-07-19T12:15:02.562527+00:00",
+  "paused": false,
+  "run_count": 21
+}

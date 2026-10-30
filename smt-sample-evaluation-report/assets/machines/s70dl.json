@@ -1,0 +1,18 @@
+{
+ "id": "s70dl",
+ "name": "S-70DL",
+ "process": "oddform",
+ "full_name": {"en": "S-70DL odd-form insertion machine"},
+ "source": "Southern Machinery PCBA Evaluation for Acuity Brands Lighting, 2020-08-27 (S-70DL description slides)",
+ "eval_cph": 4000,
+ "eval_cph_note": "0.9 s average per part; transformers and large connectors 0.9 - 1.3 s",
+ "feeders": ["tube", "tray", "bulk", "tape"],
+ "selling_points": [],
+ "specs": [
+  [{"en": "Component type"}, {"en": "Odd-form THT parts: transformers, connectors, terminals, large capacitors, inductors"}],
+  [{"en": "Insertion time"}, {"en": "0.9 s per part average; 0.9 – 1.3 s for heavy or large parts"}],
+  [{"en": "Evaluation rate"}, {"en": "~4,000 CPH per machine"}],
+  [{"en": "Feeders"}, {"en": "Tube, tray, bulk and tape feeders per station"}],
+  [{"en": "Part coverage"}, {"en": "Over 97 % of odd-form parts on the market (Southern Machinery claim)"}]
+ ]
+}

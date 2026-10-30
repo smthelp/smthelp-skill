@@ -1,0 +1,95 @@
+{
+ "tagline": "Count every reel when it comes back",
+ "headline": "4 reels counted in one X-ray shot",
+ "subhead": "Counts through the closed tape, reads every barcode, syncs MES and prints the new label.",
+ "one_paragraph_answer": "The Smart EMS X3100 from Southern Machinery is an X-ray component counter for SMT warehouses: up to four reels are imaged in one shot and counted in 6 - 10 s (chip 0201), down to 01005 parts; a 20 MP camera reads every reel barcode, the quantity goes to MES, ERP or WMS and a new label is printed.",
+ "pains": [
+  {
+   "h": "Lines stop for parts the system says you have",
+   "b": "Returned reels keep their original label quantity."
+  },
+  {
+   "h": "Counting costs labour and opens sensitive packs",
+   "b": "Tape-wheel counters handle one reel at a time."
+  },
+  {
+   "h": "Audits never reconcile",
+   "b": "Cycle counts need a quantity per reel ID."
+  }
+ ],
+ "steps": [
+  {
+   "h": "Load up to four reels",
+   "b": "Two-hand start."
+  },
+  {
+   "h": "One X-ray shot",
+   "b": "3072 x 3072 px flat panel."
+  },
+  {
+   "h": "Count and read labels",
+   "b": "20 MP barcode camera."
+  },
+  {
+   "h": "Sync MES and print",
+   "b": "TXT / CSV / XLS records, 60 x 40 mm label."
+  }
+ ],
+ "benefits": [
+  "Reels 4 - 17 inch, trays, tubes, bags, loose parts",
+  "20 MP camera reads every reel label",
+  "One click to X-ray inspection mode"
+ ],
+ "metrics": [
+  {
+   "v": "6 - 10 s",
+   "l": "per 4 reels, chip 0201"
+  },
+  {
+   "v": "99.99 %",
+   "l": "accuracy, 0201 example"
+  },
+  {
+   "v": "01005",
+   "l": "smallest part"
+  },
+  {
+   "v": "MES",
+   "l": "ERP / WMS sync"
+  }
+ ],
+ "before_you_order": [
+  {
+   "h": "Reel flow",
+   "b": "Reels per day and reel sizes."
+  },
+  {
+   "h": "Hardest parts",
+   "b": "Smallest and densest part numbers."
+  },
+  {
+   "h": "Packages",
+   "b": "Trays, tubes, bags, loose parts."
+  },
+  {
+   "h": "Data link",
+   "b": "MES / ERP / WMS and a label photo."
+  },
+  {
+   "h": "Site",
+   "b": "Voltage, floor space, route into the building."
+  }
+ ],
+ "faq": [
+  {
+   "q": "How fast does the X3100 count?",
+   "a": "6 - 10 s per four reels for chip 0201 parts."
+  },
+  {
+   "q": "What does it cost?",
+   "a": "Quoted per order for your version and options."
+  }
+ ],
+ "cta": "Send your reel mix for a trial count",
+ "evidence_note": "Speed and accuracy: X3100 brochure and operation manual, 0201 example."
+}

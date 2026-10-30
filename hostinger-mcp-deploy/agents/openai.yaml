@@ -1,0 +1,4 @@
+interface:
+  display_name: "Hostinger MCP Deploy"
+  short_description: "Deploy workspace web builds to Hostinger"
+  default_prompt: "Use $hostinger-mcp-deploy to inspect the current workspace, deploy the latest web page or WordPress plugin to Hostinger staging, and return a public preview URL."

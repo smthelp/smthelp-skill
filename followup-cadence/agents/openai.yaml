@@ -1,0 +1,4 @@
+interface:
+  display_name: "Followup Cadence"
+  short_description: "Plan quotation follow-up sequences"
+  default_prompt: "Use $followup-cadence to support a Southern Machinery sales task."

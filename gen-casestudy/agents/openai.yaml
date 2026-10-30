@@ -1,0 +1,4 @@
+interface:
+  display_name: "Gen Casestudy"
+  short_description: "Write anonymized customer case studies"
+  default_prompt: "Use $gen-casestudy to turn a Southern Machinery project into an anonymized case study."

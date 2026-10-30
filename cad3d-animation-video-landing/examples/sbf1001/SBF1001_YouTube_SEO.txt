@@ -1,0 +1,49 @@
+=== 16:9 MAIN VIDEO ===
+TITLE:
+How a Vibratory Bowl Feeder Works | SBF1001 Bulk Parts Feeder for SMT & THT (4K 3D)
+
+DESCRIPTION:
+Bulk parts arrive in a bag, but your mounter, odd-form inserter or robot cell needs them one at a time, the same way up, every cycle. The SBF1001 vibratory bowl feeder from Southern Machinery turns a bin of loose parts into an oriented stream at a fixed pick point.
+
+This 4K animation is built from the feeder's own 3D CAD model and walks through every module:
+• Coil drive under the bowl: controlled vibration, speed gears set by voltage and frequency, for parts from 3 x 3 to 50 x 50 mm and 10 g to 300 g
+• Helical sorting track: the track geometry is the filter; wrong-way parts fall back and try again (direction and polarity screening are options per material)
+• Separate linear vibrator + air blowing: direct vibration carries the part, air speeds it along and keeps the rail clean
+• Optical fibre sensing at the pick point: 0.8 s per feed at +/-0.5 mm feeding precision
+• Bowl on isolators over a height-adjustable plate; controller inside a mobile cart with casters and levelling feet; this build adds a camera and bar light on adjustable clamps
+• 220 V, 0.4-0.6 MPa plant air, IO over an 8-core aviation plug, or standalone on its own buttons
+• Every unit passes a 2-hour continuous feeding test and a 48-hour ageing run
+
+Chapters
+0:00 The bulk-parts problem
+0:11 Meet the SBF1001 vibratory bowl feeder
+0:22 Coil drive: voltage and frequency speed control
+0:37 Helical track: geometry does the sorting
+0:55 Linear rail: direct vibration + air blowing
+1:07 Pick point: optical fibre, 0.8 s per feed, +/-0.5 mm
+1:21 Platform: isolators, height adjustment, mobile cart, camera mount
+1:37 Power, air, IO or standalone + factory validation
+1:53 Send us your part
+
+Southern Machinery builds custom bowls and tracks around your component, with a 1-month customised solution commitment. Source factory in Shenzhen since 2011.
+
+Send us your part and we will tell you if it sorts: https://www.smthelp.com
+SBF1001 bowl feeder page (3D model, specs, payback calculator): https://smthelp.com/sbf1001-vibratory-bowl-feeder-odd-form-auto-insertion-smart-ems.html
+Subscribe for more SMT & THT automation: https://www.youtube.com/c/Smthelping
+
+#BowlFeeder #VibratoryBowlFeeder #SMT #THT #PCBA #FactoryAutomation #OddForm
+
+TAGS:
+vibratory bowl feeder, bowl feeder, how a bowl feeder works, SBF1001, bulk feeder, bulk component feeding, parts feeder, vibratory feeder, linear vibratory feeder, odd form feeder, odd-form insertion, THT auto insertion, SMT feeder, pick and place bulk feeding, robotic part feeding, connector feeder, LED lens feeder, polarity sorting feeder, optical fibre sensor feeder, Southern Machinery, smthelp
+
+=== 9:16 SHORTS VERSION ===
+TITLE:
+How a Bowl Feeder Sorts Loose Parts in 0.8 s #shorts
+
+DESCRIPTION:
+SBF1001 vibratory bowl feeder: coil-driven bowl, helical sorting track, linear rail with air blowing and optical fibre sensing at the pick point. 0.8 s per feed, +/-0.5 mm, parts from 3 x 3 to 50 x 50 mm.
+Send us your part and we will tell you if it sorts 👉 https://www.smthelp.com
+#BowlFeeder #SMT #FactoryAutomation #PCBA #Shorts
+
+=== CAPTIONS ===
+Upload SBF1001_16x9_EN.srt to the main video and SBF1001_9x16_EN.srt to the Short (English). Captions are also burned into both videos.

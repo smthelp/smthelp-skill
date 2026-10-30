@@ -1,0 +1,33 @@
+{
+ "_doc": "Brand defaults. A case overrides any key with page.json -> \"brand\": {...} (deep merge). Never put customer data here.",
+ "name": "Southern Machinery",
+ "url": "https://www.smthelp.com",
+ "logo_url": "https://ph.smthelp.com/images/2024/06/26/Southern-Machinery-logo-300x83.png",
+ "logo_inline": true,
+ "email": "info@smthelp.com",
+ "phone": "+86 136 0256 2576",
+ "whatsapp": "https://wa.me/8613602562576",
+ "socials": [
+  ["LinkedIn", "https://www.linkedin.com/company/smtmachine"],
+  ["LinkedIn Profile", "https://cn.linkedin.com/in/smtsupplier"],
+  ["X / Twitter", "https://twitter.com/smtspecialist"],
+  ["Facebook", "https://www.facebook.com/autoinsertion"],
+  ["YouTube", "https://www.youtube.com/c/Smthelping"]
+ ],
+ "catalog_board": "https://file.autoinsertion.com/public/Southern-Machinery-Product-Catalog-Board.html",
+ "photo_site": "https://ph.smthelp.com",
+ "youtube_channel": "https://www.youtube.com/c/Smthelping",
+ "chatwoot": {"enabled": true, "host": "chat.smthelp.com", "token": "saMcpgSupcmd1VQwytgPLfbK", "title": "Southern Machinery Global Support"},
+ "palette": {
+  "light": {"navy": "#003142", "navy2": "#003E57", "green": "#93AC3E", "teal": "#0097B2", "grey": "#4A5A63", "light": "#EEF5F7", "muted": "#B2CDD6",
+            "bg": "#ffffff", "fg": "#1d2a31", "card": "#EEF5F7", "line": "#d5e3e8", "head": "#003142", "sub": "#4A5A63",
+            "hero1": "#003142", "hero2": "#003E57", "hero3": "#00596b"},
+  "dark": {"bg": "#00202d", "fg": "#e8f1f4", "card": "#073446", "line": "#164a5e", "head": "#ffffff", "sub": "#B2CDD6"}
+ },
+ "theme_color": "#003142",
+ "cdn_whitelist": ["ph.smthelp.com", "i.ytimg.com", "www.youtube.com", "www.youtube-nocookie.com", "file.autoinsertion.com", "chat.smthelp.com", "wa.me", "www.smthelp.com", "schema.org",
+                   "www.linkedin.com", "cn.linkedin.com", "twitter.com", "www.facebook.com"],
+ "forbidden_title_words": ["hook", "diagnosis", "framework", "vehicle", "loop", "cta", "钩子", "诊断", "框架", "载体", "循环", "行动号召"],
+ "langs": {"en": "English", "es": "Español", "pt": "Português", "fr": "Français", "ar": "العربية", "ru": "Русский", "zh": "中文"},
+ "rtl": ["ar"]
+}

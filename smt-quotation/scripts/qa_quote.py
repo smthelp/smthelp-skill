@@ -136,7 +136,10 @@ def check_json(q, p, base, today, rep, scan=True):
         w = f"item {i} {it.get('model', '')}"
         for k in ("model", "name", "qty", "price"):
             if it.get(k) in (None, ""):
-                rep.add("ERROR", w, f"{k} missing", "fill it")
+                if k == "model" and q.get("kind") == "spare_parts":
+                    rep.add("WARN", w, "no part number", "add the OEM / SM part number if known")
+                else:
+                    rep.add("ERROR", w, f"{k} missing", "fill it")
         if isinstance(it.get("price"), (int, float)) and it["price"] <= 0:
             rep.add("ERROR", w, "price <= 0", "check")
         n = norm_model(it.get("model", ""))

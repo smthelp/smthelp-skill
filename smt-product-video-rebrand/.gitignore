@@ -1,0 +1,6 @@
+__pycache__/
+*.pyc
+examples/*/source/
+examples/*/build/
+examples/*/final/
+examples/*/tts/

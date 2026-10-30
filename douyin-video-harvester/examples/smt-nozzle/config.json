@@ -1,0 +1,16 @@
+{
+  "run_name": "tongxingfa-xiaozhong-2026-10-26",
+  "profile": "https://www.douyin.com/user/MS4wLjABAAAAeHrj3CAms-5svPpb4GIGUqx6YV3rW15QwkhUq2LabHeh7fYnOPXyp50uccTfmSXF",
+  "cookies": "secrets/douyin.cookies.txt",
+  "yt_dlp": "/workspace/work/bin/yt-dlp",
+  "filter": {
+    "include_keywords": ["吸嘴", "吸咀", "夹爪", "夹嘴", "nozzle"],
+    "exclude_keywords": ["顶针", "刮刀", "花键", "展会", "NEPCON"],
+    "require_include": false,
+    "exclude_id_files": ["examples/smt-nozzle/delivered-batch5.csv"],
+    "candidate_limit": 32
+  },
+  "dedupe": {"compare_dirs": ["runs/tongxingfa-2026-10-26/08_final"]},
+  "select": {"count": 20},
+  "sink": {"type": "gdrive_gws", "options": {"folder_id": "1zFFjENtvMuGIzHpEJBZGP_HiEd9sGm8a"}}
+}

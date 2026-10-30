@@ -1,0 +1,21 @@
+{
+ "id": "s3010",
+ "name": "S-3010",
+ "process": "radial",
+ "full_name": {"en": "S-3010 radial insertion machine"},
+ "source": "Southern Machinery PCBA Evaluation for Acuity Brands Lighting, 2020-08-27 (S-3010 spec slide)",
+ "eval_cph": 9000,
+ "eval_cph_note": "effective rate used in photo evaluations, incl. PCB in/out and mark recognition",
+ "machine_ppm": 500,
+ "max_lead_mm": null,
+ "spans_mm": [2.5, 5.0, 7.5, 10.0],
+ "selling_points": [],
+ "specs": [
+  [{"en": "Component type"}, {"en": "Taped radial components (reel or ammo)"}],
+  [{"en": "Max. body height"}, "20 mm"],
+  [{"en": "Max. body diameter"}, "10 mm"],
+  [{"en": "Lead spans"}, "2.5 / 5.0 / 7.5 / 10.0 mm"],
+  [{"en": "Tape pull-out force"}, {"en": "≤ 5 N (17.9 oz) when unwinding"}],
+  [{"en": "Evaluation rate"}, {"en": "~9,000 CPH incl. PCB transfer and mark recognition"}]
+ ]
+}

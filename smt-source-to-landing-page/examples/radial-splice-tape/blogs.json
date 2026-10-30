@@ -1,0 +1,333 @@
+{
+ "en": [
+  [
+   {
+    "h": "Look at what actually stopped the line",
+    "p": [
+     "Ask a production manager what stops a radial line and you will hear about bent leads, a worn cutter, a board that warped in the oven.",
+     "Now look at the downtime log. The most common entry is not a failure at all. It is \"reel change.\" A feeder ran empty, and the machine waited."
+    ]
+   },
+   {
+    "h": "The stop that hides in plain sight",
+    "p": [
+     "A reel change is not dramatic, so nobody fights it. It is three or four minutes of an operator threading tape, indexing the first part, closing the cover. Then it happens again on the next feeder. And again on the next shift.",
+     "None of those minutes are big enough to escalate. Together they are often the biggest single block of lost insertion time you have."
+    ]
+   },
+   {
+    "h": "Move the work off the machine",
+    "p": [
+     "You cannot remove the reel change. Reels end. What you can do is change where the work happens.",
+     "Joined in time, the new reel is already part of the old tape when the last component leaves. The machine never sees an empty feeder. The operator still does a job, but it is a 40-second job at the reel, not a stop at the station.",
+     "That is the whole idea: take a task that sits on the machine's critical path and move it beside the path."
+    ]
+   },
+   {
+    "h": "A splice built for the sprocket",
+    "p": [
+     "This is what AI radial splicing tape is for. Each splice is die-cut with holes that line up with the tape's feed holes, so the feeder drives straight through the joint. Locating dots seat the two ends at the original pitch. A high-tack adhesive on masking or kraft paper holds through the guides.",
+     "Southern Machinery supplies it in 3-hole and 5-hole formats, with a hand cutter for 12.7 mm and 15.0 mm radial tape so every cut lands on a feed hole."
+    ]
+   },
+   {
+    "h": "Why this gets cheaper every month",
+    "p": [
+     "The first roll changes one habit. After that the pattern repeats on its own: every reel that ends is spliced, every splice comes from the same box, every box is reordered on the same day of the month.",
+     "The cost is predictable, the downtime it removes is predictable, and the operator who makes a hundred splices a week gets faster at it than anyone who threads tape twice a day."
+    ]
+   },
+   {
+    "h": "Your next step",
+    "p": [
+     "Pull one week of downtime records and count the reel changes. Then send us a photo of the tape on your busiest feeder. We will tell you which splice and which cutter fits, in writing, before you buy anything."
+    ]
+   }
+  ],
+  [
+   {
+    "h": "Nobody chose 3-hole. It was just in the drawer.",
+    "p": [
+     "Walk around a dozen factories and ask why they use the splice they use. The honest answer is usually: that is what the last buyer ordered.",
+     "Habit is fine until a heavy part starts pulling joints apart halfway down the feeder."
+    ]
+   },
+   {
+    "h": "What the hole count really controls",
+    "p": [
+     "A splice carries load. The feeder pulls the tape forward one pitch at a time; the guides bend it; the weight of the components hangs from it. All of that passes through the adhesive area of the splice.",
+     "More holes bridged means a longer splice. A longer splice means more bonded area on each side of the cut. That is the whole difference between 3-hole and 5-hole."
+    ]
+   },
+   {
+    "h": "A one-minute decision rule",
+    "p": [
+     "Small, light parts on a short, straight tape path: 3-hole. You get the most splices per roll and a joint that is easy to make.",
+     "Heavier parts, larger electrolytics, inductors, or a tape that bends around several guides: 5-hole. You trade a little tape for a lot of margin.",
+     "Anything unusual, a different hole pattern or a very long path: ask for 6-hole or a made-to-order pattern, and confirm it with a sample first."
+    ]
+   },
+   {
+    "h": "The codes that cover most lines",
+    "p": [
+     "Southern Machinery stocks four standard splices: SCT-031000 and SCT-030500 for 3-hole in masking and kraft paper, and SCT-051000 and SCT-050500 for 5-hole. Every one is die-cut on both faces with locating dots, so the choice is about load, not about quality."
+    ]
+   },
+   {
+    "h": "Decide once, then stop deciding",
+    "p": [
+     "Once a feeder has its splice, write it on the feeder setup sheet. The operator never has to judge it again, the reorder never has to be thought about again, and a new hire makes the same splice as a ten-year veteran."
+    ]
+   },
+   {
+    "h": "Your next step",
+    "p": [
+     "List the five heaviest radial parts you insert and the feeders they run on. Send that list to info@smthelp.com and we will mark which ones need 5-hole. It takes us a day and saves you a season of trial and error."
+    ]
+   }
+  ],
+  [
+   {
+    "h": "The backing is not decoration",
+    "p": [
+     "Most buyers treat masking and kraft as two colours of the same thing. Pick the cheaper one, move on.",
+     "The tape path does not see it that way. The backing is the surface that slides over every guide between the reel and the insertion head."
+    ]
+   },
+   {
+    "h": "Two papers, two behaviours",
+    "p": [
+     "Masking paper carries a high-viscosity masking adhesive that holds firmly and releases cleanly, with no residue left behind.",
+     "Kraft paper is also high-viscosity, but its surface is coated and smooth. On a machine with tight or dragging guides, that smooth face slides with less friction."
+    ]
+   },
+   {
+    "h": "Let the machine choose",
+    "p": [
+     "If your guides are clean and the path is short, masking paper is usually all you need, and on our standard codes you get 1,000 splices per roll.",
+     "If you see splices catching, lifting at the edge or leaving marks in the guide, try kraft. Same feeder, same parts, one week. Count the jams. The number decides."
+    ]
+   },
+   {
+    "h": "Both are on the shelf",
+    "p": [
+     "Southern Machinery's AI radial splicing tape comes in both backings for 3-hole and 5-hole formats. The die-cut holes, the locating dots and the no-touch liner are identical, so changing backing changes nothing about how the operator works."
+    ]
+   },
+   {
+    "h": "Make the result stick",
+    "p": [
+     "When the trial is done, record the winner against that feeder. The decision now survives shift changes, staff turnover and the next price negotiation."
+    ]
+   },
+   {
+    "h": "Your next step",
+    "p": [
+     "Tell us which machine and feeders you run. We will send a sample roll of each backing so you can run the comparison on your own line instead of trusting anyone's brochure, including ours."
+    ]
+   }
+  ],
+  [
+   {
+    "h": "The glue gets blamed for the scissors",
+    "p": [
+     "When a splice fails, the first suspect is always the adhesive. Stronger tape, please.",
+     "Look closer at the failed joint. Very often the tape end was cut somewhere between two feed holes. The splice never had a chance."
+    ]
+   },
+   {
+    "h": "Registration is the whole job",
+    "p": [
+     "A splice works because its holes line up with the tape's feed holes. That only happens if both tape ends are cut through the centre of a feed hole, square to the tape.",
+     "Cut 2 mm off and the pitch across the joint is now wrong by 2 mm. The sprocket pulls, the next component arrives off-centre, and the insertion head finds a lead where it expected a gap."
+    ]
+   },
+   {
+    "h": "Fix the cut, and the glue is enough",
+    "p": [
+     "Think of a splice as two operations. First, prepare the ends so they sit at the original pitch. Second, bond them. Most of the reliability comes from the first step."
+    ]
+   },
+   {
+    "h": "A cutter built for one pitch",
+    "p": [
+     "Southern Machinery's radial tape splice cutter is a hand tool made for exactly that first step. It comes in versions marked for 12.7 mm and 15.0 mm tape, so the cut lands on the feed hole in one press. Paired with a die-cut splice that has locating dots, the joint is registered by the tools, not by the operator's eye."
+    ]
+   },
+   {
+    "h": "Fewer re-checks, every shift",
+    "p": [
+     "When the cut is always right, nobody has to measure the joint afterwards. The splice becomes routine, routine becomes fast, and fast splicing is what keeps reels changing while the machine runs."
+    ]
+   },
+   {
+    "h": "Your next step",
+    "p": [
+     "Check your tape drawing for the feed-hole pitch, or photograph the tape next to a ruler and send it to us. We will confirm which cutter version you need before you order."
+    ]
+   }
+  ],
+  [
+   {
+    "h": "If it is not written, it is improvised",
+    "p": [
+     "Ask three operators how they splice a radial reel and you will see three methods. One uses the cutter, one uses scissors, one presses the splice with a thumbnail and hopes.",
+     "All three work most of the time. The night shift is where \"most of the time\" stops being good enough."
+    ]
+   },
+   {
+    "h": "Why reel changes drift",
+    "p": [
+     "Reel changes are frequent, quick and boring. Nobody audits them. So the method slowly becomes whatever is fastest for each person, and the failure rate becomes whatever that method produces."
+    ]
+   },
+   {
+    "h": "Four moves, one card",
+    "p": [
+     "Write the splice as four steps and laminate it at the feeder bank:",
+     "1. Cut both ends through the centre of a feed hole. 2. Peel the liner. 3. Press the locating dots into the feed holes of both ends. 4. Fold the splice over the other face and press.",
+     "Add one safety line: splice at the reel or feeder input, never inside a running machine."
+    ]
+   },
+   {
+    "h": "Tools that make the card easy to follow",
+    "p": [
+     "The card is only realistic if the tools make each step obvious. That is why the splice cutter and the die-cut AI splicing tape are designed together: the cutter fixes step 1, the liner makes step 2 clean, the locating dots make step 3 self-aligning."
+    ]
+   },
+   {
+    "h": "Train once, repeat forever",
+    "p": [
+     "A written method means a new operator can be trained in ten minutes at the feeder. It means you can audit a splice in seconds. And it means the consumable you reorder is always the one the card names."
+    ]
+   },
+   {
+    "h": "Your next step",
+    "p": [
+     "Send us your machine model and we will send the four-step card with your splice codes on it, ready to print for the feeder bank."
+    ]
+   }
+  ],
+  [
+   {
+    "h": "Blame the tape, and you will buy the wrong fix",
+    "p": [
+     "A jam at a splice point looks like a tape problem. Most of the time it is not. Changing brand without finding the cause just moves the problem to next month."
+    ]
+   },
+   {
+    "h": "The five usual suspects",
+    "p": [
+     "1. The cut missed the feed hole, so the pitch across the joint is wrong.",
+     "2. The locating dots were not seated before pressing, so the ends shifted.",
+     "3. The adhesive face was touched or dusty, so the bond is weak.",
+     "4. The splice was folded off-centre, so one edge lifts in the guide.",
+     "5. The splice is too short for the load: a 3-hole joint on a heavy part."
+    ]
+   },
+   {
+    "h": "One check for each",
+    "p": [
+     "Measure pitch across the joint against the tape on either side. Look for dots sitting proud of the holes. Check whether operators are peeling by the liner. Look for a lifted edge after the first guide. Compare part weight against the hole count you chose.",
+     "Start with safe state: stop and isolate the feeder under your site procedure before you inspect anything in the tape path. If the cause is not clear, escalate to your process engineer rather than adjusting the feeder."
+    ]
+   },
+   {
+    "h": "Tools that remove the first four",
+    "p": [
+     "A cutter made for your pitch removes suspect one. A die-cut splice with locating dots removes suspect two. A no-touch liner removes suspect three. A centre fold line removes most of suspect four. What is left is the hole count, and that is a decision you make once per feeder."
+    ]
+   },
+   {
+    "h": "Write down what you found",
+    "p": [
+     "Log each splice failure with the suspect number. After a month the pattern is obvious, and the fix is usually training or hole count, not a new supplier."
+    ]
+   },
+   {
+    "h": "Your next step",
+    "p": [
+     "If you have a failed splice, photograph it on both faces and send it to us. We will tell you which of the five it is, and whether a different splice would have prevented it."
+    ]
+   }
+  ],
+  [
+   {
+    "h": "A splice has to pass three tests in ten seconds",
+    "p": [
+     "Once the new reel is joined, the splice travels from the reel into the feeder, around the guides, past the sprocket and up to the cutter and insertion head. Every one of those points is a test."
+    ]
+   },
+   {
+    "h": "Where joints usually fail",
+    "p": [
+     "At the sprocket, the pin needs a feed hole exactly one pitch from the last one. At the guides, the joint has to bend without an edge lifting. At the cutter, the next component must arrive centred, because the cutter and the head work on the assumption that every part is where the tape says it is.",
+     "A joint that is a little off in pitch passes the first test and fails the third."
+    ]
+   },
+   {
+    "h": "Pitch is the only number that matters",
+    "p": [
+     "Hold one idea: across the splice, the feed-hole pitch must be identical to the rest of the tape. Get that right and the machine cannot tell a splice is there. Get it wrong and the machine tells you, usually as a bent lead or a missing part."
+    ]
+   },
+   {
+    "h": "Built so the machine cannot tell",
+    "p": [
+     "That is the design goal of Southern Machinery's AI radial splicing tape: holes die-cut to match the feed holes, locating dots that hold the two ends at pitch, and a cutter for 12.7 mm or 15.0 mm tape that puts every cut on a hole. On an S3000 or S3010A radial inserter, a good splice simply feeds like tape."
+    ]
+   },
+   {
+    "h": "The quiet benefit",
+    "p": [
+     "When splices are invisible to the machine, reel changes stop being events. Operators splice ahead, feeders never run dry, and the insertion rate you paid for is the rate you get across the shift, not just between reel changes."
+    ]
+   },
+   {
+    "h": "Your next step",
+    "p": [
+     "Watch the splice videos on this page, then send us your inserter model. We will confirm the tape, the splice and the cutter as one matched set."
+    ]
+   }
+  ],
+  [
+   {
+    "h": "Cheap consumables cause expensive gaps",
+    "p": [
+     "Nobody runs out of an expensive spare part. It is tracked, budgeted and reordered. The cheap things are the ones that run out: the splice tape, the cutter blade, the box on the shelf that everybody assumed someone else would reorder."
+    ]
+   },
+   {
+    "h": "Why the box goes empty",
+    "p": [
+     "Splice use rises and falls with production. Busy month, more reels, more splices. Nobody connects the two, so the reorder happens when the box is empty, which is always at the worst time."
+    ]
+   },
+   {
+    "h": "A reorder rule you can write on the box",
+    "p": [
+     "Splices per month = reel changes per shift × shifts per day × working days. Divide by splices per roll (1,000 for our masking paper codes, 500 for kraft). Keep one month on the shelf and reorder when you open the last roll.",
+     "The calculator on this page does the first part of that arithmetic for you."
+    ]
+   },
+   {
+    "h": "A supplier that already knows your codes",
+    "p": [
+     "Southern Machinery keeps your splice codes, backing and quantities on file. Orders are packed by carton and typically ship about two days after order confirmation, so a scheduled reorder arrives long before the shelf is empty."
+    ]
+   },
+   {
+    "h": "Same order, every month",
+    "p": [
+     "Once the quantity is set, the order becomes a single message: same codes, same quantity, same delivery address. The line keeps splicing, and nobody has to remember that it needs to."
+    ]
+   },
+   {
+    "h": "Your next step",
+    "p": [
+     "Send us your reel changes per shift and the codes you use. We will reply with a monthly quantity and a reorder date, and you can stop thinking about splice tape."
+    ]
+   }
+  ]
+ ]
+}

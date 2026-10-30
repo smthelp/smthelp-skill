@@ -1,0 +1,42 @@
+[
+ {
+  "id": "hook",
+  "text": "Thousands of SMT reels, paper lists and a warehouse full of shelves. Finding the right reel by hand is slow, error prone, and it stops the line."
+ },
+ {
+  "id": "title",
+  "text": "Meet the SMT Intelligent Reel Storage Rack from Southern Machinery. Five layers, one hundred slots per layer, and every slot has its own LED."
+ },
+ {
+  "id": "register",
+  "text": "It starts at receiving. Scan the manufacturer's barcode, and the system captures the part number, quantity and lot code, then assigns a unique ID for full traceability."
+ },
+ {
+  "id": "store",
+  "text": "Now every empty slot lights up. Put the reel in any lit position. The placement is confirmed, the light goes out, and the inventory updates in real time."
+ },
+ {
+  "id": "pick",
+  "text": "When a job starts, the bill of materials is imported from your MES or ERP. The system checks availability and lights every reel you need. With seven colour modes, several operators can kit at the same time."
+ },
+ {
+  "id": "fifo",
+  "text": "Date code and lot code are tracked for every reel, so first in, first out happens on its own, and missing material is flagged before it stops the line."
+ },
+ {
+  "id": "build",
+  "text": "The rack itself is refreshingly simple. Two end panels, ten rails, and wire dividers on a 24 millimetre pitch, standing on four levelling feet. Slot widths adjust for 7, 13 and 15 inch reels."
+ },
+ {
+  "id": "connect",
+  "text": "Each rack connects by network cable or Wi-Fi, and talks to SAP, Oracle and other ERP and MES systems through an HTTP and JSON interface. It runs on 220 volts, at under 100 watts."
+ },
+ {
+  "id": "result",
+  "text": "The result: 99.9 percent picking accuracy, kitting more than 75 percent faster, and 100 percent inventory visibility, with a typical payback of 3 to 12 months."
+ },
+ {
+  "id": "cta",
+  "text": "Tell us your reel sizes and floor space, and we will configure the rack for your factory. Visit smthelp dot com. Southern Machinery, your SMT partner since 2011."
+ }
+]

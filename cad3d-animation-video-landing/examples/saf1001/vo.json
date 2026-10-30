@@ -1,0 +1,12 @@
+[
+{"id":"hook","text":"Axial resistors, diodes and jump wires still arrive on paper tape. Picking them by hand is the hidden bottleneck on a mixed technology line: slow, inconsistent, and easy to get wrong."},
+{"id":"title","text":"Meet the SAF1001 axial tape feeder from Southern Machinery. Taped parts go in. A trimmed, U formed component comes out, at a fixed pick point."},
+{"id":"load","text":"The taped strip sits in a horizontal tray at the back. Guide blocks lead it onto the feed track, where press blocks hold it flat and anti reverse claws stop it slipping back."},
+{"id":"index","text":"Every cycle, a compact air cylinder pushes a slide that carries the index pawls. The pawls catch the leads and move the tape exactly one pitch. An adjustable stop block sets the stroke, and on the return the pawls tip over the next lead."},
+{"id":"form","text":"At the front, a 32 millimetre cylinder drives the moving knife up. In one stroke it trims both leads against the fixed knife and bends them into a U, ready to insert."},
+{"id":"pick","text":"An optical fibre confirms the part is in position, so the head only picks when a part is really there. The result: 0.8 seconds per feed, at plus or minus 0.3 millimetres."},
+{"id":"waste","text":"Under the track, a second cylinder chops the empty paper tape, and the pieces drop away through the waste chute. No strip to rewind, nothing to chase."},
+{"id":"inside","text":"Inside the frame are two solenoid valve banks and a PLC control board. The feeder locks onto your machine with locating pins and a spring loaded press block."},
+{"id":"connect","text":"It runs on 24 volts and 0.4 to 0.6 megapascal air, with an 8 core aviation plug for IO, or standalone on its own buttons. Every unit passes 1000 consecutive feeds and a 48 hour ageing test."},
+{"id":"cta","text":"Already running on Panasonic, JUKI, Yamaha and Mirae odd form machines. Send us your part and your machine. Visit smthelp dot com, and subscribe for more."}
+]

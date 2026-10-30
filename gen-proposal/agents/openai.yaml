@@ -1,0 +1,4 @@
+interface:
+  display_name: "Gen Proposal"
+  short_description: "Draft complete automation proposals"
+  default_prompt: "Use $gen-proposal to draft a Southern Machinery SMT/THT automation proposal."

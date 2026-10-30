@@ -1,0 +1,47 @@
+{
+  "schema": "smthelp-lp-machine/v1",
+  "model": "S-7900",
+  "page_type": "single-machine",
+  "updated": "2026-09-06",
+  "source": "smthelp-brand-voice / references/smt-term-bank.md 二·B 已确认参数锚点",
+  "fields": {
+    "MODEL": "S-7900",
+    "PROCESS": "Odd-form Insertion",
+    "CATEGORY": "THT LINE",
+    "ONE_LINER": "4-head odd-form insertion at 4,000 CPH, +-0.05 mm, 98 N insertion force with AI vision.",
+    "NARRATIVE": "Four heads work the board in parallel while AI vision verifies each component before it seats. Active clinching locks the lead in the same cycle - no separate forming station.",
+    "HOTSPOT_1": "4 insertion heads",
+    "HOTSPOT_2": "4,000 CPH",
+    "HOTSPOT_3": "Active clinching",
+    "CORNER_1": "HEADS / 4",
+    "CORNER_2": "THROUGHPUT / 4,000 CPH",
+    "CORNER_3": "ACCURACY / +-0.05 mm",
+    "CORNER_4": "INSERTION FORCE / 98 N",
+    "SPEC_01": "01  INSERTION HEADS       4",
+    "SPEC_02": "02  THROUGHPUT            4,000 CPH",
+    "SPEC_03": "03  ACCURACY              +-0.05 mm",
+    "SPEC_04": "04  INSERTION FORCE       98 N",
+    "SPEC_05": "05  VISION                AI vision",
+    "SPEC_06": "06  CLINCHING             Active clinching",
+    "SPEC_07": "07  COMPONENT RANGE       On request",
+    "PAIRING": "STF1003 Tube Feeder - 0.8 s per component, keeps the heads fed through a shift",
+    "APP_01": "High-mix automotive electronics",
+    "APP_02": "Industrial control boards",
+    "APP_03": "Power supply assembly",
+    "HERO_MEDIA": "S-7900 4-head gantry, 3/4 view or muted looping MP4 of the heads cycling",
+    "MARQUEE_MEDIA": "4 heads cycling / AI vision check / active clinch close-up / board indexing / HMI screen / nozzle change"
+  },
+  "params_confirmed": [
+    "4 heads",
+    "4,000 CPH",
+    "accuracy +-0.05 mm",
+    "insertion force 98 N",
+    "AI vision",
+    "active clinching"
+  ],
+  "params_withheld": [
+    "Component range / PCB size range - 未确认，写 On request"
+  ],
+  "pairing_required": false,
+  "notes": "精度与 CPH 都已确认，可放心做参数墙。STF1003 是推荐配套，非业务强制。"
+}

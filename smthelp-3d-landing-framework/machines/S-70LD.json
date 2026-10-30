@@ -1,0 +1,49 @@
+{
+  "schema": "smthelp-lp-machine/v1",
+  "model": "S-70LD",
+  "page_type": "single-machine",
+  "updated": "2026-09-06",
+  "source": "smthelp-brand-voice / references/smt-term-bank.md 二·B 已确认参数锚点",
+  "fields": {
+    "MODEL": "S-70LD",
+    "PROCESS": "Odd-form Insertion",
+    "CATEGORY": "THT LINE",
+    "ONE_LINER": "Odd-form insertion for 3-25 mm relays, terminals and connectors, fed by STF1003 tube feeder.",
+    "NARRATIVE": "Tube-fed components placed and clinched in one cycle - no manual pre-forming, no second handling. Changeover is a tube swap, not a re-tooling job.",
+    "HOTSPOT_1": "Component range 3-25 mm",
+    "HOTSPOT_2": "STF1003 tube feeding, 0.8 s per component",
+    "HOTSPOT_3": "Active clinching",
+    "CORNER_1": "COMPONENT RANGE / 3-25 mm",
+    "CORNER_2": "FEEDER / STF1003",
+    "CORNER_3": "FEED RATE / 0.8 s per component",
+    "CORNER_4": "FEEDING ACCURACY / +-0.5 mm",
+    "SPEC_01": "01  COMPONENT RANGE       3-25 mm (relays, terminals, connectors)",
+    "SPEC_02": "02  TUBE FEEDER           STF1003",
+    "SPEC_03": "03  FEED RATE             0.8 s per component",
+    "SPEC_04": "04  FEEDING ACCURACY      +-0.5 mm",
+    "SPEC_05": "05  TUBE LENGTH           200-650 mm (PVC / aluminium)",
+    "SPEC_06": "06  AIR SUPPLY            0.4-0.6 MPa",
+    "SPEC_07": "07  SPRING LIFE           4,000,000 cycles",
+    "PAIRING": "STF1003 Tube Feeder - 0.8 s per component, +-0.5 mm, keeps the insertion head fed",
+    "APP_01": "Relay and terminal insertion",
+    "APP_02": "Odd-form connector",
+    "APP_03": "Transformer and coil",
+    "HERO_MEDIA": "S-70LD insertion head with STF1003 tube feeder, 3/4 view or muted looping MP4",
+    "MARQUEE_MEDIA": "tube feeding action / component pick / clinching close-up / terminal insertion / relay placement / HMI screen"
+  },
+  "params_confirmed": [
+    "component range 3-25 mm",
+    "STF1003 pairing",
+    "feed rate 0.8 s per component (STF1003)",
+    "feeding accuracy +-0.5 mm (STF1003)",
+    "tube length 200-650 mm",
+    "air 0.4-0.6 MPa",
+    "spring life 4,000,000 cycles"
+  ],
+  "params_withheld": [
+    "S-70LD 本机 insertion accuracy 与 CPH - 未确认，禁止填写",
+    "SPEC_04 的 +-0.5 mm 是 STF1003 供料精度，不是插件头精度，页面标注必须写 FEEDING ACCURACY"
+  ],
+  "pairing_required": true,
+  "notes": "异形插件主力机型。STF1003 为强制配套。注意区分供料精度与插件精度。"
+}

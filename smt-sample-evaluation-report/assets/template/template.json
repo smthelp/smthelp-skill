@@ -1,0 +1,10 @@
+{
+ "_doc": "Southern Machinery PPT template 202309 (16:9, 13.33 x 7.5 in). layout = chrome layout index; drop = template slides removed; keep = template slides moved to the end (translated with i18n template_text).",
+ "file": "sm-template-202309.pptx",
+ "layout": 11,
+ "drop": [0, 1, 2, 3],
+ "keep": [4, 5],
+ "safe": {"x0": 0.55, "x1": 12.8, "y0": 0.8, "y1": 6.85},
+ "kicker_box": [1.95, 0.12, 7.2, 0.42],
+ "colors": {"navy": "003142", "teal": "00A3B4", "green": "98B341", "gold": "ECBF7F", "grey": "4E5A62", "light": "EEF4F6", "pale": "E9EFD6"}
+}

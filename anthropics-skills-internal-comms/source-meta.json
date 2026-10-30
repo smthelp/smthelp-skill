@@ -1,0 +1,14 @@
+{
+  "id": "anthropics-skills-internal-comms",
+  "name": "internal-comms",
+  "source_type": "skill",
+  "repo": "anthropics/skills",
+  "repo_url": "https://github.com/anthropics/skills",
+  "extracted_from": "anthropics/skills@main/skills-main/skills/internal-comms",
+  "local_path": "01_可用Skill源码/第三方Skill/anthropics-skills-internal-comms",
+  "license": "LICENSE.txt",
+  "author": "anthropics",
+  "status": "downloaded",
+  "install_note": "复制整个 Skill 文件夹到目标 Agent 的 Skill 目录。",
+  "verify_note": "让 Agent 读取 SKILL.md 并说明该 Skill 的触发条件、流程和需要的资源。"
+}

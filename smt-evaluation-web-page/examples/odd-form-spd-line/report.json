@@ -1,0 +1,440 @@
+{
+ "title": "S7900 odd-form insertion with lead clinching for 5 SPD boards",
+ "lang": "en",
+ "slides": [
+  {
+   "type": "cover",
+   "kicker": "THT odd-form insertion solution · Surge Protection Device Manufacturer",
+   "title": "S7900 odd-form insertion with lead clinching for 5 SPD boards",
+   "subtitle": "One 6-head S7900 with a 15-layer tray feeder and customised grippers inserts two bulky SPD modules and clinches every lead before wave soldering.",
+   "image": "photos/line.jpg",
+   "metrics": [
+    {
+     "v": "5",
+     "l": "boards evaluated"
+    },
+    {
+     "v": "6",
+     "l": "insertion heads"
+    },
+    {
+     "v": "30–59",
+     "l": "boards / h with clinching"
+    },
+    {
+     "v": "74–148",
+     "l": "boards / h without clinching"
+    }
+   ],
+   "notes": "Southern Machinery odd-form insertion automation proposal, 2026 (customer, part numbers, prices removed)."
+  },
+  {
+   "type": "steps",
+   "kicker": "How the line works",
+   "title": "From conveyor to clinched, solder-ready board",
+   "steps": [
+    {
+     "h": "Board in",
+     "b": "Inlet conveyor brings the board or fixture into the S7900; board in and out takes 4 s, mark recognition 1 s."
+    },
+    {
+     "h": "Pick from tray",
+     "b": "Six heads with customised grippers pick SPD modules from a 15-layer tray feeder: 0.3 s pick, 0.3 s insert per part."
+    },
+    {
+     "h": "Insert and clinch",
+     "b": "Each lead is bent 15–30° under the board right after insertion, 1.5 s per part, so parts cannot float in the wave."
+    },
+    {
+     "h": "Board out",
+     "b": "Outlet conveyor passes the board to wave soldering through a SMEMA interface."
+    }
+   ],
+   "image": "photos/s7900.jpg",
+   "caption": "S7900 6-head odd-form insertion machine"
+  },
+  {
+   "type": "table",
+   "kicker": "Your boards",
+   "title": "Five boards, two bulky SPD modules",
+   "rows": [
+    [
+     "Board",
+     "Module",
+     "Module size mm",
+     "Insert points",
+     "Fixture",
+     "Clinch"
+    ],
+    [
+     "Board 1",
+     "Module X, bulk",
+     "42.8 × 15.9 × 55.9",
+     "21",
+     "Yes",
+     "Yes"
+    ],
+    [
+     "Board 2",
+     "Module X, bulk",
+     "42.8 × 15.9 × 55.9",
+     "20",
+     "Yes",
+     "Yes"
+    ],
+    [
+     "Board 3",
+     "Module X, bulk",
+     "42.8 × 15.9 × 55.9",
+     "36",
+     "Yes",
+     "Yes"
+    ],
+    [
+     "Board 4",
+     "Module Y, bulk",
+     "34 × 14 × 28",
+     "30",
+     "Yes",
+     "Yes"
+    ],
+    [
+     "Board 5",
+     "Module Y, bulk",
+     "34 × 14 × 28",
+     "48",
+     "Yes",
+     "Yes"
+    ]
+   ],
+   "note": "PCB sizes given: Board 1 233 × 139 mm, Board 3 382 × 330 mm (panel). Others to be confirmed."
+  },
+  {
+   "type": "table",
+   "kicker": "Results at a glance",
+   "title": "30 – 59 boards an hour with every lead clinched",
+   "rows": [
+    [
+     "Board",
+     "Points",
+     "No clinch cycle s",
+     "No clinch boards / h",
+     "Clinch cycle s",
+     "Clinch boards / h"
+    ],
+    [
+     "Board 1",
+     "21",
+     "24.8",
+     "145",
+     "60.8",
+     "59"
+    ],
+    [
+     "Board 2",
+     "20",
+     "24.2",
+     "148",
+     "60.2",
+     "59"
+    ],
+    [
+     "Board 3",
+     "36",
+     "37.4",
+     "96",
+     "91.4",
+     "39"
+    ],
+    [
+     "Board 4",
+     "30",
+     "32",
+     "105",
+     "77",
+     "46"
+    ],
+    [
+     "Board 5",
+     "48",
+     "48.2",
+     "74",
+     "120.2",
+     "30"
+    ]
+   ],
+   "note": "Cycle = rounds × (6 × 0.3 s pick + 1.8 s head move + 6 × 0.3 s insert) + 1.5 s clinch per part + 4 s board in/out + 1 s marks. Board 4 without clinch: 3,600 ÷ 32 s gives 112, the proposal states 105; to be confirmed.",
+   "notes": "Southern Machinery odd-form insertion automation proposal, 2026 (customer, part numbers, prices removed).",
+   "chart": {
+    "label_col": 0,
+    "cols": [
+     3,
+     5
+    ],
+    "mode": "bars+table"
+   }
+  },
+  {
+   "type": "metrics",
+   "kicker": "Against a reference machine",
+   "title": "Up to 79 % more boards an hour than the current benchmark",
+   "metrics": [
+    {
+     "v": "147",
+     "l": "Board 1 boards / h on S7900"
+    },
+    {
+     "v": "82",
+     "l": "Board 1 boards / h, reference machine"
+    },
+    {
+     "v": "96",
+     "l": "Board 3 boards / h on S7900"
+    },
+    {
+     "v": "63",
+     "l": "Board 3 boards / h, reference machine"
+    },
+    {
+     "v": "3,087",
+     "l": "CPH on Board 1"
+    },
+    {
+     "v": "3,456",
+     "l": "CPH on Board 3"
+    }
+   ],
+   "image": "photos/s7900-drawing.jpg",
+   "text": "Without clinching, the S7900 runs Board 1 at 147 boards an hour against 82 and Board 3 at 96 against 63 on the reference machine. Configuration: 1 × S7900 6-head core machine, 1 × STF248E tray feeder, 6 × customised 24JD04L49 grippers.",
+   "notes": "Comparison table in the proposal; Board 1 detailed calculation gives 145. Concept view."
+  },
+  {
+   "type": "table",
+   "kicker": "Tray or tube",
+   "title": "Why the tray feeder wins for bulky SPD modules",
+   "rows": [
+    [
+     "Item",
+     "Tray feeder",
+     "Tube feeder"
+    ],
+    [
+     "Feeders needed for the output",
+     "1",
+     "6"
+    ],
+    [
+     "Package",
+     "450 × 300 mm tray",
+     "500 / 600 / 800 mm tube"
+    ],
+    [
+     "Module X per package",
+     "126",
+     "17"
+    ],
+    [
+     "Module Y per package",
+     "168",
+     "22"
+    ],
+    [
+     "Feeder load",
+     "15 layers",
+     "8 tubes × 6 feeders"
+    ],
+    [
+     "Full load, Module X",
+     "1,890",
+     "816"
+    ],
+    [
+     "Full load, Module Y",
+     "2,520",
+     "1,056"
+    ],
+    [
+     "Boards per refill",
+     "52 – 94.5",
+     "22 – 40.8"
+    ],
+    [
+     "Pick rejection",
+     "< 0.3 %, no jamming",
+     "0.5 – 2 %, jamming risk"
+    ]
+   ],
+   "note": "Boards per refill: Board 1 90 vs 38.85, Board 2 94.5 vs 40.8, Board 3 70 vs 29, Board 4 84 vs 35, Board 5 52 vs 22 (theoretical)."
+  },
+  {
+   "type": "bullets",
+   "kicker": "Lead clinching",
+   "title": "Clinched leads keep SPD modules flat through the wave",
+   "bullets": [
+    "Automatic lead bending of about 15–30° right after insertion.",
+    "Clinch length 1.3–1.8 mm under the board.",
+    "Outward bend, inner bend, circular and 2-turn patterns.",
+    "Stops component floating during wave soldering and keeps modules vertical.",
+    "Adds 1.5 s per part to the cycle, shown in the clinch columns."
+   ],
+   "image": "photos/clinch.jpg",
+   "caption": "Lead clinching unit and bend patterns"
+  },
+  {
+   "type": "table",
+   "kicker": "Machine at a glance",
+   "title": "S7900 key specifications",
+   "rows": [
+    [
+     "Item",
+     "Value"
+    ],
+    [
+     "Insertion heads",
+     "6"
+    ],
+    [
+     "Max. insertion speed",
+     "0.7 s per component"
+    ],
+    [
+     "Placement accuracy",
+     "±0.06 mm (CPK ≥ 1.0)"
+    ],
+    [
+     "Max. insertion force",
+     "≤ 98 N"
+    ],
+    [
+     "PCB size",
+     "70 × 70 to 410 × 500 mm"
+    ],
+    [
+     "PCB thickness",
+     "0.6 – 2.0 mm"
+    ],
+    [
+     "Vision",
+     "2 top mark CCD + 4 bottom component CCD"
+    ],
+    [
+     "Feeding",
+     "Nozzle / clamp; up to 18 feeder stations"
+    ],
+    [
+     "Conveyor",
+     "Automatic width; 750 ± 20 mm height"
+    ],
+    [
+     "Options",
+     "Lead clinching"
+    ],
+    [
+     "Interface",
+     "SMEMA, MES; Windows"
+    ],
+    [
+     "Size / weight",
+     "1550 × 1900 × 2100 mm; 1800 kg"
+    ]
+   ],
+   "note": "One slide of the proposal lists a 4-head version at 1100 × 1500 × 1700 mm; the 6-head version is used here."
+  },
+  {
+   "type": "bullets",
+   "kicker": "Tray feeder and conveyors",
+   "title": "Feeding and handling around the S7900",
+   "bullets": [
+    "Customised balanced tray feeder: dual drive at 0.5–0.8 MPa, 2000 W, buttons and screen.",
+    "Handles SMDs, small passives and odd-shaped parts, with alarms and maintenance prompts.",
+    "15-layer magazine of 450 × 300 mm trays.",
+    "Inlet and outlet conveyors: 900 ± 20 mm height, left to right by default, 75 kg.",
+    "3 mm ESD flat belt, PCB 0.4–4.0 mm, fixture 1.0–10.0 mm, ±0.2 mm stop repeatability, SMEMA."
+   ],
+   "image": "photos/tray-feeder.jpg",
+   "caption": "Tray feeder magazine loaded with trays"
+  },
+  {
+   "type": "bullets",
+   "kicker": "Design for automation",
+   "title": "What the parts, boards and trays need",
+   "bullets": [
+    "Leads 0.5 × 7 mm bend easily and cannot be modified: handle with the gripper and tray design.",
+    "Widen board holes from 1.2 × 10.2 mm to 2.4 × 10.2 mm for more insertion tolerance.",
+    "All pins in one orientation to avoid pick-up interference.",
+    "Tray: width 150–340 mm, depth 90–230 mm, height 5–36 mm, 500 g including parts.",
+    "≥5 mm from divider top to part top; ≥5 mm gap in the gripper closing direction.",
+    "Part-to-grid gap within 0.5 mm, burr-free walls, long side across the tray."
+   ],
+   "image": "photos/tray-design.jpg",
+   "caption": "Tray packaging concept for the two modules"
+  },
+  {
+   "type": "gallery",
+   "kicker": "The equipment",
+   "title": "The cell behind the numbers",
+   "images": [
+    {
+     "src": "photos/line.jpg",
+     "cap": "Conveyor, S7900 and conveyor ahead of wave soldering (concept)"
+    },
+    {
+     "src": "photos/s7900-drawing.jpg",
+     "cap": "S7900 with 6 heads and customised grippers"
+    },
+    {
+     "src": "photos/tray-feeder-cad.jpg",
+     "cap": "Tray feeder design sequence"
+    },
+    {
+     "src": "photos/conveyor.jpg",
+     "cap": "Inlet / outlet conveyor"
+    }
+   ]
+  },
+  {
+   "type": "bullets",
+   "kicker": "Support",
+   "title": "How Southern Machinery stands behind the cell",
+   "bullets": [
+    "Installation and expert training included.",
+    "Spare parts dispatched within 1 day.",
+    "Custom engineering and tray solutions in 5 days.",
+    "7×24 worldwide technical assistance network.",
+    "Factory tours and live demonstrations on request."
+   ]
+  },
+  {
+   "type": "bullets",
+   "kicker": "Accuracy & open points",
+   "title": "What the plan rests on",
+   "bullets": [
+    "Cycle times are calculated from pick, insert, head-move and clinch times; confirm with a sample run.",
+    "Board 4 no-clinch output: proposal states 105 boards an hour; its cycle of 32 s gives 112.",
+    "Board 1 with clinching: an earlier version gave 66 boards an hour; 59 is used here.",
+    "PCB sizes for Boards 2, 4 and 5 and the soldering machine footprint to be confirmed.",
+    "Tray design to be approved with sample parts before feeder build."
+   ]
+  },
+  {
+   "type": "cta",
+   "kicker": "Next steps",
+   "title": "Three steps to an automated SPD cell",
+   "facts": [
+    {
+     "h": "Send samples",
+     "b": "Modules, bare boards and fixtures for each board."
+    },
+    {
+     "h": "Approve trays and grippers",
+     "b": "Tray drawings and gripper design for both modules."
+    },
+    {
+     "h": "Sample run",
+     "b": "Insert and clinch on your boards; confirm cycle and output."
+    }
+   ],
+   "text": "info@smthelp.com · WhatsApp +86 136 0256 2576"
+  }
+ ]
+}

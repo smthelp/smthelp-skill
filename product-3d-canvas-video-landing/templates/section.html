@@ -1,0 +1,138 @@
+<!-- p3cv landing section template. Tokens: {{name}} from landing.section, __X__ filled by stages/landing.py -->
+<style>
+#how-it-works{padding:96px 0;background:#fff;font-family:Roboto,Arial,sans-serif;color:#111827}
+.dark #how-it-works{background:__DARKBG__;color:#e5e7eb}
+#how-it-works .sr-wrap{max-width:1240px;margin:0 auto;padding:0 24px}
+.sr-head{max-width:780px;margin:0 auto 44px;text-align:center}
+.sr-eye{display:inline-block;font-weight:800;font-size:13px;letter-spacing:.18em;text-transform:uppercase;color:__P__;background:__P08__;padding:6px 14px;border-radius:999px}
+.sr-head h2{font-size:clamp(28px,4vw,44px);font-weight:900;line-height:1.12;margin:16px 0 14px;letter-spacing:-.02em}
+.sr-head p{font-size:17px;color:#6b7280;line-height:1.6}
+.dark .sr-head p{color:#9ca3af}
+.sr-grid{display:grid;grid-template-columns:minmax(0,1.7fr) minmax(0,1fr);gap:28px;align-items:start}
+#how-it-works h2{text-transform:none}
+.sr-stage{border-radius:18px;overflow:hidden;border:1px solid #e5e7eb;background:linear-gradient(180deg,#f9fafb,#eef2f7);box-shadow:0 20px 50px -24px __PD35__}
+.dark .sr-stage{border-color:#374151;background:linear-gradient(180deg,#111827,#0b1220)}
+.sr-stage canvas{display:block;width:100%;aspect-ratio:16/10}
+.sr-bar{display:flex;flex-wrap:wrap;gap:8px;align-items:center;padding:12px 14px;background:#fff;border-top:1px solid #e5e7eb}
+.dark .sr-bar{background:#111827;border-color:#374151}
+.sr-btn{font:600 13px Roboto,Arial,sans-serif;padding:9px 14px;border-radius:999px;border:1px solid #d1d5db;background:#fff;color:#111827;cursor:pointer}
+.sr-btn:hover{border-color:__P__;color:__P__}
+.sr-btn.on{background:__P__;border-color:__P__;color:#fff}
+.sr-now{margin-left:auto;font-size:13px;font-weight:600;color:#6b7280}
+.sr-now b{color:__P__}
+.sr-steps{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:6px;counter-reset:sr}
+.sr-steps li{counter-increment:sr;display:grid;grid-template-columns:34px 1fr;gap:10px;padding:10px 12px;border-radius:12px;border:1px solid transparent;cursor:pointer;transition:.25s}
+.sr-steps li::before{content:counter(sr);width:30px;height:30px;border-radius:50%;display:grid;place-items:center;font-weight:800;font-size:13px;background:__P08__;color:__P__}
+.sr-steps li b{display:block;font-size:15px}
+.sr-steps li span{display:block;font-size:13.5px;color:#6b7280;line-height:1.45;margin-top:2px}
+.dark .sr-steps li span{color:#9ca3af}
+.sr-steps li.act{background:#fff;border-color:__P__;box-shadow:0 8px 22px -10px __P45__}
+.dark .sr-steps li.act{background:#111827}
+.sr-steps li.act::before{background:__P__;color:#fff}
+.sr-tag{display:inline-block;font-size:11px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;margin:10px 0 2px 12px;color:#9ca3af}
+.sr-row{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:28px;margin-top:28px;align-items:start}
+.sr-panel{border:1px solid #e5e7eb;border-radius:18px;padding:20px;background:#fff}
+.dark .sr-panel{background:#111827;border-color:#374151}
+.sr-panel h3{font-size:19px;font-weight:800;margin:0 0 4px}
+.sr-panel .s{font-size:13.5px;color:#6b7280;margin:0 0 12px}
+.sr-tt{position:relative;aspect-ratio:4/3;border-radius:12px;overflow:hidden;background:#fff;cursor:grab;touch-action:pan-y;user-select:none}
+.sr-tt img{position:absolute;inset:0;width:100%;height:100%;object-fit:contain}
+.sr-tt .hint{position:absolute;left:10px;bottom:10px;font-size:12px;font-weight:700;color:__P__;background:rgba(255,255,255,.95);padding:6px 10px;border-radius:999px}
+.sr-range{width:100%;accent-color:__P__;margin-top:10px}
+.sr-photo{width:100%;aspect-ratio:4/3;object-fit:cover;border-radius:12px;display:block}
+.sr-spec{width:100%;border-collapse:collapse;font-size:14px}
+.sr-spec td{padding:9px 10px;border-bottom:1px solid #eef0f3;vertical-align:top}
+.dark .sr-spec td{border-color:#1f2937}
+.sr-spec td:first-child{color:#6b7280;width:44%;font-weight:600}
+.sr-spec small{color:#9ca3af}
+.sr-sw{display:flex;flex-wrap:wrap;gap:8px;margin-top:6px}
+.sr-sw span{font-size:12.5px;font-weight:700;padding:7px 11px;border-radius:999px;background:__P08__;color:__PD__}
+.dark .sr-sw span{color:__PLIGHT__}
+.sr-cards{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:18px;margin-top:28px}
+.sr-card{border:1px solid #e5e7eb;border-top:4px solid __P__;border-radius:14px;padding:18px;background:#fff}
+.dark .sr-card{background:#111827;border-color:#374151;border-top-color:__P__}
+.sr-card .k{font-size:26px;font-weight:900;color:__P__;letter-spacing:-.02em}
+.sr-card h4{font-size:15px;font-weight:800;margin:6px 0}
+.sr-card p{font-size:13.5px;color:#6b7280;margin:0;line-height:1.5}
+.sr-cta{display:flex;flex-wrap:wrap;gap:12px;align-items:center;justify-content:center;margin-top:30px}
+.sr-cta a{font-weight:700;padding:13px 22px;border-radius:10px;text-decoration:none}
+.sr-cta .p{background:__P__;color:#fff}.sr-cta .o{border:2px solid __P__;color:__P__}
+@media(max-width:1000px){.sr-grid,.sr-row{grid-template-columns:1fr}.sr-cards{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:560px){.sr-cards{grid-template-columns:1fr}.sr-now{width:100%;margin-left:0}}
+</style>
+<section id="how-it-works">
+ <div class="sr-wrap">
+  <div class="sr-head">
+   <span class="sr-eye">{{eyebrow}}</span>
+   <h2>{{title}}</h2>
+   <p>{{intro}}</p>
+  </div>
+  <div class="sr-grid">
+   <div class="sr-stage">
+    <canvas id="srCanvas" width="1600" height="1000" aria-label="{{canvas_label}}"></canvas>
+    <div class="sr-bar">
+     <button class="sr-btn on" id="srPlay">❚❚ Pause</button>
+     <button class="sr-btn" id="srSlow">0.5× slow</button>
+     <span class="sr-now">Step <b id="srNo">1</b>/{{step_count}} · <b id="srName">{{first_step}}</b></span>
+    </div>
+   </div>
+   <div>
+    <ol class="sr-steps" id="srSteps">
+{{steps_html}}
+    </ol>
+   </div>
+  </div>
+  <div class="sr-row">
+   <div class="sr-panel">
+    <h3>{{tt_title}}</h3>
+    <p class="s">{{tt_text}}</p>
+    <div class="sr-tt" id="srTT"><img id="srTTimg" src="__F0__" alt="{{tt_alt}}"><span class="hint">⟲ drag to rotate</span></div>
+    <input class="sr-range" type="range" id="srRange" min="0" max="__NF__" value="0" aria-label="Rotate 3D model">
+   </div>
+   <div class="sr-panel">
+    <h3>{{photo_title}}</h3>
+    <p class="s">{{photo_text}}</p>
+    <img class="sr-photo" style="object-fit:{{photo_fit}};background:#fff" src="__PHOTO__" alt="{{photo_alt}}">
+   </div>
+  </div>
+  <div class="sr-cards">
+{{cards_html}}
+  </div>
+  <div class="sr-cta">
+   <a class="p" href="https://wa.me/{{whatsapp}}?text={{whatsapp_text}}" target="_blank" rel="noopener">{{whatsapp_label}}</a>
+   <a class="o" href="mailto:{{email}}?subject={{email_subject}}">{{email_label}}</a>
+  </div>
+ </div>
+</section>
+<script>
+__ANIMJS__
+</script>
+<script>
+(function(){
+ var cv=document.getElementById('srCanvas'),ctx=cv.getContext('2d');
+ var steps=[].slice.call(document.querySelectorAll('#srSteps li'));
+ var names=steps.map(function(li){return li.querySelector('b').textContent});
+ var playing=true,speed=1,t=0,last=null,vis=true,cur=-1;
+ if(window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches){speed=.5;document.getElementById('srSlow').classList.add('on')}
+ function size(){var r=cv.getBoundingClientRect(),d=Math.min(window.devicePixelRatio||1,2);cv.width=Math.round(r.width*d);cv.height=Math.round(r.width*.625*d)}
+ size();addEventListener('resize',size);
+ if('IntersectionObserver' in window)new IntersectionObserver(function(e){vis=e[0].isIntersecting}).observe(cv);
+ function dark(){return document.documentElement.classList.contains('dark')}
+ function frame(ts){if(last==null)last=ts;var dt=Math.min(.05,(ts-last)/1000);last=ts;
+  if(vis){if(playing)t=(t+dt*speed)%__ANIMGLOBAL__.CYCLE;__ANIMGLOBAL__.render(ctx,cv.width,cv.height,{t:t,theme:dark()?'dark':'light'});
+   var s=__ANIMGLOBAL__.stepAt(t);if(s!==cur){cur=s;steps.forEach(function(li,i){li.classList.toggle('act',i===s)});document.getElementById('srNo').textContent=s+1;document.getElementById('srName').textContent=names[s]}}
+  requestAnimationFrame(frame)}
+ requestAnimationFrame(frame);
+ var bp=document.getElementById('srPlay');bp.onclick=function(){playing=!playing;bp.classList.toggle('on',playing);bp.textContent=playing?'❚❚ Pause':'▶ Play'};
+ var bs=document.getElementById('srSlow');bs.onclick=function(){speed=speed===1?.5:1;bs.classList.toggle('on',speed!==1)};
+ function jump(a){t=a;playing=true;bp.classList.add('on');bp.textContent='❚❚ Pause';cur=-1}
+ steps.forEach(function(li,i){li.onclick=function(){var S=__ANIMGLOBAL__.STEPS[i];t=S.a+(S.b-S.a)*.6;playing=false;bp.classList.remove('on');bp.textContent='▶ Play';cur=-1}});
+ var F=__FRAMES__,img=document.getElementById('srTTimg'),rg=document.getElementById('srRange'),tt=document.getElementById('srTT'),idx=0,down=null,base=0;
+ F.forEach(function(s){var i=new Image();i.src=s});
+ function show(i){idx=((i%F.length)+F.length)%F.length;img.src=F[idx];rg.value=idx}
+ rg.oninput=function(){show(+rg.value)};
+ tt.addEventListener('pointerdown',function(e){down=e.clientX;base=idx;tt.setPointerCapture(e.pointerId)});
+ tt.addEventListener('pointermove',function(e){if(down!=null)show(base+Math.round((e.clientX-down)/14))});
+ tt.addEventListener('pointerup',function(){down=null});
+})();
+</script>

@@ -1,0 +1,4 @@
+interface:
+  display_name: "3D PDF HTML Landing"
+  short_description: "Build WebGL SEO pages from 3D PDFs"
+  default_prompt: "Use $3d-pdf-html-landing to convert 3D PDF product files into single-file HTML SEO landing pages."

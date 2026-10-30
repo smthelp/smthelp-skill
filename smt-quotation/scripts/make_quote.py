@@ -277,13 +277,17 @@ class Q:
         """Write an item with specs/options. Returns (next_row, amount_cell_ref)."""
         start = r
         self.put(ws, f"A{r}", idx, 10, True, self.c["navy"], h="center", v="top")
-        self.put(ws, f"C{r}", it.get("model", ""), 10, True, self.c["navy"], v="top")
+        model = str(it.get("model", ""))
+        msize = 10 if len(model) <= 10 else 9
+        self.put(ws, f"C{r}", model, msize, True, self.c["navy"], v="top", wrap=True)
         self.put(ws, f"D{r}", it.get("name", ""), 10, True, self.c["navy"], v="top", wrap=True)
         self.put(ws, f"E{r}", it.get("qty", 1), 10, h="center", v="top")
         self.put(ws, f"F{r}", it.get("unit", "set"), 10, h="center", v="top")
         self.put(ws, f"G{r}", it.get("price", 0), 10, h="right", v="top", fmt=MONEY)
         self.put(ws, f"H{r}", f"=E{r}*G{r}", 10, h="right", v="top", fmt=MONEY)
-        ws.row_dimensions[r].height = self.k * (14 * self.lines_needed(it.get("name", ""), self.width(4, 4), 10) + 1)
+        nlines = max(self.lines_needed(it.get("name", ""), self.width(4, 4), 10),
+                     self.lines_needed(model, self.width(3, 3) - 1, msize))
+        ws.row_dimensions[r].height = self.k * (14 * nlines + 1)
         base_row = r
         r += 1
         if inline:
@@ -341,7 +345,7 @@ class Q:
         sub_formula = "+".join(item_refs) if item_refs else "0"
         sub = None
         if has_extra:
-            self.put(ws, f"D{r}", "Subtotal (equipment)", 10, True, self.c["navy"], h="right")
+            self.put(ws, f"D{r}", "Subtotal (spare parts)" if q.get("kind") == "spare_parts" else "Subtotal (equipment)", 10, True, self.c["navy"], h="right")
             self.merge(ws, r, 4, 7)
             self.put(ws, f"H{r}", "=" + sub_formula, 10, True, h="right", fmt=MONEY)
             sub = r

@@ -1,0 +1,4 @@
+interface:
+  display_name: "Trade Show Leads"
+  short_description: "Draft trade-show lead outreach"
+  default_prompt: "Use $trade-show-leads to support a Southern Machinery sales task."

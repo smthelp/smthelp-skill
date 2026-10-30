@@ -1,0 +1,207 @@
+{
+ "file": "sfcjf1-fuji-nxt-feeder-calibration-jig-smart-ems-pcb-assembly.html",
+ "canonical_base": "https://www.smthelp.com/",
+ "storage_prefix": "fujinxtjig_",
+ "product_name": "FUJI NXT Feeder Calibration Jig",
+ "alternate_names": [
+  "SFCJF1",
+  "SMT feeder calibration jig for FUJI NXT"
+ ],
+ "category": "SMT feeder maintenance and calibration equipment",
+ "breadcrumb_category": "SMT feeders and feeder tools",
+ "date_published": "2026-10-13",
+ "gallery": [
+  {
+   "md": "https://ph.smthelp.com/images/2023/05/13/Fuji-NXT-feeder-calibration-jig-6.md.jpg",
+   "full": "https://ph.smthelp.com/images/2023/05/13/Fuji-NXT-feeder-calibration-jig-6.jpg",
+   "key": "g6t"
+  },
+  {
+   "md": "https://ph.smthelp.com/images/2023/05/13/Fuji-NXT-feeder-calibration-jig-1.md.jpg",
+   "full": "https://ph.smthelp.com/images/2023/05/13/Fuji-NXT-feeder-calibration-jig-1.jpg",
+   "key": "g1t"
+  },
+  {
+   "md": "https://ph.smthelp.com/images/2023/05/13/Fuji-NXT-feeder-calibration-jig-2.md.jpg",
+   "full": "https://ph.smthelp.com/images/2023/05/13/Fuji-NXT-feeder-calibration-jig-2.jpg",
+   "key": "g2t"
+  },
+  {
+   "md": "https://ph.smthelp.com/images/2023/05/13/Fuji-NXT-feeder-calibration-jig-3.md.jpg",
+   "full": "https://ph.smthelp.com/images/2023/05/13/Fuji-NXT-feeder-calibration-jig-3.jpg",
+   "key": "g3t"
+  },
+  {
+   "md": "https://ph.smthelp.com/images/2023/05/13/Fuji-NXT-feeder-calibration-jig-10.md.jpg",
+   "full": "https://ph.smthelp.com/images/2023/05/13/Fuji-NXT-feeder-calibration-jig-10.jpg",
+   "key": "g4t"
+  },
+  {
+   "md": "https://ph.smthelp.com/images/2023/05/13/Fuji-NXT-feeder-calibration-jig-5.md.jpg",
+   "full": "https://ph.smthelp.com/images/2023/05/13/Fuji-NXT-feeder-calibration-jig-5.jpg",
+   "key": "g5t"
+  },
+  {
+   "md": "https://ph.smthelp.com/images/2023/05/13/Fuji-NXT-feeder-calibration-jig-7.md.jpg",
+   "full": "https://ph.smthelp.com/images/2023/05/13/Fuji-NXT-feeder-calibration-jig-7.jpg",
+   "key": "g7t"
+  },
+  {
+   "md": "https://ph.smthelp.com/images/2023/05/13/Fuji-NXT-feeder-calibration-jig-8.md.jpg",
+   "full": "https://ph.smthelp.com/images/2023/05/13/Fuji-NXT-feeder-calibration-jig-8.jpg",
+   "key": "g8t"
+  },
+  {
+   "md": "https://ph.smthelp.com/images/2023/05/13/Fuji-NXT-feeder-calibration-jig-9.md.jpg",
+   "full": "https://ph.smthelp.com/images/2023/05/13/Fuji-NXT-feeder-calibration-jig-9.jpg",
+   "key": "g9t"
+  },
+  {
+   "md": "https://ph.smthelp.com/images/2023/05/13/How-to-use-Fuji-feeder-calibration-jig-to-solve-the-feeder-feed-deviation-problem.md.jpg",
+   "full": "https://ph.smthelp.com/images/2023/05/13/How-to-use-Fuji-feeder-calibration-jig-to-solve-the-feeder-feed-deviation-problem.jpg",
+   "key": "g10t"
+  },
+  {
+   "md": "https://ph.smthelp.com/images/2023/05/13/Calibration-FUJI-NXT-Feeder-improving-EMS-productivity.md.png",
+   "full": "https://ph.smthelp.com/images/2023/05/13/Calibration-FUJI-NXT-Feeder-improving-EMS-productivity.png",
+   "key": "g11t"
+  }
+ ],
+ "hero": [
+  0,
+  1,
+  3,
+  4,
+  6
+ ],
+ "fit_images": [
+  "https://ph.smthelp.com/images/2023/05/13/Fuji-NXT-feeder-calibration-jig-7.md.jpg",
+  "https://ph.smthelp.com/images/2023/05/13/Fuji-NXT-feeder-calibration-jig-9.md.jpg",
+  "https://ph.smthelp.com/images/2023/05/13/Fuji-NXT-feeder-calibration-jig-2.md.jpg"
+ ],
+ "how_labels": [
+  "CCD",
+  "LEVER",
+  "X / Y / H",
+  "RULER"
+ ],
+ "videos": [
+  {
+   "id": "DyItw9843SI",
+   "t": "v1t",
+   "d": "v1d",
+   "dur": "1:01"
+  },
+  {
+   "id": "eP9iZFljbqo",
+   "t": "v2t",
+   "d": "v2d",
+   "dur": "2:00"
+  },
+  {
+   "id": "lt8RLOOhfXI",
+   "t": "v3t",
+   "d": "v3d",
+   "dur": "1:25"
+  },
+  {
+   "id": "bXA8GfQk450",
+   "t": "v4t",
+   "d": "v4d",
+   "dur": "0:10"
+  },
+  {
+   "id": "e40Z1ELii40",
+   "t": "v5t",
+   "d": "v5d",
+   "dur": "1:25"
+  },
+  {
+   "id": "I7aGuGkUUhA",
+   "t": "v6t",
+   "d": "v6d",
+   "dur": "9:57"
+  }
+ ],
+ "catalogs": [
+  {
+   "t": "cat1t",
+   "d": "cat1d",
+   "url": "https://file.autoinsertion.com/public/Southern%20Machinery%20Manual/Feeder%20Calibration%20Jig%20Operation%20Manual.pdf",
+   "type": "PDF"
+  },
+  {
+   "t": "cat2t",
+   "d": "cat2d",
+   "url": "https://file.autoinsertion.com/public/Southern%20Machinery%20Product/SMT%20Feeder%20Calibration%20jig.pdf",
+   "type": "PDF"
+  },
+  {
+   "t": "cat3t",
+   "d": "cat3d",
+   "url": "https://file.autoinsertion.com/public/SMT%20machine%203D%20Drawing%20in%20Html/FUJI_NXT_8mmfeeder.html",
+   "type": "3D"
+  },
+  {
+   "t": "cat4t",
+   "d": "cat4d",
+   "url": "https://file.autoinsertion.com/public/Southern%20Machinery%20Product/Fuji%20Nozzles%20&%20Consumables%20Feeders.pdf",
+   "type": "PDF"
+  },
+  {
+   "t": "cat5t",
+   "d": "cat5d",
+   "url": "https://file.autoinsertion.com/public/Southern%20Machinery%20Product/Southern%20Machinery%20Customized%20Feeder%20Nozzle%20Catalog%20V03.pdf",
+   "type": "PDF"
+  },
+  {
+   "t": "cat6t",
+   "d": "cat6d",
+   "url": "https://file.autoinsertion.com/public/Southern%20Machinery%20Product/SMT%20feeder%20storage%20cart.pdf",
+   "type": "PDF"
+  }
+ ],
+ "spec_evidence": {
+  "1": "v",
+  "2": "v",
+  "3": "v",
+  "4": "v",
+  "5": "c",
+  "6": "v",
+  "7": "v",
+  "8": "v",
+  "9": "v",
+  "10": "v",
+  "11": "v",
+  "12": "c",
+  "13": "v",
+  "14": "c",
+  "15": "v",
+  "16": "c",
+  "17": "v"
+ },
+ "ld_spec_rows": [
+  1,
+  2,
+  3,
+  4,
+  6,
+  7,
+  10,
+  12,
+  13,
+  14
+ ],
+ "disambiguation": "Values marked To be confirmed on the page (mains voltage option, monitor size, lever drive, weight, feeder widths and public model name) differ between Southern Machinery documents and are confirmed per order. FUJI and NXT identify the compatible feeder family only; Southern Machinery is not affiliated with FUJI.",
+ "howto_name": "How to calibrate a FUJI NXT feeder on the Southern Machinery calibration jig",
+ "howto_tools": [
+  "FUJI NXT Feeder Calibration Jig",
+  "Standard calibration ruler"
+ ],
+ "service_icons": [
+  "🎥",
+  "🧑‍🔧",
+  "⚙️",
+  "🏭"
+ ]
+}

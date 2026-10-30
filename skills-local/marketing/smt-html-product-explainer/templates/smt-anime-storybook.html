@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>{{TITLE}} | Southern Machinery</title>
+<meta name="description" content="{{META_DESCRIPTION}}" />
+<style>
+  *,*::before,*after{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{
+    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Helvetica Neue",Arial,sans-serif;
+    background:#07091a;color:#dceaff;line-height:1.7;overflow-x:hidden;
+  }
+  a{color:inherit;text-decoration:none}
+  img{max-width:100%;display:block}
+
+  :root{
+    --bg:#07091a;--bg-2:#0d1430;--panel:#101a3d;--line:#1b2655;
+    --text:#dceaff;--muted:#8aa2cc;
+    --cyan:#00e5ff;--pink:#ff4d8d;--gold:#ffd24d;
+    --green:#39ff7a;--purple:#a56bff;
+  }
+
+  /* PCB grid background */
+  body::before{content:"";position:fixed;inset:0;z-index:0;pointer-events:none;
+    background-image:linear-gradient(rgba(0,229,255,.05) 1px,transparent 1px),linear-gradient(90deg,rgba(0,229,255,.05) 1px,transparent 1px);
+    background-size:42px 42px;mask-image:radial-gradient(ellipse at center,#000 25%,transparent 80%);}
+  body::after{content:"";position:fixed;inset:0;z-index:0;pointer-events:none;
+    background:radial-gradient(ellipse at 15% 0%,rgba(0,229,255,.10),transparent 55%),radial-gradient(ellipse at 85% 50%,rgba(255,77,141,.08),transparent 55%),radial-gradient(ellipse at 50% 100%,rgba(165,107,255,.08),transparent 55%);}
+  main,header,footer,.cover{position:relative;z-index:1}
+
+  /* Header */
+  header{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:center;justify-content:space-between;
+    padding:12px 28px;background:rgba(7,9,26,.78);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);
+    border-bottom:1px solid rgba(0,229,255,.18);}
+  .logo img{height:36px;width:auto;filter:drop-shadow(0 0 10px rgba(0,229,255,.4))}
+  .header-right{font-size:11px;letter-spacing:.26em;color:var(--muted);text-transform:uppercase}
+  .header-right b{color:var(--cyan)}
+
+  /* Cover */
+  .cover{min-height:100vh;display:flex;align-items:center;justify-content:center;text-align:center;
+    padding:140px 24px 60px;position:relative;overflow:hidden;}
+  .cover-inner{max-width:1100px;position:relative;z-index:2}
+  .book-badge{display:inline-block;padding:6px 16px;border:1px solid rgba(255,210,77,.5);border-radius:999px;
+    color:var(--gold);font-size:11px;letter-spacing:.32em;text-transform:uppercase;background:rgba(255,210,77,.06);margin-bottom:22px;}
+  .cover h1{font-size:clamp(34px,5.6vw,76px);line-height:1.02;letter-spacing:-.025em;font-weight:900;
+    background:linear-gradient(135deg,#fff 0%,var(--cyan) 50%,var(--pink) 100%);-webkit-background-clip:text;background-clip:text;color:transparent;margin-bottom:14px;}
+  .cover h2{font-size:clamp(18px,2vw,26px);font-weight:500;color:var(--text);margin-bottom:8px;letter-spacing:.02em;}
+  .cover .tagline{color:var(--muted);font-size:15px;max-width:720px;margin:18px auto 36px}
+  .cover-stats{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px;max-width:880px;margin:0 auto;}
+  .cover-stats .s{background:linear-gradient(180deg,rgba(0,229,255,.08),rgba(0,229,255,.01));border:1px solid rgba(0,229,255,.2);border-radius:12px;padding:16px 10px;}
+  .cover-stats .v{font-size:clamp(20px,2.6vw,30px);font-weight:800;color:#fff;line-height:1}
+  .cover-stats .v .u{font-size:11px;color:var(--cyan);margin-left:3px;font-weight:600}
+  .cover-stats .k{font-size:10px;letter-spacing:.2em;color:var(--muted);text-transform:uppercase;margin-top:6px}
+  .scroll-cue{margin-top:46px;color:var(--muted);font-size:11px;letter-spacing:.3em;text-transform:uppercase;}
+  .scroll-cue .arrow{display:inline-block;animation:bounce 1.6s infinite}
+  @keyframes bounce{0%,100%{transform:translateY(0)}50%{transform:translateY(6px)}}
+
+  /* Floating LEDs */
+  .float-led{position:absolute;width:14px;height:8px;border-radius:2px;box-shadow:0 0 18px currentColor;animation:ledTravel 9s linear infinite;}
+  .float-led.l1{top:18%;left:-5%;animation-delay:0s}
+  .float-led.l2{top:32%;left:-10%;animation-delay:1.4s;background:linear-gradient(90deg,#c0fff0,#39ff7a);box-shadow:0 0 18px rgba(57,255,122,.6)}
+  .float-led.l3{top:55%;left:-8%;animation-delay:2.8s;background:linear-gradient(90deg,#c0e0ff,#00e5ff);box-shadow:0 0 18px rgba(0,229,255,.7)}
+  .float-led.l4{top:75%;left:-6%;animation-delay:4.2s;background:linear-gradient(90deg,#ffd0e0,#ff4d8d);box-shadow:0 0 18px rgba(255,77,141,.6)}
+  .float-led.l5{top:88%;left:-12%;animation-delay:5.6s;background:linear-gradient(90deg,#e0c0ff,#a56bff);box-shadow:0 0 18px rgba(165,107,255,.6)}
+  @keyframes ledTravel{0%{transform:translateX(0);opacity:0}10%{opacity:1}90%{opacity:1}100%{transform:translateX(120vw);opacity:0}}
+
+  /* TOC */
+  .toc{padding:80px 24px 30px;max-width:1100px;margin:0 auto}
+  .toc h3{font-size:13px;letter-spacing:.32em;color:var(--cyan);text-transform:uppercase;margin-bottom:18px;}
+  .toc-list{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
+  @media(max-width:900px){.toc-list{grid-template-columns:repeat(2,1fr)}}
+  .toc-item{display:block;padding:18px 16px;background:linear-gradient(180deg,var(--panel),var(--bg-2));border:1px solid var(--line);border-radius:12px;transition:all .3s ease;cursor:pointer;}
+  .toc-item:hover{border-color:rgba(0,229,255,.5);transform:translateY(-3px);box-shadow:0 12px 30px rgba(0,229,255,.15)}
+  .toc-item .ch{font-size:10px;letter-spacing:.28em;color:var(--cyan);font-weight:700}
+  .toc-item .ti{font-size:14px;color:#fff;font-weight:700;margin-top:4px}
+
+  /* Chapter */
+  .chapter{padding:90px 24px 30px;max-width:1200px;margin:0 auto;position:relative}
+  .ch-num{display:inline-block;font-size:13px;letter-spacing:.32em;color:var(--cyan);text-transform:uppercase;margin-bottom:10px;padding:4px 12px;border:1px solid rgba(0,229,255,.35);border-radius:999px;background:rgba(0,229,255,.05);}
+  .chapter h2{font-size:clamp(28px,3.6vw,48px);font-weight:900;color:#fff;letter-spacing:-.02em;margin-bottom:10px;line-height:1.1;}
+  .chapter h2 .accent{background:linear-gradient(135deg,var(--cyan),var(--pink));-webkit-background-clip:text;background-clip:text;color:transparent;}
+  .ch-sub{color:var(--muted);font-size:15px;max-width:780px;margin-bottom:30px}
+  .ch-sub b{color:var(--cyan)}
+
+  /* Reveal: default visible, JS activates the hide-then-animate */
+  .reveal{opacity:1}
+  html.js .reveal{opacity:0;transform:translateY(24px);transition:all .8s cubic-bezier(.2,.7,.2,1)}
+  html.js .reveal.in{opacity:1;transform:none}
+
+  /* Panel grid */
+  .page{display:grid;grid-template-columns:repeat(12,1fr);gap:16px;margin-top:30px;}
+  .panel{background:linear-gradient(180deg,var(--panel),var(--bg-2));border:1px solid var(--line);border-radius:18px;padding:18px;transition:all .3s ease;position:relative;overflow:hidden;}
+  .panel:hover{border-color:rgba(0,229,255,.4);box-shadow:0 12px 36px rgba(0,229,255,.12)}
+  .panel-tag{display:inline-block;padding:3px 10px;border-radius:6px;font-size:10px;letter-spacing:.22em;text-transform:uppercase;font-weight:700;background:rgba(0,229,255,.15);color:var(--cyan);margin-bottom:10px;}
+  .panel-tag.vis{background:rgba(255,77,141,.15);color:var(--pink)}
+  .panel-tag.spe{background:rgba(255,210,77,.15);color:var(--gold)}
+  .panel-tag.cha{background:rgba(57,255,122,.15);color:var(--green)}
+  .panel-tag.tech{background:rgba(165,107,255,.15);color:var(--purple)}
+  .panel h4{color:#fff;font-size:18px;font-weight:800;margin-bottom:8px;letter-spacing:-.01em}
+  .panel p{color:#aac0e6;font-size:13.5px;line-height:1.65}
+  .panel b{color:#fff}
+  .panel em{color:var(--cyan);font-style:normal;font-weight:700}
+  .panel .quip{margin-top:10px;padding:8px 12px;border-left:2px solid var(--cyan);background:rgba(0,229,255,.04);border-radius:0 8px 8px 0;font-size:12.5px;color:#cfe1ff;font-style:italic;}
+  .panel .quip b{color:var(--gold);font-style:normal}
+
+  .col-12{grid-column:span 12}.col-8{grid-column:span 8}.col-7{grid-column:span 7}
+  .col-6{grid-column:span 6}.col-5{grid-column:span 5}.col-4{grid-column:span 4}
+  @media(max-width:900px){.col-8,.col-7,.col-6,.col-5,.col-4{grid-column:span 12}}
+
+  /* Scene + character */
+  .scene{background:radial-gradient(ellipse at center,#0a1840 0%,#050a18 75%);border:1px solid var(--line);border-radius:14px;overflow:hidden;aspect-ratio:16/9;position:relative;}
+  .scene svg{width:100%;height:100%;display:block}
+  .scene-label{position:absolute;left:10px;bottom:10px;background:rgba(0,0,0,.5);padding:4px 10px;border-radius:6px;font-size:10px;letter-spacing:.18em;color:var(--cyan);text-transform:uppercase;border:1px solid rgba(0,229,255,.3);}
+
+  .character{background:linear-gradient(180deg,var(--panel),var(--bg-2));border:1px solid var(--line);border-radius:18px;padding:22px;position:relative;overflow:hidden;}
+  .character::before{content:"";position:absolute;left:0;top:0;bottom:0;width:4px;background:linear-gradient(180deg,var(--cyan),transparent);}
+  .character h4{color:#fff;font-size:18px;margin-bottom:4px}
+  .character .role{font-size:11px;letter-spacing:.22em;color:var(--cyan);text-transform:uppercase;margin-bottom:10px}
+  .character p{color:#aac0e6;font-size:13px;margin-bottom:8px}
+  .character .stat-row{display:flex;flex-wrap:wrap;gap:6px;margin-top:10px}
+  .character .stat-row span{font-size:10px;padding:3px 8px;border-radius:6px;background:rgba(0,229,255,.1);color:var(--cyan);font-weight:600;letter-spacing:.1em;}
+  .char-avatar{width:100%;aspect-ratio:1/1;border-radius:12px;background:radial-gradient(circle at 50% 40%,#0a1840,#050a18);border:1px solid var(--line);margin-bottom:14px;overflow:hidden;position:relative;}
+  .char-avatar svg{width:100%;height:100%}
+
+  /* AI prompt box */
+  .ai-prompt{background:#0a1024;border:1px dashed rgba(165,107,255,.5);border-radius:10px;padding:14px 16px;margin-top:10px;font-family:"SF Mono",Menlo,Consolas,monospace;font-size:11.5px;line-height:1.55;color:#c5b3ff;position:relative;}
+  .ai-prompt::before{content:"MJ/SD PROMPT";position:absolute;right:10px;top:8px;font-size:9px;letter-spacing:.2em;color:var(--purple);}
+
+  /* Spec pills */
+  .specs-row{display:flex;flex-wrap:wrap;gap:8px;margin-top:8px}
+  .specs-row span{font-size:11px;padding:4px 10px;border-radius:6px;background:rgba(0,229,255,.08);color:var(--cyan);font-weight:700;letter-spacing:.04em;border:1px solid rgba(0,229,255,.18);}
+
+  /* CTA + SPIN */
+  .spin{background:radial-gradient(ellipse at top,rgba(0,229,255,.10),transparent 60%),linear-gradient(180deg,#0a1432,#07091a);border:1px solid rgba(0,229,255,.28);border-radius:22px;padding:46px 36px;text-align:center;margin:80px auto;max-width:1100px;}
+  .spin h2{font-size:clamp(24px,3vw,38px);font-weight:900;color:#fff;margin-bottom:8px}
+  .spin p{color:var(--muted);max-width:680px;margin:0 auto 22px;font-size:14.5px}
+  .spin-q{text-align:left;max-width:820px;margin:18px auto 0;background:rgba(0,229,255,.05);border-left:3px solid var(--cyan);border-radius:0 12px 12px 0;padding:18px 22px;color:#dceaff;font-size:14.5px;}
+  .spin-q+.spin-q{margin-top:14px;border-left-color:var(--pink)}
+  .spin-q b{color:var(--cyan);}.spin-q:nth-child(odd) b{color:var(--pink)}
+  .btn{display:inline-block;margin-top:28px;padding:14px 30px;background:linear-gradient(135deg,var(--cyan),#00b3d4);color:#00131f;font-weight:800;border-radius:10px;letter-spacing:.04em;box-shadow:0 12px 30px rgba(0,229,255,.3);transition:all .2s ease;}
+  .btn:hover{transform:translateY(-2px);box-shadow:0 18px 40px rgba(0,229,255,.5)}
+  .btn.ghost{background:transparent;color:var(--cyan);border:1px solid var(--cyan);margin-left:10px;box-shadow:none;}
+
+  /* Footer */
+  footer{border-top:1px solid var(--line);padding:36px 24px 30px;text-align:center;color:var(--muted);font-size:12.5px;background:rgba(7,9,26,.7);}
+  .socials{display:flex;flex-wrap:wrap;justify-content:center;gap:12px 22px;margin-bottom:14px}
+  .socials a{color:#cfe1ff;border-bottom:1px dashed transparent;transition:all .2s;padding:2px 0;font-size:12.5px;}
+  .socials a:hover{color:var(--cyan);border-color:var(--cyan)}
+  .socials .ic{color:var(--cyan);margin-right:4px}
+  .copy{opacity:.6;font-size:11px;letter-spacing:.06em;margin-top:10px}
+
+  /* Animations */
+  @keyframes pulse{0%,100%{opacity:.4;transform:scale(1)}50%{opacity:1;transform:scale(1.05)}}
+  @keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-6px)}}
+  @keyframes glow{0%,100%{filter:drop-shadow(0 0 6px currentColor)}50%{filter:drop-shadow(0 0 18px currentColor)}}
+  @keyframes ledBlink{0%,100%{opacity:1}50%{opacity:.3}}
+  .anim-pulse{animation:pulse 2s ease-in-out infinite}
+  .anim-float{animation:float 3.4s ease-in-out infinite}
+  .anim-glow{animation:glow 2.4s ease-in-out infinite}
+  .anim-blink{animation:ledBlink 1.2s ease-in-out infinite}
+
+  .divider{max-width:1100px;margin:30px auto;height:1px;background:linear-gradient(90deg,transparent,rgba(0,229,255,.4),transparent);}
+</style>
+</head>
+<body>
+
+<header>
+  <a class="logo" href="https://www.smthelp.com" target="_blank" rel="noopener">
+    <img src="https://ph.smthelp.com/images/2024/06/26/Southern-Machinery-logo-300x83.png" alt="Southern Machinery Logo" />
+  </a>
+  <span class="header-right">SMT Sci-Pop <b>·</b> Anime Storybook Series</span>
+</header>
+
+<!-- ========== COVER ========== -->
+<section class="cover">
+  <div class="float-led l1"></div>
+  <div class="float-led l2"></div>
+  <div class="float-led l3"></div>
+  <div class="float-led l4"></div>
+  <div class="float-led l5"></div>
+
+  <div class="cover-inner">
+    <span class="book-badge">{{VOLUME_BADGE}}</span>
+    <h1>{{HERO_TITLE}}</h1>
+    <h2>{{HERO_SUBTITLE}}</h2>
+    <p class="tagline">{{HERO_TAGLINE}}</p>
+
+    <div class="cover-stats">
+      <div class="s"><div class="v" data-target="{{STAT1_NUM}}"><span class="u">{{STAT1_UNIT}}</span></div><div class="k">{{STAT1_LABEL}}</div></div>
+      <div class="s"><div class="v" data-target="{{STAT2_NUM}}"><span class="u">{{STAT2_UNIT}}</span></div><div class="k">{{STAT2_LABEL}}</div></div>
+      <div class="s"><div class="v" data-target="{{STAT3_NUM}}"><span class="u">{{STAT3_UNIT}}</span></div><div class="k">{{STAT3_LABEL}}</div></div>
+      <div class="s"><div class="v" data-target="{{STAT4_NUM}}"><span class="u">{{STAT4_UNIT}}</span></div><div class="k">{{STAT4_LABEL}}</div></div>
+    </div>
+
+    <div class="scroll-cue"><span class="arrow">▼</span> &nbsp; Scroll to begin the Quest &nbsp; <span class="arrow">▼</span></div>
+  </div>
+</section>
+
+<!-- ========== TABLE OF CONTENTS ========== -->
+<section class="toc reveal">
+  <h3>Chapters</h3>
+  <div class="toc-list">
+    <a class="toc-item" href="#ch0"><div class="ch">Ch. 00</div><div class="ti">{{TOC_0_TITLE}}</div></a>
+    <a class="toc-item" href="#ch1"><div class="ch">Ch. 01</div><div class="ti">{{TOC_1_TITLE}}</div></a>
+    <a class="toc-item" href="#ch2"><div class="ch">Ch. 02</div><div class="ti">{{TOC_2_TITLE}}</div></a>
+    <a class="toc-item" href="#ch3"><div class="ch">Ch. 03</div><div class="ti">{{TOC_3_TITLE}}</div></a>
+    <a class="toc-item" href="#ch4"><div class="ch">Ch. 04</div><div class="ti">{{TOC_4_TITLE}}</div></a>
+    <a class="toc-item" href="#ch5"><div class="ch">Ch. 05</div><div class="ti">{{TOC_5_TITLE}}</div></a>
+    <a class="toc-item" href="#ch6"><div class="ch">Ch. 06</div><div class="ti">{{TOC_6_TITLE}}</div></a>
+    <a class="toc-item" href="#ch7"><div class="ch">Ch. 07</div><div class="ti">{{TOC_7_TITLE}}</div></a>
+  </div>
+</section>
+
+<!-- =====================================================
+     CHAPTER BLOCK — REPEAT 8 TIMES (N = 0..7)
+     Replace N with 0,1,2,3,4,5,6,7 for each chapter.
+     Fill in all {{CH_N_*}} placeholders per chapter.
+===================================================== -->
+<section class="chapter reveal" id="chN">
+  <span class="ch-num">Chapter NN · {{CH_N_SUBTITLE}}</span>
+  <h2>{{CH_N_TITLE}} <span class="accent">{{CH_N_ACCENT}}</span></h2>
+  <p class="ch-sub">{{CH_N_INTRO}}</p>
+
+  <div class="page">
+    <!-- Panel 1: Character Profile (col-4) -->
+    <div class="panel col-4 reveal">
+      <span class="panel-tag cha">Character Profile</span>
+      <div class="character">
+        <div class="char-avatar">
+          <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+            <rect width="200" height="200" fill="#050a18"/>
+            <rect x="30" y="70" width="140" height="90" rx="8" fill="#0e1f3c" stroke="#00e5ff" stroke-width="2"/>
+            <text x="100" y="180" text-anchor="middle" fill="#00e5ff" font-size="10" font-weight="900" letter-spacing="2">{{CH_N_AVATAR_LABEL}}</text>
+          </svg>
+        </div>
+        <div class="role">{{CH_N_ROLE}}</div>
+        <h4>{{CH_N_MODEL}} · {{CH_N_PERSONA}}</h4>
+        <p>{{CH_N_CHARACTER_BIO}}</p>
+        <div class="stat-row">
+          <span>{{CH_N_STAT1}}</span>
+          <span>{{CH_N_STAT2}}</span>
+          <span>{{CH_N_STAT3}}</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Panel 2: Visual Scene (col-8) -->
+    <div class="panel col-8 reveal">
+      <span class="panel-tag vis">Panel 1 · Visual Scene</span>
+      <h4>{{CH_N_SCENE_TITLE}}</h4>
+      <p>{{CH_N_SCENE_DESC}}</p>
+      <div class="scene" style="margin-top:10px">
+        <svg viewBox="0 0 600 250" xmlns="http://www.w3.org/2000/svg">
+          <rect width="600" height="250" fill="#0a1432"/>
+          <text x="300" y="130" text-anchor="middle" fill="#8aa2cc" font-size="14">{{CH_N_SCENE_PLACEHOLDER}}</text>
+        </svg>
+        <div class="scene-label">SCENE NN · {{CH_N_SCENE_LABEL}}</div>
+      </div>
+      <div class="quip"><b>{{CH_N_CHARACTER_NAME}}:</b> "{{CH_N_DIALOGUE}}"</div>
+    </div>
+
+    <!-- Panel 3: Tech + AI prompt (col-12) -->
+    <div class="panel col-12 reveal">
+      <span class="panel-tag tech">Core Technology</span>
+      <h4>{{CH_N_TECH_TITLE}}</h4>
+      <p>{{CH_N_TECH_DESC}}</p>
+      <div class="specs-row">
+        <span>{{CH_N_SPEC1}}</span>
+        <span>{{CH_N_SPEC2}}</span>
+        <span>{{CH_N_SPEC3}}</span>
+        <span>{{CH_N_SPEC4}}</span>
+      </div>
+      <div class="ai-prompt">{{CH_N_AI_PROMPT}} --ar 16:9 --niji 6</div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+<!-- END OF CHAPTER BLOCK — repeat 8x, swap N and NN for each -->
+
+<!-- ========== SPIN / CTA ========== -->
+<section class="spin reveal">
+  <h2>Ready to Begin <span style="color:var(--cyan)">Your Quest?</span></h2>
+  <p>{{CTA_INTRO}}</p>
+  <div class="spin-q"><b>Q1 · Situation:</b> {{SPIN_Q1}}</div>
+  <div class="spin-q"><b>Q2 · Problem:</b> {{SPIN_Q2}}</div>
+  <div class="spin-q"><b>Q3 · Implication:</b> {{SPIN_Q3}}</div>
+  <div class="spin-q"><b>Q4 · Need-payoff:</b> {{SPIN_Q4}}</div>
+  <a class="btn" href="https://www.smthelp.com" target="_blank" rel="noopener">Get Your Free Line Layout &amp; ROI →</a>
+  <a class="btn ghost" href="https://wa.me/8613602562576" target="_blank" rel="noopener">WhatsApp Jason Now</a>
+</section>
+
+</main>
+
+<footer>
+  <div class="socials">
+    <a href="https://www.linkedin.com/company/smtmachine" target="_blank" rel="noopener"><span class="ic">▸</span> LinkedIn Company Page</a>
+    <a href="https://cn.linkedin.com/in/smtsupplier" target="_blank" rel="noopener"><span class="ic">▸</span> LinkedIn Profile</a>
+    <a href="https://twitter.com/smtspecialist" target="_blank" rel="noopener"><span class="ic">▸</span> Twitter</a>
+    <a href="https://www.facebook.com/autoinsertion" target="_blank" rel="noopener"><span class="ic">▸</span> Facebook</a>
+    <a href="https://www.youtube.com/c/Smthelping" target="_blank" rel="noopener"><span class="ic">▸</span> YouTube Channel</a>
+  </div>
+  <div style="margin-bottom:8px">
+    <a href="https://file.autoinsertion.com" target="_blank" rel="noopener" style="color:var(--cyan)">Browse our machine catalog at file.autoinsertion.com</a>
+    &nbsp;·&nbsp;
+    <a href="https://ph.smthelp.com" target="_blank" rel="noopener" style="color:var(--cyan)">find machine photos at ph.smthelp.com</a>
+  </div>
+  <div class="copy">© 2026 Southern Machinery Sales &amp; Service Co., Ltd · Shenzhen, China · <a href="https://www.smthelp.com" target="_blank" rel="noopener" style="color:inherit">www.SMThelp.com</a></div>
+</footer>
+
+<script>
+  // Mark JS enabled so reveal hides content for animation
+  document.documentElement.classList.add('js');
+
+  // Aggressive scroll-reveal IO
+  const io = new IntersectionObserver(entries => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
+  }, { threshold: 0, rootMargin: '0px 0px -10% 0px' });
+  document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+
+  // 2.5s safety net: force-reveal anything still hidden
+  setTimeout(() => {
+    document.querySelectorAll('.reveal:not(.in)').forEach(el => el.classList.add('in'));
+  }, 2500);
+
+  // Animated counters with M/K suffix
+  const animateCount = (el) => {
+    const target = parseFloat(el.dataset.target);
+    const dur = 1600; const start = performance.now();
+    const fmt = (n) => n >= 1e6 ? (n/1e6).toFixed(1).replace(/\.0$/,'') + 'M'
+                       : n >= 1e4 ? Math.round(n/1e3) + 'K'
+                       : n >= 1e3 ? Math.round(n).toLocaleString()
+                       : Number.isInteger(target) ? Math.round(n).toString() : n.toFixed(1);
+    const tick = (t) => {
+      const p = Math.min(1, (t - start) / dur);
+      const eased = 1 - Math.pow(1 - p, 3);
+      const v = target * eased;
+      if (el.firstChild) el.firstChild.nodeValue = fmt(v);
+      if (p < 1) requestAnimationFrame(tick);
+      else if (el.firstChild) el.firstChild.nodeValue = fmt(target);
+    };
+    requestAnimationFrame(tick);
+  };
+  document.querySelectorAll('.cover-stats .v').forEach(animateCount);
+
+  // Smooth-scroll TOC
+  document.querySelectorAll('.toc-item').forEach(a => {
+    a.addEventListener('click', (e) => {
+      const id = a.getAttribute('href');
+      if (id && id.startsWith('#')) {
+        const t = document.querySelector(id);
+        if (t) { e.preventDefault(); t.scrollIntoView({ behavior: 'smooth', block: 'start' }); }
+      }
+    });
+  });
+</script>
+
+</body>
+</html>

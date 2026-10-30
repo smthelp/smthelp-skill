@@ -1,0 +1,14 @@
+{
+  "id": "kepano-obsidian-skills-obsidian-bases",
+  "name": "obsidian-bases",
+  "source_type": "skill",
+  "repo": "kepano/obsidian-skills",
+  "repo_url": "https://github.com/kepano/obsidian-skills",
+  "extracted_from": "kepano/obsidian-skills@main/obsidian-skills-main/skills/obsidian-bases",
+  "local_path": "01_可用Skill源码/第三方Skill/kepano-obsidian-skills-obsidian-bases",
+  "license": "MIT",
+  "author": "kepano",
+  "status": "downloaded",
+  "install_note": "复制整个 Skill 文件夹到目标 Agent 的 Skill 目录。",
+  "verify_note": "让 Agent 读取 SKILL.md 并说明该 Skill 的触发条件、流程和需要的资源。"
+}

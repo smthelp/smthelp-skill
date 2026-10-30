@@ -1,0 +1,4 @@
+interface:
+  display_name: "Wa Reply"
+  short_description: "Draft concise WhatsApp replies"
+  default_prompt: "Use $wa-reply to draft a short Southern Machinery WhatsApp response."

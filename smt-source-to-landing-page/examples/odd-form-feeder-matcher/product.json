@@ -1,0 +1,773 @@
+{
+ "schema": "smt-source-to-landing-page/1",
+ "product_line": "feeders-nozzles",
+ "filename": "odd-form-insertion-customized-feeder-nozzle-catalog-v03-component-matcher-southern-machinery.html",
+ "canonical_base": "https://www.smthelp.com/",
+ "pub_date": "2026-10-22",
+ "storage_prefix": "oddform_feeder_match",
+ "languages": [
+  "en",
+  "es",
+  "pt",
+  "fr",
+  "ar",
+  "ru",
+  "zh"
+ ],
+ "brand": "southern-machinery",
+ "css": [
+  "product.css"
+ ],
+ "i18n_dir": "i18n",
+ "blogs": "blogs.json",
+ "sections": [
+  "hero",
+  "metrics",
+  "trust",
+  "summary",
+  "pain",
+  "matcher",
+  "npi",
+  "fab",
+  "models",
+  "spec",
+  "disclosure",
+  "calc",
+  "gallery",
+  "videos",
+  "blog",
+  "docs",
+  "service",
+  "faq",
+  "family",
+  "contact"
+ ],
+ "nav": [
+  [
+   "matcher",
+   "nav_matcher"
+  ],
+  [
+   "npi",
+   "nav_npi"
+  ],
+  [
+   "fab",
+   "nav_fab"
+  ],
+  [
+   "models",
+   "nav_models"
+  ],
+  [
+   "spec",
+   "nav_spec"
+  ],
+  [
+   "videos",
+   "nav_videos"
+  ],
+  [
+   "blog",
+   "nav_blog"
+  ],
+  [
+   "docs",
+   "nav_docs"
+  ],
+  [
+   "faq",
+   "nav_faq"
+  ],
+  [
+   "contact",
+   "nav_contact"
+  ]
+ ],
+ "hero": {
+  "cta2_href": "#matcher",
+  "images": [
+   {
+    "src": "https://ph.smthelp.com/images/2026/08/09/southern-machinery-solder-chip-feeder-seo-webp-fix-01.md.webp",
+    "alt": "g1"
+   },
+   {
+    "src": "https://ph.smthelp.com/images/2026/10/07/JUKI-JM-Oddform-insertion-using-Southern-Machinerymade-Nozzle--feeder-SM2072.md.png",
+    "alt": "g4"
+   },
+   {
+    "src": "https://ph.smthelp.com/images/2026/08/09/southern-machinery-bowl-feeder-img-1424-0163.md.webp",
+    "alt": "g10"
+   },
+   {
+    "src": "https://ph.smthelp.com/images/2026/09/14/smthelp-feeder-tube-feeder-product-17.md.webp",
+    "alt": "g9"
+   }
+  ]
+ },
+ "metrics": {
+  "count": 4,
+  "ltr": [
+   "m1v",
+   "m2v",
+   "m3v",
+   "m4v"
+  ]
+ },
+ "trust": {
+  "count": 3
+ },
+ "summary": {
+  "facts": 6
+ },
+ "pain": {
+  "count": 6
+ },
+ "fab": {
+  "count": 6
+ },
+ "models": {
+  "cards": 10,
+  "ltr_titles": [
+   "mc1t",
+   "mc2t",
+   "mc3t",
+   "mc4t",
+   "mc5t",
+   "mc6t",
+   "mc7t",
+   "mc8t",
+   "mc9t",
+   "mc10t"
+  ],
+  "fit_rows": 7
+ },
+ "spec": {
+  "evidence": [
+   "v",
+   "v",
+   "v",
+   "v",
+   "v",
+   "v",
+   "v",
+   "v",
+   "v",
+   "v",
+   "v",
+   "v",
+   "t"
+  ],
+  "ltr": []
+ },
+ "disclosure": {
+  "rows": 5
+ },
+ "calc": {
+  "inputs": [
+   {
+    "id": "cOps",
+    "key": "cf1",
+    "value": 2
+   },
+   {
+    "id": "cShifts",
+    "key": "cf2",
+    "value": 2
+   },
+   {
+    "id": "cHrs",
+    "key": "cf3",
+    "value": 8
+   },
+   {
+    "id": "cDays",
+    "key": "cf4",
+    "value": 22
+   }
+  ],
+  "vars": [
+   [
+    "hrs",
+    "cOps*cShifts*cHrs*cDays"
+   ]
+  ],
+  "outputs": [
+   {
+    "id": "rHrs",
+    "key": "cr1",
+    "expr": "hrs"
+   },
+   {
+    "id": "rYear",
+    "key": "cr2",
+    "expr": "hrs*12"
+   }
+  ]
+ },
+ "gallery": [
+  {
+   "key": "g1",
+   "thumb": "https://ph.smthelp.com/images/2026/08/09/southern-machinery-solder-chip-feeder-seo-webp-fix-01.md.webp",
+   "full": "https://ph.smthelp.com/images/2026/08/09/southern-machinery-solder-chip-feeder-seo-webp-fix-01.webp"
+  },
+  {
+   "key": "g2",
+   "thumb": "https://ph.smthelp.com/images/2026/09/14/smthelp-automatic-insertion-s7900-front-06.md.webp",
+   "full": "https://ph.smthelp.com/images/2026/09/14/smthelp-automatic-insertion-s7900-front-06.webp"
+  },
+  {
+   "key": "g3",
+   "thumb": "https://ph.smthelp.com/images/2026/09/14/smthelp-automatic-insertion-s7900-view-01-06.md.webp",
+   "full": "https://ph.smthelp.com/images/2026/09/14/smthelp-automatic-insertion-s7900-view-01-06.webp"
+  },
+  {
+   "key": "g4",
+   "thumb": "https://ph.smthelp.com/images/2026/10/07/JUKI-JM-Oddform-insertion-using-Southern-Machinerymade-Nozzle--feeder-SM2072.md.png",
+   "full": "https://ph.smthelp.com/images/2026/10/07/JUKI-JM-Oddform-insertion-using-Southern-Machinerymade-Nozzle--feeder-SM2072.png"
+  },
+  {
+   "key": "g5",
+   "thumb": "https://ph.smthelp.com/images/2026/10/07/JM-50-Oddform-insertion-using-Southern-Machinerymade-Nozzle--feeder-SM2073.md.png",
+   "full": "https://ph.smthelp.com/images/2026/10/07/JM-50-Oddform-insertion-using-Southern-Machinerymade-Nozzle--feeder-SM2073.png"
+  },
+  {
+   "key": "g6",
+   "thumb": "https://ph.smthelp.com/images/2026/09/14/smthelp-nozzle-unspecified-product-13.md.webp",
+   "full": "https://ph.smthelp.com/images/2026/09/14/smthelp-nozzle-unspecified-product-13.webp"
+  },
+  {
+   "key": "g7",
+   "thumb": "https://ph.smthelp.com/images/2026/08/09/southern-machinery-horizontal-tape-feeder-image-0028.md.webp",
+   "full": "https://ph.smthelp.com/images/2026/08/09/southern-machinery-horizontal-tape-feeder-image-0028.webp"
+  },
+  {
+   "key": "g8",
+   "thumb": "https://ph.smthelp.com/images/2026/09/14/smthelp-feeder-tube-feeder-product-02.md.webp",
+   "full": "https://ph.smthelp.com/images/2026/09/14/smthelp-feeder-tube-feeder-product-02.webp"
+  },
+  {
+   "key": "g9",
+   "thumb": "https://ph.smthelp.com/images/2026/09/14/smthelp-feeder-tube-feeder-product-17.md.webp",
+   "full": "https://ph.smthelp.com/images/2026/09/14/smthelp-feeder-tube-feeder-product-17.webp"
+  },
+  {
+   "key": "g10",
+   "thumb": "https://ph.smthelp.com/images/2026/08/09/southern-machinery-bowl-feeder-img-1424-0163.md.webp",
+   "full": "https://ph.smthelp.com/images/2026/08/09/southern-machinery-bowl-feeder-img-1424-0163.webp"
+  },
+  {
+   "key": "g11",
+   "thumb": "https://ph.smthelp.com/images/2026/09/14/smthelp-feeder-vibration-feeder-product-04.md.webp",
+   "full": "https://ph.smthelp.com/images/2026/09/14/smthelp-feeder-vibration-feeder-product-04.webp"
+  },
+  {
+   "key": "g12",
+   "thumb": "https://ph.smthelp.com/images/2026/09/14/smthelp-feeder-unspecified-product-18.md.webp",
+   "full": "https://ph.smthelp.com/images/2026/09/14/smthelp-feeder-unspecified-product-18.webp"
+  },
+  {
+   "key": "g13",
+   "thumb": "https://ph.smthelp.com/images/2026/08/09/southern-machinery-radial-tape-feeder-image-0082.md.webp",
+   "full": "https://ph.smthelp.com/images/2026/08/09/southern-machinery-radial-tape-feeder-image-0082.webp"
+  },
+  {
+   "key": "g14",
+   "thumb": "https://ph.smthelp.com/images/2026/10/07/Components-JUKI-JM-Oddform-insertion-using-Southern-Machinerymade-Nozzle--feeder-SM2072.md.jpg",
+   "full": "https://ph.smthelp.com/images/2026/10/07/Components-JUKI-JM-Oddform-insertion-using-Southern-Machinerymade-Nozzle--feeder-SM2072.jpg"
+  },
+  {
+   "key": "g15",
+   "thumb": "asset:stp1001.jpg",
+   "full": "asset:stp1001.jpg"
+  },
+  {
+   "key": "g16",
+   "thumb": "asset:sbf2002.jpg",
+   "full": "asset:sbf2002.jpg"
+  },
+  {
+   "key": "g17",
+   "thumb": "asset:sjf1001.jpg",
+   "full": "asset:sjf1001.jpg"
+  },
+  {
+   "key": "g18",
+   "thumb": "asset:srt7001.jpg",
+   "full": "asset:srt7001.jpg"
+  }
+ ],
+ "videos": {
+  "filters": [
+   [
+    "oddform",
+    "vf_oddform"
+   ],
+   [
+    "bulk",
+    "vf_bulk"
+   ],
+   [
+    "tape",
+    "vf_tape"
+   ],
+   [
+    "tube",
+    "vf_tube"
+   ],
+   [
+    "nozzle",
+    "vf_nozzle"
+   ]
+  ],
+  "items": [
+   {
+    "id": "4_-IFfZk7Ys",
+    "title": "Mastering THT Assembly: S7900 Odd Form Insertion for Intelligent Instrument PCBs",
+    "dur": "0:47",
+    "cat": "oddform"
+   },
+   {
+    "id": "gRWae92mL3Q",
+    "title": "2.Solve the problem of excessive material throwing in odd form inserter at one time S7900",
+    "dur": "0:33",
+    "cat": "oddform"
+   },
+   {
+    "id": "oWe8DATr63k",
+    "title": "10x cost saving Customized THT odd form feeder design for Smart EMS factory PCB assembly",
+    "dur": "6:46",
+    "cat": "oddform"
+   },
+   {
+    "id": "moGjmJ-mWQg",
+    "title": "Odd Form Feeder Design by SMThelp.com for Smart EMS factory PCB assembly",
+    "dur": "1:44",
+    "cat": "oddform"
+   },
+   {
+    "id": "lcLc7-ApzAQ",
+    "title": "Automate with Confidence: Explore Our Custom THT Odd Form Feeder Services",
+    "dur": "0:55",
+    "cat": "oddform"
+   },
+   {
+    "id": "mdtZqatMFYA",
+    "title": "Two odd form insertion machine solve 10 different THT components",
+    "dur": "3:39",
+    "cat": "oddform"
+   },
+   {
+    "id": "mtQX516P1ZA",
+    "title": "SMT Bulk Component Handling: Bowl Feeder vs. S-MVF01 Belt Feeder | Southern Machinery",
+    "dur": "2:02",
+    "cat": "bulk"
+   },
+   {
+    "id": "XuHQMP-8IVQ",
+    "title": "Electronic Component Bowl feeder for Smart EMS factory PCB assembly#shorts",
+    "dur": "1:41",
+    "cat": "bulk"
+   },
+   {
+    "id": "o_g1D69EHV8",
+    "title": "odd form insertion machine-bowl feeder solve the feeding problem of various components",
+    "dur": "0:52",
+    "cat": "bulk"
+   },
+   {
+    "id": "vN70mlOzwbI",
+    "title": "How THT led bowl feeder works with polarity check for Auto Insertion PCB assembly",
+    "dur": "0:27",
+    "cat": "bulk"
+   },
+   {
+    "id": "pzNoUquFH30",
+    "title": "SMT THT Radial Feeder Automate Radial Component Insertion for Smart EMS PCB Assembly",
+    "dur": "3:00",
+    "cat": "tape"
+   },
+   {
+    "id": "WpMOiV8_Ocg",
+    "title": "27.5mm Large Span Radial Feeder Technology for Smart EMS factory PCB assembly #SMT#PCBA",
+    "dur": "1:06",
+    "cat": "tape"
+   },
+   {
+    "id": "OCPt-18Lmrk",
+    "title": "Axial Tape Feeders Optimize Your Electronics Manufacturing Workflow #pcba",
+    "dur": "1:43",
+    "cat": "tape"
+   },
+   {
+    "id": "g_wi1xyq5VA",
+    "title": "10x cost saving SMT Jumper Wire Feeder for EMS PCB assembly",
+    "dur": "1:12",
+    "cat": "tape"
+   },
+   {
+    "id": "bRkxtrJbtz0",
+    "title": "Terminal Reel Feeder A Proven Way to Reduce PCB Assembly Costs for Smart EMS factory PCB assembly",
+    "dur": "1:08",
+    "cat": "tape"
+   },
+   {
+    "id": "L4HIvS5ikoY",
+    "title": "Automate Your Production: Maximize Efficiency with Southern Machinery Tube Feeders for Smart EMS",
+    "dur": "3:12",
+    "cat": "tube"
+   },
+   {
+    "id": "9z_GdxxF5js",
+    "title": "STF-1002 Stacked Tube feeder SMT Feeder for Smart PCB assembly manufacturing |SMT mounter#shorts",
+    "dur": "1:39",
+    "cat": "tube"
+   },
+   {
+    "id": "bjhKqcy-O3s",
+    "title": "1 tube feeder can carry and feed odd form components to Juki Insertion Machine",
+    "dur": "0:22",
+    "cat": "tube"
+   },
+   {
+    "id": "cpC4h1cSsXM",
+    "title": "How SMT tray feeder works for EMS smart factory",
+    "dur": "2:05",
+    "cat": "tube"
+   },
+   {
+    "id": "cbvWhqnld2M",
+    "title": "SMT customized gripper nozzle design and manufacturing for Smart EMS factory PCB assembly",
+    "dur": "1:36",
+    "cat": "nozzle"
+   },
+   {
+    "id": "fv7J-isLH88",
+    "title": "How to design and manufacturing SMT THT Customized Nozzle for Smart EMS factory PCB assembly",
+    "dur": "1:08",
+    "cat": "nozzle"
+   },
+   {
+    "id": "YFaQc947BSQ",
+    "title": "SMT gripper nozzle for   PCB Assembly  by Through hole technology",
+    "dur": "0:21",
+    "cat": "nozzle"
+   },
+   {
+    "id": "HcUFBN4O-Ys",
+    "title": "What is SMT gripper nozzle with component for PCB assembly",
+    "dur": "0:21",
+    "cat": "nozzle"
+   }
+  ]
+ },
+ "docs": {
+  "boards": true,
+  "items": [
+   {
+    "key": "dk1",
+    "url": "https://file.autoinsertion.com/public/Southern%20Machinery%20Product/Southern%20Machinery%20Customized%20Feeder%20Nozzle%20Catalog%20V03.pdf",
+    "size": "6.0 MB"
+   },
+   {
+    "key": "dk2",
+    "url": "https://file.autoinsertion.com/public/Southern%20Machinery%20Product/Innovative%20SMTTHT%20Odd%20Form%20Feeder%20Solution%20-%20Boosting%20Efficiency%20and%20Precision%20in%20EMS%20Smart%20Factories.pdf",
+    "size": "28.4 MB"
+   },
+   {
+    "key": "dk3",
+    "url": "https://file.autoinsertion.com/public/Southern%20Machinery%20Product/THT%20Odd%20Feeder%20config%20with%20SMT%20mounter%20in%20Smart%20EMS%20Factory%202024%20.pdf",
+    "size": "2.7 MB"
+   },
+   {
+    "key": "dk4",
+    "url": "https://file.autoinsertion.com/public/Southern%20Machinery%20Product/S7900%20ODD%20FORM%20MACHINE%20CATALOG%202025.pdf",
+    "size": "8.0 MB"
+   },
+   {
+    "key": "dk5",
+    "url": "https://file.autoinsertion.com/public/Southern%20Machinery%20Product/STF1003%20Tube%20Feeder%20%20Southern%20Machinery%20Customized%20Feeder%20Nozzle%20Catalog%20V03.pdf",
+    "size": "1.9 MB"
+   },
+   {
+    "key": "dk6",
+    "url": "https://file.autoinsertion.com/public/Southern%20Machinery%20Product/STP1001%20Tray%20Feeder%20%20Southern%20Machinery%20Customized%20Feeder%20Nozzle%20Catalog%20V03.pdf",
+    "size": "1.9 MB"
+   },
+   {
+    "key": "dk7",
+    "url": "https://file.autoinsertion.com/public/Southern%20Machinery%20Product/SBF1001%20Vibration%20Bowl%20Feeder%20Southern%20Machinery%20Customized%20Feeder%20Nozzle%20Catalog%20V03.pdf",
+    "size": "2.0 MB"
+   },
+   {
+    "key": "dk8",
+    "url": "https://file.autoinsertion.com/public/Southern%20Machinery%20Product/SBF2002%20Reciprocating%20Belt%20Feeder%20%20Southern%20Machinery%20Customized%20Feeder%20Nozzle%20Catalog%20V03.pdf",
+    "size": "2.0 MB"
+   },
+   {
+    "key": "dk9",
+    "url": "https://file.autoinsertion.com/public/Southern%20Machinery%20Product/SRF1001%20Radial%20Tape%20Feeder%20Southern%20Machinery%20Customized%20Feeder%20Nozzle%20Catalog%20V03.pdf",
+    "size": "2.2 MB"
+   },
+   {
+    "key": "dk10",
+    "url": "https://file.autoinsertion.com/public/SMThelp%20Machine%20Presentation/Belt%20feeder%20VS%20Bowl%20feeder.pdf",
+    "size": "5.0 MB"
+   },
+   {
+    "key": "dk11",
+    "url": "https://file.autoinsertion.com/public/SMT%20machine%203D%20drawing/SMT%20Customized%20Gripper%20nozzle%20%203D.PDF",
+    "size": "0.15 MB"
+   },
+   {
+    "key": "dk12",
+    "url": "https://file.autoinsertion.com/public/Southern%20Machinery%20Product/SMThelp%20Auto%20Insertion%20PCB%20assembly%20requirements.pdf",
+    "size": "0.58 MB"
+   }
+  ]
+ },
+ "service": {
+  "count": 5
+ },
+ "faq": {
+  "count": 10
+ },
+ "family": [
+  {
+   "key": "fam1",
+   "url": "../tht-auto-insertion/s7900-odd-form-insertion-machine-smart-ems-tht-pcb-assembly.html"
+  },
+  {
+   "key": "fam2",
+   "url": "sbf1001-vibratory-bowl-feeder-odd-form-auto-insertion-smart-ems.html"
+  },
+  {
+   "key": "fam6",
+   "url": "https://file.autoinsertion.com/public/Product%20landing%20Page/s-mvf01-reciprocating-belt-feeder-smart-ems-pcb-assembly.html"
+  },
+  {
+   "key": "fam3",
+   "url": "../tht-auto-insertion/s3000-radial-insertion-machine-smart-ems-tht-pcb-assembly.html"
+  },
+  {
+   "key": "fam4",
+   "url": "../tht-auto-insertion/s4000-axial-insertion-machine-smart-ems-tht-pcb-assembly.html"
+  },
+  {
+   "key": "fam5",
+   "url": "smt-feeder-calibration-jig-fuji-nxt-southern-machinery.html"
+  }
+ ],
+ "contact": {
+  "wa_text": "Hello Southern Machinery, I would like a feasibility check for odd-form components on our insertion machine.",
+  "fields": [
+   [
+    "fName",
+    "f_name",
+    "name"
+   ],
+   [
+    "fCo",
+    "f_company",
+    "organization"
+   ],
+   [
+    "fMail",
+    "f_email",
+    "email"
+   ],
+   [
+    "fMach",
+    "f_machine",
+    ""
+   ],
+   [
+    "fParts",
+    "f_parts",
+    ""
+   ],
+   [
+    "fMsg",
+    "f_msg",
+    "textarea"
+   ]
+  ]
+ },
+ "footer": {
+  "product_links": [
+   {
+    "key": "fl1",
+    "url": "https://file.autoinsertion.com/public/Southern%20Machinery%20Product/Southern%20Machinery%20Customized%20Feeder%20Nozzle%20Catalog%20V03.pdf"
+   },
+   {
+    "key": "fl2",
+    "url": "https://file.autoinsertion.com/public/Southern%20Machinery%20Product/S7900%20ODD%20FORM%20MACHINE%20CATALOG%202025.pdf"
+   },
+   {
+    "key": "fl3",
+    "url": "https://www.smthelp.com"
+   }
+  ]
+ },
+ "seo": {
+  "og_image": "https://ph.smthelp.com/images/2026/08/09/southern-machinery-solder-chip-feeder-seo-webp-fix-01.webp",
+  "og_image_alt": "Southern Machinery odd-form feeder solution: tube, tray, bowl, belt, radial and axial feeders",
+  "primary_image": "https://ph.smthelp.com/images/2026/08/09/southern-machinery-solder-chip-feeder-seo-webp-fix-01.webp"
+ },
+ "jsonld": {
+  "products": [
+   {
+    "@type": "Product",
+    "@id": "{{canonical}}#product",
+    "name": "Customized odd-form feeders and nozzles for odd-form insertion (Catalog V03)",
+    "alternateName": [
+     "Odd-form insertion feeders",
+     "Customized THT feeders",
+     "Gripper nozzles for odd-form components"
+    ],
+    "description": "{{t:seo_desc}}",
+    "image": [
+     "https://ph.smthelp.com/images/2026/08/09/southern-machinery-solder-chip-feeder-seo-webp-fix-01.webp",
+     "https://ph.smthelp.com/images/2026/10/07/JUKI-JM-Oddform-insertion-using-Southern-Machinerymade-Nozzle--feeder-SM2072.png"
+    ],
+    "brand": {
+     "@type": "Brand",
+     "name": "Southern Machinery"
+    },
+    "manufacturer": {
+     "@id": "https://www.smthelp.com/#organization"
+    },
+    "category": "SMT/THT odd-form insertion feeders and nozzles",
+    "model": [
+     "SAF1001",
+     "SRF1001",
+     "STF1003",
+     "SBF1001",
+     "SBF2002",
+     "SLF1001",
+     "SJF1001",
+     "STP1001",
+     "SSPC101",
+     "SRT7001"
+    ],
+    "additionalProperty": [
+     {
+      "@type": "PropertyValue",
+      "name": "Feeder families",
+      "value": "axial, radial, tube, vibratory bowl, belt, label, tray, jumper wire, solder chip, reel terminal"
+     },
+     {
+      "@type": "PropertyValue",
+      "name": "Host connection",
+      "value": "8-core 16 mm aviation plug; IO communication or self-control without communication"
+     },
+     {
+      "@type": "PropertyValue",
+      "name": "Working air pressure",
+      "value": "0.4-0.6 MPa (pneumatic models)"
+     },
+     {
+      "@type": "PropertyValue",
+      "name": "Release tests",
+      "value": "48-hour continuous ageing test on every catalog model; 500-1000 consecutive feeds or 2-hour continuous feeding"
+     },
+     {
+      "@type": "PropertyValue",
+      "name": "Nozzles",
+      "value": "Gripper nozzles (fixed arm + swing arm) for odd-form parts; custom nozzles with interchangeable rubber tips"
+     }
+    ],
+    "url": "https://file.autoinsertion.com/public/Southern%20Machinery%20Product/Southern%20Machinery%20Customized%20Feeder%20Nozzle%20Catalog%20V03.pdf"
+   }
+  ],
+  "howto": {
+   "@type": "HowTo",
+   "name": "NPI feeder selection for odd-form insertion in five steps",
+   "description": "{{t:npi_lead}}",
+   "supply": [
+    {
+     "@type": "HowToSupply",
+     "name": "Component samples or BOM with packaging and dimensions"
+    }
+   ],
+   "tool": [
+    {
+     "@type": "HowToTool",
+     "name": "Southern Machinery feeder quick-match table"
+    }
+   ],
+   "step": "{{npi_steps}}"
+  },
+  "breadcrumb": [
+   [
+    "Feeders & nozzles",
+    "https://file.autoinsertion.com/public/Southern-Machinery-Product-Catalog-Board.html"
+   ],
+   [
+    "Odd-form feeder matcher",
+    "{{canonical}}"
+   ]
+  ],
+  "blog_list_name": "Articles on matching odd-form components to feeders",
+  "video_list_name": "Odd-form insertion, feeder and nozzle videos",
+  "matcher_list_name": "Feeder models in the odd-form quick-match table",
+  "terms": {
+   "@type": "DefinedTermSet",
+   "name": "Odd-form feeder selection terms",
+   "hasDefinedTerm": [
+    {
+     "@type": "DefinedTerm",
+     "name": "Odd-form insertion",
+     "description": "Automatic through-hole insertion of components that standard axial or radial inserters cannot handle: connectors, relays, transformers, large capacitors, terminals and similar parts, placed by a pick-and-place style head."
+    },
+    {
+     "@type": "DefinedTerm",
+     "name": "Lead pitch",
+     "description": "Centre-to-centre distance between adjacent leads or pins, matched to the PCB hole pattern (for example 2.54 mm headers or 22.5 mm X2 capacitors)."
+    },
+    {
+     "@type": "DefinedTerm",
+     "name": "Tape hole pitch",
+     "description": "Spacing of the sprocket holes in radial component tape; the SRF1001 is built for 12.7 mm or 15 mm, and the two are not interchangeable."
+    },
+    {
+     "@type": "DefinedTerm",
+     "name": "Gripper nozzle",
+     "description": "Pick-up tool with a fixed arm and a swing arm that grips an odd-shaped body instead of relying on vacuum; used for odd-form components, special connectors and hybrid circuits."
+    },
+    {
+     "@type": "DefinedTerm",
+     "name": "Feeder envelope",
+     "description": "The published range of component size, weight, lead diameter and packaging a feeder model accepts; parts outside it need a customized feeder or a sample test."
+    },
+    {
+     "@type": "DefinedTerm",
+     "name": "Feasibility check",
+     "description": "Engineering review of samples or a BOM against feeder envelopes and the target insertion machine, before a feeder or nozzle is quoted."
+    }
+   ]
+  }
+ },
+ "verify": {
+  "forbidden_terms": [
+   "USD",
+   "$",
+   "¥"
+  ]
+ },
+ "matcher": {
+  "data": "matcher.json",
+  "check_part": true,
+  "jsonld_itemlist": true
+ },
+ "npi": {
+  "steps": 5,
+  "checks": [
+   3,
+   3,
+   3,
+   3,
+   3
+  ]
+ }
+}

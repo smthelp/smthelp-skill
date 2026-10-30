@@ -1,0 +1,49 @@
+{
+  "schema": "smthelp-lp-machine/v1",
+  "model": "S-3000",
+  "page_type": "single-machine",
+  "updated": "2026-09-06",
+  "source": "smthelp-brand-voice / references/smt-term-bank.md 二·B 已确认参数锚点",
+  "fields": {
+    "MODEL": "S-3000",
+    "PROCESS": "Radial Insertion",
+    "CATEGORY": "THT LINE",
+    "ONE_LINER": "Radial taped component insertion at 10,000-12,000 CPH measured, 0-360 deg at 1 deg steps.",
+    "NARRATIVE": "Radial taped parts are sequenced, formed, inserted and clinched in one pass across a 50 x 50 to 400 x 400 mm board. Measured throughput, not a theoretical peak.",
+    "HOTSPOT_1": "0-360 deg insertion, 1 deg step",
+    "HOTSPOT_2": "10,000-12,000 CPH measured",
+    "HOTSPOT_3": "Universal-compatible spares",
+    "CORNER_1": "THROUGHPUT / 10,000-12,000 CPH",
+    "CORNER_2": "INSERTION ANGLE / 0-360 deg",
+    "CORNER_3": "PCB SIZE / 50 x 50 - 400 x 400 mm",
+    "CORNER_4": "DEFECT RATE / < 500 PPM",
+    "SPEC_01": "01  COMPONENT TYPE        Radial taped",
+    "SPEC_02": "02  THROUGHPUT            10,000-12,000 CPH (measured)",
+    "SPEC_03": "03  INSERTION ANGLE       0-360 deg, 1 deg step",
+    "SPEC_04": "04  LEAD SPAN             2.5 / 5.0 / 7.5 / 10.0 mm",
+    "SPEC_05": "05  PCB SIZE              50 x 50 - 400 x 400 mm",
+    "SPEC_06": "06  DEFECT RATE           < 500 PPM",
+    "SPEC_07": "07  SPARE PARTS           Universal-compatible, under 100 USD per month",
+    "PAIRING": "",
+    "APP_01": "Radial leaded assembly",
+    "APP_02": "Consumer electronics boards",
+    "APP_03": "LED driver boards",
+    "HERO_MEDIA": "S-3000 radial insertion head with tape feeder, 3/4 view or muted looping MP4",
+    "MARQUEE_MEDIA": "tape sequencing / lead forming / insertion / clinch / board indexing / HMI screen"
+  },
+  "params_confirmed": [
+    "radial taped",
+    "10,000-12,000 CPH measured",
+    "insertion angle 0-360 deg in 1 deg steps",
+    "lead span 2.5 / 5.0 / 7.5 / 10.0 mm",
+    "PCB 50 x 50 - 400 x 400 mm",
+    "defect rate < 500 PPM",
+    "Universal spare parts compatible",
+    "spare cost under 100 USD per month"
+  ],
+  "params_withheld": [
+    "18,000 PCS/H 是轴向条件下的理论峰值，禁止作为 headline 或参数墙数值"
+  ],
+  "pairing_required": false,
+  "notes": "参数最全的机型。务必用 measured 10,000-12,000 CPH，不要用 18,000 理论峰值。"
+}

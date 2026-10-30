@@ -1,0 +1,6 @@
+interface:
+  display_name: "Smart-SMT Future Line"
+  short_description: "Futuristic English SMT/THT automation campaign visuals"
+  default_prompt: "Use $smart-smt-future-line to create three futuristic English image concepts and imagegen prompts for a Southern Machinery SMT/THT automation campaign."
+policy:
+  allow_implicit_invocation: true

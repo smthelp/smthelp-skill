@@ -1,0 +1,46 @@
+{
+ "$schema": "https://json-schema.org/draft/2020-12/schema",
+ "title": "p3cv product.json",
+ "description": "One product project. Full reference: docs/CONFIG.md. Defaults live in p3cv/config.py (DEFAULTS).",
+ "type": "object",
+ "required": ["slug", "product_name", "segments", "anim"],
+ "properties": {
+  "slug": {"type": "string", "pattern": "^[a-z0-9-]+$", "description": "file prefix for deliverables"},
+  "product_name": {"type": "string"},
+  "brand": {"type": "object", "properties": {
+    "name": {"type": "string"}, "logo_url": {"type": "string"}, "primary": {"type": "string"}, "primary_dark": {"type": "string"},
+    "dark_bg": {"type": "string"}, "dark_glow": {"type": "string"}, "accent": {"type": "string"}, "email": {"type": "string"},
+    "whatsapp": {"type": "string", "description": "digits only, used in wa.me links"}, "website": {"type": "string"},
+    "bar_label": {"type": "string"}}},
+  "sources": {"type": "object", "properties": {
+    "drawings": {"type": "array", "items": {"type": "object", "required": ["id", "url"], "properties": {
+      "id": {"type": "string"}, "url": {"type": "string"}, "viewer": {"enum": ["threejs", "edrawings"]},
+      "capture": {"type": "boolean"}, "refresh": {"type": "boolean"}}}},
+    "landing": {"type": "array", "items": {"type": "object", "required": ["id", "url"]}},
+    "docs": {"type": "array", "items": {"type": "object", "required": ["id", "url"]}}}},
+  "download": {"type": "object"},
+  "capture": {"type": "object"},
+  "anim": {"type": "object", "required": ["module", "global"], "properties": {
+    "module": {"type": "string"}, "global": {"type": "string"}}},
+  "voice": {"type": "object", "properties": {
+    "provider": {"type": "string"}, "voice": {"type": "string"}, "rate": {"type": "string"},
+    "lead_in": {"type": "number"}, "gap": {"type": "number"}, "tail": {"type": "number"}, "lufs": {"type": "number"},
+    "replacements": {"type": "object"}, "max_cue_chars": {"type": "integer"}}},
+  "segments": {"type": "array", "minItems": 1, "items": {"anyOf": [{"type": "string"},
+    {"type": "object", "required": ["text"], "properties": {"text": {"type": "string"}, "chapter": {"type": "string"}}}]}},
+  "landing": {"type": "object", "properties": {
+    "base": {"type": "string"}, "insert_before": {"type": "string"}, "nav_after_href": {"type": "string"},
+    "nav_after_text": {"type": "string"}, "nav_label": {"type": "string"}, "output": {"type": "string"}, "section": {"type": "object"}}},
+  "video": {"type": "object", "properties": {
+    "fps": {"type": "integer"}, "formats": {"type": "array", "items": {"enum": ["169", "916"]}}, "scale": {"type": "integer"},
+    "chunks": {"type": "integer"}, "tmp_dir": {"type": "string"}, "basename": {"type": "string"}, "max_seconds": {"type": "number"},
+    "scenes": {"type": "array", "items": {"type": "object", "required": ["type", "from_segment"], "properties": {
+      "type": {"enum": ["hero", "turntable", "mechanism", "cards", "chips", "cta"]}, "from_segment": {"type": "integer"}}}}}},
+  "thumbnail": {"type": "object"},
+  "seo": {"type": "object"},
+  "upload": {"type": "object", "properties": {"sink": {"type": "string"}, "folder_name": {"type": "string"},
+    "parent_id": {"type": "string"}, "remote": {"type": "string"}, "local_dir": {"type": "string"}, "auto": {"type": "boolean"}}},
+  "hooks": {"type": "object", "description": "pre / post / pre_<stage> / post_<stage>: shell commands"},
+  "plugins": {"type": "array", "items": {"type": "string"}}
+ }
+}

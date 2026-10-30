@@ -1,0 +1,148 @@
+{
+ "title": "X3100 operation manual (excerpt)",
+ "slides": [
+  {
+   "type": "cover",
+   "kicker": "Operation manual",
+   "title": "X3100 Offline X-ray Component Counter",
+   "subtitle": "Operation Manual - English",
+   "image": "photos/x3100-offline-x-ray-counter-front.jpg",
+   "focus": [
+    0.5,
+    0.4
+   ],
+   "tagline": "Read this manual before installing or operating the machine. Keep it with the machine."
+  },
+  {
+   "type": "toc",
+   "title": "Contents"
+  },
+  {
+   "type": "section",
+   "kicker": "Chapter 1",
+   "title": "Safety",
+   "text": "The X3100 is an X-ray device. Only trained staff may operate it. Read every warning in this chapter before switching on.",
+   "image": "photos/x3100-offline-x-ray-counter-angle.jpg"
+  },
+  {
+   "type": "warning",
+   "kicker": "Safety",
+   "title": "Warnings that apply every day",
+   "cols": 2,
+   "cards": [
+    {
+     "h": "X-ray on",
+     "b": "Never open the door while X-ray is on. The interlocks stop X-ray; do not rely on them as a routine."
+    },
+    {
+     "h": "Interlocks",
+     "b": "Never bypass door interlocks 1 and 2 or the double safety circuit."
+    },
+    {
+     "h": "Emergency stop",
+     "b": "Press the emergency stop in any abnormal situation."
+    },
+    {
+     "h": "Tube window",
+     "b": "Never touch the beryllium window of the X-ray tube."
+    }
+   ],
+   "banner": "Stop X-ray first, every time - even with the interlocks working.",
+   "image": "photos/x3100-x-ray-image-loose-parts.jpg"
+  },
+  {
+   "type": "section",
+   "kicker": "Chapter 2",
+   "title": "Daily operation",
+   "text": "Start-up, a four-reel count and shut-down.",
+   "items": [
+    "Start-up and log-in",
+    "Four-reel count and labels",
+    "Shut-down order"
+   ],
+   "image": "photos/x3100-four-reel-tray.jpg"
+  },
+  {
+   "type": "steps",
+   "kicker": "Daily operation",
+   "title": "Start-up and counting",
+   "steps": [
+    {
+     "h": "Start-up",
+     "b": "Main power on, PC on, release the emergency stop, start the counting software."
+    },
+    {
+     "h": "Log in",
+     "b": "Choose the operator account and enter the password."
+    },
+    {
+     "h": "Set the run",
+     "b": "Select print, auto barcode scan and single or multi-reel mode, then press start."
+    },
+    {
+     "h": "Count",
+     "b": "Place the reels, press both start buttons, wait for the result."
+    },
+    {
+     "h": "Label and store",
+     "b": "Take reels out one by one; apply each printed label."
+    }
+   ],
+   "image": "photos/mainui.png",
+   "fit": "contain",
+   "caption": "Counting software main screen"
+  },
+  {
+   "type": "table",
+   "kicker": "Troubleshooting",
+   "title": "Most stoppages are cleared by settings",
+   "colw": [
+    0.38,
+    0.62
+   ],
+   "rows": [
+    [
+     "Symptom",
+     "First check"
+    ],
+    [
+     "Count looks wrong",
+     "Adjust image brightness; check the part type"
+    ],
+    [
+     "Barcode not read",
+     "Set auto scan and the right code type"
+    ],
+    [
+     "Flat panel or X-ray init failed",
+     "Previous session did not close - restart the software"
+    ],
+    [
+     "Fault remains",
+     "Stop X-ray, tag the machine, contact Southern Machinery service"
+    ]
+   ],
+   "size": 10.5
+  },
+  {
+   "type": "cta",
+   "kicker": "Service",
+   "title": "Southern Machinery service and support",
+   "facts": [
+    {
+     "h": "Before you call",
+     "b": "Note the reel ID, part type, mode and what the screen shows; stop X-ray and keep the door closed."
+    },
+    {
+     "h": "Remote help",
+     "b": "Send photos or a short video of the screen and the fault to our engineers."
+    },
+    {
+     "h": "Spare parts and training",
+     "b": "Quote the machine serial number from the nameplate."
+    }
+   ],
+   "text": "Service: info@smthelp.com · WhatsApp +86 136 0256 2576 · smthelp.com"
+  }
+ ]
+}
