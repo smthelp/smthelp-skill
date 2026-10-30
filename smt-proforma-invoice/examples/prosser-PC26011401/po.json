@@ -1,0 +1,40 @@
+{
+ "_doc": "Rebuilt from Southern Machinery PI PC26011401 (2026-01-14, scanned PDF) - the original PO PR-260113-91 itself was not available, so PO fields are what that PI shows.",
+ "_source": "PI prosserllc 26011401.pdf",
+ "po_no": "PR-260113-91",
+ "buyer": {
+  "company": "PROSSER LLC",
+  "address": "319 E. Coma Ave. Suite 245, Hidalgo, TX 78557",
+  "country": "USA",
+  "attn": "Javier Lopez",
+  "email": "info@us-prosser.com",
+  "tel": "956 843 1100"
+ },
+ "currency": "USD",
+ "incoterm": "DDP",
+ "place": "Hidalgo, TX, USA",
+ "destination": "USA",
+ "ship_via": "Air (DHL)",
+ "payment": "100% T/T in advance",
+ "delivery": "1 week after receipt of payment",
+ "items": [
+  {
+   "line": 1,
+   "model": "BLHC800",
+   "name": "Lower heating core 800 W",
+   "qty": 12,
+   "unit": "pc",
+   "price": 150,
+   "amount": 1800
+  }
+ ],
+ "charges": [
+  {
+   "name": "Shipping cost via DHL air to USA, duties paid (DDP)",
+   "qty": 1,
+   "unit": "lot",
+   "price": 450
+  }
+ ],
+ "total": 2250
+}

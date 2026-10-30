@@ -1,0 +1,20 @@
+{
+ "_doc": "Jason's answers. resolve: issue id -> 'accept' (keep the draft value) or {'value': x}. Rebuild after every change.",
+ "pi_no": "",
+ "date": "",
+ "prepared_by": "Jason Wu",
+ "show_tax_id": false,
+ "export_control_line": false,
+ "resolve": {
+  "item1.price": "accept",
+  "terms.payment": {
+   "value": "50% T/T deposit with order, 50% T/T before shipment"
+  }
+ },
+ "lines": {
+  "1": [
+   "H.S. code: 0000000000"
+  ]
+ },
+ "notes": []
+}

@@ -1,0 +1,19 @@
+{
+ "_doc": "The 2026-01-14 PI was already issued and paid on these values, so every flag is accepted here. Warranty left off, as on the original PI (empty value = line omitted).",
+ "pi_no": "PC26011401",
+ "date": "2026-01-14",
+ "prepared_by": "Jason Wu",
+ "resolve": {
+  "quote_missing": "accept",
+  "item1.match": "accept",
+  "item1.price": "accept",
+  "charge.freight": "accept",
+  "terms.insurance": "accept",
+  "terms.taxes": "accept",
+  "ship_to": "accept",
+  "terms.warranty": {
+   "value": ""
+  },
+  "terms.packing": "accept"
+ }
+}

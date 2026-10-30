@@ -1,0 +1,152 @@
+{
+ "_generated_by": "smt-proforma-invoice/build_pi.py",
+ "show_tax_id": false,
+ "date": "2026-10-30",
+ "pi_no": "CT26103001",
+ "po_no": "DEMO-4500012345",
+ "po_date": "2026-10-30",
+ "quote_ref": "CT26102801",
+ "prepared_by": "Jason Wu",
+ "buyer": {
+  "company": "Creation Technologies",
+  "address": "Dallas, TX",
+  "country": "USA",
+  "attn": "Benjamin Dendy",
+  "email": "benjamin.dendy@creationtech.com",
+  "tel": "",
+  "tax_id": "",
+  "short": "Creationtech"
+ },
+ "ship_to": {
+  "company": "Creation Technologies - Receiving",
+  "address": "DEMO receiving address, Dallas, TX",
+  "country": "USA"
+ },
+ "currency": "USD",
+ "incoterm": "EXW",
+ "place": "Shenzhen, China",
+ "terms": {
+  "payment": "50% T/T deposit with order, 50% T/T before shipment",
+  "delivery": "Within 30 days after receipt of the deposit",
+  "warranty": "12 months from the date of shipment, excluding consumable and wear parts and damage caused by misuse",
+  "packing": "Export packing as listed above. Freight from Shenzhen is arranged and paid by the buyer (EXW).",
+  "installation": "Free remote installation guidance and operator training by video call",
+  "insurance": "To be covered by the buyer",
+  "taxes": "Prices exclude import duties, local taxes and bank charges in the buyer's country"
+ },
+ "delivery_date": "2026-11-20",
+ "shipment": {
+  "port_of_loading": "Shenzhen, China",
+  "destination": "USA",
+  "ship_via": "",
+  "country_of_origin": "China"
+ },
+ "items": [
+  {
+   "line": 1,
+   "model": "SFY04",
+   "name": "AGV (automated guided vehicle) for soldering pallets, magnetic-strip navigation, each with 40 m magnetic strip and charger",
+   "customer_ref": "",
+   "lines": [],
+   "qty": 2.0,
+   "unit": "set",
+   "price": 2950.0,
+   "hs_code": ""
+  }
+ ],
+ "charges": [
+  {
+   "name": "Export packing: vacuum-sealed, fumigation-free wooden case",
+   "qty": 2,
+   "unit": "case",
+   "price": 300.0
+  }
+ ],
+ "discount": 0,
+ "tax": [],
+ "notes": [],
+ "total_check": 6500.0,
+ "issues": [
+  {
+   "id": "terms.payment",
+   "level": "CONFIRM",
+   "field": "Terms of payment",
+   "po": "Net 30 days after delivery",
+   "quote": "50% T/T deposit with order, 50% T/T before shipment",
+   "draft": "50% T/T deposit with order, 50% T/T before shipment",
+   "note": "PO and quotation differ; draft uses the quotation value",
+   "resolved": false,
+   "resolution": null
+  },
+  {
+   "id": "delivery_date",
+   "level": "CONFIRM",
+   "field": "Requested delivery date",
+   "po": "2026-11-20",
+   "quote": "Within 30 days after receipt of the deposit",
+   "draft": "2026-11-20",
+   "note": "PO wants 2026-11-20; the quoted lead time allows delivery only by 2026-11-29",
+   "resolved": false,
+   "resolution": null
+  },
+  {
+   "id": "item1.model",
+   "level": "INFO",
+   "field": "Item 1 model",
+   "po": "SFY-04",
+   "quote": "SFY04",
+   "draft": "SFY04",
+   "note": "our spelling kept; PO spelling shown in the mapping",
+   "resolved": false,
+   "resolution": null
+  },
+  {
+   "id": "item1.price",
+   "level": "CONFIRM",
+   "field": "Item 1 unit price",
+   "po": 2900.0,
+   "quote": 2950.0,
+   "draft": 2950.0,
+   "note": "PO price differs from the quotation; draft keeps the quoted price",
+   "resolved": false,
+   "resolution": null
+  },
+  {
+   "id": "charge.packing",
+   "level": "CONFIRM",
+   "field": "Charge: Export packing: vacuum-sealed, fumigation-free wooden case",
+   "po": null,
+   "quote": "600.00",
+   "draft": "included",
+   "note": "quoted charge not shown on the PO - confirm the buyer accepts it",
+   "resolved": false,
+   "resolution": null
+  },
+  {
+   "id": "mention.freight",
+   "level": "CONFIRM",
+   "field": "Freight",
+   "po": "Freight: to be advised",
+   "quote": null,
+   "draft": "not on PI",
+   "note": "PO mentions it without an amount - nothing added until Jason gives the figure",
+   "resolved": false,
+   "resolution": null
+  },
+  {
+   "id": "total",
+   "level": "CONFIRM",
+   "field": "Total",
+   "po": "5,800.00",
+   "quote": null,
+   "draft": "6,500.00",
+   "note": "PO total 5,800.00 differs from the PI total 6,500.00",
+   "resolved": false,
+   "resolution": null
+  }
+ ],
+ "sources": {
+  "po": "DEMO-PO-CT.pdf",
+  "quote": "CT26102801"
+ }
+}

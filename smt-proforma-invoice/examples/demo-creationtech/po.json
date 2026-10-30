@@ -1,0 +1,42 @@
+{
+ "_doc": "DEMO PO made up to exercise the merge rules - not a real customer document.",
+ "_source": "DEMO-PO-CT.pdf",
+ "po_no": "DEMO-4500012345",
+ "po_date": "2026-10-30",
+ "quote_ref": "CT26102801",
+ "buyer": {
+  "company": "Creation Technologies",
+  "address": "Dallas, TX",
+  "country": "USA",
+  "attn": "Benjamin Dendy",
+  "email": "benjamin.dendy@creationtech.com",
+  "tel": ""
+ },
+ "ship_to": {
+  "company": "Creation Technologies - Receiving",
+  "address": "DEMO receiving address, Dallas, TX",
+  "country": "USA"
+ },
+ "currency": "USD",
+ "incoterm": "EXW",
+ "place": "Shenzhen",
+ "payment": "Net 30 days after delivery",
+ "delivery": "",
+ "delivery_date": "2026-11-20",
+ "items": [
+  {
+   "line": 1,
+   "model": "SFY-04",
+   "name": "AGV soldering pallet transfer",
+   "qty": 2,
+   "unit": "set",
+   "price": 2900,
+   "amount": 5800
+  }
+ ],
+ "charges": [],
+ "mentions": {
+  "freight": "Freight: to be advised"
+ },
+ "total": 5800
+}

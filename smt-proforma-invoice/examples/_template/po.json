@@ -1,0 +1,64 @@
+{
+ "_doc": "Customer PO transcribed literally. Leave a field empty/absent when the PO does not state it - never fill it from the quotation or from memory; build_pi.py does the merge and flags the gaps.",
+ "_source": "<file name of the customer PO>",
+ "po_no": "",
+ "po_date": "YYYY-MM-DD",
+ "quote_ref": "",
+ "buyer": {
+  "company": "",
+  "address": "",
+  "country": "",
+  "attn": "",
+  "email": "",
+  "tel": "",
+  "tax_id": ""
+ },
+ "ship_to": {
+  "company": "",
+  "address": "",
+  "country": ""
+ },
+ "currency": "USD",
+ "incoterm": "",
+ "place": "",
+ "port_of_loading": "",
+ "destination": "",
+ "ship_via": "",
+ "payment": "",
+ "delivery": "",
+ "delivery_date": "",
+ "warranty": "",
+ "packing": "",
+ "insurance": "",
+ "items": [
+  {
+   "line": 1,
+   "model": "",
+   "customer_part_no": "",
+   "name": "",
+   "qty": 0,
+   "unit": "",
+   "price": 0,
+   "amount": 0,
+   "hs_code": "",
+   "lines": []
+  }
+ ],
+ "charges": [
+  {
+   "name": "Freight ...",
+   "qty": 1,
+   "unit": "lot",
+   "price": 0
+  }
+ ],
+ "discount": 0,
+ "tax": [],
+ "mentions": {
+  "freight": "",
+  "tax": "",
+  "discount": ""
+ },
+ "total": 0,
+ "pi_notes": []
+}

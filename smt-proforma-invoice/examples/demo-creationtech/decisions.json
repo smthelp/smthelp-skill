@@ -1,0 +1,20 @@
+{
+ "_doc": "DEMO answers to show the release loop.",
+ "pi_no": "CT26103001",
+ "date": "2026-10-30",
+ "prepared_by": "Jason Wu",
+ "resolve": {
+  "item1.price": "accept",
+  "terms.payment": "accept",
+  "charge.packing": "accept",
+  "mention.freight": "accept",
+  "delivery_date": "accept",
+  "total": "accept",
+  "ship_to": "accept",
+  "buyer.tel": "accept",
+  "charge.packing.qty": "accept"
+ },
+ "notes": [
+  "Freight is not included (EXW). We can quote DHL / sea freight on request."
+ ]
+}

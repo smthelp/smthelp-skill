@@ -1,0 +1,68 @@
+{
+ "quote_no": "CT26102801",
+ "date": "2026-10-28",
+ "valid_days": 30,
+ "project": "AGV for soldering pallet transfer",
+ "prepared_by": "Jason Wu",
+ "buyer": {
+  "company": "Creation Technologies",
+  "address": "Dallas, TX",
+  "country": "USA",
+  "attn": "Benjamin Dendy",
+  "email": "benjamin.dendy@creationtech.com",
+  "tel": "",
+  "short": "Creationtech"
+ },
+ "currency": "USD",
+ "incoterm": "EXW",
+ "place": "Shenzhen, China",
+ "layout": "single",
+ "items": [
+  {
+   "model": "SFY04",
+   "name": "AGV (automated guided vehicle) for soldering pallets, magnetic-strip navigation, each with 40 m magnetic strip and charger",
+   "qty": 2,
+   "unit": "set",
+   "price": 2950.0,
+   "specs": [
+    "Outer dimensions: 650 x 650 x 550 mm (L x W x H)",
+    "Load plate: 600 x 600 x 50 mm (L x W x H), carries the soldering pallet",
+    "Max. load: 50 kg",
+    "Net weight: approx. 35 kg",
+    "Speed: 20 - 45 m/min, adjustable",
+    "Driving modes: straight line and turning",
+    "Stopping accuracy: ± 20 mm",
+    "Battery: lithium, 24 V 20 Ah",
+    "Running time: > 15 h; stand-by time: > 200 h; charging time: 4 h",
+    "Navigation: magnetic strip, forward and backward",
+    "Parameter setting: LCD touch screen or remote control",
+    "Safety: obstacle detection sensors",
+    "Drive: brushless motors, differential drive",
+    "Branch route: min. turning radius 0.8 m at 90°",
+    "Magnetic navigation strip: 40 m per unit, included",
+    "Battery charger: one per unit, included"
+   ],
+   "photo": "photos/sfy04.png"
+  }
+ ],
+ "charges": [
+  {
+   "name": "Export packing: vacuum-sealed, fumigation-free wooden case",
+   "qty": 2,
+   "unit": "case",
+   "price": 300.0
+  }
+ ],
+ "terms": {
+  "price_basis": "EXW Shenzhen, China (Incoterms® 2020), in USD",
+  "payment": "50% T/T deposit with order, 50% T/T before shipment",
+  "delivery": "Within 30 days after receipt of the deposit",
+  "warranty": "12 months from the date of shipment, excluding consumable and wear parts and damage caused by misuse",
+  "installation": "Free remote installation guidance and operator training by video call",
+  "packing": "Export packing as listed above. Freight from Shenzhen is arranged and paid by the buyer (EXW).",
+  "insurance": "To be covered by the buyer"
+ },
+ "notes": [
+  "Photos are for reference; the machine supplied follows the specifications above."
+ ]
+}

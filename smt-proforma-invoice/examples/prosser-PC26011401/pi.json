@@ -1,0 +1,172 @@
+{
+ "_generated_by": "smt-proforma-invoice/build_pi.py",
+ "show_tax_id": false,
+ "date": "2026-01-14",
+ "pi_no": "PC26011401",
+ "po_no": "PR-260113-91",
+ "po_date": "",
+ "quote_ref": "",
+ "prepared_by": "Jason Wu",
+ "buyer": {
+  "company": "PROSSER LLC",
+  "address": "319 E. Coma Ave. Suite 245, Hidalgo, TX 78557",
+  "country": "USA",
+  "attn": "Javier Lopez",
+  "email": "info@us-prosser.com",
+  "tel": "956 843 1100",
+  "tax_id": "",
+  "short": ""
+ },
+ "ship_to": {
+  "company": "PROSSER LLC",
+  "address": "319 E. Coma Ave. Suite 245, Hidalgo, TX 78557",
+  "country": "USA"
+ },
+ "currency": "USD",
+ "incoterm": "DDP",
+ "place": "Hidalgo, TX, USA",
+ "terms": {
+  "payment": "100% T/T in advance",
+  "delivery": "1 week after receipt of payment",
+  "warranty": "",
+  "packing": "Export packing included",
+  "insurance": "Transport risk is borne by the seller until delivery at the named place (DDP)",
+  "taxes": "Import duties and taxes in the destination country are included (DDP)"
+ },
+ "shipment": {
+  "port_of_loading": "Shenzhen, China",
+  "destination": "USA",
+  "ship_via": "Air (DHL)",
+  "country_of_origin": "China"
+ },
+ "items": [
+  {
+   "line": 1,
+   "model": "BLHC800",
+   "name": "Lower heating core 800 W",
+   "customer_ref": "",
+   "lines": [],
+   "qty": 12.0,
+   "unit": "pc",
+   "price": 150.0,
+   "hs_code": ""
+  }
+ ],
+ "charges": [
+  {
+   "name": "Shipping cost via DHL air to USA, duties paid (DDP)",
+   "qty": 1,
+   "unit": "lot",
+   "price": 450
+  }
+ ],
+ "discount": 0,
+ "tax": [],
+ "notes": [],
+ "total_check": 2250.0,
+ "issues": [
+  {
+   "id": "quote_missing",
+   "level": "CONFIRM",
+   "field": "Quotation",
+   "po": null,
+   "quote": null,
+   "draft": null,
+   "note": "no quotation given: every price and term comes from the PO only",
+   "resolved": true,
+   "resolution": "accepted draft"
+  },
+  {
+   "id": "ship_to",
+   "level": "ASSUMED",
+   "field": "Ship to",
+   "po": null,
+   "quote": null,
+   "draft": "same as buyer",
+   "note": "PO gives no separate delivery address; buyer address used",
+   "resolved": true,
+   "resolution": "accepted draft"
+  },
+  {
+   "id": "terms.warranty",
+   "level": "ASSUMED",
+   "field": "Warranty",
+   "po": null,
+   "quote": null,
+   "draft": "12 months from the date of shipment, excluding consumable and wear parts and damage caused by misuse",
+   "note": "neither PO nor quotation states it; profile default",
+   "resolved": true,
+   "resolution": "omitted"
+  },
+  {
+   "id": "terms.packing",
+   "level": "ASSUMED",
+   "field": "Packing",
+   "po": null,
+   "quote": null,
+   "draft": "Export packing included",
+   "note": "neither PO nor quotation states it; profile default",
+   "resolved": true,
+   "resolution": "accepted draft"
+  },
+  {
+   "id": "terms.insurance",
+   "level": "CONFIRM",
+   "field": "Insurance",
+   "po": null,
+   "quote": null,
+   "draft": "Transport risk is borne by the seller until delivery at the named place (DDP)",
+   "note": "DDP: we carry the transport risk - confirm whether we insure the shipment",
+   "resolved": true,
+   "resolution": "accepted draft"
+  },
+  {
+   "id": "terms.taxes",
+   "level": "CONFIRM",
+   "field": "Taxes & duties",
+   "po": null,
+   "quote": null,
+   "draft": "Import duties and taxes in the destination country are included (DDP)",
+   "note": "DDP: we pay import duty and VAT - confirm the amount is inside the freight/price",
+   "resolved": true,
+   "resolution": "accepted draft"
+  },
+  {
+   "id": "item1.match",
+   "level": "CONFIRM",
+   "field": "Item 1",
+   "po": "BLHC800",
+   "quote": null,
+   "draft": null,
+   "note": "PO line not found in the quotation: price, description and spec need approval",
+   "resolved": true,
+   "resolution": "accepted draft"
+  },
+  {
+   "id": "item1.price",
+   "level": "CONFIRM",
+   "field": "Item 1 unit price",
+   "po": 150.0,
+   "quote": null,
+   "draft": 150.0,
+   "note": "price only in the PO (not quoted)",
+   "resolved": true,
+   "resolution": "accepted draft"
+  },
+  {
+   "id": "charge.freight",
+   "level": "CONFIRM",
+   "field": "Charge: Shipping cost via DHL air to USA, duties paid (DDP)",
+   "po": "450.00",
+   "quote": null,
+   "draft": "included",
+   "note": "charge only in the PO (not quoted) - confirm amount",
+   "resolved": true,
+   "resolution": "accepted draft"
+  }
+ ],
+ "sources": {
+  "po": "PI prosserllc 26011401.pdf",
+  "quote": ""
+ }
+}

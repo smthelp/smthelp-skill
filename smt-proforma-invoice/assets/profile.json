@@ -1,0 +1,78 @@
+{
+ "_doc": "Seller profile for Southern Machinery proforma invoices. Seller, sales, bank and style blocks must stay identical to smt-quotation/assets/profile.json (qa_pi.py compares them when that file exists). PI-only settings live under 'pi'.",
+ "company": "Southern Machinery Sales and Service Co., Limited",
+ "short": "Southern Machinery",
+ "address": "Rm 1806, Block 3, Jinyun COFCO, Qianjin 2nd Road, Xixiang, Bao'an District, Shenzhen 518102, China",
+ "tel": "+86 755 8320 3237",
+ "web": "smthelp.com",
+ "email": "info@smthelp.com",
+ "whatsapp": "+86 136 0256 2576",
+ "logo": "sm-logo.png",
+ "sales": {
+  "Jason Wu": {
+   "title": "CEO",
+   "email": "jasonwu@smthelp.com",
+   "whatsapp": "+86 136 0256 2576"
+  },
+  "Leon Hong": {
+   "title": "Sales Engineer",
+   "email": "leon@smthelp.com",
+   "whatsapp": "+86 136 3277 9310"
+  },
+  "Frank": {
+   "title": "Sales Engineer",
+   "email": "info@smthelp.com",
+   "whatsapp": ""
+  }
+ },
+ "bank": {
+  "beneficiary": "Southern Machinery Sales and Service Co., Limited",
+  "bank_name": "JPMorgan Chase Bank N.A., Hong Kong Branch",
+  "bank_address": "18/F, 20/F, 22-29/F, Chater House, 8 Connaught Road Central, Hong Kong",
+  "account_no": "63007917455",
+  "swift": "CHASHKHH (CHASHKHHXXX if 11 characters are required)",
+  "show": true,
+  "account_label": "USD Account No.",
+  "country": "Hong Kong",
+  "account_type": "Business Account",
+  "bank_code": "007"
+ },
+ "style": {
+  "font": "Arial",
+  "navy": "003142",
+  "green": "93AC3E",
+  "teal": "0097B2",
+  "grey": "111111",
+  "light": "EEF5F7",
+  "muted": "B2CDD6",
+  "body_size_delta": 1
+ },
+ "bank_change_notice": "Our bank details never change by email. Please confirm any change by phone or WhatsApp before payment.",
+ "pi": {
+  "pi_no_pattern": "^[A-Z]{2}\\d{8}$",
+  "pi_no_rule": "2 letters (customer or country code, same letters as the quotation) + YYMMDD (PI date) + 2-digit sequence, e.g. KA26103001",
+  "tax_id": "61178505-000-03-20-0",
+  "tax_id_label": "Seller Tax ID / BR No.",
+  "country_of_origin": "China",
+  "port_of_loading": "Shenzhen, China",
+  "insurance_buyer": "To be covered by the buyer",
+  "seller_insures_incoterms": [
+   "CIF",
+   "CIP"
+  ],
+  "alt_payment_cny": "For CNY payment: WeChat Pay or Alipay, account +86 136 0256 2576",
+  "export_control_line": "These commodities are licensed for the ultimate destination shown above.",
+  "defaults": {
+   "currency": "USD",
+   "incoterm": "EXW",
+   "place": "Shenzhen, China",
+   "payment": "100% T/T before shipment",
+   "delivery": "Within 30 days after receipt of payment",
+   "warranty": "12 months from the date of shipment, excluding consumable and wear parts and damage caused by misuse",
+   "packing": "Export packing included",
+   "taxes": "Prices exclude import duties, local taxes and bank charges in the buyer's country"
+  },
+  "default_fields_are_assumptions": true,
+  "price_tolerance": 0.005
+ }
+}
