@@ -1,0 +1,92 @@
+{
+ "_doc": "Seller profile for every Southern Machinery quotation. Change a value here once; make_quote.py and qa_quote.py read it. Values marked TO_CONFIRM must be checked by Jason before the first real use.",
+ "company": "Southern Machinery Sales and Service Co., Limited",
+ "short": "Southern Machinery",
+ "address": "Rm 1806, Block 3, Jinyun COFCO, Qianjin 2nd Road, Xixiang, Bao'an District, Shenzhen 518102, China",
+ "tel": "+86 755 8320 3237",
+ "fax": "",
+ "web": "smthelp.com",
+ "email": "info@smthelp.com",
+ "whatsapp": "+86 136 0256 2576",
+ "logo": "sm-logo.png",
+ "sales": {
+  "Jason Wu": {
+   "title": "CEO",
+   "email": "jasonwu@smthelp.com",
+   "whatsapp": "+86 136 0256 2576"
+  },
+  "Leon Hong": {
+   "title": "Sales Engineer",
+   "email": "info@smthelp.com",
+   "whatsapp": ""
+  },
+  "Frank": {
+   "title": "Sales Engineer",
+   "email": "info@smthelp.com",
+   "whatsapp": ""
+  }
+ },
+ "bank": {
+  "beneficiary": "Southern Machinery Sales and Service Co., Limited",
+  "bank_name": "JPMorgan Chase Bank N.A., Hong Kong Branch",
+  "bank_address": "18/F, 20/F, 22-29/F, Chater House, 8 Connaught Road Central, Hong Kong",
+  "account_no": "63007917455",
+  "swift": "CHASHKHH (CHASHKHHXXX if 11 characters are required)",
+  "show": true,
+  "account_label": "USD Account No."
+ },
+ "style": {
+  "font": "Arial",
+  "navy": "003142",
+  "green": "93AC3E",
+  "teal": "0097B2",
+  "grey": "111111",
+  "light": "EEF5F7",
+  "muted": "B2CDD6",
+  "body_size_delta": 1
+ },
+ "quote_no_pattern": "^[A-Z]{2}\\d{8}$",
+ "quote_no_rule": "2 letters (customer or country code) + YYMMDD + 2-digit sequence, e.g. CA26101201",
+ "defaults": {
+  "currency": "USD",
+  "incoterm": "EXW",
+  "place": "Shenzhen, China",
+  "valid_days": 30,
+  "terms": {
+   "payment": "100% T/T before shipment",
+   "delivery": "Within 30 days after receipt of payment",
+   "warranty": "12 months from the date of shipment, excluding consumable and wear parts and damage caused by misuse",
+   "installation": "Free remote installation guidance and operator training by video call",
+   "packing": "Export packing: vacuum-sealed and fumigation-free wooden case (ISPM 15 compliant)",
+   "insurance": "To be covered by the buyer",
+   "taxes": "Prices exclude import duties, local taxes and bank charges in the buyer's country",
+   "other": "Any terms not stated here follow the sales contract"
+  }
+ },
+ "terms_order": [
+  "price_basis",
+  "payment",
+  "delivery",
+  "warranty",
+  "installation",
+  "packing",
+  "insurance",
+  "validity",
+  "taxes",
+  "other"
+ ],
+ "terms_labels": {
+  "price_basis": "Price basis",
+  "payment": "Payment terms",
+  "delivery": "Delivery time",
+  "warranty": "Warranty",
+  "installation": "Installation",
+  "packing": "Packing",
+  "insurance": "Insurance",
+  "validity": "Validity",
+  "taxes": "Taxes & duties",
+  "other": "Other"
+ },
+ "supplier_terms": [],
+ "bank_change_notice": "Our bank details never change by email. Please confirm any change by phone or WhatsApp before payment."
+}
