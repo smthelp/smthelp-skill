@@ -1,0 +1,56 @@
+zh,en,check,note
+飞达,Feeder,yes,固定译法
+振动,Vibration,yes,固定译法
+供料,Feed,yes,Feeding / feed test
+料管,tube,yes,stick (tube) 同义；统一写 tube，首次可写 stick (tube)
+料道,lane,yes,
+取料位,pick-up position,no,取料区 = pick-up area
+吸嘴,nozzle,yes,
+飞达座,feeder bank,yes,
+手柄,handlebar,yes,
+定位销,locating pin,yes,
+定位环,locating ring,yes,
+定位块,locating piece,yes,
+板簧,leaf spring,yes,
+导轨,guide rail,yes,
+支撑架,support frame,yes,
+控制单元,control unit,yes,
+指示灯,pilot lamp,yes,
+连接器,connector,yes,
+振动器,vibrator,yes,
+插件机,insertion machine,yes,径向 radial / 轴向 axial
+贴片机,pick-and-place machine,yes,
+印刷机,stencil printer,yes,
+回流焊,reflow oven,yes,
+波峰焊,wave soldering machine,yes,
+传送带,conveyor,yes,
+接驳台,conveyor,no,
+上板机,loader,yes,
+下板机,unloader,yes,
+外观,appearance,no,
+螺丝紧固,screw fastening,no,
+扭矩,torque,yes,
+接地,earth,no,接地连续性 = earth continuity / grounding
+绝缘电阻,insulation resistance,yes,
+急停,E-stop,yes,
+安全门,safety door,yes,
+联锁,interlock,yes,
+光电传感器,photoelectric sensor,no,
+实测值,measured value,no,
+判定,result,no,合格 Pass / 不合格 Fail / NA
+合格,Pass,no,
+不合格,Fail,no,
+待确认,TBD,yes,
+建议值,suggested value,no,
+致命,Critical,no,CR
+主要,Major,no,MA
+次要,Minor,no,MI
+抽样,sampling,no,
+特采,concession,no,
+随机文件,documents supplied,no,
+备件,spare parts,no,
+装箱单,packing list,yes,
+熏蒸,fumigation,yes,ISPM-15
+贴装精度,placement accuracy,no,
+插件率,insertion rate,no,first-pass insertion success
+产能,throughput,no,CPH 不翻译

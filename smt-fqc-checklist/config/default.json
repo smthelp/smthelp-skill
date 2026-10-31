@@ -1,0 +1,34 @@
+{
+ "template_version": "1.0",
+ "brand": {
+  "company": "Shenzhen Southern Machinery Sales and Service Co., Ltd.",
+  "short": "Southern Machinery",
+  "address": "Xixiang, Bao'an, Shenzhen, China",
+  "contact": "smthelp.com · info@smthelp.com · WhatsApp +86 136 0256 2576",
+  "logo": "assets/sm-logo.png",
+  "brand_kit": "smt-brand-kit",
+  "colors": {"navy": "003142", "green": "93AC3E", "teal": "0097B2", "grey": "4A5A63", "light": "EEF5F7", "muted": "B2CDD6", "suggest": "9C5700", "tbd": "C0392B"}
+ },
+ "languages": ["zh", "en"],
+ "page": {"size": "A4", "orientation": "landscape", "font": "Noto Sans SC"},
+ "grades": {
+  "CR": {"zh": "致命", "en": "Critical"},
+  "MA": {"zh": "主要", "en": "Major"},
+  "MI": {"zh": "次要", "en": "Minor"}
+ },
+ "status": {
+  "C": {"zh": "已确认", "en": "Confirmed", "mark": ""},
+  "S": {"zh": "建议值", "en": "Suggested", "mark": "★"},
+  "T": {"zh": "待确认", "en": "TBD", "mark": "待确认 / TBD"}
+ },
+ "sampling": {
+  "unit_rule": {"zh": "整机 / 单台设备：所有项目逐台 100 % 检验。", "en": "Machines / single units: every item, 100 % per unit."},
+  "lot_rule": {"zh": "同型号批量小件（飞达、配件）：标“每批抽”项目按 ISO 2859-1 / GB/T 2828.1 一般检验水平 II 抽样；CR 项 100 %；MA AQL 0.65；MI AQL 1.5。", "en": "Lots of identical small units (feeders, parts): items marked 'per lot' sampled to ISO 2859-1 / GB/T 2828.1 general level II; CR items 100 %; MA AQL 0.65; MI AQL 1.5."},
+  "aql": {"CR": "0 (100 %)", "MA": "0.65", "MI": "1.5"},
+  "max_minor_for_concession": 2
+ },
+ "judgement": {
+  "zh": ["任一 CR（致命）项不合格：整台 / 整批不放行，整改后全项复检。", "MA（主要）项不合格：返工后复检该项及关联项，全部合格方可放行。", "仅 MI（次要）项不合格且 ≤ 2 项：可由 QC 主管签字特采放行，并在备注写明处置。", "NA 须在备注写明原因；含 ★ 建议值或“待确认”的表格只能作草稿，不得用于正式放行。"],
+  "en": ["Any CR (critical) item fails: unit / lot not released; fix and re-inspect all items.", "MA (major) item fails: rework, re-inspect that item and related items; release only when all pass.", "Only MI (minor) items fail and ≤ 2: QC manager may sign a concession release with the disposition in the remark.", "NA needs a reason in the remark; a sheet with ★ suggested values or TBD items is a draft and cannot be used for formal release."]
+ }
+}

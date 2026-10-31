@@ -1,0 +1,1204 @@
+{
+ "meta": {
+  "model": "S-JVF02",
+  "product_name": {
+   "zh": "SMT 振动（料管）飞达",
+   "en": "SMT stick vibration feeder"
+  },
+  "compatible": "JUKI RS-1",
+  "product_line": "feeder-vibration",
+  "doc_no": "SM-FQC-S-JVF02",
+  "doc_rev": "A",
+  "template_version": "1.0",
+  "status": "draft",
+  "sources": [
+   {
+    "id": "MAN",
+    "type": "manual",
+    "title": "S-JVF02 SMT Stick Vibration Feeder Operation Manual Rev. 2025",
+    "url": "https://file.autoinsertion.com/public/Southern%20Machinery%20SMT%20Product%20Operation%20Manual/Southern-Machinery-S-JVF02-SMT-Stick-Vibration-Feeder-Operation-Manual-2025.pdf"
+   },
+   {
+    "id": "WEB",
+    "type": "product_page",
+    "title": "S-JVF02 product landing page, §03 spec table",
+    "url": "https://file.autoinsertion.com/public/Product%20landing%20Page/s-jvf02-vibration-stick-feeder-juki-rs-1.html"
+   },
+   {
+    "id": "3D",
+    "type": "3d_html",
+    "title": "RS-1 Vibration Feeder S-JVF02 3D drawings (4 pages)",
+    "url": "https://file.autoinsertion.com/public/SMT%20machine%203D%20Drawing%20in%20Html/"
+   },
+   {
+    "id": "AUD",
+    "type": "audio",
+    "title": "S-JVF02 Vibration Stick Feeder RS-1.wav (marketing audio, no specs used)",
+    "url": "https://file.autoinsertion.com/public/SMT%20Audio/S-JVF02%20Vibration%20Stick%20Feeder%20RS-1.wav"
+   }
+  ]
+ },
+ "sections": [
+  {
+   "code": "A",
+   "zh": "整机外观与结构",
+   "en": "Appearance & Structure",
+   "items": [
+    {
+     "id": "A01",
+     "grade": "MI",
+     "status": "S",
+     "zh": {
+      "item": "外观表面",
+      "criterion": "无划伤、磕碰、变形、锈蚀；表面处理均匀无脱落；非可视面划痕 ≤ 5 mm 且 ≤ 2 处",
+      "method": "目视，照度 ≥ 500 lx，距离 30 - 50 cm",
+      "source": "通用标准 G-APP-01",
+      "sampling": "100%"
+     },
+     "en": {
+      "item": "Surface finish",
+      "criterion": "No scratches, dents, deformation or rust; finish even, no peeling; scratches on non-visible faces ≤ 5 mm and ≤ 2",
+      "method": "Visual, lighting ≥ 500 lx, distance 30 - 50 cm",
+      "source": "General G-APP-01",
+      "sampling": "100%"
+     },
+     "spec": {
+      "usl": "5",
+      "unit": "mm"
+     },
+     "question": {
+      "zh": "外观划痕允收标准（≤5 mm 且 ≤2 处）是否采用？",
+      "en": "Accept scratch limit (≤5 mm, ≤2) as standard?"
+     }
+    },
+    {
+     "id": "A02",
+     "grade": "MI",
+     "status": "S",
+     "zh": {
+      "item": "外形尺寸",
+      "criterion": "365 × 66 × 125 mm，公差 ± 1 mm",
+      "method": "钢直尺 / 游标卡尺测量长、宽、高",
+      "source": "产品页 §03 规格表 'Overall size'",
+      "sampling": "每批抽 2 台"
+     },
+     "en": {
+      "item": "Overall dimensions",
+      "criterion": "365 × 66 × 125 mm, tolerance ± 1 mm",
+      "method": "Steel rule / caliper, measure L × W × H",
+      "source": "Product page §03 spec table 'Overall size'",
+      "sampling": "2 units per lot"
+     },
+     "spec": {
+      "nominal": "365×66×125",
+      "lsl": "-1",
+      "usl": "+1",
+      "unit": "mm"
+     },
+     "question": {
+      "zh": "外形尺寸公差 ±1 mm 是否正确？",
+      "en": "Is ±1 mm the right dimension tolerance?"
+     }
+    },
+    {
+     "id": "A03",
+     "grade": "MI",
+     "status": "S",
+     "zh": {
+      "item": "整机重量",
+      "criterion": "6.5 kg，公差 ± 0.2 kg",
+      "method": "电子秤称重（不含料管）",
+      "source": "产品页 §03 规格表 'Weight'",
+      "sampling": "每批抽 2 台"
+     },
+     "en": {
+      "item": "Weight",
+      "criterion": "6.5 kg, tolerance ± 0.2 kg",
+      "method": "Electronic scale, without tubes",
+      "source": "Product page §03 spec table 'Weight'",
+      "sampling": "2 units per lot"
+     },
+     "spec": {
+      "nominal": "6.5",
+      "lsl": "6.3",
+      "usl": "6.7",
+      "unit": "kg"
+     },
+     "question": {
+      "zh": "重量公差 ±0.2 kg 是否正确？",
+      "en": "Is ±0.2 kg the right weight tolerance?"
+     }
+    },
+    {
+     "id": "A04",
+     "grade": "MA",
+     "status": "C",
+     "zh": {
+      "item": "铭牌与标识",
+      "criterion": "型号 S-JVF02、序列号、24 V DC / 15 W 清晰牢固；为 Southern Machinery 标识，无其他厂商标识",
+      "method": "目视；用无尘布擦拭 10 次不脱落",
+      "source": "产品页 §03 规格表；品牌规则 smt-brand-kit",
+      "sampling": "100%"
+     },
+     "en": {
+      "item": "Nameplate & marking",
+      "criterion": "Model S-JVF02, serial no., 24 V DC / 15 W legible and fixed; Southern Machinery marking only, no other maker's marks",
+      "method": "Visual; wipe 10 times with lint-free cloth, no fading",
+      "source": "Product page §03 spec table; smt-brand-kit brand rules",
+      "sampling": "100%"
+     },
+     "spec": {}
+    },
+    {
+     "id": "A05",
+     "grade": "MA",
+     "status": "C",
+     "zh": {
+      "item": "结构完整性",
+      "criterion": "主体、顶板、前盖、导轨、支撑架、手柄、控制单元齐全，与手册第 9 章 14 项零件清单一致",
+      "method": "对照零件清单 S-JVF02-052801 ~ 052814 逐项核对",
+      "source": "手册 §9 p.12 零件清单",
+      "sampling": "100%"
+     },
+     "en": {
+      "item": "Structural completeness",
+      "criterion": "Main body, top plate, front cover, guide rail, support frame, handlebar and control unit present, matching the 14-item list in Manual Ch. 9",
+      "method": "Check item by item against parts S-JVF02-052801 ~ 052814",
+      "source": "Manual §9 p.12 parts list",
+      "sampling": "100%"
+     },
+     "spec": {}
+    },
+    {
+     "id": "A06",
+     "grade": "MI",
+     "status": "C",
+     "zh": {
+      "item": "清洁度",
+      "criterion": "料道、取料区及内部无金属屑、油污、异物",
+      "method": "目视 + 无尘布擦拭",
+      "source": "手册 §7 p.10 保养",
+      "sampling": "100%"
+     },
+     "en": {
+      "item": "Cleanliness",
+      "criterion": "Lanes, pick-up area and interior free of metal chips, oil and foreign matter",
+      "method": "Visual + lint-free cloth wipe",
+      "source": "Manual §7 p.10 maintenance",
+      "sampling": "100%"
+     },
+     "spec": {}
+    }
+   ]
+  },
+  {
+   "code": "B",
+   "zh": "机构装配与螺丝紧固",
+   "en": "Mechanical Assembly & Fastening",
+   "items": [
+    {
+     "id": "B01",
+     "grade": "MA",
+     "status": "S",
+     "zh": {
+      "item": "螺丝紧固",
+      "criterion": "螺丝无缺失、无滑牙，全部紧固并点防松标记；M3 扭矩 0.5 - 0.7 N·m",
+      "method": "扭力螺丝刀抽检 ≥ 5 颗；目视防松标记",
+      "source": "通用标准 G-MEC-01",
+      "sampling": "每台抽 ≥5 颗"
+     },
+     "en": {
+      "item": "Screw fastening",
+      "criterion": "No missing or stripped screws; all tightened with torque-seal mark; M3 torque 0.5 - 0.7 N·m",
+      "method": "Torque screwdriver, sample ≥ 5 screws; visual check of marks",
+      "source": "General G-MEC-01",
+      "sampling": "≥5 screws per unit"
+     },
+     "spec": {
+      "lsl": "0.5",
+      "usl": "0.7",
+      "unit": "N·m"
+     },
+     "question": {
+      "zh": "M3 螺丝扭矩 0.5–0.7 N·m 是否与装配工艺一致？",
+      "en": "Does M3 torque 0.5–0.7 N·m match the assembly spec?"
+     }
+    },
+    {
+     "id": "B02",
+     "grade": "MA",
+     "status": "C",
+     "zh": {
+      "item": "手柄动作",
+      "criterion": "手柄抬起 / 放下顺畅无卡滞，释放后可靠复位锁紧",
+      "method": "手动操作 10 次",
+      "source": "手册 §4.1 p.7–8",
+      "sampling": "100%"
+     },
+     "en": {
+      "item": "Handlebar action",
+      "criterion": "Handlebar raises and lowers smoothly, no binding; returns and locks when released",
+      "method": "Operate by hand 10 times",
+      "source": "Manual §4.1 p.7–8",
+      "sampling": "100%"
+     },
+     "spec": {}
+    },
+    {
+     "id": "B03",
+     "grade": "MA",
+     "status": "C",
+     "zh": {
+      "item": "定位销",
+      "criterion": "定位销（S-JVF02-052807）无松动、无变形，与飞达座定位孔配合顺畅",
+      "method": "手感检查 + 装机测试",
+      "source": "手册 §4.1 p.7；§9 p.12 #12",
+      "sampling": "100%"
+     },
+     "en": {
+      "item": "Locating pin",
+      "criterion": "Locating pin (S-JVF02-052807) not loose or bent; enters the feeder bank alignment hole smoothly",
+      "method": "Hand check + installation test",
+      "source": "Manual §4.1 p.7; §9 p.12 #12",
+      "sampling": "100%"
+     },
+     "spec": {}
+    },
+    {
+     "id": "B04",
+     "grade": "MA",
+     "status": "C",
+     "zh": {
+      "item": "连接器",
+      "criterion": "连接器（S-JVF02-052814）针脚无弯曲、缩针、氧化，安装牢固",
+      "method": "放大镜目视",
+      "source": "手册 §4.1 p.8；§9 p.12 #7",
+      "sampling": "100%"
+     },
+     "en": {
+      "item": "Connector",
+      "criterion": "Connector (S-JVF02-052814) pins not bent, recessed or oxidised; firmly mounted",
+      "method": "Visual with magnifier",
+      "source": "Manual §4.1 p.8; §9 p.12 #7",
+      "sampling": "100%"
+     },
+     "spec": {}
+    },
+    {
+     "id": "B05",
+     "grade": "MA",
+     "status": "S",
+     "zh": {
+      "item": "装入 / 拆卸",
+      "criterion": "按手册 4.1 / 4.2 步骤装入 JUKI RS-1 飞达座（或等效测试座）：插入顺畅，锁定后无可感晃动（≤ 0.2 mm）；拆卸顺畅",
+      "method": "实装 / 拆卸 5 次；百分表或手感",
+      "source": "手册 §4.1–4.2 p.7–8",
+      "sampling": "100%"
+     },
+     "en": {
+      "item": "Install / remove",
+      "criterion": "Install in JUKI RS-1 feeder bank (or equivalent test bank) per Manual 4.1 / 4.2: smooth insertion, no perceptible play once locked (≤ 0.2 mm); smooth removal",
+      "method": "Install / remove 5 times; dial gauge or hand check",
+      "source": "Manual §4.1–4.2 p.7–8",
+      "sampling": "100%"
+     },
+     "spec": {
+      "usl": "0.2",
+      "unit": "mm"
+     },
+     "question": {
+      "zh": "锁定后晃动 ≤0.2 mm 是否采用？",
+      "en": "Accept ≤0.2 mm play when locked?"
+     }
+    },
+    {
+     "id": "B06",
+     "grade": "MI",
+     "status": "C",
+     "zh": {
+      "item": "弹簧",
+      "criterion": "弹簧（S-JVF02-052806）无变形，回弹正常",
+      "method": "目视 + 手压",
+      "source": "手册 §9 p.12 #4",
+      "sampling": "100%"
+     },
+     "en": {
+      "item": "Spring",
+      "criterion": "Spring (S-JVF02-052806) not deformed, rebounds normally",
+      "method": "Visual + hand press",
+      "source": "Manual §9 p.12 #4",
+      "sampling": "100%"
+     },
+     "spec": {}
+    },
+    {
+     "id": "B07",
+     "grade": "MI",
+     "status": "S",
+     "zh": {
+      "item": "槽位互换",
+      "criterion": "在飞达座 2 个不同槽位均可正常装入并锁定",
+      "method": "实装测试",
+      "source": "通用标准 G-MEC-02",
+      "sampling": "每批抽 2 台"
+     },
+     "en": {
+      "item": "Slot interchangeability",
+      "criterion": "Installs and locks in 2 different feeder bank slots",
+      "method": "Installation test",
+      "source": "General G-MEC-02",
+      "sampling": "2 units per lot"
+     },
+     "spec": {},
+     "question": {
+      "zh": "是否需要 2 个槽位互换测试？",
+      "en": "Is a 2-slot interchange test required?"
+     }
+    }
+   ]
+  },
+  {
+   "code": "C",
+   "zh": "飞达供料与振动 / 皮带机构",
+   "en": "Feeder Feeding & Vibration / Belt Mechanism",
+   "items": [
+    {
+     "id": "C01",
+     "grade": "MA",
+     "status": "C",
+     "zh": {
+      "item": "料道与导轨",
+      "criterion": "4 条独立料道齐全；导轨（S-JVF02-052810）平行、无毛刺、无变形；66 mm 料管可顺畅放入",
+      "method": "目视；用 66 mm 标准料管试装每条料道",
+      "source": "产品页 §03 规格表 'Input channels / Stick width'；手册 §9 #13",
+      "sampling": "100%"
+     },
+     "en": {
+      "item": "Lanes & guide rail",
+      "criterion": "4 independent lanes present; guide rail (S-JVF02-052810) parallel, no burrs or deformation; 66 mm tube fits each lane smoothly",
+      "method": "Visual; trial-fit a standard 66 mm tube in each lane",
+      "source": "Product page §03 'Input channels / Stick width'; Manual §9 #13",
+      "sampling": "100%"
+     },
+     "spec": {
+      "nominal": "4 / 66",
+      "unit": "lanes / mm"
+     }
+    },
+    {
+     "id": "C02",
+     "grade": "MA",
+     "status": "C",
+     "zh": {
+      "item": "料管三点固定",
+      "criterion": "定位环（后）、板簧（中）、定位块（前）可将料管可靠固定；板簧对料管有下压力",
+      "method": "装入料管后手推，料管无窜动",
+      "source": "手册 §5.1 p.9",
+      "sampling": "100%"
+     },
+     "en": {
+      "item": "Three-point tube fixing",
+      "criterion": "Locating ring (rear), leaf spring (middle) and locating piece (front) hold the tube securely; leaf spring presses down on the tube",
+      "method": "Push the fitted tube by hand: no movement",
+      "source": "Manual §5.1 p.9",
+      "sampling": "100%"
+     },
+     "spec": {}
+    },
+    {
+     "id": "C03",
+     "grade": "MA",
+     "status": "C",
+     "zh": {
+      "item": "振动器",
+      "criterion": "振动器（S-JVF02-052809）安装牢固；通电振动均匀，无异响、无碰撞声",
+      "method": "通电听音、手感",
+      "source": "手册 §9 p.12 #11",
+      "sampling": "100%"
+     },
+     "en": {
+      "item": "Vibrator",
+      "criterion": "Vibrator (S-JVF02-052809) firmly mounted; even vibration when powered, no abnormal or knocking noise",
+      "method": "Power on, listen and feel",
+      "source": "Manual §9 p.12 #11",
+      "sampling": "100%"
+     },
+     "spec": {}
+    },
+    {
+     "id": "C04",
+     "grade": "MA",
+     "status": "C",
+     "zh": {
+      "item": "功率旋钮",
+      "criterion": "全行程转动顺畅；振动强度由最小到最大连续可调",
+      "method": "旋钮从最小转到最大，观察振幅变化",
+      "source": "手册 §5.2 p.9",
+      "sampling": "100%"
+     },
+     "en": {
+      "item": "Power knob",
+      "criterion": "Turns smoothly through full travel; vibration strength adjusts continuously from min to max",
+      "method": "Turn from min to max, observe amplitude",
+      "source": "Manual §5.2 p.9",
+      "sampling": "100%"
+     },
+     "spec": {}
+    },
+    {
+     "id": "C05",
+     "grade": "MA",
+     "status": "C",
+     "zh": {
+      "item": "频率旋钮",
+      "criterion": "全行程转动顺畅；振动频率连续可调，可找到元件平稳输送点",
+      "method": "旋钮从最小转到最大，观察元件流动",
+      "source": "手册 §5.2 p.9",
+      "sampling": "100%"
+     },
+     "en": {
+      "item": "Frequency knob",
+      "criterion": "Turns smoothly through full travel; vibration frequency adjusts continuously, a smooth-flow point can be found",
+      "method": "Turn from min to max, observe component flow",
+      "source": "Manual §5.2 p.9",
+      "sampling": "100%"
+     },
+     "spec": {}
+    },
+    {
+     "id": "C06",
+     "grade": "MA",
+     "status": "S",
+     "zh": {
+      "item": "供料测试（小元件）",
+      "criterion": "3 × 3 mm 元件：调试后元件平稳、连续送至取料位，无卡料、跳料、翻转；每条料道连续 ≥ 100 pcs",
+      "method": "每条料道装料管，计数观察",
+      "source": "产品页 §03 'Component size range'；数量 G-RUN-01",
+      "sampling": "100%"
+     },
+     "en": {
+      "item": "Feeding test (small parts)",
+      "criterion": "3 × 3 mm parts: after tuning, parts move smoothly and continuously to the pick-up position, no jam, jump or flip; ≥ 100 pcs per lane",
+      "method": "Load a tube in each lane, count and observe",
+      "source": "Product page §03 'Component size range'; qty G-RUN-01",
+      "sampling": "100%"
+     },
+     "spec": {
+      "lsl": "100",
+      "unit": "pcs/lane"
+     },
+     "question": {
+      "zh": "小元件送料测试每料道 ≥100 pcs 是否合适？",
+      "en": "Is ≥100 pcs per lane right for the small-part test?"
+     }
+    },
+    {
+     "id": "C07",
+     "grade": "MA",
+     "status": "S",
+     "zh": {
+      "item": "供料测试（大元件）",
+      "criterion": "30 × 10 mm 元件：同上，每条料道连续 ≥ 50 pcs",
+      "method": "每条料道装料管，计数观察",
+      "source": "产品页 §03 'Component size range'；数量 G-RUN-01",
+      "sampling": "100%"
+     },
+     "en": {
+      "item": "Feeding test (large parts)",
+      "criterion": "30 × 10 mm parts: as above, ≥ 50 pcs per lane",
+      "method": "Load a tube in each lane, count and observe",
+      "source": "Product page §03 'Component size range'; qty G-RUN-01",
+      "sampling": "100%"
+     },
+     "spec": {
+      "lsl": "50",
+      "unit": "pcs/lane"
+     },
+     "question": {
+      "zh": "大元件送料测试每料道 ≥50 pcs 是否合适？",
+      "en": "Is ≥50 pcs per lane right for the large-part test?"
+     }
+    },
+    {
+     "id": "C08",
+     "grade": "MA",
+     "status": "S",
+     "zh": {
+      "item": "取料位",
+      "criterion": "料管顶面在取料区按要求切开；元件停在取料位高度一致、姿态稳定",
+      "method": "目视 / 塞尺检查高度差 ≤ 0.2 mm ★",
+      "source": "手册 §5.1 p.9；§8 p.11",
+      "sampling": "100%"
+     },
+     "en": {
+      "item": "Pick-up position",
+      "criterion": "Tube top face cut at the nozzle pick-up area; parts stop at a consistent height and attitude",
+      "method": "Visual / feeler gauge, height difference ≤ 0.2 mm ★",
+      "source": "Manual §5.1 p.9; §8 p.11",
+      "sampling": "100%"
+     },
+     "spec": {
+      "usl": "0.2",
+      "unit": "mm"
+     },
+     "question": {
+      "zh": "取料位高度差 ≤0.2 mm 是否采用？",
+      "en": "Accept ≤0.2 mm pick-height difference?"
+     }
+    },
+    {
+     "id": "C09",
+     "grade": "MA",
+     "status": "C",
+     "zh": {
+      "item": "料道独立性",
+      "criterion": "4 条料道各自独立供料；一条料道空料或换料时其余料道不受影响",
+      "method": "逐条取出料管观察其他料道",
+      "source": "产品页 §03 'Input channels'",
+      "sampling": "100%"
+     },
+     "en": {
+      "item": "Lane independence",
+      "criterion": "Each of the 4 lanes feeds independently; emptying or changing one lane does not disturb the others",
+      "method": "Remove tubes one by one, observe other lanes",
+      "source": "Product page §03 'Input channels'",
+      "sampling": "100%"
+     },
+     "spec": {}
+    },
+    {
+     "id": "C10",
+     "grade": "MA",
+     "status": "S",
+     "zh": {
+      "item": "连续运行",
+      "criterion": "4 条料道满载连续运行 ≥ 2 h：无卡料、无停振；外壳温升 ≤ 20 K",
+      "method": "计时；红外测温枪测振动器附近外壳",
+      "source": "通用标准 G-RUN-02",
+      "sampling": "100%"
+     },
+     "en": {
+      "item": "Continuous run",
+      "criterion": "All 4 lanes loaded, continuous run ≥ 2 h: no jams, no vibration stop; housing temperature rise ≤ 20 K",
+      "method": "Timer; IR thermometer on housing near vibrator",
+      "source": "General G-RUN-02",
+      "sampling": "100%"
+     },
+     "spec": {
+      "nominal": "≥ 2 h; ΔT ≤ 20 K"
+     },
+     "question": {
+      "zh": "连续运行 ≥2 h、温升 ≤20 K 是否采用？",
+      "en": "Accept ≥2 h run and ≤20 K temperature rise?"
+     }
+    },
+    {
+     "id": "C11",
+     "grade": "MI",
+     "status": "S",
+     "zh": {
+      "item": "运行噪音",
+      "criterion": "常用设定下距飞达 1 m 处噪音 ≤ 70 dB(A)",
+      "method": "声级计（A 计权），背景噪音低于测量值 ≥ 10 dB",
+      "source": "通用标准 G-RUN-03",
+      "sampling": "每批抽 1 台"
+     },
+     "en": {
+      "item": "Running noise",
+      "criterion": "At normal setting, measured 1 m from the feeder: ≤ 70 dB(A)",
+      "method": "Sound level meter (A-weighted), background ≥ 10 dB below reading",
+      "source": "General G-RUN-03",
+      "sampling": "1 unit per lot"
+     },
+     "spec": {
+      "usl": "70",
+      "unit": "dB(A)"
+     },
+     "question": {
+      "zh": "噪音 ≤70 dB(A) @1 m 是否采用？",
+      "en": "Accept ≤70 dB(A) at 1 m?"
+     }
+    },
+    {
+     "id": "C12",
+     "grade": "MA",
+     "status": "S",
+     "zh": {
+      "item": "实机取料（如具备）",
+      "criterion": "在 JUKI RS-1 上取料 ≥ 500 次，取料成功率 ≥ 99.5 %",
+      "method": "读取设备取料 / 抛料记录",
+      "source": "通用标准 G-RUN-04",
+      "sampling": "每批首台（如有 RS-1）"
+     },
+     "en": {
+      "item": "Pick test on machine (if available)",
+      "criterion": "On JUKI RS-1, ≥ 500 picks, pick success ≥ 99.5 %",
+      "method": "Read machine pick / rejection log",
+      "source": "General G-RUN-04",
+      "sampling": "First unit per lot (if RS-1 available)"
+     },
+     "spec": {
+      "lsl": "99.5",
+      "unit": "%"
+     },
+     "question": {
+      "zh": "工厂是否有 JUKI RS-1 做实机取料测试？成功率 ≥99.5 % 是否采用？",
+      "en": "Is a JUKI RS-1 available for pick tests? Accept ≥99.5 %?"
+     }
+    },
+    {
+     "id": "C13",
+     "grade": "MI",
+     "status": "C",
+     "zh": {
+      "item": "皮带机构",
+      "criterion": "S-JVF02 为振动式供料，无皮带机构，本项判 NA",
+      "method": "核对结构",
+      "source": "手册 §2.1 p.4（振动式）",
+      "sampling": "—"
+     },
+     "en": {
+      "item": "Belt mechanism",
+      "criterion": "S-JVF02 is vibration feeding with no belt mechanism; record NA",
+      "method": "Check construction",
+      "source": "Manual §2.1 p.4 (vibration type)",
+      "sampling": "—"
+     },
+     "spec": {}
+    }
+   ]
+  },
+  {
+   "code": "D",
+   "zh": "传感器与光电检测",
+   "en": "Sensors & Photoelectric Detection",
+   "items": [
+    {
+     "id": "D01",
+     "grade": "MA",
+     "status": "C",
+     "zh": {
+      "item": "指示灯",
+      "criterion": "开关打开且飞达锁定后指示灯亮；关闭开关或未锁定时熄灭",
+      "method": "通电操作开关 / 手柄",
+      "source": "手册 §2.2 p.5；§8 p.11",
+      "sampling": "100%"
+     },
+     "en": {
+      "item": "Pilot lamp",
+      "criterion": "Lamp on when the feeder is switched on and locked; off when switched off or not locked",
+      "method": "Operate switch / handlebar with power on",
+      "source": "Manual §2.2 p.5; §8 p.11",
+      "sampling": "100%"
+     },
+     "spec": {}
+    },
+    {
+     "id": "D02",
+     "grade": "MA",
+     "status": "C",
+     "zh": {
+      "item": "电源开关",
+      "criterion": "开关通断明确；关闭后振动立即停止",
+      "method": "操作 10 次",
+      "source": "手册 §1 p.3；§2.2 p.5",
+      "sampling": "100%"
+     },
+     "en": {
+      "item": "Power switch",
+      "criterion": "Switch on/off positive; vibration stops immediately when off",
+      "method": "Operate 10 times",
+      "source": "Manual §1 p.3; §2.2 p.5",
+      "sampling": "100%"
+     },
+     "spec": {}
+    },
+    {
+     "id": "D03",
+     "grade": "MA",
+     "status": "S",
+     "zh": {
+      "item": "飞达识别 / 通讯",
+      "criterion": "装入 RS-1 后设备正常识别飞达，无飞达或连接报警",
+      "method": "实机装入，查看设备界面",
+      "source": "产品页 §03 'Interface'",
+      "sampling": "100%"
+     },
+     "en": {
+      "item": "Feeder recognition / communication",
+      "criterion": "After installation, RS-1 recognises the feeder with no feeder or connection alarm",
+      "method": "Install on machine, check machine screen",
+      "source": "Product page §03 'Interface'",
+      "sampling": "100%"
+     },
+     "spec": {},
+     "question": {
+      "zh": "RS-1 识别飞达是否需要额外设置？无报警作为判定是否可行？",
+      "en": "Does RS-1 need any setting to recognise the feeder? Is 'no alarm' the right criterion?"
+     }
+    },
+    {
+     "id": "D04",
+     "grade": "MA",
+     "status": "T",
+     "zh": {
+      "item": "光电 / 料有无传感器",
+      "criterion": "手册未列出光电传感器；若该批次配置，遮光 / 放料时信号与指示正确；未配置判 NA",
+      "method": "遮光片 / 元件遮挡测试",
+      "source": "资料未提及",
+      "sampling": "100%"
+     },
+     "en": {
+      "item": "Photoelectric / part-presence sensor",
+      "criterion": "Not listed in Manual; if fitted on this batch, signal and indication correct when blocked / part present; NA if not fitted",
+      "method": "Block with shutter / part",
+      "source": "Not in sources",
+      "sampling": "100%"
+     },
+     "spec": {},
+     "question": {
+      "zh": "S-JVF02 是否配置光电 / 料有无传感器？若有，型号和判定方式？",
+      "en": "Is a photoelectric / part-presence sensor fitted? If so, which and how to judge?"
+     }
+    },
+    {
+     "id": "D05",
+     "grade": "MI",
+     "status": "C",
+     "zh": {
+      "item": "内部线束",
+      "criterion": "走线整齐、扎带固定，无挤压、无破皮，远离振动部件",
+      "method": "打开前盖目视",
+      "source": "通用标准 G-ELE-01",
+      "sampling": "100%"
+     },
+     "en": {
+      "item": "Internal wiring",
+      "criterion": "Neatly routed and tied, not pinched or damaged, clear of vibration parts",
+      "method": "Open front cover, visual",
+      "source": "General G-ELE-01",
+      "sampling": "100%"
+     },
+     "spec": {}
+    }
+   ]
+  },
+  {
+   "code": "E",
+   "zh": "电气与安全（接地、绝缘、急停）",
+   "en": "Electrical & Safety (Grounding, Insulation, E-stop)",
+   "items": [
+    {
+     "id": "E01",
+     "grade": "CR",
+     "status": "S",
+     "zh": {
+      "item": "供电电压",
+      "criterion": "连接器输入 24 V DC，允许 21.6 - 26.4 V（± 10 %）",
+      "method": "万用表在连接器电源针测量",
+      "source": "产品页 §03 'Voltage'；公差 G-ELE-02",
+      "sampling": "100%"
+     },
+     "en": {
+      "item": "Supply voltage",
+      "criterion": "24 V DC at connector, allowed 21.6 - 26.4 V (± 10 %)",
+      "method": "Multimeter at connector power pins",
+      "source": "Product page §03 'Voltage'; tolerance G-ELE-02",
+      "sampling": "100%"
+     },
+     "spec": {
+      "nominal": "24",
+      "lsl": "21.6",
+      "usl": "26.4",
+      "unit": "V DC"
+     },
+     "question": {
+      "zh": "供电允许范围 ±10 % 是否正确？",
+      "en": "Is ±10 % the right supply range?"
+     }
+    },
+    {
+     "id": "E02",
+     "grade": "MA",
+     "status": "S",
+     "zh": {
+      "item": "工作电流 / 功率",
+      "criterion": "额定 15 W；24 V 最大振动设定下电流 ≤ 0.65 A（≈ 15.6 W）",
+      "method": "直流钳形表 / 可调电源读数",
+      "source": "产品页 §03 'Power'；电流按 15 W/24 V 推算",
+      "sampling": "100%"
+     },
+     "en": {
+      "item": "Current / power",
+      "criterion": "Rated 15 W; at 24 V and max vibration setting current ≤ 0.65 A (≈ 15.6 W)",
+      "method": "DC clamp meter / bench supply reading",
+      "source": "Product page §03 'Power'; current derived from 15 W/24 V",
+      "sampling": "100%"
+     },
+     "spec": {
+      "nominal": "15 W",
+      "usl": "0.65",
+      "unit": "A"
+     },
+     "question": {
+      "zh": "最大电流上限 0.65 A 是否采用？",
+      "en": "Accept 0.65 A max current?"
+     }
+    },
+    {
+     "id": "E03",
+     "grade": "CR",
+     "status": "C",
+     "zh": {
+      "item": "上电检查",
+      "criterion": "电源极性与连接器定义一致；上电无冒烟、异味、发热异常",
+      "method": "上电观察 5 min",
+      "source": "通用标准 G-ELE-03",
+      "sampling": "100%"
+     },
+     "en": {
+      "item": "Power-on check",
+      "criterion": "Polarity matches connector pin-out; no smoke, smell or abnormal heat at power-on",
+      "method": "Power on and observe 5 min",
+      "source": "General G-ELE-03",
+      "sampling": "100%"
+     },
+     "spec": {}
+    },
+    {
+     "id": "E04",
+     "grade": "CR",
+     "status": "S",
+     "zh": {
+      "item": "接地连续性",
+      "criterion": "金属主体与连接器接地针之间电阻 ≤ 0.1 Ω",
+      "method": "低电阻测试仪 / 微欧表",
+      "source": "通用标准 G-ELE-04",
+      "sampling": "100%"
+     },
+     "en": {
+      "item": "Earth continuity",
+      "criterion": "Resistance between metal body and connector ground pin ≤ 0.1 Ω",
+      "method": "Low-resistance / micro-ohm meter",
+      "source": "General G-ELE-04",
+      "sampling": "100%"
+     },
+     "spec": {
+      "usl": "0.1",
+      "unit": "Ω"
+     },
+     "question": {
+      "zh": "接地电阻 ≤0.1 Ω 是否采用？连接器哪一针为地？",
+      "en": "Accept ≤0.1 Ω? Which connector pin is ground?"
+     }
+    },
+    {
+     "id": "E05",
+     "grade": "CR",
+     "status": "S",
+     "zh": {
+      "item": "绝缘电阻",
+      "criterion": "电源针（短接）对金属外壳 ≥ 1 MΩ，测试电压 250 V DC（参照 IEC 60204-1，24 V 低压回路）",
+      "method": "绝缘电阻表，断开控制单元电子元件后测试",
+      "source": "通用标准 G-ELE-05（参照 IEC 60204-1）",
+      "sampling": "100%"
+     },
+     "en": {
+      "item": "Insulation resistance",
+      "criterion": "Power pins (shorted) to metal housing ≥ 1 MΩ at 250 V DC (ref. IEC 60204-1, 24 V circuit)",
+      "method": "Insulation tester, control unit electronics isolated",
+      "source": "General G-ELE-05 (ref. IEC 60204-1)",
+      "sampling": "100%"
+     },
+     "spec": {
+      "lsl": "1",
+      "unit": "MΩ @250 V DC"
+     },
+     "question": {
+      "zh": "绝缘测试 250 V DC / ≥1 MΩ 是否采用？",
+      "en": "Accept 250 V DC / ≥1 MΩ insulation test?"
+     }
+    },
+    {
+     "id": "E06",
+     "grade": "CR",
+     "status": "S",
+     "zh": {
+      "item": "急停联动",
+      "criterion": "飞达本体无急停；装在 RS-1 上按下设备急停后，设备停止动作，飞达振动停止或进入安全状态",
+      "method": "实机按急停测试",
+      "source": "通用标准 G-SAF-01",
+      "sampling": "每批首台"
+     },
+     "en": {
+      "item": "E-stop interaction",
+      "criterion": "Feeder has no own E-stop; with RS-1 E-stop pressed, machine stops and feeder vibration stops or is safe",
+      "method": "Press machine E-stop on test",
+      "source": "General G-SAF-01",
+      "sampling": "First unit per lot"
+     },
+     "spec": {},
+     "question": {
+      "zh": "RS-1 急停时飞达座是否断电？",
+      "en": "Does the RS-1 E-stop cut power to the feeder bank?"
+     }
+    },
+    {
+     "id": "E07",
+     "grade": "CR",
+     "status": "C",
+     "zh": {
+      "item": "断电操作",
+      "criterion": "拆装飞达、更换料管前须关闭开关（手册安全说明）；关闭后无振动",
+      "method": "按手册操作验证",
+      "source": "手册 §1 p.3；§4.2 p.8",
+      "sampling": "100%"
+     },
+     "en": {
+      "item": "Switch-off before handling",
+      "criterion": "Switch off before removing feeder or changing tube (Manual safety section); no vibration when off",
+      "method": "Verify per Manual",
+      "source": "Manual §1 p.3; §4.2 p.8",
+      "sampling": "100%"
+     },
+     "spec": {}
+    },
+    {
+     "id": "E08",
+     "grade": "MA",
+     "status": "T",
+     "zh": {
+      "item": "安全警示",
+      "criterion": "机身或料道附近有“取料区禁止伸手”或等效警示标识",
+      "method": "目视",
+      "source": "手册 §1 p.3（安全说明）",
+      "sampling": "100%"
+     },
+     "en": {
+      "item": "Safety label",
+      "criterion": "\"Keep hands clear of pick-up area\" or equivalent label on the body or near the lanes",
+      "method": "Visual",
+      "source": "Manual §1 p.3 (safety notes)",
+      "sampling": "100%"
+     },
+     "spec": {},
+     "question": {
+      "zh": "机身是否有安全警示标签？内容和语言？",
+      "en": "Is there a safety label on the body? Text and language?"
+     }
+    },
+    {
+     "id": "E09",
+     "grade": "MA",
+     "status": "C",
+     "zh": {
+      "item": "锐边与夹手",
+      "criterion": "外露边角无锐边毛刺；手柄与取料区无夹手风险",
+      "method": "手套触摸检查",
+      "source": "通用标准 G-SAF-02",
+      "sampling": "100%"
+     },
+     "en": {
+      "item": "Sharp edges & pinch points",
+      "criterion": "No sharp edges or burrs; no pinch risk at handlebar or pick-up area",
+      "method": "Glove touch check",
+      "source": "General G-SAF-02",
+      "sampling": "100%"
+     },
+     "spec": {}
+    }
+   ]
+  },
+  {
+   "code": "F",
+   "zh": "规格参数核对",
+   "en": "Specification Verification",
+   "items": [
+    {
+     "id": "F01",
+     "grade": "MA",
+     "status": "C",
+     "zh": {
+      "item": "型号",
+      "criterion": "S-JVF02 SMT 振动（料管）飞达",
+      "method": "核对铭牌与订单",
+      "source": "手册 封面 p.1；§3 p.6",
+      "sampling": "100%"
+     },
+     "en": {
+      "item": "Model",
+      "criterion": "S-JVF02 SMT stick (tube) vibration feeder",
+      "method": "Check nameplate vs order",
+      "source": "Manual cover p.1; §3 p.6",
+      "sampling": "100%"
+     },
+     "spec": {
+      "nominal": "S-JVF02"
+     }
+    },
+    {
+     "id": "F02",
+     "grade": "CR",
+     "status": "C",
+     "zh": {
+      "item": "适配机型",
+      "criterion": "JUKI RS-1 飞达座",
+      "method": "核对订单 / 实机装入",
+      "source": "产品页 §03 'Model compatibility'",
+      "sampling": "100%"
+     },
+     "en": {
+      "item": "Compatible machine",
+      "criterion": "JUKI RS-1 feeder bank",
+      "method": "Check order / install test",
+      "source": "Product page §03 'Model compatibility'",
+      "sampling": "100%"
+     },
+     "spec": {
+      "nominal": "JUKI RS-1"
+     }
+    },
+    {
+     "id": "F03",
+     "grade": "CR",
+     "status": "C",
+     "zh": {
+      "item": "电压",
+      "criterion": "24 V DC",
+      "method": "核对铭牌 + E01 实测",
+      "source": "产品页 §03 'Voltage'",
+      "sampling": "100%"
+     },
+     "en": {
+      "item": "Voltage",
+      "criterion": "24 V DC",
+      "method": "Nameplate + E01 reading",
+      "source": "Product page §03 'Voltage'",
+      "sampling": "100%"
+     },
+     "spec": {
+      "nominal": "24",
+      "unit": "V DC"
+     }
+    },
+    {
+     "id": "F04",
+     "grade": "MA",
+     "status": "C",
+     "zh": {
+      "item": "功率",
+      "criterion": "15 W",
+      "method": "核对铭牌 + E02 实测",
+      "source": "产品页 §03 'Power'",
+      "sampling": "100%"
+     },
+     "en": {
+      "item": "Power",
+      "criterion": "15 W",
+      "method": "Nameplate + E02 reading",
+      "source": "Product page §03 'Power'",
+      "sampling": "100%"
+     },
+     "spec": {
+      "nominal": "15",
+      "unit": "W"
+     }
+    },
+    {
+     "id": "F05",
+     "grade": "MA",
+     "status": "T",
+     "zh": {
+      "item": "频率",
+      "criterion": "直流供电，无电源频率要求；振动频率由旋钮可调（具体范围待确认）",
+      "method": "核对 + C05 结果",
+      "source": "手册 §3 p.6（未给范围）",
+      "sampling": "100%"
+     },
+     "en": {
+      "item": "Frequency",
+      "criterion": "DC supply, no mains frequency requirement; vibration frequency adjustable by knob (range TBD)",
+      "method": "Check + C05 result",
+      "source": "Manual §3 p.6 (no range given)",
+      "sampling": "100%"
+     },
+     "spec": {},
+     "question": {
+      "zh": "振动频率可调范围是多少（Hz）？",
+      "en": "What is the adjustable vibration frequency range (Hz)?"
+     }
+    },
+    {
+     "id": "F06",
+     "grade": "MA",
+     "status": "C",
+     "zh": {
+      "item": "适用元件范围",
+      "criterion": "3 × 3 mm - 30 × 10 mm",
+      "method": "核对 C06 / C07 结果",
+      "source": "产品页 §03 'Component size range'",
+      "sampling": "100%"
+     },
+     "en": {
+      "item": "Component size range",
+      "criterion": "3 × 3 mm - 30 × 10 mm",
+      "method": "Check C06 / C07 results",
+      "source": "Product page §03 'Component size range'",
+      "sampling": "100%"
+     },
+     "spec": {
+      "nominal": "3×3 – 30×10",
+      "unit": "mm"
+     }
+    },
+    {
+     "id": "F07",
+     "grade": "MA",
+     "status": "C",
+     "zh": {
+      "item": "料管宽度 / 料道数",
+      "criterion": "66 mm 料管；4 条独立料道",
+      "method": "核对 C01 结果",
+      "source": "产品页 §03 'Stick width / Input channels'",
+      "sampling": "100%"
+     },
+     "en": {
+      "item": "Tube width / lanes",
+      "criterion": "66 mm tube; 4 independent lanes",
+      "method": "Check C01 result",
+      "source": "Product page §03 'Stick width / Input channels'",
+      "sampling": "100%"
+     },
+     "spec": {
+      "nominal": "66 / 4",
+      "unit": "mm / lanes"
+     }
+    },
+    {
+     "id": "F08",
+     "grade": "MA",
+     "status": "S",
+     "zh": {
+      "item": "随机文件与包装",
+      "criterion": "英文操作手册（Rev. 2025）、合格证、本检验表、装箱单齐全；防静电袋 + 防震泡棉包装，手柄与料道固定",
+      "method": "对照装箱单核对",
+      "source": "手册 封面（Rev. 2025）；包装 G-PAK-01",
+      "sampling": "100%"
+     },
+     "en": {
+      "item": "Documents & packing",
+      "criterion": "English Operation Manual (Rev. 2025), conformity certificate, this checklist and packing list included; anti-static bag + foam, handlebar and lanes secured",
+      "method": "Check against packing list",
+      "source": "Manual cover (Rev. 2025); packing G-PAK-01",
+      "sampling": "100%"
+     },
+     "spec": {},
+     "question": {
+      "zh": "随机文件清单和包装方式（防静电袋 + 泡棉）是否正确？",
+      "en": "Are the document list and packing (anti-static bag + foam) correct?"
+     }
+    }
+   ]
+  }
+ ]
+}
