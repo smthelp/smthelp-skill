@@ -2,27 +2,97 @@
   "_doc": "Deck structure and content rules enforced by validate_spec.py and qa.py. Bump the skill minor version when you change them.",
   "audience": "Overseas EMS / electronics manufacturing engineers, process and purchasing managers",
   "language": "en",
-  "slide_types": ["overview", "metrics", "pains", "fab", "process", "gallery", "beforeafter", "specs", "brands", "table", "summary"],
-  "required_types": ["overview", "fab", "summary"],
-  "required_any_of": [["specs", "table"]],
-  "body_slides": {"min": 5, "max": 14},
-  "contents_items": {"min": 4, "max": 6},
+  "slide_types": [
+    "overview",
+    "metrics",
+    "pains",
+    "fab",
+    "process",
+    "gallery",
+    "beforeafter",
+    "specs",
+    "brands",
+    "table",
+    "summary",
+    "video"
+  ],
+  "required_types": [
+    "overview",
+    "fab",
+    "summary"
+  ],
+  "required_any_of": [
+    [
+      "specs",
+      "table"
+    ]
+  ],
+  "body_slides": {
+    "min": 5,
+    "max": 14
+  },
+  "contents_items": {
+    "min": 4,
+    "max": 6
+  },
   "last_body_type": "summary",
   "limits": {
     "title_chars": 44,
     "deck_name_chars": 60,
     "lead_chars": 230,
     "metric_value_chars": 11,
-    "metrics_items": [3, 4],
-    "pains_items": [3, 8],
-    "fab_rows": [2, 3],
-    "gallery_items": [2, 4],
-    "summary_items": [3, 4],
+    "metrics_items": [
+      3,
+      4
+    ],
+    "pains_items": [
+      3,
+      8
+    ],
+    "fab_rows": [
+      2,
+      3
+    ],
+    "gallery_items": [
+      2,
+      4
+    ],
+    "summary_items": [
+      3,
+      4
+    ],
     "table_rows_max": 14,
     "specs_rows_max": 14,
-    "process_steps": [3, 8]
+    "process_steps": [
+      3,
+      8
+    ],
+    "video_items": [
+      1,
+      2
+    ]
   },
-  "forbidden_text": ["TBD", "XXX", "lorem", "ipsum", "待定", "TODO", "??"],
-  "forbidden_brands_in_body": ["leenol", "Shuaiyi", "SHUAIYI"],
+  "forbidden_text": [
+    "TBD",
+    "XXX",
+    "lorem",
+    "ipsum",
+    "待定",
+    "TODO",
+    "??"
+  ],
+  "forbidden_brands_in_body": [
+    "leenol",
+    "Shuaiyi",
+    "SHUAIYI",
+    "Electro Design",
+    "Omron",
+    "SMC",
+    "Panasonic",
+    "Pannasonic",
+    "Bosch",
+    "Rexroth",
+    "NSK"
+  ],
   "chinese_allowed": false
 }

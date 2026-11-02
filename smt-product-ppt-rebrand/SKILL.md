@@ -2,8 +2,8 @@
 name: smt-product-ppt-rebrand
 description: Rebuild old Southern Machinery product PDFs / PPTs (Chinese or rough English, mixed supplier material) into professional English product decks on the unified SM 16:9 brand template (2023-09), with title, contents, overview, key figures, pain points, FAB (Features-Advantages-Benefits), design details, specs / model tables, summary and the fixed After-sales + Welcome Inquiry slides, SEO file names and upload back to the source Google Drive folder. Use when Jason says 产品PPT更新/优化/统一品牌格式/重做产品介绍PPT/把文件夹里的PDF做成PPT, or gives a Drive folder of product files and asks for decks for overseas EMS customers.
 metadata:
-  version: 1.0.0
-  updated: 2026-10-23
+  version: 1.1.0
+  updated: 2026-11-02
   brand_version: SM-PPT-202309
   first_cases: SPC950 pallet cleaner, SME5300/SME5200 fixture cleaners, ESD magazine rack, ESD PCB trolley, ESD flex arm, ESD storage board, ESD personal protection, ESD workshop solutions
   requires: python3, python-pptx, Pillow, lxml, poppler-utils (pdftotext, pdfimages, pdfinfo, pdftoppm); gws CLI for Drive I/O and for .ppt conversion / rendering when LibreOffice is absent
