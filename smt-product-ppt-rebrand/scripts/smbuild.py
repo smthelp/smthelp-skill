@@ -277,6 +277,24 @@ def s_gallery(prs, L, d, A):
         text(s, x, top + imgh + 0.5, w, 6.45 - (top + imgh + 0.5), it["body"], size=13, bullet=True)
     notes(s, d.get("notes", ""))
 
+def s_video(prs, L, d, A):
+    """1-2 embedded mp4 clips with poster frame, head and 2 bullets (plays in PowerPoint)."""
+    s = prs.slides.add_slide(L)
+    title(s, d["title"])
+    if d.get("lead"): text(s, 0.75, 0.95, 10.9, 0.5, d["lead"], size=15)
+    items = d["items"]; n = len(items); top = 1.6 if d.get("lead") else 1.1
+    w = (10.9 - 0.4 * (n - 1)) / n; vh = d.get("vh", 3.4)
+    for i, it in enumerate(items):
+        x = 0.75 + i * (w + 0.4)
+        im = Image.open(A + it["poster"]); iw, ih = im.size
+        sc = min(w / iw, vh / ih); pw, ph = iw * sc, ih * sc
+        box(s, x, top, w, vh, fill=_rgb("000000"), line=TEAL, shape=MSO_SHAPE.RECTANGLE)
+        s.shapes.add_movie(A + it["video"], Inches(x + (w - pw) / 2), Inches(top + (vh - ph) / 2), Inches(pw), Inches(ph),
+                           poster_frame_image=A + it["poster"], mime_type="video/mp4")
+        text(s, x, top + vh + 0.1, w, 0.4, it["head"], size=14, color=NAVY, bold=True)
+        text(s, x, top + vh + 0.5, w, 6.45 - (top + vh + 0.5), it["body"], size=13, bullet=True)
+    notes(s, d.get("notes", ""))
+
 def s_beforeafter(prs, L, d, A):
     s = prs.slides.add_slide(L)
     title(s, d["title"])
@@ -394,8 +412,8 @@ def s_table(prs, L, d):
     notes(s, d.get("notes", ""))
 
 TYPES = {"overview": s_overview, "metrics": s_metrics, "pains": s_pains, "fab": s_fab, "process": s_process,
-         "gallery": s_gallery, "beforeafter": s_beforeafter, "specs": s_specs, "brands": s_brands, "summary": s_summary, "table": s_table}
-NEEDS_A = {"overview", "process", "gallery", "beforeafter", "brands"}
+         "gallery": s_gallery, "beforeafter": s_beforeafter, "specs": s_specs, "brands": s_brands, "summary": s_summary, "table": s_table, "video": s_video}
+NEEDS_A = {"overview", "process", "gallery", "beforeafter", "brands", "video"}
 
 def build(template, spec, assets, out):
     prs = Presentation(template)

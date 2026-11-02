@@ -14,6 +14,7 @@ All slides use the template content layout; title is drawn in the header band. L
 | specs | title, rows [[name, value]] | footer | <= 14 rows |
 | brands | title, lead, image, items [[brand, parts]] | | |
 | table | title, columns [..], rows [[..]] | widths [..], lead, footer | <= 14 rows; row width = columns |
+| video | title, items [{video .mp4, poster .jpg, head, body:[2 bullets]}] x1-2 | lead, vh (in), notes | embedded, plays in PowerPoint |
 | summary | title, lead, items [[head, text] x3-4], cta | | always the last body slide |
 
 Snippets:

@@ -14,14 +14,14 @@ def walk_text(o):
     if isinstance(o, str): yield o
     elif isinstance(o, dict):
         for k, v in o.items():
-            if k not in ("image", "notes", "images", "before", "after"): yield from walk_text(v)
+            if k not in ("image", "notes", "images", "before", "after", "video", "poster"): yield from walk_text(v)
     elif isinstance(o, (list, tuple)):
         for v in o: yield from walk_text(v)
 
 def images_of(o):
     if isinstance(o, dict):
         for k, v in o.items():
-            if k in ("image", "before", "after") and isinstance(v, str): yield v
+            if k in ("image", "before", "after", "poster", "video") and isinstance(v, str): yield v
             elif k in ("images", "side") and isinstance(v, list):
                 for it in v:
                     if isinstance(it, list) and it and str(it[0]).lower().endswith((".jpg", ".jpeg", ".png")): yield it[0]
