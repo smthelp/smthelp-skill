@@ -1,0 +1,66 @@
+{
+ "_doc": "Commercial invoice data. Copy to cis/<INVOICE_NO>/ci.json, fill every field from the order/PO and shipment; delete keys you do not need. See references/field-spec.md.",
+ "invoice_no": "JA26062601",
+ "date": "2026-06-26",
+ "po_no": "C-10003652009",
+ "po_date": "",
+ "contract_ref": "",
+ "buyer": {
+  "company": "",
+  "address": "",
+  "country": "",
+  "attn": "",
+  "email": "",
+  "tel": "",
+  "tax_id": "",
+  "short": ""
+ },
+ "ship_to": {
+  "company": "",
+  "address": "",
+  "country": ""
+ },
+ "currency": "USD",
+ "incoterm": "EXW",
+ "place": "Shenzhen, China",
+ "show_tax_id": true,
+ "export_control_line": true,
+ "signatory": "Leo Liao",
+ "terms": {
+  "payment": "TO_CONFIRM",
+  "delivery": "By buyer's forwarder from Shenzhen (EXW)",
+  "insurance": "To be covered by the buyer"
+ },
+ "shipment": {
+  "port_of_loading": "Shenzhen, China",
+  "destination": "",
+  "country_of_origin": "China"
+ },
+ "items": [
+  {
+   "model": "",
+   "name": "English description, one fact per line",
+   "customer_ref": "",
+   "qty": 1,
+   "unit": "pcs",
+   "price": 0.0,
+   "hs_code": "",
+   "lines": []
+  }
+ ],
+ "charges": [],
+ "discount": 0,
+ "total_check": 0.0,
+ "notes": [
+  "Non-dangerous goods."
+ ],
+ "issues": [
+  {
+   "id": "terms.payment",
+   "level": "CONFIRM",
+   "field": "Terms of payment",
+   "note": "按合同/PO 填写",
+   "resolved": false
+  }
+ ]
+}

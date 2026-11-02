@@ -1,0 +1,83 @@
+{
+ "invoice_no": "JA26062601",
+ "date": "2026-06-26",
+ "po_no": "C-10003652009",
+ "contract_ref": "UA-03978-2016 dated 10 Oct 2019",
+ "buyer": {
+  "company": "Jabil Circuit Ukraine LLC",
+  "address": "01RI Kontsivska Street, 40, Rozivka Village, Uzhgorod District, Zakarpatska Oblast 89424",
+  "country": "Ukraine",
+  "attn": "Oleksii Borysevych",
+  "email": "Oleksii_Borysevych@Jabil.com",
+  "tel": "+38 095 393 4894",
+  "short": "Jabil-Ukraine"
+ },
+ "ship_to": {
+  "company": "Jabil Circuit Ukraine LLC",
+  "address": "01RI Kontsivska Street, 40, Rozivka Village, Uzhgorod District, Zakarpatska Oblast 89424",
+  "country": "Ukraine"
+ },
+ "currency": "USD",
+ "incoterm": "EXW",
+ "place": "Shenzhen, China",
+ "show_tax_id": true,
+ "export_control_line": true,
+ "signatory": "Leo Liao",
+ "terms": {
+  "payment": "TO_CONFIRM",
+  "delivery": "By buyer's forwarder from Shenzhen (EXW)",
+  "insurance": "To be covered by the buyer"
+ },
+ "shipment": {
+  "port_of_loading": "Shenzhen, China",
+  "destination": "Ukraine",
+  "country_of_origin": "China"
+ },
+ "items": [
+  {
+   "model": "FYJ-D58",
+   "name": "Automatic label dispenser for transparent and opaque roll labels\nPeels and presents the next label automatically when the operator removes one\nFor standard roll labels in electronics, packaging, warehouse and production lines\nVoltage: TO_CONFIRM",
+   "qty": 10,
+   "unit": "sets",
+   "price": 752.9,
+   "hs_code": "8422303090",
+   "lines": []
+  }
+ ],
+ "charges": [],
+ "discount": 0,
+ "total_check": 7529.0,
+ "issues": [
+  {
+   "id": "terms.payment",
+   "level": "CONFIRM",
+   "field": "Terms of payment",
+   "note": "原发票无付款条件；按 Jabil 合同/PO 填写",
+   "resolved": false
+  },
+  {
+   "id": "item1.name",
+   "level": "CONFIRM",
+   "field": "电压",
+   "note": "原票 110V/220V 未定",
+   "resolved": false
+  },
+  {
+   "id": "item1.match",
+   "level": "CONFIRM",
+   "field": "型号 FYJ-D58",
+   "note": "是否为供应商型号",
+   "resolved": false
+  },
+  {
+   "id": "buyer.address",
+   "level": "CONFIRM",
+   "field": "地址 01RI",
+   "note": "按 PO 核对",
+   "resolved": false
+  }
+ ],
+ "notes": [
+  "Non-dangerous goods."
+ ]
+}

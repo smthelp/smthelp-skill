@@ -1,0 +1,70 @@
+{
+ "invoice_no": "JA26031701",
+ "date": "2026-03-17",
+ "po_no": "C-10003307883",
+ "contract_ref": "UA-03978-2016 dated 10 Oct 2019",
+ "buyer": {
+  "company": "Jabil Hungary LP LLC",
+  "address": "Huszár Andor út 3. (Building C), 3580 Tiszaújváros",
+  "country": "Hungary",
+  "attn": "David Herka",
+  "email": "David_Herka@Jabil.com",
+  "tel": "+36 70 440 2862",
+  "short": "Jabil-Hungary"
+ },
+ "ship_to": {
+  "company": "Jabil Hungary LP LLC",
+  "address": "Huszár Andor út 3. (Building C), 3580 Tiszaújváros",
+  "country": "Hungary"
+ },
+ "currency": "USD",
+ "incoterm": "EXW",
+ "place": "Shenzhen, China",
+ "show_tax_id": true,
+ "export_control_line": true,
+ "signatory": "Leo Liao",
+ "terms": {
+  "payment": "Free of charge - no payment required",
+  "delivery": "By buyer's forwarder from Shenzhen (EXW)",
+  "insurance": "To be covered by the buyer"
+ },
+ "shipment": {
+  "port_of_loading": "Shenzhen, China",
+  "destination": "Hungary",
+  "country_of_origin": "China"
+ },
+ "items": [
+  {
+   "model": "SPT-200",
+   "name": "PCB anti-static tray, stackable, with finger slots for easy part removal\nSurface resistance: 10^6 - 10^9 Ω\nMaterial: polystyrene\nDimensions: 320 × 299 × 20 mm (L × W × H)",
+   "qty": 10,
+   "unit": "pcs",
+   "price": 4.0,
+   "hs_code": "3926909090",
+   "lines": []
+  }
+ ],
+ "charges": [],
+ "discount": 0,
+ "total_check": 40.0,
+ "issues": [
+  {
+   "id": "item1.price",
+   "level": "CONFIRM",
+   "field": "样品报关单价",
+   "note": "USD 4.00/pc vs JA26050401 USD 9.75/pc",
+   "resolved": false
+  },
+  {
+   "id": "contract_ref",
+   "level": "CONFIRM",
+   "field": "Contract ref.",
+   "note": "UA 合同号是否适用 Jabil Hungary",
+   "resolved": false
+  }
+ ],
+ "notes": [
+  "Non-dangerous goods.",
+  "Free samples, no commercial value. Value for customs purposes only."
+ ]
+}
