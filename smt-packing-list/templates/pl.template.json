@@ -1,0 +1,48 @@
+{
+ "_doc": "Copy to pls/<PL_NO>/pl.json and fill from the commercial invoice + packing data. Field rules: references/field-spec.md. Unknown values: write \"TO CONFIRM\"; doubtful values: add the key to confirm[].",
+ "pl_no": "XX26MMDD01",
+ "date": "2026-MM-DD",
+ "file_tag": "Customer-Country",
+ "invoice_no": "XX26MMDD01",
+ "po_no": "TO CONFIRM",
+ "incoterm": "EXW Shenzhen, China (Incoterms® 2020)",
+ "port_of_loading": "Shenzhen, China",
+ "destination": "City, Country",
+ "consignee": {
+  "company": "Buyer legal name",
+  "address": "Street, postcode city, country",
+  "attn": "",
+  "tel": "",
+  "email": ""
+ },
+ "packages_text": "1 carton",
+ "package_word": "carton",
+ "origin": "China",
+ "packages": [
+  {
+   "cno": "1",
+   "packing": "Carton",
+   "L": 60,
+   "W": 40,
+   "H": 40,
+   "nw": 0.0,
+   "gw": 0.0,
+   "items": [
+    {
+     "desc": "SM model + plain English name\nMaterial: ...\nS/N: ... (machines)\nH.S. code: 0000000000",
+     "qty": 1,
+     "unit": "pcs"
+    }
+   ]
+  }
+ ],
+ "marks": "BUYER NAME\nCITY, COUNTRY\nPO No.: ...\nPL / INV No.: XX26MMDD01\nC/No.: 1/1\nMADE IN CHINA",
+ "remarks": [
+  "Packing: export carton.",
+  "Country of origin: China.",
+  "Non-dangerous goods.",
+  "Values are shown on the Commercial Invoice of the same number."
+ ],
+ "signer": "Leo Liao",
+ "confirm": []
+}

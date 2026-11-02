@@ -1,0 +1,95 @@
+{
+ "pl_no": "JA26050401",
+ "date": "2026-05-04",
+ "file_tag": "Jabil-Hungary",
+ "invoice_no": "JA26050401",
+ "po_no": "C-10003587880",
+ "incoterm": "EXW Shenzhen, China (Incoterms® 2020)",
+ "port_of_loading": "Shenzhen, China",
+ "destination": "Tiszaújváros, Hungary",
+ "consignee": {
+  "company": "Jabil Hungary LP LLC",
+  "address": "Huszár Andor út 3. (Building C), 3580 Tiszaújváros, Hungary",
+  "attn": "David Herka",
+  "tel": "+36 70 440 2862",
+  "email": "David_Herka@Jabil.com"
+ },
+ "packages_text": "4 cartons",
+ "package_word": "cartons",
+ "origin": "China",
+ "packages": [
+  {
+   "cno": "1",
+   "packing": "Carton",
+   "L": 60,
+   "W": 40,
+   "H": 40,
+   "nw": 9.7,
+   "gw": 10.6,
+   "items": [
+    {
+     "desc": "SPT-200 PCB anti-static tray, black\nH.S. code: 3926909090",
+     "qty": 50,
+     "unit": "pcs"
+    }
+   ]
+  },
+  {
+   "cno": "2",
+   "packing": "Carton",
+   "L": 60,
+   "W": 40,
+   "H": 40,
+   "nw": 9.7,
+   "gw": 10.6,
+   "items": [
+    {
+     "desc": "SPT-200 PCB anti-static tray, black\nH.S. code: 3926909090",
+     "qty": 50,
+     "unit": "pcs"
+    }
+   ]
+  },
+  {
+   "cno": "3",
+   "packing": "Carton",
+   "L": 60,
+   "W": 40,
+   "H": 40,
+   "nw": 9.7,
+   "gw": 10.6,
+   "items": [
+    {
+     "desc": "SPT-200 PCB anti-static tray, black\nH.S. code: 3926909090",
+     "qty": 50,
+     "unit": "pcs"
+    }
+   ]
+  },
+  {
+   "cno": "4",
+   "packing": "Carton",
+   "L": 60,
+   "W": 40,
+   "H": 40,
+   "nw": 9.7,
+   "gw": 10.6,
+   "items": [
+    {
+     "desc": "SPT-200 PCB anti-static tray, black\nH.S. code: 3926909090",
+     "qty": 50,
+     "unit": "pcs"
+    }
+   ]
+  }
+ ],
+ "marks": "JABIL HUNGARY LP LLC\nTISZAUJVAROS, HUNGARY\nPO No.: C-10003587880\nPL / INV No.: JA26050401\nC/No.: 1-4\nMADE IN CHINA",
+ "remarks": [
+  "Packing: export cartons, 50 pcs per carton.",
+  "Country of origin: China.",
+  "Non-dangerous goods.",
+  "Values are shown on the Commercial Invoice of the same number."
+ ],
+ "signer": "Leo Liao",
+ "confirm": []
+}

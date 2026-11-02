@@ -1,0 +1,98 @@
+{
+ "pl_no": "DG24050801",
+ "date": "2024-05-08",
+ "file_tag": "Thai-DGT-S3020A",
+ "invoice_no": "DG24050801",
+ "po_no": "2404110010",
+ "incoterm": "TO CONFIRM",
+ "port_of_loading": "Shenzhen, China",
+ "destination": "Chonburi, Thailand",
+ "consignee": {
+  "company": "Thai DGT Co., Ltd.",
+  "address": "132/1 Moo.1, T.Khaomaikeaw, A.Banglamung, Chonburi 20150, Thailand",
+  "attn": "Kanyarat Preecha-charoensri (Urng), BOI Manager, PBL Group",
+  "tel": "+66 91 506 0687",
+  "email": "kanyarat@dgtek.co.kr"
+ },
+ "packages_text": "4 wooden crates",
+ "package_word": "wooden crates",
+ "origin": "China",
+ "packages": [
+  {
+   "cno": "1",
+   "packing": "Wooden crate",
+   "L": 200,
+   "W": 190,
+   "H": 190,
+   "nw": 1200,
+   "gw": 1500,
+   "items": [
+    {
+     "desc": "S3020A radial insertion machine, core machine\nS/N: TO CONFIRM\nH.S. code: 84798961",
+     "qty": 1,
+     "unit": "set"
+    }
+   ]
+  },
+  {
+   "cno": "2",
+   "packing": "Wooden crate",
+   "L": 175,
+   "W": 150,
+   "H": 140,
+   "nw": 600,
+   "gw": 700,
+   "items": [
+    {
+     "desc": "Radial feeder, 20 stations\nS/N: TO CONFIRM\nH.S. code: 84798961",
+     "qty": 1,
+     "unit": "set"
+    }
+   ]
+  },
+  {
+   "cno": "3",
+   "packing": "Wooden crate",
+   "L": 140,
+   "W": 100,
+   "H": 145,
+   "nw": 150,
+   "gw": 200,
+   "items": [
+    {
+     "desc": "PCB loader, 250 mm\nS/N: TO CONFIRM\nH.S. code: 84283300",
+     "qty": 1,
+     "unit": "set"
+    }
+   ]
+  },
+  {
+   "cno": "4",
+   "packing": "Wooden crate",
+   "L": 185,
+   "W": 100,
+   "H": 145,
+   "nw": 180,
+   "gw": 230,
+   "items": [
+    {
+     "desc": "PCB unloader, 250 mm\nS/N: TO CONFIRM\nH.S. code: 84283300",
+     "qty": 1,
+     "unit": "set"
+    }
+   ]
+  }
+ ],
+ "marks": "THAI DGT CO., LTD.\nCHONBURI, THAILAND\nPO No.: 2404110010\nPL / INV No.: DG24050801\nC/No.: 1-4\nMADE IN CHINA",
+ "remarks": [
+  "Packing: wooden crates, ISPM 15 / IPPC marked - TO CONFIRM.",
+  "Country of origin: China.",
+  "Non-dangerous goods.",
+  "Values are shown on the Commercial Invoice of the same number."
+ ],
+ "signer": "",
+ "confirm": [
+  "invoice_no",
+  "items"
+ ]
+}

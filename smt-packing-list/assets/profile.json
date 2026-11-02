@@ -1,0 +1,37 @@
+{
+ "_doc": "Seller profile for Southern Machinery packing lists. company/address/tel/web/email/whatsapp/style must stay identical to smt-commercial-invoice/assets/profile.json (qa_pl.py compares when that file exists). PL-only settings under 'pl'.",
+ "company": "Southern Machinery Sales and Service Co., Limited",
+ "short": "Southern Machinery",
+ "address": "Rm 1806, Block 3, Jinyun COFCO, Qianjin 2nd Road, Xixiang, Bao'an District, Shenzhen 518102, China",
+ "tel": "+86 755 8320 3237",
+ "web": "smthelp.com",
+ "email": "info@smthelp.com",
+ "whatsapp": "+86 136 0256 2576",
+ "logo": "sm-logo.png",
+ "style": {
+  "font": "Arial",
+  "navy": "003142",
+  "green": "93AC3E",
+  "teal": "0097B2",
+  "grey": "111111",
+  "light": "EEF5F7",
+  "muted": "B2CDD6",
+  "body_size_delta": 1
+ },
+ "pl": {
+  "pl_no_pattern": "^[A-Z]{2}\\d{8}$",
+  "pl_no_rule": "Same number as the commercial invoice of the same shipment: 2 letters (customer/country code) + YYMMDD + 2-digit sequence, e.g. JA26050401",
+  "country_of_origin": "China",
+  "port_of_loading": "Shenzhen, China",
+  "default_incoterm": "EXW Shenzhen, China (Incoterms® 2020)",
+  "default_signer": "Leo Liao",
+  "nw_decimals": 2,
+  "cbm_decimals": 4,
+  "standard_remarks": [
+   "Country of origin: China.",
+   "Non-dangerous goods.",
+   "Values are shown on the Commercial Invoice of the same number."
+  ],
+  "wood_remark": "Wooden crates heat-treated and marked to ISPM 15 (IPPC)."
+ }
+}

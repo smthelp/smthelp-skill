@@ -2,7 +2,7 @@
 name: smt-commercial-invoice
 description: Make or review Southern Machinery commercial invoices (CI / 商业发票 / 报关发票) in the branded Excel + PDF format, issued by the Hong Kong company Southern Machinery Sales and Service Co., Limited with the JPMorgan HK bank block. Use when Jason asks to 做/开 Commercial Invoice、出报关发票、把旧发票改成品牌版、统一发票格式、审核发给客户的 Invoice（条款、金额、银行信息、HS 编码、品牌）. Never guesses: payment terms, HS codes, specs, contract refs or prices without a source are marked to confirm and keep the invoice in DRAFT until Jason answers.
 metadata:
-  version: 1.0.0
+  version: 1.0.1
   updated: 2026-11-02
   depends_on: smt-proforma-invoice (renderer pi_base.py vendored, profile.json kept identical), smt-brand-kit (logo, colours), smt-quotation (seller/bank profile)
   samples: JA26031701, JA26033001, JA26050401, JA26062601 (Jabil Hungary / Ukraine, 2026); reference DG25042301 (Thai DGT, 2025)
@@ -24,7 +24,7 @@ Jason's answers --------------------------> issues[].resolved / field values    
 |---|---|
 | Commercial invoices to customers for export / customs (goods already ordered) | Proforma invoices for payment -> `smt-proforma-invoice` |
 | Re-issuing old WPS/Excel invoices in the brand format | Quotations -> `smt-quotation` |
-| Auditing invoices someone else made (brand, terms, amounts, bank, HS) | Packing lists (no template yet), courier waybills |
+| Auditing invoices someone else made (brand, terms, amounts, bank, HS) | Packing lists -> `smt-packing-list`; courier waybills |
 | Free-sample invoices (value for customs) | Sending anything to a customer - Jason sends |
 
 ## 3. Inputs (checklist)
@@ -86,3 +86,4 @@ Audit only: walk `references/review-checklist.md` per invoice, write the reviews
 
 ## Version history
 - 1.0.0 (2026-11-02) - first release from the Jabil invoice audit (4 invoices, 2026) and Jason's decision to issue from the Hong Kong company: branded CI renderer, release gate, field spec, CN-EN glossary, review checklist, template, 2 examples.
+- 1.0.1 (2026-11-02) - packing lists now point to smt-packing-list.
