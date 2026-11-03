@@ -32,6 +32,10 @@ class T(unittest.TestCase):
         self.assertEqual(classify("x THREE.WebGLRenderer y"), "threejs")
         self.assertEqual(classify("<nav></nav><section>"), "landing")
         self.assertEqual(classify("%PDF-1.7"), "pdf")
+        self.assertEqual(classify("PK\x03\x04", "a/b.pptx"), "office")
+        from p3cv.stages.download import ext_for
+        self.assertEqual(ext_for("https://x/y/Deck%20A.pptx"), ".pptx")
+        self.assertEqual(ext_for("https://x/y/page.html"), ".html")
         self.assertNotIn("script", text_dump("<p>a</p><script>bad()</script>"))
 
     def test_cues(self):

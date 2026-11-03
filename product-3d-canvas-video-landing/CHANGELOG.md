@@ -2,6 +2,16 @@
 
 All notable changes to this skill. Format: [Keep a Changelog](https://keepachangelog.com), versions: [SemVer](https://semver.org).
 
+## [1.1.0] - 2026-11-03
+### Added
+- download: `.pptx` / `.docx` sources are saved with their real extension (kind `office`) and get a text dump
+  (python-pptx in presentation order when installed, slide XML otherwise); PDFs get a `pdftotext -layout` dump.
+- capture: `zoom_out_steps`, `drag_at` (drag off the model so eDrawings shows no part-name tooltip; cursor is parked
+  and Escape pressed after each drag), `recenter` (centre the model per frame for viewers that orbit off-centre;
+  speck-tolerant bbox).
+### Notes
+- Found on S3010A radial inserter (eDrawings, whole machine): default zoom-in framing clipped the model.
+
 ## [1.0.0] - 2026-10-26
 ### Added
 - `p3cv` Python package with 12 independent, resumable stages: download, capture, tts, mix, subtitles,

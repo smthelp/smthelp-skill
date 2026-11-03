@@ -21,6 +21,8 @@ def classify(text, url=""):
     low = text[:400000].lower()
     if url.lower().endswith(".pdf") or text.startswith("%PDF"):
         return "pdf"
+    if url.lower().endswith((".pptx", ".docx")) or text.startswith("PK"):
+        return "office"
     if "edrawings" in low or "modelcontents" in low or "hoops" in low:
         return "edrawings"
     if "three.webglrenderer" in low or "three.mathutils" in low or "three.object3d" in low:
@@ -66,13 +68,55 @@ def fetch(url, dest, timeout=120, retries=3, max_mb=80, ua="Mozilla/5.0"):
     return data
 
 
+def ext_for(url):
+    u = url.lower().split("?")[0]
+    for e in (".pdf", ".pptx", ".docx"):
+        if u.endswith(e):
+            return e
+    return ".html"
+
+
+def doc_text(path, kind):
+    """Plain text of a PDF (pdftotext -layout) or an Office file (slide/paragraph XML), or ''."""
+    import subprocess, zipfile
+    try:
+        if kind == "pdf":
+            return subprocess.run(["pdftotext", "-layout", str(path), "-"], capture_output=True,
+                                  text=True, timeout=120).stdout
+        if str(path).lower().endswith(".pptx"):
+            try:  # python-pptx keeps presentation order (slideN.xml numbering may not)
+                from pptx import Presentation
+                out = []
+                for i, sl in enumerate(Presentation(str(path)).slides, 1):
+                    out.append(f"--- slide {i}\n" + "\n".join(sh.text_frame.text.strip() for sh in sl.shapes
+                                                             if sh.has_text_frame and sh.text_frame.text.strip()))
+                return "\n".join(out)
+            except ImportError:
+                pass
+        with zipfile.ZipFile(path) as z:
+            names = sorted((n for n in z.namelist() if re.match(r"(ppt/slides/slide\d+|word/document)\.xml$", n)),
+                           key=lambda n: int(re.sub(r"\D", "", n) or 0))
+            out = []
+            for i, n in enumerate(names, 1):
+                x = z.read(n).decode("utf-8", "ignore")
+                paras = [html.unescape(re.sub(r"<[^>]+>", "", p)) for p in re.findall(r"<a:p>.*?</a:p>|<w:p[ >].*?</w:p>", x, re.S)]
+                out.append(f"--- {n.split('/')[-1]}\n" + "\n".join(p for p in paras if p.strip()))
+            return "\n".join(out)
+    except Exception:
+        return ""
+
+
 def analyse(item_id, path, url, img_dir, extract_b64=True):
     raw = path.read_bytes()
     s = raw.decode("utf-8", "ignore")
     kind = classify(s, url)
     rec = {"id": item_id, "url": url, "file": path.name, "bytes": len(raw),
            "sha256": hashlib.sha256(raw).hexdigest(), "kind": kind}
-    if kind != "pdf":
+    if kind in ("pdf", "office"):
+        t = doc_text(path, kind)
+        if t:
+            (path.parent / f"{item_id}.txt").write_text(t, encoding="utf-8")
+    else:
         rec["title"], rec["description"] = meta(s)
         (path.parent / f"{item_id}.txt").write_text(text_dump(s), encoding="utf-8")
         rec["remote_images"] = sorted(set(re.findall(r'https://ph\.smthelp\.com/[^"\')\s]+\.(?:png|jpe?g|gif|webp)', s)))
@@ -107,7 +151,7 @@ def run(cfg, state):
     manifest = []
     for group, it in items:
         url = it["url"]; iid = it["id"]
-        ext = ".pdf" if url.lower().endswith(".pdf") else ".html"
+        ext = ext_for(url)
         dest = src / f"{iid}{ext}"
         if dest.exists() and dest.stat().st_size > 200 and not it.get("refresh"):
             lg.info("skip %s (already downloaded)", dest.name)
@@ -131,7 +175,7 @@ def main(argv=None):
     import logging; logging.basicConfig(level="INFO")
     res = []
     for n, u in enumerate(a.urls):
-        iid = f"s{n}"; ext = ".pdf" if u.lower().endswith(".pdf") else ".html"
+        iid = f"s{n}"; ext = ext_for(u)
         fetch(u, out / f"{iid}{ext}")
         res.append(analyse(iid, out / f"{iid}{ext}", u, out.parent / "img"))
     (out / "manifest.json").write_text(json.dumps(res, indent=1, ensure_ascii=False))

@@ -1,0 +1,503 @@
+{
+ "$schema": "../../config/product.schema.json",
+ "slug": "s3010a-radial-insertion",
+ "product_name": "S3010A Radial Insertion Machine",
+ "brand": {
+  "primary": "#009fa5",
+  "primary_dark": "#087d86",
+  "dark_bg": "#0c1820",
+  "dark_glow": "#0f3a40",
+  "accent": "#82bf32",
+  "bar_label": "S3010A RADIAL INSERTION"
+ },
+ "sources": {
+  "drawings": [
+   {
+    "id": "d1",
+    "url": "https://file.autoinsertion.com/public/SMT%20machine%203D%20Drawing%20in%20Html/S3010A%20Radial%20Insertion%20Machine.html",
+    "capture": true
+   }
+  ],
+  "landing": [
+   {
+    "id": "land1",
+    "url": "https://file.autoinsertion.com/public/Product%20landing%20Page/S3010A-Radial-Insertion-Machine-FAB.html"
+   },
+   {
+    "id": "land2",
+    "url": "https://file.autoinsertion.com/public/Product%20landing%20Page/S3010A-12000CPH-Radial-Insertion-Machine-SEO-Product-Page.html"
+   }
+  ],
+  "docs": [
+   {
+    "id": "ppt",
+    "url": "https://file.autoinsertion.com/public/SMThelp%20Machine%20Presentation/S-3010A-Radial-Insertion-Machine-In-Line-10-Feeder-Radial-Inserter-Auto-PCB-Loading-Southern-Machinery.pptx"
+   },
+   {
+    "id": "manual",
+    "url": "https://file.autoinsertion.com/public/Southern%20Machinery%20SMT%20Product%20Operation%20Manual/Southern-Machinery-S3010A-Radial-Insertion-Machine-Operation-Manual-2025.pdf"
+   }
+  ]
+ },
+ "anim": {
+  "module": "radial-anim.js",
+  "global": "RadialAnim"
+ },
+ "voice": {
+  "voice": "en-US-AndrewNeural",
+  "rate": "-2%",
+  "replacements": {
+   "info at smthelp dot com": "info@smthelp.com"
+  }
+ },
+ "segments": [
+  {
+   "text": "Your SMT line runs fast. Then the boards wait in front of manual radial insertion: similar parts get swapped, leads are bent by hand, and quality changes from shift to shift.",
+   "chapter": "When manual radial insertion is the bottleneck"
+  },
+  {
+   "text": "The S3010A from Southern Machinery is an in-line radial insertion machine. A ten-station component sequencer and a servo-driven inserter in one frame, with automatic PCB loading and unloading.",
+   "chapter": "Meet the S3010A radial inserter"
+  },
+  {
+   "text": "Here is one cycle. Taped radial parts, like electrolytic capacitors, LEDs and transistors, are fed from the stations in program order.",
+   "chapter": "Sequencer feeds parts in program order"
+  },
+  {
+   "text": "Chain clips carry each part toward the insertion head, so the right part always arrives next.",
+   "chapter": "Chain clips carry the parts"
+  },
+  {
+   "text": "The component transfer unit hands it over to the head.",
+   "chapter": "CTA transfer to the head"
+  },
+  {
+   "text": "The head cuts the part from its tape and forms the leads.",
+   "chapter": "Cut from tape and form the leads"
+  },
+  {
+   "text": "Meanwhile, the X Y table and turntable move the PCB under the head, and the vision system corrects the position from the fiducial marks.",
+   "chapter": "X/Y table, turntable and vision"
+  },
+  {
+   "text": "The leads go straight down into the holes.",
+   "chapter": "Insert the leads"
+  },
+  {
+   "text": "From below, the cut and clinch unit trims the leads and bends them in an N-type clinch. If a lead misses its hole, the machine stops with an alarm.",
+   "chapter": "N-type cut and clinch, insertion check"
+  },
+  {
+   "text": "The head returns, and the next part is already waiting.",
+   "chapter": "Next part"
+  },
+  {
+   "text": "Lead spans of 2.5, 5.0 and 7.5 millimetres, with 3.5 and 10 millimetre tooling also listed. Clinch length from 1.5 to 2.2 millimetres, at 10 to 35 degrees. Boards from 50 by 50 up to 400 by 400 millimetres.",
+   "chapter": "Lead spans, clinch and PCB size"
+  },
+  {
+   "text": "The specification speed is 18,000 components per hour; real output depends on your board, and we confirm it with a sample run. Programs come from Excel or CAD coordinates and are taught with the camera. And it runs in-line with loaders, unloaders and our axial and odd-form machines.",
+   "chapter": "Speed, programming and line integration"
+  },
+  {
+   "text": "Send us your PCB file, BOM and annual volume. We run a sample with your own parts, send you the video, and quote the same day. Email info at smthelp dot com.",
+   "chapter": "Test the S3010A on your boards"
+  }
+ ],
+ "landing": {
+  "base": "land1",
+  "insert_before": "<section class=\"band\" id=\"specs\">",
+  "nav_after_href": "#fab",
+  "output": "s3010a-radial-insertion-machine-landing-page-animated.html",
+  "section": {
+   "eyebrow": "S3010A · How it works",
+   "title": "Feed. Transfer. Insert. Clinch.",
+   "intro": "One insertion cycle of the S3010A, step by step: the sequencer feeds taped radial parts in program order, the chain and CTA bring each one to the servo head, and the cut & clinch unit locks the leads from below.",
+   "canvas_label": "Animated schematic side view of the S3010A radial insertion cycle: feeder stations, chain clips, CTA, insertion head, X/Y table with turntable and vision, and the cut and clinch unit",
+   "steps": [
+    [
+     "Sequencer feeds the part",
+     "Taped radial parts leave the feeder stations in the programmed insertion order."
+    ],
+    [
+     "Chain carries it in program order",
+     "Chain clips carry each part toward the head, so the right part always comes next."
+    ],
+    [
+     "CTA transfers to the head",
+     "The component transfer unit (CTA) hands the part to the insertion head."
+    ],
+    [
+     "Head cuts the tape and forms the leads",
+     "The head cuts the part from its tape carrier and forms the leads."
+    ],
+    [
+     "X/Y table + vision position the PCB",
+     "The X/Y table and turntable bring the hole under the head; vision corrects from the MARK points."
+    ],
+    [
+     "Insert leads into the holes",
+     "The servo head pushes the leads straight down through the holes."
+    ],
+    [
+     "Cut & clinch from below",
+     "The cutter rises, trims the leads and makes the N-type clinch; a missed lead stops the machine with an alarm."
+    ],
+    [
+     "Head returns, next part",
+     "The head rises and the next part is already on its way."
+    ]
+   ],
+   "tt_panel": {
+    "title": "The S3010A in 3D",
+    "text": "The 10-feeder S3010A from the original CAD drawing. Drag to turn.",
+    "alt": "3D model of the Southern Machinery S3010A radial insertion machine with 10 feeders"
+   },
+   "photo_panel": {
+    "title": "Cut & clinch head",
+    "text": "Leads are cut and clinched from below; clinch length 1.5–2.2 mm and angle 10–35° are adjustable.",
+    "image": "img/land1_b64_4.jpg",
+    "alt": "S3010A cut and clinch head",
+    "fit": "cover"
+   },
+   "cards": [
+    [
+     "10",
+     "Feeder stations",
+     "The sequencer puts parts on the chain in program order."
+    ],
+    [
+     "N-type",
+     "Cut & clinch",
+     "1.5–2.2 mm clinch length, 10–35° angle, adjustable."
+    ],
+    [
+     "2.5 / 5.0 / 7.5 mm",
+     "Lead spans",
+     "3.5 and 10.0 mm pitch tooling also listed."
+    ],
+    [
+     "50–400 mm",
+     "PCB size",
+     "50 × 50 to 400 × 400 mm, 0.79–2.36 mm thick."
+    ]
+   ],
+   "cta": {
+    "whatsapp_text": "Hi, I want to test the S3010A radial inserter on my boards",
+    "email_subject": "S3010A radial insertion machine RFQ",
+    "whatsapp_label": "Send your PCB on WhatsApp"
+   }
+  },
+  "nav_after_text": "FAB",
+  "nav_label": "How it works"
+ },
+ "video": {
+  "basename": "S3010A_Radial_Insertion_Machine",
+  "chunks": 2,
+  "scenes": [
+   {
+    "type": "hero",
+    "from_segment": 0,
+    "kicker": "The THT bottleneck",
+    "headline": "SMT runs fast.<br>Radial insertion doesn't.",
+    "chips": [
+     [
+      "Similar parts get swapped",
+      "#ef4444"
+     ],
+     [
+      "Leads bent by hand",
+      "#f4b740"
+     ],
+     [
+      "Quality drifts by shift",
+      "#82bf32"
+     ]
+    ],
+    "chip_times": [
+     4.2,
+     6.4,
+     8.2
+    ]
+   },
+   {
+    "type": "turntable",
+    "from_segment": 1,
+    "kicker": "Southern Machinery · Shenzhen",
+    "title": "S3010A Radial<br>Insertion Machine",
+    "subtitle": "In-line · sequencer + servo inserter",
+    "chips": [
+     [
+      "10 feeder stations",
+      "#009fa5"
+     ],
+     [
+      "Servo insertion head",
+      "#82bf32"
+     ],
+     [
+      "Auto PCB loading",
+      "#f4b740"
+     ]
+    ],
+    "chip_times": [
+     4.5,
+     6.5,
+     8.5
+    ]
+   },
+   {
+    "type": "mechanism",
+    "from_segment": 2,
+    "kicker": "S3010A · one insertion cycle",
+    "map": [
+     [
+      2,
+      0,
+      1.99
+     ],
+     [
+      3,
+      2,
+      3.49
+     ],
+     [
+      4,
+      3.5,
+      4.99
+     ],
+     [
+      5,
+      5,
+      6.49
+     ],
+     [
+      6,
+      6.5,
+      7.99
+     ],
+     [
+      7,
+      8,
+      9.49
+     ],
+     [
+      8,
+      9.5,
+      10.99
+     ],
+     [
+      9,
+      11,
+      11.95
+     ]
+    ],
+    "focus": {
+     "169": {
+      "x": 640,
+      "y": 440,
+      "s": 0.8
+     },
+     "916": {
+      "x": 800,
+      "y": 500,
+      "s": 1.9
+     }
+    },
+    "track": {
+     "916": [
+      500,
+      620,
+      1080,
+      1200,
+      1050,
+      1200,
+      1200,
+      900
+     ]
+    },
+    "opts": {
+     "169": {
+      "noHud": true
+     },
+     "916": {
+      "noHud": true
+     }
+    }
+   },
+   {
+    "type": "cards",
+    "from_segment": 10,
+    "kicker": "Tooling & board range",
+    "title": "Spans, clinch,<br>board size.",
+    "cards": [
+     [
+      "2.5 / 5.0 / 7.5 mm",
+      "lead spans · 3.5 & 10 mm tooling listed"
+     ],
+     [
+      "N-type clinch",
+      "1.5 – 2.2 mm · 10 – 35°"
+     ],
+     [
+      "PCB 50 × 50 – 400 × 400 mm",
+      "0.79 – 2.36 mm thick"
+     ]
+    ],
+    "card_times": [
+     1.5,
+     8.0,
+     13.5
+    ],
+    "photo": "img/land1_b64_4.jpg"
+   },
+   {
+    "type": "chips",
+    "from_segment": 11,
+    "kicker": "Speed · programming · line",
+    "title": "Built for<br>line speed.",
+    "chips": [
+     "18,000 CPH spec",
+     "Excel / CAD import",
+     "Camera teaching",
+     "SMEMA in-line",
+     "Auto loading / unloading",
+     "S4000 axial",
+     "S7020T terminal"
+    ],
+    "chip_start": 2.0,
+    "chip_step": 2.2,
+    "card": [
+     "Real output depends on your board",
+     "We confirm it with a sample run"
+    ],
+    "card_time": 5.0,
+    "photo": "img/land1_b64_3.jpg"
+   },
+   {
+    "type": "cta",
+    "from_segment": 12,
+    "kicker": "Free sample run",
+    "title": "Send your PCB.<br>See it inserted.",
+    "checklist": [
+     "PCB file",
+     "BOM",
+     "Annual volume"
+    ],
+    "check_times": [
+     1.5,
+     2.3,
+     3.1
+    ],
+    "contacts": [
+     [
+      "info@smthelp.com",
+      "#009fa5"
+     ],
+     [
+      "WhatsApp +86 136 0256 2576",
+      "#25d366"
+     ]
+    ],
+    "contact_times": [
+     8.5,
+     9.2
+    ]
+   }
+  ]
+ },
+ "thumbnail": {
+  "headline_html": "STOP HAND<br><span>INSERTING.</span>",
+  "badges": [
+   [
+    "S3010A",
+    "#009fa5",
+    "#fff"
+   ],
+   [
+    "10 FEEDERS",
+    "#f4b740",
+    "#1f2937"
+   ]
+  ],
+  "subline": "Radial insertion · sequencer · N-type clinch",
+  "anim_t": 9.3,
+  "anim_focus": {
+   "x": 1120,
+   "y": 520,
+   "s": 1.7
+  }
+ },
+ "seo": {
+  "title": "S3010A Radial Insertion Machine | How an In-Line Radial Inserter Works: Sequencer, CTA, Servo Head, N-Type Clinch (3D Animation)",
+  "alt_titles": [
+   "How a Radial Insertion Machine Works, Step by Step (S3010A 3D Animation)",
+   "Stop Hand-Inserting E-Caps: S3010A In-Line Radial Inserter with 10 Feeders",
+   "S3010A Radial Inserter: Sequencer, Servo Head and Cut & Clinch Explained"
+  ],
+  "shorts_title": "How a radial inserter puts E-caps in a PCB ⚙️ S3010A #THT #Shorts",
+  "description": "Your SMT line runs fast, then boards wait in front of manual radial insertion. The S3010A from Southern Machinery is an in-line radial insertion machine: a 10-station component sequencer and a servo-driven inserter in one frame, with automatic PCB loading and unloading.\n\nOne insertion cycle\n• Taped radial parts (E-caps, LEDs, transistors) are fed from the stations in program order\n• Chain clips carry each part toward the insertion head\n• The CTA (component transfer unit) hands it to the head\n• The head cuts the part from its tape and forms the leads\n• The X/Y table and turntable position the PCB; vision corrects from the MARK points\n• The leads go straight down into the holes\n• The cut & clinch unit trims and N-clinches the leads from below; a missed lead stops the machine with an alarm\n\nKey data\n• Lead spans 2.5 / 5.0 / 7.5 mm (3.5 and 10.0 mm tooling listed)\n• Clinch length 1.5–2.2 mm, angle 10–35°, adjustable\n• PCB 50 × 50 to 400 × 400 mm, 0.79–2.36 mm thick\n• Specification speed 18,000 CPH; real output depends on the board and is confirmed with a sample run\n• Programs from Excel/CAD coordinates by USB, camera teaching\n• In-line with loaders, unloaders, S4000 axial and S7020T terminal machines\n• 220 V AC 1-phase, 0.6 MPa air; core machine 1800 × 1600 × 1800 mm, approx. 1000 kg\n\nSend your PCB file, BOM and annual volume: we run a sample with your own parts, send the video and quote the same day.\nEmail info@smthelp.com · WhatsApp +86 136 0256 2576 · www.smthelp.com\n\nThe animation is a simplified schematic of the mechanism.",
+  "hashtags": [
+   "#THT",
+   "#RadialInsertion",
+   "#AutoInsertion",
+   "#PCBA",
+   "#EMS",
+   "#SMT",
+   "#SouthernMachinery"
+  ],
+  "tags": [
+   "S3010A",
+   "radial insertion machine",
+   "radial inserter",
+   "auto insertion machine",
+   "THT automation",
+   "through hole insertion",
+   "radial lead insertion",
+   "E-cap insertion machine",
+   "component sequencer",
+   "N type clinch",
+   "cut and clinch",
+   "in-line radial inserter",
+   "PCB assembly",
+   "EMS automation",
+   "Southern Machinery",
+   "SMThelp"
+  ],
+  "shorts_description": "Taped E-caps go from sequencer to chain to servo head, straight into the PCB, then get N-clinched from below. S3010A radial inserter. Test it on your boards: info@smthelp.com #THT #Shorts",
+  "notes": [
+   "Process (sequencer → chain clips → CTA → head cuts/forms/inserts → X/Y table + turntable → cut & clinch with insertion check) from the S3010A operation manual 2.1–2.3; animation is schematic.",
+   "Speed conflict (待确认): landing page says 18,000 CPH specification speed; the 2026 PPT says 12,000 CPH real throughput. Video uses '18,000 spec, real output depends on board'.",
+   "Feeder count conflict (待确认): PPT and landing say 10 stations; manual text says 12 stations (manual notes its sources differ).",
+   "Insertion angle conflict (待确认): PPT/landing 0–360° in 1° steps; manual turntable rotates 90° CW/CCW. Angle not claimed in the video.",
+   "Programming time conflict: PPT 'about 5 minutes' vs landing 'within a day' – not used.",
+   "Not used: PPT 1,000 ppm defect level, quad-span option, 1-day spare parts."
+  ]
+ },
+ "upload": {
+  "sink": "gdrive",
+  "parent_id": "1m6aYsBz31FAkRWqon9RBPyjZW0h5lW7n",
+  "folder_name": "S3010A Radial Insertion Machine ({date})",
+  "auto": false
+ },
+ "capture": {
+  "zoom_steps": 0,
+  "drag_px": 40,
+  "viewport": [
+   1280,
+   960
+  ],
+  "zoom_out_steps": 1,
+  "drag_at": [
+   0.5,
+   0.93
+  ],
+  "recenter": true,
+  "crop": [
+   60,
+   60,
+   1270,
+   950
+  ]
+ }
+}

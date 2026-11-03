@@ -27,7 +27,10 @@ HTML is allowed in video scene text (`<br>`, `&amp;`); landing copy is escaped a
 ## capture
 `enabled` (false = supply `img/tt/v*.png` yourself) · `frames` 24 · `viewport` [1000,1000] · `settle_s` 30 ·
 `zoom_steps` 5 · `zoom_delta` −200 · `drag_px` 40 · `click_buttons` ["Pause","Grid"] · `hide_ui` · `crop` [x0,y0,x1,y1] ·
-`whiten` {min_bright 212, max_chroma 28} (pixels lighter + greyer than this become white) · `aspect` "4:3".
+`whiten` {min_bright 212, max_chroma 28} (pixels lighter + greyer than this become white) · `aspect` "4:3" ·
+`zoom_out_steps` 0 (eDrawings: wheel out for big machines) · `drag_at` null ([fx,fy] drag point as viewport fraction; put it
+off the model, e.g. [0.5,0.93], so no part-name tooltip appears) · `recenter` false (centre the model in every frame when the
+viewer orbits around an off-centre point).
 
 ## voice
 `provider` edge · `voice` en-US-AndrewNeural · `rate` −2% · `lead_in` 1.2 s · `gap` 0.9 s · `tail` 2.6 s ·

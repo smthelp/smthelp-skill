@@ -20,7 +20,7 @@ DEFAULTS = {
     "sources": {"drawings": [], "landing": [], "docs": []},
     "download": {"timeout": 120, "retries": 3, "max_mb": 80, "extract_base64_images": True,
                  "user_agent": "Mozilla/5.0 (p3cv)"},
-    "capture": {"enabled": True, "frames": 24, "viewport": [1000, 1000], "settle_s": 30, "zoom_steps": 5,
+    "capture": {"enabled": True, "frames": 24, "viewport": [1000, 1000], "settle_s": 30, "zoom_steps": 5, "zoom_out_steps": 0, "drag_at": None, "recenter": False,
                 "zoom_delta": -200, "drag_px": 40, "click_buttons": ["Pause", "Grid"], "hide_ui": True,
                 "crop": [80, 60, 920, 1000], "whiten": {"min_bright": 212, "max_chroma": 28}, "aspect": "4:3"},
     "anim": {"module": None, "global": None, "cycle_param": "CYCLE"},

@@ -28,6 +28,25 @@ def clean(raw, out, c):
     canvas.paste(im, ((nw - W) // 2, 0)); canvas.save(out)
 
 
+def recenter(paths, c):
+    """Centre the model in every frame (viewers often orbit around a point off the model's centre):
+    crop each frame to its non-white bbox, then paste it centred on one shared canvas."""
+    from PIL import Image, ImageChops, ImageFilter
+    ims, boxes = [], []
+    for f in paths:
+        im = Image.open(f).convert("RGB")
+        bb = ImageChops.difference(im, Image.new("RGB", im.size, (255, 255, 255))).convert("L").point(lambda v: 255 if v > 12 else 0).filter(ImageFilter.MinFilter(5)).getbbox()  # erode: ignore specks
+        ims.append(im); boxes.append(bb or (0, 0, im.width, im.height))
+    mw = max(b[2] - b[0] for b in boxes); mh = max(b[3] - b[1] for b in boxes)
+    pad = int(max(mw, mh) * 0.06); W, H = mw + 2 * pad, mh + 2 * pad
+    aw, ah = (int(v) for v in c["aspect"].split(":"))
+    if W * ah < H * aw: W = int(H * aw / ah)
+    else: H = int(W * ah / aw)
+    for f, im, b in zip(paths, ims, boxes):
+        part = im.crop(b); cv = Image.new("RGB", (W, H), (255, 255, 255))
+        cv.paste(part, ((W - part.width) // 2, (H - part.height) // 2)); cv.save(f)
+
+
 @stage("capture", deps=["download"], desc="Capture a 360 turntable from the 3D viewer into img/tt/")
 def run(cfg, state):
     lg = log.get("capture"); c = cfg["capture"]
@@ -65,6 +84,8 @@ def run(cfg, state):
                 old.unlink()
             for i, f in enumerate(frames):
                 clean(f, tt / f"v{i:02d}.png", c)
+            if c.get("recenter"):
+                recenter(sorted(tt.glob("v*.png")), c)
             br.close()
             return {"frames": len(frames), "source": m["id"], "skipped": errors}
         br.close()
