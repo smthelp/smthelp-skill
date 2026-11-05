@@ -1,0 +1,12 @@
+[
+ {"id":"hook","text":"Loose parts in a bin. A placement head waiting. There are two proven ways to feed bulk components automatically: the vibratory bowl, and the reciprocating belt. Here is how they really compare."},
+ {"id":"intro","text":"On the left, the Southern Machinery S B F 1001 vibration bowl feeder. On the right, the S M V F 01 reciprocating belt feeder."},
+ {"id":"bowl","text":"The bowl feeder runs on coil-driven vibration. Parts climb a spiral track tooled for one component. Anything wrongly oriented falls back into the bowl. Direct vibration and air blowing carry the good parts down the rail to the pick point."},
+ {"id":"belt","text":"The belt feeder works differently. A motor-driven belt gently lifts parts from the hopper to a selection track. Correct parts move on by direct vibration. Rejected parts ride the return belt back to the hopper. A fibre-optic sensor confirms every part before the pick."},
+ {"id":"speed","text":"Need raw speed on rugged parts? The bowl feeds every zero point eight seconds, at plus or minus half a millimetre, with parts up to fifty millimetres. The belt feeds every one and a half to two seconds, at plus or minus one millimetre. That keeps pace with most odd-form insertion heads."},
+ {"id":"space","text":"Now look at the footprint. The double-bowl frame takes eleven twenty by four sixty millimetres, and weighs one hundred and ninety kilos. The belt feeder is just eight fifty by one forty millimetres, and twelve kilos. That is floor space you win back on every line."},
+ {"id":"gentle","text":"Continuous vibration and part-on-part friction can scratch coated parts and bend delicate pins. The belt carries parts gently. It is built for connectors, buzzers, network ports, terminals and square capacitors, from three to twenty millimetres."},
+ {"id":"change","text":"A bowl track is machined for one part. The belt feeder is re-set, not re-tooled, and at twelve kilos it swaps out fast. Both feed straight from bulk, so tape, reels and tubes disappear from your cost sheet. Both run on P L C control, with I O or standalone operation."},
+ {"id":"verdict","text":"So which one is right for you? Choose the bowl for high-speed feeding of robust and larger parts. Choose the belt for compact, quiet, gentle feeding and fast changeovers. Both have passed forty-eight hours of continuous ageing without a single abnormality."},
+ {"id":"cta","text":"Send us your part, and we will tell you which feeder it runs on. Southern Machinery. Visit S M T help dot com, or message us on WhatsApp."}
+]

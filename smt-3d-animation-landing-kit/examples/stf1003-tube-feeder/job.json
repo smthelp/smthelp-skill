@@ -1,0 +1,175 @@
+{
+ "name": "STF1003 tube feeder vs manual tube feeding",
+ "slug": "stf1003-automatic-tube-feeder-vs-manual-tube-feeding",
+ "workdir": "_work",
+ "inputs": {
+  "drawing_3d": "https://file.autoinsertion.com/public/SMT%20machine%203D%20Drawing%20in%20Html/SMT%20Tube%20Feeder%20S-Designed%20by%20Southern%20Machinery.html",
+  "pages": [
+   "https://file.autoinsertion.com/public/Product%20landing%20Page/tube-product-overview.html",
+   "https://file.autoinsertion.com/public/Product%20landing%20Page/tube-application-solutions.html"
+  ],
+  "docs": [
+   "https://file.autoinsertion.com/public/Southern%20Machinery%20Product/STF1003%20Tube%20Feeder%20%20Southern%20Machinery%20Customized%20Feeder%20Nozzle%20Catalog%20V03.pdf"
+  ]
+ },
+ "content": "content.json",
+ "model": "assets/model.b64",
+ "duel": {
+  "script": "duel.js",
+  "class": "TubeDuel",
+  "keys": [
+   "man",
+   "stf"
+  ],
+  "cycle_s": 13.4
+ },
+ "video": {
+  "script": "script.json",
+  "keywords": {
+   "manual": [
+    "gravity",
+    "taps",
+    "swaps"
+   ],
+   "stf": [
+    "stacks",
+    "57",
+    "optical",
+    "positioning",
+    "air"
+   ]
+  },
+  "phrases": [
+   [
+    "S T F 1003",
+    "STF1003"
+   ],
+   [
+    "fifty-seven type",
+    "57-type"
+   ],
+   [
+    "zero point eight seconds",
+    "0.8 seconds"
+   ],
+   [
+    "plus or minus half a millimetre",
+    "±0.5 mm"
+   ],
+   [
+    "six hundred r p m",
+    "600 rpm"
+   ],
+   [
+    "S M T help dot com",
+    "SMThelp.com"
+   ],
+   [
+    "two hundred to six hundred and fifty millimetres",
+    "200 to 650 mm"
+   ],
+   [
+    "zero point six millimetres",
+    "0.6 mm"
+   ],
+   [
+    "three to twenty-five millimetres",
+    "3 to 25 mm"
+   ],
+   [
+    "ninety-two millimetres",
+    "92 mm"
+   ],
+   [
+    "twenty-four volts",
+    "24 volts"
+   ],
+   [
+    "eight-core",
+    "8-core"
+   ],
+   [
+    "I O",
+    "IO"
+   ],
+   [
+    "one thousand",
+    "1,000"
+   ],
+   [
+    "forty-eight hours",
+    "48 hours"
+   ],
+   [
+    "four million",
+    "4 million"
+   ]
+  ],
+  "stage": "video.html",
+  "thumb": "thumb.html"
+ },
+ "drive": {
+  "folder_name": "STF1003 Tube Feeder - Landing Page + 4K Video"
+ },
+ "config": {
+  "blog_count": 8
+ },
+ "i18n_dir": "i18n",
+ "seo": {
+  "title": "Automatic Tube Feeder vs Manual Tube Feeding | STF1003 for SMT & THT Odd-Form Machines",
+  "alt_titles": [
+   "Stop Feeding Tubes by Hand: STF1003 Automatic Tube Feeder for Relays, Terminals & Capacitors",
+   "How an Automatic Tube Feeder Works: Stacked Tubes, Spring Pusher, Fibre Check | STF1003"
+  ],
+  "short_title": "Stop Feeding Tubes by Hand: STF1003 Automatic Tube Feeder #shorts",
+  "short_desc": "One tube, one stop? The STF1003 stacks tubes, pushes parts with a stepper-driven spring, checks each part by fibre and ejects empties. 0.8 s per feed at ±0.5 mm. #shorts #SMT #TubeFeeder",
+  "intro": "Still feeding tube-packed parts by hand? This animated comparison shows manual tube feeding next to the Southern Machinery STF1003 automatic tube feeder.",
+  "bullets": [
+   "Stacked tubes, 57-type stepper + spring pusher",
+   "Optical fibre + software compensation, positioning key + pressing block",
+   "Air cylinder ejects empty tubes into the recovery box",
+   "0.8 s per feed, ±0.5 mm, four speed gears",
+   "PVC/aluminium tubes 200–650 mm; parts 3–25 mm",
+   "1,000 feeds and 48 h ageing without abnormality"
+  ],
+  "chapters": {
+   "hook": "Why tube-packed parts still stop the line",
+   "intro": "Manual tube feeding vs STF1003",
+   "manual": "How manual tube feeding works",
+   "stf": "How the STF1003 works",
+   "speed": "Speed and precision",
+   "tubes": "Automatic tube changeover",
+   "materials": "Tubes and parts it takes",
+   "integration": "Integration with odd-form machines",
+   "verdict": "Test records",
+   "cta": "Send us your tube"
+  },
+  "landing_url": "https://file.autoinsertion.com/public/Product%20landing%20Page/stf1003-automatic-tube-feeder-vs-manual-tube-feeding.html",
+  "links": [
+   "STF1003 specification (PDF): https://file.autoinsertion.com/public/Southern%20Machinery%20Product/STF1003%20Tube%20Feeder%20%20Southern%20Machinery%20Customized%20Feeder%20Nozzle%20Catalog%20V03.pdf"
+  ],
+  "tags": [
+   "tube feeder",
+   "automatic tube feeder",
+   "stick feeder",
+   "SMT tube feeder",
+   "odd form tube feeder",
+   "relay feeder",
+   "terminal feeder",
+   "capacitor feeder",
+   "DIP tube feeder",
+   "odd-form insertion machine",
+   "THT auto insertion",
+   "STF1003",
+   "Southern Machinery",
+   "SMThelp"
+  ],
+  "hashtags": [
+   "#TubeFeeder",
+   "#SMT",
+   "#THT",
+   "#PCBAssembly",
+   "#Automation"
+  ]
+ }
+}

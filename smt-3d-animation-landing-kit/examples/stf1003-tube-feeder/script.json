@@ -1,0 +1,12 @@
+[
+ {"id":"hook","text":"Relays, terminals and capacitors arrive in tubes, already facing the right way. So why does the line still stop for them? Because someone has to feed the tubes."},
+ {"id":"intro","text":"On the left, manual tube feeding. On the right, the Southern Machinery S T F 1003 automatic tube feeder."},
+ {"id":"manual","text":"By hand, parts slide down a single tube by gravity. The operator taps it when a part tilts, and swaps every empty tube. Meanwhile the placement machine waits, and the outlet position is never quite certain."},
+ {"id":"stf","text":"The S T F 1003 stacks several tubes in its magazine. A fifty-seven type stepping motor drives a spring pusher that advances the parts. Optical fibre sensing with software compensation confirms each part, and a positioning key and pressing block hold it for the pick. When a tube is empty, an air cylinder moves it into the recovery box, and the next tube drops into place."},
+ {"id":"speed","text":"The result: one part every zero point eight seconds, at plus or minus half a millimetre, with four speed gears and a motor that reaches six hundred r p m."},
+ {"id":"tubes","text":"Operators load a stack of tubes instead of one. Empty tubes leave on their own, so the operator is no longer tied to every tube change."},
+ {"id":"materials","text":"It takes the PVC or aluminium tubes you already buy, from two hundred to six hundred and fifty millimetres long, with walls from zero point six millimetres. Relays, terminals, transformers, square and round capacitors, DIPs and transistors, from three to twenty-five millimetres."},
+ {"id":"integration","text":"Just ninety-two millimetres wide, it runs on twenty-four volts, connects through an eight-core aviation plug, and works with I O signals or on its own. It is already running beside Panasonic, JUKI, Yamaha and Mirae odd-form machines, and it is ready for robot-arm cells."},
+ {"id":"verdict","text":"Tested for one thousand consecutive feeds and forty-eight hours of continuous operation without abnormality, with a spring rated for four million bends. Fewer stops, fewer touches, and a steadier line."},
+ {"id":"cta","text":"Send us your tube and your machine model, and we will configure the S T F 1003 for your line. Southern Machinery. Visit S M T help dot com, or message us on WhatsApp."}
+]

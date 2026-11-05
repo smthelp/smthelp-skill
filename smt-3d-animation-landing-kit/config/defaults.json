@@ -1,0 +1,148 @@
+{
+  "$schema": "./job.schema.json",
+  "skill_version": "1.0.0",
+  "config_version": 1,
+  "languages": [
+    "en",
+    "es",
+    "pt",
+    "fr",
+    "ar",
+    "ru",
+    "zh"
+  ],
+  "default_language": "en",
+  "rtl_languages": [
+    "ar"
+  ],
+  "language_labels": {
+    "en": "English",
+    "es": "Español",
+    "pt": "Português",
+    "fr": "Français",
+    "ar": "العربية",
+    "ru": "Русский",
+    "zh": "中文"
+  },
+  "blog_count": 8,
+  "theme": {
+    "name": "southern-teal",
+    "brand": "#0c665c",
+    "brand2": "#0a564e",
+    "deep": "#073f39",
+    "accent": "#009fa5",
+    "lime": "#82bf32",
+    "gold": "#e0a63b",
+    "bg": "#ffffff",
+    "bg2": "#f6f9f8",
+    "fg": "#10201e",
+    "line": "#d5e3df",
+    "radius_px": 14,
+    "dark_mode_toggle": true
+  },
+  "model": {
+    "accepted_formats": [
+      "edrawings-html",
+      "glb",
+      "gltf",
+      "stl",
+      "obj",
+      "step"
+    ],
+    "preferred_format": "edrawings-html",
+    "triangle_budget": 120000,
+    "quantize_bits": 16,
+    "viewer_mode": "auto",
+    "material_presets": [
+      "industrial",
+      "matte",
+      "xray"
+    ],
+    "lighting_presets": [
+      "studio",
+      "warm",
+      "top"
+    ],
+    "turntable_frames": 24
+  },
+  "brand": {
+    "company": "Southern Machinery",
+    "legal_name": "Shenzhen Southern Machinery Sales and Service Co., Ltd",
+    "logo_url": "https://ph.smthelp.com/images/2024/06/26/Southern-Machinery-logo-300x83.png",
+    "phone": "+86 136 0256 2576",
+    "whatsapp": "8613602562576",
+    "email": "info@smthelp.com",
+    "website": "https://www.smthelp.com",
+    "catalog_url": "https://file.autoinsertion.com",
+    "photos_url": "https://ph.smthelp.com",
+    "social": {
+      "linkedin": "https://www.linkedin.com/company/smtmachine",
+      "linkedin_profile": "https://cn.linkedin.com/in/smtsupplier",
+      "twitter": "https://twitter.com/smtspecialist",
+      "facebook": "https://www.facebook.com/autoinsertion",
+      "youtube": "https://www.youtube.com/c/Smthelping"
+    },
+    "chatwoot": {
+      "base_url": "https://chat.smthelp.com",
+      "website_token": "saMcpgSupcmd1VQwytgPLfbK",
+      "only_on_http": true
+    },
+    "address": "Room 1806, Block 3, Jinyun COFCO, Qianjin 2nd Road, Baoan District, Shenzhen, China 518102",
+    "about": "Founded in Shenzhen in 2011, Southern Machinery designs and manufactures SMT and THT machinery for smart EMS factories, trusted by 237+ clients worldwide."
+  },
+  "roi": {
+    "currency": "USD",
+    "defaults": {
+      "operators_saved": 1,
+      "hourly_cost": 6,
+      "hours_per_shift": 8,
+      "shifts_per_day": 2,
+      "days_per_year": 300,
+      "investment": 0,
+      "extra_output_per_hour": 0,
+      "margin_per_unit": 0
+    }
+  },
+  "video": {
+    "formats": [
+      "169",
+      "916"
+    ],
+    "fps": 30,
+    "scale": 2,
+    "voice": "en-US-AndrewMultilingualNeural",
+    "rate": "+0%",
+    "loudness_lufs": -14,
+    "segment_seconds": 30,
+    "target_duration_s": [
+      60,
+      180
+    ]
+  },
+  "drive": {
+    "parent_folder_id": "1mHq3OaE-RS5vMWd0pWJcM-0kQfZSncNb",
+    "account": "smtmachine88@gmail.com"
+  },
+  "publish": {
+    "webdav": "https://file.autoinsertion.com/dav/",
+    "folder": "Product landing Page",
+    "user": "smtfile"
+  },
+  "sections": [
+    "hero",
+    "duel",
+    "why",
+    "how",
+    "model3d",
+    "specs",
+    "fit",
+    "roi",
+    "benefits",
+    "gallery",
+    "videos",
+    "blogs",
+    "docs",
+    "faq",
+    "contact"
+  ]
+}

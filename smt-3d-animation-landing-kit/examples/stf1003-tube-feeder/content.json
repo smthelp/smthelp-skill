@@ -1,0 +1,515 @@
+{
+ "meta": {
+  "product": "STF1003 Automatic Tube Feeder",
+  "slug": "stf1003-automatic-tube-feeder-vs-manual-tube-feeding",
+  "title": "STF1003 Automatic Tube Feeder vs Manual Tube Feeding | Southern Machinery",
+  "description": "Interactive 3D model and side-by-side animation: manual tube feeding vs the STF1003 automatic tube feeder. Stacked tubes, stepper-driven spring pusher, fibre sensing, automatic empty-tube ejection. 0.8 s per feed, ±0.5 mm.",
+  "keywords": "tube feeder, stick feeder, automatic tube feeder, SMT tube feeder, odd-form tube feeder, relay feeder, STF1003, Southern Machinery",
+  "year": 2026
+ },
+ "hero": {
+  "badge": "MANUAL TUBE FEEDING VS STF1003",
+  "h1": "Tube-packed parts, fed without a person at the tube.",
+  "lead": "Relays, terminals, transformers and capacitors arrive oriented in their tubes. What stops the line is the hand that taps, swaps and re-seats those tubes. The STF1003 stacks multiple tubes, pushes parts with a stepper-driven spring, confirms each part by optical fibre and ejects empty tubes on its own.",
+  "cta_primary": "Watch the comparison",
+  "wa_text": "Hi Jason, I want to automate tube feeding with the STF1003",
+  "stats": [
+   {
+    "v": "0.8 s",
+    "l": "Feeding speed, four speed gears"
+   },
+   {
+    "v": "±0.5 mm",
+    "l": "Feeding accuracy"
+   },
+   {
+    "v": "3 – 25 mm",
+    "l": "Part size range"
+   },
+   {
+    "v": "48 h",
+    "l": "Ageing test, no abnormality"
+   }
+  ],
+  "images": [
+   {
+    "src": "https://ph.smthelp.com/images/2026/09/14/smthelp-feeder-tube-feeder-product-74.md.webp",
+    "alt": "STF1003 tube feeder in the workshop"
+   },
+   {
+    "src": "assets/stf1003-030.jpg",
+    "alt": "STF1003 installed on a YAMAHA odd-form machine"
+   }
+  ]
+ },
+ "duel": {
+  "nav": "Animation",
+  "kicker": "Side-by-side animation",
+  "title": "Same tubes, same pick point, two ways to feed them",
+  "lead": "Left: a tube on a chute, gravity, an operator and a host machine that waits. Right: the STF1003 magazine, spring pusher, fibre check, key and pressing block, and automatic empty-tube ejection.",
+  "note": "Schematic animation from the STF1003 specification sheet and 3D model. The STF1003 side runs at its published 0.8 s; parts per tube, manual stops and changeover timing are illustrative.",
+  "left_illustrative": true,
+  "sides": {
+   "man": "Manual tube feeding",
+   "stf": "STF1003 Automatic Tube Feeder"
+  },
+  "chapters": [
+   {
+    "id": "principle",
+    "tab": "How they feed",
+    "text": "Manual: one tube, gravity, tapping and a tube swap by hand while the head waits. STF1003: stacked tubes, a 57-type stepper driving a spring pusher, optical fibre with software compensation, a positioning key and pressing block, and an air cylinder that drops empty tubes into the recovery box."
+   },
+   {
+    "id": "speed",
+    "tab": "Speed & precision",
+    "text": "One part every 0.8 s at ±0.5 mm, four speed gears, stepper up to 600 rpm."
+   },
+   {
+    "id": "tubes",
+    "tab": "Tube changeover",
+    "text": "Multiple tubes stacked; the empty tube is moved aside by an air cylinder and the next one drops in."
+   },
+   {
+    "id": "materials",
+    "tab": "Tubes & parts",
+    "text": "PVC or aluminium tubes 200 – 650 mm, wall ≥ 0.6 mm; relays, terminals, transformers, capacitors, DIPs and transistors from 3 to 25 mm."
+   },
+   {
+    "id": "integration",
+    "tab": "Integration",
+    "text": "1350 × 92 × 115 mm, 24 V, 8-core Ø16 mm aviation plug, IO or standalone; installed on Panasonic CM602, JUKI, YAMAHA and Mirae odd-form machines."
+   },
+   {
+    "id": "verdict",
+    "tab": "Proven",
+    "text": "1,000 consecutive feeds and 48 hours of continuous operation without abnormality; spring rated for 4 million bends."
+   }
+  ]
+ },
+ "why": {
+  "kicker": "Why tube feeding stops lines",
+  "title": "The package is orderly. The handoff is not.",
+  "lead": "Manual tube replenishment and uncertain outlet positioning can interrupt the host machine even when components arrive in an orderly package.",
+  "cards": [
+   {
+    "h": "Every empty tube is a stop",
+    "p": "With one tube at a time, each change needs a person and the head waits. A stacked magazine with automatic ejection removes that stop."
+   },
+   {
+    "h": "Orientation is kept, position is not",
+    "p": "A part can still tilt or jam at the outlet. The STF1003 confirms each part by fibre with software compensation and holds it with a key and pressing block."
+   },
+   {
+    "h": "Tube-fed is not only SMT",
+    "p": "DIPs and transistors for screw locking, relays for odd-form insertion, parts for robot cells: one feeding method, one 8-core interface."
+   }
+  ]
+ },
+ "how": {
+  "nav": "How it works",
+  "kicker": "Working principle",
+  "title": "From a stack of tubes to a located part at the nozzle",
+  "cols": [
+   {
+    "tag": "A · MANUAL",
+    "h": "Gravity, tapping and a person on watch",
+    "steps": [
+     {
+      "b": "One tube on a chute",
+      "t": "Parts slide toward the outlet by gravity."
+     },
+     {
+      "b": "Tap when a part tilts",
+      "t": "A tilted part stops the flow until someone clears it."
+     },
+     {
+      "b": "Swap every empty tube",
+      "t": "The host machine waits for the operator."
+     }
+    ]
+   },
+   {
+    "tag": "B · STF1003",
+    "h": "Stack, push, sense, hold, eject",
+    "steps": [
+     {
+      "b": "Multiple tubes stacked",
+      "t": "PVC or aluminium tubes, 200 – 650 mm long."
+     },
+     {
+      "b": "Motor-driven spring pusher",
+      "t": "57-type stepper up to 600 rpm, four speed gears."
+     },
+     {
+      "b": "Fibre + software compensation",
+      "t": "±0.5 mm feeding accuracy."
+     },
+     {
+      "b": "Positioning key + pressing block",
+      "t": "The part is located and held for the nozzle, gripper or robot."
+     },
+     {
+      "b": "Air cylinder clears the empty tube",
+      "t": "It drops into the recovery box and the next tube takes its place."
+     }
+    ]
+   }
+  ]
+ },
+ "model3d": {
+  "nav": "3D model",
+  "kicker": "Interactive 3D model",
+  "title": "Rotate the real STF1003 assembly",
+  "lead": "Geometry extracted from the engineering 3D drawing and lightened for the web. Switch material and lighting, or explode the assembly.",
+  "bullets": [
+   "1350 × 92 × 115 mm, 25 kg",
+   "Tube magazine, outlet track and pick station",
+   "Recovery box for empty tubes",
+   "Various sizes available to suit the site"
+  ],
+  "drawing_url": "https://file.autoinsertion.com/public/SMT%20machine%203D%20Drawing%20in%20Html/SMT%20Tube%20Feeder%20S-Designed%20by%20Southern%20Machinery.html",
+  "fallback_image": "assets/cad_iso.jpg",
+  "fallback_alt": "STF1003 3D model"
+ },
+ "specs": {
+  "nav": "Specs",
+  "kicker": "Specification",
+  "title": "STF1003, as published",
+  "lead": "Every row is quoted from the STF1003 sheet, Customized Feeder Nozzle Catalog V03.",
+  "header": [
+   "Category",
+   "Parameter",
+   "STF1003"
+  ],
+  "rows": [
+   [
+    "Dimensions",
+    "L × W × H",
+    "1350 × 92 × 115 mm"
+   ],
+   [
+    "",
+    "Weight",
+    "25 kg"
+   ],
+   [
+    "Materials",
+    "Types",
+    "Relays, terminals, transformers, square and round capacitors"
+   ],
+   [
+    "",
+    "Size",
+    "3 × 3 × 3 – 25 × 25 × 25 mm"
+   ],
+   [
+    "",
+    "Tubes",
+    "PVC, aluminium; 200 – 650 mm; wall ≥ 0.6 mm"
+   ],
+   [
+    "Electrical",
+    "Feeding",
+    "Tube-fed, multiple tubes stacked; motor-driven spring"
+   ],
+   [
+    "",
+    "Positioning",
+    "Optical fibre sensing + software compensation"
+   ],
+   [
+    "",
+    "Fixing",
+    "Positioning key + pressing block"
+   ],
+   [
+    "",
+    "Empty tube",
+    "Air cylinder, recovery box at the bottom"
+   ],
+   [
+    "",
+    "Power",
+    "24 V, 4 A average / 6 A peak; 0.4 – 0.6 MPa air"
+   ],
+   [
+    "",
+    "Interface",
+    "8-core 16 mm aviation plug; IO or standalone; ARM (STC32)"
+   ],
+   [
+    "Feeding",
+    "Drive",
+    "57-type stepping motor, max. 600 rpm"
+   ],
+   [
+    "",
+    "Speed",
+    "0.8 s, four gears"
+   ],
+   [
+    "",
+    "Accuracy",
+    "±0.5 mm"
+   ],
+   [
+    "",
+    "Channels",
+    "Single (dual on request)"
+   ],
+   [
+    "Tests",
+    "Records",
+    "1,000 feeds; 48 h ageing; spring 4 million bends"
+   ]
+  ],
+  "source": "Source: STF1003 Tube Feeder, Southern Machinery Customized Feeder Nozzle Catalog V03."
+ },
+ "fit": {
+  "kicker": "Fit check",
+  "title": "Will your tube run on the STF1003?",
+  "lead": "Compare your tube and part with the published ranges.",
+  "cta": "Send us the tube for a trial",
+  "wa_text": "Hi Jason, STF1003 fit check: ",
+  "inputs": [
+   {
+    "id": "len",
+    "label": "Tube length",
+    "value": 520,
+    "min": 200,
+    "max": 650,
+    "unit": "mm"
+   },
+   {
+    "id": "wall",
+    "label": "Tube wall thickness",
+    "value": 0.8,
+    "min": 0.6,
+    "unit": "mm"
+   },
+   {
+    "id": "pmax",
+    "label": "Largest part dimension",
+    "value": 12,
+    "min": 3,
+    "max": 25,
+    "unit": "mm"
+   }
+  ]
+ },
+ "roi": {
+  "nav": "ROI",
+  "title": "What does automatic tube feeding pay back?",
+  "defaults": {
+   "operators_saved": 0.5,
+   "hourly_cost": 6,
+   "shifts_per_day": 2
+  }
+ },
+ "benefits": {
+  "kicker": "What it changes",
+  "title": "Saves labour, lifts utilization, steadies production",
+  "cards": [
+   {
+    "icon": "🧑‍🔧",
+    "h": "Fewer touches",
+    "p": "Tubes are loaded in batches instead of watched one by one."
+   },
+   {
+    "icon": "⏱️",
+    "h": "Higher utilization",
+    "p": "0.8 s per feed keeps the head picking."
+   },
+   {
+    "icon": "🎯",
+    "h": "Located every time",
+    "p": "Fibre, key and pressing block: ±0.5 mm."
+   },
+   {
+    "icon": "🔌",
+    "h": "Easy to integrate",
+    "p": "24 V, 8-core plug, IO or standalone."
+   }
+  ]
+ },
+ "gallery": {
+  "nav": "Installations",
+  "kicker": "Installations",
+  "title": "Running beside the odd-form machines you own",
+  "items": [
+   {
+    "src": "assets/stf1003-028.jpg",
+    "alt": "Panasonic CM602 odd-form machine with tube and bowl feeders"
+   },
+   {
+    "src": "assets/stf1003-029.jpg",
+    "alt": "JUKI odd-form machine with tube, bowl and radial tape feeders"
+   },
+   {
+    "src": "assets/stf1003-030.jpg",
+    "alt": "YAMAHA odd-form machine with tube feeder"
+   },
+   {
+    "src": "assets/stf1003-031.jpg",
+    "alt": "Mirae odd-form machine with tube, bowl and radial tape feeders"
+   }
+  ]
+ },
+ "videos": {
+  "kicker": "Video",
+  "title": "Watch the tube feeder run",
+  "items": [
+   {
+    "id": "L4HIvS5ikoY",
+    "title": "Automate Your Production: Maximize Efficiency with Southern Machinery Tube Feeders for Smart EMS"
+   }
+  ]
+ },
+ "blogs": {
+  "nav": "Insights",
+  "kicker": "Insights",
+  "title": "Eight engineering reads before your tube-feeding trial",
+  "items": [
+   {
+    "tag": "Package",
+    "title": "Know the tube before choosing the feeder",
+    "summary": "Profile, straightness, length and wall decide more than the part does.",
+    "body": [
+     "Measure tube profile, straightness and length on unopened and loaded material. The STF1003 publishes 200 – 650 mm tubes with walls of at least 0.6 mm in PVC or aluminium.",
+     "Photograph the tube end and the part spacing before discussing tooling, and send filled and empty tubes with the inquiry."
+    ]
+   },
+   {
+    "tag": "Orientation",
+    "title": "Keep the component facing the right way",
+    "summary": "A tube preserves orientation until the outlet; protect it there.",
+    "body": [
+     "Mark the required final orientation on the drawing and follow one sample through the route.",
+     "A positioning key and pressing block hold the part at the pick point so the nozzle sees the same pose every cycle."
+    ]
+   },
+   {
+    "tag": "Separation",
+    "title": "Release one part at a time",
+    "summary": "Define double, empty and blocked releases before the trial.",
+    "body": [
+     "Record each failure type separately instead of hiding them in one success figure.",
+     "Optical fibre sensing with software compensation confirms each part at the outlet."
+    ]
+   },
+   {
+    "tag": "Pickup",
+    "title": "Make the pickup position useful",
+    "summary": "Datum, height and clearance matter as much as speed.",
+    "body": [
+     "Review outlet datum, pickup height, nozzle or gripper clearance and the host-ready signal before agreeing the interface.",
+     "The published feeding accuracy is ±0.5 mm."
+    ]
+   },
+   {
+    "tag": "Changeover",
+    "title": "Plan for more than one production job",
+    "summary": "Identify which guides need replacement between families.",
+    "body": [
+     "Choose representative jobs rather than assuming one sample covers the range.",
+     "Various sizes are available to suit specific site needs; confirm them with samples."
+    ]
+   },
+   {
+    "tag": "Replenishment",
+    "title": "Make replenishment part of the plan",
+    "summary": "Stacked tubes change who waits for whom.",
+    "body": [
+     "With multiple tubes stacked, the operator loads tubes in batches. Empty tubes leave by air cylinder into the recovery box.",
+     "Check access to the magazine and the recovery box at the line, not only on the bench."
+    ]
+   },
+   {
+    "tag": "Integration",
+    "title": "Agree the signal before the bracket",
+    "summary": "IO communication or standalone: decide early.",
+    "body": [
+     "The STF1003 connects through an 8-core 16 mm aviation plug and supports IO communication or self-control without communication.",
+     "It runs on 24 V and 0.4 – 0.6 MPa compressed air."
+    ]
+   },
+   {
+    "tag": "Trial",
+    "title": "Ask for a run record, not only a clip",
+    "summary": "1,000 feeds and 48 hours are the published baseline.",
+    "body": [
+     "The STF1003 is tested for 1,000 consecutive feeds and 48 hours of continuous operation without abnormality.",
+     "For your part, agree the acceptance criteria and keep the accepted sample with the production record."
+    ]
+   }
+  ]
+ },
+ "docs": {
+  "kicker": "Documents",
+  "title": "The material behind every number",
+  "items": [
+   {
+    "href": "https://file.autoinsertion.com/public/Southern%20Machinery%20Product/STF1003%20Tube%20Feeder%20%20Southern%20Machinery%20Customized%20Feeder%20Nozzle%20Catalog%20V03.pdf",
+    "t": "STF1003 specification (PDF)",
+    "d": "Customized Feeder Nozzle Catalog V03"
+   },
+   {
+    "href": "https://file.autoinsertion.com/public/SMT%20machine%203D%20Drawing%20in%20Html/SMT%20Tube%20Feeder%20S-Designed%20by%20Southern%20Machinery.html",
+    "t": "Original 3D drawing",
+    "d": "eDrawings interactive model"
+   },
+   {
+    "href": "https://file.autoinsertion.com/public/Product%20landing%20Page/tube-product-overview.html",
+    "t": "Tube feeder overview",
+    "d": "Feeding category and process"
+   },
+   {
+    "href": "https://file.autoinsertion.com/public/Product%20landing%20Page/tube-application-solutions.html",
+    "t": "Tube feeder applications",
+    "d": "Plan around the production route"
+   }
+  ]
+ },
+ "faq": {
+  "nav": "FAQ",
+  "kicker": "FAQ",
+  "title": "Questions buyers ask before the first trial",
+  "items": [
+   {
+    "q": "Which components does it feed?",
+    "a": "Tube-packed relays, terminals, transformers, square and round capacitors, DIPs and transistors, 3 × 3 × 3 to 25 × 25 × 25 mm."
+   },
+   {
+    "q": "Which tubes does it accept?",
+    "a": "PVC and aluminium tubes, 200 – 650 mm long, wall at least 0.6 mm, multiple tubes stacked."
+   },
+   {
+    "q": "How fast and accurate is it?",
+    "a": "0.8 s feeding speed with four gears and ±0.5 mm feeding accuracy."
+   },
+   {
+    "q": "Will it work with my machine?",
+    "a": "8-core 16 mm aviation plug, IO or standalone; installed on Panasonic CM602, JUKI, YAMAHA and Mirae odd-form machines."
+   }
+  ]
+ },
+ "contact": {
+  "kicker": "Tube feeding trial",
+  "h": "Send us your tube. We'll configure the STF1003 around it.",
+  "p": "Share filled and empty tubes, the component drawing, your host machine model and a short video of how you load and pick today.",
+  "wa_text": "Hi Jason, please evaluate my tube for the STF1003"
+ },
+ "footer": {
+  "products": [
+   {
+    "href": "https://file.autoinsertion.com/public/Product%20landing%20Page/tube-product-overview.html",
+    "t": "Tube feeder overview"
+   },
+   {
+    "href": "https://file.autoinsertion.com/public/Product%20landing%20Page/bowl-vs-belt-feeder-sbf1001-vs-s-mvf01-comparison.html",
+    "t": "Bowl vs belt feeder"
+   }
+  ],
+  "disclaimer": "Specifications quoted from the STF1003 sheet (Catalog V03) and subject to change; confirm the final configuration on your quotation."
+ }
+}

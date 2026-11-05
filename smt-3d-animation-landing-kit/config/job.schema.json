@@ -1,0 +1,34 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "smt-3d-animation-landing-kit/job.schema.json",
+  "title": "smt-3d-animation-landing-kit job (config_version 1)",
+  "type": "object",
+  "required": ["name", "slug", "content"],
+  "properties": {
+    "name": {"type": "string"},
+    "slug": {"type": "string", "pattern": "^[a-z0-9]+(-[a-z0-9]+)*$", "description": "file names of every deliverable"},
+    "workdir": {"type": "string", "default": ".", "description": "relative to job.json; src/ assets/ build/ video/ out/ are created inside"},
+    "inputs": {"type": "object", "properties": {
+      "drawing_3d": {"type": "string", "description": "URL or path: .html (eDrawings), .glb, .gltf, .stl, .obj"},
+      "pages": {"type": "array", "items": {"type": "string"}, "maxItems": 4},
+      "docs": {"type": "array", "items": {"type": "string"}}}},
+    "content": {"type": "string", "description": "content.json path"},
+    "i18n_dir": {"type": "string", "description": "folder with <lang>.json translation maps (key = content path)"},
+    "model": {"type": "string", "default": "assets/model.b64"},
+    "model_groups": {"type": "string", "description": "groups.json {part name: [substring,...]} for pack_mesh"},
+    "sections": {"type": "array", "items": {"enum": ["hero","duel","why","how","model3d","specs","fit","roi","benefits","gallery","videos","blogs","docs","faq","contact"]}},
+    "duel": {"type": "object", "required": ["script", "class", "keys"], "properties": {
+      "script": {"type": "string"}, "class": {"type": "string"}, "keys": {"type": "array", "items": {"type": "string"}, "minItems": 2, "maxItems": 2},
+      "cycle_s": {"type": "number", "default": 13.4, "description": "seconds per chapter on the page"}}},
+    "video": {"type": "object", "properties": {
+      "script": {"type": "string"}, "stage": {"type": "string"}, "thumb": {"type": "string"}, "music": {"type": "string"},
+      "keywords": {"type": "object", "additionalProperties": {"type": "array", "items": {"type": "string"}}},
+      "phrases": {"type": "array", "items": {"type": "array", "items": {"type": "string"}, "minItems": 2, "maxItems": 2}}}},
+    "seo": {"type": "object", "properties": {
+      "title": {"type": "string", "maxLength": 100}, "alt_titles": {"type": "array"}, "short_title": {"type": "string", "maxLength": 100},
+      "short_desc": {"type": "string"}, "intro": {"type": "string"}, "bullets": {"type": "array"}, "chapters": {"type": "object"},
+      "landing_url": {"type": "string"}, "links": {"type": "array"}, "tags": {"type": "array"}, "hashtags": {"type": "array"}}},
+    "drive": {"type": "object", "properties": {"folder_name": {"type": "string"}}},
+    "config": {"type": "object", "description": "deep-merged over config/defaults.json"}
+  }
+}

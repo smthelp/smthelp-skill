@@ -1,0 +1,191 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><title>Bowl vs Belt — video stage</title>
+<style>
+*{box-sizing:border-box}html,body{margin:0;background:#061110;overflow:hidden}
+#stage{position:relative;overflow:hidden;font-family:Arial,"Helvetica Neue",sans-serif;color:#eaf3f1;
+  background:radial-gradient(120% 90% at 50% 0%,#0f2a27 0%,#071514 55%,#040c0b 100%)}
+.f169 #stage{width:1920px;height:1080px}.f916 #stage{width:1080px;height:1920px}
+.layer{position:absolute;inset:0}
+/* header */
+.hdr{position:absolute;left:0;right:0;top:0;display:flex;align-items:center;justify-content:space-between;padding:0 48px}
+.f169 .hdr{height:108px}.f916 .hdr{height:124px;padding:0 36px}
+.logo{background:#fff;border-radius:12px;padding:10px 16px;display:flex}.logo img{height:46px;display:block}
+.f916 .logo img{height:40px}
+.chap{text-align:center}.chap small{display:block;font-size:20px;letter-spacing:.22em;color:#f2b84b;font-weight:800}
+.chap b{display:block;font-size:40px;font-weight:800;letter-spacing:.01em}
+.f916 .chap b{font-size:36px}.f916 .chap small{font-size:18px}
+.vs{font-size:22px;font-weight:800;letter-spacing:.16em;color:#9fb9b4}.vs i{font-style:normal;color:#f2b84b}
+.f916 .vs{display:none}.f916 .chap{flex:1;text-align:right}
+/* cards */
+.card{position:absolute;background:#0c1c1a;border:2px solid rgba(120,200,185,.18);border-radius:22px;overflow:hidden;box-shadow:0 30px 80px -30px rgba(0,0,0,.8)}
+.f169 .card{top:122px;width:900px;height:792px}.f169 .c-bowl{left:40px}.f169 .c-belt{right:40px}
+.f916 .card{left:30px;width:1020px;height:780px}.f916 .c-bowl{top:132px}.f916 .c-belt{top:1060px}
+.card.fd-win{border-color:#f2b84b;box-shadow:0 0 0 2px #f2b84b,0 30px 80px -30px rgba(0,0,0,.8)}
+.ct{display:flex;align-items:center;justify-content:space-between;height:66px;padding:0 24px;background:linear-gradient(90deg,rgba(47,193,170,.16),transparent)}
+.ct .nm{font-size:28px;font-weight:800}.ct .nm em{font-style:normal;color:#2fc1aa;margin-right:10px}
+.c-belt .ct .nm em{color:#9ad04a}
+.ct .cnt{font-size:20px;color:#9fb9b4;font-weight:700}.ct .cnt b{font-size:30px;color:#fff;margin-left:8px}
+.svgbox{position:relative;width:900px;height:630px;margin:0 auto}.svgbox svg{display:block;width:100%;height:100%}
+.f916 .svgbox{width:900px;height:630px}
+.fd-metrics{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;padding:0 16px;height:84px;margin-top:6px}
+.fd-m{background:#122826;border-radius:12px;padding:10px 14px}.fd-m span{display:block;font-size:15px;color:#9fb9b4;text-transform:uppercase;letter-spacing:.08em;font-weight:700}
+.fd-m b{display:block;font-size:25px;margin-top:4px;white-space:nowrap}
+.win{position:absolute;top:80px;right:18px;background:#f2b84b;color:#10201e;font-weight:900;font-size:22px;letter-spacing:.1em;padding:8px 16px;border-radius:999px}
+.cad{position:absolute;inset:66px 0 90px 0;background:radial-gradient(80% 80% at 50% 50%,#eef4f3,#cfdcda);display:flex;align-items:center;justify-content:center}
+.cad img{max-width:86%;max-height:84%;display:block}
+.cad .tag{position:absolute;left:20px;top:16px;font-size:18px;font-weight:800;letter-spacing:.14em;color:#0c665c}
+.photo{position:absolute;right:16px;bottom:16px;width:250px;height:180px;border-radius:12px;overflow:hidden;border:4px solid #fff;box-shadow:0 10px 30px rgba(0,0,0,.35)}
+.photo img{width:100%;height:100%;object-fit:cover;display:block}
+.verd{position:absolute;left:24px;right:24px;top:96px;padding:22px 26px;border-radius:16px;background:rgba(6,17,16,.88);border:2px solid rgba(242,184,75,.6)}
+.verd b{display:block;font-size:20px;letter-spacing:.16em;color:#f2b84b}.verd p{margin:8px 0 0;font-size:34px;font-weight:800;line-height:1.2}
+/* subtitles */
+.subs{position:absolute;left:0;right:0;display:flex;justify-content:center;pointer-events:none}
+.f169 .subs{bottom:28px}.f916 .subs{top:924px;height:128px;align-items:center}
+.subs span{background:rgba(0,0,0,.72);color:#fff;font-weight:700;border-radius:14px;padding:12px 28px;text-align:center;line-height:1.25}
+.f169 .subs span{font-size:46px;max-width:1600px}.f916 .subs span{font-size:44px;max-width:1000px}
+/* hook + cta */
+.full{position:absolute;inset:0}
+.bgph{position:absolute;inset:0;background-size:cover;background-position:center}
+.shade{position:absolute;inset:0;background:linear-gradient(180deg,rgba(4,12,11,.55),rgba(4,12,11,.88))}
+.hk{position:absolute;left:0;right:0;text-align:center}
+.f169 .hk{top:300px}.f916 .hk{top:640px}
+.hk .k{font-size:28px;letter-spacing:.3em;font-weight:800;color:#f2b84b}
+.hk h1{margin:18px 0 0;font-size:150px;line-height:1;font-weight:900;letter-spacing:-.01em}
+.f916 .hk h1{font-size:120px}
+.hk h1 .v{color:#f2b84b;font-size:.55em;vertical-align:middle;margin:0 .25em}
+.hk p{margin:26px auto 0;font-size:44px;font-weight:700;color:#d9e8e5;max-width:1300px}
+.f916 .hk p{font-size:42px;max-width:900px}
+#cv{position:absolute;inset:0;width:100%;height:100%}
+.cta{text-align:center;position:absolute;left:0;right:0}
+.f169 .cta{top:96px}.f916 .cta{top:150px;bottom:0}.f916 .cta h2{margin-top:34px}.f916 .pill{font-size:34px;padding:14px 30px}.f916 .badge48{position:absolute;left:0;right:0;top:1640px;font-size:24px}
+.cta .logo{display:inline-flex;padding:16px 26px;border-radius:16px}.cta .logo img{height:84px}
+.cta h2{font-size:72px;line-height:1.1;margin:44px auto 0;max-width:1500px;font-weight:900}
+.f916 .cta h2{font-size:64px;max-width:960px}
+.cta .row{display:flex;justify-content:center;gap:26px;margin-top:46px;flex-wrap:wrap}
+.f916 .cta .row{flex-direction:column;align-items:center;gap:18px}
+.pill{background:rgba(255,255,255,.08);border:2px solid rgba(255,255,255,.2);border-radius:999px;padding:18px 34px;font-size:36px;font-weight:800}
+.pill.g{background:#25d366;border-color:#25d366;color:#06281a}
+.pill.y{background:#f2b84b;border-color:#f2b84b;color:#10201e}
+.ctaph{display:flex;justify-content:center;gap:30px;margin-top:40px}
+.ctaph img{width:400px;height:250px;object-fit:cover;border-radius:18px;border:5px solid #fff}
+.f916 .ctaph{position:absolute;left:0;right:0;top:940px;flex-direction:column;align-items:center;gap:24px;margin:0}.f916 .ctaph img{width:760px;height:310px}
+.badge48{display:inline-block;margin-top:30px;font-size:26px;font-weight:800;letter-spacing:.12em;color:#9ad04a}
+</style></head>
+<body>
+<div id="stage">
+  <div class="layer" id="main">
+    <div class="hdr"><div class="logo"><img src="../assets/logo.png" alt="Southern Machinery"></div>
+      <div class="chap"><small id="chn">01 / 06</small><b data-fd-title>How each feeder works</b></div>
+      <div class="vs">BOWL <i>VS</i> BELT</div></div>
+    <div class="card c-bowl" data-fd-card="bowl" id="cb">
+      <div class="ct"><div class="nm"><em>A</em>SBF1001 Vibratory Bowl</div><div class="cnt" id="kb">PICKS<b data-fd-count="bowl">0</b></div></div>
+      <div class="svgbox" data-fd="bowl"></div>
+      <div class="fd-metrics" data-fd-metrics="bowl"></div>
+      <div class="win" id="wb">WINNER</div>
+      <div class="cad" id="cadb"><span class="tag">3D ENGINEERING MODEL</span><img src="../assets/cad_bowl.png" alt=""><div class="photo"><img src="../assets/photo_bowl2.jpg" alt=""></div></div>
+      <div class="verd" id="vb"><b>CHOOSE THE BOWL FOR</b><p>Raw speed on robust parts up to 50 × 50 mm</p></div>
+    </div>
+    <div class="card c-belt" data-fd-card="belt" id="cl">
+      <div class="ct"><div class="nm"><em>B</em>S-MVF01 Reciprocating Belt</div><div class="cnt" id="kl">PICKS<b data-fd-count="belt">0</b></div></div>
+      <div class="svgbox" data-fd="belt"></div>
+      <div class="fd-metrics" data-fd-metrics="belt"></div>
+      <div class="win" id="wl">WINNER</div>
+      <div class="cad" id="cadl"><span class="tag">3D ENGINEERING MODEL</span><img src="../assets/cad_belt.png" alt=""><div class="photo"><img src="../assets/photo_belt2.jpg" alt=""></div></div>
+      <div class="verd" id="vl"><b>CHOOSE THE BELT FOR</b><p>Compact, quiet, gentle feeding and fast changeovers</p></div>
+    </div>
+  </div>
+  <div class="full" id="hook">
+    <div class="bgph" id="hb1" style="background-image:url(../assets/photo_bowl1.jpg)"></div>
+    <div class="bgph" id="hb2" style="background-image:url(../assets/photo_belt1.jpg)"></div>
+    <div class="shade"></div><canvas id="cv"></canvas>
+    <div class="hk"><div class="k">SMT · THT BULK COMPONENT FEEDING</div><h1 id="ht">BOWL<span class="v">vs</span>BELT</h1><p id="hp">Which bulk feeder belongs on your line?</p></div>
+  </div>
+  <div class="full" id="cta">
+    <div class="bgph" style="background-image:url(../assets/photo_belt1.jpg);filter:blur(6px);transform:scale(1.05)"></div><div class="shade"></div>
+    <div class="cta"><div class="logo"><img src="../assets/logo.png" alt="Southern Machinery"></div>
+      <h2>Send us your part.<br>We'll tell you which feeder it runs on.</h2>
+      <div class="row"><div class="pill y">www.SMThelp.com</div><div class="pill g">WhatsApp +86 136 0256 2576</div><div class="pill">info@smthelp.com</div></div>
+      <div class="ctaph"><img src="../assets/photo_bowl1.jpg" alt=""><img src="../assets/photo_belt2.jpg" alt=""></div>
+      <div class="badge48">BOTH FEEDERS · 48-HOUR AGEING TEST · NO ABNORMALITY</div></div>
+  </div>
+  <div class="subs"><span id="sub"></span></div>
+</div>
+<script src="timeline.js"></script>
+<script src="duel.js"></script>
+<script>
+var Q=new URLSearchParams(location.search), FMT=Q.get('fmt')||'169';
+document.documentElement.className='f'+FMT;
+var TL=window.TIMELINE;
+var stage=document.getElementById('stage');
+var D=new FeederDuel(stage);
+var $=function(id){return document.getElementById(id)};
+function cl(v,a,b){return v<a?a:v>b?b:v}
+function sm(x){x=cl(x,0,1);return x*x*(3-2*x)}
+var CHMAP={hook:'principle',intro:'principle',bowl:'principle',belt:'principle',speed:'speed',space:'space',gentle:'gentle',change:'change',verdict:'verdict',cta:'verdict'};
+var CHNUM={principle:1,speed:2,space:3,gentle:4,change:5,verdict:6};
+// hook particles
+var cv=$('cv'),cx=cv.getContext('2d');
+function sizeCv(){var r=stage.getBoundingClientRect();cv.width=stage.offsetWidth*devicePixelRatio;cv.height=stage.offsetHeight*devicePixelRatio;}
+sizeCv();
+function hsh(a,b){var s=Math.sin(a*127.1+b*311.7)*43758.5453;return s-Math.floor(s)}
+function drawParts(t,alpha){
+  var W=cv.width,H=cv.height,s=devicePixelRatio;cx.clearRect(0,0,W,H);if(alpha<=0)return;
+  cx.globalAlpha=alpha;
+  for(var i=0;i<70;i++){
+    var sp=0.12+hsh(i,1)*0.2,ph=(t*sp+hsh(i,2))%1,x=hsh(i,3)*W,y=-40*s+ph*(H+80*s),r=(hsh(i,4)*6+t*(hsh(i,5)-.5)*3);
+    cx.save();cx.translate(x,y);cx.rotate(r);var w=(14+hsh(i,6)*16)*s,h=w*0.6;
+    cx.fillStyle='rgba(233,238,240,.85)';cx.fillRect(-w/2,-h/2,w,h);cx.fillStyle='#0c665c';cx.fillRect(-w/2,-h/2,w*0.3,h);cx.restore();
+  }
+  cx.globalAlpha=1;
+}
+function op(id,v){$(id).style.opacity=v.toFixed(3);$(id).style.visibility=v<=0.001?'hidden':'visible'}
+window.seek=function(t){
+  var sc=TL.scenes[0];for(var i=0;i<TL.scenes.length;i++){if(t>=TL.scenes[i].start-0.0001)sc=TL.scenes[i];}
+  if(t<TL.scenes[0].start)sc=TL.scenes[0];
+  var id=sc.id,lt=t-sc.start,next=TL.scenes[TL.scenes.indexOf(sc)+1];
+  var ch=CHMAP[id];
+  // scene boundaries for chapter time
+  var chStart=sc.start; if(id==='belt'||id==='bowl')chStart=sc.start;
+  var st={chapter:ch,chapterT:t-chStart+0.6,speed:1,step:0};
+  if(id==='bowl'||id==='belt'){var n=0;sc.steps.forEach(function(s){if(t>=s)n++});st.step=n;}
+  if(id==='intro')st.step=0;
+  if(id==='speed'||id==='hook'||id==='intro'){
+    var c0={};c0.bowl=Math.floor(sc.start/0.8);c0.belt=Math.floor(sc.start/1.75);st.count0=c0;
+  } else st.count0={bowl:Math.floor(sc.start/0.8),belt:Math.floor(sc.start/1.75)};
+  D.render(t,st);
+  $('chn').textContent='0'+CHNUM[ch]+' / 06';
+  // hook
+  var hookEnd=TL.scenes[1].start, hk=1-sm((t-(hookEnd-0.9))/0.9);
+  op('hook',hk); if(hk>0){drawParts(t,1);
+    var z=1+t*0.012;$('hb1').style.transform='scale('+z+')';$('hb2').style.transform='scale('+z+')';
+    var sw=sm((t-5.5)/1.2);$('hb1').style.opacity=1-sw;$('hb2').style.opacity=sw;
+    $('ht').style.transform='scale('+(0.85+0.15*sm(t/1.2))+')';$('ht').style.opacity=sm(t/0.8);$('hp').style.opacity=sm((t-1.2)/0.8);}
+  // cta
+  var ctaS=TL.scenes[TL.scenes.length-1].start;op('cta',sm((t-ctaS+0.3)/0.8));
+  // CAD overlay in intro
+  var inS=TL.scenes[1].start,inE=TL.scenes[2].start;
+  var cadA=(t>=inS-1&&t<inE)?Math.min(sm((t-inS+0.6)/0.6),1-sm((t-(inE-1.4))/1.0)):0;
+  op('cadb',cadA);op('cadl',cadA);
+  // focus dimming
+  var fb=1,fl=1;
+  if(id==='bowl'){fl=1-0.6*sm(lt/0.6)*(1-sm((lt-sc.dur+0.2)/0.6));}
+  if(id==='belt'){fb=1-0.6*sm(lt/0.6)*(1-sm((lt-sc.dur+0.2)/0.6));}
+  $('cb').style.opacity=fb;$('cl').style.opacity=fl;
+  // winner badge
+  var met=FeederDuel.METRICS[ch]||{};var wa=(ch===CHMAP[id])?sm((lt-1.2)/0.5):0;
+  op('wb',met.win==='bowl'?wa:0);op('wl',met.win==='belt'?wa:0);
+  var labs={speed:'FASTER',space:'SLIMMER & LIGHTER',gentle:'GENTLER',change:'QUICKER CHANGE'};
+  $('wb').textContent=labs[ch]||'';$('wl').textContent=labs[ch]||'';
+  // verdict cards
+  var va=id==='verdict'?sm((lt-3.5)/0.6):0;op('vb',va);op('vl',id==='verdict'?sm((lt-5.6)/0.6):0);
+  // pick counter only in speed
+  var ka=id==='speed'?1:0;$('kb').style.visibility=ka?'visible':'hidden';$('kl').style.visibility=ka?'visible':'hidden';
+  // subtitles
+  var txt='';for(var j=0;j<TL.cues.length;j++){var c=TL.cues[j];if(t>=c.s&&t<c.e){txt=c.text;break;}}
+  $('sub').textContent=txt;$('sub').parentNode.style.visibility=txt?'visible':'hidden';
+  return true;
+};
+window.READY=false;
+Promise.all(Array.prototype.map.call(document.images,function(im){return im.complete?1:new Promise(function(r){im.onload=im.onerror=r})})).then(function(){window.READY=true;seek(Number(Q.get('t')||0));});
+</script>
+</body></html>
