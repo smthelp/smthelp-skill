@@ -1,0 +1,20 @@
+# GLB mode example: put model.glb (from scripts/model_prep.py) next to this file.
+# Each view is one mode chip (md1_n.. md3_n keys in en_ui.py name them). Units = largest model dimension.
+page:
+  filename: sl600a-semiconductor-magazine-loader-3d-smart-ems-factory.html
+  repo_folder: board-handling/
+  ls_prefix: sl600a
+  og_image: https://ph.smthelp.com/images/2026/09/22/pcb-magazine-loader-sld330-automatic-magazine-loader-smt-tht-ems-southern-machinery.png
+  og_alt: SL600A semiconductor magazine loader
+  canvas_aria: Interactive 3D model of the SL600A magazine loader
+  mail_subject: SL600A inquiry
+model:
+  mode: glb
+  embed: auto
+  max_inline_kb: 350
+  views:
+    - {pos: [1.4, 0.8, 1.6], target: [0, 0, 0], explode: 0}     # overview
+    - {pos: [0.2, 0.6, 1.9], target: [0, 0, 0], explode: 0}     # front, magazine side
+    - {pos: [1.8, 1.2, -1.2], target: [0, 0, 0], explode: 0.6}  # rear, exploded
+theme:
+  primary: "#0a9d9d"

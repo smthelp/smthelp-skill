@@ -1,0 +1,14 @@
+page:
+  filename: smt-pcb-loader-solution-magazine-mini-l-type-destacker-vacuum-combo-led-loader-smart-ems-factory.html
+  repo_folder: board-handling/
+  ls_prefix: ldr
+  keywords: "SMT PCB loader, PCB magazine loader, mini PCB loader, L-type magazine loader, PCB destacker, vacuum PCB loader, combo loader, 1.2 m LED PCB loader, SL600A, SFBL250"
+  og_image: https://ph.smthelp.com/images/2026/09/22/pcb-magazine-loader-sld330-automatic-magazine-loader-smt-tht-ems-southern-machinery.png
+  og_alt: SLD330 SMT PCB magazine loader
+  canvas_aria: Interactive 3D model of nine SMT PCB loader types feeding a line
+  full3d_url: "https://file.autoinsertion.com/public/SMT%20machine%203D%20Drawing%20in%20Html/SLD250%20PCB%20Magazine%20Loader%20(250mm)%20w%20PCB.html"
+  mail_subject: SMT PCB loader inquiry
+  date_modified: "2026-11-04"
+model:
+  mode: procedural
+  procedural_js: loader3d.js

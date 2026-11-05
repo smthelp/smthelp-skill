@@ -1,0 +1,554 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" data-theme="light">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>%%meta_title%%</title>
+<meta name="description" content="%%meta_desc%%">
+<meta name="keywords" content="%%KEYWORDS%%">
+<meta name="author" content="Shenzhen Southern Machinery Sales and Service Co., Ltd.">
+<meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+<meta name="theme-color" content="#0a8f8f">
+<link rel="canonical" href="%%CANON%%">
+%%HREFLANG%%
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Southern Machinery">
+<meta property="og:locale" content="en_US">
+<meta property="og:title" content="%%meta_title%%">
+<meta property="og:description" content="%%meta_desc%%">
+<meta property="og:url" content="%%CANON%%">
+<meta property="og:image" content="%%OG_IMAGE%%">
+<meta property="og:image:alt" content="%%OG_ALT%%">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="@smtspecialist">
+<meta name="twitter:title" content="%%meta_title%%">
+<meta name="twitter:description" content="%%meta_desc%%">
+<meta name="twitter:image" content="%%OG_IMAGE%%">
+<link rel="icon" href="https://ph.smthelp.com/images/2024/06/26/Southern-Machinery-logo-300x83.png">
+<link rel="preconnect" href="https://ph.smthelp.com">
+<link rel="preconnect" href="https://cdn.jsdelivr.net">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<script type="application/ld+json">%%JSONLD%%</script>
+<script>
+(function(){try{var t=localStorage.getItem("%%LS_PREFIX%%_theme");if(!t){t=(window.matchMedia&&matchMedia("(prefers-color-scheme: dark)").matches)?"dark":"light";}document.documentElement.setAttribute("data-theme",t);}catch(e){}})();
+</script>
+<style>
+:root{--teal:%%C_PRIMARY%%;--teal2:%%C_PRIMARY_DARK%%;--green:%%C_ACCENT%%;--amber:%%C_WARN%%;--bg:#f5f8f8;--bg2:#ffffff;--card:#ffffff;--line:#dfe7e6;--tx:#0f1b2a;--tx2:#4a5c6b;--tx3:#7d8d9b;--shadow:0 10px 30px rgba(15,27,42,.08);--hero:linear-gradient(135deg,#eaf7f6 0%,#f7fbf2 60%,#ffffff 100%);--r:16px}
+[data-theme=dark]{--bg:#07101f;--bg2:#0b1628;--card:#101e33;--line:#1e2f47;--tx:#e8eef5;--tx2:#a9b8c8;--tx3:#7b8ca0;--shadow:0 10px 30px rgba(0,0,0,.35);--hero:radial-gradient(circle at 20% 10%,rgba(10,157,157,.25),transparent 45%),radial-gradient(circle at 85% 80%,rgba(124,184,47,.15),transparent 45%),#07101f}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:"Inter","Segoe UI",system-ui,-apple-system,"PingFang SC","Microsoft YaHei","Noto Sans Arabic",Arial,sans-serif;background:var(--bg);color:var(--tx);line-height:1.6;font-size:16px;transition:background .3s,color .3s}
+a{color:var(--teal);text-decoration:none}
+img{max-width:100%;display:block}
+.wrap{max-width:1200px;margin:0 auto;padding:0 20px}
+.skip{position:absolute;left:10px;top:-60px;background:var(--teal);color:#fff;padding:8px 14px;z-index:999}
+.skip:focus{top:0}
+html,body{overflow-x:clip}
+/* header */
+#hdr{position:sticky;top:0;z-index:60;background:color-mix(in srgb,var(--bg2) 92%,transparent);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+#hdr .wrap{display:flex;align-items:center;gap:18px;height:68px}
+.logo img{height:40px;width:auto}
+[data-theme=dark] .logo{background:#fff;border-radius:8px;padding:3px 8px}
+.mn{display:flex;gap:18px;margin-inline-start:auto;font-size:14px;font-weight:600}
+.mn a{color:var(--tx2)}
+.mn a:hover{color:var(--teal)}
+.tools{display:flex;gap:8px;align-items:center}
+.tools select,.tools button{height:38px;border:1px solid var(--line);background:var(--card);color:var(--tx);border-radius:10px;padding:0 10px;font:inherit;font-size:14px;cursor:pointer}
+.tools button{width:38px;padding:0}
+@media(max-width:980px){.mn{display:none}.tools{margin-inline-start:auto}}
+/* hero */
+.hero{background:var(--hero);padding:64px 0 40px;overflow:hidden}
+.hero .wrap{display:grid;grid-template-columns:1.05fr 1fr;gap:40px;align-items:center}
+.badge{display:inline-flex;gap:8px;align-items:center;background:color-mix(in srgb,var(--teal) 14%,transparent);color:var(--teal);font-weight:700;font-size:13px;padding:6px 12px;border-radius:99px}
+.hero h1{font-size:clamp(30px,4.2vw,50px);line-height:1.12;margin:16px 0;letter-spacing:-.02em}
+.hero h1 span{background:linear-gradient(90deg,var(--teal),var(--green));-webkit-background-clip:text;background-clip:text;color:transparent}
+.hero p.sub{font-size:18px;color:var(--tx2);max-width:560px}
+.acts{display:flex;gap:12px;flex-wrap:wrap;margin-top:26px}
+.btn{display:inline-flex;align-items:center;gap:8px;padding:13px 22px;border-radius:12px;font-weight:700;font-size:15px;border:2px solid transparent;cursor:pointer;transition:transform .15s,box-shadow .15s}
+.btn:hover{transform:translateY(-2px)}
+.btn-p{background:linear-gradient(90deg,var(--teal),var(--teal2));color:#fff;box-shadow:0 8px 22px rgba(10,157,157,.35)}
+.btn-o{border-color:var(--teal);color:var(--teal);background:transparent}
+.btn-g{background:#25d366;color:#fff}
+.note{margin-top:14px;font-size:14px;color:var(--tx3)}
+.hero-art{perspective:1200px}
+.tilt{transform-style:preserve-3d;transition:transform .2s ease-out;will-change:transform}
+.hero-art .tilt{border-radius:20px;background:var(--card);box-shadow:var(--shadow);padding:10px;border:1px solid var(--line)}
+.hero-art img{border-radius:14px}
+@media(max-width:900px){.hero .wrap{grid-template-columns:1fr}}
+.metrics{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:40px}
+.metric{background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:18px;box-shadow:var(--shadow)}
+.metric b{display:block;font-size:24px;color:var(--teal)}
+.metric span{font-size:13px;color:var(--tx2)}
+@media(max-width:760px){.metrics{grid-template-columns:repeat(2,1fr)}}
+.trust{text-align:center;font-size:13px;color:var(--tx3);padding:18px 0;border-bottom:1px solid var(--line);background:var(--bg2)}
+/* sections */
+section{padding:76px 0}
+section.alt{background:var(--bg2)}
+.kicker{color:var(--teal);font-weight:800;font-size:13px;letter-spacing:.12em;text-transform:uppercase}
+h2{font-size:clamp(26px,3vw,36px);line-height:1.2;margin:8px 0 12px;letter-spacing:-.01em}
+.lead{color:var(--tx2);max-width:760px;margin-bottom:30px}
+/* 3d */
+.stage{position:relative;border-radius:22px;overflow:hidden;border:1px solid var(--line);background:linear-gradient(180deg,#dfe9ee,#f4f7f9);height:540px;box-shadow:var(--shadow)}
+[data-theme=dark] .stage{background:linear-gradient(180deg,#0e1c30,#07101f)}
+#c3d{width:100%;height:100%;display:block;cursor:grab}
+.stage .ctl{position:absolute;top:14px;inset-inline-start:14px;display:flex;gap:8px;flex-wrap:wrap}
+.stage .ctl button{background:var(--card);color:var(--tx);border:1px solid var(--line);border-radius:10px;padding:8px 12px;font:inherit;font-size:13px;font-weight:600;cursor:pointer}
+.stage .ctl button.on{background:var(--teal);color:#fff;border-color:var(--teal)}
+.info{position:absolute;bottom:14px;inset-inline-end:14px;width:min(360px,calc(100% - 28px));background:color-mix(in srgb,var(--card) 94%,transparent);backdrop-filter:blur(8px);border:1px solid var(--line);border-radius:16px;padding:16px 18px;box-shadow:var(--shadow)}
+.info .no{display:inline-block;background:var(--teal);color:#fff;border-radius:8px;font-weight:800;font-size:12px;padding:2px 8px;margin-bottom:6px}
+.info h3{font-size:18px;margin-bottom:4px}
+.info p{font-size:14px;color:var(--tx2)}
+.info small{display:block;margin-top:8px;color:var(--teal);font-weight:700;font-size:12px}
+.stage .cap{position:absolute;bottom:14px;inset-inline-start:14px;font-size:12px;color:var(--tx3);max-width:40%}
+.chips{display:flex;gap:8px;flex-wrap:wrap;margin-top:14px}
+.chip{border:1px solid var(--line);background:var(--card);color:var(--tx2);border-radius:99px;padding:6px 12px;font-size:13px;font-weight:600;cursor:pointer}
+.chip.on{background:var(--teal);color:#fff;border-color:var(--teal)}
+.fallback{display:none;position:absolute;inset:0;padding:20px;background:var(--card)}
+.fallback img{width:100%;height:calc(100% - 30px);object-fit:contain}
+@media(max-width:700px){.stage{height:460px}.stage .cap{display:none}}
+/* stations */
+.grid{display:grid;gap:18px}
+.g4{grid-template-columns:repeat(4,1fr)}
+.g3{grid-template-columns:repeat(3,1fr)}
+@media(max-width:1000px){.g4{grid-template-columns:repeat(2,1fr)}.g3{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:620px){.g4,.g3{grid-template-columns:1fr}}
+.card{background:var(--card);border:1px solid var(--line);border-radius:var(--r);box-shadow:var(--shadow);overflow:hidden}
+.st .ph{aspect-ratio:16/9;background:linear-gradient(135deg,color-mix(in srgb,var(--teal) 18%,var(--card)),color-mix(in srgb,var(--green) 14%,var(--card)));display:flex;align-items:center;justify-content:center;position:relative}
+.st .ph img{width:100%;height:100%;object-fit:cover}
+.st .ph i{font-size:42px;color:var(--teal)}
+.st .num{position:absolute;top:10px;inset-inline-start:10px;background:var(--teal);color:#fff;font-weight:800;border-radius:8px;padding:2px 9px;font-size:13px}
+.st .bd{padding:16px}
+.st h3{font-size:17px;margin-bottom:6px}
+.st p{font-size:14px;color:var(--tx2)}
+.st .f{margin-top:10px;font-size:12px;font-weight:700;color:var(--teal)}
+/* tables */
+.tw{overflow-x:auto;border:1px solid var(--line);border-radius:var(--r);background:var(--card);box-shadow:var(--shadow)}
+table{width:100%;border-collapse:collapse;font-size:14px}
+th,td{padding:11px 14px;text-align:start;border-bottom:1px solid var(--line);vertical-align:top}
+th{background:color-mix(in srgb,var(--teal) 10%,var(--card));font-size:13px;color:var(--tx);white-space:nowrap}
+tr:last-child td{border-bottom:none}
+.ev{display:inline-block;font-size:11px;font-weight:700;border-radius:6px;padding:1px 7px;white-space:nowrap}
+.ev.v{background:#dcfce7;color:#166534}.ev.c{background:#e0f2fe;color:#075985}.ev.t{background:#fef3c7;color:#92400e}
+[data-theme=dark] .ev.v{background:#14532d;color:#bbf7d0}[data-theme=dark] .ev.c{background:#0c4a6e;color:#bae6fd}[data-theme=dark] .ev.t{background:#78350f;color:#fde68a}
+.small{font-size:13px;color:var(--tx3);margin-top:12px}
+.specs{display:grid;grid-template-columns:repeat(2,1fr);gap:18px}
+@media(max-width:900px){.specs{grid-template-columns:1fr}}
+.specs h3{font-size:16px;padding:14px 16px;border-bottom:1px solid var(--line);display:flex;justify-content:space-between;gap:10px;align-items:center}
+.specs td:first-child{color:var(--tx2);width:38%}
+.specs td.src{color:var(--tx3);font-size:12px}
+/* gallery */
+.gal{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+@media(max-width:800px){.gal{grid-template-columns:repeat(2,1fr)}}
+.gal figure{background:var(--card);border:1px solid var(--line);border-radius:14px;overflow:hidden;cursor:zoom-in}
+.gal img{width:100%;aspect-ratio:4/3;object-fit:contain;background:#e9eff2}
+[data-theme=dark] .gal img{background:#0e1c30}
+.gal figcaption{font-size:13px;padding:10px 12px;color:var(--tx2)}
+/* videos */
+.vid{cursor:pointer}
+.vid .th{position:relative;aspect-ratio:16/9;background:#000}
+.vid .th img{width:100%;height:100%;object-fit:cover;opacity:.9}
+.vid .pl{position:absolute;inset:0;display:flex;align-items:center;justify-content:center}
+.vid .pl i{width:58px;height:58px;border-radius:50%;background:rgba(255,0,0,.88);display:flex;align-items:center;justify-content:center;color:#fff;font-size:20px}
+.vid .bd{padding:12px 14px}
+.vid h3{font-size:15px;line-height:1.35}
+.dur{font-size:12px;color:var(--tx3)}
+/* downloads */
+.dl{display:flex;gap:12px;align-items:center;padding:14px 16px}
+.dl i{font-size:26px;color:#dc2626}
+.dl i.fa-file-excel{color:#16a34a}
+.dl b{display:block;font-size:14px;line-height:1.35;color:var(--tx)}
+.dl span{font-size:12px;color:var(--tx3)}
+/* roi */
+.finder{margin-top:18px;padding:22px}.finder h3{margin:0 0 4px}.ff{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:12px}.ff label{display:block;font-size:13px;font-weight:600;color:var(--tx2);margin-bottom:6px}.ff input,.ff select{width:100%;height:42px;border:1px solid var(--line);border-radius:10px;padding:0 10px;background:var(--bg);color:var(--tx);font:inherit}.ff .chk{display:flex;align-items:end}.ff .chk label{display:flex;gap:8px;align-items:center;margin:0 0 10px}.ff .chk input{width:auto;height:auto}.fres{display:flex;flex-wrap:wrap;gap:10px 16px;align-items:center;margin-top:16px;padding-top:14px;border-top:1px solid var(--line)}.fres b{font-size:24px;color:var(--teal)}@media(max-width:860px){.ff{grid-template-columns:1fr 1fr}}
+.roi{display:grid;grid-template-columns:1.2fr 1fr;gap:22px}
+@media(max-width:860px){.roi{grid-template-columns:1fr}}
+.roi label{display:block;font-size:13px;font-weight:600;color:var(--tx2);margin-bottom:6px}
+.roi input{width:100%;height:44px;border:1px solid var(--line);border-radius:10px;padding:0 12px;background:var(--bg);color:var(--tx);font:inherit}
+.roi .fields{display:grid;grid-template-columns:1fr 1fr;gap:14px;padding:22px}
+.res{padding:22px;display:flex;flex-direction:column;gap:16px;justify-content:center;background:linear-gradient(135deg,var(--teal2),#0b3b4a);color:#fff}
+.res b{font-size:34px;display:block}
+.res span{font-size:13px;opacity:.85}
+/* blog */
+.post{display:flex;flex-direction:column;padding:20px}
+.post .meta{font-size:12px;color:var(--teal);font-weight:700;display:flex;gap:10px}
+.post h3{font-size:17px;line-height:1.35;margin:8px 0}
+.post p{font-size:14px;color:var(--tx2);flex:1}
+.post button{margin-top:14px;align-self:flex-start;background:none;border:none;color:var(--teal);font:inherit;font-weight:700;cursor:pointer;padding:0}
+.post .full{display:none}
+.modal{position:fixed;inset:0;background:rgba(3,8,18,.72);z-index:90;display:none;align-items:center;justify-content:center;padding:20px}
+.modal.open{display:flex}
+.modal .box{background:var(--card);color:var(--tx);border-radius:18px;max-width:780px;width:100%;max-height:88vh;overflow:auto;padding:30px;position:relative}
+.modal .x{position:absolute;top:12px;inset-inline-end:12px;width:38px;height:38px;border-radius:50%;border:1px solid var(--line);background:var(--card);color:var(--tx);cursor:pointer;font-size:16px}
+.modal h2{margin-top:0}
+.modal h3{font-size:19px;margin:22px 0 8px;color:var(--teal)}
+.modal p{color:var(--tx2)}
+.modal.media .box{max-width:1000px;padding:12px;background:#000}
+.modal.media iframe{width:100%;aspect-ratio:16/9;border:0;display:block}
+.modal.media img{max-height:80vh;margin:0 auto;object-fit:contain}
+/* faq */
+details{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:16px 18px;margin-bottom:12px}
+summary{font-weight:700;cursor:pointer}
+details p{margin-top:10px;color:var(--tx2)}
+/* contact + footer */
+.callbox{background:linear-gradient(135deg,#0a7f7f,#0b2a45);color:#fff;border-radius:24px;padding:46px;text-align:center}
+.callbox h2{color:#fff}
+.callbox p{opacity:.9;max-width:720px;margin:0 auto}
+.callbox .acts{justify-content:center}
+.callbox .btn-o{border-color:#fff;color:#fff}
+footer{background:#0a1424;color:#b8c4d2;padding:56px 0 30px;font-size:14px}
+footer .cols{display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:28px}
+@media(max-width:900px){footer .cols{grid-template-columns:1fr 1fr}}
+@media(max-width:560px){footer .cols{grid-template-columns:1fr}}
+footer h4{color:#fff;font-size:15px;margin-bottom:12px}
+footer a{color:#b8c4d2;display:flex;gap:8px;align-items:center;padding:4px 0}
+footer a:hover{color:#5eead4}
+footer .flogo{background:#fff;border-radius:8px;padding:4px 8px;display:inline-block;margin-bottom:12px}
+footer .flogo img{height:36px}
+.copy{border-top:1px solid #1d2b40;margin-top:34px;padding-top:18px;font-size:12px;color:#7b8ca0;text-align:center}
+.reveal{opacity:0;transform:translateY(18px);transition:opacity .6s,transform .6s}
+.reveal.in{opacity:1;transform:none}
+@media(prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none}.tilt{transform:none!important}}
+[dir=rtl] .hero h1,[dir=rtl] h2{letter-spacing:0}
+.hero-art img{max-height:600px;width:100%;object-fit:contain}
+.info .slot{display:block;margin-top:6px;color:var(--teal);font-weight:600}
+.acts{display:flex;gap:12px;flex-wrap:wrap}
+</style>
+</head>
+<body>
+<a class="skip" href="#main" data-i18n="skip"></a>
+<header id="hdr">
+ <div class="wrap">
+  <a class="logo" href="https://www.smthelp.com/" aria-label="Southern Machinery home"><img src="https://ph.smthelp.com/images/2024/06/26/Southern-Machinery-logo-300x83.png" alt="Southern Machinery logo" width="145" height="40"></a>
+  <nav class="mn" aria-label="Sections">
+   <a href="#line3d" data-i18n="nav_line"></a><a href="#stations" data-i18n="nav_stations"></a><a href="#bom" data-i18n="nav_bom"></a><a href="#spec" data-i18n="nav_spec"></a><a href="#videos" data-i18n="nav_videos"></a><a href="#blog" data-i18n="nav_blog"></a><a href="#contact" data-i18n="nav_contact"></a>
+  </nav>
+  <div class="tools">
+   <select id="langSel" data-i18n-aria="aria_lang" aria-label=""></select>
+   <button id="themeBtn" type="button" data-i18n-aria="aria_theme" aria-label=""><i class="fa-solid fa-moon"></i></button>
+  </div>
+ </div>
+</header>
+<main id="main">
+<section class="hero" id="top">
+ <div class="wrap">
+  <div>
+   <span class="badge"><i class="fa-solid fa-bolt"></i><span data-i18n="hero_badge"></span></span>
+   <h1><span data-i18n="hero_h1"></span></h1>
+   <p class="sub" data-i18n="hero_sub"></p>
+   <div class="acts">
+    <a class="btn btn-p" href="#contact"><i class="fa-solid fa-paper-plane"></i><span data-i18n="hero_cta1"></span></a>
+    <a class="btn btn-o" href="#line3d"><i class="fa-solid fa-cube"></i><span data-i18n="hero_cta2"></span></a>
+   </div>
+   <p class="note" data-i18n="hero_note"></p>
+  </div>
+  <div class="hero-art"><div class="tilt" data-tilt><img src="%%IMG_HERO%%" data-i18n-alt="hero_img_alt" alt="" width="1400" height="928" fetchpriority="high"></div></div>
+ </div>
+ <div class="wrap">
+  <div class="metrics">
+   <div class="metric reveal"><b data-i18n="m1v"></b><span data-i18n="m1l"></span></div>
+   <div class="metric reveal"><b data-i18n="m2v"></b><span data-i18n="m2l"></span></div>
+   <div class="metric reveal"><b data-i18n="m3v"></b><span data-i18n="m3l"></span></div>
+   <div class="metric reveal"><b data-i18n="m4v"></b><span data-i18n="m4l"></span></div>
+  </div>
+ </div>
+</section>
+<div class="trust"><div class="wrap" data-i18n="trust"></div></div>
+
+<section id="line3d">
+ <div class="wrap">
+  <div class="kicker" data-i18n="l3d_kicker"></div>
+  <h2 data-i18n="l3d_h2"></h2>
+  <p class="lead" data-i18n="l3d_p"></p>
+  <div class="stage">
+   <canvas id="c3d" aria-label="%%CANVAS_ARIA%%"></canvas>
+   <div class="ctl">
+    <button type="button" id="bFlow" data-i18n="l3d_play"></button>
+    <button type="button" id="bRot" class="on" data-i18n="l3d_rotate"></button>
+    <button type="button" id="bReset" data-i18n="l3d_reset"></button>
+    <button type="button" id="bMat" data-i18n="l3d_mat" hidden></button>
+    <button type="button" id="bLight" data-i18n="l3d_light" hidden></button>
+   </div>
+   <div class="info" id="info"><span class="no" id="iNo">1/%%N_MODES%%</span><h3 id="iName"></h3><p id="iDesc"></p><small id="iFeed"></small><small id="iSlot" class="slot"></small><small id="iCap"></small></div>
+   <div class="cap" data-i18n="l3d_concept"></div>
+   <div class="fallback" id="fb"><p data-i18n="l3d_fallback"></p><img src="%%IMG_HERO%%" alt="%%OG_ALT%%" loading="lazy"></div>
+  </div>
+  <div class="chips" id="chips"></div>
+  %%TOOL_HTML%%
+  <div class="acts" style="margin-top:14px"><a class="btn btn-o" href="%%FULL3D_URL%%" target="_blank" rel="noopener"><i class="fa-solid fa-cube"></i><span data-i18n="l3d_full"></span></a></div>
+ </div>
+</section>
+
+<section class="alt" id="stations">
+ <div class="wrap">
+  <div class="kicker" data-i18n="st_kicker"></div>
+  <h2 data-i18n="st_h2"></h2>
+  <p class="lead" data-i18n="st_p"></p>
+  <div class="grid g3">%%STATIONS%%</div>
+ </div>
+</section>
+
+<section id="bom">
+ <div class="wrap">
+  <div class="kicker" data-i18n="bom_kicker"></div>
+  <h2 data-i18n="bom_h2"></h2>
+  <p class="lead" data-i18n="bom_p"></p>
+  <div class="tw"><table>
+   <thead><tr><th data-i18n="bom_c1"></th><th data-i18n="bom_c2"></th><th data-i18n="bom_c3"></th><th data-i18n="bom_c4"></th></tr></thead>
+   <tbody>%%BOM%%</tbody>
+  </table></div>
+  <p class="small"><span class="ev t" data-i18n="ev_tbc"></span> <span data-i18n="bom_note"></span></p>
+ </div>
+</section>
+
+<section class="alt" id="spec">
+ <div class="wrap">
+  <div class="kicker" data-i18n="spec_kicker"></div>
+  <h2 data-i18n="spec_h2"></h2>
+  <p class="lead" data-i18n="spec_p"></p>
+  <div class="specs">%%SPECS%%</div>
+ </div>
+</section>
+
+<section id="disc">
+ <div class="wrap">
+  <div class="kicker" data-i18n="disc_kicker"></div>
+  <h2 data-i18n="disc_h2"></h2>
+  <p class="lead" data-i18n="disc_p"></p>
+  <div class="tw"><table>
+   <thead><tr><th data-i18n="disc_c1"></th><th data-i18n="disc_c2"></th><th data-i18n="disc_c3"></th><th data-i18n="disc_c4"></th></tr></thead>
+   <tbody>%%DISC%%</tbody>
+  </table></div>
+ </div>
+</section>
+
+<section class="alt" id="gallery">
+ <div class="wrap">
+  <div class="kicker" data-i18n="gal_kicker"></div>
+  <h2 data-i18n="gal_h2"></h2>
+  <p class="lead" data-i18n="gal_p"></p>
+  <div class="gal">%%GALLERY%%</div>
+  <div class="acts"><a class="btn btn-o" href="https://ph.smthelp.com" target="_blank" rel="noopener"><i class="fa-solid fa-images"></i><span data-i18n="gal_more"></span></a></div>
+ </div>
+</section>
+
+<section id="videos">
+ <div class="wrap">
+  <div class="kicker" data-i18n="vid_kicker"></div>
+  <h2 data-i18n="vid_h2"></h2>
+  <p class="lead" data-i18n="vid_p"></p>
+  <div class="grid g3">%%VIDEOS%%</div>
+  <h3 style="margin:34px 0 6px" data-i18n="vid_clips"></h3><p class="small" data-i18n="vid_clips_p"></p>
+  <div class="grid g4" style="margin-top:14px">%%CLIPS%%</div>
+  <div class="acts"><a class="btn btn-o" href="https://file.autoinsertion.com/public/Southern-Machinery-YouTube-Video-Board.html" target="_blank" rel="noopener"><i class="fa-brands fa-youtube"></i><span data-i18n="vid_more"></span></a></div>
+ </div>
+</section>
+
+<section class="alt" id="downloads">
+ <div class="wrap">
+  <div class="kicker" data-i18n="dl_kicker"></div>
+  <h2 data-i18n="dl_h2"></h2>
+  <p class="lead" data-i18n="dl_p"></p>
+  <div class="grid g3">%%DOWNLOADS%%</div>
+  <div class="acts"><a class="btn btn-o" href="https://file.autoinsertion.com/public/Southern-Machinery-Product-Catalog-Board.html" target="_blank" rel="noopener"><i class="fa-solid fa-book-open"></i><span data-i18n="dl_more"></span></a></div>
+ </div>
+</section>
+
+<section id="roi">
+ <div class="wrap">
+  <div class="kicker" data-i18n="roi_kicker"></div>
+  <h2 data-i18n="roi_h2"></h2>
+  <p class="lead" data-i18n="roi_p"></p>
+  <div class="card roi">
+   <div class="fields">
+    <div><label for="rOps" data-i18n="roi_ops"></label><input id="rOps" type="number" min="0" inputmode="decimal" placeholder="8"></div>
+    <div><label for="rFreed" data-i18n="roi_freed"></label><input id="rFreed" type="number" min="0" inputmode="decimal" placeholder="5"></div>
+    <div><label for="rWage" data-i18n="roi_wage"></label><input id="rWage" type="number" min="0" inputmode="decimal" placeholder="0"></div>
+    <div><label for="rShifts" data-i18n="roi_shifts"></label><input id="rShifts" type="number" min="1" max="3" value="1"></div>
+    <div style="grid-column:1/-1"><label for="rPrice" data-i18n="roi_price"></label><input id="rPrice" type="number" min="0" inputmode="decimal" placeholder="0"></div>
+   </div>
+   <div class="res">
+    <div><span data-i18n="roi_r1"></span><b id="oLab">—</b></div>
+    <div><span data-i18n="roi_r2"></span><b id="oPay">—</b><span id="oPayU"></span></div>
+    <span data-i18n="roi_note"></span>
+   </div>
+  </div>
+ </div>
+</section>
+
+<section class="alt" id="blog">
+ <div class="wrap">
+  <div class="kicker" data-i18n="blog_kicker"></div>
+  <h2 data-i18n="blog_h2"></h2>
+  <p class="lead" data-i18n="blog_p"></p>
+  <div class="grid g4">%%BLOGS%%</div>
+ </div>
+</section>
+
+<section id="faq">
+ <div class="wrap">
+  <div class="kicker" data-i18n="faq_kicker"></div>
+  <h2 data-i18n="faq_h2"></h2>
+  %%FAQ%%
+ </div>
+</section>
+
+
+
+<section id="contact">
+ <div class="wrap">
+  <div class="callbox">
+   <h2 data-i18n="cta_h2"></h2>
+   <p data-i18n="cta_p"></p>
+   <div class="acts">
+    <a class="btn btn-p" style="background:#fff;color:#0a7f7f" href="mailto:%%MAIL_TO%%?subject=%%MAIL_SUBJECT%%"><i class="fa-solid fa-envelope"></i><span data-i18n="cta_mail"></span></a>
+    <a class="btn btn-g" href="https://wa.me/8613602562576" target="_blank" rel="noopener"><i class="fa-brands fa-whatsapp"></i><span data-i18n="cta_wa"></span></a>
+   </div>
+  </div>
+ </div>
+</section>
+</main>
+
+<footer>
+ <div class="wrap">
+  <div class="cols">
+   <div>
+    <span class="flogo"><img src="https://ph.smthelp.com/images/2024/06/26/Southern-Machinery-logo-300x83.png" alt="Southern Machinery" loading="lazy"></span>
+    <p data-i18n="ft_about"></p>
+   </div>
+   <div>
+    <h4 data-i18n="ft_social"></h4>
+    <a href="https://www.linkedin.com/company/smtmachine" target="_blank" rel="noopener"><i class="fa-brands fa-linkedin"></i><span data-i18n="ft_li_co"></span></a>
+    <a href="https://www.linkedin.com/in/smtsupplier" target="_blank" rel="noopener"><i class="fa-brands fa-linkedin-in"></i><span data-i18n="ft_li_me"></span></a>
+    <a href="https://twitter.com/smtspecialist" target="_blank" rel="noopener"><i class="fa-brands fa-x-twitter"></i><span data-i18n="ft_tw"></span></a>
+    <a href="https://www.facebook.com/autoinsertion" target="_blank" rel="noopener"><i class="fa-brands fa-facebook"></i><span data-i18n="ft_fb"></span></a>
+    <a href="https://www.youtube.com/c/Smthelping" target="_blank" rel="noopener"><i class="fa-brands fa-youtube"></i><span data-i18n="ft_yt"></span></a>
+   </div>
+   <div>
+    <h4 data-i18n="ft_res"></h4>
+    <a href="https://file.autoinsertion.com" target="_blank" rel="noopener"><i class="fa-solid fa-folder-open"></i><span data-i18n="ft_cat"></span></a>
+    <a href="https://ph.smthelp.com" target="_blank" rel="noopener"><i class="fa-solid fa-images"></i><span data-i18n="ft_ph"></span></a>
+    <a href="https://file.autoinsertion.com/public/Southern-Machinery-YouTube-Video-Board.html" target="_blank" rel="noopener"><i class="fa-solid fa-film"></i><span data-i18n="ft_vb"></span></a>
+    <a href="https://file.autoinsertion.com/public/Southern-Machinery-Product-Catalog-Board.html" target="_blank" rel="noopener"><i class="fa-solid fa-book"></i><span data-i18n="ft_cb"></span></a>
+   </div>
+   <div>
+    <h4 data-i18n="ft_contact"></h4>
+    <a href="mailto:%%MAIL_TO%%?subject=%%MAIL_SUBJECT%%"><i class="fa-solid fa-envelope"></i>info@smthelp.com</a>
+    <a href="https://wa.me/8613602562576" target="_blank" rel="noopener"><i class="fa-brands fa-whatsapp"></i>WhatsApp +86 136 0256 2576</a>
+    <a href="https://www.smthelp.com" target="_blank" rel="noopener"><i class="fa-solid fa-globe"></i>www.smthelp.com</a>
+    <p style="margin-top:8px;font-size:13px" data-i18n="ft_addr"></p>
+   </div>
+  </div>
+  <div class="copy" data-i18n="ft_copy"></div>
+ </div>
+</footer>
+
+<div class="modal" id="mBlog" role="dialog" aria-modal="true"><div class="box"><button class="x" type="button" data-close aria-label="Close">✕</button><div id="mBlogBody"></div></div></div>
+<div class="modal media" id="mMedia" role="dialog" aria-modal="true"><div class="box"><button class="x" type="button" data-close aria-label="Close" style="background:#fff;color:#000">✕</button><div id="mMediaBody"></div></div></div>
+
+<script>window.I18N=%%I18N%%;</script>
+<script>
+(function(){
+var LANGS=%%LANGS%%,RTL=%%RTL%%;
+var LK="%%LS_PREFIX%%_lang",TK="%%LS_PREFIX%%_theme",cur="en";
+var STN=%%N_MODES%%, sel=0;
+function T(k){var d=I18N[cur]||I18N.en;return d[k]!==undefined?d[k]:(I18N.en[k]!==undefined?I18N.en[k]:k);}
+window.__T=T;
+function apply(lang){
+ if(!I18N[lang])lang="en";cur=lang;
+ var h=document.documentElement;h.lang=lang==="zh"?"zh-CN":lang;h.dir=RTL.indexOf(lang)>=0?"rtl":"ltr";
+ document.querySelectorAll("[data-i18n]").forEach(function(e){e.textContent=T(e.getAttribute("data-i18n"));});
+ document.querySelectorAll("[data-i18n-alt]").forEach(function(e){e.setAttribute("alt",T(e.getAttribute("data-i18n-alt")));});
+ document.querySelectorAll("[data-i18n-aria]").forEach(function(e){e.setAttribute("aria-label",T(e.getAttribute("data-i18n-aria")));});
+ document.title=T("meta_title");
+ var md=document.querySelector('meta[name="description"]');if(md)md.setAttribute("content",T("meta_desc"));
+ document.getElementById("langSel").value=lang;
+ flowLabel();showStation(sel,true);slotLabel();calc();
+ try{localStorage.setItem(LK,lang);}catch(e){}
+}
+var ls=document.getElementById("langSel");
+LANGS.forEach(function(l){var o=document.createElement("option");o.value=l[0];o.textContent=l[1];ls.appendChild(o);});
+ls.addEventListener("change",function(){apply(ls.value);var u=new URL(location.href);u.searchParams.delete("lang");history.replaceState(null,"",u);});
+/* theme */
+var tb=document.getElementById("themeBtn");
+function setTheme(t){document.documentElement.setAttribute("data-theme",t);tb.innerHTML=t==="dark"?'<i class="fa-solid fa-sun"></i>':'<i class="fa-solid fa-moon"></i>';try{localStorage.setItem(TK,t);}catch(e){}window.dispatchEvent(new Event("themechange"));}
+tb.addEventListener("click",function(){setTheme(document.documentElement.getAttribute("data-theme")==="dark"?"light":"dark");});
+setTheme(document.documentElement.getAttribute("data-theme")||"light");
+/* station info */
+window.showStation=showStation;
+function showStation(i,keep){var ch=sel!==i;sel=i;window.__curMode=i;var n=i+1;
+ document.getElementById("iNo").textContent=n+"/"+STN;
+ document.getElementById("iName").textContent=T("md"+n+"_n");
+ document.getElementById("iDesc").textContent=T("md"+n+"_d");
+ document.getElementById("iFeed").textContent=T("md"+n+"_f");
+ document.querySelectorAll("#chips .chip").forEach(function(c,j){c.classList.toggle("on",j===i);c.textContent=(j+1)+". "+T("md"+(j+1)+"_n");});
+ if(!keep&&window.__mode3d)window.__mode3d(i);
+}
+var lastFed=null;window.__fed=function(n,c){lastFed=[n,c];slotLabel();};
+function slotLabel(){var el=document.getElementById("iSlot"),c=document.getElementById("iCap");c.textContent="";
+ el.textContent=lastFed?T("l3d_fed")+": "+lastFed[0]+" · "+T("l3d_cycle")+" ≈ "+lastFed[1]+" s":"";if(window.__toolRefresh)window.__toolRefresh();}
+%%TOOL_JS%%
+var chips=document.getElementById("chips");
+for(var i=0;i<STN;i++){(function(i){var b=document.createElement("button");b.type="button";b.className="chip";b.addEventListener("click",function(){showStation(i);});chips.appendChild(b);})(i);}
+window.__flow=true;
+function flowLabel(){document.getElementById("bFlow").textContent=T(window.__flow?"l3d_play":"l3d_resume");}
+document.getElementById("bFlow").addEventListener("click",function(){window.__flow=!window.__flow;flowLabel();});
+document.getElementById("bRot").addEventListener("click",function(){this.classList.toggle("on");window.__rot=this.classList.contains("on");});
+window.__rot=true;
+document.getElementById("bReset").addEventListener("click",function(){if(window.__reset3d)window.__reset3d();});
+window.__ctl3d=function(){["bMat","bLight"].forEach(function(id){var b=document.getElementById(id),f=id==="bMat"?window.__mat:window.__light;if(f){b.hidden=false;b.onclick=function(){var n=f();b.textContent=T(id==="bMat"?"l3d_mat":"l3d_light")+": "+T(n);};}});};if(window.__mat||window.__light)window.__ctl3d();
+/* roi */
+function num(id){var v=parseFloat(document.getElementById(id).value);return isNaN(v)?0:v;}
+function fmt(n){try{return new Intl.NumberFormat(cur==="zh"?"zh-CN":cur,{maximumFractionDigits:1}).format(n);}catch(e){return String(Math.round(n));}}
+function calc(){var ops=num("rOps"),fr=num("rFreed"),w=num("rWage"),s=Math.max(1,Math.min(3,num("rShifts")||1)),p=num("rPrice");
+ if(fr>ops)fr=ops;var y=fr*w*12*s;
+ document.getElementById("oLab").textContent=y>0?fmt(y):"—";
+ var pb=document.getElementById("oPay"),u=document.getElementById("oPayU");
+ if(p<=0||y<=0){pb.textContent="—";u.textContent=p<=0?T("roi_need"):"";}
+ else{pb.textContent=fmt(p/(y/12));u.textContent=" "+T("roi_months");}}
+["rOps","rFreed","rWage","rShifts","rPrice"].forEach(function(id){document.getElementById(id).addEventListener("input",calc);});
+/* modals */
+function openM(id){document.getElementById(id).classList.add("open");document.body.style.overflow="hidden";}
+function closeM(m){m.classList.remove("open");document.body.style.overflow="";if(m.id==="mMedia")document.getElementById("mMediaBody").innerHTML="";}
+document.querySelectorAll(".modal").forEach(function(m){m.addEventListener("click",function(e){if(e.target===m||e.target.hasAttribute("data-close"))closeM(m);});});
+document.addEventListener("keydown",function(e){if(e.key==="Escape")document.querySelectorAll(".modal.open").forEach(closeM);});
+document.querySelectorAll(".post button").forEach(function(b){b.addEventListener("click",function(){var a=b.closest(".post");
+ var body=document.getElementById("mBlogBody");body.innerHTML="";
+ var h=document.createElement("h2");h.textContent=a.querySelector("h3").textContent;body.appendChild(h);
+ body.appendChild(a.querySelector(".full").cloneNode(true)).style.display="block";openM("mBlog");});});
+document.querySelectorAll(".vid[data-vid]").forEach(function(v){function go(){var id=v.getAttribute("data-vid");
+ document.getElementById("mMediaBody").innerHTML='<iframe src="https://www.youtube-nocookie.com/embed/'+id+'?autoplay=1&rel=0&modestbranding=1" title="video" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>';openM("mMedia");}
+ v.addEventListener("click",go);v.addEventListener("keydown",function(e){if(e.key==="Enter")go();});});
+document.querySelectorAll(".clip").forEach(function(v){function go(){var id=v.getAttribute("data-drive");
+ document.getElementById("mMediaBody").innerHTML='<iframe src="https://drive.google.com/file/d/'+id+'/preview" title="video" allow="autoplay; fullscreen" allowfullscreen></iframe>';openM("mMedia");}
+ v.addEventListener("click",go);v.addEventListener("keydown",function(e){if(e.key==="Enter")go();});});
+document.querySelectorAll(".gal figure").forEach(function(f){f.addEventListener("click",function(){var img=document.createElement("img");img.src=f.getAttribute("data-full");img.alt=f.querySelector("img").alt;var b=document.getElementById("mMediaBody");b.innerHTML="";b.appendChild(img);openM("mMedia");});});
+/* tilt + reveal */
+document.querySelectorAll("[data-tilt]").forEach(function(el){var p=el.parentElement;
+ p.addEventListener("mousemove",function(e){var r=p.getBoundingClientRect(),x=(e.clientX-r.left)/r.width-.5,y=(e.clientY-r.top)/r.height-.5;el.style.transform="rotateY("+(x*14)+"deg) rotateX("+(-y*12)+"deg) translateZ(10px)";});
+ p.addEventListener("mouseleave",function(){el.style.transform="";});});
+var io="IntersectionObserver" in window?new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add("in");io.unobserve(e.target);}});},{threshold:.12}):null;
+document.querySelectorAll(".reveal").forEach(function(e){io?io.observe(e):e.classList.add("in");});
+/* init language */
+var q=new URLSearchParams(location.search).get("lang"),saved=null;try{saved=localStorage.getItem(LK);}catch(e){}
+apply(q&&I18N[q]?q:(saved&&I18N[saved]?saved:"en"));
+})();
+</script>
+%%VIEWER3D%%
+<script>
+window.chatwootSettings = {"position":"right","type":"standard","launcherTitle":"Southern Machinery Global Support"};
+(function(d,t) {
+  var BASE_URL = (location.protocol === "https:" ? "https://" : "http://") + "%%CHATWOOT_HOST%%";
+  var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
+  g.src=BASE_URL+"/packs/js/sdk.js";
+  g.async = true;
+  s.parentNode.insertBefore(g,s);
+  g.onload=function(){
+    window.chatwootSDK.run({
+      websiteToken: '%%CHATWOOT_TOKEN%%',
+      baseUrl: BASE_URL
+    })
+  }
+})(document,"script");
+</script>
+</body>
+</html>

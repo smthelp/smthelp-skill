@@ -1,0 +1,75 @@
+# product-3d-doc-html-landing - default configuration (v1.0.0)
+# Copy to <workdir>/config.yaml and override only what changes. Keys missing in the
+# project config fall back to these values (deep merge).
+
+skill_version: "1.0.0"
+
+page:
+  filename: ""            # SEO filename from the source file name, lowercase-hyphen, ends .html (required)
+  canonical_base: "https://www.smthelp.com/"
+  repo_folder: ""         # e.g. board-handling/, smart-storage/, smt-lines/
+  ls_prefix: ""           # localStorage key prefix, unique per page (e.g. ldr) - never reuse another page's
+  keywords: ""
+  og_image: ""            # https image on ph.smthelp.com
+  og_alt: ""
+  canvas_aria: ""         # accessible label of the 3D canvas
+  full3d_url: ""          # optional link to a detailed 3D drawing (file.autoinsertion.com)
+  mail_to: "info@smthelp.com"
+  mail_subject: "Product inquiry"
+  date_modified: ""       # YYYY-MM-DD, used in JSON-LD
+  size_budget_kb: 1024    # hard limit of the finished single file
+
+languages:                # order = order in the language menu; first one is the default (x-default)
+  - [en, English]
+  - [es, Español]
+  - [pt, Português]
+  - [fr, Français]
+  - [ar, العربية]         # rtl languages are listed in rtl_languages
+  - [ru, Русский]
+  - [zh, 中文]
+rtl_languages: [ar]
+
+content:
+  blog_count: 8           # number of blog articles (each: t,c,m,x + h1..h6/p1..p6)
+  blog_steps: 6           # six-step structure per article
+  faq_count: 8
+  station_count: 6        # "How it works" cards
+  banned_words: ["dan koe", "hook", "diagnos", "framework", "vehicle", "loop", "cta"]
+  banned_words_zh: ["钩子", "诊断", "框架", "载体", "闭环"]
+  privacy_terms: []       # strings that must not appear (customer name, quote no., unit prices...)
+
+theme:
+  primary: "#0a9d9d"
+  primary_dark: "#087f7f"
+  accent: "#7cb82f"
+  warn: "#f59e0b"
+
+model:
+  mode: procedural        # procedural | glb
+  formats_accepted: [glb, gltf, stl, obj, step, stp, fbx]  # input; all converted to .glb
+  embed: auto             # auto | inline | url  (auto = inline when <= max_inline_kb)
+  max_inline_kb: 350
+  url: ""                 # https URL of the .glb when not inlined
+  decimate_ratio: 0.25    # target triangle ratio for meshes above max_triangles
+  max_triangles: 150000
+  compress: meshopt       # meshopt | draco | none
+  texture_max_px: 1024
+  views:                  # one camera preset per mode chip (units = largest model dimension)
+    - {pos: [1.6, 0.9, 1.6], target: [0, 0, 0], explode: 0}
+  interactions: [rotate, zoom, autorotate, reset, modes, material, light]
+  procedural_js: ""       # path of a procedural Three.js scene (mode: procedural)
+
+roi:
+  enabled: true
+  inputs: [rOps, rFreed, rWage, rShifts, rPrice]
+  prefill: {}             # leave empty for marketing pages; fill only with figures the user confirmed
+  investment_multiplier: 1.0   # quote-based pages: 1.25 (quote total x 1.25)
+
+chatwoot:
+  token: "saMcpgSupcmd1VQwytgPLfbK"
+  host: "chat.smthelp.com"   # protocol follows the page (http or https)
+
+publish:
+  github_repo: "smthelping/smt-product-landing-html"
+  branch: main
+  readme_patch: true      # re-fetch README and patch; never overwrite
