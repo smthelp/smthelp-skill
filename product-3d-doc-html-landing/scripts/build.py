@@ -112,6 +112,7 @@ rep = {'%%STATIONS%%': st, '%%BOM%%': bom, '%%SPECS%%': spec, '%%DISC%%': disc, 
        '%%CHATWOOT_TOKEN%%': CFG['chatwoot']['token'], '%%CHATWOOT_HOST%%': CFG['chatwoot']['host'], '%%C_PRIMARY%%': TH['primary'], '%%C_PRIMARY_DARK%%': TH['primary_dark'], '%%C_ACCENT%%': TH['accent'], '%%C_WARN%%': TH['warn'],
        '%%TOOL_HTML%%': g('TOOL_HTML', ''), '%%TOOL_JS%%': g('TOOL_JS', ''), '%%N_MODES%%': str(NMODES), '%%VIEWER3D%%': VIEWER}
 for k, v in rep.items(): t = t.replace(k, v)
+if not g('CLIPS'): t = re.sub(r'<h3 style="margin:34px 0 6px" data-i18n="vid_clips"></h3><p class="small" data-i18n="vid_clips_p"></p>\s*<div class="grid g4" style="margin-top:14px"></div>', '', t, count=1)
 if not P['full3d_url']: t = re.sub(r'<div class="acts" style="margin-top:14px"><a class="btn btn-o" href="#".*?</a></div>', '', t, count=1, flags=re.S)
 t = t.replace('%%I18N%%', json.dumps(I, ensure_ascii=False, separators=(',', ':')).replace('</', '<\\/'))
 t = re.sub(r'(data-i18n="(\w+)"[^>]*>)(</)', lambda m: m.group(1) + e(en.get(m.group(2), '')) + m.group(3), t)

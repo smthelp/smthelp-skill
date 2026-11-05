@@ -1,5 +1,9 @@
 # Changelog
 
+## 1.0.1 - 2026-11-05
+- build.py drops the Drive clips heading when `CLIPS` is empty.
+- Known issue documented: SolidWorks eDrawings HTML exports hold no extractable GLB; render them headless (Playwright, SwiftShader) and crop stills, then use a procedural 3D scene. First used on the S-RF1001 radial feeder page.
+
 ## 1.0.0 - 2026-11-05
 - First packaged release, distilled from five live pages (THT charger line, SIS7200A, SIS5210A, LED T8 line, PCB loader solution).
 - Config-driven build (`config/default.yaml` + project `config.yaml`, deep merge): languages, blog/FAQ/station counts, theme colours, model mode and lightweight parameters, ROI, Chatwoot, publish target.

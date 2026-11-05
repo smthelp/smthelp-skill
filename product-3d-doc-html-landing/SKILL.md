@@ -1,7 +1,7 @@
 ---
 name: product-3d-doc-html-landing
 description: 产品 3D 图 + 介绍文档（PDF/PPTX/DOCX/视频）→ Southern Machinery 品牌单文件自包含 HTML 交互落地页。含 3D 交互（旋转/缩放/机构动画/材质与光照切换）、7 语言切换（含 RTL）、明暗模式、8 篇博客、ROI 回本计算、选型工具、披露表、SEO+GEO JSON-LD、Chatwoot。参数化配置（语言、博客篇数、配色、模型格式），带构建、轻量化、验证脚本。用于"把这些产品资料做成单 html 页面""产品落地页""3D 产品页"。
-version: 1.0.0
+version: 1.0.1
 author: Jason Wu / Southern Machinery (packaged by Hark)
 ---
 
@@ -112,3 +112,5 @@ python3 $SK/scripts/build.py $W && python3 $SK/scripts/validate.py $W && python3
 - 同一型号名在不同文档里指不同机器（如 SLD250L），只能进披露表并提醒用户确认。
 - 沙箱里 Python 包与 `~/.cache` 每轮可能清空：Playwright 需重装；外部资源 407 是代理问题，不是页面错误。
 - 翻译子代理会把法/葡语小数点改成逗号，属正常本地化。
+- eDrawings（SolidWorks）导出的 3D HTML 不含可提取的 GLB：用 Playwright 无头渲染后截图裁切当图库图片，3D 交互改用程序化场景。
+- PDF 文字乱码（自定义字体编码）时，用 `pdftoppm -r 200` 渲染页面，看图后裁切图片、人工读取参数。
