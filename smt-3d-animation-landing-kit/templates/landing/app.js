@@ -1,4 +1,4 @@
-/* smt-3d-animation-landing-kit · page runtime v1.0.0 — i18n, theme, duel controller, 3D viewer, fit check, ROI, lightbox, videos */
+/* smt-3d-animation-landing-kit · page runtime v1.0.1 — i18n, theme, duel controller, 3D viewer, fit check, ROI, lightbox, videos */
 (function () {
   'use strict';
   function $(id) { return document.getElementById(id); }

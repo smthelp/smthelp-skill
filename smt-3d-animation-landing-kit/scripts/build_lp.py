@@ -297,4 +297,5 @@ cov = {l: (round(100 * sum(1 for k in EN if k in I18N.get(l, {})) / max(1, len(E
 json.dump({'keys': len(EN), 'coverage_pct': cov}, open(W(job, 'build', 'i18n_report.json'), 'w'))
 json.dump(EN, open(W(job, 'build', 'i18n_en_keys.json'), 'w', encoding='utf8'), ensure_ascii=False, indent=0)
 print(f'written {out} ({len(page)/1e6:.2f} MB), {len(EN)} i18n keys, coverage {cov}')
+if len(page.encode('utf-8')) > 2_000_000: print('WARNING: page is over 2,000,000 bytes; file.autoinsertion.com has served pages truncated at 2 MiB. Shrink images or the mesh before publishing.')
 print('external <img src="http" left:', page.count('src="http'))

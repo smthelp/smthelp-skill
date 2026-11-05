@@ -1,0 +1,173 @@
+{
+ "name": "SAF1001 axial tape feeder",
+ "slug": "saf1001-axial-tape-feeder-vs-manual-cut-and-form",
+ "workdir": "_work",
+ "inputs": {
+  "drawing_3d": "https://file.autoinsertion.com/public/SMT%20machine%203D%20Drawing%20in%20Html/SMT%20Axial%20Taped%20Feeder%20-%20Designed%20by%20Southern%20Machinery.html",
+  "pages": [
+   "https://file.autoinsertion.com/public/Product%20landing%20Page/saf1001-axial-tape-feeder-smart-ems-pcb-assembly-3d.html"
+  ],
+  "docs": [
+   "https://file.autoinsertion.com/public/SMThelp%20Machine%20Presentation/SAF1001%20AXIAL%20TAPE%20FEEDER%20TEACH%20DOCUMENTS.pdf"
+  ]
+ },
+ "content": "content.json",
+ "model": "assets/model.b64",
+ "duel": {
+  "script": "duel.js",
+  "class": "AxialDuel",
+  "keys": [
+   "man",
+   "saf"
+  ],
+  "cycle_s": 13.4
+ },
+ "video": {
+  "script": "script.json",
+  "keywords": {
+   "manual": [
+    "cuts",
+    "bends",
+    "hands"
+   ],
+   "saf": [
+    "indexes",
+    "fibre",
+    "cuts",
+    "presented",
+    "waste"
+   ]
+  },
+  "phrases": [
+   [
+    "S A F 1001",
+    "SAF1001"
+   ],
+   [
+    "zero point eight seconds",
+    "0.8 seconds"
+   ],
+   [
+    "plus or minus zero point three millimetres",
+    "±0.3 mm"
+   ],
+   [
+    "S M T help dot com",
+    "SMThelp.com"
+   ],
+   [
+    "twenty-six or fifty-two millimetres",
+    "26 or 52 mm"
+   ],
+   [
+    "thirty-five, sixty-four and ninety-two millimetre",
+    "35, 64 and 92 mm"
+   ],
+   [
+    "three by three to six by twenty millimetres",
+    "3 × 3 to 6 × 20 mm"
+   ],
+   [
+    "one millimetre",
+    "1 mm"
+   ],
+   [
+    "seven hundred and thirty millimetres",
+    "730 mm"
+   ],
+   [
+    "eight kilograms",
+    "8 kg"
+   ],
+   [
+    "twenty-four volts",
+    "24 volts"
+   ],
+   [
+    "eight-core",
+    "8-core"
+   ],
+   [
+    "one thousand",
+    "1,000"
+   ],
+   [
+    "forty-eight hours",
+    "48 hours"
+   ],
+   [
+    "High carbon",
+    "High-carbon"
+   ],
+   [
+    "anti-reversal",
+    "anti-reversal"
+   ]
+  ],
+  "stage": "video.html",
+  "thumb": "thumb.html"
+ },
+ "drive": {
+  "folder_name": "SAF1001 Axial Tape Feeder - Landing Page + 4K Video"
+ },
+ "config": {
+  "blog_count": 8
+ },
+ "i18n_dir": "i18n",
+ "seo": {
+  "title": "Axial Tape Feeder vs Manual Cut-and-Form | SAF1001 Auto Cut & U-Forming for THT Insertion",
+  "alt_titles": [
+   "Stop Bending Axial Leads by Hand: SAF1001 Axial Tape Feeder for Resistors, Diodes & Jumpers",
+   "How an Axial Tape Feeder Works: Ratchet Indexing, Fibre Check, Cut + U-Form | SAF1001"
+  ],
+  "short_title": "Stop Bending Axial Leads by Hand: SAF1001 Axial Tape Feeder #shorts",
+  "short_desc": "Cutting and bending taped resistors by hand? The SAF1001 ratchet-indexes the tape, checks each part by fibre, cuts and U-forms the leads in one stroke. 0.8 s per piece at ±0.3 mm. #shorts #SMT #THT",
+  "intro": "Still cutting and bending taped axial parts by hand? This animated comparison shows manual cut-and-form next to the Southern Machinery SAF1001 axial tape feeder.",
+  "bullets": [
+   "Hardened steel ratchet indexing with anti-reversal pawl",
+   "Fibre presence check before every cut; tape-empty signal to the host",
+   "Cut + U-form in one cylinder stroke, adjustable pin spacing",
+   "0.8 s per piece, ±0.3 mm feeding accuracy",
+   "EIA-296 tape 26/52 mm (35/64/92 mm custom); bodies 3×3 to 6×20 mm, leads 0.4–1.0 mm",
+   "1,000 feeds and 48 h ageing without failure"
+  ],
+  "chapters": {
+   "hook": "Why taped axial parts still need a hand",
+   "intro": "Manual cut-and-form vs SAF1001",
+   "manual": "How manual cut-and-form works",
+   "saf": "How the SAF1001 works",
+   "speed": "Speed and precision",
+   "forming": "Cut and U-form",
+   "tapes": "Tapes and parts it takes",
+   "integration": "Integration with insertion machines",
+   "verdict": "Test records",
+   "cta": "Send us your taped part"
+  },
+  "landing_url": "https://file.autoinsertion.com/public/Product%20landing%20Page/saf1001-axial-tape-feeder-vs-manual-cut-and-form.html",
+  "links": [
+   "SAF1001 teach documents (PDF): https://file.autoinsertion.com/public/SMThelp%20Machine%20Presentation/SAF1001%20AXIAL%20TAPE%20FEEDER%20TEACH%20DOCUMENTS.pdf"
+  ],
+  "tags": [
+   "axial tape feeder",
+   "axial feeder",
+   "axial lead forming",
+   "U shape forming",
+   "axial component cutting",
+   "taped resistor feeder",
+   "THT feeder",
+   "odd form insertion",
+   "auto insertion machine",
+   "jumper wire feeder",
+   "SAF1001",
+   "Southern Machinery",
+   "SMThelp"
+  ],
+  "hashtags": [
+   "#AxialFeeder",
+   "#SMT",
+   "#THT",
+   "#PCBAssembly",
+   "#Automation"
+  ]
+ }
+}

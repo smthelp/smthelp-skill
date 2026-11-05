@@ -1,6 +1,6 @@
 {
   "$schema": "./job.schema.json",
-  "skill_version": "1.0.0",
+  "skill_version": "1.0.1",
   "config_version": 1,
   "languages": [
     "en",

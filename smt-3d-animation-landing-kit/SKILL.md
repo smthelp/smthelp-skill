@@ -1,7 +1,7 @@
 ---
 name: smt-3d-animation-landing-kit
 description: Turn a Southern Machinery product 3D drawing (eDrawings HTML, GLB/GLTF, STL, OBJ; STEP via conversion) plus its introduction documents (spec PDF, existing landing pages) into (1) a side-by-side mechanism animation, (2) ONE self-contained English-first HTML landing page with an interactive 3D model (rotate/zoom, material + lighting presets, explode), 7-language switch, 8 blog articles and an ROI calculator, (3) 4K YouTube explainer videos in 16:9 and 9:16 with English voice-over and word-synced subtitles, thumbnails and SEO copy, and (4) a Google Drive copy. Use when Jason sends a 3D drawing link plus one or two product/landing pages and says "用同样的方法做动画视频和落地页", "3D 图做成动画/视频/单 HTML", or asks for a product explainer video + interactive page.
-version: 1.0.0
+version: 1.0.1
 metadata:
   author: Southern Machinery (Jason Wu) · built with Hark
   repo: https://github.com/smthelp/smthelp-skill/tree/main/smt-3d-animation-landing-kit
@@ -10,7 +10,7 @@ metadata:
   related: cad3d-animation-video-landing (Three.js 3D camera videos), smt-product-landing-page (brand blocks), smt-evaluation-web-page (7-language pattern)
 ---
 
-# smt-3d-animation-landing-kit (v1.0.0)
+# smt-3d-animation-landing-kit (v1.0.1)
 
 3D drawing + intro documents → mechanism animation → single-file 7-language landing page with interactive 3D → 4K 16:9 + 9:16 videos, thumbnails, SEO → Drive.
 Everything is driven by one `job.json`; defaults live in `config/defaults.json`. Run `python3 scripts/smt3d.py` for the command list.

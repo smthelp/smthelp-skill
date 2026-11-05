@@ -127,7 +127,7 @@ def cmd_stage(job):
     if job.get('duel'): shutil.copy(P(job['duel']['script']), W(job, 'build', 'duel.js'))
     for f in glob.glob(os.path.join(job['_root'], 'assets', '*')):
         dst = W(job, 'assets', os.path.basename(f))
-        if os.path.abspath(f) != os.path.abspath(dst) and not os.path.exists(dst): shutil.copy(f, dst)
+        if os.path.abspath(f) != os.path.abspath(dst) and (not os.path.exists(dst) or open(f, 'rb').read() != open(dst, 'rb').read()): shutil.copy(f, dst)  # v1.0.1: refresh changed assets
     print('stage ready in', W(job, 'build'))
 
 def cmd_render(job, fmt, budget=1000):

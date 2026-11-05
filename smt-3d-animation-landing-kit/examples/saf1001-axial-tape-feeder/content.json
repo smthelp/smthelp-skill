@@ -1,0 +1,526 @@
+{
+ "meta": {
+  "product": "SAF1001 Axial Tape Feeder",
+  "slug": "saf1001-axial-tape-feeder-vs-manual-cut-and-form",
+  "title": "SAF1001 Axial Tape Feeder vs Manual Cut-and-Form | Southern Machinery",
+  "description": "Interactive 3D model and side-by-side animation: hand cutting and forming of taped axial parts vs the SAF1001 axial tape feeder. Ratchet indexing, fibre presence check, cut + U-form in one stroke. 0.8 s per piece, ±0.3 mm.",
+  "keywords": "axial tape feeder, axial feeder, axial lead forming, taped resistor feeder, U-shape forming, odd-form insertion, THT feeder, SAF1001, Southern Machinery",
+  "year": 2026
+ },
+ "hero": {
+  "badge": "MANUAL CUT-AND-FORM VS SAF1001",
+  "h1": "Taped axial parts, cut, U-formed and presented without a hand.",
+  "lead": "Resistors, diodes, inductors and jumper wires arrive on bandoleer tape. What slows the line is the bench where someone trims the leads, bends them and hands each part to the machine. The SAF1001 indexes the tape with a hardened ratchet, confirms each part by fibre, cuts and U-forms the leads in one cylinder stroke and presents the part to the head.",
+  "cta_primary": "Watch the comparison",
+  "wa_text": "Hi Jason, I want to automate axial tape feeding with the SAF1001",
+  "stats": [
+   {
+    "v": "0.8 s",
+    "l": "Cycle time per piece"
+   },
+   {
+    "v": "±0.3 mm",
+    "l": "Feeding accuracy"
+   },
+   {
+    "v": "3×3 – 6×20 mm",
+    "l": "Component body size"
+   },
+   {
+    "v": "48 h",
+    "l": "Ageing test, no failure"
+   }
+  ],
+  "images": [
+   {
+    "src": "assets/saf1001-cad.jpg",
+    "alt": "SAF1001 axial tape feeder"
+   },
+   {
+    "src": "assets/saf1001-line.jpg",
+    "alt": "Axial insertion line running SAF1001-family feeders"
+   }
+  ]
+ },
+ "duel": {
+  "nav": "Animation",
+  "kicker": "Side-by-side animation",
+  "title": "Same taped parts, same pick point, two ways to get there",
+  "lead": "Left: a reel on the bench, side cutters, a forming jig and an operator who hands each part over. Right: the SAF1001 tape path, ratchet indexing, fibre check, cutter and forming die, and the waste tape dropping out of the front.",
+  "note": "Schematic animation from the SAF1001 teach document and 3D model. The SAF1001 side runs at its published 0.8 s per piece; manual timing and stops are illustrative.",
+  "left_illustrative": true,
+  "sides": {
+   "man": "Manual cut-and-form",
+   "saf": "SAF1001 Axial Tape Feeder"
+  },
+  "chapters": [
+   {
+    "id": "principle",
+    "tab": "How they feed",
+    "text": "Manual: cut a part from the tape, bend both leads by hand or in a jig, hand it to the machine. SAF1001: a pneumatic cylinder drives a hardened steel ratchet into the tape perforations, an anti-reversal pawl holds position, the fibre confirms the part, and one cylinder stroke cuts and U-forms the leads."
+   },
+   {
+    "id": "speed",
+    "tab": "Speed & precision",
+    "text": "One part every 0.8 s at ±0.3 mm, with air-pressure speed regulation."
+   },
+   {
+    "id": "forming",
+    "tab": "Cut + U-form",
+    "text": "High-carbon steel blades shear the leads from the carrier tape; the male die bends them over the female die into a U. Pin spacing is set by moving the forming die blocks."
+   },
+   {
+    "id": "tapes",
+    "tab": "Tapes & parts",
+    "text": "EIA-296 bandoleer tape, 26 or 52 mm standard, 35 / 64 / 92 mm custom; resistors, diodes, inductors, capacitors and jumper wires, body 3×3 to 6×20 mm, leads 0.4 – 1.0 mm."
+   },
+   {
+    "id": "integration",
+    "tab": "Integration",
+    "text": "730 × 95 × 212 mm, 8 kg, 24 V, 0.4 – 0.6 MPa air, 8-core Ø16 mm aviation plug with request, part-present, cut-complete and tape-empty signals, or standalone."
+   },
+   {
+    "id": "verdict",
+    "tab": "Proven",
+    "text": "1,000 consecutive feeds with no misfeed and 48 hours of continuous ageing without failure."
+   }
+  ]
+ },
+ "why": {
+  "kicker": "Why axial parts slow lines",
+  "title": "The tape is orderly. The bench is not.",
+  "lead": "Axial parts ship on paper tape that protects long leads, but a person still has to cut, bend and present them unless the feeder does it.",
+  "cards": [
+   {
+    "h": "Every part passes through a hand",
+    "p": "Cutting, bending and placing each resistor by hand costs seconds the insertion head could spend inserting."
+   },
+   {
+    "h": "Lead length and pin spacing drift",
+    "p": "A hand-bent U varies from part to part. A forming die sets the same pin spacing every cycle and compensates for springback."
+   },
+   {
+    "h": "Nobody watches the reel end",
+    "p": "The SAF1001 fibre sensor raises a tape-empty signal to the host, so a reel change is planned instead of discovered."
+   }
+  ]
+ },
+ "how": {
+  "nav": "How it works",
+  "kicker": "Working principle",
+  "title": "From bandoleer tape to a U-formed part at the head",
+  "cols": [
+   {
+    "tag": "A · MANUAL",
+    "h": "Cutters, a jig and a person at the bench",
+    "steps": [
+     {
+      "b": "Cut a part off the tape",
+      "t": "Side cutters, one part at a time."
+     },
+     {
+      "b": "Bend both leads",
+      "t": "By hand or in a jig; spacing depends on the operator."
+     },
+     {
+      "b": "Hand it to the machine",
+      "t": "The host waits while the next part is prepared."
+     }
+    ]
+   },
+   {
+    "tag": "B · SAF1001",
+    "h": "Index, sense, cut, form, present",
+    "steps": [
+     {
+      "b": "Ratchet indexing",
+      "t": "A cylinder drives a hardened steel ratchet into the tape perforations; an anti-reversal pawl locks each pitch."
+     },
+     {
+      "b": "Fibre presence check",
+      "t": "The tooling only fires when a part is in the cutting station."
+     },
+     {
+      "b": "Cut and U-form in one stroke",
+      "t": "Blades shear the leads, the male die bends them over the female die."
+     },
+     {
+      "b": "Present to the head",
+      "t": "0.8 s per piece at ±0.3 mm."
+     },
+     {
+      "b": "Waste tape drops out",
+      "t": "Front-end vertical drop; tape-empty signal to the host."
+     }
+    ]
+   }
+  ]
+ },
+ "model3d": {
+  "nav": "3D model",
+  "kicker": "Interactive 3D model",
+  "title": "Rotate the real SAF1001 assembly",
+  "lead": "Geometry extracted from the engineering 3D drawing and lightened for the web. Switch material and lighting, or explode the assembly.",
+  "bullets": [
+   "730 × 95 × 212 mm, 8 kg",
+   "Tape tray, ratchet drive, cutter and forming unit",
+   "Positioning key + press block mounting",
+   "K-lead forming variant available"
+  ],
+  "drawing_url": "https://file.autoinsertion.com/public/SMT%20machine%203D%20Drawing%20in%20Html/SMT%20Axial%20Taped%20Feeder%20-%20Designed%20by%20Southern%20Machinery.html",
+  "fallback_image": "assets/cad_iso.jpg",
+  "fallback_alt": "SAF1001 3D model"
+ },
+ "specs": {
+  "nav": "Specs",
+  "kicker": "Specification",
+  "title": "SAF1001, as published",
+  "lead": "Every row is quoted from the SAF1001 product document and teach documents.",
+  "header": [
+   "Category",
+   "Parameter",
+   "SAF1001"
+  ],
+  "rows": [
+   [
+    "Dimensions",
+    "L × W × H",
+    "730 × 95 × 212 mm"
+   ],
+   [
+    "",
+    "Weight",
+    "8 kg"
+   ],
+   [
+    "Materials",
+    "Types",
+    "Axial resistors, diodes, inductors, capacitors, jumper wires"
+   ],
+   [
+    "",
+    "Body size",
+    "3 × 3 mm – 6 × 20 mm"
+   ],
+   [
+    "",
+    "Lead diameter",
+    "0.4 – 1.0 mm"
+   ],
+   [
+    "",
+    "Tape",
+    "EIA-296 bandoleer; 26 / 52 mm standard, 35 / 64 / 92 mm custom; paper > 0.2 mm"
+   ],
+   [
+    "Structure",
+    "Feeding",
+    "Horizontal taping tray, boxed material; air cylinder push, ratchet indexing"
+   ],
+   [
+    "",
+    "Positioning",
+    "Optical fibre sensing + air cylinder fine-tuning"
+   ],
+   [
+    "",
+    "Fixing",
+    "Positioning key + press block (custom structures supported)"
+   ],
+   [
+    "",
+    "Tooling",
+    "Cutter blades + U forming die, adjustable pin spacing"
+   ],
+   [
+    "",
+    "Waste tape",
+    "Front-end vertical drop (reflow type optional)"
+   ],
+   [
+    "Electrical",
+    "Power",
+    "24 V, 1 A average / 3 A peak; 0.4 – 0.6 MPa air"
+   ],
+   [
+    "",
+    "Interface",
+    "8-core Ø16 mm aviation plug; IO or standalone; PLC-based"
+   ],
+   [
+    "Feeding",
+    "Speed",
+    "0.8 s per piece, air-pressure speed regulation"
+   ],
+   [
+    "",
+    "Accuracy",
+    "±0.3 mm"
+   ],
+   [
+    "Tests",
+    "Records",
+    "1,000 feeds, no abnormality; 48 h ageing; 1-year service life"
+   ]
+  ],
+  "source": "Source: SAF1001 product document and SAF1001 Axial Tape Feeder teach documents."
+ },
+ "fit": {
+  "kicker": "Fit check",
+  "title": "Will your axial part run on the SAF1001?",
+  "lead": "Compare your part with the published ranges.",
+  "cta": "Send us the taped part for a trial",
+  "wa_text": "Hi Jason, SAF1001 fit check: ",
+  "inputs": [
+   {
+    "id": "bl",
+    "label": "Component body length",
+    "value": 6.5,
+    "min": 3,
+    "max": 20,
+    "unit": "mm"
+   },
+   {
+    "id": "bd",
+    "label": "Component body diameter",
+    "value": 2.5,
+    "max": 6,
+    "unit": "mm"
+   },
+   {
+    "id": "ld",
+    "label": "Lead wire diameter",
+    "value": 0.6,
+    "min": 0.4,
+    "max": 1.0,
+    "unit": "mm"
+   }
+  ]
+ },
+ "roi": {
+  "nav": "ROI",
+  "title": "What does automatic axial feeding pay back?",
+  "defaults": {
+   "operators_saved": 0.5,
+   "hourly_cost": 6,
+   "shifts_per_day": 2
+  }
+ },
+ "benefits": {
+  "kicker": "What it changes",
+  "title": "Saves labour, steadies forming, keeps the head busy",
+  "cards": [
+   {
+    "icon": "🧑‍🔧",
+    "h": "No bench forming",
+    "p": "Cutting and U-forming happen inside the feeder."
+   },
+   {
+    "icon": "⏱️",
+    "h": "Keeps pace",
+    "p": "0.8 s per piece with air-pressure speed regulation."
+   },
+   {
+    "icon": "🎯",
+    "h": "Same U every cycle",
+    "p": "Forming die sets pin spacing; ±0.3 mm feeding accuracy."
+   },
+   {
+    "icon": "🔌",
+    "h": "Talks to the host",
+    "p": "Request, part-present, cut-complete and tape-empty signals."
+   }
+  ]
+ },
+ "gallery": {
+  "nav": "Engineering",
+  "kicker": "Engineering",
+  "title": "The feeder, drawn and documented",
+  "items": [
+   {
+    "src": "assets/saf1001-anatomy.jpg",
+    "alt": "Engineering anatomy of the SAF1001"
+   },
+   {
+    "src": "assets/saf1001-ratchet.jpg",
+    "alt": "Ratchet-drive system: forward stroke, engagement lock, return stroke"
+   },
+   {
+    "src": "assets/saf1001-cutter.jpg",
+    "alt": "Cutting and forming unit: from component on tape to U-shape"
+   },
+   {
+    "src": "assets/saf1001-components.jpg",
+    "alt": "Inductors, resistors, capacitors, jumper wire and diodes the SAF1001 handles"
+   },
+   {
+    "src": "assets/saf1001-line.jpg",
+    "alt": "Axial insertion line running SAF1001-family feeders"
+   }
+  ]
+ },
+ "videos": {
+  "kicker": "Video",
+  "title": "Watch axial feeders run",
+  "items": [
+   {
+    "id": "Q8liyQYmaN8",
+    "title": "An axial feeder forms the components to 'U' shape and carries them to Juki Machine"
+   },
+   {
+    "id": "bOYijZA4Msc",
+    "title": "How automatic Axial lead feeder works for Smart EMS factory PCB assembly"
+   },
+   {
+    "id": "x_G3308dsDM",
+    "title": "How to cut and form Axial Electronic component to Assembly PCB"
+   }
+  ]
+ },
+ "blogs": {
+  "nav": "Insights",
+  "kicker": "Insights",
+  "title": "Eight engineering reads before your axial feeding trial",
+  "items": [
+   {
+    "tag": "Tape",
+    "title": "Measure the bandoleer before choosing the feeder",
+    "summary": "Tape width, pitch and paper thickness decide the tray.",
+    "body": [
+     "The SAF1001 handles EIA-296 bandoleer tape: 26 or 52 mm wide as standard, 35, 64 or 92 mm on a custom configuration, with paper thicker than 0.2 mm.",
+     "Send a length of loaded tape with the inquiry so the tray and guide are set to your real material."
+    ]
+   },
+   {
+    "tag": "Parts",
+    "title": "Check the body and the lead, not only the value",
+    "summary": "Body 3×3 to 6×20 mm, leads 0.4 to 1.0 mm.",
+    "body": [
+     "Most 1/4 W and 1/2 W resistors, diodes, small inductors and jumper wires fall inside the published body range.",
+     "Heavy-gauge leads up to 1.0 mm are cut by the same mechanism; confirm unusual parts with samples."
+    ]
+   },
+   {
+    "tag": "Indexing",
+    "title": "Why a ratchet beats friction for tape",
+    "summary": "Positive engagement does not slip on dust or oil.",
+    "body": [
+     "A hardened steel ratchet engages the tape perforations and a secondary pawl stops the tape moving back on the return stroke.",
+     "Friction or roller drives can slip as tape material varies; positive engagement makes every feed the same length."
+    ]
+   },
+   {
+    "tag": "Forming",
+    "title": "Set pin spacing once, repeat it every cycle",
+    "summary": "Four screws and two die blocks.",
+    "body": [
+     "Loosen the M4 locking screws on the cutter assembly, move the left and right forming die blocks to the required spacing, and re-tighten.",
+     "Record the setting per part number so the next changeover starts from a known value."
+    ]
+   },
+   {
+    "tag": "Sensing",
+    "title": "Let the fibre decide when the tooling fires",
+    "summary": "No part, no cut.",
+    "body": [
+     "The fibre sensor confirms a part is in the cutting station before the cylinder fires, preventing dry-firing.",
+     "When it no longer sees parts it raises a tape-empty signal, so the reel change is planned."
+    ]
+   },
+   {
+    "tag": "Integration",
+    "title": "Agree the four signals before the bracket",
+    "summary": "Request, part present, cut complete, tape empty.",
+    "body": [
+     "The SAF1001 talks to the host PLC through an 8-core 16 mm aviation plug, or runs standalone.",
+     "It needs 24 V, 1 A average and 3 A peak, and 0.4 to 0.6 MPa factory air."
+    ]
+   },
+   {
+    "tag": "Maintenance",
+    "title": "A maintenance plan that fits on one card",
+    "summary": "Daily, monthly, quarterly, twice a year.",
+    "body": [
+     "Clean the chassis and tape track daily, lubricate the cutter slides monthly, re-tighten bolts quarterly and inspect air tubes and wiring twice a year.",
+     "If leads start hanging, check air pressure, clean the cutter channel, then sharpen or replace the blades."
+    ]
+   },
+   {
+    "tag": "Trial",
+    "title": "Ask for a run record, not only a clip",
+    "summary": "1,000 feeds and 48 hours are the published baseline.",
+    "body": [
+     "The SAF1001 passed 1,000 consecutive feeds with no misfeed and 48 hours of continuous ageing without failure.",
+     "For your part, agree the acceptance criteria and keep the accepted formed sample with the production record."
+    ]
+   }
+  ]
+ },
+ "docs": {
+  "kicker": "Documents",
+  "title": "The material behind every number",
+  "items": [
+   {
+    "href": "https://file.autoinsertion.com/public/SMThelp%20Machine%20Presentation/SAF1001%20AXIAL%20TAPE%20FEEDER%20TEACH%20DOCUMENTS.pdf",
+    "t": "SAF1001 teach documents (PDF)",
+    "d": "Anatomy, ratchet drive, tooling, IO, maintenance"
+   },
+   {
+    "href": "https://file.autoinsertion.com/public/SMT%20machine%203D%20Drawing%20in%20Html/SMT%20Axial%20Taped%20Feeder%20-%20Designed%20by%20Southern%20Machinery.html",
+    "t": "Original 3D drawing",
+    "d": "eDrawings interactive model"
+   },
+   {
+    "href": "https://file.autoinsertion.com/public/SMT%20machine%203D%20Drawing%20in%20Html/Axial%20K-lead%20feeder.html",
+    "t": "K-lead feeder 3D drawing",
+    "d": "Horizontal K-forming variant"
+   }
+  ]
+ },
+ "faq": {
+  "nav": "FAQ",
+  "kicker": "FAQ",
+  "title": "Questions buyers ask before the first trial",
+  "items": [
+   {
+    "q": "Which components does it feed?",
+    "a": "Taped axial resistors, diodes, inductors, capacitors and jumper wires with a body from 3 × 3 to 6 × 20 mm and leads from 0.4 to 1.0 mm."
+   },
+   {
+    "q": "Which tapes does it accept?",
+    "a": "EIA-296 bandoleer tape, 26 or 52 mm standard and 35, 64 or 92 mm custom, paper thicker than 0.2 mm."
+   },
+   {
+    "q": "How fast and accurate is it?",
+    "a": "0.8 s per piece with air-pressure speed regulation and ±0.3 mm feeding accuracy."
+   },
+   {
+    "q": "Can it form K-leads?",
+    "a": "Yes, a horizontal K-forming variant of the same family is available; send the part drawing."
+   },
+   {
+    "q": "Will it work with my machine?",
+    "a": "Positioning key + press block mounting (custom structures supported), 8-core 16 mm aviation plug, IO or standalone."
+   }
+  ]
+ },
+ "contact": {
+  "kicker": "Axial feeding trial",
+  "h": "Send us your taped part. We'll configure the SAF1001 around it.",
+  "p": "Share a length of loaded tape, the formed-part drawing with pin spacing, your host machine model and a short video of how you cut and form today.",
+  "wa_text": "Hi Jason, please evaluate my axial part for the SAF1001"
+ },
+ "footer": {
+  "products": [
+   {
+    "href": "https://file.autoinsertion.com/public/Product%20landing%20Page/saf1001-axial-tape-feeder-smart-ems-pcb-assembly-3d.html",
+    "t": "SAF1001 product page"
+   },
+   {
+    "href": "https://file.autoinsertion.com/public/Product%20landing%20Page/bowl-vs-belt-feeder-sbf1001-vs-s-mvf01-comparison.html",
+    "t": "Bowl vs belt feeder"
+   }
+  ],
+  "disclaimer": "Specifications quoted from the SAF1001 product document and teach documents and subject to change; confirm the final configuration on your quotation."
+ }
+}

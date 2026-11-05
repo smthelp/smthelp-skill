@@ -1,5 +1,5 @@
 
-:root{--bg:%%bg%%;--bg2:%%bg2%%;--bg3:color-mix(in srgb,%%brand%% 9%%,#fff);--fg:%%fg%%;--fg2:color-mix(in srgb,%%fg%% 78%%,#fff);--fg3:color-mix(in srgb,%%fg%% 58%%,#fff);--brand:%%brand%%;--brand2:%%brand2%%;--deep:%%deep%%;--teal:%%accent%%;--lime:%%lime%%;--gold:%%gold%%;--gold2:color-mix(in srgb,%%gold%% 85%%,#000);--line:%%line%%;--card:#fff;--radius:%%radius_px%%px;
+:root{--bg:%%bg%%;--bg2:%%bg2%%;--bg3:color-mix(in srgb,%%brand%% 9%%,#fff);--fg:%%fg%%;--fg2:color-mix(in srgb,%%fg%% 78%%,#fff);--fg3:color-mix(in srgb,%%fg%% 58%%,#fff);--brand:%%brand%%;--brand2:%%brand2%%;--deep:%%deep%%;--teal:%%accent%%;--lime:%%lime%%;--gold:%%gold%%;--gold2:color-mix(in srgb,%%gold%% 85%%,#000);--line:%%line%%;--card:#fff;--radius:%%radius_px%%px;--max:1200px;
 *{box-sizing:border-box}html{scroll-behavior:smooth;scroll-padding-top:84px}
 body{margin:0;font-family:Arial,"Helvetica Neue",sans-serif;color:var(--fg);background:var(--bg);line-height:1.6;-webkit-font-smoothing:antialiased}
 img{max-width:100%;display:block}a{color:var(--brand)}

@@ -1,0 +1,12 @@
+[
+ {"id":"hook","text":"Resistors, diodes and jumper wires arrive on tape, lined up and ready. So why does someone still cut and bend every one of them by hand?"},
+ {"id":"intro","text":"On the left, manual cut and form. On the right, the Southern Machinery S A F 1001 axial tape feeder."},
+ {"id":"manual","text":"By hand, the operator cuts each part off the tape, bends both leads in a jig, and hands it to the machine. The insertion head waits, and the pin spacing changes from one part to the next."},
+ {"id":"saf","text":"The S A F 1001 indexes the tape with a hardened steel ratchet driven by an air cylinder, while an anti-reversal pawl holds every pitch. A fibre sensor confirms the part is in the station. Then one cylinder stroke cuts the leads and forms them into a U, the part is presented to the head, and the waste tape drops out of the front."},
+ {"id":"speed","text":"The result: one formed part every zero point eight seconds, at plus or minus zero point three millimetres, with air pressure speed regulation."},
+ {"id":"forming","text":"High carbon steel blades shear the leads, and the male die bends them over the female die into a clean U. To change pin spacing, you move the forming die blocks, and every part after that comes out the same."},
+ {"id":"tapes","text":"It runs standard bandoleer tape, twenty-six or fifty-two millimetres wide, with thirty-five, sixty-four and ninety-two millimetre versions on request. Resistors, diodes, inductors, capacitors and jumper wires, with bodies from three by three to six by twenty millimetres and leads up to one millimetre."},
+ {"id":"integration","text":"At seven hundred and thirty millimetres long and eight kilograms, it runs on twenty-four volts and factory air. One eight-core aviation plug carries the request, part present, cut complete and tape empty signals, or it runs on its own."},
+ {"id":"verdict","text":"Tested for one thousand consecutive feeds without a misfeed, and forty-eight hours of continuous operation without failure. No bench, no hand-bent leads, and a head that keeps inserting."},
+ {"id":"cta","text":"Send us your taped part and your machine model, and we will configure the S A F 1001 for your line. Southern Machinery. Visit S M T help dot com, or message us on WhatsApp."}
+]
