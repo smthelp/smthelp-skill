@@ -9,6 +9,8 @@ Config : landing.insert_before (exact HTML snippet to insert before; must exist 
          landing.replacements ([find, replace] or {find, replace, count}): rewrite the base page's own copy
            (title, meta, hero, specs, FAQ, JSON-LD) for a new model/variant; each must match exactly `count`
            times (default 1) or the stage fails, so a changed base page never ships half-rewritten.
+         landing.images ([{alt, image, new_alt?, count?}]): swap the picture of every <img> whose alt is
+           exactly `alt` for a project image (inlined as WebP); must match `count` (default 1) times.
          landing.forbid (strings that must not remain, e.g. the old model name): reported as `leftovers`.
 """
 import base64, html, io, json, re, urllib.parse
@@ -85,6 +87,25 @@ def apply_replacements(page, reps):
     return page
 
 
+def apply_images(cfg, page, specs):
+    for i, sp in enumerate(specs or []):
+        alt = html.escape(sp["alt"], quote=True)
+        pat = re.compile(r'<img\b[^>]*?\salt="' + re.escape(alt) + r'"[^>]*>', re.S)
+        found = pat.findall(page); cnt = sp.get("count", 1)
+        if len(found) != cnt:
+            raise P3VError("E_ASSEMBLE", f"landing.images[{i}] alt {sp['alt']!r} matched {len(found)}x (expected {cnt})")
+        src = cfg.resolve(sp["image"])
+        if not src or not src.exists():
+            raise P3VError("E_CONFIG", f"landing.images[{i}].image {sp['image']} not found")
+        uri = data_uri(src, int(sp.get("width", 1400)), int(sp.get("quality", 74)))
+        for tag in set(found):
+            new = re.sub(r'\ssrc="[^"]*"', ' src="' + uri + '"', tag, count=1)
+            if sp.get("new_alt"):
+                new = new.replace(' alt="' + alt + '"', ' alt="' + html.escape(sp["new_alt"], quote=True) + '"')
+            page = page.replace(tag, new)
+    return page
+
+
 def leftovers(page, forbid):
     out = []
     for w in forbid or []:
@@ -101,6 +122,7 @@ def run(cfg, state):
         raise P3VError("E_CONFIG", f"landing.base '{L['base']}' -> {base.name} not in src/", "run download first")
     page = base.read_text(encoding="utf-8").replace("\r\n", "\n")
     page = apply_replacements(page, L.get("replacements") or [])
+    page = apply_images(cfg, page, L.get("images") or [])
     frames = [data_uri(f, 760, 60) for f in sorted(cfg.p("img", "tt", "x").parent.glob("v*.png"))]
     if len(frames) < 2:
         raise P3VError("E_STAGE_ORDER", "no turntable frames in img/tt/", "run capture")

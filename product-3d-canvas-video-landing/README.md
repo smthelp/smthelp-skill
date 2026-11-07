@@ -1,4 +1,4 @@
-# product-3d-canvas-video-landing (`p3cv`) v1.2.0
+# product-3d-canvas-video-landing (`p3cv`) v1.3.0
 
 Product 3D viewer + existing landing page → **interactive canvas mechanism animation inside one self-contained
 landing HTML**, **4K English voice-over videos (16:9 and 9:16) with burned subtitles + SRT**, **YouTube thumbnail**,
@@ -67,7 +67,7 @@ p3cv/                   core package
   render_worker.py      detached chunk renderer
 templates/              section.html (landing), video.html (scenes), thumb.html, anim-template.js
 config/                 product.example.json, product.schema.json
-examples/               juki-gripper-nozzle/ (product.json + jaw-anim.js), plugins/example_plugin.py
+examples/               juki-gripper-nozzle/, s3010a-radial-inserter/, s7040p-pin-insertion/ (runnable variant page), plugins/
 docs/                   CONTRACT, CONFIG, UPGRADING, ARCHITECTURE, EXTENDING, TROUBLESHOOTING
   p3cv/contract.py      envelope, manifest, migrate · p3cv/tools/relabel.py  photo badge edit
 scripts/setup_env.sh    environment setup

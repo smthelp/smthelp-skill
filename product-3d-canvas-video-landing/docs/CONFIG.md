@@ -89,3 +89,8 @@ Chapters are generated from `segments[].chapter`.
 - `privacy.confidential` (list of source names/paths under NDA, e.g. customer drawings) and `privacy.notes`
   (publishing cautions): copied into the SEO file's CONFIDENTIALITY block; `check` warns when a confidential
   file is referenced in product.json.
+
+## Added in 1.3.0
+- `landing.images`: `[{"alt", "image", "new_alt"?, "count"?, "width"?, "quality"?}]` - swap the picture of every
+  `<img>` in the base page whose alt is exactly `alt` (hero carousel, gallery) for a project image, inlined as WebP.
+  Must match `count` (default 1) times, else `E_ASSEMBLE`. Use with `p3cv relabel` for a new model's photos.

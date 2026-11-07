@@ -11,23 +11,22 @@ var MODELS={
  T:{code:"S7040T",fam:"terminal",title:"Terminal insertion",parts:["Straight PCB terminal","Faston tab terminal","Right-angle terminal","Ring-lug terminal"],feed:["reel","reel","bowl","bowl"]},
  P:{code:"S7040P",fam:"pin",title:"Pin insertion",parts:["Square pin","Round pin","Press-fit pin","Test pin"],feed:["reel","bowl","reel","bowl"]},
  E:{code:"S7040E",fam:"eyelet",title:"Eyelet insertion",parts:["Flat-flange eyelet","Funnel eyelet","Rolled-flange eyelet","Tubular rivet"],feed:["bowl","bowl","bowl","bowl"]},
- C:{code:"S7040P",fam:"cust",title:"Press-fit pins + clips",parts:["Medium pin","Large pin","Medium clip","Large clip"],feed:["bowl","bowl","bowl","bowl"],press:true,
-    hole:["1.20","3.45","0.78","2.62"],dia:["1.60","4.80","0.87","2.75"]}
+ C:{code:"S7040P",fam:"cust",title:"Press-fit pins + clips",parts:["Medium pin","Large pin","Medium clip","Large clip"],feed:["bowl","bowl","bowl","bowl"],press:true}
 };
 var ORDER=["T","P","E"];
 var HXS=[560,720,880,1040],BH=[40,95,150,205,260,315,370,425],BW=460,BY=455,CAMX=330;
 var IN=2.0,MK=1.2,IP=1.0,OUT=1.6,NI=8,BP=IN+MK+NI*IP+OUT,START=CAMX-230;
 function steps(m){var M=MODELS[m],fn=function(i){return M.feed[i]==="reel"?"reel feeder":"vibration bowl feeder";};
- if(M.press){var hs=function(i){return {n:"0"+(4+i),t:"Head "+(i+1)+" → "+M.parts[i],d:"Bowl "+(i+1)+" feeds only Head "+(i+1)+": "+M.parts[i].toLowerCase()+", max. Ø"+M.dia[i]+" into a "+M.hole[i]+" mm hole.",f:[HXS[i],235,180]};};
+ if(M.press){var hs=function(i){return {n:"0"+(4+i),t:"Head "+(i+1)+" → "+M.parts[i],d:"Bowl "+(i+1)+" feeds only Head "+(i+1)+": "+M.parts[i].toLowerCase()+(M.dia?", max. Ø"+M.dia[i]+" into a "+M.hole[i]+" mm hole.":", pressed into its own hole size."),f:[HXS[i],235,180]};};
  return [
- {n:"01",t:"Conveyor in",d:"The FR-4 board (1.6 mm, plated holes) enters on the SMEMA conveyor.",f:[170,470,110]},
+ {n:"01",t:"Conveyor in",d:"The board with plated through-holes enters on the SMEMA conveyor.",f:[170,470,110]},
  {n:"02",t:"Fiducial vision",d:"The camera reads the board fiducials; MARK correction 0.015 mm.",f:[CAMX,390,95]},
- {n:"03",t:"4 bowl feeders",d:"One vibration bowl per bulk part, tail-down track; clip bowls separate tangled fingers.",f:[800,95,300]},
+ {n:"03",t:"4 bowl feeders",d:"One vibration bowl per bulk part, tail-down track; clip bowls separate tangled spring fingers.",f:[800,95,300]},
  hs(0),hs(1),hs(2),hs(3),
  {n:"08",t:"Servo press, flush",d:"Pins pressed on the rim only, clips on the collar, until flush. About 0.5 s per part (slowed).",f:[800,430,125]},
  {n:"09",t:"Pedestal + miss check",d:"A pedestal supports the board under each press; a missing part stops the machine.",f:[840,540,320]},
  {n:"10",t:"X-Y table",d:"Point-to-point 0.025 mm, repeatability 0.05 mm, to the next hole.",f:[800,605,140]},
- {n:"11",t:"Conveyor out",d:"All 4 parts in one program, no tooling change. The board leaves for hand soldering.",f:[1440,470,110]}
+ {n:"11",t:"Conveyor out",d:"All 4 parts in one program, no tooling change. The board leaves the cell.",f:[1440,470,110]}
  ];}
  return [
  {n:"01",t:"Conveyor in",d:"The PCB enters on the left conveyor and moves onto the X-Y table.",f:[170,470,110]},
@@ -106,8 +105,8 @@ InsertAnim.prototype.build=function(mk){
   lab(470,548,M.press?"PCB PEDESTALS":"CLINCH BASES",{a:"end",s:13});
   this.chk=el("circle",{cx:1180,cy:545,r:11,fill:"#8d9997"},root);lab(1180,575,"MISS CHECK",{s:13});
   // head → part legend
-  HXS.forEach(function(x,i){el("rect",{x:x-74,y:662,width:148,height:44,rx:8,fill:"rgba(255,255,255,.65)",stroke:COL[i],"stroke-width":3},root);
-    lab(x,680,"HEAD "+(i+1),{s:13,w:800,f:COL[i]==="#aeb9be"?"#6d7a80":COL[i],op:1});lab(x,699,M.press?(M.parts[i]+" · Ø"+M.hole[i]):M.parts[i],{s:13,op:.85});});
+  HXS.forEach(function(x,i){el("rect",{x:x-74,y:662,width:148,height:44,rx:8,fill:"var(--ia-legend,rgba(255,255,255,.65))",stroke:COL[i],"stroke-width":3},root);
+    lab(x,680,"HEAD "+(i+1),{s:13,w:800,f:COL[i]==="#aeb9be"?"#6d7a80":COL[i],op:1});lab(x,699,M.press&&M.hole?(M.parts[i]+" · Ø"+M.hole[i]):M.parts[i],{s:13,op:.85});});
   // board
   this.board=el("g",{},root);
   el("rect",{x:0,y:BY,width:BW,height:16,rx:3,fill:"#1d7a4a"},this.board);
@@ -133,9 +132,9 @@ InsertAnim.prototype.build=function(mk){
   });
   // gantry
   el("rect",{x:470,y:196,width:660,height:30,rx:8,fill:c.body,stroke:c.stroke,"stroke-width":3},root);
-  var gt=el("text",{x:40,y:70,"font-size":44,"font-weight":800,fill:c.stroke,"font-family":F},root);gt.textContent=M.code;
-  var g2=el("text",{x:42,y:102,"font-size":18,"font-weight":700,fill:c.ink,opacity:.7,"font-family":F,"letter-spacing":"1"},root);g2.textContent=M.title.toUpperCase();
-  var g3=el("text",{x:42,y:128,"font-size":18,"font-weight":700,fill:c.ink,opacity:.7,"font-family":F,"letter-spacing":"1"},root);g3.textContent="4 HEADS · 4 FEEDERS · 4 PARTS";
+  var gt=el("text",{"data-title":1,x:40,y:70,"font-size":44,"font-weight":800,fill:c.stroke,"font-family":F},root);gt.textContent=M.code;
+  var g2=el("text",{"data-title":1,x:42,y:102,"font-size":18,"font-weight":700,fill:c.ink,opacity:.7,"font-family":F,"letter-spacing":"1"},root);g2.textContent=M.title.toUpperCase();
+  var g3=el("text",{"data-title":1,x:42,y:128,"font-size":18,"font-weight":700,fill:c.ink,opacity:.7,"font-family":F,"letter-spacing":"1"},root);g3.textContent="4 HEADS · 4 FEEDERS · 4 PARTS";
   // heads
   this.heads=HXS.map(function(x,i){var g=el("g",{},root);
     el("rect",{x:-27,y:-150,width:54,height:96,rx:8,fill:c.dark},g);

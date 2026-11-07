@@ -1,0 +1,864 @@
+{
+ "$schema": "../../config/product.schema.json",
+ "schema_version": 1,
+ "slug": "s7040p-pin-insertion-machine",
+ "product_name": "S7040P PIN Insertion Machine",
+ "brand": {
+  "primary": "#0c665c",
+  "primary_dark": "#073f39",
+  "dark_bg": "#061c19",
+  "dark_glow": "#0e3b35",
+  "accent": "#e0a63b",
+  "bar_label": "S7040P · 4 BOWLS · 4 HEADS"
+ },
+ "sources": {
+  "drawings": [
+   {
+    "id": "d1",
+    "url": "https://file.autoinsertion.com/public/SMT%20machine%203D%20Drawing%20in%20Html/THT%20PIN%20Eyelet%20Insertion%20machine.html",
+    "viewer": "edrawings",
+    "capture": true
+   }
+  ],
+  "landing": [
+   {
+    "id": "land1",
+    "url": "https://file.autoinsertion.com/public/Product%20landing%20Page/S7020-Pin-Eyelet-Terminal-Insertion-Machine-FAB.html"
+   }
+  ],
+  "docs": [
+   {
+    "id": "cat",
+    "url": "https://file.autoinsertion.com/public/Southern%20Machinery%20Product/S7020%20Series%20PIN%20Eyelet%20Terminal%20Insertion%20Machine%20202303.pdf"
+   }
+  ]
+ },
+ "capture": {
+  "zoom_steps": 0,
+  "zoom_out_steps": 1,
+  "drag_px": 40,
+  "viewport": [
+   1280,
+   960
+  ],
+  "drag_at": [
+   0.5,
+   0.93
+  ],
+  "recenter": true,
+  "crop": [
+   60,
+   60,
+   1270,
+   950
+  ],
+  "frames": 24,
+  "enabled": false,
+  "_note": "img/tt/ ships 22 pre-captured frames (4K eDrawings, recentred). Set enabled true to re-capture; this drawing's orbit pivot is off the model, keep zoom_out_steps >= 2 and small drag_px."
+ },
+ "anim": {
+  "module": "s7040p-anim.js",
+  "global": "S7040PAnim"
+ },
+ "voice": {
+  "voice": "en-US-AndrewNeural",
+  "rate": "-2%",
+  "replacements": {
+   "info at smthelp dot com": "info@smthelp.com",
+   "0.015 millimetre": "0.015 mm",
+   "0.025 millimetre": "0.025 mm"
+  }
+ },
+ "segments": [
+  {
+   "text": "Two pins and two spring clips, pressed into every board by hand, one at a time. The clips tangle in bulk, and every part must sit flush.",
+   "chapter": "Press-fit pins and clips by hand"
+  },
+  {
+   "text": "This is the Southern Machinery S7040P pin insertion machine, set up for this board: four heads, four vibration bowl feeders, four press-fit parts.",
+   "chapter": "S7040P: 4 bowls, 4 heads, 4 parts"
+  },
+  {
+   "text": "A medium pin, a large pin, a medium multi-finger clip and a large one. Each has its own hole size, and each gets its own bowl and its own head.",
+   "chapter": "The four parts"
+  },
+  {
+   "text": "The rule is simple. Bowl one feeds only head one, bowl two only head two, and so on. Each head presses one part, so there is no tooling change.",
+   "chapter": "Bowl n feeds Head n"
+  },
+  {
+   "text": "Every bowl delivers its part tail-down, and the two clip bowls are built to separate tangled spring fingers."
+  },
+  {
+   "text": "Here is the cycle. The board comes in on the conveyor, and the camera reads the fiducial marks, correcting each position to 0.015 millimetre.",
+   "chapter": "The insertion cycle"
+  },
+  {
+   "text": "Head one presses the medium pin, head two the large pin, head three the medium clip, and head four the large clip."
+  },
+  {
+   "text": "Pins are held below the open ring head and pressed on the rim only, so the clip inside the head is never touched.",
+   "chapter": "Rim-only press, flush seating"
+  },
+  {
+   "text": "A servo head presses each part until the pin shoulder or clip collar is flush, while a pedestal supports the board underneath."
+  },
+  {
+   "text": "The X-Y table moves to the next hole with 0.025 millimetre point-to-point accuracy. Each part takes about half a second."
+  },
+  {
+   "text": "If a part is missing, the machine stops and raises an alarm. Force detection with a log for every part is available as an option.",
+   "chapter": "Miss check and force option"
+  },
+  {
+   "text": "All four parts, one program. The finished board leaves the machine."
+  },
+  {
+   "text": "Boards from 50 by 50 up to 480 by 390 millimetres, 0.79 to 2.36 millimetres thick. Hole lists load from Excel by USB.",
+   "chapter": "Board range"
+  },
+  {
+   "text": "S7040P. Four bowls, four heads, four parts. Send us 200 of each part and five bare boards for a free sample run. Email info at smthelp dot com.",
+   "chapter": "Free sample run"
+  }
+ ],
+ "landing": {
+  "base": "land1",
+  "insert_before": "<section class=\"band\" id=\"specs\">",
+  "nav_after_href": "#fab",
+  "nav_after_text": "FAB",
+  "nav_label": "How it works",
+  "output": "s7040p-pin-insertion-machine-landing-page-animated.html",
+  "replacements": [
+   {
+    "find": "S7020 dual-head pin, eyelet and terminal insertion machine: 12,000 CPH, bowl or reel feeding, 0–360° insertion, inward/outward clinch. Free sample test.",
+    "replace": "S7040P pin insertion machine with 4 vibration bowl feeders and 4 heads: feeds, orients, places and presses medium and large press-fit pins and multi-finger clips flush into FR-4 boards.",
+    "count": 4
+   },
+   [
+    "S7020-Pin-Eyelet-Terminal-Insertion-Machine-FAB.html",
+    "S7040P-Pin-Insertion-Machine-Press-Fit-Bowl-Feeder.html"
+   ],
+   {
+    "find": "S7020 Pin, Eyelet &amp; Terminal Insertion Machine | Southern",
+    "replace": "S7040P Press-Fit Pin Insertion Machine, 4 Bowl Feeders | Southern",
+    "count": 3
+   },
+   [
+    "\"name\": \"S7020 Pin, Eyelet & Terminal Insertion Machine\"",
+    "\"name\": \"S7040P Press-Fit Pin Insertion Machine\""
+   ],
+   [
+    "\"sku\": \"S7020\"",
+    "\"sku\": \"S7040P\""
+   ],
+   [
+    "S7020 insertion machine, pin insertion machine",
+    "S7040P, pin insertion machine, press-fit pin inserter, multi-finger clip insertion, bowl feeder pin insertion, pin insertion machine"
+   ],
+   [
+    "aria-label=\"S7020 Pin, Eyelet & Terminal Insertion Machine product images\"",
+    "aria-label=\"S7040P pin insertion machine product images\""
+   ],
+   [
+    "<p class=\"eyebrow\">S7020 Pin · Eyelet · Terminal Insertion</p>",
+    "<p class=\"eyebrow\">S7040P PIN Insertion Machine · 4 bowl feeders</p>"
+   ],
+   [
+    "Insert pins, eyelets and terminals at 12,000 per hour.",
+    "Feed, orient, place and press four press-fit parts in one cell."
+   ],
+   [
+    "The S7020 is a dual-head insertion machine for bulk or reeled pins, eyelets and terminals. Vibration bowl or reel feeding, vision-corrected 0–360° insertion and inward/outward clinching replace the slowest manual job on your THT line.",
+    "Two pins and two multi-finger clips, all in bulk, pressed into plated through-holes. The S7040P gives each part its own vibration bowl and insertion head, aligns every board on its fiducials and presses each part flush with a servo head while a pedestal supports the board."
+   ],
+   [
+    "12,000 CPH with 2 insertion heads. Head count, feeders and tooling are configured to your parts.",
+    "Nozzles, grippers, press tools and bowl tracks are built per part and proven on your samples first."
+   ],
+   [
+    "<strong>12,000 CPH</strong><span>with 2 insertion heads</span>",
+    "<strong>4 + 4</strong><span>bowl feeders + heads, one per part</span>"
+   ],
+   [
+    "<strong>0.5–1.2 mm</strong><span>terminal thickness range</span>",
+    "<strong>0.015 mm</strong><span>vision correction on fiducials</span>"
+   ],
+   [
+    "<strong>≤0.8°</strong><span>vertical insertion error</span>",
+    "<strong>0.025 mm</strong><span>point-to-point positioning</span>"
+   ],
+   [
+    "How the S7020 removes manual pin work",
+    "How the S7040P removes manual press-fit work"
+   ],
+   [
+    "\"name\": \"12,000 CPH with 2 heads\", \"role\": \"Dual insertion heads.\", \"feature\": \"Two insertion heads work together for up to 12,000 insertions per hour; S7000-platform machines can be configured with 1 to 4 heads.\"",
+    "\"name\": \"4 heads, 4 parts\", \"role\": \"One head per part.\", \"feature\": \"Four insertion heads, each fed by its own bowl and dedicated to one part: medium pin, large pin, medium clip, large clip. About 0.5 s per part.\""
+   ],
+   [
+    "\"advantage\": \"One machine replaces a whole bench of manual pin insertion.\"",
+    "\"advantage\": \"All four parts run in one program with no tooling change.\""
+   ],
+   [
+    "\"specs\": [\"12,000 CPH\", \"2 heads std\", \"1–4 heads option\"]",
+    "\"specs\": [\"4 heads\", \"4 bowls\", \"≈0.5 s / part\"]"
+   ],
+   [
+    "\"name\": \"Bowl or reel feeding\", \"role\": \"Bulk or reeled parts.\", \"feature\": \"Vibration bowl feeders for bulk pins and terminals, or reel feeders for reeled terminals.\"",
+    "\"name\": \"4 bulk bowl feeders\", \"role\": \"Tail-down feeding.\", \"feature\": \"One vibration bowl per part with a tail-down track; the clip bowls are built to separate tangled spring fingers.\""
+   ],
+   [
+    "\"specs\": [\"Bowl feeder\", \"Reel feeder\", \"Bulk / reel\"]",
+    "\"specs\": [\"4 bowls\", \"Tail-down\", \"De-tangling\"]"
+   ],
+   [
+    "<strong>12,000</strong><p>insertions per hour</p>",
+    "<strong>0.79–2.36</strong><p>mm board thickness</p>"
+   ],
+   [
+    "<strong>2</strong><p>insertion heads (1–4 on S7000 platform)</p>",
+    "<strong>4</strong><p>bowls + heads, 4 parts</p>"
+   ],
+   [
+    "<div class=\"spec-title\"><h3>Insertion</h3><span>S7020</span></div>",
+    "<div class=\"spec-title\"><h3>Insertion</h3><span>S7040P</span></div>"
+   ],
+   [
+    "<tr><th>Speed</th><td>12,000 CPH</td></tr><tr><th>Insertion heads</th><td>2 (S7000 platform: 1–4 optional)</td></tr><tr><th>Material packaging</th><td>Bulk or reel</td></tr><tr><th>Feeding system</th><td>Vibration bowl feeder / reel feeder</td></tr>",
+    "<tr><th>Cycle</th><td>About 0.5 s per part (press dwell and logging confirmed in sample run)</td></tr><tr><th>Insertion heads</th><td>4, AC servo, one part per head</td></tr><tr><th>Feeders</th><td>4 vibration bowl feeders, bulk parts, tail-down</td></tr><tr><th>Parts</th><td>Medium pin, large pin, medium clip, large clip</td></tr><tr><th>Positioning</th><td>Point-to-point 0.025 mm, repeatability 0.05 mm</td></tr><tr><th>Vision</th><td>0.3 MP CCD, MARK correction 0.015 mm</td></tr>"
+   ],
+   [
+    "<tr><th>Terminal thickness</th><td>≥0.5 mm, ≤1.2 mm</td></tr>",
+    "<tr><th>Pin size (published)</th><td>1.2–4.0 mm; parts outside this range by sample test</td></tr>"
+   ],
+   [
+    "<tr><th>Clinch</th><td>Inward / outward clinching</td></tr>",
+    "<tr><th>Press-fit</th><td>Flush seating, PCB pedestal under each press; force detection option</td></tr>"
+   ],
+   [
+    "<tr><th>Motion accuracy</th><td>0.001 mm/pulse</td></tr>",
+    ""
+   ],
+   [
+    "<div class=\"spec-title\"><h3>Machine</h3><span>S7020</span></div>",
+    "<div class=\"spec-title\"><h3>Machine</h3><span>S7040P</span></div>"
+   ],
+   [
+    "<tr><th>PCB size</th><td>380 × 280 mm (larger sizes customizable)</td></tr><tr><th>PCB hole requirement</th><td>Hole 0.5 ± 0.1 mm larger than the lead</td></tr><tr><th>Component spacing</th><td>≥2 mm</td></tr>",
+    "<tr><th>PCB size</th><td>50 × 50 – 480 × 390 mm</td></tr><tr><th>PCB thickness</th><td>0.79 – 2.36 mm</td></tr>"
+   ],
+   [
+    "<tr><th>Equipment size</th><td>1700 × 1300 × 1600 mm (2 heads)</td></tr><tr><th>Weight</th><td>1200 kg</td></tr><tr><th>Power</th><td>Single phase 220 V AC, 50/60 Hz, 2 KVA</td></tr>",
+    "<tr><th>Footprint</th><td>Floor unit 2,160 × 1,330 × 1,530 mm, 1,200 kg</td></tr><tr><th>Power</th><td>Standard 220 V, 50/60 Hz, 2 kVA; 120 V option</td></tr><tr><th>Interfaces</th><td>RS-232C standard; Ethernet, Modbus TCP option</td></tr>"
+   ],
+   [
+    "Values from the S7020 series specification sheet. Head count above 2, special terminals and enlarged PCB sizes are custom configurations confirmed after we review your parts and drawings.",
+    "Values from S7000P / S7000 published data. Press force, insertion depth tolerance, board strain and seating checks are confirmed with your parts and test data before a fixed quotation."
+   ],
+   [
+    "<h2>S7020 machine views</h2>",
+    "<h2>S7040P machine views</h2>"
+   ],
+   [
+    "<p>Images from the Southern Machinery photo library. Click any image to enlarge.</p>",
+    "<p>The S7040P is built on the S7000-platform body shown here. Click any image to enlarge.</p>"
+   ],
+   [
+    "<h2>See terminal and pin insertion running</h2>",
+    "<h2>See the S7000 platform running</h2>"
+   ],
+   [
+    "<p>Videos load only when you click, so the page stays fast and works offline.</p>",
+    "<p>Earlier S7000-platform machines at work. Videos load only when you click.</p>"
+   ],
+   [
+    "<summary>What parts can the S7020 insert?</summary><p>Pins, eyelets and terminals with a thickness of 0.5–1.2 mm, from bulk (vibration bowl) or reel. Other press-in parts can be reviewed with your drawings and samples.</p>",
+    "<summary>Which steps does the S7040P cover?</summary><p>All four: feeding from bulk bowls, tail-down orientation, fiducial-aligned placement and servo press-fit to flush. Hand soldering after insertion stays outside the cell.</p>"
+   ],
+   [
+    "<summary>S7020 or S7020T?</summary><p>The S7020 is the flexible pin/eyelet/terminal machine for bulk or reel parts. The S7020T is optimised for reeled terminals and inline SMEMA production.</p>",
+    "<summary>How do you handle tangled clips?</summary><p>Each clip has its own vibration bowl, built to separate the spring fingers before the part reaches the track. This is proven on your samples first.</p></details><details><summary>Is there a part change between sizes?</summary><p>No. Each of the four parts has its own bowl, nozzle or gripper and press tool, so all four run in one program without changeover.</p></details><details><summary>What do you need from us?</summary><p>200+ of each part and 5 bare boards for a free sample run, plus the large-pin drawing, part count per position, and your press-force and flush-depth limits.</p>"
+   ],
+   [
+    "S7020%20quote%20request",
+    "S7040P%20quote%20request"
+   ],
+   [
+    "a%20quote%20for%20the%20S7020.",
+    "a%20quote%20for%20the%20S7040P."
+   ],
+   [
+    "<a href=\"#specs\">S7020 specifications</a>",
+    "<a href=\"#specs\">S7040P specifications</a>"
+   ],
+   [
+    "Ask the S7020 advisor",
+    "Ask the S7040P advisor"
+   ],
+   [
+    "S7020 product advisor chat",
+    "S7040P product advisor chat"
+   ],
+   [
+    "<strong>S7020 Product Advisor</strong>",
+    "<strong>S7040P Product Advisor</strong>"
+   ],
+   [
+    "aria-label=\"Your question about the S7020\"",
+    "aria-label=\"Your question about the S7040P\""
+   ],
+   [
+    "Hi, I am the S7020 advisor.",
+    "Hi, I am the S7040P advisor."
+   ],
+   [
+    "Southern Machinery S7020 pin, eyelet and terminal insertion machine. Facts: 12,000 CPH; 2 insertion heads (S7000 platform 1-4 optional); bulk or reel parts; vibration bowl or reel feeder; terminal thickness 0.5-1.2 mm; vertical error <=0.8 degrees; hole 0.5+/-0.1 mm larger than lead; 0-360 degree insertion in 1 degree steps; component spacing >=2 mm; inward/outward clinch; motion accuracy 0.001 mm/pulse; online visual programming, visual correction, Excel; USB import; PCB 380x280 mm (larger custom); size 1700x1300x1600 mm; 1200 kg; single phase 220 V 2 KVA.",
+    "Southern Machinery S7040P press-fit pin insertion machine configured with 4 vibration bowl feeders and 4 heads for a medium pin, a large pin, a medium multi-finger clip and a large clip, all bulk. Facts: about 0.5 s per part; AC servo press to flush, pins pressed on rim only, clips on collar; PCB pedestal support; force detection option; miss check; 0.3 MP CCD vision, MARK correction 0.015 mm; point-to-point 0.025 mm, repeatability 0.05 mm; PCB 50x50 to 480x390 mm, 0.79-2.36 mm thick; Excel/USB programs; floor unit 2160x1330x1530 mm, 1200 kg; 220 V 50/60 Hz 2 kVA standard, 120 V option; RS-232C standard, Ethernet/Modbus TCP option. Published pin range 1.2-4.0 mm, so parts outside it are proven by sample test."
+   ],
+   [
+    "\"name\": \"Vertical error ≤0.8°\", \"role\": \"Straight, seated pins.\", \"feature\": \"Motion accuracy 0.001 mm/pulse with vertical insertion error ≤0.8°; insertion hole 0.5±0.1 mm larger than the lead.\"",
+    "\"name\": \"Vision-aligned placement\", \"role\": \"Every hole corrected.\", \"feature\": \"0.3 MP CCD vision corrects each board on its fiducials to 0.015 mm; point-to-point positioning 0.025 mm, repeatability 0.05 mm.\""
+   ],
+   [
+    "\"specs\": [\"≤0.8° vertical\", \"0.001 mm/pulse\", \"Vision correction\"]",
+    "\"specs\": [\"0.015 mm MARK\", \"0.025 mm P2P\", \"0.05 mm repeat\"]"
+   ],
+   [
+    "\"name\": \"Inward or outward clinch\", \"role\": \"Locked before soldering.\", \"feature\": \"Bottom clinch unit bends pins inward or outward after insertion; minimum spacing between components 2 mm.\"",
+    "\"name\": \"Servo press to flush\", \"role\": \"Seated, not stressed.\", \"feature\": \"An AC servo head presses each pin on its rim and each clip on its collar until flush, with a pedestal supporting the board under every press point.\""
+   ],
+   [
+    "\"advantage\": \"Pins stay in place through handling and wave soldering.\"",
+    "\"advantage\": \"Consistent depth board to board, with the force going into the support.\""
+   ],
+   [
+    "\"benefit\": \"No floating or dropped pins after the wave.\"",
+    "\"benefit\": \"Reliable contact and fewer cracked joints and vias.\""
+   ],
+   [
+    "\"specs\": [\"Inward clinch\", \"Outward clinch\", \"≥2 mm pitch\"]",
+    "\"specs\": [\"Flush seating\", \"PCB pedestal\", \"Force option\"]"
+   ],
+   [
+    "\"specs\": [\"0–360°\", \"1° step\", \"PCB 380×280 mm\"]",
+    "\"specs\": [\"0–360°\", \"Programmable\", \"PCB 480×390 mm\"]"
+   ],
+   [
+    "<tr><th>Vertical error</th><td>≤0.8°</td></tr>",
+    ""
+   ],
+   [
+    "<strong>0.8°</strong><p>max vertical error</p>",
+    "<strong>0.015</strong><p>mm vision correction</p>"
+   ],
+   [
+    "<span>Angled view</span>",
+    "<span>Angled view in the factory</span>"
+   ],
+   [
+    "<span>Feeder side</span>",
+    "<span>Side view</span>"
+   ],
+   [
+    "<span>Front panel</span>",
+    "<span>Front (3D)</span>"
+   ],
+   [
+    "<span>Internal layout</span>",
+    "<span>Inline with PCB loading (3D)</span>"
+   ],
+   [
+    "<span>Terminals on PCB</span>",
+    "<span>Angled (3D)</span>"
+   ],
+   [
+    "<span>Insertion heads</span>",
+    "<span>Top view (3D)</span>"
+   ],
+   [
+    "<span>Bulk terminal insertion</span>",
+    "<span>Reel feeder rack (3D)</span>"
+   ],
+   [
+    "data-title=\"S7020 front panel\"",
+    "data-title=\"S7040P front panel\""
+   ],
+   [
+    "data-title=\"S7020 feeder side\"",
+    "data-title=\"S7040P feeder side\""
+   ],
+   [
+    "data-title=\"S7020 front view\"",
+    "data-title=\"S7040P front view\""
+   ],
+   [
+    "data-title=\"S7020 internal render\"",
+    "data-title=\"S7040P internal render\""
+   ],
+   [
+    "data-title=\"S7020 angled view\"",
+    "data-title=\"S7040P angled view\""
+   ],
+   [
+    "data-title=\"S7020 bulk terminal insertion\"",
+    "data-title=\"S7040P bulk terminal insertion\""
+   ],
+   {
+    "find": "\"alt\": \"S7020 ",
+    "replace": "\"alt\": \"S7000-platform ",
+    "count": 3
+   },
+   {
+    "find": "alt=\"S7020 video\"",
+    "replace": "alt=\"S7000-platform video\"",
+    "count": 3
+   },
+   [
+    "alt=\"S7020 bulk terminal video still\"",
+    "alt=\"S7000-platform terminal insertion video still\""
+   ]
+  ],
+  "images": [
+   {
+    "alt": "S7020 insertion machine front with loader and unloader",
+    "image": "img/real1.jpg",
+    "new_alt": "S7040P pin insertion machine front with PCB loader and unloader"
+   },
+   {
+    "alt": "S7020 insertion machine angled view",
+    "image": "img/real2.jpg",
+    "new_alt": "S7040P pin insertion machine angled view in a factory"
+   },
+   {
+    "alt": "S7020 machine render",
+    "image": "img/iso.jpg",
+    "new_alt": "S7040P 3D view with PCB loading"
+   },
+   {
+    "alt": "S7020 front",
+    "image": "img/front.jpg",
+    "new_alt": "S7040P front (3D)"
+   },
+   {
+    "alt": "S7020 angled",
+    "image": "img/ang.jpg",
+    "new_alt": "S7040P angled (3D)"
+   },
+   {
+    "alt": "S7020 feeder side",
+    "image": "img/real3.jpg",
+    "new_alt": "S7040P side view"
+   },
+   {
+    "alt": "S7020 panel",
+    "image": "img/top.jpg",
+    "new_alt": "S7040P top view (3D)"
+   },
+   {
+    "alt": "S7020 render",
+    "image": "img/reel.jpg",
+    "new_alt": "S7000-platform feeder rack (3D)"
+   }
+  ],
+  "forbid": [
+   "S7020"
+  ],
+  "section": {
+   "eyebrow": "S7040P · How it works",
+   "title": "Four bowls. Four heads. Pressed flush.",
+   "intro": "One board cycle of the S7040P, step by step: the board is aligned on its fiducials, then each of the four heads presses its own part, fed from its own vibration bowl, until it sits flush.",
+   "canvas_label": "Animated schematic of the S7040P: conveyor, fiducial camera, four vibration bowl feeders, four press heads, PCB pedestals, miss check and X-Y table",
+   "steps": [
+    [
+     "Conveyor in + board stop",
+     "The board with plated through-holes enters on the SMEMA conveyor and stops on the X-Y table."
+    ],
+    [
+     "Fiducial vision correction",
+     "The camera reads the board fiducials and corrects every hole position to 0.015 mm."
+    ],
+    [
+     "Bowl 1 → Head 1: medium pin",
+     "Bowl 1 feeds only Head 1. The pin is pressed on the rim of its head, never on the clip inside."
+    ],
+    [
+     "Bowl 2 → Head 2: large pin",
+     "Bowl 2 feeds only Head 2, which presses only the large pin."
+    ],
+    [
+     "Bowl 3 → Head 3: medium clip",
+     "Bowl 3 separates tangled clips and feeds them tail-down to Head 3."
+    ],
+    [
+     "Bowl 4 → Head 4: large clip",
+     "Bowl 4 feeds Head 4; the clip is pressed on its collar."
+    ],
+    [
+     "Servo press flush + miss check",
+     "Each part is pressed until flush while a pedestal supports the board; a missing part stops the machine."
+    ],
+    [
+     "Conveyor out",
+     "All four parts in one program with no tooling change; the board leaves the cell."
+    ]
+   ],
+   "tt_panel": {
+    "title": "The S7000 platform in 3D",
+    "text": "The insertion-machine body the S7040P is built on, from the original CAD drawing. Drag to turn.",
+    "alt": "3D model of the Southern Machinery S7000-platform pin insertion machine"
+   },
+   "photo_panel": {
+    "title": "Built on a proven body",
+    "text": "The S7040P uses the S7000-platform frame, conveyor and vision; heads, bowls and press tools are built per part.",
+    "image": "img/real2.jpg",
+    "alt": "S7040P pin insertion machine in a factory",
+    "fit": "cover"
+   },
+   "cards": [
+    [
+     "4 + 4",
+     "Bowls + heads",
+     "One bulk part per bowl, one part per head."
+    ],
+    [
+     "0.015 mm",
+     "Fiducial correction",
+     "Every board aligned before the first press."
+    ],
+    [
+     "0.025 mm",
+     "Point-to-point",
+     "Repeatability 0.05 mm on the X-Y table."
+    ],
+    [
+     "≈0.5 s",
+     "Per part",
+     "Press dwell and logging confirmed in the sample run."
+    ]
+   ],
+   "cta": {
+    "whatsapp_text": "Hi, I want a sample run of my pins and clips on the S7040P",
+    "email_subject": "S7040P press-fit pin insertion sample run",
+    "whatsapp_label": "Send your parts on WhatsApp"
+   }
+  }
+ },
+ "video": {
+  "basename": "S7040P_PIN_Insertion_4_Bowl_Feeders",
+  "scale": 1,
+  "upscale": true,
+  "chunks": 2,
+  "scenes": [
+   {
+    "type": "hero",
+    "from_segment": 0,
+    "kicker": "The press-fit bottleneck",
+    "headline": "Pins and clips,<br>still pressed by hand.",
+    "chips": [
+     [
+      "Clips tangle in bulk",
+      "#ef4444"
+     ],
+     [
+      "Every part must sit flush",
+      "#e0a63b"
+     ],
+     [
+      "One at a time",
+      "#4fb8a6"
+     ]
+    ],
+    "chip_times": [
+     3.5,
+     6.0,
+     8.0
+    ]
+   },
+   {
+    "type": "turntable",
+    "from_segment": 1,
+    "kicker": "Southern Machinery · Shenzhen",
+    "title": "S7040P PIN<br>Insertion Machine",
+    "subtitle": "4 bowl feeders · 4 heads · 4 parts",
+    "chips": [
+     [
+      "4 vibration bowls",
+      "#e0a63b"
+     ],
+     [
+      "4 press heads",
+      "#4fb8a6"
+     ],
+     [
+      "Fiducial vision",
+      "#0c665c"
+     ]
+    ],
+    "chip_times": [
+     4.0,
+     6.0,
+     8.0
+    ]
+   },
+   {
+    "type": "cards",
+    "from_segment": 2,
+    "kicker": "Your four parts",
+    "title": "One bowl, one head,<br>one part.",
+    "cards": [
+     [
+      "H1 · Medium pin",
+      "Bowl 1 · bulk"
+     ],
+     [
+      "H2 · Large pin",
+      "Bowl 2 · bulk"
+     ],
+     [
+      "H3 · Medium clip",
+      "Bowl 3 · de-tangling"
+     ],
+     [
+      "H4 · Large clip",
+      "Bowl 4 · bulk"
+     ]
+    ],
+    "card_times": [
+     1.0,
+     3.0,
+     5.0,
+     7.0
+    ],
+    "photo": "img/real1.jpg"
+   },
+   {
+    "type": "chips",
+    "from_segment": 3,
+    "kicker": "The rule",
+    "title": "Bowl n feeds<br>Head n.",
+    "chips": [
+     "Bowl 1 → Head 1",
+     "Bowl 2 → Head 2",
+     "Bowl 3 → Head 3",
+     "Bowl 4 → Head 4",
+     "Tail-down tracks",
+     "Clip de-tangling",
+     "No tooling change"
+    ],
+    "chip_start": 1.5,
+    "chip_step": 2.0,
+    "card": [
+     "4 parts",
+     "one program"
+    ],
+    "card_time": 6.0,
+    "photo": "img/real2.jpg"
+   },
+   {
+    "type": "mechanism",
+    "from_segment": 5,
+    "kicker": "S7040P · one board",
+    "map": [
+     [
+      5,
+      0,
+      3.19
+     ],
+     [
+      6,
+      3.2,
+      7.19
+     ],
+     [
+      7,
+      7.2,
+      8.7
+     ],
+     [
+      8,
+      8.7,
+      10.2
+     ],
+     [
+      9,
+      10.2,
+      11.19
+     ],
+     [
+      10,
+      7.2,
+      11.19
+     ],
+     [
+      11,
+      11.2,
+      12.79
+     ]
+    ],
+    "focus": {
+     "169": {
+      "x": 800,
+      "y": 540,
+      "s": 1.12
+     },
+     "916": {
+      "x": 800,
+      "y": 500,
+      "s": 1.9
+     }
+    },
+    "track": {
+     "916": [
+      300,
+      420,
+      560,
+      720,
+      880,
+      1040,
+      800,
+      1300
+     ]
+    },
+    "opts": {
+     "169": {
+      "noTitle": true,
+      "noHud": true
+     },
+     "916": {
+      "noHud": true,
+      "noTitle": true
+     }
+    }
+   },
+   {
+    "type": "cards",
+    "from_segment": 12,
+    "kicker": "Board range",
+    "title": "Boards up to<br>480 × 390 mm.",
+    "cards": [
+     [
+      "50 × 50 – 480 × 390 mm",
+      "PCB size"
+     ],
+     [
+      "0.79 – 2.36 mm",
+      "board thickness"
+     ],
+     [
+      "Excel via USB",
+      "hole lists"
+     ]
+    ],
+    "card_times": [
+     1.0,
+     4.0,
+     8.0
+    ],
+    "photo": "img/iso.jpg"
+   },
+   {
+    "type": "cta",
+    "from_segment": 13,
+    "kicker": "Free sample run",
+    "title": "Send your parts.<br>See them pressed.",
+    "checklist": [
+     "200 of each part",
+     "5 bare boards",
+     "Hole list"
+    ],
+    "check_times": [
+     1.5,
+     2.5,
+     3.5
+    ],
+    "contacts": [
+     [
+      "info@smthelp.com",
+      "#0c665c"
+     ],
+     [
+      "WhatsApp +86 136 0256 2576",
+      "#25d366"
+     ]
+    ],
+    "contact_times": [
+     7.5,
+     8.3
+    ]
+   }
+  ]
+ },
+ "thumbnail": {
+  "headline_html": "4 PRESS-FIT PARTS.<br><span>4 BOWLS.</span>",
+  "badges": [
+   [
+    "S7040P",
+    "#0c665c",
+    "#fff"
+   ],
+   [
+    "4 HEADS",
+    "#e0a63b",
+    "#1f2937"
+   ]
+  ],
+  "subline": "Pins + multi-finger clips · pressed flush",
+  "anim_t": 5.6,
+  "anim_focus": {
+   "x": 900,
+   "y": 470,
+   "s": 1.12
+  },
+  "anim_opts": {
+   "noTitle": true,
+   "noHud": true
+  }
+ },
+ "seo": {
+  "title": "S7040P Pin Insertion Machine | 4 Bowl Feeders, Press-Fit Pins and Multi-Finger Clips (How It Works)",
+  "alt_titles": [
+   "Press 4 Different Pins and Clips Flush in One Pass | Southern Machinery S7040P",
+   "Automatic Press-Fit Pin Insertion from Bulk: S7040P with 4 Vibration Bowls"
+  ],
+  "shorts_title": "4 bowls, 4 heads, 4 press-fit parts ⚙️ S7040P #THT #Shorts",
+  "description": "Two pins and two multi-finger clips, still pressed into every board by hand? The Southern Machinery S7040P PIN Insertion Machine feeds, orients, places and presses all four press-fit parts in one cell.\n\nHow it works\n• One vibration bowl per bulk part, tail-down track; clip bowls built to separate tangled spring fingers.\n• Fiducial vision: MARK correction 0.015 mm.\n• Pins pressed on the rim only, clips on the collar, until flush; pedestal support under the board.\n• X-Y positioning: point-to-point 0.025 mm, repeatability 0.05 mm. About 0.5 s per part.\n• Miss check stops the machine; force detection with per-part log as an option.\n• PCB 50 × 50 to 480 × 390 mm, 0.79–2.36 mm thick. Hole lists from Excel via USB.\n\nFree sample run: send 200+ of each part and 5 bare boards.\nWebsite: https://www.smthelp.com\nEmail: info@smthelp.com\nWhatsApp: +86 136 0256 2576",
+  "hashtags": [
+   "#PinInsertion",
+   "#PressFit",
+   "#PCBAssembly"
+  ],
+  "tags": [
+   "S7040P",
+   "pin insertion machine",
+   "press-fit pin insertion",
+   "press fit inserter",
+   "multi-finger clip insertion",
+   "bowl feeder",
+   "vibration bowl feeder",
+   "THT automation",
+   "PCB pin press",
+   "automatic pin insertion",
+   "Southern Machinery",
+   "SMThelp"
+  ],
+  "shorts_description": "Four bulk press-fit parts, four bowls, four heads, one program. Free sample run: info@smthelp.com",
+  "notes": [
+   "Specs from the S7040P proposal deck (S7000P data): P2P 0.025 mm, repeatability 0.05 mm, MARK 0.015 mm, PCB 50×50–480×390 mm, 0.79–2.36 mm.",
+   "About 0.5 s per part per Southern Machinery's statement; board transfer, fiducial reading and press dwell not included.",
+   "Published S7000P pin range is 1.2–4.0 mm: parts outside it are proven on samples first.",
+   "The animation is a simplified schematic; the 3D turntable is the S7000-platform body.",
+   "Real machine photos: the S7020T badge was digitally replaced with S7040P (p3cv relabel)."
+  ]
+ },
+ "privacy": {
+  "confidential": [],
+  "notes": [
+   "Public example: customer part dimensions, drawings and PCB photos are deliberately left out."
+  ]
+ },
+ "upload": {
+  "sink": "local",
+  "folder_name": "{product_name} ({date})"
+ }
+}

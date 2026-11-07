@@ -29,7 +29,7 @@ python3 -m p3cv manifest PROJ/product.json                       # out/manifest.
 
 ## 4. Result envelope (stdout and `--json-out`)
 ```json
-{"skill": "product-3d-canvas-video-landing", "version": "1.2.0", "config_schema": 1,
+{"skill": "product-3d-canvas-video-landing", "version": "1.3.0", "config_schema": 1,
  "status": "ok | pending | error", "exit_code": 0, "project": "/abs/PROJ", "at": "2026-11-07T15:00:00+0800",
  "stages": {"landing": {"html": "out/x-landing-page-animated.html", "kb": 2068, "nav_links": 1, "leftovers": []}},
  "error": null}

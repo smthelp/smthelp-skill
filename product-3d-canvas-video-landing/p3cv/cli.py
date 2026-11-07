@@ -34,6 +34,8 @@ def cmd_init(a):
     if ex:
         for f in ex.glob("*.js"):
             shutil.copy(f, d / f.name)
+        if (ex / "img").is_dir():  # example assets (photos referenced by product.json)
+            shutil.copytree(ex / "img", d / "img", dirs_exist_ok=True)
     else:
         shutil.copy(SKILL_ROOT / "templates" / "anim-template.js", d / "anim.js")
     print(f"created {d/'product.json'} - edit it, then: python -m p3cv check {d/'product.json'}")
@@ -51,7 +53,7 @@ def cmd_check(a):
             print("MISSING python package", m); ok = False
     if not cfg.resolve(cfg["anim"]["module"]).exists():
         print("MISSING anim module", cfg["anim"]["module"]); ok = False
-    raw = cfg.path.read_text(encoding="utf-8")
+    raw = json.dumps({k: v for k, v in json.loads(cfg.path.read_text(encoding="utf-8")).items() if k != "privacy"}, ensure_ascii=False)
     for c in cfg.get("privacy.confidential", []) or []:
         if Path(c).name and Path(c).name in raw:
             print("WARN confidential source referenced in product.json:", c)

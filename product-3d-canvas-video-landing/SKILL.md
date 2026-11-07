@@ -1,10 +1,10 @@
 ---
 name: product-3d-canvas-video-landing
 description: Turn a Southern Machinery product's 3D viewer page (Three.js / eDrawings HTML on file.autoinsertion.com) or real photos, its existing landing page and its catalog/manual into (A) ONE self-contained landing HTML with an interactive mechanism animation, 3D turntable and CTA, and (B) 1–3 min 4K English voice-over videos in 16:9 (3840×2160) and 9:16 (2160×3840) with burned subtitles + SRT, a YouTube thumbnail, SEO/chapters/VO script, optionally uploaded to Google Drive. Also rewrites an existing model page into a new model or customer variant. Use for "产品 3D 图转化为动画视频和单 html 网页", "3D 图转动画", "动画视频 + 单 html 网页", product explainer videos.
-version: 1.2.0
+version: 1.3.0
 ---
 
-# Product 3D → Mechanism Animation, 4K Videos & Single-HTML Landing Page (`p3cv` v1.2.0)
+# Product 3D → Mechanism Animation, 4K Videos & Single-HTML Landing Page (`p3cv` v1.3.0)
 
 Self-contained: everything below works without any earlier conversation. Machine-readable record: `skill.json`.
 Call contract: `docs/CONTRACT.md`. Parameters: `docs/CONFIG.md`. Upgrades: `docs/UPGRADING.md`.
@@ -40,7 +40,7 @@ B: `<basename>_16x9_4K.mp4`, `<basename>_9x16_4K.mp4` (H.264 + AAC, −14 LUFS, 
 
 ## Workflow
 1. `bash scripts/setup_env.sh` (idempotent; re-run after a sandbox reset).
-2. `python3 -m p3cv init PROJ [--example juki-gripper-nozzle|s3010a-radial-inserter]`; fill slug, product_name,
+2. `python3 -m p3cv init PROJ [--example juki-gripper-nozzle|s3010a-radial-inserter|s7040p-pin-insertion]`; fill slug, product_name,
    brand colours (from the landing page CSS), sources. `python3 -m p3cv check PROJ/product.json`.
 3. `p3cv run PROJ/product.json download` → read `src/manifest.json`, `src/*.txt`, `img/`. Run `capture` in the
    background (3–8 min) and LOOK at the turntable frames; drop dark/edge-on/glitch frames.
@@ -64,7 +64,7 @@ B: `<basename>_16x9_4K.mp4`, `<basename>_9x16_4K.mp4` (H.264 + AAC, −14 LUFS, 
   300 %, and note "badge digitally edited" in `seo.notes`.
 - Customer variant: parts table (part, max Ø, hole, feeder) + fit table "published data vs your need"; put customer
   drawings/3D models in `privacy.confidential` (never shown), add `privacy.notes` for photos/dimensions that are
-  shown, and ask the user before anything is published.
+  shown, and ask the user before anything is published. Customer data never goes into the public skill repo.
 
 ## Fact rules (non-negotiable)
 - Only numbers from the product's spec sheet/catalog/landing page or stated by the user. Sister-model numbers

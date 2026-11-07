@@ -1,7 +1,7 @@
 {
  "name": "product-3d-canvas-video-landing",
  "short_name": "p3cv",
- "version": "1.2.0",
+ "version": "1.3.0",
  "config_schema": 1,
  "contract_version": 1,
  "description": "Southern Machinery product 3D viewer (Three.js / eDrawings HTML) + existing landing page + product docs -> (A) ONE self-contained landing HTML with an interactive mechanism animation, 3D turntable and CTA, and (B) 1-3 min 4K English voice-over explainer videos in 16:9 and 9:16 with burned subtitles, SRT, YouTube thumbnail, SEO/chapters/VO script; optional Google Drive delivery.",

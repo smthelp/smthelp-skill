@@ -33,7 +33,7 @@ DEFAULTS = {
     "segments": [],
     "landing": {"base": None, "insert_before": None, "nav_after_href": None, "nav_after_text": None, "nav_label": "How It Works",
                 "output": None, "section": {},
-                "replacements": [], "forbid": []},
+                "replacements": [], "images": [], "forbid": []},
     "video": {"fps": 30, "formats": ["169", "916"], "scale": 2, "jpeg_quality": 92, "crf": 19,
               "chunks": 2, "tmp_dir": None, "scenes": [], "basename": None, "upscale": False},
     "thumbnail": {"headline_html": "", "badges": [], "subline": "", "anim_t": 0, "anim_focus": None,

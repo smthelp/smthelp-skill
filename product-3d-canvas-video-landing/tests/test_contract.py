@@ -36,6 +36,26 @@ class Contract(unittest.TestCase):
         self.assertEqual(e.exception.code, "E_ASSEMBLE")
         self.assertEqual(len(leftovers("a S7020 b S7020", ["S7020"])), 2)
 
+    def test_images(self):
+        try:
+            from PIL import Image
+        except ImportError:
+            self.skipTest("Pillow missing")
+        from p3cv.stages.landing import apply_images
+        with tempfile.TemporaryDirectory() as d:
+            p = Path(d) / "product.json"; shutil.copy(ROOT / "config/product.example.json", p)
+            Image.new("RGB", (40, 30), (200, 10, 10)).save(Path(d) / "a.jpg")
+            cfg = Config(p); page = '<img src="data:old" alt="Old 1"><img alt="Other" src="x">'
+            out = apply_images(cfg, page, [{"alt": "Old 1", "image": "a.jpg", "new_alt": "New 1"}])
+            self.assertIn('alt="New 1"', out); self.assertNotIn("data:old", out); self.assertIn('src="x"', out)
+            with self.assertRaises(P3VError):
+                apply_images(cfg, page, [{"alt": "Missing", "image": "a.jpg"}])
+
+    def test_examples_check(self):
+        for ex in (ROOT / "examples").glob("*/product.json"):
+            cfg = Config(ex)
+            self.assertTrue(cfg.resolve(cfg["anim"]["module"]).exists(), ex)
+
     def test_bad_replacement_config(self):
         with tempfile.TemporaryDirectory() as d:
             p = Path(d) / "product.json"; raw = json.loads((ROOT / "config/product.example.json").read_text())

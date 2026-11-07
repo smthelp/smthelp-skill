@@ -52,3 +52,11 @@ Quick checks without Python: `"hooks": {"post_video": "test -s r/preview/sheet_1
 1. Change code; keep `DEFAULTS` backward compatible (new keys get defaults).
 2. `python3 -m unittest discover -s tests`; smoke render the example (`video.scale 1, max_seconds 3`).
 3. Bump `VERSION`, add a `CHANGELOG.md` entry, update `SKILL.md` version line; commit + tag `p3cv-vX.Y.Z`.
+
+## Reusing an SVG animation module (since 1.3.0)
+An existing SVG module (builds `<svg>` elements, moves them with `setAttribute`) satisfies the canvas contract
+through `templates/svg2canvas.js`, which draws a live SVG tree onto a canvas synchronously. Concatenate
+`svg2canvas.js` + your module + a small wrapper that exposes `CYCLE`, `STEPS`, `stepAt` and
+`render(ctx,W,H,o)` → `module.render(o.t); SVG2Canvas.draw(ctx, svg, {vars})`. `vars` maps CSS custom
+properties used in fills (`var(--x,fallback)`) for the dark theme. Supported elements and limits are listed at
+the top of the helper. Working example: `examples/s7040p-pin-insertion/anim-wrapper.js`.

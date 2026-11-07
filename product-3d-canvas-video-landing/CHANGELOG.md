@@ -2,6 +2,22 @@
 
 All notable changes to this skill. Format: [Keep a Changelog](https://keepachangelog.com), versions: [SemVer](https://semver.org).
 
+## [1.3.0] - 2026-11-07
+### Added
+- `landing.images`: swap hero/gallery pictures of the base page by exact alt text (inlined WebP, count-checked).
+- `templates/svg2canvas.js`: draw a live SVG tree onto a canvas, so existing SVG mechanism modules satisfy the
+  canvas animation contract (docs/EXTENDING.md).
+- Example `s7040p-pin-insertion` is now fully runnable and end-to-end verified (download → landing → 4K videos):
+  ~70 replacements, 8 image swaps, forbid, SVG module via svg2canvas, 1080p render + 4K upscale,
+  pre-captured turntable frames (`capture.enabled: false`).
+- `p3cv init --example` also copies the example's `img/`.
+- Tests: `landing.images`, every example's anim module present.
+### Fixed
+- `check` no longer warns about confidential names that appear only inside the `privacy` block itself.
+### Notes
+- eDrawings capture of the S7000-platform drawing: the orbit pivot is far from the model, so it leaves the
+  viewport after ~40°; frames were captured once at 4K and recentred instead (see example README).
+
 ## [1.2.0] - 2026-11-07
 ### Added
 - `skill.json`: machine-readable record (scope, inputs, outputs, contract, dependencies, compatibility, agent loading).
