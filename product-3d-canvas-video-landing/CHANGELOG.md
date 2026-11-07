@@ -2,6 +2,12 @@
 
 All notable changes to this skill. Format: [Keep a Changelog](https://keepachangelog.com), versions: [SemVer](https://semver.org).
 
+## [1.3.1] - 2026-11-07
+### Fixed
+- mux: write the faststart MP4 to local `/tmp` and copy it to `out/`, so `video.tmp_dir` on a network FS (JuiceFS) no longer fails with "Error writing trailer: Input/output error".
+### Notes
+- Set `video.tmp_dir` to a folder inside the persistent workspace on sandboxes that reset: `/tmp` is tmpfs (counts as RAM) and is wiped on reset, losing finished chunks.
+
 ## [1.3.0] - 2026-11-07
 ### Added
 - `landing.images`: swap hero/gallery pictures of the base page by exact alt text (inlined WebP, count-checked).

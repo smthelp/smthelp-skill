@@ -1,4 +1,4 @@
-# product-3d-canvas-video-landing (`p3cv`) v1.3.0
+# product-3d-canvas-video-landing (`p3cv`) v1.3.1
 
 Product 3D viewer + existing landing page → **interactive canvas mechanism animation inside one self-contained
 landing HTML**, **4K English voice-over videos (16:9 and 9:16) with burned subtitles + SRT**, **YouTube thumbnail**,

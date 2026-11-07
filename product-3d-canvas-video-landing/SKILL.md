@@ -1,10 +1,10 @@
 ---
 name: product-3d-canvas-video-landing
 description: Turn a Southern Machinery product's 3D viewer page (Three.js / eDrawings HTML on file.autoinsertion.com) or real photos, its existing landing page and its catalog/manual into (A) ONE self-contained landing HTML with an interactive mechanism animation, 3D turntable and CTA, and (B) 1–3 min 4K English voice-over videos in 16:9 (3840×2160) and 9:16 (2160×3840) with burned subtitles + SRT, a YouTube thumbnail, SEO/chapters/VO script, optionally uploaded to Google Drive. Also rewrites an existing model page into a new model or customer variant. Use for "产品 3D 图转化为动画视频和单 html 网页", "3D 图转动画", "动画视频 + 单 html 网页", product explainer videos.
-version: 1.3.0
+version: 1.3.1
 ---
 
-# Product 3D → Mechanism Animation, 4K Videos & Single-HTML Landing Page (`p3cv` v1.3.0)
+# Product 3D → Mechanism Animation, 4K Videos & Single-HTML Landing Page (`p3cv` v1.3.1)
 
 Self-contained: everything below works without any earlier conversation. Machine-readable record: `skill.json`.
 Call contract: `docs/CONTRACT.md`. Parameters: `docs/CONFIG.md`. Upgrades: `docs/UPGRADING.md`.

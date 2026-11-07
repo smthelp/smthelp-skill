@@ -2,6 +2,8 @@
 write out/<basename>_16x9_4K.mp4 and _9x16_4K.mp4, verify size/duration with ffprobe.
 If a worker died, mux relaunches it (resume) instead of failing, up to video.max_relaunch times.
 Note: in shells with a hard time limit, call `p3cv run mux --timeout 1100` repeatedly."""
+import tempfile
+from pathlib import Path
 import json, shutil, time
 from . import stage
 from .render import chunk_status, plan, running_workers
@@ -60,7 +62,8 @@ def run(cfg, state, timeout=None):
         files = upscale_chunks(cfg, ar, chunks) if up else [tmp / f"{ar}_{k:02d}.mp4" for k, _, _ in chunks]
         lst.write_text("".join(f"file '{f}'\n" for f in files))
         name = f"{cfg.video_basename}_{'16x9' if ar == '169' else '9x16'}_4K.mp4"
-        tmpout = tmp / name
+        # faststart rewrites the whole file: do it on local disk (/tmp), not on a network FS such as JuiceFS
+        tmpout = Path(tempfile.gettempdir()) / name
         sh(["ffmpeg", "-y", "-v", "error", "-f", "concat", "-safe", "0", "-i", str(lst), "-i", str(cfg.p("vo", "master.wav")),
             "-map", "0:v", "-map", "1:a", "-c:v", "copy", "-c:a", "aac", "-b:a", "192k", "-shortest",
             "-movflags", "+faststart", str(tmpout)])
@@ -71,7 +74,7 @@ def run(cfg, state, timeout=None):
         f = 2 if up else cfg["video"]["scale"]
         if (st["width"], st["height"]) != (want[0] * f // 2, want[1] * f // 2):
             log.get("mux").warning("%s is %sx%s", name, st["width"], st["height"])
-        dest = cfg.p("out", name); shutil.copy(tmpout, dest)
+        dest = cfg.p("out", name); shutil.copy(tmpout, dest); tmpout.unlink()
         outs[ar] = {"file": str(dest.relative_to(cfg.proj)), "w": st["width"], "h": st["height"],
                     "duration": round(float(info["format"]["duration"]), 2), "bytes": int(info["format"]["size"])}
         log.get("mux").info("%s %sx%s %.1fs", name, st["width"], st["height"], float(info["format"]["duration"]))
