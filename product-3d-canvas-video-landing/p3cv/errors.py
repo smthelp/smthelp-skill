@@ -17,6 +17,7 @@ CODES = {
     "E_THUMB": "Thumbnail render failed",
     "E_UPLOAD": "Upload to the delivery sink failed",
     "E_HOOK": "A user hook command failed",
+    "E_PENDING": "Work is still running (e.g. 4K render); call the same command again later",
 }
 
 

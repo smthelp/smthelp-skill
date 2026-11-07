@@ -1,56 +1,80 @@
 ---
 name: product-3d-canvas-video-landing
-description: Turn a Southern Machinery product's 3D viewer page (Three.js / eDrawings HTML on file.autoinsertion.com) plus its existing landing page into (1) an interactive canvas mechanism animation merged into that landing page as ONE new single HTML file, (2) 1–3 min 4K English voice-over videos in 16:9 (3840×2160) and 9:16 (2160×3840) with burned subtitles + SRT, (3) a YouTube thumbnail, (4) SEO title/description/chapters/tags/Shorts copy and VO script, and (5) uploads everything to Google Drive. Use when the user sends 3D drawing links + landing page links and asks for "动画视频 + 单 html 网页", "3D 图转动画", or a product explainer video.
-version: 1.0.0
+description: Turn a Southern Machinery product's 3D viewer page (Three.js / eDrawings HTML on file.autoinsertion.com) or real photos, its existing landing page and its catalog/manual into (A) ONE self-contained landing HTML with an interactive mechanism animation, 3D turntable and CTA, and (B) 1–3 min 4K English voice-over videos in 16:9 (3840×2160) and 9:16 (2160×3840) with burned subtitles + SRT, a YouTube thumbnail, SEO/chapters/VO script, optionally uploaded to Google Drive. Also rewrites an existing model page into a new model or customer variant. Use for "产品 3D 图转化为动画视频和单 html 网页", "3D 图转动画", "动画视频 + 单 html 网页", product explainer videos.
+version: 1.2.0
 ---
 
-# Product 3D → Canvas Animation, 4K Videos & Single-HTML Landing Page (v1.0.0)
+# Product 3D → Mechanism Animation, 4K Videos & Single-HTML Landing Page (`p3cv` v1.2.0)
 
-Code: `p3cv/` (Python package, one module per stage). Docs: `README.md` (quick start), `docs/ARCHITECTURE.md`
-(modules, I/O, dependency graph), `docs/CONFIG.md` (every product.json key), `docs/EXTENDING.md` (plugins,
-new scene types / viewers / sinks / voices), `docs/TROUBLESHOOTING.md` (error codes, sandbox gotchas).
-Reference product: `examples/juki-gripper-nozzle/` (delivered 2026-10-22).
+Self-contained: everything below works without any earlier conversation. Machine-readable record: `skill.json`.
+Call contract: `docs/CONTRACT.md`. Parameters: `docs/CONFIG.md`. Upgrades: `docs/UPGRADING.md`.
+Internals: `docs/ARCHITECTURE.md`, `docs/EXTENDING.md`, `docs/TROUBLESHOOTING.md`. Repo-wide rules: `../AGENTS.md`.
 
-Sister skill: `cad3d-animation-video-landing` builds a real Three.js mesh engine from eDrawings data (heavier,
-true 3D). Use THIS skill when a schematic 2D canvas of the mechanism + a captured 3D turntable is enough
-(faster, fully config-driven, 1 product ≈ 1.5–2 h including a 40 min render).
+## Scope
+Use for: one product/machine (feeder, nozzle, inserter, rack…) with a 3D drawing viewer or real photos/renders,
+an existing landing page to extend (or a model page to turn into a new model / customer variant), and a
+marketing explainer video. Not for: real-mesh WebGL engines or exploded views (`cad3d-animation-video-landing`,
+`smt-3d-animation-landing-kit`), 7-language pages with blogs (`product-3d-doc-html-landing`), publishing.
 
-## Inputs (ask only what is missing)
-1. 3D viewer URL(s). 2. Existing landing page URL (the page the section is merged into).
-3. Optional: product PDF / manual. 4. Drive parent folder (default Southern Machinery products folder).
-Everything else (copy, scenes, palette from the page) you decide and state.
+## Inputs (ask only for what is missing, one short question)
+| Input | Required | Notes |
+|---|---|---|
+| 3D viewer URL(s) or photos/renders | yes (one of) | eDrawings export / Three.js page → turntable; photos → `img/` |
+| Existing landing page (URL or file) | yes for product A | merged into, never rebuilt from scratch |
+| Catalog / manual / PDF / PPTX / DOCX | strongly advised | the ONLY source of numbers |
+| Model/variant definition from the user | when given | user statements are a source (e.g. "4 heads, 0.5 s/part") |
+| Customer RFQ / BOM / PCB photos | optional | customer variant; treat drawings as confidential |
+| Delivery folder (Drive id) | optional | default sink `local` |
 
-## Workflow (agent steps)
-1. `bash scripts/setup_env.sh` (idempotent; the sandbox resets often).
-2. `python3 -m p3cv init <PROJ> [--example juki-gripper-nozzle]` → edit `<PROJ>/product.json`: slug, product_name,
-   brand colours (take them from the landing page's tailwind config / CSS), `sources`.
-3. `python3 -m p3cv run <PROJ>/product.json download` → read `src/manifest.json`, `src/*.txt` and `img/*_b64_*`
-   (embedded photos). Run `capture` in the background (3–8 min) and READ the turntable frames.
-4. **Understand the mechanism** (most important): from the 3D frames + landing text + PDF write the cycle as
-   5–8 steps (driver → motion → contact → result). Mark anything inferred from geometry as inferred.
-5. Write the animation module `<PROJ>/anim.js` from `templates/anim-template.js` (contract: CYCLE, STEPS, stepAt,
-   render(ctx,W,H,{t,theme,focus,noBox,noHud,noLabels}); pure function of t). Test frames with a quick page.
-6. Write `segments` (VO, ~230–300 words, hook → brand → mechanism steps → specs → compatibility → CTA, each with a
-   `chapter`), `landing.section`, `video.scenes`, `thumbnail`, `seo`. Numbers TTS-friendly in segments
-   ("eleven millimetres"); `voice.replacements` fixes the subtitles ("info at smthelp dot com" → "info@smthelp.com").
-7. `python3 -m p3cv run <PROJ>/product.json tts mix subtitles landing video thumbnail docs` → check
-   `r/preview/sheet_169.jpg`, `sheet_916.jpg`, the landing page and thumbnail visually; fix overlaps; repeat.
-8. `python3 -m p3cv run <PROJ>/product.json render` (detached workers) then `... mux --timeout 1100` repeatedly
-   (each shell call ≤ 20 min) until both MP4s are verified.
-9. `python3 -m p3cv run <PROJ>/product.json upload` (sink gdrive: needs `gws` + the Google account) → reply with the
-   Drive folder link, what was produced, and every claim left out or inferred.
+## Outputs (`PROJ/out`)
+A: `<slug>-landing-page-animated.html` (single file, images inlined, works offline).
+B: `<basename>_16x9_4K.mp4`, `<basename>_9x16_4K.mp4` (H.264 + AAC, −14 LUFS, burned subs),
+`youtube-thumbnail-<slug>.jpg` (1920×1080), `youtube-seo-title-description-<slug>.txt`, `<slug>-subtitles-en.srt`,
+`<slug>-voiceover-script-en.txt`. Plus `manifest.json` (sha256 + versions) and `delivery.json` (upload).
+
+## Configurable parameters (all in `PROJ/product.json`, defaults in `p3cv/config.py`)
+`brand` colours/logo/contacts · `sources` · `capture` (frames, zoom, drag, crop) · `anim` (module, global) ·
+`voice` (edge-tts voice, rate, gaps, LUFS, TTS→subtitle replacements) · `segments` (VO + chapters) ·
+`landing` (base, insert_before, nav, section copy, **replacements**, **forbid**) · `video` (formats, fps, scale,
+**upscale**, chunks, scenes) · `thumbnail` · `seo` · `upload` (sink, parent) · **`privacy`** · `hooks` · `plugins`.
+
+## Workflow
+1. `bash scripts/setup_env.sh` (idempotent; re-run after a sandbox reset).
+2. `python3 -m p3cv init PROJ [--example juki-gripper-nozzle|s3010a-radial-inserter]`; fill slug, product_name,
+   brand colours (from the landing page CSS), sources. `python3 -m p3cv check PROJ/product.json`.
+3. `p3cv run PROJ/product.json download` → read `src/manifest.json`, `src/*.txt`, `img/`. Run `capture` in the
+   background (3–8 min) and LOOK at the turntable frames; drop dark/edge-on/glitch frames.
+4. **Understand the mechanism**: write the cycle as 5–11 steps (driver → motion → contact → result) from frames +
+   docs. Mark geometry-only inferences as inferred.
+5. Write `PROJ/anim.js` from `templates/anim-template.js` (pure function of t). Variants of one platform (e.g.
+   T/P/E models, 2 vs 4 heads, customer part set) are ONE module with a model switch, not copies.
+6. Write `segments` (230–330 words: hook → brand → mechanism → specs → CTA, each with `chapter`), landing section
+   copy, `video.scenes`, `thumbnail`, `seo`. Numbers TTS-friendly; `voice.replacements` fixes subtitles.
+7. `p3cv run … tts mix subtitles landing video thumbnail docs` → check `r/preview/sheet_169.jpg`, `sheet_916.jpg`,
+   a full-page screenshot of the landing page and the thumbnail; fix overlaps/clipping; repeat.
+8. `p3cv run … render`, then `p3cv run … mux --timeout 1100` until exit 0 (exit 3 = still rendering).
+   Sandboxes ≤ 8 GB: `video.scale: 1` + `video.upscale: true`; never encode two 4K files at once.
+9. `p3cv manifest …`; `p3cv run … upload` if a sink is set. Reply with what was produced, every claim left out
+   or inferred, and confidentiality cautions.
+
+### Variant of an existing model page (new model name, customer configuration)
+- Base = the closest model's landing page; rewrite its own copy with `landing.replacements` (title, meta, JSON-LD,
+  hero, KPI strip, FAB, spec table, FAQ, advisor facts) and list the old model name in `landing.forbid`.
+- Same machine body, new badge: `python3 -m p3cv relabel photo.jpg --bbox x0,y0,x1,y1 --text NEWMODEL`, inspect at
+  300 %, and note "badge digitally edited" in `seo.notes`.
+- Customer variant: parts table (part, max Ø, hole, feeder) + fit table "published data vs your need"; put customer
+  drawings/3D models in `privacy.confidential` (never shown), add `privacy.notes` for photos/dimensions that are
+  shown, and ask the user before anything is published.
 
 ## Fact rules (non-negotiable)
-- Only specs found in the sources. Do not repeat unverifiable marketing numbers (e.g. "99.99% pick-up rate",
-  telemetry figures) in the video; list them in `seo.notes` as left out. Conflicts between sources → `待确认`.
-- The canvas is a simplified schematic; say so in seo.notes. Machine-side features (vision check) are not product features.
-- Reply to Jason in Chinese; deliverables in English.
+- Only numbers from the product's spec sheet/catalog/landing page or stated by the user. Sister-model numbers
+  (other series, other head count) are not this model's - drop them or label them as the reference model.
+- Unverifiable marketing numbers stay out of the video; list them in `seo.notes`. Conflicts → `to be confirmed`.
+- Values outside published ranges (e.g. a part smaller than the published pin range) → "proven on samples first".
+- The animation is a schematic; say so on the page and in `seo.notes`.
+- Reply to the user in their language (Jason: Chinese); deliverables in English unless asked.
 
-## Outputs (PROJ/out)
-`<slug>-landing-page-animated.html` · `<basename>_16x9_4K.mp4` · `<basename>_9x16_4K.mp4` ·
-`youtube-thumbnail-<slug>.jpg` · `youtube-seo-title-description-<slug>.txt` · `<slug>-subtitles-en.srt` ·
-`<slug>-voiceover-script-en.txt` · `delivery.json` (upload result).
-
-## Upgrade policy
-Core changes bump `VERSION` + `CHANGELOG.md` (SemVer: config-breaking = major). Product-specific behaviour goes in
-product.json or a plugin, never in core. Run `python3 -m unittest discover -s tests` before committing.
+## Upgrade policy (summary of docs/UPGRADING.md)
+SemVer. `VERSION` = `skill.json.version` = front matter `version` (tested). Config-breaking or contract-breaking =
+MAJOR with a `migrate` step. Product logic lives in product.json / anim module / plugins, never in core.
+Run `python3 -m unittest discover -s tests` before committing; tag `p3cv-vX.Y.Z`.

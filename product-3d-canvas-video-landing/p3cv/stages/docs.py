@@ -46,6 +46,10 @@ def run(cfg, state):
         P += ["=== SHORTS DESCRIPTION ===", seo["shorts_description"], ""]
     if seo.get("notes"):
         P += ["=== NOTES ON WORDING ==="] + [f"• {n}" for n in seo["notes"]]
+    pv = cfg.get("privacy", {}) or {}
+    if pv.get("notes") or pv.get("confidential"):
+        P += ["", "=== CONFIDENTIALITY (check before publishing) ==="] + [f"• {n}" for n in pv.get("notes", [])]
+        P += [f"• confidential source, not used in deliverables: {c}" for c in pv.get("confidential", [])]
     out.write_text("\n".join(P) + "\n", encoding="utf-8")
     tags_len = len(", ".join(seo.get("tags", [])))
     if tags_len > 500:

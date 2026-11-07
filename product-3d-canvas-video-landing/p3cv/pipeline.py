@@ -44,13 +44,13 @@ def load_plugins(cfg):
         log.get("pipeline").info("plugin loaded: %s", path.name)
 
 
-def run(cfg, stages=None, force=False, **kw):
+def run(cfg, stages=None, force=False, collect=None, **kw):
     load_all(); load_plugins(cfg); load_all(); lg = log.get("pipeline"); st = State(cfg.proj)
     todo = stages or [s for s in ORDER if s != "upload" or cfg["upload"].get("auto", False)]
     unknown = [s for s in todo if s not in REGISTRY]
     if unknown:
         raise P3VError("E_CONFIG", f"unknown stage(s): {unknown}", f"valid: {', '.join(ORDER)}")
-    results = {}
+    results = collect if collect is not None else {}
     for name in todo:
         spec = REGISTRY[name]
         missing = [d for d in spec["deps"] if not st.done(d) and d not in results]

@@ -1,4 +1,4 @@
-# product-3d-canvas-video-landing (`p3cv`) v1.0.0
+# product-3d-canvas-video-landing (`p3cv`) v1.2.0
 
 Product 3D viewer + existing landing page → **interactive canvas mechanism animation inside one self-contained
 landing HTML**, **4K English voice-over videos (16:9 and 9:16) with burned subtitles + SRT**, **YouTube thumbnail**,
@@ -10,6 +10,17 @@ landing URL ───┼─ p3cv ─────┼─ 16:9 4K MP4 + 9:16 4K MP4
 product.json ──┘            ├─ thumbnail JPG · SRT · SEO txt · VO script
                             └─ Google Drive folder (or rclone / local)
 ```
+
+## Contract in one minute
+
+```bash
+python3 -m p3cv info                                         # skill.json: scope, I/O, deps, versions
+python3 -m p3cv run PROJ/product.json [stages] --json-out PROJ/logs/result.json
+#   exit 0 ok | 2 error (envelope.error.code + hint) | 3 pending (render running: call again) | 1 env
+python3 -m p3cv manifest PROJ/product.json                   # out/manifest.json with sha256
+python3 -m p3cv migrate  PROJ/product.json                   # after upgrading the skill
+```
+Details: `docs/CONTRACT.md` (I/O), `docs/CONFIG.md` (parameters), `docs/UPGRADING.md` (versions, releases).
 
 ## Quick start
 
@@ -42,7 +53,8 @@ Smoke test without waiting 40 minutes: set `"video": {"scale": 1, "max_seconds":
 ## Layout
 
 ```
-SKILL.md                agent instructions (when / how to use, fact rules)
+SKILL.md                agent instructions (scope, I/O, workflow, fact rules) - discovery front matter
+skill.json              machine-readable record (version, contract, deps, outputs)
 p3cv/                   core package
   cli.py pipeline.py    CLI + runner (deps, hooks, plugins, state, events)
   config.py             product.json loading, DEFAULTS, validation, paths
@@ -56,7 +68,8 @@ p3cv/                   core package
 templates/              section.html (landing), video.html (scenes), thumb.html, anim-template.js
 config/                 product.example.json, product.schema.json
 examples/               juki-gripper-nozzle/ (product.json + jaw-anim.js), plugins/example_plugin.py
-docs/                   ARCHITECTURE, CONFIG, EXTENDING, TROUBLESHOOTING
+docs/                   CONTRACT, CONFIG, UPGRADING, ARCHITECTURE, EXTENDING, TROUBLESHOOTING
+  p3cv/contract.py      envelope, manifest, migrate · p3cv/tools/relabel.py  photo badge edit
 scripts/setup_env.sh    environment setup
 tests/                  offline unit tests  (python3 -m unittest discover -s tests)
 ```

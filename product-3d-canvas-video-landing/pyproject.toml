@@ -9,7 +9,7 @@ dependencies = ["playwright==1.49.1", "edge-tts>=6.1.12", "Pillow>=10.0"]
 p3cv = "p3cv.cli:main"
 
 [tool.setuptools]
-packages = ["p3cv", "p3cv.stages", "p3cv.adapters", "p3cv.sinks", "p3cv.tts"]
+packages = ["p3cv", "p3cv.stages", "p3cv.adapters", "p3cv.sinks", "p3cv.tts", "p3cv.tools"]
 
 [tool.setuptools.dynamic]
 version = {file = "VERSION"}

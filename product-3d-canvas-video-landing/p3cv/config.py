@@ -8,8 +8,12 @@ from pathlib import Path
 from .errors import P3VError
 
 SKILL_ROOT = Path(__file__).resolve().parent.parent
+# product.json format version this code reads. Bump (major skill release) only when existing
+# product.json files must be edited; `p3cv migrate` upgrades older files. See docs/UPGRADING.md.
+CONFIG_SCHEMA = 1
 
 DEFAULTS = {
+    "schema_version": CONFIG_SCHEMA,
     "brand": {
         "name": "Southern Machinery",
         "logo_url": "https://ph.smthelp.com/images/2024/06/26/Southern-Machinery-logo-300x83.png",
@@ -28,13 +32,15 @@ DEFAULTS = {
               "tail": 2.6, "lufs": -14, "true_peak": -1.5, "replacements": {}, "max_cue_chars": 42},
     "segments": [],
     "landing": {"base": None, "insert_before": None, "nav_after_href": None, "nav_after_text": None, "nav_label": "How It Works",
-                "output": None, "section": {}},
+                "output": None, "section": {},
+                "replacements": [], "forbid": []},
     "video": {"fps": 30, "formats": ["169", "916"], "scale": 2, "jpeg_quality": 92, "crf": 19,
-              "chunks": 2, "tmp_dir": None, "scenes": [], "basename": None},
+              "chunks": 2, "tmp_dir": None, "scenes": [], "basename": None, "upscale": False},
     "thumbnail": {"headline_html": "", "badges": [], "subline": "", "anim_t": 0, "anim_focus": None,
                   "output": None},
     "seo": {},
     "upload": {"sink": "local", "folder_name": "{product_name} ({date})"},
+    "privacy": {"confidential": [], "notes": []},
     "hooks": {},
     "plugins": [],
 }
@@ -72,6 +78,14 @@ class Config:
 
     # ---- validation -------------------------------------------------------
     def validate(self):
+        sv = self.data.get("schema_version", 1)
+        if not isinstance(sv, int) or sv > CONFIG_SCHEMA:
+            raise P3VError("E_CONFIG", f"product.json schema_version {sv} is newer than this skill reads ({CONFIG_SCHEMA})",
+                           "upgrade the skill (git pull) - see docs/UPGRADING.md")
+        for i, r in enumerate(self.data["landing"].get("replacements") or []):
+            ok = (isinstance(r, (list, tuple)) and len(r) == 2) or (isinstance(r, dict) and "find" in r and "replace" in r)
+            if not ok:
+                raise P3VError("E_CONFIG", f"landing.replacements[{i}] must be [find, replace] or {{find, replace, count}}")
         missing = [k for k in REQUIRED if _get(self.data, k) is None]
         if missing:
             raise P3VError("E_CONFIG", "missing required keys: " + ", ".join(missing))

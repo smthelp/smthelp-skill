@@ -29,8 +29,25 @@ def wait_all(cfg, timeout=None, poll=20):
         if prog != last:
             lg.info("waiting: %s", prog); last = prog
         if timeout and time.time() - t0 > timeout:
-            raise P3VError("E_RENDER", "still rendering (timeout reached) - run mux again later", "progress: " + prog)
+            raise P3VError("E_PENDING", "still rendering (timeout reached) - run mux again later", "progress: " + prog)
         time.sleep(poll)
+
+
+def upscale_chunks(cfg, ar, chunks):
+    """video.upscale with video.scale 1: render at 1080p (fast) and lanczos-upscale each chunk to 4K.
+    One chunk at a time, one thread, short lookahead: 4K x264 with default settings was OOM-killed
+    on 8 GB sandboxes shared with other jobs. Returns the chunk file list to concat."""
+    tmp = cfg.tmp_dir; W, H = (3840, 2160) if ar == "169" else (2160, 3840); files = []
+    for k, _, _ in chunks:
+        src, dst = tmp / f"{ar}_{k:02d}.mp4", tmp / f"{ar}_{k:02d}_up.mp4"
+        if not dst.exists():
+            part = dst.with_suffix(".part.mp4")
+            sh(["ffmpeg", "-y", "-v", "error", "-i", str(src), "-vf", f"scale={W}:{H}:flags=lanczos,format=yuv420p",
+                "-c:v", "libx264", "-preset", "medium", "-crf", str(cfg["video"]["crf"]), "-threads", "1",
+                "-filter_threads", "1", "-x264-params", "rc-lookahead=0:bframes=2:ref=1", str(part)])
+            part.rename(dst)
+        files.append(dst)
+    return files
 
 
 @stage("mux", deps=["render", "mix"], desc="Wait for renders, concat chunks, add audio, verify")
@@ -39,7 +56,9 @@ def run(cfg, state, timeout=None):
     _, chunks = plan(cfg)
     for ar in cfg["video"]["formats"]:
         lst = tmp / f"{ar}_list.txt"
-        lst.write_text("".join(f"file '{tmp / f'{ar}_{k:02d}.mp4'}'\n" for k, _, _ in chunks))
+        up = cfg["video"].get("upscale") and cfg["video"]["scale"] == 1
+        files = upscale_chunks(cfg, ar, chunks) if up else [tmp / f"{ar}_{k:02d}.mp4" for k, _, _ in chunks]
+        lst.write_text("".join(f"file '{f}'\n" for f in files))
         name = f"{cfg.video_basename}_{'16x9' if ar == '169' else '9x16'}_4K.mp4"
         tmpout = tmp / name
         sh(["ffmpeg", "-y", "-v", "error", "-f", "concat", "-safe", "0", "-i", str(lst), "-i", str(cfg.p("vo", "master.wav")),
@@ -49,7 +68,8 @@ def run(cfg, state, timeout=None):
                               "-of", "json", str(tmpout)]))
         st = [s for s in info["streams"] if s.get("width")][0]
         want = (3840, 2160) if ar == "169" else (2160, 3840)
-        if (st["width"], st["height"]) != (want[0] * cfg["video"]["scale"] // 2, want[1] * cfg["video"]["scale"] // 2):
+        f = 2 if up else cfg["video"]["scale"]
+        if (st["width"], st["height"]) != (want[0] * f // 2, want[1] * f // 2):
             log.get("mux").warning("%s is %sx%s", name, st["width"], st["height"])
         dest = cfg.p("out", name); shutil.copy(tmpout, dest)
         outs[ar] = {"file": str(dest.relative_to(cfg.proj)), "w": st["width"], "h": st["height"],

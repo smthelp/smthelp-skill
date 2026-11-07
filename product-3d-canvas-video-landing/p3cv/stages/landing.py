@@ -6,6 +6,10 @@ Output : out/<landing.output or slug-landing-page-animated.html>
 Config : landing.insert_before (exact HTML snippet to insert before; must exist once),
          landing.nav_after_href (e.g. "#models": a How-It-Works link is added after every nav link to it),
          landing.nav_after_text (optional: only links whose visible text contains this string)
+         landing.replacements ([find, replace] or {find, replace, count}): rewrite the base page's own copy
+           (title, meta, hero, specs, FAQ, JSON-LD) for a new model/variant; each must match exactly `count`
+           times (default 1) or the stage fails, so a changed base page never ships half-rewritten.
+         landing.forbid (strings that must not remain, e.g. the old model name): reported as `leftovers`.
 """
 import base64, html, io, json, re, urllib.parse
 from . import stage
@@ -70,6 +74,25 @@ def fill_section(cfg, frames, photo_uri):
     return tpl
 
 
+def apply_replacements(page, reps):
+    for i, r in enumerate(reps):
+        find, rep, cnt = (r[0], r[1], 1) if isinstance(r, (list, tuple)) else (r["find"], r["replace"], r.get("count", 1))
+        n = page.count(find)
+        if n != cnt:
+            raise P3VError("E_ASSEMBLE", f"landing.replacements[{i}] matched {n}x (expected {cnt}): {find[:70]!r}",
+                           "the base page changed or the snippet is not exact; copy it from src/<base>.html")
+        page = page.replace(find, rep)
+    return page
+
+
+def leftovers(page, forbid):
+    out = []
+    for w in forbid or []:
+        for m in re.finditer(re.escape(w), page):
+            out.append(page[max(0, m.start() - 40):m.end() + 40].replace("\n", " "))
+    return out
+
+
 @stage("landing", deps=["download", "capture"], desc="Insert the animation section into the landing page")
 def run(cfg, state):
     lg = log.get("landing"); L = cfg["landing"]
@@ -77,6 +100,7 @@ def run(cfg, state):
     if not base.exists():
         raise P3VError("E_CONFIG", f"landing.base '{L['base']}' -> {base.name} not in src/", "run download first")
     page = base.read_text(encoding="utf-8").replace("\r\n", "\n")
+    page = apply_replacements(page, L.get("replacements") or [])
     frames = [data_uri(f, 760, 60) for f in sorted(cfg.p("img", "tt", "x").parent.glob("v*.png"))]
     if len(frames) < 2:
         raise P3VError("E_STAGE_ORDER", "no turntable frames in img/tt/", "run capture")
@@ -103,5 +127,8 @@ def run(cfg, state):
             lg.warning("no nav link with href=%s found; nav not updated", href)
     out = cfg.p("out", L.get("output") or f"{cfg.slug}-landing-page-animated.html")
     out.write_text(page, encoding="utf-8")
-    lg.info("wrote %s (%d KB, nav links added: %d)", out.name, len(page) // 1024, n)
-    return {"html": str(out.relative_to(cfg.proj)), "kb": len(page) // 1024, "nav_links": n}
+    left = leftovers(page, L.get("forbid"))
+    for x in left[:10]:
+        lg.warning("forbidden text left: ...%s...", x)
+    lg.info("wrote %s (%d KB, nav links added: %d, leftovers: %d)", out.name, len(page) // 1024, n, len(left))
+    return {"html": str(out.relative_to(cfg.proj)), "kb": len(page) // 1024, "nav_links": n, "leftovers": left}

@@ -74,3 +74,18 @@ Chapters are generated from `segments[].chapter`.
 ## hooks / plugins
 `hooks`: `{"pre": "...", "post_landing": "python3 my_check.py"}` — shell commands run in PROJ with env
 `P3CV_PROJ`, `P3CV_STAGE`, `P3CV_WHEN`; non-zero exit = `E_HOOK`. `plugins`: list of .py files (see EXTENDING.md).
+
+## Added in 1.2.0 (all optional, defaults keep 1.1 behaviour)
+- `schema_version` (int, current **1**): product.json format. Files without it are treated as 1.
+  A newer value than the installed skill reads fails with `E_CONFIG` ("upgrade the skill"). `p3cv migrate` upgrades.
+- `landing.replacements`: list of `[find, replace]` or `{"find", "replace", "count"}` applied to the base page
+  before the section is inserted. Use it to turn an existing model page into a new model / customer variant
+  (title, meta description, JSON-LD, hero, KPIs, spec table, FAQ, advisor facts). Each snippet must match exactly
+  `count` (default 1) times, otherwise `E_ASSEMBLE` - copy snippets verbatim from `src/<base>.html`.
+- `landing.forbid`: strings that must not survive (e.g. the old model "S7020"); found ones are logged and
+  returned as `leftovers` in the stage output (links to sibling product pages may legitimately remain).
+- `video.upscale` (bool): with `video.scale: 1`, frames render at 1080p (~2-4x faster than scale 2) and `mux`
+  lanczos-upscales each chunk to 3840x2160 / 2160x3840, one chunk at a time with low-memory x264 settings.
+- `privacy.confidential` (list of source names/paths under NDA, e.g. customer drawings) and `privacy.notes`
+  (publishing cautions): copied into the SEO file's CONFIDENTIALITY block; `check` warns when a confidential
+  file is referenced in product.json.
