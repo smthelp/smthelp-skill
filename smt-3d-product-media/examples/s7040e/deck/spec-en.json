@@ -1,0 +1,563 @@
+{
+ "meta": {
+  "lang": "en",
+  "title": "S7040E Eyelet Insertion Machine – 4 Heads 4 Bowl Feeders – Southern Machinery",
+  "subject": "4-head eyelet insertion machine with 4 vibration bowls for bulk eyelets, 0.5 s per part",
+  "keywords": "eyelet insertion machine, S7040E, eyelet inserter, hollow rivet insertion, PCB eyelet machine, vibratory bowl feeder, THT automation, Southern Machinery"
+ },
+ "labels": {
+  "deck_label": "Product Presentation"
+ },
+ "title": {
+  "eyebrow": "EYELET INSERTION",
+  "name": "Eyelet Insertion Machine — S7040E",
+  "subtitle": "4 insertion heads and 4 vibration bowls insert and flare bulk eyelets",
+  "tagline": "4 heads · 4 bowl feeders · 0.5 s per part",
+  "date": "November 2026",
+  "image": "studio_S7040E.jpg",
+  "notes": "Studio cutout of real S7020T photo relabeled S7040E (same outline) - pending Jason OK."
+ },
+ "contents": [
+  [
+   "Overview",
+   "What S7040E is and where it fits"
+  ],
+  [
+   "Key Figures & FAB",
+   "Heads, bowls, speed, accuracy"
+  ],
+  [
+   "How It Works",
+   "3D animation, real footage, cycle"
+  ],
+  [
+   "Design & Line",
+   "Details, clinch, loader and unloader"
+  ],
+  [
+   "Specifications",
+   "S7040E data and S70xx guide"
+  ],
+  [
+   "Capacity",
+   "Boards per hour example"
+  ]
+ ],
+ "slides": [
+  {
+   "type": "overview",
+   "title": "S7040E at a Glance",
+   "lead": "A dedicated eyelet insertion machine: 4 insertion heads and 4 vibration bowls insert bulk eyelets and flare them from below, with vision correction and insertion check on every point.",
+   "apps": [
+    [
+     "Parts",
+     "Eyelets, hollow rivets and rivet pins, Ø1.3–4.0 mm, up to 4 sizes per board"
+    ],
+    [
+     "Industries",
+     "Appliance and power boards, single-sided boards needing reinforced holes"
+    ],
+    [
+     "Feeding",
+     "4 vibration bowls for bulk eyelets (reel feeder optional)"
+    ]
+   ],
+   "image": "eyelet_pcb_top.jpg",
+   "caption": "Board with inserted eyelets",
+   "notes": "Eyelet range Ø1.3–4.0 mm: AGENTS 4.3 (S7040E, S-7000E Upgrade). Photo: Jason upload 'Eyelet Insertion PCB'."
+  },
+  {
+   "type": "pains",
+   "title": "Why Manual Eyelet Insertion Holds Lines Back",
+   "lead": "Eyelets are tiny and must be flared evenly. Hand insertion and hand riveting cap output and quality.",
+   "items": [
+    [
+     "Slow, two steps",
+     "Insert by hand, then rivet at a press"
+    ],
+    [
+     "Uneven flaring",
+     "Cracked or loose eyelets fail at soldering"
+    ],
+    [
+     "Missing eyelets",
+     "Found only after soldering, then reworked"
+    ],
+    [
+     "Many sizes",
+     "Mixing diameters by hand causes errors"
+    ],
+    [
+     "Labour dependence",
+     "Output follows headcount and turnover"
+    ],
+    [
+     "No traceability",
+     "No record of what was inserted and when"
+    ]
+   ],
+   "notes": "Qualitative customer pains. No figures claimed."
+  },
+  {
+   "type": "metrics",
+   "title": "Key Figures",
+   "lead": "S7040E = S7020T platform with 4 insertion heads and 4 feeders, dedicated to eyelets.",
+   "items": [
+    [
+     "4 + 4",
+     "Heads + bowls",
+     "Up to 4 eyelet sizes, no changeover"
+    ],
+    [
+     "0.5 s",
+     "Per part",
+     "7,200 parts/h net insertion"
+    ],
+    [
+     "Ø1.3–4.0",
+     "Eyelet diameter (mm)",
+     "Gripper and die per size"
+    ],
+    [
+     "0.015 mm",
+     "Vision correction",
+     "Automatic hole / Mark correction"
+    ]
+   ],
+   "footer": "7,200 parts/h = 3,600 s ÷ 0.5 s, insertion only; PCB in/out and Mark reading are added per board.",
+   "notes": "AGENTS.md v2 sec 4.2 (Jason, 2026-11-07); S7020 Series 202303; S7020T manual. 0.5 s/part unified figure (Jason)."
+  },
+  {
+   "type": "fab",
+   "title": "FAB 1 · Four Heads, Four Bowls",
+   "rows": [
+    [
+     [
+      "4 insertion heads",
+      "Gripper sized per eyelet"
+     ],
+     [
+      "4 sizes, one pass",
+      "No changeover between them"
+     ],
+     [
+      "More output",
+      "Replaces several hand stations"
+     ]
+    ],
+    [
+     [
+      "4 vibration bowls",
+      "Bulk eyelets oriented flange-up"
+     ],
+     [
+      "Track and slider",
+      "One eyelet at a time to the head"
+     ],
+     [
+      "Less handling",
+      "Operators only refill"
+     ]
+    ],
+    [
+     [
+      "Bottom clinch die",
+      "Splits and flares each eyelet"
+     ],
+     [
+      "Insert and rivet in one",
+      "No separate press step"
+     ],
+     [
+      "Even flaring",
+      "Firm eyelets before soldering"
+     ]
+    ]
+   ],
+   "notes": "Bowl flow (sort -> linear track -> slider -> air to gripper): AGENTS feeder section (S-7000E). Bottom die splits and flares ('pressing to blossom'): AGENTS 3.3."
+  },
+  {
+   "type": "fab",
+   "title": "FAB 2 · Accuracy, Checks and Data",
+   "rows": [
+    [
+     [
+      "Vision correction",
+      "Hole and Mark correction 0.015 mm"
+     ],
+     [
+      "Hits every hole",
+      "Corrects board tolerance"
+     ],
+     [
+      "Fewer misses",
+      "Less rework before soldering"
+     ]
+    ],
+    [
+     [
+      "Insertion detection",
+      "Base supports and checks each eyelet"
+     ],
+     [
+      "Stops and alarms",
+      "Missing parts caught at once"
+     ],
+     [
+      "No missing eyelets",
+      "Caught before soldering"
+     ]
+    ],
+    [
+     [
+      "Excel / USB programming",
+      "Online visual teaching"
+     ],
+     [
+      "Fast new programs",
+      "Import coordinates, no retyping"
+     ],
+     [
+      "RS-232C to MES",
+      "Production data for traceability"
+     ]
+    ]
+   ],
+   "notes": "Correction 0.015 mm, insertion detection: S7020T manual. Programming/communication: AGENTS 4.2."
+  },
+  {
+   "type": "video",
+   "title": "How It Works",
+   "lead": "3D working principle (4 heads, 4 bowls, bulk eyelets) plus real 4-head bulk insertion footage.",
+   "items": [
+    {
+     "video": "{video}",
+     "poster": "{poster}",
+     "head": "3D + real machine video",
+     "body": [
+      "PCB in, feed, insert, flare, out",
+      "Voiceover, EN and ZH versions"
+     ]
+    }
+   ],
+   "notes": "Video by smt-3d-product-media from 'Pin Eyelet Inserter.STEP' with 4-head copies. Real clips (Drive): 5 插件头散装供料 r1, bowl r2, 马来西亚插片+铆柱.mp4, 插针机.mp4. No pure-eyelet clip found in Drive."
+  },
+  {
+   "type": "process",
+   "title": "Insertion Cycle in Six Steps",
+   "steps": [
+    [
+     "Load",
+     "Loader feeds PCB, clamp"
+    ],
+    [
+     "Feed",
+     "Bowl to track to head"
+    ],
+    [
+     "Correct",
+     "Camera reads Mark / hole"
+    ],
+    [
+     "Insert",
+     "Head presses eyelet in"
+    ],
+    [
+     "Flare",
+     "Bottom die splits and flares"
+    ],
+    [
+     "Unload",
+     "Into magazine"
+    ]
+   ],
+   "images": [
+    [
+     "s7040e_insert.jpg",
+     "4 heads over the board (3D)"
+    ],
+    [
+     "real_rivet_posts.jpg",
+     "Bottom clinch dies"
+    ],
+    [
+     "eyelet_pcb_bottom.jpg",
+     "Flared eyelets, solder side"
+    ]
+   ],
+   "notes": "Flow per S7020T manual sec 2.2 + AGENTS 3.3. real_rivet_posts.jpg: frame of Drive '马来西亚插片+铆柱.mp4'. eyelet_pcb_bottom.jpg: Jason upload P31012-094046."
+  },
+  {
+   "type": "gallery",
+   "title": "Design Details",
+   "items": [
+    {
+     "image": "real_4heads.jpg",
+     "head": "4 insertion heads",
+     "body": [
+      "Gripper per eyelet size",
+      "Servo-driven X/Y table"
+     ]
+    },
+    {
+     "image": "bowls_inside.png",
+     "head": "4 vibration bowls",
+     "body": [
+      "Bulk eyelets, no tape cost",
+      "Reel feeder optional"
+     ]
+    },
+    {
+     "image": "eyelet_heads.jpg",
+     "head": "Eyelet insertion heads",
+     "body": [
+      "Holds eyelet until seated",
+      "Element spacing ≥ 2 mm"
+     ]
+    },
+    {
+     "image": "eyelet_pcb_bottom.jpg",
+     "head": "Flared on the solder side",
+     "body": [
+      "Even, firm flaring",
+      "Vertical error ≤ 0.8°"
+     ]
+    }
+   ],
+   "notes": "Element spacing ≥ 2 mm, vertical error ≤ 0.8°: AGENTS 4.2 (S7020 Series 202303). eyelet_heads.jpg: Jason PDF p5 (2-head eyelet unit, S-7000)."
+  },
+  {
+   "type": "gallery",
+   "title": "Complete Line, Magazine to Magazine",
+   "items": [
+    {
+     "image": "s7040e_3d_hero.jpg",
+     "fit": true,
+     "head": "Loader + S7040E + unloader",
+     "body": [
+      "SLD250 loader, SULD250 unloader",
+      "SMEMA linked"
+     ]
+    },
+    {
+     "image": "site_S7040E.jpg",
+     "head": "S70xx platform outline",
+     "body": [
+      "Left-to-right PCB flow",
+      "1700 × 1300 × 1600 mm"
+     ]
+    }
+   ],
+   "imgh": 3.3,
+   "notes": "Loader/unloader default SLD250 + SULD250 (AGENTS). site_S7040E.jpg = real S7020T installation with label changed to S7040E (same outline) - pending Jason OK for external use; do not caption as S7040E customer site."
+  },
+  {
+   "type": "specs",
+   "title": "S7040E Specifications",
+   "rows": [
+    [
+     "Insertion heads / feeders",
+     "4 / 4"
+    ],
+    [
+     "Feeding",
+     "4 vibration bowls, bulk eyelets (reel optional)"
+    ],
+    [
+     "Eyelets",
+     "Diameter 1.3–4.0 mm; eyelets, hollow rivets, rivet pins"
+    ],
+    [
+     "Clinch",
+     "Bottom die splits and flares the eyelet"
+    ],
+    [
+     "Speed",
+     "0.5 s per part"
+    ],
+    [
+     "PCB size",
+     "80 × 80 to 380 × 280 mm (larger customizable)"
+    ],
+    [
+     "Insertion angle",
+     "360°, 1° increment"
+    ],
+    [
+     "Vision correction",
+     "0.015 mm"
+    ],
+    [
+     "Programming",
+     "Online visual, Excel, USB import"
+    ],
+    [
+     "Communication",
+     "RS-232C, MES connection"
+    ],
+    [
+     "Power / air",
+     "Single 220 V AC, 50/60 Hz, 1.6 KVA; 5–6 kgf/cm²"
+    ],
+    [
+     "Dimensions",
+     "1700 × 1300 × 1600 mm"
+    ],
+    [
+     "Weight",
+     "1500 kg"
+    ]
+   ],
+   "footer": "Dimensions without loader and unloader. Other voltages on request.",
+   "notes": "AGENTS.md v2 sec 4.2 (Jason, 2026-11-07); S7020 Series 202303; S7020T manual. All S70xx incl. S7040E use S7020T base specs (Jason 2026-11-07); old S7040E PDF figures and the S-7000 PDF (8000 CPH, 2300 x 1340 x 1860) retired."
+  },
+  {
+   "type": "table",
+   "title": "S70xx Series Model Guide",
+   "columns": [
+    "Model",
+    "Dedicated parts",
+    "Heads / feeders",
+    "Feeding",
+    "Speed"
+   ],
+   "widths": [
+    1.6,
+    3,
+    2,
+    2.6,
+    1.6
+   ],
+   "rows": [
+    [
+     "S7020T",
+     "Terminal",
+     "2 / 2",
+     "Bowl or reel",
+     "0.5 s / part"
+    ],
+    [
+     "S7040T",
+     "Terminal",
+     "4 / 4",
+     "Bowl or reel",
+     "0.5 s / part"
+    ],
+    [
+     "S7020P",
+     "PIN",
+     "2 / 2",
+     "Bowl or reel",
+     "0.5 s / part"
+    ],
+    [
+     "S7040P",
+     "PIN",
+     "4 / 4",
+     "Bowl or reel",
+     "0.5 s / part"
+    ],
+    [
+     "S7020E",
+     "Eyelet",
+     "2 / 2",
+     "Bowl or reel",
+     "0.5 s / part"
+    ],
+    [
+     "S7040E",
+     "Eyelet",
+     "4 / 4",
+     "Bowl or reel",
+     "0.5 s / part"
+    ],
+    [
+     "S7020S",
+     "Tact switch",
+     "2 / 2",
+     "Bowl or reel",
+     "0.5 s / part"
+    ]
+   ],
+   "lead": "One platform, one footprint: choose the part type and 2 or 4 heads.",
+   "footer": "All models: 1700 × 1300 × 1600 mm, 1500 kg, 1.6 KVA, PCB 380 × 280 mm (customizable).",
+   "notes": "Naming S70<heads>0<letter>; all models S7020T base spec (Jason 2026-11-07)."
+  },
+  {
+   "type": "table",
+   "title": "Capacity Example",
+   "columns": [
+    "Eyelets per board",
+    "Insertion (s)",
+    "+ PCB in/out & Mark (s)",
+    "s / board",
+    "Boards / h"
+   ],
+   "widths": [
+    2,
+    1.8,
+    2.8,
+    1.6,
+    1.6
+   ],
+   "rows": [
+    [
+     "10",
+     "5",
+     "5",
+     "10",
+     "360"
+    ],
+    [
+     "20",
+     "10",
+     "5",
+     "15",
+     "240"
+    ],
+    [
+     "28",
+     "14",
+     "5",
+     "19",
+     "189"
+    ],
+    [
+     "40",
+     "20",
+     "5",
+     "25",
+     "144"
+    ]
+   ],
+   "lead": "0.5 s per eyelet, plus 4 s PCB in/out and 1 s Mark reading per board.",
+   "footer": "Boards/h = 3,600 ÷ s/board, rounded down, before efficiency factor. Confirm with your board in a sample run.",
+   "notes": "28 eyelets = 20 + 8 example board in Jason's S-7000 PDF (p3/p4). PCB in/out 4 s + Mark 1 s: same assumption as S7040P/S7020T decks."
+  },
+  {
+   "type": "summary",
+   "title": "Summary & Next Step",
+   "lead": "S7040E inserts and flares up to four eyelet sizes per pass at 0.5 s per part, with vision correction and insertion check.",
+   "items": [
+    [
+     "4 heads, 4 bowls",
+     "Bulk eyelets, no changeover"
+    ],
+    [
+     "Insert and flare",
+     "Bottom die flares every eyelet"
+    ],
+    [
+     "Complete line",
+     "SLD250 loader, SULD250 unloader, SMEMA"
+    ],
+    [
+     "Local support",
+     "On-site installation and operator training"
+    ]
+   ],
+   "cta": "Send your PCB file and eyelet samples to info@smthelp.com for a free evaluation",
+   "notes": "Brand Book CTA."
+  }
+ ]
+}

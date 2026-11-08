@@ -1,0 +1,12 @@
+{
+ "_doc": "Recolour presets applied to CAD colours (0-255 rgb in 'from', 0-1 rgb in 'to'). Rules run in order; 'exact' matches within tol (0-1 scale); 'green'/'red' are hue heuristics for CAD-default saturated colours.",
+ "none": [],
+ "sm-machine": [
+  {"exact": [255, 55, 0], "to": [0.78, 0.80, 0.82], "tol": 0.02, "why": "orange welded frame -> light grey"},
+  {"exact": [151, 163, 218], "to": [0.72, 0.75, 0.80], "tol": 0.02, "why": "blue-grey -> aluminium"},
+  {"exact": [55, 255, 55], "to": [0.20, 0.62, 0.70], "tol": 0.02},
+  {"exact": [55, 255, 255], "to": [0.55, 0.60, 0.66], "tol": 0.02},
+  {"green": true, "to": [0.0, 0.58, 0.66], "why": "CAD neon green -> SM teal"},
+  {"red": true, "to": [0.70, 0.25, 0.22], "why": "CAD pure red -> brick"}
+ ]
+}

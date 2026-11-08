@@ -1,0 +1,60 @@
+{
+ "name": "smt-3d-product-media",
+ "version": "1.1.0",
+ "description": "3D CAD (STEP) -> branded working-principle animation video (EN/ZH captions, real footage, logo, AI voiceover) + product introduction PPT embedding it.",
+ "entrypoint": "scripts/smt3dmedia.py",
+ "invoke": "python3 scripts/smt3dmedia.py <command> <job.json> [--set key=value]",
+ "commands": [
+  "doctor",
+  "init",
+  "check",
+  "inspect",
+  "preview",
+  "render",
+  "stills",
+  "real",
+  "voice",
+  "compose",
+  "deck",
+  "publish",
+  "all"
+ ],
+ "input_schema": "smt-3d-product-media/job@1",
+ "inputs": {
+  "job": "job.json (references/job-spec.md)",
+  "cad": "STEP/STP/GLB",
+  "real_clips": "mp4 (optional)",
+  "deck_spec": "smt-product-ppt-rebrand spec.json per language (optional)"
+ },
+ "outputs": {
+  "video": "out/video/{slug}-{variant}-{LANG}.mp4",
+  "deck": "out/deck/{slug}-Product-Presentation-{LANG}-Southern-Machinery.pptx",
+  "stills": "out/stills/*.jpg",
+  "manifest": "out/manifest.json"
+ },
+ "requires": {
+  "python": ">=3.10",
+  "pip": "requirements.txt",
+  "system": [
+   "ffmpeg>=5"
+  ],
+  "optional": [
+   "gws CLI (publish)"
+  ]
+ },
+ "depends_on": {
+  "smt-product-ppt-rebrand": ">=1.1.0"
+ },
+ "docs": [
+  "SKILL.md",
+  "references/contract.md",
+  "references/job-spec.md",
+  "references/method.md",
+  "references/troubleshooting.md",
+  "references/versioning.md"
+ ],
+ "example": "examples/s7040p/job.json",
+ "test": "tests/smoke.sh",
+ "owner": "Southern Machinery (smthelp)",
+ "updated": "2026-11-08"
+}

@@ -1,0 +1,586 @@
+{
+ "meta": {
+  "lang": "zh",
+  "title": "S7040E 铆钉插件机 – 4 头 4 振动盘 – Southern Machinery",
+  "subject": "4 头铆钉插件机，4 个振动盘散装供料，0.5 秒/件",
+  "keywords": "eyelet insertion machine, S7040E, eyelet inserter, hollow rivet insertion, PCB eyelet machine, vibratory bowl feeder, THT automation, Southern Machinery"
+ },
+ "labels": {
+  "contents": "目录",
+  "deck_label": "产品介绍",
+  "app_head": "项目",
+  "app_sub": "内容",
+  "fab": [
+   [
+    "特点",
+    "具备什么"
+   ],
+   [
+    "优势",
+    "能做什么"
+   ],
+   [
+    "收益",
+    "带来什么"
+   ]
+  ],
+  "specs": [
+   "参数",
+   "规格",
+   "参数",
+   "规格"
+  ]
+ },
+ "title": {
+  "eyebrow": "铆钉自动化",
+  "name": "铆钉插件机 — S7040E",
+  "subtitle": "4 个插件头、4 个振动盘，散装铆钉插入即铆压",
+  "tagline": "4 头 · 4 振动盘 · 0.5 秒/件",
+  "date": "2026 年 11 月",
+  "image": "studio_S7040E.jpg",
+  "notes": "Studio cutout of real S7020T photo relabeled S7040E (same outline) - pending Jason OK."
+ },
+ "contents": [
+  [
+   "产品概览",
+   "S7040E 是什么、用在哪里"
+  ],
+  [
+   "关键参数与 FAB",
+   "插件头、振动盘、速度、精度"
+  ],
+  [
+   "工作原理",
+   "3D 动画、实机视频、流程"
+  ],
+  [
+   "设计与产线",
+   "细节、铆压、上下板机"
+  ],
+  [
+   "技术参数",
+   "S7040E 参数与 S70xx 选型"
+  ],
+  [
+   "产能",
+   "每小时产能示例"
+  ]
+ ],
+ "slides": [
+  {
+   "type": "overview",
+   "title": "S7040E 产品概览",
+   "lead": "专用铆钉插件机：4 个插件头、4 个振动盘，插入散装铆钉并从底部铆压开花，每个点都有视觉校正和插入检测。",
+   "apps": [
+    [
+     "元件",
+     "铆钉、空心铆钉、铆柱，Ø1.3–4.0 mm，每板最多 4 种规格"
+    ],
+    [
+     "行业",
+     "家电与电源板、需要孔位加强的单面板"
+    ],
+    [
+     "供料",
+     "4 个振动盘供散装铆钉（可选 Reel 料盘）"
+    ]
+   ],
+   "image": "eyelet_pcb_top.jpg",
+   "caption": "已插铆钉的电路板",
+   "notes": "Eyelet range Ø1.3–4.0 mm: AGENTS 4.3 (S7040E, S-7000E Upgrade). Photo: Jason upload 'Eyelet Insertion PCB'."
+  },
+  {
+   "type": "pains",
+   "title": "人工插铆钉的瓶颈",
+   "lead": "铆钉细小且需均匀开花。人工插钉、人工铆压限制了产量和质量。",
+   "items": [
+    [
+     "慢，两道工序",
+     "人工插钉，再到压机上铆压"
+    ],
+    [
+     "开花不均",
+     "开裂或松动，焊接时出问题"
+    ],
+    [
+     "漏插",
+     "焊后才发现，只能返工"
+    ],
+    [
+     "规格多",
+     "人工混用不同直径易出错"
+    ],
+    [
+     "依赖人工",
+     "产量随人数和流失率波动"
+    ],
+    [
+     "无法追溯",
+     "无法记录插了什么、何时插"
+    ]
+   ],
+   "notes": "Qualitative customer pains. No figures claimed."
+  },
+  {
+   "type": "metrics",
+   "title": "关键参数",
+   "lead": "S7040E = S7020T 平台 + 4 个插件头 + 4 个供料器，专用于铆钉。",
+   "items": [
+    [
+     "4 + 4",
+     "插件头 + 振动盘",
+     "最多 4 种铆钉，无需换型"
+    ],
+    [
+     "0.5 s",
+     "每件",
+     "净插件 7,200 件/小时"
+    ],
+    [
+     "Ø1.3–4.0",
+     "铆钉直径 (mm)",
+     "每种规格配夹爪与底模"
+    ],
+    [
+     "0.015 mm",
+     "视觉校正",
+     "自动孔位 / Mark 校正"
+    ]
+   ],
+   "footer": "7,200 件/小时 = 3,600 秒 ÷ 0.5 秒，仅计插件；每块板另计进出板与 Mark 识别时间。",
+   "notes": "AGENTS.md v2 sec 4.2 (Jason, 2026-11-07); S7020 Series 202303; S7020T manual. 0.5 s/part unified figure (Jason)."
+  },
+  {
+   "type": "fab",
+   "title": "FAB 1 · 4 头 4 振动盘",
+   "rows": [
+    [
+     [
+      "4 个插件头",
+      "按铆钉规格设计夹爪"
+     ],
+     [
+      "一次 4 种规格",
+      "规格之间无需换型"
+     ],
+     [
+      "产量更高",
+      "替代多个人工工位"
+     ]
+    ],
+    [
+     [
+      "4 个振动盘",
+      "散装铆钉自动排向，帽沿朝上"
+     ],
+     [
+      "轨道与滑块",
+      "逐个送到插件头"
+     ],
+     [
+      "减少人工",
+      "操作员只需补料"
+     ]
+    ],
+    [
+     [
+      "底部铆压模",
+      "切开并压开每个铆钉"
+     ],
+     [
+      "插铆一体",
+      "无需另设压机工序"
+     ],
+     [
+      "开花均匀",
+      "焊前铆钉牢固"
+     ]
+    ]
+   ],
+   "notes": "Bowl flow (sort -> linear track -> slider -> air to gripper): AGENTS feeder section (S-7000E). Bottom die splits and flares ('pressing to blossom'): AGENTS 3.3."
+  },
+  {
+   "type": "fab",
+   "title": "FAB 2 · 精度、检测与数据",
+   "rows": [
+    [
+     [
+      "视觉校正",
+      "孔位与 Mark 校正 0.015 mm"
+     ],
+     [
+      "精准对孔",
+      "补偿电路板公差"
+     ],
+     [
+      "减少漏插",
+      "焊前返工更少"
+     ]
+    ],
+    [
+     [
+      "插入检测",
+      "底座支撑并检测每个铆钉"
+     ],
+     [
+      "停机报警",
+      "漏插即时发现"
+     ],
+     [
+      "杜绝漏插",
+      "焊接前即拦截"
+     ]
+    ],
+    [
+     [
+      "Excel / USB 编程",
+      "在线视觉示教"
+     ],
+     [
+      "新程序快",
+      "导入坐标，无需重输"
+     ],
+     [
+      "RS-232C 接 MES",
+      "生产数据可追溯"
+     ]
+    ]
+   ],
+   "notes": "Correction 0.015 mm, insertion detection: S7020T manual. Programming/communication: AGENTS 4.2."
+  },
+  {
+   "type": "video",
+   "title": "工作原理",
+   "lead": "3D 工作原理（4 头 4 振动盘、散装铆钉），含 4 头散装插件实机视频。",
+   "items": [
+    {
+     "video": "{video}",
+     "poster": "{poster}",
+     "head": "3D 动画 + 实机视频",
+     "body": [
+      "进板、供料、插件、铆压、出板",
+      "带配音，中英两版"
+     ]
+    }
+   ],
+   "notes": "Video by smt-3d-product-media from 'Pin Eyelet Inserter.STEP' with 4-head copies. Real clips (Drive): 5 插件头散装供料 r1, bowl r2, 马来西亚插片+铆柱.mp4, 插针机.mp4. No pure-eyelet clip found in Drive."
+  },
+  {
+   "type": "process",
+   "title": "插件流程",
+   "steps": [
+    [
+     "进板",
+     "上板机送板并夹紧"
+    ],
+    [
+     "供料",
+     "振动盘经轨道送到插件头"
+    ],
+    [
+     "校正",
+     "相机识别 Mark / 孔位"
+    ],
+    [
+     "插件",
+     "插件头压入铆钉"
+    ],
+    [
+     "铆压",
+     "底模切开并压成开花"
+    ],
+    [
+     "出板",
+     "送入料框"
+    ]
+   ],
+   "images": [
+    [
+     "s7040e_insert.jpg",
+     "4 个插件头作业（3D）"
+    ],
+    [
+     "real_rivet_posts.jpg",
+     "底部铆压模"
+    ],
+    [
+     "eyelet_pcb_bottom.jpg",
+     "焊接面铆钉开花"
+    ]
+   ],
+   "notes": "Flow per S7020T manual sec 2.2 + AGENTS 3.3. real_rivet_posts.jpg: frame of Drive '马来西亚插片+铆柱.mp4'. eyelet_pcb_bottom.jpg: Jason upload P31012-094046."
+  },
+  {
+   "type": "gallery",
+   "title": "设计细节",
+   "items": [
+    {
+     "image": "real_4heads.jpg",
+     "head": "4 个插件头",
+     "body": [
+      "每种规格专用夹爪",
+      "伺服驱动 X/Y 工作台"
+     ]
+    },
+    {
+     "image": "bowls_inside.png",
+     "head": "4 个振动盘",
+     "body": [
+      "散装铆钉，无编带成本",
+      "可选 Reel 料盘"
+     ]
+    },
+    {
+     "image": "eyelet_heads.jpg",
+     "head": "铆钉插件头",
+     "body": [
+      "夹持至铆钉到位",
+      "元件间距 ≥ 2 mm"
+     ]
+    },
+    {
+     "image": "eyelet_pcb_bottom.jpg",
+     "head": "焊接面开花",
+     "body": [
+      "开花均匀牢固",
+      "垂直误差 ≤ 0.8°"
+     ]
+    }
+   ],
+   "notes": "Element spacing ≥ 2 mm, vertical error ≤ 0.8°: AGENTS 4.2 (S7020 Series 202303). eyelet_heads.jpg: Jason PDF p5 (2-head eyelet unit, S-7000)."
+  },
+  {
+   "type": "gallery",
+   "title": "完整产线：料框进，料框出",
+   "items": [
+    {
+     "image": "s7040e_3d_hero.jpg",
+     "fit": true,
+     "head": "上板机 + S7040E + 下板机",
+     "body": [
+      "SLD250 上板机，SULD250 下板机",
+      "SMEMA 连线"
+     ]
+    },
+    {
+     "image": "site_S7040E.jpg",
+     "head": "S70xx 平台外形",
+     "body": [
+      "PCB 左进右出",
+      "1700 × 1300 × 1600 mm"
+     ]
+    }
+   ],
+   "imgh": 3.3,
+   "notes": "Loader/unloader default SLD250 + SULD250 (AGENTS). site_S7040E.jpg = real S7020T installation with label changed to S7040E (same outline) - pending Jason OK for external use; do not caption as S7040E customer site."
+  },
+  {
+   "type": "specs",
+   "title": "S7040E 技术参数",
+   "rows": [
+    [
+     "插件头 / 供料器",
+     "4 / 4"
+    ],
+    [
+     "供料方式",
+     "4 个振动盘，散装铆钉（可选 Reel）"
+    ],
+    [
+     "适用铆钉",
+     "直径 1.3–4.0 mm；铆钉、空心铆钉、铆柱"
+    ],
+    [
+     "铆压",
+     "底模切开铆钉并压成开花"
+    ],
+    [
+     "速度",
+     "0.5 秒/件"
+    ],
+    [
+     "PCB 尺寸",
+     "80 × 80 至 380 × 280 mm（可定制加大）"
+    ],
+    [
+     "插件角度",
+     "360°，1° 步进"
+    ],
+    [
+     "视觉校正",
+     "0.015 mm"
+    ],
+    [
+     "编程",
+     "在线视觉示教、Excel、USB 导入"
+    ],
+    [
+     "通讯",
+     "RS-232C，可接 MES"
+    ],
+    [
+     "电源 / 气源",
+     "单相 220 V AC，50/60 Hz，1.6 KVA；5–6 kgf/cm²"
+    ],
+    [
+     "外形尺寸",
+     "1700 × 1300 × 1600 mm"
+    ],
+    [
+     "重量",
+     "1500 kg"
+    ]
+   ],
+   "footer": "尺寸不含上下板机。其他电压可按需定制。",
+   "notes": "AGENTS.md v2 sec 4.2 (Jason, 2026-11-07); S7020 Series 202303; S7020T manual. All S70xx incl. S7040E use S7020T base specs (Jason 2026-11-07); old S7040E PDF figures and the S-7000 PDF (8000 CPH, 2300 x 1340 x 1860) retired."
+  },
+  {
+   "type": "table",
+   "title": "S70xx 系列选型",
+   "columns": [
+    "型号",
+    "专用元件",
+    "插件头 / 供料器",
+    "供料方式",
+    "速度"
+   ],
+   "widths": [
+    1.6,
+    3,
+    2,
+    2.6,
+    1.6
+   ],
+   "rows": [
+    [
+     "S7020T",
+     "端子",
+     "2 / 2",
+     "振动盘或料带",
+     "0.5 秒/件"
+    ],
+    [
+     "S7040T",
+     "端子",
+     "4 / 4",
+     "振动盘或料带",
+     "0.5 秒/件"
+    ],
+    [
+     "S7020P",
+     "PIN",
+     "2 / 2",
+     "振动盘或料带",
+     "0.5 秒/件"
+    ],
+    [
+     "S7040P",
+     "PIN",
+     "4 / 4",
+     "振动盘或料带",
+     "0.5 秒/件"
+    ],
+    [
+     "S7020E",
+     "铆钉",
+     "2 / 2",
+     "振动盘或料带",
+     "0.5 秒/件"
+    ],
+    [
+     "S7040E",
+     "铆钉",
+     "4 / 4",
+     "振动盘或料带",
+     "0.5 秒/件"
+    ],
+    [
+     "S7020S",
+     "轻触开关",
+     "2 / 2",
+     "振动盘或料带",
+     "0.5 秒/件"
+    ]
+   ],
+   "lead": "同一平台、同一占地：按元件类型选择 2 头或 4 头。",
+   "footer": "全系列：1700 × 1300 × 1600 mm，1500 kg，1.6 KVA，PCB 380 × 280 mm（可定制）。",
+   "notes": "Naming S70<heads>0<letter>; all models S7020T base spec (Jason 2026-11-07)."
+  },
+  {
+   "type": "table",
+   "title": "产能示例",
+   "columns": [
+    "每板铆钉数",
+    "插件 (秒)",
+    "+ 进出板与 Mark (秒)",
+    "秒/板",
+    "板/小时"
+   ],
+   "widths": [
+    2,
+    1.8,
+    2.8,
+    1.6,
+    1.6
+   ],
+   "rows": [
+    [
+     "10",
+     "5",
+     "5",
+     "10",
+     "360"
+    ],
+    [
+     "20",
+     "10",
+     "5",
+     "15",
+     "240"
+    ],
+    [
+     "28",
+     "14",
+     "5",
+     "19",
+     "189"
+    ],
+    [
+     "40",
+     "20",
+     "5",
+     "25",
+     "144"
+    ]
+   ],
+   "lead": "每个铆钉 0.5 秒，每块板另加 4 秒进出板和 1 秒 Mark 识别。",
+   "footer": "板/小时 = 3,600 ÷ 秒/板，向下取整，未计效率系数。以客户电路板试插结果为准。",
+   "notes": "28 eyelets = 20 + 8 example board in Jason's S-7000 PDF (p3/p4). PCB in/out 4 s + Mark 1 s: same assumption as S7040P/S7020T decks."
+  },
+  {
+   "type": "summary",
+   "title": "总结与下一步",
+   "lead": "S7040E 一次插入并铆压最多 4 种规格铆钉，0.5 秒/件，配视觉校正和插入检测。",
+   "items": [
+    [
+     "4 头 4 振动盘",
+     "散装铆钉，无需换型"
+    ],
+    [
+     "插铆一体",
+     "底模逐个铆压开花"
+    ],
+    [
+     "完整产线",
+     "SLD250 上板机，SULD250 下板机，SMEMA"
+    ],
+    [
+     "本地支持",
+     "现场安装与操作培训"
+    ]
+   ],
+   "cta": "请将 PCB 文件和铆钉样品发送至 info@smthelp.com，免费评估",
+   "notes": "Brand Book CTA."
+  }
+ ]
+}

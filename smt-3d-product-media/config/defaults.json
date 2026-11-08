@@ -1,0 +1,136 @@
+{
+ "schema": "smt-3d-product-media/job@1",
+ "product": {
+  "model": "",
+  "seo_slug": "",
+  "name": {}
+ },
+ "model": {
+  "cad": "",
+  "axis": [
+   1,
+   -1,
+   -1
+  ],
+  "scale": 1.0
+ },
+ "scene": {
+  "groups": {},
+  "copies": [],
+  "static_copies": [],
+  "hide": [],
+  "logos": {
+   "match": {
+    "name_contains": "logo"
+   },
+   "extra": []
+  },
+  "palette": "sm-machine"
+ },
+ "props": {
+  "pcb": null,
+  "heads": {},
+  "points": [],
+  "bowls": [],
+  "feed_tracks": []
+ },
+ "animation": {
+  "scenes": []
+ },
+ "render": {
+  "width": 1280,
+  "height": 720,
+  "fps": 24,
+  "supersample": 2,
+  "flip_x": false,
+  "background": [
+   0.94,
+   0.96,
+   0.97
+  ],
+  "edges": true,
+  "jpeg_quality": 92,
+  "workers": 2
+ },
+ "real_clips": [],
+ "sequence": [],
+ "overlay": {
+  "enabled": true,
+  "logo": "{skill}/assets/brand/sm-logo.png",
+  "footer_url": "www.smthelp.com",
+  "colors": {
+   "bar": [
+    16,
+    38,
+    68
+   ],
+   "accent": [
+    0,
+    197,
+    218
+   ],
+   "title": [
+    47,
+    85,
+    151
+   ],
+   "box_outline": [
+    0,
+    163,
+    180
+   ]
+  },
+  "font_bold": null,
+  "font_regular": null,
+  "real_note": {
+   "en": "Real machine footage",
+   "zh": "实机拍摄"
+  },
+  "real_head": {
+   "en": "Real machine footage",
+   "zh": "实机视频"
+  }
+ },
+ "disclosure": {},
+ "voice": {
+  "enabled": false,
+  "engine": "edge-tts",
+  "voices": {
+   "en": "en-US-AndrewNeural",
+   "zh": "zh-CN-YunyangNeural"
+  },
+  "max_tempo": 1.35,
+  "loudness": -16,
+  "lines": []
+ },
+ "encode": {
+  "crf": 21,
+  "preset": "veryfast",
+  "audio_bitrate": "160k"
+ },
+ "deck": {
+  "enabled": false,
+  "builder": "{skill}/../smt-product-ppt-rebrand/scripts/run.py",
+  "spec": {},
+  "assets": "",
+  "video_slide_title": {
+   "en": "How It Works",
+   "zh": "工作原理"
+  },
+  "render": false,
+  "name_pattern": "{slug}-Product-Presentation-{LANG}-Southern-Machinery"
+ },
+ "stills": [],
+ "publish": {
+  "drive_folder": "",
+  "account": ""
+ },
+ "output": {
+  "dir": "out",
+  "langs": [
+   "en",
+   "zh"
+  ],
+  "name_pattern": "{slug}-{variant}-{LANG}"
+ }
+}

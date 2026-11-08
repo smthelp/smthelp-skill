@@ -1,0 +1,576 @@
+{
+ "meta": {
+  "lang": "en",
+  "title": "S7040P PIN Insertion Machine – 4 Heads 4 Feeders – Southern Machinery",
+  "subject": "4-head PIN insertion machine with bowl or reel feeders, 0.5 s per part",
+  "keywords": "PIN insertion machine, S7040P, pin inserter, press-fit pin insertion, vibratory bowl feeder, reel pin feeder, THT automation, Southern Machinery"
+ },
+ "labels": {
+  "deck_label": "Product Presentation"
+ },
+ "title": {
+  "eyebrow": "PIN INSERTION",
+  "name": "PIN Insertion Machine — S7040P",
+  "subtitle": "4 insertion heads and 4 feeders insert up to four different pins in one pass",
+  "tagline": "4 heads · 4 feeders · 0.5 s per part",
+  "date": "November 2026",
+  "image": "studio_S7040P.jpg",
+  "notes": "S7040P = S7020T base spec with 4 heads / 4 feeders (Jason 2026-11-07). Product photos: real S7020T line, model label changed to S7040P."
+ },
+ "contents": [
+  [
+   "Overview",
+   "What S7040P is and where it fits"
+  ],
+  [
+   "Key Figures & FAB",
+   "Heads, feeders, speed, accuracy"
+  ],
+  [
+   "How It Works",
+   "3D animation, real footage, cycle"
+  ],
+  [
+   "Design & Line",
+   "Details, loader and unloader"
+  ],
+  [
+   "Specifications",
+   "S7040P data and S70xx guide"
+  ],
+  [
+   "Capacity",
+   "Boards per hour example"
+  ]
+ ],
+ "slides": [
+  {
+   "type": "overview",
+   "title": "S7040P at a Glance",
+   "lead": "A dedicated PIN insertion machine on the S7020 platform: 4 insertion heads and 4 feeders insert up to 4 different pins in one pass, with CCD correction and insertion check on every point.",
+   "apps": [
+    [
+     "Parts",
+     "Round pins and tape pins 1.2–4.0 mm, press-fit pins, PIN headers"
+    ],
+    [
+     "Industries",
+     "Power supplies, appliance control boards, automotive and LED electronics"
+    ],
+    [
+     "Feeding",
+     "Vibration bowl for bulk pins or reel feeder for taped pins, per part"
+    ]
+   ],
+   "image": "site_S7040P.jpg",
+   "caption": "S7040P line with PCB loader and unloader",
+   "notes": "Platform and outline per S7020T. Pin range 1.2–4.0 mm: S-7000P Pin Inserter literature. Photo: real S7020T installation, model label changed to S7040P (same outline) — do not caption as an S7040P customer site."
+  },
+  {
+   "type": "pains",
+   "title": "Why Manual Pin Insertion Holds Lines Back",
+   "lead": "Pins are small, sharp and press-fit. Hand insertion caps output and quality long before soldering.",
+   "items": [
+    [
+     "Slow and tiring",
+     "Operators press pin after pin; speed drops over the shift"
+    ],
+    [
+     "Missing or tilted pins",
+     "Found only at test or after soldering, then reworked"
+    ],
+    [
+     "Board damage",
+     "Uneven hand force stresses plating and PCB"
+    ],
+    [
+     "Many part types",
+     "Each pin type needs its own station or changeover"
+    ],
+    [
+     "Labour dependence",
+     "Output follows headcount and staff turnover"
+    ],
+    [
+     "No traceability",
+     "No record of what was inserted, when and by whom"
+    ]
+   ],
+   "notes": "Qualitative customer pains, Southern Machinery brand voice. No figures claimed."
+  },
+  {
+   "type": "metrics",
+   "title": "Key Figures",
+   "lead": "S7040P = S7020T platform with 4 insertion heads and 4 feeders, dedicated to PIN insertion.",
+   "items": [
+    [
+     "4 + 4",
+     "Heads + feeders",
+     "Up to 4 pin types, no changeover"
+    ],
+    [
+     "0.5 s",
+     "Per part",
+     "7,200 parts/h net insertion"
+    ],
+    [
+     "380 × 280",
+     "PCB size (mm)",
+     "Larger size customizable"
+    ],
+    [
+     "0.015 mm",
+     "Vision correction",
+     "CCD hole / Mark correction"
+    ]
+   ],
+   "footer": "7,200 parts/h = 3,600 s ÷ 0.5 s, insertion only; PCB in/out and Mark reading are added per board.",
+   "notes": "AGENTS.md v2 (Jason, 2026-11-07); S7020 Series 202303; S7020T manual. Speed 0.5 s/part is the unified figure (Jason). 0.015 mm automatic correction: S7020T manual."
+  },
+  {
+   "type": "fab",
+   "title": "FAB 1 · Four Heads, Four Feeders",
+   "rows": [
+    [
+     [
+      "4 insertion heads",
+      "Own gripper per pin type"
+     ],
+     [
+      "No changeover",
+      "4 pins in one pass"
+     ],
+     [
+      "More output",
+      "One machine replaces several stations"
+     ]
+    ],
+    [
+     [
+      "Bowl or reel feeder",
+      "Matched to each pin's package"
+     ],
+     [
+      "Bulk or taped pins",
+      "Oriented tail-down automatically"
+     ],
+     [
+      "Less handling",
+      "Operators only refill"
+     ]
+    ],
+    [
+     [
+      "360° insertion angle",
+      "Programmable in 1° steps"
+     ],
+     [
+      "Any pin direction",
+      "No board re-orientation"
+     ],
+     [
+      "Flexible layouts",
+      "One program per board"
+     ]
+    ]
+   ],
+   "notes": "Insertion angle 360° increment 1°: S7020 Series 202303. Feeders bowl or reel: Jason 2026-11-07."
+  },
+  {
+   "type": "fab",
+   "title": "FAB 2 · Accuracy, Checks and Data",
+   "rows": [
+    [
+     [
+      "CCD vision correction",
+      "Mark and hole correction 0.015 mm"
+     ],
+     [
+      "Hits every hole",
+      "Corrects board tolerance"
+     ],
+     [
+      "Fewer misses",
+      "Less rework before soldering"
+     ]
+    ],
+    [
+     [
+      "Insertion detection",
+      "Support base checks each pin"
+     ],
+     [
+      "Stops and alarms",
+      "Optional auto re-insertion"
+     ],
+     [
+      "No missing pins",
+      "Caught before soldering"
+     ]
+    ],
+    [
+     [
+      "Excel / USB programming",
+      "Online visual teaching"
+     ],
+     [
+      "Fast new programs",
+      "Import coordinates, no retyping"
+     ],
+     [
+      "RS-232C to MES",
+      "Production data for traceability"
+     ]
+    ]
+   ],
+   "notes": "Miss detection: machine stops and reports an error, re-insertion settable. Programming: online visual programming, visual correction, EXCEL; USB import; RS-232C MES."
+  },
+  {
+   "type": "video",
+   "title": "How It Works",
+   "lead": "3D working-principle animation and real 4-head insertion footage.",
+   "items": [
+    {
+     "video": "{video}",
+     "poster": "{poster}",
+     "head": "3D + real machine video",
+     "body": [
+      "4 heads, PCB flows left to right",
+      "3D illustration + real footage, voiceover"
+     ]
+    },
+    {
+     "video": "real_4heads_insertion.mp4",
+     "poster": "poster_real.jpg",
+     "head": "Real machine footage",
+     "body": [
+      "4 heads inserting from bowl feeders",
+      "S7020-platform machine"
+     ]
+    }
+   ],
+   "notes": "Video produced by smt-3d-product-media from the S7020 platform STEP (4-head layout is an illustration) + real footage."
+  },
+  {
+   "type": "process",
+   "title": "Insertion Cycle in Five Steps",
+   "steps": [
+    [
+     "Load",
+     "Loader feeds PCB, clamp"
+    ],
+    [
+     "Feed",
+     "Bowl or reel, tail down"
+    ],
+    [
+     "Correct",
+     "CCD reads Mark / hole"
+    ],
+    [
+     "Insert",
+     "Head presses pin"
+    ],
+    [
+     "Check",
+     "Detection, alarm"
+    ],
+    [
+     "Unload",
+     "Into magazine"
+    ]
+   ],
+   "images": [
+    [
+     "real_2bowls.jpg",
+     "Vibration bowl feeders"
+    ],
+    [
+     "real_head_insert.jpg",
+     "Head inserting into PCB"
+    ],
+    [
+     "detect_clinch.png",
+     "Support base and insertion detection"
+    ]
+   ],
+   "notes": "Flow per S7020T manual sec. 2.2. Photos: frames from Drive videos and S7020 Series 202303."
+  },
+  {
+   "type": "gallery",
+   "title": "Design Details",
+   "items": [
+    {
+     "image": "real_4heads.jpg",
+     "head": "4 insertion heads",
+     "body": [
+      "One gripper per pin type",
+      "Servo-driven X/Y table"
+     ]
+    },
+    {
+     "image": "bowls_inside.png",
+     "head": "Feeders on board",
+     "body": [
+      "Bowl for bulk pins",
+      "Reel for taped pins"
+     ]
+    },
+    {
+     "image": "real_gripper.jpg",
+     "head": "Precision gripper",
+     "body": [
+      "Holds pin until seated",
+      "Element spacing ≥ 2 mm"
+     ]
+    },
+    {
+     "image": "pcba_pins.png",
+     "head": "Finished PCBA",
+     "body": [
+      "Vertical error ≤ 0.8°",
+      "Ready for soldering"
+     ]
+    }
+   ],
+   "notes": "Body distance ≥ 2 mm, vertical error ≤ 0.8°: S7020 Series 202303."
+  },
+  {
+   "type": "gallery",
+   "title": "Complete Line, Magazine to Magazine",
+   "items": [
+    {
+     "image": "studio_S7040P.jpg",
+     "fit": true,
+     "head": "Loader + S7040P + unloader",
+     "body": [
+      "SLD250 loader, SULD250 unloader",
+      "SMEMA linked"
+     ]
+    },
+    {
+     "image": "factory_ai.png",
+     "head": "In your EMS line",
+     "body": [
+      "Fits after SMT, before wave",
+      "1700 × 1300 × 1600 mm"
+     ]
+    }
+   ],
+   "imgh": 3.3,
+   "notes": "Loader/unloader default SLD250 + SULD250. factory_ai.png is an AI-generated scene from the real photo — illustration only."
+  },
+  {
+   "type": "specs",
+   "title": "S7040P Specifications",
+   "rows": [
+    [
+     "Insertion heads / feeders",
+     "4 / 4"
+    ],
+    [
+     "Feeding",
+     "Vibration bowl or reel feeder"
+    ],
+    [
+     "Components",
+     "Pins 1.2–4.0 mm, round or tape"
+    ],
+    [
+     "Speed",
+     "0.5 s per part"
+    ],
+    [
+     "PCB size",
+     "380 × 280 mm (larger customizable)"
+    ],
+    [
+     "Insertion angle",
+     "360°, 1° increment"
+    ],
+    [
+     "Vertical error",
+     "≤ 0.8°"
+    ],
+    [
+     "Motion accuracy",
+     "0.001 mm/pulse"
+    ],
+    [
+     "Programming",
+     "Online visual, Excel, USB import"
+    ],
+    [
+     "Communication",
+     "RS-232C, MES connection"
+    ],
+    [
+     "Display",
+     "17-inch color LCD"
+    ],
+    [
+     "Power",
+     "Single 220 V AC, 50/60 Hz, 1.6 KVA"
+    ],
+    [
+     "Dimensions",
+     "1700 × 1300 × 1600 mm"
+    ],
+    [
+     "Weight",
+     "1500 kg"
+    ]
+   ],
+   "footer": "Loader and unloader not included in dimensions. Other voltages on request.",
+   "notes": "AGENTS.md v2 (Jason, 2026-11-07); S7020 Series 202303; S7020T manual. Other voltages: S7020T manual sec. 1."
+  },
+  {
+   "type": "table",
+   "title": "S70xx Series Model Guide",
+   "columns": [
+    "Model",
+    "Dedicated parts",
+    "Heads / feeders",
+    "Feeding",
+    "Speed"
+   ],
+   "widths": [
+    1.6,
+    3,
+    2,
+    2.6,
+    1.6
+   ],
+   "rows": [
+    [
+     "S7020T",
+     "Terminal",
+     "2 / 2",
+     "Bowl or reel",
+     "0.5 s / part"
+    ],
+    [
+     "S7040T",
+     "Terminal",
+     "4 / 4",
+     "Bowl or reel",
+     "0.5 s / part"
+    ],
+    [
+     "S7020P",
+     "PIN",
+     "2 / 2",
+     "Bowl or reel",
+     "0.5 s / part"
+    ],
+    [
+     "S7040P",
+     "PIN",
+     "4 / 4",
+     "Bowl or reel",
+     "0.5 s / part"
+    ],
+    [
+     "S7020E",
+     "Eyelet",
+     "2 / 2",
+     "Bowl or reel",
+     "0.5 s / part"
+    ],
+    [
+     "S7040E",
+     "Eyelet",
+     "4 / 4",
+     "Bowl or reel",
+     "0.5 s / part"
+    ],
+    [
+     "S7020S",
+     "Tact switch",
+     "2 / 2",
+     "Bowl or reel",
+     "0.5 s / part"
+    ]
+   ],
+   "lead": "One platform, one footprint: choose the part type and 2 or 4 heads.",
+   "footer": "All models: 1700 × 1300 × 1600 mm, 1500 kg, 1.6 KVA, PCB 380 × 280 mm (customizable).",
+   "notes": "Naming S70<heads>0<letter>; all models S7020T base spec with heads/feeders matched (Jason 2026-11-07)."
+  },
+  {
+   "type": "table",
+   "title": "Capacity Example",
+   "columns": [
+    "Pins per board",
+    "Insertion (s)",
+    "+ PCB in/out & Mark (s)",
+    "s / board",
+    "Boards / h"
+   ],
+   "widths": [
+    2,
+    1.8,
+    2.8,
+    1.6,
+    1.6
+   ],
+   "rows": [
+    [
+     "20",
+     "10",
+     "5",
+     "15",
+     "240"
+    ],
+    [
+     "40",
+     "20",
+     "5",
+     "25",
+     "144"
+    ],
+    [
+     "60",
+     "30",
+     "5",
+     "35",
+     "102"
+    ],
+    [
+     "96",
+     "48",
+     "5",
+     "53",
+     "67"
+    ]
+   ],
+   "lead": "0.5 s per pin, plus 4 s PCB in/out and 1 s Mark reading per board.",
+   "footer": "Boards/h = 3,600 ÷ s/board, rounded down, before efficiency factor. Confirm with your board in a sample run.",
+   "notes": "PCB entry/exit 4 s and MARK 1 s from S-7000P Action Pin case."
+  },
+  {
+   "type": "summary",
+   "title": "Summary & Next Step",
+   "lead": "S7040P inserts up to four different pins per pass at 0.5 s per part, with vision correction and insertion check.",
+   "items": [
+    [
+     "4 heads, 4 feeders",
+     "Bowl or reel per pin; no changeover"
+    ],
+    [
+     "Accurate and checked",
+     "CCD correction 0.015 mm, miss detection"
+    ],
+    [
+     "Complete line",
+     "SLD250 loader, SULD250 unloader, SMEMA"
+    ],
+    [
+     "Local support",
+     "On-site installation and operator training"
+    ]
+   ],
+   "cta": "Send your PCB file and pin samples to info@smthelp.com for a free evaluation",
+   "notes": "Brand Book CTA."
+  }
+ ]
+}

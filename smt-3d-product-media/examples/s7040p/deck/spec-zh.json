@@ -1,0 +1,599 @@
+{
+ "meta": {
+  "lang": "zh",
+  "title": "S7040P 插针机 – 4 头 4 供料器 – Southern Machinery",
+  "subject": "4 头插针机，振动盘或料带供料，0.5 秒/件",
+  "keywords": "PIN insertion machine, S7040P, pin inserter, press-fit pin insertion, vibratory bowl feeder, reel pin feeder, THT automation, Southern Machinery"
+ },
+ "labels": {
+  "contents": "目录",
+  "deck_label": "产品介绍",
+  "app_head": "项目",
+  "app_sub": "内容",
+  "fab": [
+   [
+    "特点",
+    "具备什么"
+   ],
+   [
+    "优势",
+    "能做什么"
+   ],
+   [
+    "收益",
+    "带来什么"
+   ]
+  ],
+  "specs": [
+   "参数",
+   "规格",
+   "参数",
+   "规格"
+  ]
+ },
+ "title": {
+  "eyebrow": "插针自动化",
+  "name": "插针机 — S7040P",
+  "subtitle": "4 个插件头、4 个供料器，一次完成最多 4 种插针",
+  "tagline": "4 头 · 4 供料器 · 0.5 秒/件",
+  "date": "2026 年 11 月",
+  "image": "studio_S7040P.jpg",
+  "notes": "S7040P = S7020T base spec with 4 heads / 4 feeders (Jason 2026-11-07). Product photos: real S7020T line, model label changed to S7040P."
+ },
+ "contents": [
+  [
+   "产品概览",
+   "S7040P 是什么、用在哪里"
+  ],
+  [
+   "关键参数与 FAB",
+   "插件头、供料、速度、精度"
+  ],
+  [
+   "工作原理",
+   "3D 动画、实机视频、流程"
+  ],
+  [
+   "设计与产线",
+   "细节、上下板机"
+  ],
+  [
+   "技术参数",
+   "S7040P 参数与 S70xx 选型"
+  ],
+  [
+   "产能",
+   "每小时产能示例"
+  ]
+ ],
+ "slides": [
+  {
+   "type": "overview",
+   "title": "S7040P 产品概览",
+   "lead": "基于 S7020 平台的专用插针机：4 个插件头、4 个供料器，一次完成最多 4 种不同插针，每个点都有 CCD 校正和插入检测。",
+   "apps": [
+    [
+     "元件",
+     "1.2–4.0 mm 圆针与扁针、压接针、排针"
+    ],
+    [
+     "行业",
+     "电源、家电控制板、汽车电子与 LED"
+    ],
+    [
+     "供料",
+     "散装插针用振动盘，编带插针用料带供料器，每种零件一套"
+    ]
+   ],
+   "image": "site_S7040P.jpg",
+   "caption": "S7040P 配上下板机",
+   "notes": "Platform and outline per S7020T. Pin range 1.2–4.0 mm: S-7000P Pin Inserter literature. Photo: real S7020T installation, model label changed to S7040P (same outline) — do not caption as an S7040P customer site."
+  },
+  {
+   "type": "pains",
+   "title": "人工插针的瓶颈",
+   "lead": "插针细小、尖锐且需压入。人工插针在焊接之前就已限制了产量和质量。",
+   "items": [
+    [
+     "慢且累",
+     "逐根按压，越到班末速度越慢"
+    ],
+    [
+     "漏插、歪插",
+     "测试或焊后才发现，只能返工"
+    ],
+    [
+     "损伤电路板",
+     "手工用力不均，损伤孔壁镀层和 PCB"
+    ],
+    [
+     "零件种类多",
+     "每种插针要单独工位或换型"
+    ],
+    [
+     "依赖人工",
+     "产量随人数和流失率波动"
+    ],
+    [
+     "无法追溯",
+     "无法记录何时、何人插了什么"
+    ]
+   ],
+   "notes": "Qualitative customer pains, Southern Machinery brand voice. No figures claimed."
+  },
+  {
+   "type": "metrics",
+   "title": "关键参数",
+   "lead": "S7040P = S7020T 平台 + 4 个插件头 + 4 个供料器，专用于插针。",
+   "items": [
+    [
+     "4 + 4",
+     "插件头 + 供料器",
+     "最多 4 种插针，无需换型"
+    ],
+    [
+     "0.5 s",
+     "每件",
+     "净插件 7,200 件/小时"
+    ],
+    [
+     "380 × 280",
+     "PCB 尺寸 (mm)",
+     "可定制加大"
+    ],
+    [
+     "0.015 mm",
+     "视觉校正",
+     "CCD 孔位 / Mark 校正"
+    ]
+   ],
+   "footer": "7,200 件/小时 = 3,600 秒 ÷ 0.5 秒，仅计插件；每块板另计进出板与 Mark 识别时间。",
+   "notes": "AGENTS.md v2 (Jason, 2026-11-07); S7020 Series 202303; S7020T manual. Speed 0.5 s/part is the unified figure (Jason). 0.015 mm automatic correction: S7020T manual."
+  },
+  {
+   "type": "fab",
+   "title": "FAB 1 · 4 头 4 供料器",
+   "rows": [
+    [
+     [
+      "4 个插件头",
+      "每种插针专用夹爪"
+     ],
+     [
+      "无需换型",
+      "一次完成 4 种插针"
+     ],
+     [
+      "产量更高",
+      "一台替代多个工位"
+     ]
+    ],
+    [
+     [
+      "振动盘或料带供料",
+      "按插针包装匹配"
+     ],
+     [
+      "散装或编带均可",
+      "自动排向，针尾朝下"
+     ],
+     [
+      "减少人工",
+      "操作员只需补料"
+     ]
+    ],
+    [
+     [
+      "360° 插件角度",
+      "1° 步进可编程"
+     ],
+     [
+      "任意方向",
+      "无需翻转电路板"
+     ],
+     [
+      "布局灵活",
+      "一块板一个程序"
+     ]
+    ]
+   ],
+   "notes": "Insertion angle 360° increment 1°: S7020 Series 202303. Feeders bowl or reel: Jason 2026-11-07."
+  },
+  {
+   "type": "fab",
+   "title": "FAB 2 · 精度、检测与数据",
+   "rows": [
+    [
+     [
+      "CCD 视觉校正",
+      "Mark 与孔位校正 0.015 mm"
+     ],
+     [
+      "精准对孔",
+      "补偿电路板公差"
+     ],
+     [
+      "减少漏插",
+      "焊前返工更少"
+     ]
+    ],
+    [
+     [
+      "插入检测",
+      "底座支撑并检测每根针"
+     ],
+     [
+      "停机报警",
+      "可设自动补插"
+     ],
+     [
+      "杜绝漏插",
+      "焊接前即拦截"
+     ]
+    ],
+    [
+     [
+      "Excel / USB 编程",
+      "在线视觉示教"
+     ],
+     [
+      "新程序快",
+      "导入坐标，无需重输"
+     ],
+     [
+      "RS-232C 接 MES",
+      "生产数据可追溯"
+     ]
+    ]
+   ],
+   "notes": "Miss detection: machine stops and reports an error, re-insertion settable. Programming: online visual programming, visual correction, EXCEL; USB import; RS-232C MES."
+  },
+  {
+   "type": "video",
+   "title": "工作原理",
+   "lead": "3D 工作原理动画与 4 头实机插件视频。",
+   "items": [
+    {
+     "video": "{video}",
+     "poster": "{poster}",
+     "head": "3D 动画 + 实机视频",
+     "body": [
+      "4 头，PCB 从左到右",
+      "3D 示意 + 实机视频，带配音"
+     ]
+    },
+    {
+     "video": "real_4heads_insertion.mp4",
+     "poster": "poster_real.jpg",
+     "head": "实机视频",
+     "body": [
+      "4 头振动盘供料插件",
+      "S7020 平台机型"
+     ]
+    }
+   ],
+   "notes": "Video produced by smt-3d-product-media from the S7020 platform STEP (4-head layout is an illustration) + real footage."
+  },
+  {
+   "type": "process",
+   "title": "插件流程",
+   "steps": [
+    [
+     "进板",
+     "上板机送板并夹紧"
+    ],
+    [
+     "供料",
+     "振动盘或料带，针尾朝下"
+    ],
+    [
+     "校正",
+     "CCD 识别 Mark / 孔位"
+    ],
+    [
+     "插件",
+     "插件头压入插针"
+    ],
+    [
+     "检测",
+     "检测，异常报警"
+    ],
+    [
+     "出板",
+     "送入料框"
+    ]
+   ],
+   "images": [
+    [
+     "real_2bowls.jpg",
+     "振动盘供料"
+    ],
+    [
+     "real_head_insert.jpg",
+     "插件头插入 PCB"
+    ],
+    [
+     "detect_clinch.png",
+     "底座支撑与插入检测"
+    ]
+   ],
+   "notes": "Flow per S7020T manual sec. 2.2. Photos: frames from Drive videos and S7020 Series 202303."
+  },
+  {
+   "type": "gallery",
+   "title": "设计细节",
+   "items": [
+    {
+     "image": "real_4heads.jpg",
+     "head": "4 个插件头",
+     "body": [
+      "每种插针专用夹爪",
+      "伺服驱动 X/Y 工作台"
+     ]
+    },
+    {
+     "image": "bowls_inside.png",
+     "head": "机内供料器",
+     "body": [
+      "散装插针用振动盘",
+      "编带插针用料带"
+     ]
+    },
+    {
+     "image": "real_gripper.jpg",
+     "head": "精密夹爪",
+     "body": [
+      "夹持至插针到位",
+      "元件间距 ≥ 2 mm"
+     ]
+    },
+    {
+     "image": "pcba_pins.png",
+     "head": "成品 PCBA",
+     "body": [
+      "垂直误差 ≤ 0.8°",
+      "可直接焊接"
+     ]
+    }
+   ],
+   "notes": "Body distance ≥ 2 mm, vertical error ≤ 0.8°: S7020 Series 202303."
+  },
+  {
+   "type": "gallery",
+   "title": "完整产线：料框进，料框出",
+   "items": [
+    {
+     "image": "studio_S7040P.jpg",
+     "fit": true,
+     "head": "上板机 + S7040P + 下板机",
+     "body": [
+      "SLD250 上板机，SULD250 下板机",
+      "SMEMA 连线"
+     ]
+    },
+    {
+     "image": "factory_ai.png",
+     "head": "融入您的产线",
+     "body": [
+      "位于 SMT 之后、波峰焊之前",
+      "1700 × 1300 × 1600 mm"
+     ]
+    }
+   ],
+   "imgh": 3.3,
+   "notes": "Loader/unloader default SLD250 + SULD250. factory_ai.png is an AI-generated scene from the real photo — illustration only."
+  },
+  {
+   "type": "specs",
+   "title": "S7040P 技术参数",
+   "rows": [
+    [
+     "插件头 / 供料器",
+     "4 / 4"
+    ],
+    [
+     "供料方式",
+     "振动盘或料带供料器"
+    ],
+    [
+     "适用元件",
+     "插针 1.2–4.0 mm，圆针或扁针"
+    ],
+    [
+     "速度",
+     "0.5 秒/件"
+    ],
+    [
+     "PCB 尺寸",
+     "380 × 280 mm（可定制加大）"
+    ],
+    [
+     "插件角度",
+     "360°，1° 步进"
+    ],
+    [
+     "垂直误差",
+     "≤ 0.8°"
+    ],
+    [
+     "运动精度",
+     "0.001 mm/pulse"
+    ],
+    [
+     "编程",
+     "在线视觉示教、Excel、USB 导入"
+    ],
+    [
+     "通讯",
+     "RS-232C，可接 MES"
+    ],
+    [
+     "显示器",
+     "17 寸彩色液晶"
+    ],
+    [
+     "电源",
+     "单相 220 V AC，50/60 Hz，1.6 KVA"
+    ],
+    [
+     "外形尺寸",
+     "1700 × 1300 × 1600 mm"
+    ],
+    [
+     "重量",
+     "1500 kg"
+    ]
+   ],
+   "footer": "尺寸不含上下板机。其他电压可按需定制。",
+   "notes": "AGENTS.md v2 (Jason, 2026-11-07); S7020 Series 202303; S7020T manual. Other voltages: S7020T manual sec. 1."
+  },
+  {
+   "type": "table",
+   "title": "S70xx 系列选型",
+   "columns": [
+    "型号",
+    "专用元件",
+    "插件头 / 供料器",
+    "供料方式",
+    "速度"
+   ],
+   "widths": [
+    1.6,
+    3,
+    2,
+    2.6,
+    1.6
+   ],
+   "rows": [
+    [
+     "S7020T",
+     "端子",
+     "2 / 2",
+     "振动盘或料带",
+     "0.5 秒/件"
+    ],
+    [
+     "S7040T",
+     "端子",
+     "4 / 4",
+     "振动盘或料带",
+     "0.5 秒/件"
+    ],
+    [
+     "S7020P",
+     "PIN",
+     "2 / 2",
+     "振动盘或料带",
+     "0.5 秒/件"
+    ],
+    [
+     "S7040P",
+     "PIN",
+     "4 / 4",
+     "振动盘或料带",
+     "0.5 秒/件"
+    ],
+    [
+     "S7020E",
+     "铆钉",
+     "2 / 2",
+     "振动盘或料带",
+     "0.5 秒/件"
+    ],
+    [
+     "S7040E",
+     "铆钉",
+     "4 / 4",
+     "振动盘或料带",
+     "0.5 秒/件"
+    ],
+    [
+     "S7020S",
+     "轻触开关",
+     "2 / 2",
+     "振动盘或料带",
+     "0.5 秒/件"
+    ]
+   ],
+   "lead": "同一平台、同一占地：按元件类型选择 2 头或 4 头。",
+   "footer": "全系列：1700 × 1300 × 1600 mm，1500 kg，1.6 KVA，PCB 380 × 280 mm（可定制）。",
+   "notes": "Naming S70<heads>0<letter>; all models S7020T base spec with heads/feeders matched (Jason 2026-11-07)."
+  },
+  {
+   "type": "table",
+   "title": "产能示例",
+   "columns": [
+    "每板针数",
+    "插件 (秒)",
+    "+ 进出板与 Mark (秒)",
+    "秒/板",
+    "板/小时"
+   ],
+   "widths": [
+    2,
+    1.8,
+    2.8,
+    1.6,
+    1.6
+   ],
+   "rows": [
+    [
+     "20",
+     "10",
+     "5",
+     "15",
+     "240"
+    ],
+    [
+     "40",
+     "20",
+     "5",
+     "25",
+     "144"
+    ],
+    [
+     "60",
+     "30",
+     "5",
+     "35",
+     "102"
+    ],
+    [
+     "96",
+     "48",
+     "5",
+     "53",
+     "67"
+    ]
+   ],
+   "lead": "每针 0.5 秒，每块板另加 4 秒进出板和 1 秒 Mark 识别。",
+   "footer": "板/小时 = 3,600 ÷ 秒/板，向下取整，未计效率系数。以客户电路板试插结果为准。",
+   "notes": "PCB entry/exit 4 s and MARK 1 s from S-7000P Action Pin case."
+  },
+  {
+   "type": "summary",
+   "title": "总结与下一步",
+   "lead": "S7040P 一次完成最多 4 种插针，0.5 秒/件，配视觉校正和插入检测。",
+   "items": [
+    [
+     "4 头 4 供料器",
+     "每种插针配振动盘或料带，无需换型"
+    ],
+    [
+     "精准可检测",
+     "CCD 校正 0.015 mm，漏插检测"
+    ],
+    [
+     "完整产线",
+     "SLD250 上板机，SULD250 下板机，SMEMA"
+    ],
+    [
+     "本地支持",
+     "现场安装与操作培训"
+    ]
+   ],
+   "cta": "请将 PCB 文件和插针样品发送至 info@smthelp.com，免费评估",
+   "notes": "Brand Book CTA."
+  }
+ ]
+}

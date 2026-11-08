@@ -1,0 +1,1094 @@
+{
+ "schema": "smt-3d-product-media/job@1",
+ "_doc": "S7040P PIN insertion machine (4 heads, 4 bowls). 3D built from the 2-head S7020 platform STEP by copying head/track/clinch units and bowls. Reproduces S7040P-PIN-Insertion-Machine-4-Heads-Logo-Voiceover-EN/ZH.mp4 (2026-11-07).",
+ "product": {
+  "model": "S7040P",
+  "seo_slug": "S7040P-PIN-Insertion-Machine",
+  "name": {
+   "en": "S7040P PIN Insertion Machine",
+   "zh": "S7040P 插针机"
+  }
+ },
+ "model": {
+  "cad": "inputs/Pin Eyelet Inserter.STEP",
+  "axis": [
+   1,
+   -1,
+   -1
+  ],
+  "scale": 1.0
+ },
+ "scene": {
+  "groups": {
+   "Y": {
+    "ranges": [
+     [
+      15,
+      32
+     ],
+     [
+      50,
+      50
+     ],
+     [
+      60,
+      61
+     ],
+     [
+      80,
+      81
+     ],
+     [
+      85,
+      129
+     ]
+    ]
+   },
+   "X": {
+    "ranges": [
+     [
+      4,
+      14
+     ],
+     [
+      39,
+      43
+     ],
+     [
+      46,
+      47
+     ],
+     [
+      57,
+      72
+     ]
+    ]
+   },
+   "H1": {
+    "box": [
+     [
+      0.57,
+      -0.5,
+      0.22
+     ],
+     [
+      0.65,
+      -0.42,
+      0.34
+     ]
+    ]
+   },
+   "H2": {
+    "box": [
+     [
+      0.67,
+      -0.5,
+      0.22
+     ],
+     [
+      0.75,
+      -0.42,
+      0.34
+     ]
+    ]
+   },
+   "C1": {
+    "box": [
+     [
+      0.58,
+      -0.49,
+      0.08
+     ],
+     [
+      0.645,
+      -0.4,
+      0.16
+     ]
+    ]
+   },
+   "C2": {
+    "box": [
+     [
+      0.67,
+      -0.49,
+      0.08
+     ],
+     [
+      0.75,
+      -0.4,
+      0.16
+     ]
+    ]
+   },
+   "B1": {
+    "box": [
+     [
+      0.45,
+      -0.8,
+      0.26
+     ],
+     [
+      0.68,
+      -0.58,
+      0.41
+     ]
+    ]
+   },
+   "B2": {
+    "box": [
+     [
+      0.68,
+      -0.8,
+      0.26
+     ],
+     [
+      0.85,
+      -0.58,
+      0.41
+     ]
+    ]
+   }
+  },
+  "copies": [
+   {
+    "group": "H1",
+    "as": "H0",
+    "offset": [
+     -0.2,
+     0,
+     0
+    ]
+   },
+   {
+    "group": "H2",
+    "as": "H3",
+    "offset": [
+     0.2,
+     0,
+     0
+    ]
+   },
+   {
+    "group": "C1",
+    "as": "C0",
+    "offset": [
+     -0.2,
+     0,
+     0
+    ]
+   },
+   {
+    "group": "C2",
+    "as": "C3",
+    "offset": [
+     0.2,
+     0,
+     0
+    ]
+   },
+   {
+    "group": "B1",
+    "as": "B0",
+    "offset": [
+     -0.2,
+     0,
+     0
+    ]
+   },
+   {
+    "group": "B2",
+    "as": "B3",
+    "offset": [
+     0.2,
+     0,
+     0
+    ]
+   }
+  ],
+  "static_copies": [
+   {
+    "why": "head 1 frame, track, clinch cylinder -> head 0",
+    "offset": [
+     -0.2,
+     0,
+     0
+    ],
+    "match": {
+     "any": [
+      {
+       "box": [
+        [
+         0.565,
+         -0.62,
+         0.2
+        ],
+        [
+         0.655,
+         -0.37,
+         0.72
+        ]
+       ]
+      },
+      {
+       "box": [
+        [
+         0.57,
+         -0.5,
+         -0.3
+        ],
+        [
+         0.65,
+         -0.4,
+         0.16
+        ]
+       ]
+      },
+      {
+       "ranges": [
+        [
+         281,
+         289
+        ]
+       ]
+      }
+     ],
+     "not": {
+      "any": [
+       {
+        "name_contains": "logo"
+       },
+       {
+        "ranges": [
+         [
+          298,
+          304
+         ]
+        ]
+       }
+      ]
+     }
+    }
+   },
+   {
+    "why": "head 2 frame, track, clinch cylinder -> head 3",
+    "offset": [
+     0.2,
+     0,
+     0
+    ],
+    "match": {
+     "any": [
+      {
+       "box": [
+        [
+         0.665,
+         -0.62,
+         0.2
+        ],
+        [
+         0.76,
+         -0.37,
+         0.72
+        ]
+       ]
+      },
+      {
+       "box": [
+        [
+         0.67,
+         -0.5,
+         -0.3
+        ],
+        [
+         0.75,
+         -0.4,
+         0.16
+        ]
+       ]
+      },
+      {
+       "ranges": [
+        [
+         290,
+         297
+        ]
+       ]
+      }
+     ],
+     "not": {
+      "any": [
+       {
+        "name_contains": "logo"
+       },
+       {
+        "ranges": [
+         [
+          298,
+          304
+         ]
+        ]
+       },
+       {
+        "box": [
+         [
+          0.565,
+          -0.62,
+          0.2
+         ],
+         [
+          0.655,
+          -0.37,
+          0.72
+         ]
+        ]
+       },
+       {
+        "box": [
+         [
+          0.57,
+          -0.5,
+          -0.3
+         ],
+         [
+          0.65,
+          -0.4,
+          0.16
+         ]
+        ]
+       },
+       {
+        "ranges": [
+         [
+          281,
+          289
+         ]
+        ]
+       }
+      ]
+     }
+    }
+   },
+   {
+    "why": "left bowl stand -> outer left",
+    "offset": [
+     -0.24,
+     0,
+     0
+    ],
+    "match": {
+     "box": [
+      [
+       0.19,
+       -0.95,
+       0.2
+      ],
+      [
+       0.48,
+       -0.55,
+       0.8
+      ]
+     ],
+     "not": {
+      "any": [
+       {
+        "name_contains": "logo"
+       },
+       {
+        "ranges": [
+         [
+          298,
+          304
+         ]
+        ]
+       }
+      ]
+     }
+    }
+   },
+   {
+    "why": "right bowl stand -> outer right",
+    "offset": [
+     0.24,
+     0,
+     0
+    ],
+    "match": {
+     "box": [
+      [
+       0.78,
+       -0.95,
+       0.2
+      ],
+      [
+       1.08,
+       -0.55,
+       0.8
+      ]
+     ],
+     "not": {
+      "any": [
+       {
+        "name_contains": "logo"
+       },
+       {
+        "ranges": [
+         [
+          298,
+          304
+         ]
+        ]
+       }
+      ]
+     }
+    }
+   }
+  ],
+  "logos": {
+   "match": {
+    "name_contains": "logo"
+   },
+   "extra": [
+    {
+     "why": "SM logo body (NAUO84, same as 'Southern Machinery logo-SMThelp 0.125.X_T') sits on the back of head plate (front face y=-0.501): copy to the front, left and right of the heads",
+     "match": {
+      "node_prefix": "NAUO84",
+      "name_contains": "logo"
+     },
+     "offsets": [
+      [
+       -0.455,
+       0.0195,
+       -0.005
+      ],
+      [
+       0.455,
+       0.0195,
+       -0.005
+      ]
+     ]
+    }
+   ]
+  },
+  "palette": "sm-machine"
+ },
+ "props": {
+  "pcb": {
+   "size": [
+    0.22,
+    0.16
+   ],
+   "thickness": 0.0016,
+   "top_z": 0.193,
+   "home": [
+    0.62,
+    -0.229
+   ],
+   "enter_from": [
+    -0.35,
+    -0.229
+   ],
+   "exit_to": [
+    1.4,
+    -0.229
+   ],
+   "travel": 0.8
+  },
+  "heads": {
+   "1": {
+    "xy": [
+     0.411,
+     -0.452
+    ],
+    "group": "H0",
+    "clinch_group": "C0",
+    "pin_z": 0.212,
+    "press": 0.024,
+    "clinch_lift": 0.012
+   },
+   "2": {
+    "xy": [
+     0.611,
+     -0.452
+    ],
+    "group": "H1",
+    "clinch_group": "C1",
+    "pin_z": 0.212,
+    "press": 0.024,
+    "clinch_lift": 0.012
+   },
+   "3": {
+    "xy": [
+     0.711,
+     -0.452
+    ],
+    "group": "H2",
+    "clinch_group": "C2",
+    "pin_z": 0.212,
+    "press": 0.024,
+    "clinch_lift": 0.012
+   },
+   "4": {
+    "xy": [
+     0.911,
+     -0.452
+    ],
+    "group": "H3",
+    "clinch_group": "C3",
+    "pin_z": 0.212,
+    "press": 0.024,
+    "clinch_lift": 0.012
+   }
+  },
+  "points": [
+   [
+    -0.08,
+    -0.05,
+    1
+   ],
+   [
+    -0.06,
+    0.05,
+    2
+   ],
+   [
+    -0.02,
+    -0.05,
+    3
+   ],
+   [
+    0.03,
+    0.05,
+    4
+   ],
+   [
+    0.07,
+    -0.05,
+    1
+   ],
+   [
+    0.08,
+    0.0,
+    2
+   ],
+   [
+    -0.07,
+    0.0,
+    3
+   ],
+   [
+    -0.03,
+    -0.05,
+    4
+   ],
+   [
+    0.02,
+    0.0,
+    1
+   ],
+   [
+    0.05,
+    -0.05,
+    2
+   ],
+   [
+    0.0,
+    0.05,
+    3
+   ],
+   [
+    0.06,
+    0.05,
+    4
+   ]
+  ],
+  "bowls": [
+   {
+    "group": "B0",
+    "dir": 1
+   },
+   {
+    "group": "B1",
+    "dir": -1
+   },
+   {
+    "group": "B2",
+    "dir": 1
+   },
+   {
+    "group": "B3",
+    "dir": -1
+   }
+  ],
+  "feed_tracks": [
+   {
+    "x": 0.413,
+    "y": [
+     -0.6,
+     -0.47
+    ],
+    "z": 0.262
+   },
+   {
+    "x": 0.613,
+    "y": [
+     -0.6,
+     -0.47
+    ],
+    "z": 0.262
+   },
+   {
+    "x": 0.715,
+    "y": [
+     -0.6,
+     -0.47
+    ],
+    "z": 0.262
+   },
+   {
+    "x": 0.915,
+    "y": [
+     -0.6,
+     -0.47
+    ],
+    "z": 0.262
+   }
+  ]
+ },
+ "animation": {
+  "kinematics": "xy_table",
+  "x_groups": [
+   "X"
+  ],
+  "y_groups": [
+   "Y"
+  ],
+  "scenes": [
+   {
+    "id": "intro",
+    "dur": 5,
+    "action": "idle",
+    "camera": {
+     "orbit": {
+      "center": [
+       0.63,
+       -0.33,
+       0.32
+      ],
+      "angle": [
+       28,
+       12
+      ],
+      "radius": [
+       2.6,
+       2.2
+      ],
+      "height": [
+       1.5,
+       1.0
+      ]
+     },
+     "fov": [
+      40,
+      40
+     ]
+    },
+    "caption": {
+     "en": {
+      "head": "S7040P PIN Insertion Machine · How it works"
+     },
+     "zh": {
+      "head": "S7040P 插针机 · 工作原理"
+     }
+    }
+   },
+   {
+    "id": "pcb_in",
+    "dur": 5,
+    "action": "board_in",
+    "camera": {
+     "eye": [
+      "prev",
+      [
+       0.25,
+       1.3,
+       0.85
+      ]
+     ],
+     "target": [
+      [
+       0.63,
+       -0.33,
+       0.32
+      ],
+      [
+       0.45,
+       -0.25,
+       0.2
+      ]
+     ],
+     "fov": [
+      40,
+      40
+     ]
+    },
+    "caption": {
+     "en": {
+      "head": "Step 1 · PCB in",
+      "sub": "PCB enters from the left and is clamped on the X/Y table",
+      "step": "1/4"
+     },
+     "zh": {
+      "head": "步骤 1 · 进板",
+      "sub": "PCB 从左侧进入，在 X/Y 工作台上夹紧定位",
+      "step": "1/4"
+     }
+    }
+   },
+   {
+    "id": "feed",
+    "dur": 5,
+    "action": "feed",
+    "camera": {
+     "eye": [
+      "prev",
+      [
+       0.95,
+       0.15,
+       1.05
+      ]
+     ],
+     "target": [
+      "prev",
+      [
+       0.66,
+       -0.58,
+       0.3
+      ]
+     ],
+     "fov": [
+      "prev",
+      32
+     ]
+    },
+    "caption": {
+     "en": {
+      "head": "Step 2 · Feeding",
+      "sub": "4 vibration bowls orient the pins and feed 4 insertion heads",
+      "step": "2/4"
+     },
+     "zh": {
+      "head": "步骤 2 · 供料",
+      "sub": "4 个振动盘自动排向，分别向 4 个插件头送料",
+      "step": "2/4"
+     }
+    }
+   },
+   {
+    "id": "insert",
+    "dur": 16,
+    "action": "insert",
+    "return": 1.0,
+    "camera": {
+     "eye": [
+      "prev",
+      [
+       0.88,
+       0.22,
+       0.52
+      ]
+     ],
+     "target": [
+      "prev",
+      [
+       0.66,
+       -0.4,
+       0.2
+      ]
+     ],
+     "fov": [
+      "prev",
+      36
+     ],
+     "ease_time": 2.0,
+     "sway": [
+      0.1,
+      0,
+      0
+     ]
+    },
+    "caption": {
+     "en": {
+      "head": "Step 3 · Position, insert, check",
+      "sub": "X/Y table moves each hole under a head · head inserts · support base checks",
+      "step": "3/4"
+     },
+     "zh": {
+      "head": "步骤 3 · 定位、插件、检测",
+      "sub": "X/Y 工作台移孔位到插件头下 · 插件 · 底座支撑检测",
+      "step": "3/4"
+     }
+    }
+   },
+   {
+    "id": "pcb_out",
+    "dur": 4,
+    "action": "board_out",
+    "camera": {
+     "eye": [
+      "prev",
+      [
+       1.15,
+       1.45,
+       0.9
+      ]
+     ],
+     "target": [
+      "prev",
+      [
+       0.8,
+       -0.3,
+       0.22
+      ]
+     ],
+     "fov": [
+      "prev",
+      40
+     ]
+    },
+    "caption": {
+     "en": {
+      "head": "Step 4 · PCB out",
+      "sub": "Finished PCB leaves to the right, the next board comes in",
+      "step": "4/4"
+     },
+     "zh": {
+      "head": "步骤 4 · 出板",
+      "sub": "完成的 PCB 从右侧出板，下一块板随即进入",
+      "step": "4/4"
+     }
+    }
+   },
+   {
+    "id": "outro",
+    "dur": 5,
+    "action": "idle",
+    "camera": {
+     "orbit": {
+      "center": [
+       0.63,
+       -0.33,
+       0.25
+      ],
+      "angle": [
+       15,
+       40
+      ],
+      "radius": [
+       2.3,
+       2.3
+      ],
+      "height": [
+       0.95,
+       1.2
+      ]
+     },
+     "fov": [
+      40,
+      40
+     ]
+    },
+    "caption": {
+     "en": {
+      "head": "S7040P PIN Insertion Machine",
+      "sub": "4 heads · 4 vibration bowls · 0.5 s per part · www.smthelp.com"
+     },
+     "zh": {
+      "head": "S7040P 插针机",
+      "sub": "4 头 · 4 振动盘 · 0.5 秒/件 · www.smthelp.com"
+     }
+    }
+   }
+  ]
+ },
+ "render": {
+  "width": 1280,
+  "height": 720,
+  "fps": 24,
+  "supersample": 2,
+  "flip_x": true,
+  "workers": 2
+ },
+ "real_clips": [
+  {
+   "src": "inputs/real/r1.mp4",
+   "start": 0,
+   "dur": 9.04,
+   "fit": "cover",
+   "caption": {
+    "en": "4 heads, bulk feeding, with clinch (lead bending)",
+    "zh": "4 头散装插件，带弯脚功能"
+   }
+  },
+  {
+   "src": "inputs/real/r2.mp4",
+   "start": 0,
+   "dur": 6,
+   "fit": "cover",
+   "caption": {
+    "en": "Vibration bowls orient and feed the parts",
+    "zh": "振动盘自动排向供料"
+   }
+  },
+  {
+   "src": "inputs/real/r3.mp4",
+   "start": 0,
+   "dur": 6,
+   "fit": "cover",
+   "caption": {
+    "en": "4 heads inserting continuously",
+    "zh": "4 头连续插件"
+   }
+  },
+  {
+   "src": "inputs/real/r4.mp4",
+   "start": 0,
+   "dur": 8,
+   "fit": "cover",
+   "caption": {
+    "en": "Customer case: water dispenser power board, 4 heads insert XH pin headers",
+    "zh": "客户案例：饮水机电源板，4 头插 XH 端子针座"
+   }
+  }
+ ],
+ "sequence": [
+  {
+   "type": "3d",
+   "from": 0,
+   "to": 35
+  },
+  {
+   "type": "real",
+   "clip": 0
+  },
+  {
+   "type": "real",
+   "clip": 1
+  },
+  {
+   "type": "real",
+   "clip": 2
+  },
+  {
+   "type": "real",
+   "clip": 3
+  },
+  {
+   "type": "3d",
+   "from": 35,
+   "to": 40
+  }
+ ],
+ "disclosure": {
+  "en": "3D illustration from the S7020 platform model, configured as S7040P: 4 heads, 4 vibration bowls",
+  "zh": "3D 示意基于 S7020 平台模型，按 S7040P 配置为 4 头、4 振动盘"
+ },
+ "voice": {
+  "enabled": true,
+  "voices": {
+   "en": "en-US-AndrewNeural",
+   "zh": "zh-CN-YunyangNeural"
+  },
+  "lines": [
+   {
+    "at": 0.4,
+    "until": 5.0,
+    "zh": "S7040P 插针机，四头四振动盘。",
+    "en": "Meet the S7040P: four heads, four vibration bowls."
+   },
+   {
+    "at": 5.2,
+    "until": 10.0,
+    "zh": "PCB 从左侧进入，在 X Y 工作台上夹紧定位。",
+    "en": "The PCB enters from the left and is clamped on the X Y table."
+   },
+   {
+    "at": 10.2,
+    "until": 15.0,
+    "zh": "四个振动盘自动排向，分别为四个插件头送料。",
+    "en": "Four vibration bowls orient the pins and feed four insertion heads."
+   },
+   {
+    "at": 15.4,
+    "until": 30.5,
+    "zh": "X Y 工作台把每个孔位送到插件头下方，插件头完成插件，底座同步支撑并检测。四个头轮流作业，规划速度每件零点五秒。",
+    "en": "The X Y table moves each hole under a head. The head inserts, while the support base holds the board and checks each part. Four heads work in turn, at a planning speed of half a second per part."
+   },
+   {
+    "at": 31.0,
+    "until": 35.0,
+    "zh": "完成的 PCB 从右侧出板，下一块板随即进入。",
+    "en": "The finished board leaves to the right, and the next one comes in."
+   },
+   {
+    "at": 35.4,
+    "until": 44.0,
+    "zh": "下面是实机视频。四头散装插件，带弯脚功能。",
+    "en": "Now the real machine. Four heads, bulk feeding, with lead clinching."
+   },
+   {
+    "at": 44.2,
+    "until": 50.0,
+    "zh": "振动盘自动排向供料。",
+    "en": "Vibration bowls orient and feed the parts."
+   },
+   {
+    "at": 50.2,
+    "until": 56.0,
+    "zh": "四个插件头连续插件。",
+    "en": "Four heads inserting, one after another."
+   },
+   {
+    "at": 56.2,
+    "until": 64.0,
+    "zh": "客户案例：饮水机电源板，四个头插 XH 端子针座。",
+    "en": "A customer case: a water dispenser power board, with four heads inserting XH pin headers."
+   },
+   {
+    "at": 64.3,
+    "until": 69.0,
+    "zh": "Southern Machinery，S7040P 插针机。",
+    "en": "Southern Machinery. The S7040P PIN insertion machine."
+   }
+  ]
+ },
+ "stills": [
+  {
+   "name": "s7040p_3d_hero",
+   "t": 36.0,
+   "width": 1920,
+   "height": 1080
+  }
+ ],
+ "deck": {
+  "enabled": true,
+  "spec": {
+   "en": "deck/spec-en.json",
+   "zh": "deck/spec-zh.json"
+  },
+  "assets": "inputs/deck_assets",
+  "poster_t": 20.0,
+  "render": false
+ },
+ "publish": {
+  "drive_folder": ""
+ },
+ "output": {
+  "dir": "out",
+  "langs": [
+   "en",
+   "zh"
+  ],
+  "name_pattern": "{slug}-{variant}-{LANG}",
+  "video_variant": "4-Heads-Video"
+ }
+}
