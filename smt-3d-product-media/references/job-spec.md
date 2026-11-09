@@ -37,7 +37,7 @@ Selector keys (all given keys must match): `nums`, `ranges` [[a,b]], `node_prefi
 | heads | {id: {xy, group, clinch_group, pin_z, press, clinch_lift}} - head groups move down by `press`, clinch groups up by `clinch_lift` |
 | points | [[u, v, head_id]] insertion points in board coords, in insertion order |
 | bowls | [{group, dir, amp_deg=0.6, speed=37}] vibrating bowls |
-| feed_tracks | [{x, y:[from,to], z, count=4, speed=0.35}] parts flowing to the heads |
+| feed_tracks | [{x, y:[from,to], z, count=4, speed=0.35}] parts flowing to the heads; 1.5.0 form: [{from:[x,y,z], to:[x,y,z], rail=true, count, speed, part:[w,l,h], color}] (use the junction/seat points from tools/align_feeder_cad.py) |
 | pin | {hr: [height, radius]} inserted pin size |
 | part | {shape: "pin" (default), "blade" size [width, thickness, height] (flat terminals, S70xxT) or "eyelet" size [outer_d, length, flange_d] (hollow rivet, S70xxE); optional color [r,g,b] 0-1} |
 
@@ -48,7 +48,7 @@ Selector keys (all given keys must match): `nums`, `ranges` [[a,b]], `node_prefi
 | x_groups / y_groups | groups moved by the table X / X+Y offset |
 | scenes | [{id, dur, action, camera, caption, return}] in time order |
 
-`action`: idle | board_in | feed | insert | board_out. `return` (insert only): seconds for the table to go home.
+`action`: idle | board_in | feed | insert | board_out. `return` (insert only): seconds for the table to go home. `explode` (any scene, v1.2): `{"groups": {"H1": [0,0,0.25], ...}, "curve": "outin"|"out"|"in"|"hold", "ramp": s}` moves the named groups apart for a teardown / exploded view (static frame stays).
 `camera`: `eye` [from,to] or `orbit` {center, angle [deg,deg], radius [a,b], height [a,b]}; `target` [from,to]; `fov` [from,to]; `ease_time`; `sway` [dx,dy,dz]. A `from` value may be `"prev"` = end of previous scene (smooth cuts).
 `caption`: {lang: {head, sub, step}} shown in the top bar / subtitle box / step counter.
 

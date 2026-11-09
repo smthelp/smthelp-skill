@@ -1,0 +1,24 @@
+{
+ "_note": "S7040P v6 (2026-11-09): 2 x 'Vibration Bowl Feeder x2.STEP' (model x lateral, y up, z fwd; tracks end at z 1.205). Heads at 0.511/0.611/0.711/0.811.",
+ "cad": "inputs/Vibration Bowl Feeder x2.STEP",
+ "glb_cache": "inputs/vbf2.glb",
+ "axes": {"lateral": 0, "up": 1, "fwd": 2},
+ "tracks": {"small": 0.0915, "big": 0.0515},
+ "track_split_lateral": 0.075,
+ "seat_fwd": 1.205, "junction_fwd": 0.556, "seat_top_up": 0.680, "front_min_up": 0.6,
+ "pick": [-0.650, 0.269],
+ "shared_keywords": ["YAMAHA", "安装前立板", "定位键", "直振本体", "配重", "胶垫", "加重块", "直振轨道安装板"],
+ "drop_keywords": ["白色端子", "螺母", "_AFR", "_AFC", "_AL-1500", "_GS-40", "PL601", "_HSV06", "100M2F", "Valve", "SDVC", "10pin", "空气开关", "PLC", "电源", "FX-501", "HI_"],
+ "colors": {"frame": [0.82, 0.84, 0.87], "bowl": [0.62, 0.66, 0.72], "feet": [0.30, 0.33, 0.38]},
+ "color_keywords": {"feet": ["脚杯", "脚轮"], "bowl": ["端子盘"]},
+ "carts": [
+  {"mirror": false, "targets": {"small": 0.511, "big": 0.611}, "heads": {"small": "H1", "big": "H2"},
+   "fill": [{"center": [0.232, 0.405], "r": 0.11, "floor_up": 0.618, "shape": "pin", "d": 0.00256, "L": 0.01688, "color": [0.86, 0.66, 0.26]},
+            {"center": [0.191, 0.105], "r": 0.11, "floor_up": 0.618, "shape": "pin", "d": 0.00768, "L": 0.03448, "color": [0.86, 0.66, 0.26]}]},
+  {"mirror": true, "targets": {"big": 0.711, "small": 0.811}, "heads": {"big": "H3", "small": "H4"},
+   "fill": [{"center": [0.191, 0.105], "r": 0.11, "floor_up": 0.618, "shape": "clip", "d": 0.00261, "L": 0.00495, "color": [0.80, 0.80, 0.83]},
+            {"center": [0.232, 0.405], "r": 0.11, "floor_up": 0.618, "shape": "clip", "d": 0.00825, "L": 0.01125, "color": [0.80, 0.80, 0.83]}]}
+ ],
+ "out_glb": "inputs/feeders_world.glb",
+ "out_json": "feeders.json"
+}

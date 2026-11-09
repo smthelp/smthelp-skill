@@ -35,3 +35,11 @@ Name-based selectors are unreliable for Chinese/GBK names; prefer node ranges + 
 
 ## 7 Deck
 Write `deck/spec-en.json` (+zh) in smt-product-ppt-rebrand format with a `video` slide using `{video}` / `{poster}`; `deck` embeds this run's video. Follow smt-product-ppt-rebrand rules (facts only, fixed closing slides, SEO name).
+
+## 8 Real feeder CAD with several bowls per cart (1.7.0)
+When Jason sends a feeder STEP with more than one bowl and track on one cart and asks for the outlets to line up with the heads:
+1. Convert to GLB, list bodies (name + bbox). Find the model axes (up = feet to bowl rim, fwd = along the tracks), each track's lateral centre, the seat (接料座) fwd position and floor height, the junction where the front linear track starts, the plates shared by both tracks, and demo parts to drop (e.g. 白色端子).
+2. Pick head x: tracks of one cart are closer than the head pitch, so re-pitch heads to the platform's real pair pitch (S7020: 0.1 m) and let the tool yaw each front track a few degrees; mirror the second cart so the carts sit side by side.
+3. Pick point: just behind the head's own feed-rail entry (S7020 [-0.650, 0.269]); never under the head, the board travels there.
+4. Run the tool, put its GLB in props.feeder_cad (fwd y, up z, out = tool `out`, vib 0) with hide_bowls, hide the old bowl stands, drop bowl copies/groups, and add feed_tracks junction->seat plus seat->gripper.
+5. Preview overview, feeder close-up and every insertion camera (copied heads and table can block transitions after re-pitching), then render. Disclose: feeder CAD real, second cart mirrored, track angles adjusted; tell Jason the cart height vs machine base.

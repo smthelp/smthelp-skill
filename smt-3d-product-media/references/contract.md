@@ -52,8 +52,17 @@ File names: `output.name_pattern` (default `{slug}-{variant}-{LANG}`), slug = `p
 
 ## Exit codes and messages
 `0` ok, `2` invalid input (job, CAD, environment), `3` a stage failed. Error lines start with a code (J.. job, C.. CAD, R.. render, M.. media, V.. voice, D.. deck, P.. publish); see troubleshooting.md. Warnings start with `WARN` and do not stop the run.
-The **last stdout line is one JSON object** an agent can parse: `{"ok": true|false, "command": "...", "skill_version": "1.1.0", "results": {stage: ...}, "errors": [...], "manifest": "out/manifest.json"}`.
+The **last stdout line is one JSON object** an agent can parse: `{"ok": true|false, "command": "...", "skill_version": "1.2.0", "results": {stage: ...}, "errors": [...], "manifest": "out/manifest.json"}`.
 
 ## Guarantees
 - Same job + same skill version -> same frames (deterministic renderer, no randomness).
 - New minor versions only add optional keys; a job@1 file keeps working through all 1.x releases.
+
+### props.pcb.cad (1.3.0)
+`{"file": "inputs/board.STEP|.glb", "array": [nx, ny], "gap": 0.004, "board_color": [r,g,b], "rot_deg": 0, "flip": false, "insert": [{"groups": ["NAUO18"], "head": "1"}], "absent": []}` — see smt3dlib/pcbcad.py docstring.
+
+### props.feeder_cad (1.4.0)
+`{"models": {"key": {"file": "inputs/feeder.STEP|.glb", "fwd": "-x", "up": "z", "color": [r,g,b], "max_body_faces": 20000, "min_body": 0.004}}, "items": [{"model": "key", "out": [x, y_outlet, z_top], "vib": 0.0004}], "hide_bowls": true}` - see smt3dlib/feedercad.py docstring.
+
+### tools/align_feeder_cad.py (1.7.0)
+Multi-bowl feeder carts (one STEP with several bowls + linear tracks) aligned so every track outlet sits at its head's pick-up point. `python3 tools/align_feeder_cad.py config.json` -> one world-placed GLB (machine coords) + JSON with each head's `junction`, `seat`, `yaw_deg`, the GLB `bbox` and the `out` point for props.feeder_cad. Config keys: `cad`, `axes` {lateral, up, fwd}, `tracks` {name: lateral coord}, `seat_fwd`, `junction_fwd`, `seat_top_up`, `pick` [y, z], `shared_keywords`, `drop_keywords`, `colors`/`color_keywords`, `carts` [{mirror, targets {track: head_x}, heads {track: "H1"}, fill [{center, r, floor_up, shape pin|clip, d, L, color}]}], `out_glb`, `out_json`. Example: examples/feeder_align/vbf_x2_s7040p.json. Warns when a track yaw exceeds 5 deg.

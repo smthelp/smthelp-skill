@@ -2,8 +2,8 @@
 name: smt-3d-product-media
 description: Turn a machine's 3D CAD model (STEP) into a branded working-principle animation video (EN/ZH captions, optional real-footage cut-ins, optional AI voiceover, logo on the machine) and a product introduction PPT that embeds it, for Southern Machinery / SMTHelp equipment. Use when Jason says 3D图做成动画/工作原理视频/产品介绍视频/产品介绍PPT/加配音/加实机视频/把logo放到模型上, or sends a STEP file and asks for a video or deck for overseas customers.
 metadata:
-  version: 1.1.0
-  updated: 2026-11-08
+  version: 1.7.0
+  updated: 2026-11-09
   schema: smt-3d-product-media/job@1
   entrypoint: scripts/smt3dmedia.py
   first_case: S7040P PIN insertion machine (4 heads, 4 bowls) from the S7020 platform STEP, 2026-11-07
@@ -33,6 +33,7 @@ deck spec (EN/ZH) + assets + video ──deck──> out/deck/<slug>-Product-Pre
 - `references/versioning.md` - semver, schema compatibility, release and sync
 - `references/feedback-log.md` - Jason's rules; apply all of them
 - Worked example: `examples/s7040p/job.json` (+ `deck/spec-*.json`)
+- Feeder alignment: `tools/align_feeder_cad.py` + `examples/feeder_align/vbf_x2_s7040p.json` (method.md section 8)
 
 ## Quick run
 ```bash
@@ -63,5 +64,11 @@ Copy or symlink this folder into the agent's skills dir (nanobot `~/.nanobot/wor
 Publish to the shared repo: `tools/publish_to_repo.sh` (sync folder, README row, commit, tag `smt-3d-product-media-vX.Y.Z`, push).
 
 ## 版本与迭代
+- 1.7.0 (2026-11-09) 新增 tools/align_feeder_cad.py：多料盘振动盘机架 STEP 自动对位，出料口对准插件头取料位（S7040P v6 双盘振动盘 ×2）
+- 1.6.0 (2026-11-09) 每头零件外形 heads[id].part、press_pin/clip 外形、PCB 焊盘环
+- 1.5.0 (2026-11-09) scene.points、scene.cut、feed_tracks from/to、clinch_leads 打弯特写
+- 1.4.0 (2026-11-08) props.feeder_cad 真实飞达 CAD
+- 1.3.0 (2026-11-08) props.pcb.cad 真实 PCBA 模型
+- 1.2.0 (2026-11-08) 新增 scene.explode 拆解视图（YouTube 3D 拆解视频）
 - 1.1.0 (2026-11-08) 新增 eyelet 铆钉零件外形与颜色、blade 平片端子外形、修复 preview --t、新增 S7040E 示例
 - 1.0.0 (2026-11-07) 首版：由 S7040P 3D 动画/实机/logo/中英配音视频与产品介绍 PPT 的做法固化。见 references/changelog.md

@@ -8,3 +8,6 @@
 - Speeds: S70xx planning speed 0.5 s per part (AGENTS.md v2). No other figures without a source.
 - Customer cases: say "customer case", no customer name unless approved.
 - Outputs go to Jason for review and to the source Drive folder; never to customers.
+- 2026-11-08 YouTube marketing videos: start from real Drive footage, match the model, open with a 3D teardown (scene.explode), EN voiceover, ~70-80 s, plus thumbnail + SEO title/description/tags.
+- 2026-11-09 Feeder name in all copy: "Vibration Bowl Feeder" (bulk parts). Clinch: inward / outward / N-style, angle adjustable; every S70xx head has a clinching unit under the board.
+- 2026-11-09 When Jason gives a feeder model: use it as-is, one customer part per bowl, and line each feeder outlet up with its head's pick-up position (S7040P v6: 2 x "Vibration Bowl Feeder x2", tools/align_feeder_cad.py).

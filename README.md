@@ -19,7 +19,7 @@ Southern Machinery（南方机械）Agent Skills 集合 — SMT/THT 外贸营销
 | `smt-3d-animation-landing-kit` | Hark agent | 产品 3D 图（eDrawings HTML/GLB/STL/OBJ）+ 介绍文档 → 左右对比机构动画、单文件 7 语言落地页（内嵌 WebGL 3D：旋转/缩放、材质/光照切换、爆炸视图；8 篇 blog、ROI 计算器）、16:9 + 9:16 4K 解说视频、缩略图、SEO、Drive 同步；CLI `smt3d.py`、默认配置 + schema、验证清单、升级路径（v1.0.0） |
 | `product-3d-doc-html-landing` | Hark agent | 产品 3D 图（GLB/STL/OBJ/STEP/FBX/PPT 内嵌）+ 介绍文档（PDF/PPTX/DOCX/视频）→ 单文件自包含 HTML 交互落地页：3D 旋转/缩放/机构动画/材质与光照切换、7 语言（含 RTL）、8 篇博客、ROI、选型工具、披露表、SEO+GEO；模型轻量化（48.9 MB→214 KB 实测）、配置化（语言/博客数/配色/模型格式）、15 项验证 + 浏览器测试、升级路径（v1.0.0） |
 | `product-3d-canvas-video-landing` | Hark agent | 产品 3D 图（eDrawings/Three.js HTML）或实拍图 + 现有落地页 + 目录/说明书 → ① 单文件落地页（交互机构动画、3D 转台、CTA，可把旧机型页改写成新机型/客户定制版）② 16:9 + 9:16 4K 英文配音视频（烧录字幕 + SRT）、YouTube 缩略图、SEO/章节/配音稿、Drive 交付；`python3 -m p3cv` CLI、12 个可续跑阶段、`skill.json` 元数据、统一调用契约（JSON 结果 + 退出码 0/2/3）、manifest(sha256)、schema 迁移、升级规则（v1.2.0） |
-| `smt-3d-product-media` | Hark agent | 3D CAD (STEP) → ① 工作原理动画视频（CPU 渲染、品牌字幕条、步骤字幕、披露说明、实机片段插入、机身 logo、中英 AI 配音，EN/ZH MP4）② 产品介绍 PPT（SM 16:9 模板，内嵌视频与封面，经 smt-product-ppt-rebrand 构建）；单一 job.json（schema job@1）、统一 CLI `smt3dmedia.py`（13 个可续跑阶段、--set 覆盖、JSON 结果 + 退出码 0/2/3）、manifest 追溯、smoke 测试、S7040P / S7040E 示例、升级与兼容规则（v1.1.0） |
+| `smt-3d-product-media` | Hark agent | 产品 3D 图（STEP）→ ① 工作原理动画视频（CPU 渲染、品牌字幕条、步骤字幕、披露说明、实机片段插入、机身 logo、中英 AI 配音，EN/ZH MP4）② 产品介绍 PPT（SM 16:9 模板，内嵌视频与封面，经 smt-product-ppt-rebrand 构建）；单一 job.json（schema job@1）、统一 CLI `smt3dmedia.py`、manifest 追溯、smoke 测试、S7040P/S7040E 示例、飞达/PCB CAD 对齐（v1.7.0） |
 
 ### CLI App 技能（nanobot workspace）
 

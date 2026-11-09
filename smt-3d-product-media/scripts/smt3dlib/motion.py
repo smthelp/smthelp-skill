@@ -45,27 +45,36 @@ def state_xy_table(t, job, tl):
         elif i_out is not None and k > i_out: s["board"] = None if pcb.get("hide_after_out", False) else np.asarray(pcb["exit_to"], float)
         else: s["board"] = home.copy()
         s["on_table"] = act in ("feed", "insert")
-    pts = P.get("points", [])
-    if act == "insert" and pts:
-        ret = sc.get("return", 1.0); cyc = (sc["dur"] - ret) / len(pts)
+    allp = P.get("points", [])
+    def rng(scn): a, b = scn.get("points", [0, len(allp)]); return int(a), int(min(b, len(allp)))
+    s["bend"] = None
+    if act == "insert" and allp:
+        a0, b0 = rng(sc); pts = allp[a0:b0]   # v1.5: scene.points [a, b] = this scene inserts points a..b-1 (split insert over several scenes / cameras)
+        ret = sc.get("return", 1.0); cyc = (sc["dur"] - ret) / max(1, len(pts))
         n = min(int(ts // cyc), len(pts) - 1) if ts < sc["dur"] - ret else len(pts) - 1
         ph = (ts - n * cyc) / cyc if ts < sc["dur"] - ret else 1.0
         u, v, h = pts[n]; h = str(h)
         tgt = _head_xy(P, h) - (home + np.array([u, v]))
-        prev = np.zeros(2) if n == 0 else _head_xy(P, pts[n - 1][2]) - (home + np.array(pts[n - 1][:2]))
+        if n == 0:
+            prev = np.zeros(2)
+            if a0 > 0 and sc.get("from_prev", True):
+                u0, v0, h0 = allp[a0 - 1]; prev = _head_xy(P, h0) - (home + np.array([u0, v0])) if not sc.get("return_prev", True) else np.zeros(2)
+        else: prev = _head_xy(P, pts[n - 1][2]) - (home + np.array(pts[n - 1][:2]))
         s["tab"] = lerp(prev, tgt, ease(ph / 0.35))
         hp = P["heads"][h]
         press = np.sin((ph - 0.40) / 0.40 * np.pi) if 0.40 <= ph < 0.80 else 0.0
         s["hz"][h] = -hp.get("press", 0.024) * min(1.0, press * 1.6)
         s["cz"][h] = hp.get("clinch_lift", 0.012) if 0.5 <= ph < 0.85 else 0.0
-        s["inserted"] = n + (1 if ph >= 0.6 else 0)
+        s["inserted"] = a0 + n + (1 if ph >= 0.6 else 0)
+        s["bend"] = (a0 + n, min(1.0, max(0.0, (ph - 0.6) / 0.2)))   # leads of the part just inserted fold while the clinch is up
         s["carry"] = h if ph < 0.6 else None
         if ts >= sc["dur"] - ret:  # table returns home
             last = _head_xy(P, pts[-1][2]) - (home + np.array(pts[-1][:2]))
             s["tab"] = lerp(last, np.zeros(2), ease((ts - (sc["dur"] - ret)) / ret)); s["hz"] = {x: 0.0 for x in heads}; s["carry"] = None
-            s["inserted"] = len(pts)
+            s["inserted"] = a0 + len(pts); s["bend"] = None
     elif i_ins is not None and k > i_ins:
-        s["inserted"] = len(pts)
+        done = [rng(tl.scenes[i])[1] for i in range(k) if tl.scenes[i].get("action") == "insert"]
+        s["inserted"] = max(done) if done else 0
     return s
 
 def load_plugin(job):

@@ -1,6 +1,6 @@
 {
  "name": "smt-3d-product-media",
- "version": "1.1.0",
+ "version": "1.7.0",
  "description": "3D CAD (STEP) -> branded working-principle animation video (EN/ZH captions, real footage, logo, AI voiceover) + product introduction PPT embedding it.",
  "entrypoint": "scripts/smt3dmedia.py",
  "invoke": "python3 scripts/smt3dmedia.py <command> <job.json> [--set key=value]",
@@ -56,5 +56,5 @@
  "example": "examples/s7040p/job.json",
  "test": "tests/smoke.sh",
  "owner": "Southern Machinery (smthelp)",
- "updated": "2026-11-08"
+ "updated": "2026-11-09"
 }
