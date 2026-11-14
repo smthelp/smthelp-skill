@@ -1,0 +1,11 @@
+# 放在 wx_video_download 同目录。只用官方文档列出的键。
+download:
+  dir: "/Users/YOUR_USER/Movies/SMT-WeChat-Channels"
+  filenameTemplate: "{{author}}/{{filename}}_{{spec}}"   # 仅后台下载时按作者分目录
+  maxRunning: 3
+  playDoneAudio: true
+proxy:
+  system: true        # 用 Clash 等代理时改 false，并把流量转到 127.0.0.1:2023
+  hostname: 127.0.0.1
+  port: 2023
+  tun: false
