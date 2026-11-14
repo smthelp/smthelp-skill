@@ -31,3 +31,6 @@ Jason corrected the approach: v1's AI clips were discarded; v2 was rebuilt using
 
 ## 2026-11-13 — Radial v2: frame-rounding drift
 Concatenated video was 90.667 s vs 90.768 s voiceover (340 frames per segment rounds down). Fixed by padding the last frame with `tpad`. **Rule: check concat duration against the voiceover before the final encode.**
+
+## 2026-11-14 — Wiper Roll: generic filename overwrote another product's SEO file
+A `youtube-description-final.txt` symlink in `~/workspace/your_files/` pointed at the Radial goal directory; a `cp` followed the link and overwrote Radial's SEO description with the Wiper Roll text. Caught by md5 and restored from the original. **Rule: never use generic filenames in `your_files/` — always product-prefixed names.**
