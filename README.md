@@ -21,6 +21,7 @@ Southern Machinery（南方机械）Agent Skills 集合 — SMT/THT 外贸营销
 | `product-3d-canvas-video-landing` | Hark agent | 产品 3D 图（eDrawings/Three.js HTML）或实拍图 + 现有落地页 + 目录/说明书 → ① 单文件落地页（交互机构动画、3D 转台、CTA，可把旧机型页改写成新机型/客户定制版）② 16:9 + 9:16 4K 英文配音视频（烧录字幕 + SRT）、YouTube 缩略图、SEO/章节/配音稿、Drive 交付；`python3 -m p3cv` CLI、12 个可续跑阶段、`skill.json` 元数据、统一调用契约（JSON 结果 + 退出码 0/2/3）、manifest(sha256)、schema 迁移、升级规则（v1.2.0） |
 | `smt-3d-product-media` | Hark agent | 产品 3D 图（STEP）→ ① 工作原理动画视频（CPU 渲染、品牌字幕条、步骤字幕、披露说明、实机片段插入、机身 logo、中英 AI 配音，EN/ZH MP4）② 产品介绍 PPT（SM 16:9 模板，内嵌视频与封面，经 smt-product-ppt-rebrand 构建）；单一 job.json（schema job@1）、统一 CLI `smt3dmedia.py`、manifest 追溯、smoke 测试、S7040P/S7040E 示例、飞达/PCB CAD 对齐（v1.7.0） |
 | `smt-logo-looks-stickers` | Muse agent | 公司 logo STEP → 品牌造型（展会主视觉、名片、邮件签名、社交头像 + LinkedIn 横幅、视频结尾卡、易拉宝）+ 6 张 GIF 动态贴纸（512×512 透明底）；单一 job.json（schema job@1）、统一 CLI `smtlogomedia.py`、PNG 原图输入、去小字过滤、版本与升级规则（v1.0.0） |
+| `smt-product-video` | Muse（小穆） | 产品落地页 → 4K 营销视频（英文配音 + 烧录英文字幕 + SRT）→ YouTube 发布：AI 片段与原图两种模式、缩略图、SEO 包、社媒文案；含 ffmpeg 管线脚本、ASS 字幕模板、校验清单与踩坑记录；S-MVF01 / S7000 / Radial Splicing Tape 三案验证（v1.0.0） |
 
 ### CLI App 技能（nanobot workspace）
 

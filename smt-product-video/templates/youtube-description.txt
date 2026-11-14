@@ -1,0 +1,36 @@
+<Product name> | <key variants / use case> | Southern Machinery
+
+<One-line summary with the main keyword first.>
+
+<2–3 sentences: what the product is, the problem it solves, who it is for.>
+
+CHAPTERS
+0:00 <Beat 1 — hook / pain point>
+0:11 <Beat 2 — product reveal>
+0:23 <Beat 3 — mechanism>
+0:34 <Beat 4 — specs>
+0:45 <Beat 5 — tool / accessory>
+0:57 <Beat 6 — how to use>
+1:08 <Beat 7 — EMS benefits>
+1:19 <Beat 8 — closing / CTA>
+
+KEY SPECS
+- <spec>: <value as listed on the product page>
+- <variant / code>: <price as listed>
+
+HOW TO USE
+1. <step>
+2. <step>
+3. <step>
+4. <step>
+
+LEARN MORE
+Product page: <VERIFIED landing page URL>
+Shop: <VERIFIED store URL>
+Tool/accessory: <VERIFIED URL>
+Website: https://www.smthelp.com
+
+Southern Machinery — SMT/THT automation equipment, Shenzhen, China.
+Contact: info@smthelp.com
+
+#<tag1> #<tag2> #<tag3> #<tag4> #<tag5>
