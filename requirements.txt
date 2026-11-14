@@ -1,6 +1,0 @@
-numpy>=1.26
-numba>=0.59
-trimesh>=4.0
-cascadio>=0.0.13
-Pillow>=10.0
-# system: ffmpeg>=5 (apt install ffmpeg)
