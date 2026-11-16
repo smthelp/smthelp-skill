@@ -503,6 +503,14 @@ class Builder:
             elif isinstance(r, dict) and "value" in r:
                 i["resolution"] = f"set to {r['value']}" if r["value"] not in ("", None) else "omitted"
                 self.set_path(pi, i["id"], r["value"])
+        # values Jason sets for fields that raised no issue (e.g. add PayPal to a PO-only payment term)
+        known = {i["id"] for i in self.issues}
+        for iid, r in res.items():
+            if iid in known or not isinstance(r, dict) or "value" not in r:
+                continue
+            self.set_path(pi, iid, r["value"])
+            self.issue(iid, "INFO", iid, None, None, r["value"], "set by Jason in decisions.json (no conflict raised)")
+            self.issues[-1].update(resolved=True, resolution=f"set to {r['value']}")
         for k, v in self.d.get("lines", {}).items():
             idx = int(k) - 1
             if 0 <= idx < len(pi["items"]):
@@ -510,7 +518,7 @@ class Builder:
         if "show_tax_id" in self.d:
             pi["show_tax_id"] = bool(self.d["show_tax_id"])
         pi["notes"] = list(self.po.get("pi_notes", [])) + list(self.d.get("notes", []))
-        for k in ("export_control_line", "alt_payment"):
+        for k in ("export_control_line", "alt_payment", "paypal"):
             if k in self.d:
                 pi[k] = self.d[k]
 

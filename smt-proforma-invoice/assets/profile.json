@@ -61,6 +61,7 @@
    "CIP"
   ],
   "alt_payment_cny": "For CNY payment: WeChat Pay or Alipay, account +86 136 0256 2576",
+  "alt_payment_paypal": "Alternative payment by PayPal: jasonwu@smthelp.com (please quote the PI number in the PayPal note)",
   "export_control_line": "These commodities are licensed for the ultimate destination shown above.",
   "defaults": {
    "currency": "USD",

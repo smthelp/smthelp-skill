@@ -2,8 +2,8 @@
 name: smt-proforma-invoice
 description: Make Southern Machinery proforma invoices (PI / 形式发票) in the branded Excel + PDF format from a customer PO and our quotation. Use when Jason asks to 做PI, 开形式发票, 出PI, 根据客户PO做PI, 把报价单转成PI, convert/re-issue an old PI, or check a PI against the PO. Merges PO + quotation field by field, never guesses: conflicts, quantity changes, missing fields, discount/freight/tax that are not stated are marked "to confirm" and block release until Jason answers. Outputs PI XLSX/PDF plus a field-mapping and check summary (conflicts, missing items, assumptions).
 metadata:
-  version: 1.0.0
-  updated: 2026-10-30
+  version: 1.1.0
+  updated: 2026-11-16
   depends_on: smt-quotation (quote.json format, seller profile, brand), smt-brand-kit (logo, colours)
   samples: TUK25093001, SA25102501, AR25120201, JP25121601/JP25122201 (CNY), PC26011401, IS2026032001
 ---
@@ -37,7 +37,7 @@ Not for: quotations (smt-quotation), commercial invoices / packing lists for cus
 ## Inputs
 1. **po.json** - transcribe the customer PO literally (pdf: pdftotext / pdf-tools; xlsx: openpyxl; scan: read the image). Copy numbers and words as printed; leave a field out when the PO is silent. Never fill PO fields from the quotation - that is build_pi.py's job and it records the source.
 2. **quote.json** - the smt-quotation file that the PO refers to (`reviews/<QUOTE_NO>/quote.json` or `quotes/<NO>/`). Optional; without it every price is CONFIRM.
-3. **decisions.json** (optional, grows with Jason's answers) - `pi_no`, `date`, `prepared_by`, `show_tax_id`, `export_control_line`, `resolve` {issue id: "accept" | {"value": x}}, `lines` {item no: ["H.S. code: ..."]}, `notes`.
+3. **decisions.json** (optional, grows with Jason's answers) - `pi_no`, `date`, `prepared_by`, `show_tax_id`, `export_control_line`, `resolve` {issue id: "accept" | {"value": x}} (a {"value"} for a field that raised no issue, e.g. `terms.payment`, overrides it and is logged as INFO), `paypal` (true -> PayPal line jasonwu@smthelp.com under the bank details, from profile `pi.alt_payment_paypal`), `lines` {item no: ["H.S. code: ..."]}, `notes`.
 
 ## Workflow
 1. `mkdir pis/<PI_NO>`; write po.json from the PO; copy the quotation's quote.json.
@@ -62,7 +62,7 @@ Not for: quotations (smt-quotation), commercial invoices / packing lists for cus
 - Header block: To / Address / Attn / Email / Tel / [Tax ID] / Ship to  |  PI No. / Date / PO No. / PO date / Quotation ref. / Currency.
 - Shipment & payment block: port of loading, destination, delivery terms `<Incoterm> <place> (Incoterms® 2020)`, delivery time with a start point, terms of payment (adds to 100 %), insurance consistent with the Incoterm, [shipment by], [requested date], country of origin, [seller tax ID].
 - Table: Item | Model / P/N | Description of goods (+ "Your P/N", "H.S. code" lines) | Qty | Unit | Unit price (CUR) | Amount (CUR); charges and discount below the subtotal; TOTAL line names Incoterm, place and currency; amount in words.
-- CNY PIs print the WeChat / Alipay line under the bank details; USD/EUR use the JPMorgan HK account only.
+- CNY PIs print the WeChat / Alipay line under the bank details; USD/EUR use the JPMorgan HK account only, plus the PayPal line when `decisions.paypal` is true (Jason, 2026-11-16).
 - Remarks: warranty, packing, installation, taxes & duties, notes, optional export-control line, "quote the PI number with your payment".
 
 ## Upgrading
@@ -70,4 +70,5 @@ Not for: quotations (smt-quotation), commercial invoices / packing lists for cus
 - Version: major = po.json/pi.json format change; minor = new field/rule/output; patch = fixes.
 
 ## Version history
+- 1.1.0 (2026-11-16) - PayPal payment option (`decisions.paypal`, profile `pi.alt_payment_paypal`); resolve values now override fields that raised no issue. First used on AV26111601 (AVY Technology PO P91364).
 - 1.0.0 (2026-10-30) - first release from 7 PIs (2025-09 to 2026-03): PO + quotation merge with CONFIRM / MISSING / ASSUMED / INFO issues and decisions loop, branded PI renderer (draft banner, amber open cells), mapping/check summary (.md + .xlsx), release gate, demo + real examples.

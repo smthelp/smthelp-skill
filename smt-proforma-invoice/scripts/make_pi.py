@@ -12,7 +12,7 @@ pi.json is written by build_pi.py (PO + quotation merge). Layout, top to bottom 
   items: Item | Model / P/N | Description of goods (+ HS code / extra lines) | Qty | Unit | Unit price | Amount
   subtotal, charges (freight, packing ...), discount, TOTAL <Incoterm place> (<currency>), amount in words
   remarks: warranty, packing, installation, taxes, notes, [export-control line]
-  bank details (+ country, account type, bank code), [CNY WeChat/Alipay line], signatures
+  bank details (+ country, account type, bank code), [CNY WeChat/Alipay line], [PayPal line], signatures
 Every amount is a live formula. Cells tied to an unresolved CONFIRM issue are shaded amber; TO_CONFIRM prints red.
 """
 import argparse, datetime as dt, json, math, os, re, subprocess, sys
@@ -412,6 +412,10 @@ class PI:
             r += 1
         if d.get("currency") == "CNY" or d.get("alt_payment"):
             self.put(ws, f"A{r}", self.p["pi"]["alt_payment_cny"], 9, True, self.c["navy"])
+            self.merge(ws, r, 1, NCOL)
+            r += 1
+        if d.get("paypal"):
+            self.put(ws, f"A{r}", self.p["pi"]["alt_payment_paypal"], 9, True, self.c["navy"])
             self.merge(ws, r, 1, NCOL)
             r += 1
         self.put(ws, f"A{r}", self.p["bank_change_notice"], 8, italic=True, color=self.c["teal"])
