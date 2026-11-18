@@ -67,6 +67,9 @@ Southern Machinery（南方机械）Agent Skills 集合 — SMT/THT 外贸营销
 - 新增 `smt-3d-product-media` v1.1.0：3D CAD → 品牌工作原理动画视频 + 产品介绍 PPT；含 CLI 契约、job 规范、双示例、smoke 测试与版本规则。
 - 本机 git 写入被沙箱限制，本次通过 GitHub Git Data API 提交（单次 commit + 版本 tag）。
 
+### 2026-11-18 增量同步（Sam）
+- 新增 `three-live`：Google 开源项目 Three-Live（https://github.com/google/three-live，Apache-2.0）的官方 Agent Skill（上游 `skills/three-live-authoring/`），用 `<three-live>` / `<xr-live>` 编写 3D/XR 场景与空间应用；含 SKILL.md 与 references/ 三份参考文档。
+
 ## 维护约定
 
 - 版本条目见各 SKILL.md「版本与迭代」；变更后 bump version 并备份 zip。
