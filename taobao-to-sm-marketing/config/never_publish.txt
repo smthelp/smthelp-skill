@@ -1,0 +1,31 @@
+# One term per line (case-insensitive). scrub_check.py fails if any appears in marketing outputs.
+# Add each new supplier/shop name here when a kit starts.
+淘宝
+taobao
+tmall
+天猫
+1688.com
+阿里巴巴
+¥
+￥
+RMB
+CNY
+优左
+优佐
+Youzuo
+UZU
+zhengfei
+TEKYONG
+鸿宇
+康鑫达
+kxd
+梦翔
+薇莉儿
+德铭达
+效盛
+松逸
+in stock
+warranty
+RoHS
+CE certified
+13430418836

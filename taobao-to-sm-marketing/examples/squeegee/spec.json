@@ -1,0 +1,586 @@
+{
+ "meta": {
+  "title": "SMT Printer Squeegees for All Major Printer Brands – Southern Machinery",
+  "subject": "Squeegee holders, stainless steel and rubber blades and squeegee storage for DEK, MPM, GKG, Desen, Panasonic, Yamaha, EKRA and more",
+  "keywords": "SMT squeegee, solder paste printer squeegee, DEK squeegee, MPM squeegee, GKG squeegee, squeegee blade, stencil printer blade, SQA squeegee, Southern Machinery",
+  "allow_brands": [
+   "Panasonic"
+  ]
+ },
+ "title": {
+  "eyebrow": "SOLDER PASTE PRINTING",
+  "name": "SMT Printer Squeegees",
+  "subtitle": "Holders and blades that fit your printer, from DEK and MPM to GKG, Panasonic and Yamaha",
+  "tagline": "150–750 mm · 0.15–0.5 mm blades · Steel & rubber · Fixed or elastic end dams",
+  "date": "November 2026",
+  "image": "01-holder.jpg",
+  "notes": "Sources: Southern Machinery squeegee decks (How to buy squeegee blades; SM squeegee; squeegee improving solution; ST1 inspection) and 2026 market listings for brand-fit squeegees. Original printer model numbers kept."
+ },
+ "contents": [
+  [
+   "Overview",
+   "What a squeegee set is and where it fits"
+  ],
+  [
+   "Printing Problems",
+   "What a worn or poor squeegee causes"
+  ],
+  [
+   "Features & Benefits",
+   "Fit, blades, end dams, quick change"
+  ],
+  [
+   "Brands & Models",
+   "Printer brands, DEK SQA part numbers"
+  ],
+  [
+   "Specifications & Ordering",
+   "Lengths, thickness, what to tell us"
+  ],
+  [
+   "Squeegee Management",
+   "Inspection and storage options"
+  ]
+ ],
+ "slides": [
+  {
+   "type": "overview",
+   "title": "Squeegees at a Glance",
+   "lead": "A printer squeegee has two parts: an aluminium holder and a blade. Southern Machinery supplies complete sets and spare blades for the solder paste printers already on your line, in the length your stencil needs.",
+   "apps": [
+    [
+     "Solder paste printing",
+     "Stainless steel blades, 0402 to 5050 parts"
+    ],
+    [
+     "Glue (adhesive) printing",
+     "Rubber blades: bevel, flat or pointed edge"
+    ],
+    [
+     "Step stencils",
+     "0.15 mm step blades with matching holder"
+    ]
+   ],
+   "image": "02-pair.jpg",
+   "caption": "Front and rear squeegee holders, ready to fit",
+   "notes": "Two parts and steel/rubber blade types from 'How to buy squeegee blades'. 0402-5050 from the SQA300 sheet. Step blade 0.15 mm from market listing."
+  },
+  {
+   "type": "metrics",
+   "title": "Key Figures",
+   "items": [
+    [
+     "14",
+     "Printer brands",
+     "DEK, MPM, GKG, Yamaha …"
+    ],
+    [
+     "150–750",
+     "Length, mm",
+     "Standard lengths ready to ship on order"
+    ],
+    [
+     "0.15–0.5",
+     "Blade, mm",
+     "0.3 mm standard"
+    ],
+    [
+     "< 1 min",
+     "Blade change",
+     "Magnetic quick-change type"
+    ]
+   ],
+   "footer": "Steel or rubber blades · Fixed rubber, fixed stainless or elastic end dams · Sold as single holders or full pairs (MOQ 2)",
+   "notes": "Brand count from listing text: DEK, MPM, GKG, Desen, Zhengshi, Hetian Gude, Huancheng, Nitto, IPM, Panasonic, Yamaha, EKRA, Kelongwei, Samsung, Fuji (storage). <1 min vs >5 min from SM squeegee deck (magnetic quick-change version only)."
+  },
+  {
+   "type": "pains",
+   "title": "What a Poor Squeegee Does to Your Print",
+   "lead": "Solder paste printing drives first-pass yield, and the squeegee is one of the factors you can control most easily.",
+   "items": [
+    [
+     "Insufficient paste",
+     "Worn or bent blade edge leaves pads short"
+    ],
+    [
+     "Excess paste & bridging",
+     "Paste sticks to the blade and drops into apertures"
+    ],
+    [
+     "Paste spill at the ends",
+     "Poor end dams let paste dry and clog the stencil"
+    ],
+    [
+     "Smearing & offset",
+     "Holder not flat, blade pressure uneven"
+    ],
+    [
+     "Slow changeovers",
+     "Screws, clamps and pieces to clean on every change"
+    ],
+    [
+     "Lost or mixed-up squeegees",
+     "No fixed place, no record of wear"
+    ]
+   ],
+   "notes": "From SM 'squeegee improving solution' (holder flatness, assembly, dead corners, end-dam spill dries in 6-8 h, blade toughness, edge treatment, wetting) and SM squeegee deck (incomplete, spill, deviation, icicles)."
+  },
+  {
+   "type": "fab",
+   "title": "FAB 1 · Fits Your Printer",
+   "rows": [
+    [
+     [
+      "Brand-specific holders",
+      "DEK, MPM, GKG, Desen, Zhengshi, Panasonic, Yamaha, EKRA …"
+     ],
+     [
+      "Drop-in replacement",
+      "Same mounting as the original squeegee"
+     ],
+     [
+      "No machine changes",
+      "Order by printer brand and model"
+     ]
+    ],
+    [
+     [
+      "Any length 150–750 mm",
+      "Standard lengths ready, special sizes made"
+     ],
+     [
+      "Matches your stencil",
+      "Print width fits the board, not the other way"
+     ],
+     [
+      "Less paste on the stencil",
+      "Shorter blade, smaller paste roll"
+     ]
+    ],
+    [
+     [
+      "Original part numbers",
+      "e.g. DEK SQA300–SQA309, SQA478, SQA489"
+     ],
+     [
+      "Easy cross-reference",
+      "Quote the number on your old squeegee"
+     ],
+     [
+      "Right part first time",
+      "Fewer returns and line stops"
+     ]
+    ]
+   ],
+   "notes": "Brand list and 150-750 mm from listing text. SQA numbers from DEK SQA listing."
+  },
+  {
+   "type": "fab",
+   "title": "FAB 2 · Blades and End Dams",
+   "rows": [
+    [
+     [
+      "Stainless steel blades",
+      "0.3 mm standard, 0.2 / 0.25 / 0.4 / 0.5 mm"
+     ],
+     [
+      "Pick the stiffness you need",
+      "Thicker for pressure, thinner for fine pitch"
+     ],
+     [
+      "Stable paste volume",
+      "Clean wipe across the stencil"
+     ]
+    ],
+    [
+     [
+      "Rubber glue blades",
+      "Bevel, flat or pointed edge"
+     ],
+     [
+      "Made for adhesive printing",
+      "Red glue for wave-solder boards"
+     ],
+     [
+      "One holder family",
+      "Steel and rubber on the same line"
+     ]
+    ],
+    [
+     [
+      "3 end-dam options",
+      "Fixed rubber, fixed stainless, elastic rubber"
+     ],
+     [
+      "Paste stays in the print area",
+      "Elastic dams follow the stencil"
+     ],
+     [
+      "Less waste, less clogging",
+      "No dried paste at the blade ends"
+     ]
+    ]
+   ],
+   "notes": "Thickness options and dam types from listing text. Elastic paste edge reducing spill from SM squeegee deck."
+  },
+  {
+   "type": "fab",
+   "title": "FAB 3 · Quick-Change Magnetic Squeegee",
+   "rows": [
+    [
+     [
+      "Magnetic blade slot",
+      "Blade sits in a magnetic reverse slot, no screws"
+     ],
+     [
+      "Tool-free blade change",
+      "Pull out, clean, push back"
+     ],
+     [
+      "Under 1 minute",
+      "vs. more than 5 minutes for screw-fixed blades"
+     ]
+    ],
+    [
+     [
+      "Aluminium profile holder",
+      "Light, straight and flat, blade length set as needed"
+     ],
+     [
+      "Even blade pressure",
+      "No bending from multiple machining steps"
+     ],
+     [
+      "Consistent print",
+      "Fewer offset and smear defects"
+     ]
+    ],
+    [
+     [
+      "Coated, toughened blade",
+      "No punched mounting holes"
+     ],
+     [
+      "Paste releases cleanly",
+      "Less paste carried into apertures"
+     ],
+     [
+      "Longer blade life",
+      "Edge stays straight"
+     ]
+    ]
+   ],
+   "notes": "All from SM squeegee deck and 'squeegee improving solution'. Applies to the SM quick-change type only, not to the standard brand-fit sets. Time figures are SM's own comparison."
+  },
+  {
+   "type": "gallery",
+   "title": "Squeegees in Detail",
+   "items": [
+    {
+     "image": "03-set-box.jpg",
+     "head": "Set with elastic end dams",
+     "body": [
+      "Front and rear holders",
+      "Packed in foam, ready to fit"
+     ]
+    },
+    {
+     "image": "05-blades.jpg",
+     "head": "Stainless steel blades",
+     "body": [
+      "0.3 mm standard thickness",
+      "Cut to your length"
+     ]
+    },
+    {
+     "image": "07-stencil.jpg",
+     "head": "On the printer",
+     "body": [
+      "Holder runs flat on the stencil",
+      "Even pressure end to end"
+     ]
+    },
+    {
+     "image": "08-cad.jpg",
+     "head": "Magnetic blade slot",
+     "body": [
+      "No screws through the blade",
+      "Quick-change type"
+     ],
+     "fit": true
+    }
+   ],
+   "imgh": 2.9,
+   "notes": "Market photo (03) cleaned of seller marks; 05/07/08 from SM squeegee decks."
+  },
+  {
+   "type": "table",
+   "title": "Printer Brands & Models",
+   "columns": [
+    "Printer brand",
+    "Models / fit",
+    "Sets available"
+   ],
+   "widths": [
+    2.0,
+    4.2,
+    3.2
+   ],
+   "rows": [
+    [
+     "DEK",
+     "SQA series, all standard lengths",
+     "Steel, glue, paste-saving"
+    ],
+    [
+     "MPM",
+     "MPM 125 / Momentum, UP2000",
+     "Steel holders and blades"
+    ],
+    [
+     "GKG",
+     "G2 / G3 / G5 / GSE, L1500",
+     "Steel, glue, paste-saving"
+    ],
+    [
+     "Desen",
+     "Standard and glue squeegees",
+     "Steel, glue, paste-saving"
+    ],
+    [
+     "Zhengshi",
+     "L8 / L12 / L15",
+     "Steel holders and blades"
+    ],
+    [
+     "Hetian Gude · Huancheng",
+     "Standard squeegees",
+     "Steel holders and blades"
+    ],
+    [
+     "Panasonic",
+     "SPG / SP18 / SPD, SP28 / SP60",
+     "Holders and blades"
+    ],
+    [
+     "Yamaha",
+     "YGP / YCP / YSP, YVP",
+     "Holders and blades"
+    ],
+    [
+     "EKRA",
+     "Standard and new type",
+     "Holders and blades"
+    ],
+    [
+     "Nitto",
+     "Semi and fully automatic",
+     "State holder height"
+    ],
+    [
+     "Others",
+     "IPM, Kelongwei, Samsung, custom",
+     "On request"
+    ]
+   ],
+   "footer": "Original printer model numbers are kept. Send a photo or the part number of your current squeegee.",
+   "notes": "Brand/model list from listing titles and listing text."
+  },
+  {
+   "type": "table",
+   "title": "DEK SQA Part Numbers",
+   "columns": [
+    "Part no.",
+    "Length (mm)",
+    "Part no.",
+    "Length (mm)"
+   ],
+   "widths": [
+    2.2,
+    2.2,
+    2.2,
+    2.2
+   ],
+   "rows": [
+    [
+     "SQA300",
+     "170",
+     "SQA306",
+     "440"
+    ],
+    [
+     "SQA301",
+     "200",
+     "SQA307",
+     "483"
+    ],
+    [
+     "SQA302",
+     "250",
+     "SQA308",
+     "510"
+    ],
+    [
+     "SQA303",
+     "300",
+     "SQA309",
+     "535"
+    ],
+    [
+     "SQA304",
+     "350",
+     "SQA489",
+     "580"
+    ],
+    [
+     "SQA305",
+     "400",
+     "SQA478",
+     "610"
+    ]
+   ],
+   "footer": "Other lengths from 150 to 750 mm on request",
+   "notes": "From DEK SQA listing (blade length per part number)."
+  },
+  {
+   "type": "specs",
+   "title": "Specifications",
+   "rows": [
+    [
+     "Parts",
+     "Aluminium holder + blade; screws included"
+    ],
+    [
+     "Holder",
+     "Aluminium alloy, brand-specific mounting"
+    ],
+    [
+     "Blade material",
+     "Stainless steel, or rubber for glue"
+    ],
+    [
+     "Blade thickness",
+     "0.3 mm standard; 0.2 / 0.25 / 0.4 / 0.5 mm"
+    ],
+    [
+     "Step stencil blade",
+     "0.15 mm, with matching holder"
+    ],
+    [
+     "Length",
+     "150–750 mm; special lengths made to order"
+    ],
+    [
+     "Rubber blade edge",
+     "Bevel, flat or pointed"
+    ],
+    [
+     "End dams",
+     "Fixed rubber, fixed stainless, elastic rubber"
+    ],
+    [
+     "Components",
+     "0402 to 5050 (solder paste)"
+    ],
+    [
+     "Sold as",
+     "Single holder, single blade or full pair"
+    ],
+    [
+     "MOQ",
+     "2 pieces"
+    ],
+    [
+     "Packing",
+     "Foam-lined carton"
+    ]
+   ],
+   "notes": "From listing text and SM 'How to buy' deck."
+  },
+  {
+   "type": "process",
+   "title": "How to Order the Right Squeegee",
+   "lead": "Four details are enough for us to match your printer exactly.",
+   "steps": [
+    [
+     "Printer",
+     "Brand and model, e.g. DEK, GKG G5"
+    ],
+    [
+     "Part no. or length",
+     "SQA number or blade length in mm"
+    ],
+    [
+     "Blade",
+     "Steel or rubber, thickness, edge angle"
+    ],
+    [
+     "End dams & qty",
+     "Fixed or elastic, single or pair"
+    ]
+   ],
+   "per_row": 4,
+   "images": [
+    [
+     "02-pair.jpg",
+     "Holder pair"
+    ],
+    [
+     "05-blades.jpg",
+     "Spare blades"
+    ],
+    [
+     "12-packed.jpg",
+     "Packed set"
+    ]
+   ],
+   "notes": "From SM 'How to buy squeegee blades' slide 6 (part no., or length, degree, thickness)."
+  },
+  {
+   "type": "overview",
+   "title": "Squeegee Management Options",
+   "lead": "For lines with many squeegees, Southern Machinery closes the loop: inspect each blade, store it in a fixed place, clean it and send it back to the line.",
+   "apps": [
+    [
+     "ST1 squeegee inspection",
+     "Vision check of angle, notch and edge, about 20 s, 200–600 mm"
+    ],
+    [
+     "Squeegee storage cabinet",
+     "Fixed slot for every set, standard or custom size"
+    ],
+    [
+     "Spare blades on the shelf",
+     "Swap worn blades, keep the holder"
+    ]
+   ],
+   "image": "11-inspection.jpg",
+   "caption": "ST1 squeegee inspection machine",
+   "notes": "ST1 data from SM inspection PDF (DEK/MPM/GKG, 350 kg, 220 V 50/60 Hz, 1003x695x598 mm). Storage cabinet from market listings (custom size available)."
+  },
+  {
+   "type": "summary",
+   "title": "Summary",
+   "lead": "One supplier for the squeegees on every printer in your factory, from the blade to the cabinet.",
+   "items": [
+    [
+     "Fits your printer",
+     "DEK, MPM, GKG, Panasonic, Yamaha, EKRA and more"
+    ],
+    [
+     "Any length, any blade",
+     "150–750 mm, steel 0.15–0.5 mm or rubber"
+    ],
+    [
+     "Less paste waste",
+     "Elastic end dams and quick-change holders"
+    ],
+    [
+     "Managed squeegees",
+     "Inspection and storage options"
+    ]
+   ],
+   "cta": "Send printer model and squeegee length: info@smthelp.com · WhatsApp +86 136 0256 2576"
+  }
+ ]
+}

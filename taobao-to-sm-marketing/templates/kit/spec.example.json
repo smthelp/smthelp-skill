@@ -1,0 +1,213 @@
+{
+ "meta": {
+  "title": "SMT Stencil Wiping Paper Rolls for DEK, MPM, GKG and More – Southern Machinery",
+  "subject": "Under-stencil cleaning rolls for automatic solder paste printers: wood pulp / polyester spunlace, low lint, sized by core length and paper width for each printer brand",
+  "keywords": "SMT stencil wiping paper, under stencil cleaning roll, stencil wiper roll, DEK wiping paper, MPM wiping roll, GKG wiping paper, solder paste printer cleaning paper, lint free wiper roll, Southern Machinery",
+  "allow_brands": ["Panasonic"]
+ },
+ "title": {
+  "eyebrow": "SOLDER PASTE PRINTING",
+  "name": "SMT Stencil Wiping Paper Rolls",
+  "subtitle": "Under-stencil cleaning rolls sized for DEK, MPM, GKG, Desen, Panasonic, Yamaha and more",
+  "tagline": "Wood pulp + polyester spunlace · Low lint · 200–600 mm paper widths · 10 m rolls",
+  "date": "November 2026",
+  "image": "01-rolls-hero.jpg",
+  "notes": "Sources: 2026 market listings and size tables for SMT stencil wiping rolls (10 listings). Size convention: core (tube) length x paper width x roll length. Printer brand names identify compatible printers only."
+ },
+ "contents": [
+  ["Overview", "What a wiping roll does in the printer"],
+  ["Printing Problems", "What poor under-stencil cleaning causes"],
+  ["Features & Benefits", "Material, fit and core openings"],
+  ["Size Selector", "Printer brand to core length and paper width"],
+  ["Specifications", "Material, sizes, formats"],
+  ["How to Order", "Five details for the right roll"]
+ ],
+ "slides": [
+  {
+   "type": "overview",
+   "title": "Wiping Rolls at a Glance",
+   "lead": "Automatic solder paste printers clean the underside of the stencil with a roll of wiping paper, dry or with solvent. Southern Machinery supplies rolls sized for the printers already on your line.",
+   "apps": [
+    ["Under-stencil cleaning", "Removes paste residue between prints"],
+    ["Dry, wet or vacuum wipe", "Works with stencil cleaning solvents"],
+    ["Solder paste and red glue", "For paste and adhesive printing"]
+   ],
+   "image": "02-roll-ends.jpg",
+   "caption": "Rolls with different core openings for different printers",
+   "notes": "Use, solvent compatibility and paste/red glue from listing B text ('清除印刷机钢网、电路板上多余锡膏及红胶', '可配合各种清洁溶液使用'). Dry/wet/vacuum wipe is the printer's cleaning mode; wording kept general."
+  },
+  {
+   "type": "metrics",
+   "title": "Key Figures",
+   "items": [
+    ["13+", "Printer brands", "DEK, MPM, GKG, Yamaha …"],
+    ["200–600", "Paper width, mm", "Custom widths on request"],
+    ["10 m", "Standard roll", "Some sizes 15 m"],
+    ["2 layers", "Wood pulp + polyester", "Hydroentangled"]
+   ],
+   "footer": "Sizes are written core (tube) length x paper width x roll length, e.g. 410 x 300 mm x 10 m",
+   "notes": "Brands in market size lists: GKG, Desen, Zhengshi, Nitto, Huancheng, Hetian Gude, DEK, MPM, EKRA, Panasonic, Yamaha, Hitachi, MINAMI (13); JUKI, FUJI, KME, SONY in reference size table. Widths 200-600 mm across listings (140 and 680/850 single listings). MINAMI 15 m in two listings, 10 m in others - to be confirmed."
+  },
+  {
+   "type": "pains",
+   "title": "What Poor Under-Stencil Cleaning Causes",
+   "lead": "Paste left under the stencil is printed onto the next board. The wiping roll decides how much of it is removed, and what it leaves behind.",
+   "items": [
+    ["Smearing and bridging", "Residue under the stencil spreads onto pads"],
+    ["Blocked apertures", "Dried paste narrows fine-pitch openings"],
+    ["Lint in apertures", "Loose fibres cause print defects"],
+    ["Torn paper", "Weak paper breaks when wet with solvent"],
+    ["Wrong roll size", "Core or opening does not fit the printer"],
+    ["Line stops", "Waiting for the right roll to arrive"]
+   ],
+   "notes": "Grounded in listing B text: rolls remove excess paste and red glue, keep boards clean, reduce scrap; impurities in the roll cause printing defects; high tensile strength. 'Confirm roll direction and core opening before ordering' from listing I."
+  },
+  {
+   "type": "fab",
+   "title": "FAB 1 · Material",
+   "rows": [
+    [["Wood pulp + polyester", "Two-layer hydroentangled (spunlace) web"], ["Absorbs water and oil", "Pulp side soaks, polyester side holds"], ["Cleaner stencil underside", "Paste and solvent taken away"]],
+    [["Low-lint surface", "Long-fibre pulp, near zero loose fibre"], ["Nothing left in apertures", "No fibres printed onto pads"], ["Fewer print defects", "Cleaner first print after wipe"]],
+    [["High tensile strength", "Tough and flexible, solvent-compatible"], ["Runs wet without tearing", "Works with stencil cleaning solvents"], ["Fewer roll breaks", "Less operator time at the printer"]]
+   ],
+   "notes": "All from listing B text and listing E product card. Composition stated as 55% pulp / 45% polyester (E, data sheet A) and 45 / 55 (G, I) - to be confirmed, not shown on slide."
+  },
+  {
+   "type": "fab",
+   "title": "FAB 2 · Fits Your Printer",
+   "rows": [
+    [["Core length per printer", "410 GKG/Desen, 530 DEK, 455 MPM …"], ["Drops into the roll holder", "Same core as the original roll"], ["No machine changes", "Order by printer brand"]],
+    [["Matching core opening", "Cross slot, straight slot, 12 grooves, paper tube"], ["Engages the drive shaft", "Roll turns with the printer"], ["Clean, even wipe", "Paper advances as programmed"]],
+    [["Paper width to suit", "200 to 600 mm, custom on request"], ["Covers your stencil area", "Wide enough, not wasteful"], ["Less paper per wipe", "Width matched to the job"]]
+   ],
+   "notes": "Core lengths and openings from listing size lists, E per-brand photos and the reference size table (A i-028). Custom sizes: listings E, I, F."
+  },
+  {
+   "type": "overview",
+   "title": "How to Read a Roll Size",
+   "lead": "Wiping rolls are named by three numbers. The first is the core length, which fits the printer; the second is the paper width; the third is the roll length.",
+   "apps": [
+    ["Core (tube) length", "e.g. 410 mm - set by the printer"],
+    ["Paper width", "e.g. 300 mm - set by the stencil area"],
+    ["Roll length", "10 m standard; some sizes 15 m"]
+   ],
+   "image": "13-size-diagram.jpg",
+   "caption": "410 x 300 mm x 10 m: 410 mm core, 300 mm paper, 10 m roll",
+   "notes": "Convention verified on listing E roll drawings (管长 / 纸宽 / 纸长) and listing D drawing (core ID 20, OD 23). Roll diameter about 50 mm for 10 m (listing E drawing)."
+  },
+  {
+   "type": "gallery",
+   "title": "Core Openings by Printer",
+   "items": [
+    {"image": "09-core-gkg.jpg", "head": "GKG", "body": ["Cross slot at both ends", "410 mm core, Ø 20 mm"]},
+    {"image": "10-core-dek.jpg", "head": "DEK", "body": ["Straight slot", "530 mm core, Ø 20 mm"]},
+    {"image": "11-core-mpm.jpg", "head": "MPM", "body": ["12 inner grooves", "455 mm core, Ø 19.5 mm"]},
+    {"image": "12-core-panasonic.jpg", "head": "Panasonic", "body": ["Paper tube", "350 mm core, Ø 38 mm"]}
+   ],
+   "imgh": 2.6,
+   "notes": "Openings from listing E per-brand renders and the reference size table. DEK: table says straight slot one or both ends; one listing sells a cross slot that also fits straight-slot holders - confirm with the customer's old roll."
+  },
+  {
+   "type": "table",
+   "title": "Size Selector · GKG, DEK, MPM",
+   "columns": ["Printer brand", "Core", "Paper widths (mm)", "Opening"],
+   "widths": [2.6, 1.1, 4.6, 2.1],
+   "rows": [
+    ["GKG / Desen / Zhengshi", "410", "200 · 250 · 275 · 300 · 350 · 380 · 395 · 400", "Cross slot*"],
+    ["GKG G9", "460", "300 · 400", "Confirm"],
+    ["Nitto / Huancheng / Zhengshi", "410", "350", "Confirm"],
+    ["Hetian Gude", "520 / 410", "350 · 380 / 350", "Straight slot"],
+    ["DEK", "530", "200 · 250 · 300 · 350 · 380 · 400 · 450 · 490 · 500 · 510", "Straight slot*"],
+    ["MPM", "455", "200 · 250 · 275 · 300 · 330 · 350 · 380 · 400 · 445 · 450", "12 grooves"],
+    ["Large-format printers", "620", "600", "Confirm"]
+   ],
+   "footer": "Core and widths in mm, 10 m rolls. * Confirm the opening with your old roll: Desen and DEK rolls are sold with both slot types.",
+   "notes": "Union of 10 listing size lists + reference size table (MPM 330 table only; 140 mm GKG width in one listing omitted). Desen: cross slot in listing E, straight slot in table. DEK: straight in table, 'cross slot, fits straight' in E."
+  },
+  {
+   "type": "table",
+   "title": "Size Selector · Other Printer Brands",
+   "columns": ["Printer brand", "Core x width (mm)", "Roll", "Core Ø / opening"],
+   "widths": [2.4, 3.0, 1.4, 3.6],
+   "rows": [
+    ["Panasonic", "350 x 350", "10 m", "38 mm paper tube"],
+    ["Panasonic SP28", "360 x 350", "10 m", "Confirm"],
+    ["Yamaha", "360 x 350 · 420 x 400", "10 m", "25.5 mm paper tube"],
+    ["Hitachi", "360 x 300", "10 m", "30 mm paper tube"],
+    ["MINAMI", "290 x 270", "15 m or 10 m", "8 mm, straight slot"],
+    ["EKRA", "450 x 400 · 400 x 300 / 400", "10 m", "13.5 mm, straight slot"],
+    ["JUKI", "270 x 260 · 353 x 345 · 408 x 400 · 535 x 520", "8–15 m", "38 mm plastic tube"],
+    ["FUJI", "500 x 500", "15 m", "26 mm paper tube"],
+    ["KME", "480 x 480", "20 m", "38 mm paper tube"],
+    ["SONY", "280 x 260", "20 m", "20 mm, straight slot"],
+    ["Sheets, manual wiping", "200 x 200 mm", "10 / pack", "-"]
+   ],
+   "footer": "JUKI, FUJI, KME, SONY and the second Yamaha / EKRA sizes come from the industry size table: confirm before ordering.",
+   "notes": "Panasonic, Yamaha 360, Hitachi, MINAMI, EKRA 450x400, SP28 from listings; rest from reference size table A i-028. Yamaha 350x350 in one listing (conflict). MINAMI 15 m (C, E) vs 10 m (A, B, table)."
+  },
+  {
+   "type": "specs",
+   "title": "Specifications",
+   "rows": [
+    ["Product", "SMT stencil wiping paper roll (under-stencil cleaning roll)"],
+    ["Material", "Natural wood pulp + polyester, hydroentangled"],
+    ["Structure", "Two layers: pulp side and polyester side"],
+    ["Surface", "Plain weave or mesh; PP mesh type on request"],
+    ["Properties", "Low lint, absorbs water and oil, high tensile strength"],
+    ["Solvents", "Use dry or with stencil cleaning solvents"],
+    ["Size convention", "Core length x paper width x roll length"],
+    ["Core lengths", "290–620 mm, set by printer model"],
+    ["Paper widths", "200–600 mm; custom widths on request"],
+    ["Roll length", "10 m standard; 15 m on some sizes"],
+    ["Core", "Plastic Ø 19.5 / 20 mm or paper tube by brand"],
+    ["Openings", "Cross slot, straight slot, 12 inner grooves, paper tube"],
+    ["Other formats", "Width-only rolls; 200 x 200 mm sheets, 10 per pack"],
+    ["Packing", "Anti-static packing, rolls wrapped, cartons"]
+   ],
+   "notes": "Listing B text (material, structure, properties, solvents, anti-static packing), D i-058 (plain / mesh), H (PP mesh), size lists, G (sheets), J (width-only). Basis weight 56 g/m2 (J) vs 60 ± 3 g/m2 (A data sheet) and thickness 0.35 mm (A data sheet) are to be confirmed - not shown."
+  },
+  {
+   "type": "gallery",
+   "title": "Material, Surface and Packing",
+   "items": [
+    {"image": "05-fabric.jpg", "head": "Soft spunlace web", "body": ["Wood pulp + polyester", "Low-lint surface"]},
+    {"image": "08-surface.jpg", "head": "Plain or mesh surface", "body": ["Choose by paste and stencil", "PP mesh type on request"], "fit": true},
+    {"image": "03-rolls-long.jpg", "head": "Rolls with cores fitted", "body": ["Core ends ready to mount", "Paper wound tight and even"]},
+    {"image": "06-packed.jpg", "head": "Wrapped and boxed", "body": ["Each roll sealed", "Packed in cartons"]}
+   ],
+   "imgh": 2.6,
+   "notes": "Photos from market listings, cropped; Chinese captions removed and replaced in English."
+  },
+  {
+   "type": "process",
+   "title": "How to Order the Right Roll",
+   "lead": "Five details let us match your printer. A photo of your old roll's core end settles the opening.",
+   "steps": [
+    ["Printer", "Brand and model, e.g. DEK, GKG G9"],
+    ["Core length", "Measure the old core, e.g. 410 mm"],
+    ["Paper width", "e.g. 300 mm; custom on request"],
+    ["Core opening", "Cross, straight, 12 grooves, paper tube"],
+    ["Roll direction", "Photo of the old roll as it sits"]
+   ],
+   "per_row": 5,
+   "images": [
+    ["07-core-types.jpg", "Core openings"],
+    ["02-roll-ends.jpg", "Core ends"],
+    ["04-rolls-row.jpg", "Rolls by size"]
+   ],
+   "notes": "'Confirm roll direction and core opening before ordering' (listing I). Roll direction is not defined in any source - ask for a photo of the old roll mounted or as removed."
+  },
+  {
+   "type": "summary",
+   "title": "Summary",
+   "lead": "One supplier for the wiping rolls on every printer in your factory, sized to the core your printer already uses.",
+   "items": [
+    ["Fits your printer", "DEK, MPM, GKG, Desen, Panasonic, Yamaha, EKRA and more"],
+    ["Clean, low-lint wipe", "Wood pulp + polyester, absorbs paste and solvent"],
+    ["Right size first time", "Core length, paper width, opening, direction"],
+    ["Custom on request", "Widths, lengths, sheets and mesh types"]
+   ],
+   "cta": "Send printer model and roll size: info@smthelp.com · WhatsApp +86 136 0256 2576"
+  }
+ ]
+}

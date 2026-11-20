@@ -1,0 +1,33 @@
+# taobao-to-sm-marketing - per-kit configuration. Copy to <kit>/kit.yaml and edit.
+product:
+  name_en: "SMT Stencil Wiping Paper Rolls"        # product name used in titles
+  slug: "SM-Stencil-Wiping-Paper"                  # file name prefix for outputs
+  category: consumable                              # consumable | spare-part | equipment
+  code_prefix: "SM-WP"                              # SM model code prefix (keep printer models as text)
+sources:
+  pdf_dir: "sources/"                               # Taobao page PDFs (browser "save as PDF")
+  price_shop: "Youzuo"                              # shop whose prices are the basis (internal only)
+  price_rule: lowest_variant                        # lowest_variant | per_sku
+pricing:
+  formula: "round(CNY * markup / fx)"
+  markup: 2.0
+  fx: 6.6
+  currency: USD
+  incoterm: "EXW Shenzhen (FOB on request)"
+  placeholders: ["payment terms", "lead time", "validity"]   # shown as [to be confirmed]
+brand:
+  contacts:
+    email: info@smthelp.com
+    whatsapp: "+86 136 0256 2576"
+    web: www.smthelp.com
+  allow_brands: []        # printer brands the ppt validator would block but are needed as compatibility ids
+  not_affiliated_line: true
+outputs:
+  ppt: {slides: 17, template: smt-product-ppt-rebrand}
+  landing: {languages: [en, es, pt, fr, ar, ru, zh], calculator: auto}
+  video: {promo_seconds: [60, 95], shorts_seconds: [20, 26], voice: edge-tts, subtitles: true}
+  seo_txt: true
+  quote: {xlsx: true, pdf: true, separate_from_marketing: true}
+delivery:
+  drive_parent: "1kCyHebraG0s8IRP_afGmnxQKOMM96yOs"  # upload only when asked
+  github_push: false

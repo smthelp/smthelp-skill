@@ -1,0 +1,13 @@
+{"format":"vertical","product_label":"SM Printer Squeegees",
+ "outro":{"title":"SMT Printer Squeegees","subtitle":"Southern Machinery","image":"assets/01-holder.jpg"},
+ "scenes":[
+ {"id":"v1","kind":"still","media":["assets/06-printing.jpg"],"box":"v","kicker":"SOLDER PASTE PRINTING","head":"Bad print?\nCheck the squeegee",
+  "vo":[["Short paste or bridging? Check your squeegee first.","Short paste or bridging? Check your squeegee first."]]},
+ {"id":"v2","kind":"still","media":["assets/02-pair.jpg"],"box":"v","kicker":"FITS YOUR PRINTER","head":"DEK · MPM · GKG\nPanasonic · Yamaha",
+  "vo":[["We make holders for D E K, M P M, G K G, Panasonic, Yamaha and more.","Holders for DEK, MPM, GKG, Panasonic, Yamaha and more."]]},
+ {"id":"v3","kind":"still","media":["assets/05-blades.jpg"],"box":"v","kicker":"ANY LENGTH","head":"150–750 mm\n0.15–0.5 mm blades",
+  "vo":[["Any length from one fifty to seven fifty millimetres, steel or rubber blades.","150 to 750 mm, steel or rubber blades."]]},
+ {"id":"v4","kind":"still","media":["assets/03-set-box.jpg"],"box":"v","kicker":"ELASTIC END DAMS","head":"Paste stays\nin the print area",
+  "vo":[["Elastic end dams keep paste where it prints.","Elastic end dams keep paste where it prints."]]},
+ {"id":"v5","kind":"outro","vo":[["Southern Machinery printer squeegees.",null]]}
+ ]}

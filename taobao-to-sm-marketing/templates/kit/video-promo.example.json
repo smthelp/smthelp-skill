@@ -1,0 +1,193 @@
+{
+ "format": "landscape",
+ "product_label": "Southern Machinery SMT Stencil Wiping Rolls",
+ "outro": {
+  "title": "SMT Stencil Wiping Rolls",
+  "subtitle": "Sized for your printer · Southern Machinery",
+  "image": "assets/01-rolls-hero.jpg"
+ },
+ "scenes": [
+  {
+   "id": "s01",
+   "kind": "still",
+   "media": [
+    "assets/01-rolls-hero.jpg"
+   ],
+   "box": "l",
+   "kicker": "UNDER-STENCIL CLEANING",
+   "head": "A clean wipe\nbetween prints",
+   "bullets": [
+    "Removes paste under the stencil",
+    "Dry or with solvent",
+    "For paste and red glue"
+   ],
+   "vo": [
+    [
+     "Solder paste left under the stencil ends up on the next board.",
+     "Paste left under the stencil ends up on the next board."
+    ],
+    [
+     "The wiping roll in your printer takes it away, dry or with solvent.",
+     "The wiping roll takes it away, dry or with solvent."
+    ]
+   ]
+  },
+  {
+   "id": "s02",
+   "kind": "still",
+   "media": [
+    "assets/05-fabric.jpg"
+   ],
+   "box": "l",
+   "kicker": "MATERIAL",
+   "head": "Wood pulp +\npolyester",
+   "bullets": [
+    "Two-layer spunlace web",
+    "Low lint",
+    "Absorbs water and oil"
+   ],
+   "vo": [
+    [
+     "Our rolls are a two layer web of natural wood pulp and polyester, bonded by water jets.",
+     "Two-layer wood pulp and polyester web, hydroentangled."
+    ],
+    [
+     "It soaks up paste and solvent, sheds almost no lint, and stays strong when wet.",
+     "Absorbs paste and solvent, low lint, strong when wet."
+    ]
+   ]
+  },
+  {
+   "id": "s03",
+   "kind": "still",
+   "media": [
+    "assets/13-size-diagram.jpg"
+   ],
+   "box": "l",
+   "kicker": "READ THE SIZE",
+   "head": "Core x width\nx length",
+   "bullets": [
+    "410 = core length",
+    "300 = paper width",
+    "10 m = roll length"
+   ],
+   "vo": [
+    [
+     "A roll size has three numbers: core length, paper width and roll length.",
+     "Three numbers: core length x paper width x roll length."
+    ],
+    [
+     "For example four ten by three hundred by ten metres. The core length is set by your printer.",
+     "e.g. 410 x 300 mm x 10 m. Core length is set by the printer."
+    ]
+   ]
+  },
+  {
+   "id": "s04",
+   "kind": "still",
+   "media": [
+    "assets/02-roll-ends.jpg"
+   ],
+   "box": "l",
+   "kicker": "FITS YOUR PRINTER",
+   "head": "DEK, MPM, GKG,\nPanasonic, Yamaha …",
+   "bullets": [
+    "GKG and Desen: 410 mm core",
+    "DEK: 530 mm, MPM: 455 mm",
+    "Paper 200 to 600 mm wide"
+   ],
+   "vo": [
+    [
+     "G K G and Desen take a four ten core, D E K five thirty, M P M four fifty five.",
+     "GKG / Desen 410 mm core, DEK 530 mm, MPM 455 mm."
+    ],
+    [
+     "Plus Panasonic, Yamaha, Hitachi, EKRA and MINAMI, in widths up to six hundred millimetres.",
+     "Also Panasonic, Yamaha, Hitachi, EKRA, MINAMI; widths up to 600 mm."
+    ]
+   ]
+  },
+  {
+   "id": "s05",
+   "kind": "still",
+   "media": [
+    "assets/07b-core-types-row.jpg"
+   ],
+   "kicker": "CORE OPENINGS",
+   "head": "The core must\nmatch the drive",
+   "vo": [
+    [
+     "The core end must match the drive in your printer: cross slot, straight slot, twelve inner grooves or a paper tube.",
+     "Cross slot, straight slot, 12 inner grooves or paper tube."
+    ],
+    [
+     "Send us a photo of your old core end and we match it.",
+     "Send a photo of your old core end - we match it."
+    ]
+   ],
+   "box": "l",
+   "bullets": [
+    "Cross or straight slot",
+    "12 inner grooves (MPM)",
+    "Paper tube (Panasonic, Yamaha)"
+   ]
+  },
+  {
+   "id": "s06",
+   "kind": "still",
+   "media": [
+    "assets/08-surface.jpg"
+   ],
+   "box": "l",
+   "kicker": "FORMATS",
+   "head": "Rolls, sheets\nand custom sizes",
+   "bullets": [
+    "Plain or mesh surface",
+    "10 m rolls, some 15 m",
+    "200 x 200 mm sheets"
+   ],
+   "vo": [
+    [
+     "Choose a plain or mesh surface. Rolls are ten metres as standard, some sizes fifteen.",
+     "Plain or mesh surface. 10 m standard, some sizes 15 m."
+    ],
+    [
+     "Custom widths and hand wiping sheets are available on request.",
+     "Custom widths and 200 x 200 mm sheets on request."
+    ]
+   ]
+  },
+  {
+   "id": "s07",
+   "kind": "still",
+   "media": [
+    "assets/04-rolls-row.jpg"
+   ],
+   "box": "l",
+   "kicker": "HOW TO ORDER",
+   "head": "What to send us",
+   "bullets": [
+    "Printer brand and model",
+    "Core length and paper width",
+    "Core opening",
+    "Roll direction (photo)"
+   ],
+   "vo": [
+    [
+     "To order, send your printer model, the core length and paper width, the core opening, and a photo showing how the old roll sits.",
+     "Send printer model, core length, paper width, core opening and a photo of the old roll."
+    ]
+   ]
+  },
+  {
+   "id": "s08",
+   "kind": "outro",
+   "vo": [
+    [
+     "Southern Machinery stencil wiping rolls, sized for the printers on your line.",
+     null
+    ]
+   ]
+  }
+ ]
+}

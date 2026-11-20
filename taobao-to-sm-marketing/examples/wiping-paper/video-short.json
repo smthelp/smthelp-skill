@@ -1,0 +1,13 @@
+{"format":"vertical","product_label":"SM Stencil Wiping Rolls",
+ "outro":{"title":"SMT Stencil Wiping Rolls","subtitle":"Southern Machinery","image":"assets/01-rolls-hero.jpg"},
+ "scenes":[
+ {"id":"v1","kind":"still","media":["assets/01-rolls-hero.jpg"],"box":"v","kicker":"UNDER-STENCIL CLEANING","head":"Smears after\nthe wipe?",
+  "vo":[["Smearing after the stencil wipe? Check your wiping roll.","Smearing after the wipe? Check your wiping roll."]]},
+ {"id":"v2","kind":"still","media":["assets/05-fabric.jpg"],"box":"v","kicker":"LOW LINT","head":"Wood pulp +\npolyester",
+  "vo":[["Ours is wood pulp and polyester: absorbent, low lint, strong when wet.","Wood pulp + polyester: absorbent, low lint, strong when wet."]]},
+ {"id":"v3","kind":"still","media":["assets/02-roll-ends.jpg"],"box":"v","kicker":"FITS YOUR PRINTER","head":"DEK · MPM · GKG\nPanasonic · Yamaha",
+  "vo":[["Sized for D E K, M P M, G K G, Panasonic, Yamaha and more.","Sized for DEK, MPM, GKG, Panasonic, Yamaha and more."]]},
+ {"id":"v4","kind":"still","media":["assets/07-core-types.jpg"],"box":"v","kicker":"RIGHT CORE","head":"Send a photo\nof your old core",
+  "vo":[["Send a photo of your old core end, and we match the size and slot.","Send a photo of your old core - we match size and slot."]]},
+ {"id":"v5","kind":"outro","vo":[["Southern Machinery stencil wiping rolls.",null]]}
+ ]}
